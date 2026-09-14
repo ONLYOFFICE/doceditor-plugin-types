@@ -1,0 +1,39 @@
+{
+  "description": "Class representing the areas.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiAreas/",
+  "methods": {
+    "GetCount": {
+      "description": "Returns a value that represents the number of objects in the collection.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiAreas/Methods/GetCount/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetCount(): number"
+    },
+    "GetItem": {
+      "description": "Returns a single object from a collection by its ID.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiAreas/Methods/GetItem/",
+      "params": [
+        {
+          "description": "The index number of the object.",
+          "name": "ind",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "ApiRange"
+      },
+      "signature": "GetItem(ind: number): ApiRange"
+    },
+    "GetParent": {
+      "description": "Returns the parent object for the specified collection.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiAreas/Methods/GetParent/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetParent(): number"
+    }
+  }
+}

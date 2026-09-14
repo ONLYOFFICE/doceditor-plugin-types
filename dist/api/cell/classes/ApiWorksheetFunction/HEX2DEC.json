@@ -1,0 +1,15 @@
+{
+  "description": "Converts a hexadecimal number to decimal.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/HEX2DEC/",
+  "params": [
+    {
+      "description": "The hexadecimal number to convert.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "HEX2DEC(arg1: ApiRange | ApiName | number): number"
+}

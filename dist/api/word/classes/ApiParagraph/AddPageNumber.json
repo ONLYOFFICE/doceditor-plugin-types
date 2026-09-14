@@ -1,0 +1,9 @@
+{
+  "description": "Inserts a number of the current document page into the paragraph.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/AddPageNumber/",
+  "params": [],
+  "returns": {
+    "type": "ApiRun"
+  },
+  "signature": "AddPageNumber(): ApiRun"
+}

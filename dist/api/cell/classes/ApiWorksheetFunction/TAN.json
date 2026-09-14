@@ -1,0 +1,15 @@
+{
+  "description": "Returns the tangent of an angle.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/TAN/",
+  "params": [
+    {
+      "description": "The angle in radians for which the tangent will be returned. If the argument is in degrees, multiply it by *PI()/180*.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "TAN(arg1: ApiRange | ApiName | number): number"
+}

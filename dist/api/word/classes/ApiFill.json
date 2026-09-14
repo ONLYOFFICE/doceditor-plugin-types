@@ -1,0 +1,34 @@
+{
+  "description": "Class representing a base class for fill.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFill/",
+  "methods": {
+    "GetClassType": {
+      "description": "Returns a type of the ApiFill class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFill/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"fill\""
+      },
+      "signature": "GetClassType(): \"fill\""
+    },
+    "GetType": {
+      "description": "Gets the fill type.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFill/Methods/GetType/",
+      "params": [],
+      "returns": {
+        "description": "returns \"solid\", \"gradient\", \"pattern\", \"blip\", \"nofill\" or null.",
+        "type": "FillType"
+      },
+      "signature": "GetType(): FillType"
+    },
+    "ToJSON": {
+      "description": "Converts the ApiFill object into the JSON object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFill/Methods/ToJSON/",
+      "params": [],
+      "returns": {
+        "type": "object"
+      },
+      "signature": "ToJSON(): object"
+    }
+  }
+}

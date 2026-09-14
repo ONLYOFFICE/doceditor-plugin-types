@@ -1,0 +1,16 @@
+{
+  "description": "Shows a comment by its ID.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/ShowComment/",
+  "params": [
+    {
+      "description": "The comment ID.",
+      "name": "commentId",
+      "type": "string | string[]"
+    }
+  ],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "ShowComment(commentId: string | string[]): boolean",
+  "since": "9.0.4"
+}

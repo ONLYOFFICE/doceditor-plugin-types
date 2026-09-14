@@ -1,0 +1,9 @@
+{
+  "description": "Inserts a number of pages in the current document into the paragraph.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/AddPagesCount/",
+  "params": [],
+  "returns": {
+    "type": "ApiRun"
+  },
+  "signature": "AddPagesCount(): ApiRun"
+}

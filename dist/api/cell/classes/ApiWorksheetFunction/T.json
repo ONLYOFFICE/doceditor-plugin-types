@@ -1,0 +1,15 @@
+{
+  "description": "Checks whether a value is text, and returns the text if it is, or returns double quotes (empty text) if it is not.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/T/",
+  "params": [
+    {
+      "description": "The value to test.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number | string | boolean"
+    }
+  ],
+  "returns": {
+    "type": "ApiRange | ApiName | string"
+  },
+  "signature": "T(arg1: ApiRange | ApiName | number | string | boolean): ApiRange | ApiName | string"
+}

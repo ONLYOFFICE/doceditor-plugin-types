@@ -1,0 +1,10 @@
+{
+  "description": "Deletes the current paragraph.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/Delete/",
+  "params": [],
+  "returns": {
+    "description": "returns false if paragraph haven't parent.",
+    "type": "boolean"
+  },
+  "signature": "Delete(): boolean"
+}

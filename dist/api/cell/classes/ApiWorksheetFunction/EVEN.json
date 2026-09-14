@@ -1,0 +1,15 @@
+{
+  "description": "Rounds a positive number up and negative number down to the nearest even integer.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/EVEN/",
+  "params": [
+    {
+      "description": "The value to round up.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "EVEN(arg1: ApiRange | ApiName | number): number"
+}

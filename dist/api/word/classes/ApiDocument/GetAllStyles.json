@@ -1,0 +1,9 @@
+{
+  "description": "Returns all styles of the current document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetAllStyles/",
+  "params": [],
+  "returns": {
+    "type": "ApiStyle[]"
+  },
+  "signature": "GetAllStyles(): ApiStyle[]"
+}

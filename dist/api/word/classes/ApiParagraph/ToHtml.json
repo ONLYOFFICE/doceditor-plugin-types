@@ -1,0 +1,18 @@
+{
+  "description": "Converts the paragraph to HTML.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/ToHtml/",
+  "params": [
+    {
+      "description": "The HTML conversion options.",
+      "name": "options",
+      "optional": true,
+      "type": "ToHtmlOptions"
+    }
+  ],
+  "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+  "returns": {
+    "type": "string"
+  },
+  "signature": "ToHtml(options?: ToHtmlOptions): string",
+  "since": "9.4.0"
+}

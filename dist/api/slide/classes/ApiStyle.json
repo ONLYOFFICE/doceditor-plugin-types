@@ -1,0 +1,34 @@
+{
+  "description": "Class representing a style.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStyle/",
+  "methods": {
+    "GetTablePr": {
+      "description": "Returns the table properties of the current style.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStyle/Methods/GetTablePr/",
+      "params": [],
+      "returns": {
+        "description": "returns null if the current style is not a table style.",
+        "type": "ApiTablePr"
+      },
+      "signature": "GetTablePr(): ApiTablePr",
+      "since": "10.0.0"
+    },
+    "SetTablePr": {
+      "description": "Sets the table properties to the current style.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStyle/Methods/SetTablePr/",
+      "params": [
+        {
+          "description": "The table properties that will be set.",
+          "name": "tablePr",
+          "type": "ApiTablePr"
+        }
+      ],
+      "returns": {
+        "description": "this",
+        "type": "ApiStyle"
+      },
+      "signature": "SetTablePr(tablePr: ApiTablePr): ApiStyle",
+      "since": "10.0.0"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "description": "Returns the unit matrix for the specified dimension.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/MUNIT/",
+  "params": [
+    {
+      "description": "An integer specifying the dimension of the unit matrix to be returned.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "MUNIT(arg1: ApiRange | ApiName | number): number"
+}

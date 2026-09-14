@@ -1,0 +1,17 @@
+{
+  "description": "Returns the current word or part of the current word.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetCurrentWord/",
+  "params": [
+    {
+      "description": "The desired part of the current word to be returned.",
+      "name": "sWordPart",
+      "optional": true,
+      "type": "\"before\" | \"after\""
+    }
+  ],
+  "returns": {
+    "type": "string"
+  },
+  "signature": "GetCurrentWord(sWordPart?: \"before\" | \"after\"): string",
+  "since": "8.2.0"
+}

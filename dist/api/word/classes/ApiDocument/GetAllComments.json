@@ -1,0 +1,9 @@
+{
+  "description": "Returns all comments from the current document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetAllComments/",
+  "params": [],
+  "returns": {
+    "type": "ApiComment[]"
+  },
+  "signature": "GetAllComments(): ApiComment[]"
+}

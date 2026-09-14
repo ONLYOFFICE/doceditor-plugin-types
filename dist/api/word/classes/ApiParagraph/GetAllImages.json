@@ -1,0 +1,9 @@
+{
+  "description": "Returns a collection of image objects in the paragraph.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/GetAllImages/",
+  "params": [],
+  "returns": {
+    "type": "ApiImage[]"
+  },
+  "signature": "GetAllImages(): ApiImage[]"
+}

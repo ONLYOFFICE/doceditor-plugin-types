@@ -1,0 +1,21 @@
+{
+  "description": "Returns the internal rate of return for a series of cash flows.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IRR/",
+  "params": [
+    {
+      "description": "A range or array of cells that contain numbers for which the internal rate of return will be calculated.",
+      "name": "arg1",
+      "type": "number[] | ApiRange"
+    },
+    {
+      "description": "An estimate at what the internal rate of return will be. If it is omitted, the function will assume guess to be 0.1 (10 percent).",
+      "name": "arg2",
+      "optional": true,
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "IRR(arg1: number[] | ApiRange, arg2?: ApiRange | ApiName | number): number"
+}

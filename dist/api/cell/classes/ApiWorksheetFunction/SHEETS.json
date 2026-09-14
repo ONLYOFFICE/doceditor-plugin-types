@@ -1,0 +1,16 @@
+{
+  "description": "Returns the number of sheets in a reference.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/SHEETS/",
+  "params": [
+    {
+      "description": "A reference for which the number of sheets will be returned. If omitted the number of sheets in the workbook containing the function is returned.",
+      "name": "arg1",
+      "optional": true,
+      "type": "ApiRange | ApiName"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "SHEETS(arg1?: ApiRange | ApiName): number"
+}

@@ -1,0 +1,23 @@
+{
+  "description": "Adds a table of content to the current document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/AddTableOfContents/",
+  "params": [
+    {
+      "description": "Table of contents properties.",
+      "name": "oTocPr",
+      "optional": true,
+      "type": "TocPr"
+    },
+    {
+      "description": "The range that the table of contents replaces. If omitted, the table of contents is inserted at the current position.",
+      "name": "oRange",
+      "optional": true,
+      "type": "ApiRange"
+    }
+  ],
+  "returns": {
+    "type": "ApiTableOfContents"
+  },
+  "signature": "AddTableOfContents(oTocPr?: TocPr, oRange?: ApiRange): ApiTableOfContents",
+  "since": "10.0.0"
+}

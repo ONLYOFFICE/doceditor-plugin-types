@@ -1,0 +1,15 @@
+{
+  "description": "Returns an element by its position in the document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/GetElement/",
+  "params": [
+    {
+      "description": "The element position that will be taken from the document.",
+      "name": "nPos",
+      "type": "number"
+    }
+  ],
+  "returns": {
+    "type": "DocumentElement"
+  },
+  "signature": "GetElement(nPos: number): DocumentElement"
+}

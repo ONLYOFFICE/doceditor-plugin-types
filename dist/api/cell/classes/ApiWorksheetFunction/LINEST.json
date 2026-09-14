@@ -1,0 +1,33 @@
+{
+  "description": "Returns statistics that describe a linear trend matching known data points, by fitting a straight line using the least squares method.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/LINEST/",
+  "params": [
+    {
+      "description": "The set of y-values from the *y = mx + b* equation.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName"
+    },
+    {
+      "description": "An optional set of x-values from the *y = mx + b* equation.",
+      "name": "arg2",
+      "optional": true,
+      "type": "ApiRange | ApiName"
+    },
+    {
+      "description": "A logical value: the constant *b* is calculated normally if this parameter is set to **true** or omitted,\rand *b* is set equal to 0 if the parameter is **false**.",
+      "name": "arg3",
+      "optional": true,
+      "type": "ApiRange | ApiName | boolean"
+    },
+    {
+      "description": "A logical value: return additional regression statistics if this parameter is set to **true**,\rand return m-coefficients and the constant *b* if the parameter is **false** or omitted.",
+      "name": "arg4",
+      "optional": true,
+      "type": "ApiRange | ApiName | boolean"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "LINEST(arg1: ApiRange | ApiName, arg2?: ApiRange | ApiName, arg3?: ApiRange | ApiName | boolean, arg4?: ApiRange | ApiName | boolean): number"
+}

@@ -1,0 +1,9 @@
+{
+  "description": "Returns the shading applied to the contents of the paragraph.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetShd/",
+  "params": [],
+  "returns": {
+    "type": "Shd | undefined"
+  },
+  "signature": "GetShd(): Shd | undefined"
+}

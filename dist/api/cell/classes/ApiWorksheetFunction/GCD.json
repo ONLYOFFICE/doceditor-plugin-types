@@ -1,0 +1,15 @@
+{
+  "description": "Returns the greatest common divisor.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/GCD/",
+  "params": [
+    {
+      "description": "Up to 255 numeric values for which the greatest common divisor will be returned. The first argument is required, subsequent arguments are optional.",
+      "name": "args",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "GCD(args: ApiRange | ApiName | number): number"
+}

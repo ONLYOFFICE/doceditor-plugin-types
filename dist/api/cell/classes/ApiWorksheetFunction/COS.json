@@ -1,0 +1,15 @@
+{
+  "description": "Returns the cosine of an angle.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/COS/",
+  "params": [
+    {
+      "description": "The angle in radians for which the cosine will be returned.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "COS(arg1: ApiRange | ApiName | number): number"
+}

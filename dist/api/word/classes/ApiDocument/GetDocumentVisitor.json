@@ -1,0 +1,12 @@
+{
+  "description": "Returns a visitor object for traversing the elements of the current document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/GetDocumentVisitor/",
+  "params": [],
+  "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+  "returns": {
+    "description": "A document visitor that can be used to inspect or process the document structure.",
+    "type": "ApiDocumentVisitor"
+  },
+  "signature": "GetDocumentVisitor(): ApiDocumentVisitor",
+  "since": "9.1.0"
+}

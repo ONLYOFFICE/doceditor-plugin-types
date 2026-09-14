@@ -1,0 +1,9 @@
+{
+  "description": "Returns a list of all the content controls from the document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetAllContentControls/",
+  "params": [],
+  "returns": {
+    "type": "ApiBlockLvlSdt[] | ApiInlineLvlSdt[]"
+  },
+  "signature": "GetAllContentControls(): ApiBlockLvlSdt[] | ApiInlineLvlSdt[]"
+}

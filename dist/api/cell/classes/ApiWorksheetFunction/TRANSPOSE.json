@@ -1,0 +1,15 @@
+{
+  "description": "Converts a vertical range of cells to a horizontal range, or vice versa.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/TRANSPOSE/",
+  "params": [
+    {
+      "description": "A range of cells on a worksheet or an array that will be transposed.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | (number | string | boolean)[]"
+    }
+  ],
+  "returns": {
+    "type": "ApiRange"
+  },
+  "signature": "TRANSPOSE(arg1: ApiRange | ApiName | (number | string | boolean)[]): ApiRange"
+}

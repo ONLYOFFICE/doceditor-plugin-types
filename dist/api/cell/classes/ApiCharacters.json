@@ -1,0 +1,116 @@
+{
+  "description": "Class representing characters in an object that contains text.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiCharacters/",
+  "methods": {
+    "Delete": {
+      "description": "Deletes the ApiCharacters object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiCharacters/Methods/Delete/",
+      "params": [],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "Delete(): void",
+      "since": "7.4.0"
+    },
+    "GetCaption": {
+      "description": "Returns a string value that represents the text of the specified range of characters.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiCharacters/Methods/GetCaption/",
+      "params": [],
+      "returns": {
+        "description": "A string value that represents the text of the specified range of characters.",
+        "type": "string"
+      },
+      "signature": "GetCaption(): string",
+      "since": "7.4.0"
+    },
+    "GetCount": {
+      "description": "Returns a value that represents a number of objects in the collection.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiCharacters/Methods/GetCount/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetCount(): number",
+      "since": "7.4.0"
+    },
+    "GetFont": {
+      "description": "Returns the ApiFont object that represents the font of the specified characters.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiCharacters/Methods/GetFont/",
+      "params": [],
+      "returns": {
+        "type": "ApiFont"
+      },
+      "signature": "GetFont(): ApiFont",
+      "since": "7.4.0"
+    },
+    "GetParent": {
+      "description": "Returns the parent object of the specified characters.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiCharacters/Methods/GetParent/",
+      "params": [],
+      "returns": {
+        "type": "ApiRange"
+      },
+      "signature": "GetParent(): ApiRange",
+      "since": "7.4.0"
+    },
+    "GetText": {
+      "description": "Returns the text of the specified range of characters.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiCharacters/Methods/GetText/",
+      "params": [],
+      "returns": {
+        "description": "The text of the specified range of characters.",
+        "type": "string"
+      },
+      "signature": "GetText(): string",
+      "since": "7.4.0"
+    },
+    "Insert": {
+      "description": "Inserts a string replacing the specified characters.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiCharacters/Methods/Insert/",
+      "params": [
+        {
+          "description": "The string to insert.",
+          "name": "String",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "Insert(String: string): void",
+      "since": "7.4.0"
+    },
+    "SetCaption": {
+      "description": "Sets a string value that represents the text of the specified range of characters.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiCharacters/Methods/SetCaption/",
+      "params": [
+        {
+          "description": "A string value that represents the text of the specified range of characters.",
+          "name": "Caption",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetCaption(Caption: string): void",
+      "since": "7.4.0"
+    },
+    "SetText": {
+      "description": "Sets the text for the specified characters.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiCharacters/Methods/SetText/",
+      "params": [
+        {
+          "description": "The text to be set.",
+          "name": "Text",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetText(Text: string): void",
+      "since": "7.4.0"
+    }
+  }
+}

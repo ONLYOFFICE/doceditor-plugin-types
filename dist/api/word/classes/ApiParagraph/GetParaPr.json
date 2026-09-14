@@ -1,0 +1,9 @@
+{
+  "description": "Returns the paragraph properties.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/GetParaPr/",
+  "params": [],
+  "returns": {
+    "type": "ApiParaPr"
+  },
+  "signature": "GetParaPr(): ApiParaPr"
+}

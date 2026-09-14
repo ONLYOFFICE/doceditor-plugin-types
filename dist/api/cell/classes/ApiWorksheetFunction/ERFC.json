@@ -1,0 +1,15 @@
+{
+  "description": "Returns the complementary error function integrated between the specified lower limit and infinity.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/ERFC/",
+  "params": [
+    {
+      "description": "The lower bound for integrating the complementary error function.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "ERFC(arg1: ApiRange | ApiName | number): number"
+}

@@ -1,0 +1,9 @@
+{
+  "description": "Returns the numbering definition and numbering level for the numbered list.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/GetNumbering/",
+  "params": [],
+  "returns": {
+    "type": "ApiNumberingLevel"
+  },
+  "signature": "GetNumbering(): ApiNumberingLevel"
+}

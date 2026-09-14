@@ -1,0 +1,21 @@
+{
+  "description": "Sets the spacing after the current paragraph. If the value of the isAfterAuto parameter is true, then \nany value of the nAfter is ignored. If isAfterAuto parameter is not specified, then it \nwill be interpreted as false.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetSpacingAfter/",
+  "params": [
+    {
+      "description": "The value of the spacing after the current paragraph measured in twentieths of a point (1/1440 of an inch).",
+      "name": "nAfter",
+      "type": "twips"
+    },
+    {
+      "description": "The true value disables the spacing after the current paragraph.",
+      "name": "isAfterAuto",
+      "optional": true,
+      "type": "boolean"
+    }
+  ],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "SetSpacingAfter(nAfter: twips, isAfterAuto?: boolean): boolean"
+}

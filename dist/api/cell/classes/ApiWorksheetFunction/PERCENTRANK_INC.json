@@ -1,0 +1,26 @@
+{
+  "description": "Returns the rank of a value in a data set as a percentage (0..1, inclusive) of the data set.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/PERCENTRANK_INC/",
+  "params": [
+    {
+      "description": "The array or range of data with numeric values that defines relative standing.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number[]"
+    },
+    {
+      "description": "The value for which the rank will be returned.",
+      "name": "arg2",
+      "type": "ApiRange | ApiName | number"
+    },
+    {
+      "description": "An optional value that identifies the number of significant digits for the returned percentage, three digits if omitted (0.xxx%).",
+      "name": "arg3",
+      "optional": true,
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "PERCENTRANK_INC(arg1: ApiRange | ApiName | number[], arg2: ApiRange | ApiName | number, arg3?: ApiRange | ApiName | number): number"
+}

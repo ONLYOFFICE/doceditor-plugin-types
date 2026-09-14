@@ -1,0 +1,24 @@
+{
+  "description": "Class representing a pdf file in binary format.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/PdfFile/",
+  "methods": {
+    "GetClassType": {
+      "description": "Returns a type of the PdfFile class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/PdfFile/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"pdfFile\""
+      },
+      "signature": "GetClassType(): \"pdfFile\""
+    },
+    "ToBase64": {
+      "description": "Returns pdf file in base64 format.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/PdfFile/Methods/ToBase64/",
+      "params": [],
+      "returns": {
+        "type": "Base64"
+      },
+      "signature": "ToBase64(): Base64"
+    }
+  }
+}

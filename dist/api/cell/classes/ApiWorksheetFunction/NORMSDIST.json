@@ -1,0 +1,15 @@
+{
+  "description": "Returns the standard normal cumulative distribution (has a mean of zero and a standard deviation of one).",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/NORMSDIST/",
+  "params": [
+    {
+      "description": "The value for which the distribution will be returned.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "NORMSDIST(arg1: ApiRange | ApiName | number): number"
+}

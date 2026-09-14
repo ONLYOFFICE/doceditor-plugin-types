@@ -1,0 +1,9 @@
+{
+  "description": "Returns the first paragraphs from all footnotes in the current document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetFootnotesFirstParagraphs/",
+  "params": [],
+  "returns": {
+    "type": "ApiParagraph[]"
+  },
+  "signature": "GetFootnotesFirstParagraphs(): ApiParagraph[]"
+}

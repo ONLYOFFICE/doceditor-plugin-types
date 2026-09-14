@@ -1,0 +1,20 @@
+{
+  "description": "Returns a Range object that represents the part of the document contained in the specified document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetRange/",
+  "params": [
+    {
+      "description": "Start position index in the current element.",
+      "name": "Start",
+      "type": "number"
+    },
+    {
+      "description": "End position index in the current element.",
+      "name": "End",
+      "type": "number"
+    }
+  ],
+  "returns": {
+    "type": "ApiRange"
+  },
+  "signature": "GetRange(Start: number, End: number): ApiRange"
+}

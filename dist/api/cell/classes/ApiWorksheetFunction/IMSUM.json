@@ -1,0 +1,15 @@
+{
+  "description": "Returns the sum of the specified complex numbers.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMSUM/",
+  "params": [
+    {
+      "description": "Up to 255 complex numbers expressed in the *x + yi* or *x + yj* form.",
+      "name": "args",
+      "type": "ApiRange | ApiName | string"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "IMSUM(args: ApiRange | ApiName | string): number"
+}

@@ -1,0 +1,26 @@
+{
+  "description": "Returns the relative position of an item in a range that matches the specified value in the specified order.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/MATCH/",
+  "params": [
+    {
+      "description": "The value to be matched in the range. It can be a number, text, or logical value, or a reference to one of these.",
+      "name": "arg1",
+      "type": "number | string | boolean | ApiRange | ApiName"
+    },
+    {
+      "description": "A contiguous range of cells or an array containing possible lookup values.",
+      "name": "arg2",
+      "type": "ApiRange | ApiName | (number | string | boolean)[]"
+    },
+    {
+      "description": "A number 1, 0, or -1 indicating which value to return.",
+      "name": "arg3",
+      "optional": true,
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "MATCH(arg1: number | string | boolean | ApiRange | ApiName, arg2: ApiRange | ApiName | (number | string | boolean)[], arg3?: ApiRange | ApiName | number): number"
+}

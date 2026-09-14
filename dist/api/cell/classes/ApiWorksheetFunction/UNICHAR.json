@@ -1,0 +1,15 @@
+{
+  "description": "Returns the Unicode character referenced by the given numeric value.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/UNICHAR/",
+  "params": [
+    {
+      "description": "The Unicode number representing a character.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "string"
+  },
+  "signature": "UNICHAR(arg1: ApiRange | ApiName | number): string"
+}

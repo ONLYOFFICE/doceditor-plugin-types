@@ -1,0 +1,33 @@
+{
+  "description": "Returns statistics that describe an exponential curve matching known data points.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/LOGEST/",
+  "params": [
+    {
+      "description": "The set of y-values from the *y = b*m^x* equation.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | ApiRange"
+    },
+    {
+      "description": "An optional set of x-values from the *y = b*m^x* equation.",
+      "name": "arg2",
+      "optional": true,
+      "type": "ApiRange | ApiName | ApiRange"
+    },
+    {
+      "description": "A logical value: the constant *b* is calculated normally if this parameter is set to **true** or omitted,\rand *b* is set equal to 1 if the parameter is **false**.",
+      "name": "arg3",
+      "optional": true,
+      "type": "ApiRange | ApiName | boolean"
+    },
+    {
+      "description": "A logical value: return additional regression statistics if this parameter is set to **true**,\rand return m-coefficients and the constant *b* if the parameter is **false** or omitted.",
+      "name": "arg4",
+      "optional": true,
+      "type": "ApiRange | ApiName | boolean"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "LOGEST(arg1: ApiRange | ApiName | ApiRange, arg2?: ApiRange | ApiName | ApiRange, arg3?: ApiRange | ApiName | boolean, arg4?: ApiRange | ApiName | boolean): number"
+}

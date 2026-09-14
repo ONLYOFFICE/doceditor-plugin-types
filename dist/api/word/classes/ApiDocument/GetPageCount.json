@@ -1,0 +1,9 @@
+{
+  "description": "Returns a number of pages in the current document.\n<note>This method can be slow for large documents because it runs the document calculation\nprocess before the full recalculation.</note>",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetPageCount/",
+  "params": [],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "GetPageCount(): number"
+}

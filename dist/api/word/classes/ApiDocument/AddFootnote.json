@@ -1,0 +1,9 @@
+{
+  "description": "Adds a footnote for the selected text (or the current position if the selection doesn't exist).",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/AddFootnote/",
+  "params": [],
+  "returns": {
+    "type": "ApiDocumentContent"
+  },
+  "signature": "AddFootnote(): ApiDocumentContent"
+}

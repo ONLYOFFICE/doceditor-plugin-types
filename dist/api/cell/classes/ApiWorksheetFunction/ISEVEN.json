@@ -1,0 +1,15 @@
+{
+  "description": "Returns **true** if a number is even.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/ISEVEN/",
+  "params": [
+    {
+      "description": "The value to test.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "ISEVEN(arg1: ApiRange | ApiName | number): boolean"
+}

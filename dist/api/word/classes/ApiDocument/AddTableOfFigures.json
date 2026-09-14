@@ -1,0 +1,23 @@
+{
+  "description": "Adds a table of figures to the current document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/AddTableOfFigures/",
+  "params": [
+    {
+      "description": "Table of figures properties.\r<note>Please note that the table of figures properties will be filled with the default properties if they are undefined.</note>",
+      "name": "oTofPr",
+      "optional": true,
+      "type": "TofPr"
+    },
+    {
+      "description": "The range that the table of figures replaces. If omitted, the table of figures is inserted at the current position.",
+      "name": "oRange",
+      "optional": true,
+      "type": "ApiRange"
+    }
+  ],
+  "returns": {
+    "type": "ApiTableOfFigures"
+  },
+  "signature": "AddTableOfFigures(oTofPr?: TofPr, oRange?: ApiRange): ApiTableOfFigures",
+  "since": "10.0.0"
+}

@@ -1,0 +1,60 @@
+{
+  "description": "Class representing the table row properties.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRowPr/",
+  "methods": {
+    "GetClassType": {
+      "description": "Returns a type of the ApiTableRowPr class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRowPr/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"tableRowPr\""
+      },
+      "signature": "GetClassType(): \"tableRowPr\""
+    },
+    "SetHeight": {
+      "description": "Sets the height to the current table row within the current table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRowPr/Methods/SetHeight/",
+      "params": [
+        {
+          "description": "The rule to apply the height value to the current table row or ignore it. Use the `\"atLeast\"` value to enable the `SetHeight` method use.",
+          "name": "sHRule",
+          "type": "\"auto\" | \"atLeast\""
+        },
+        {
+          "description": "The height for the current table row measured in twentieths of a point (1/1440 of an inch). This value will be ignored if `sHRule=\"auto\"`.",
+          "name": "nValue",
+          "optional": true,
+          "type": "twips"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetHeight(sHRule: \"auto\" | \"atLeast\", nValue?: twips): boolean"
+    },
+    "SetTableHeader": {
+      "description": "Specifies that the current table row will be repeated at the top of each new page \nwherever this table is displayed. This gives this table row the behavior of a 'header' row on \neach of these pages. This element can be applied to any number of rows at the top of the \ntable structure in order to generate multi-row table headers.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRowPr/Methods/SetTableHeader/",
+      "params": [
+        {
+          "description": "The true value means that the current table row will be repeated at the top of each new page.",
+          "name": "isHeader",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetTableHeader(isHeader: boolean): boolean"
+    },
+    "ToJSON": {
+      "description": "Converts the ApiTableRowPr object into the JSON object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRowPr/Methods/ToJSON/",
+      "params": [],
+      "returns": {
+        "type": "object"
+      },
+      "signature": "ToJSON(): object"
+    }
+  }
+}

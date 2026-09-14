@@ -1,0 +1,470 @@
+{
+  "description": "Class representing a document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/",
+  "methods": {
+    "AddElement": {
+      "description": "Adds a paragraph or a table or a blockLvl content control using its position in the document content.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/AddElement/",
+      "params": [
+        {
+          "description": "The position where the current element will be added.",
+          "name": "nPos",
+          "type": "number"
+        },
+        {
+          "description": "The document element which will be added at the current position.",
+          "name": "oElement",
+          "type": "DocumentElement"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "AddElement(nPos: number, oElement: DocumentElement): boolean"
+    },
+    "AddPage": {
+      "description": "Adds a new page to document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/AddPage/",
+      "params": [
+        {
+          "description": "The index where the page will be added.",
+          "name": "index",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "The page width.",
+          "name": "width",
+          "optional": true,
+          "type": "pt"
+        },
+        {
+          "description": "The page height.",
+          "name": "height",
+          "optional": true,
+          "type": "pt"
+        }
+      ],
+      "returns": {
+        "type": "ApiPage"
+      },
+      "signature": "AddPage(index?: number, width?: pt, height?: pt): ApiPage"
+    },
+    "AddText": {
+      "description": "Appends the specified text to the end of the document content.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/AddText/",
+      "params": [
+        {
+          "description": "The text to add.",
+          "name": "text",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "ApiRun"
+      },
+      "signature": "AddText(text: string): ApiRun",
+      "since": "9.4.0"
+    },
+    "ApplyRedact": {
+      "description": "Applies added redact.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/ApplyRedact/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "ApplyRedact(): boolean"
+    },
+    "GetAllFields": {
+      "description": "Gets list of all fields in document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/GetAllFields/",
+      "params": [],
+      "returns": {
+        "type": "ApiField[]"
+      },
+      "signature": "GetAllFields(): ApiField[]"
+    },
+    "GetAllParagraphs": {
+      "description": "Returns an array of all paragraphs from the current document content.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/GetAllParagraphs/",
+      "params": [],
+      "returns": {
+        "type": "ApiParagraph[]"
+      },
+      "signature": "GetAllParagraphs(): ApiParagraph[]"
+    },
+    "GetCalculateOrder": {
+      "description": "Gets document calculate fields order",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/GetCalculateOrder/",
+      "params": [],
+      "returns": {
+        "description": "order of fields names",
+        "type": "string[]"
+      },
+      "signature": "GetCalculateOrder(): string[]"
+    },
+    "GetClassType": {
+      "description": "Returns a type of the ApiDocument class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"document\""
+      },
+      "signature": "GetClassType(): \"document\""
+    },
+    "GetCurrentParagraph": {
+      "description": "Returns the current paragraph where the cursor is located.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/GetCurrentParagraph/",
+      "params": [],
+      "returns": {
+        "type": "ApiParagraph"
+      },
+      "signature": "GetCurrentParagraph(): ApiParagraph",
+      "since": "9.0.0"
+    },
+    "GetCurrentRun": {
+      "description": "Returns the current run where the cursor is located.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/GetCurrentRun/",
+      "params": [],
+      "returns": {
+        "type": "ApiRun"
+      },
+      "signature": "GetCurrentRun(): ApiRun",
+      "since": "9.0.0"
+    },
+    "GetElement": {
+      "description": "Returns an element by its position in the document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/GetElement/",
+      "params": [
+        {
+          "description": "The element position that will be taken from the document.",
+          "name": "nPos",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "DocumentElement"
+      },
+      "signature": "GetElement(nPos: number): DocumentElement"
+    },
+    "GetElementsCount": {
+      "description": "Returns a number of elements in the current document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/GetElementsCount/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetElementsCount(): number"
+    },
+    "GetFieldByName": {
+      "description": "Gets field by it's name.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/GetFieldByName/",
+      "params": [
+        {
+          "description": "the full name parameter.",
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "ApiField"
+      },
+      "signature": "GetFieldByName(name: string): ApiField"
+    },
+    "GetInternalId": {
+      "description": "Returns an internal ID of the current document content.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/GetInternalId/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetInternalId(): string",
+      "since": "9.0.4"
+    },
+    "GetPage": {
+      "description": "Gets page by index from document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/GetPage/",
+      "params": [
+        {
+          "description": "page index.",
+          "name": "index",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "ApiPage"
+      },
+      "signature": "GetPage(index: number): ApiPage"
+    },
+    "GetPagesCount": {
+      "description": "Gets document pages count",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/GetPagesCount/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetPagesCount(): number"
+    },
+    "GetSelectedText": {
+      "description": "Gets selected text in document",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/GetSelectedText/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetSelectedText(): string"
+    },
+    "GetSelection": {
+      "description": "Gets document selection info",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/GetSelection/",
+      "params": [],
+      "returns": {
+        "type": "DocSelection"
+      },
+      "signature": "GetSelection(): DocSelection"
+    },
+    "GetSelectionQuads": {
+      "description": "Gets document selection quads by page",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/GetSelectionQuads/",
+      "params": [],
+      "returns": {
+        "type": "DocQuads"
+      },
+      "signature": "GetSelectionQuads(): DocQuads"
+    },
+    "GetStyle": {
+      "description": "Returns the document style by its name.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/GetStyle/",
+      "params": [
+        {
+          "description": "The name of the table style to look up.",
+          "name": "sStyleName",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "ApiStyle | null"
+      },
+      "signature": "GetStyle(sStyleName: string): ApiStyle | null",
+      "since": "10.0.0"
+    },
+    "GetText": {
+      "description": "Returns the inner text of the current document content object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/GetText/",
+      "params": [
+        {
+          "description": "Options for formatting the returned text.",
+          "name": "options",
+          "optional": true,
+          "type": "object"
+        },
+        {
+          "description": "Defines if the resulting string will include numbering or not.",
+          "name": "options_Numbering",
+          "optional": true,
+          "type": "boolean"
+        },
+        {
+          "description": "Defines if the resulting string will include mathematical expressions or not.",
+          "name": "options_Math",
+          "optional": true,
+          "type": "boolean"
+        },
+        {
+          "description": "Defines how the table cell separator will be specified in the resulting string. Any symbol can be used. The default separator is \"\\t\".",
+          "name": "options_TableCellSeparator",
+          "optional": true,
+          "type": "string"
+        },
+        {
+          "description": "Defines how the table row separator will be specified in the resulting string. Any symbol can be used. The default separator is \"\\r\\n\".",
+          "name": "options_TableRowSeparator",
+          "optional": true,
+          "type": "string"
+        },
+        {
+          "description": "Defines how the paragraph separator will be specified in the resulting string. Any symbol can be used. The default separator is \"\\r\\n\".",
+          "name": "options_ParaSeparator",
+          "optional": true,
+          "type": "string"
+        },
+        {
+          "description": "Defines how the tab will be specified in the resulting string. Any symbol can be used. The default symbol is \"\\t\".",
+          "name": "options_TabSymbol",
+          "optional": true,
+          "type": "string"
+        },
+        {
+          "description": "Defines how the line separator will be specified in the resulting string. Any symbol can be used. The default separator is \"\\r\".",
+          "name": "options_NewLineSeparator",
+          "optional": true,
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_TableCellSeparator?: string, options_TableRowSeparator?: string, options_ParaSeparator?: string, options_TabSymbol?: string, options_NewLineSeparator?: string): string",
+      "since": "8.3.0"
+    },
+    "Merge": {
+      "description": "Merges pdf files to current document in specified position.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/Merge/",
+      "params": [
+        {
+          "description": "page index to merge pdf files (paste to end if omitted)",
+          "name": "position",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "number of existing pages to replace starting at position, limited to the remaining pages",
+          "name": "deleteCount",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "pdf files",
+          "name": "files",
+          "optional": true,
+          "type": "PdfFile[] | Base64[]"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "Merge(position?: number, deleteCount?: number, files?: PdfFile[] | Base64[]): boolean"
+    },
+    "Push": {
+      "description": "Pushes a paragraph or a table to actually add it to the document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/Push/",
+      "params": [
+        {
+          "description": "The element type which will be pushed to the document.",
+          "name": "oElement",
+          "type": "DocumentElement"
+        }
+      ],
+      "returns": {
+        "description": "returns false if oElement is unsupported.",
+        "type": "boolean"
+      },
+      "signature": "Push(oElement: DocumentElement): boolean"
+    },
+    "RemoveAllElements": {
+      "description": "Removes all the elements from the current document or from the current document element.\n<note>When all elements are removed, a new empty paragraph is automatically created. If you want to add\ncontent to this paragraph, use the {@link ApiDocumentContent#GetElement} method.</note>",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/RemoveAllElements/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "RemoveAllElements(): boolean"
+    },
+    "RemoveElement": {
+      "description": "Removes an element using the position specified.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/RemoveElement/",
+      "params": [
+        {
+          "description": "The element number (position) in the document or inside other element.",
+          "name": "nPos",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "RemoveElement(nPos: number): boolean"
+    },
+    "RemovePage": {
+      "description": "Removes page by index from document\n<note> You can't delete last page </note>",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/RemovePage/",
+      "params": [
+        {
+          "description": "page index",
+          "name": "index",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "RemovePage(index: number): boolean"
+    },
+    "SearchAndRedact": {
+      "description": "Searchs words and adds redact to it.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/SearchAndRedact/",
+      "params": [
+        {
+          "description": "The search options.",
+          "name": "props",
+          "type": "SearchProps"
+        }
+      ],
+      "returns": {
+        "type": "ApiRedactAnnotation[]"
+      },
+      "signature": "SearchAndRedact(props: SearchProps): ApiRedactAnnotation[]"
+    },
+    "SetCalculateOrder": {
+      "description": "Sets document calculate fields order",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/SetCalculateOrder/",
+      "params": [
+        {
+          "description": "order of fields names",
+          "name": "names",
+          "type": "string[]"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetCalculateOrder(names: string[]): boolean"
+    },
+    "SetSelection": {
+      "description": "Sets document selection",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/SetSelection/",
+      "params": [
+        {
+          "name": "selection",
+          "type": "DocSelection"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetSelection(selection: DocSelection): boolean"
+    },
+    "SetText": {
+      "description": "Replaces all content of the current document content object with the specified text,\npreserving the formatting of the first paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/SetText/",
+      "params": [
+        {
+          "description": "The text to set.",
+          "name": "text",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "ApiRun"
+      },
+      "signature": "SetText(text: string): ApiRun",
+      "since": "9.4.0"
+    },
+    "Split": {
+      "description": "Splits current pdf file with specified pages.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/Split/",
+      "params": [
+        {
+          "description": "pages indexes for split (returns result for all pages if the parameter is omitted.)",
+          "name": "indexes",
+          "optional": true,
+          "type": "number[]"
+        }
+      ],
+      "returns": {
+        "type": "PdfFile"
+      },
+      "signature": "Split(indexes?: number[]): PdfFile"
+    }
+  }
+}

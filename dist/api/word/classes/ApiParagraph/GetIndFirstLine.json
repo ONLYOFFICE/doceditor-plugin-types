@@ -1,0 +1,10 @@
+{
+  "description": "Returns the paragraph first line indentation.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetIndFirstLine/",
+  "params": [],
+  "returns": {
+    "description": "The paragraph first line indentation value measured in twentieths of a point (1/1440 of an inch).",
+    "type": "twips | undefined"
+  },
+  "signature": "GetIndFirstLine(): twips | undefined"
+}

@@ -1,0 +1,15 @@
+{
+  "description": "Removes an element using the position specified.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/RemoveElement/",
+  "params": [
+    {
+      "description": "The element number (position) in the document or inside other element.",
+      "name": "nPos",
+      "type": "number"
+    }
+  ],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "RemoveElement(nPos: number): boolean"
+}

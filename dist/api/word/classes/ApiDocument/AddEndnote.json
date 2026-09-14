@@ -1,0 +1,9 @@
+{
+  "description": "Adds an endnote for the selected text (or the current position if the selection doesn't exist).",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/AddEndnote/",
+  "params": [],
+  "returns": {
+    "type": "ApiDocumentContent"
+  },
+  "signature": "AddEndnote(): ApiDocumentContent"
+}

@@ -1,0 +1,32 @@
+{
+  "description": "Returns a value or reference of the cell at the intersection of a particular row and column, in a given range.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/INDEX/",
+  "params": [
+    {
+      "description": "A range of cells or an array constant.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number[]"
+    },
+    {
+      "description": "The row in the range from which to return a value. If omitted, the column number is required.",
+      "name": "arg2",
+      "type": "ApiRange | ApiName | number"
+    },
+    {
+      "description": "The column in the range from which to return a value. If omitted, the row number is required.",
+      "name": "arg3",
+      "optional": true,
+      "type": "ApiRange | ApiName | number"
+    },
+    {
+      "description": "An area to use in case the range contains several ranges. If it is omitted, the function will assume argument to be 1.",
+      "name": "arg4",
+      "optional": true,
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number | string"
+  },
+  "signature": "INDEX(arg1: ApiRange | ApiName | number[], arg2: ApiRange | ApiName | number, arg3?: ApiRange | ApiName | number, arg4?: ApiRange | ApiName | number): number | string"
+}

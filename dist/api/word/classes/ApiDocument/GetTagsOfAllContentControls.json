@@ -1,0 +1,9 @@
+{
+  "description": "Returns a list of all tags that are used for all content controls in the document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetTagsOfAllContentControls/",
+  "params": [],
+  "returns": {
+    "type": "string[]"
+  },
+  "signature": "GetTagsOfAllContentControls(): string[]"
+}

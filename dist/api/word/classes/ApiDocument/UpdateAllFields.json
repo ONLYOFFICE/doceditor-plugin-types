@@ -1,0 +1,17 @@
+{
+  "description": "Updates all fields in the document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/UpdateAllFields/",
+  "params": [
+    {
+      "description": "Specifies whether all fields will be updated within the selection.",
+      "name": "bBySelection",
+      "optional": true,
+      "type": "boolean"
+    }
+  ],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "UpdateAllFields(bBySelection?: boolean): boolean",
+  "since": "8.2.0"
+}

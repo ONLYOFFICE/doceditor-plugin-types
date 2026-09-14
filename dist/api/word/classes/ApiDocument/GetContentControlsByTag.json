@@ -1,0 +1,15 @@
+{
+  "description": "Returns a list of all content controls in the document with the specified tag name.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetContentControlsByTag/",
+  "params": [
+    {
+      "description": "Content control tag.",
+      "name": "sTag",
+      "type": "string"
+    }
+  ],
+  "returns": {
+    "type": "ApiBlockLvlSdt[] | ApiInlineLvlSdt[]"
+  },
+  "signature": "GetContentControlsByTag(sTag: string): ApiBlockLvlSdt[] | ApiInlineLvlSdt[]"
+}

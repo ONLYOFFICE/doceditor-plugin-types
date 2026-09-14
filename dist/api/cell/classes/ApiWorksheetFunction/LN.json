@@ -1,0 +1,15 @@
+{
+  "description": "Returns the natural logarithm of a number.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/LN/",
+  "params": [
+    {
+      "description": "The positive real number for which the natural logarithm will be returned.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "LN(arg1: ApiRange | ApiName | number): number"
+}

@@ -1,0 +1,9 @@
+{
+  "description": "Returns a collection of chart objects in the paragraph.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/GetAllCharts/",
+  "params": [],
+  "returns": {
+    "type": "ApiChart[]"
+  },
+  "signature": "GetAllCharts(): ApiChart[]"
+}

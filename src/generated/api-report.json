@@ -1,0 +1,32 @@
+{
+  "word": {
+    "classes": 71,
+    "typedefs": 104,
+    "unresolvedTypes": [],
+    "anyOccurrences": 0
+  },
+  "cell": {
+    "classes": 120,
+    "typedefs": 172,
+    "unresolvedTypes": [],
+    "anyOccurrences": 0
+  },
+  "slide": {
+    "classes": 83,
+    "typedefs": 109,
+    "unresolvedTypes": [],
+    "anyOccurrences": 0
+  },
+  "forms": {
+    "classes": 67,
+    "typedefs": 114,
+    "unresolvedTypes": [],
+    "anyOccurrences": 0
+  },
+  "pdf": {
+    "classes": 110,
+    "typedefs": 145,
+    "unresolvedTypes": [],
+    "anyOccurrences": 0
+  }
+}

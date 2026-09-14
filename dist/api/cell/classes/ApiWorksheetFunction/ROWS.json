@@ -1,0 +1,15 @@
+{
+  "description": "Returns the number of rows in a range.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/ROWS/",
+  "params": [
+    {
+      "description": "A range of cells or an array for which the number of rows will be returned.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | (number | string | boolean)[]"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "ROWS(arg1: ApiRange | ApiName | (number | string | boolean)[]): number"
+}

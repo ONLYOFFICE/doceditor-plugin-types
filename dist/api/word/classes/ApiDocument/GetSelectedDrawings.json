@@ -1,0 +1,10 @@
+{
+  "description": "Returns all the selected drawings in the current document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetSelectedDrawings/",
+  "params": [],
+  "returns": {
+    "type": "Drawing[]"
+  },
+  "signature": "GetSelectedDrawings(): Drawing[]",
+  "since": "7.2.0"
+}

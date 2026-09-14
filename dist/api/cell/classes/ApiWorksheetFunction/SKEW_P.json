@@ -1,0 +1,15 @@
+{
+  "description": "Returns the skewness of a distribution based on a population: a characterization of the degree of asymmetry of a distribution around its mean.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/SKEW_P/",
+  "params": [
+    {
+      "description": "Up to 255 numeric values for which the skewness of a distribution will be returned.\rThe first argument is required, subsequent arguments are optional. Arguments can be numbers, names, ranges, or arrays of numbers.",
+      "name": "args",
+      "type": "number | ApiName | number[] | ApiRange"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "SKEW_P(args: number | ApiName | number[] | ApiRange): number"
+}

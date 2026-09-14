@@ -1,0 +1,9 @@
+{
+  "description": "Returns the last Run with text in the current paragraph.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/GetLastRunWithText/",
+  "params": [],
+  "returns": {
+    "type": "ApiRun"
+  },
+  "signature": "GetLastRunWithText(): ApiRun"
+}

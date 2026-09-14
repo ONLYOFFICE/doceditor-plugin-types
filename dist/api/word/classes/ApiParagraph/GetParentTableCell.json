@@ -1,0 +1,10 @@
+{
+  "description": "Returns a table cell that contains the current paragraph.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/GetParentTableCell/",
+  "params": [],
+  "returns": {
+    "description": "returns null if parent cell doesn't exist.",
+    "type": "ApiTableCell | null"
+  },
+  "signature": "GetParentTableCell(): ApiTableCell | null"
+}

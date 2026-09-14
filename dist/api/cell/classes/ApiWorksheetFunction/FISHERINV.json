@@ -1,0 +1,15 @@
+{
+  "description": "Returns the inverse of the Fisher transformation: if y = FISHER(x), then FISHERINV(y) = x.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/FISHERINV/",
+  "params": [
+    {
+      "description": "The value to perform the inverse of the transformation.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "FISHERINV(arg1: ApiRange | ApiName | number): number"
+}

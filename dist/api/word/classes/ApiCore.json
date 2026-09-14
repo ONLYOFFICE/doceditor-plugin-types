@@ -1,0 +1,421 @@
+{
+  "description": "Class representing document properties (similar to BuiltInDocumentProperties in VBA).",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/",
+  "methods": {
+    "GetCategory": {
+      "description": "Returns the document category.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/GetCategory/",
+      "params": [],
+      "returns": {
+        "description": "The document category.",
+        "type": "string"
+      },
+      "signature": "GetCategory(): string",
+      "since": "9.0.0"
+    },
+    "GetClassType": {
+      "description": "Returns a type of the ApiCore class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"core\""
+      },
+      "signature": "GetClassType(): \"core\"",
+      "since": "9.0.0"
+    },
+    "GetContentStatus": {
+      "description": "Returns the document content status.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/GetContentStatus/",
+      "params": [],
+      "returns": {
+        "description": "The document content status.",
+        "type": "string"
+      },
+      "signature": "GetContentStatus(): string",
+      "since": "9.0.0"
+    },
+    "GetCreated": {
+      "description": "Returns the document creation date.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/GetCreated/",
+      "params": [],
+      "returns": {
+        "description": "The document creation date.",
+        "type": "Date"
+      },
+      "signature": "GetCreated(): Date",
+      "since": "9.0.0"
+    },
+    "GetCreator": {
+      "description": "Returns the document author.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/GetCreator/",
+      "params": [],
+      "returns": {
+        "description": "The document author.",
+        "type": "string"
+      },
+      "signature": "GetCreator(): string",
+      "since": "9.0.0"
+    },
+    "GetDescription": {
+      "description": "Returns the document description.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/GetDescription/",
+      "params": [],
+      "returns": {
+        "description": "The document description.",
+        "type": "string"
+      },
+      "signature": "GetDescription(): string",
+      "since": "9.0.0"
+    },
+    "GetIdentifier": {
+      "description": "Returns the document identifier.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/GetIdentifier/",
+      "params": [],
+      "returns": {
+        "description": "The document identifier.",
+        "type": "string"
+      },
+      "signature": "GetIdentifier(): string",
+      "since": "9.0.0"
+    },
+    "GetKeywords": {
+      "description": "Returns the document keywords.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/GetKeywords/",
+      "params": [],
+      "returns": {
+        "description": "The document keywords in the string format.",
+        "type": "string"
+      },
+      "signature": "GetKeywords(): string",
+      "since": "9.0.0"
+    },
+    "GetLanguage": {
+      "description": "Returns the document language.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/GetLanguage/",
+      "params": [],
+      "returns": {
+        "description": "The document language.",
+        "type": "string"
+      },
+      "signature": "GetLanguage(): string",
+      "since": "9.0.0"
+    },
+    "GetLastModifiedBy": {
+      "description": "Returns the name of the user who last modified the document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/GetLastModifiedBy/",
+      "params": [],
+      "returns": {
+        "description": "The name of the user who last modified the document.",
+        "type": "string"
+      },
+      "signature": "GetLastModifiedBy(): string",
+      "since": "9.0.0"
+    },
+    "GetLastPrinted": {
+      "description": "Returns the date when the document was last printed.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/GetLastPrinted/",
+      "params": [],
+      "returns": {
+        "description": "The date when the document was last printed.",
+        "type": "Date"
+      },
+      "signature": "GetLastPrinted(): Date",
+      "since": "9.0.0"
+    },
+    "GetModified": {
+      "description": "Returns the date when the document was last modified.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/GetModified/",
+      "params": [],
+      "returns": {
+        "description": "The date when the document was last modified.",
+        "type": "Date"
+      },
+      "signature": "GetModified(): Date",
+      "since": "9.0.0"
+    },
+    "GetRevision": {
+      "description": "Returns the document revision.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/GetRevision/",
+      "params": [],
+      "returns": {
+        "description": "The document revision.",
+        "type": "string"
+      },
+      "signature": "GetRevision(): string",
+      "since": "9.0.0"
+    },
+    "GetSubject": {
+      "description": "Returns the document subject.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/GetSubject/",
+      "params": [],
+      "returns": {
+        "description": "The document subject.",
+        "type": "string"
+      },
+      "signature": "GetSubject(): string",
+      "since": "9.0.0"
+    },
+    "GetTitle": {
+      "description": "Returns the document title.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/GetTitle/",
+      "params": [],
+      "returns": {
+        "description": "The document title.",
+        "type": "string"
+      },
+      "signature": "GetTitle(): string",
+      "since": "9.0.0"
+    },
+    "GetVersion": {
+      "description": "Returns the document version.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/GetVersion/",
+      "params": [],
+      "returns": {
+        "description": "The document version.",
+        "type": "string"
+      },
+      "signature": "GetVersion(): string",
+      "since": "9.0.0"
+    },
+    "SetCategory": {
+      "description": "Sets the document category.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/SetCategory/",
+      "params": [
+        {
+          "description": "The document category.",
+          "name": "sCategory",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetCategory(sCategory: string): void",
+      "since": "9.0.0"
+    },
+    "SetContentStatus": {
+      "description": "Sets the document content status.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/SetContentStatus/",
+      "params": [
+        {
+          "description": "The document content status.",
+          "name": "sStatus",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetContentStatus(sStatus: string): void",
+      "since": "9.0.0"
+    },
+    "SetCreated": {
+      "description": "Sets the document creation date.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/SetCreated/",
+      "params": [
+        {
+          "description": "The document creation date.",
+          "name": "oCreated",
+          "type": "Date"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetCreated(oCreated: Date): void",
+      "since": "9.0.0"
+    },
+    "SetCreator": {
+      "description": "Sets the document author.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/SetCreator/",
+      "params": [
+        {
+          "description": "The document author.",
+          "name": "sCreator",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetCreator(sCreator: string): void",
+      "since": "9.0.0"
+    },
+    "SetDescription": {
+      "description": "Sets the document description.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/SetDescription/",
+      "params": [
+        {
+          "description": "The document description.",
+          "name": "sDescription",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetDescription(sDescription: string): void",
+      "since": "9.0.0"
+    },
+    "SetIdentifier": {
+      "description": "Sets the document identifier.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/SetIdentifier/",
+      "params": [
+        {
+          "description": "The document identifier.",
+          "name": "sIdentifier",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetIdentifier(sIdentifier: string): void",
+      "since": "9.0.0"
+    },
+    "SetKeywords": {
+      "description": "Sets the document keywords.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/SetKeywords/",
+      "params": [
+        {
+          "description": "The document keywords in the string format.",
+          "name": "sKeywords",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetKeywords(sKeywords: string): void",
+      "since": "9.0.0"
+    },
+    "SetLanguage": {
+      "description": "Sets the document language.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/SetLanguage/",
+      "params": [
+        {
+          "description": "The document language.",
+          "name": "sLanguage",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetLanguage(sLanguage: string): void",
+      "since": "9.0.0"
+    },
+    "SetLastModifiedBy": {
+      "description": "Sets the name of the user who last modified the document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/SetLastModifiedBy/",
+      "params": [
+        {
+          "description": "The name of the user who last modified the document.",
+          "name": "sLastModifiedBy",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetLastModifiedBy(sLastModifiedBy: string): void",
+      "since": "9.0.0"
+    },
+    "SetLastPrinted": {
+      "description": "Sets the date when the document was last printed.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/SetLastPrinted/",
+      "params": [
+        {
+          "description": "The date when the document was last printed.",
+          "name": "oLastPrinted",
+          "type": "Date"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetLastPrinted(oLastPrinted: Date): void",
+      "since": "9.0.0"
+    },
+    "SetModified": {
+      "description": "Sets the date when the document was last modified.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/SetModified/",
+      "params": [
+        {
+          "description": "The date when the document was last modified.",
+          "name": "oModified",
+          "type": "Date"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetModified(oModified: Date): void",
+      "since": "9.0.0"
+    },
+    "SetRevision": {
+      "description": "Sets the document revision.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/SetRevision/",
+      "params": [
+        {
+          "description": "The document revision.",
+          "name": "sRevision",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetRevision(sRevision: string): void",
+      "since": "9.0.0"
+    },
+    "SetSubject": {
+      "description": "Sets the document subject.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/SetSubject/",
+      "params": [
+        {
+          "description": "The document subject.",
+          "name": "sSubject",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetSubject(sSubject: string): void",
+      "since": "9.0.0"
+    },
+    "SetTitle": {
+      "description": "Sets the document title.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/SetTitle/",
+      "params": [
+        {
+          "description": "The document title.",
+          "name": "sTitle",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetTitle(sTitle: string): void",
+      "since": "9.0.0"
+    },
+    "SetVersion": {
+      "description": "Sets the document version.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCore/Methods/SetVersion/",
+      "params": [
+        {
+          "description": "The document version.",
+          "name": "sVersion",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetVersion(sVersion: string): void",
+      "since": "9.0.0"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "description": "Returns a style by its name.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetStyle/",
+  "params": [
+    {
+      "description": "The style name.",
+      "name": "styleName",
+      "type": "string"
+    }
+  ],
+  "returns": {
+    "description": "Returns the style, or _null_ if no style with the specified name was found.",
+    "type": "ApiStyle | null"
+  },
+  "signature": "GetStyle(styleName: string): ApiStyle | null"
+}

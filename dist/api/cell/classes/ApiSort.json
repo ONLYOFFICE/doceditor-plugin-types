@@ -1,0 +1,134 @@
+{
+  "description": "Class representing the sort state of a list object (table).",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSort/",
+  "methods": {
+    "Apply": {
+      "description": "Applies the current sort settings to the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSort/Methods/Apply/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "Apply(): void"
+    },
+    "GetHeader": {
+      "description": "Returns the header setting. Always \"xlYes\" for a ListObject.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSort/Methods/GetHeader/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetHeader(): string"
+    },
+    "GetMatchCase": {
+      "description": "Returns whether the sort is case-sensitive.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSort/Methods/GetMatchCase/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetMatchCase(): boolean"
+    },
+    "GetOrientation": {
+      "description": "Returns the sort orientation: \"xlTopToBottom\" or \"xlLeftToRight\".",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSort/Methods/GetOrientation/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "XlSortOrientation"
+      },
+      "signature": "GetOrientation(): XlSortOrientation"
+    },
+    "GetParent": {
+      "description": "Returns the parent list object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSort/Methods/GetParent/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiListObject"
+      },
+      "signature": "GetParent(): ApiListObject"
+    },
+    "GetRng": {
+      "description": "Returns the data body range that the sort applies to.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSort/Methods/GetRng/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiRange | null"
+      },
+      "signature": "GetRng(): ApiRange | null"
+    },
+    "GetSortFields": {
+      "description": "Returns the sort fields collection.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSort/Methods/GetSortFields/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiSortFields"
+      },
+      "signature": "GetSortFields(): ApiSortFields"
+    },
+    "GetSortMethod": {
+      "description": "Returns the sort method: \"xlPinYin\" or \"xlStroke\".",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSort/Methods/GetSortMethod/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "XlSortMethod"
+      },
+      "signature": "GetSortMethod(): XlSortMethod"
+    },
+    "SetMatchCase": {
+      "description": "Sets whether the sort is case-sensitive.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSort/Methods/SetMatchCase/",
+      "params": [
+        {
+          "description": "Specifies whether the sort is case-sensitive.",
+          "name": "matchCase",
+          "type": "boolean"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetMatchCase(matchCase: boolean): void"
+    },
+    "SetOrientation": {
+      "description": "Sets the sort orientation.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSort/Methods/SetOrientation/",
+      "params": [
+        {
+          "description": "The sort orientation: **\"xlTopToBottom\"** to sort by rows, **\"xlLeftToRight\"** to sort by columns.",
+          "name": "orientation",
+          "type": "XlSortOrientation"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetOrientation(orientation: XlSortOrientation): void"
+    },
+    "SetSortMethod": {
+      "description": "Sets the sort method.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSort/Methods/SetSortMethod/",
+      "params": [
+        {
+          "description": "The sort method.",
+          "name": "sortMethod",
+          "type": "XlSortMethod"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetSortMethod(sortMethod: XlSortMethod): void"
+    }
+  }
+}

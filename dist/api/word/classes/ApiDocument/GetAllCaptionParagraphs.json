@@ -1,0 +1,15 @@
+{
+  "description": "Returns all caption paragraphs of the specified type from the current document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetAllCaptionParagraphs/",
+  "params": [
+    {
+      "description": "The caption label (\"Equation\", \"Figure\", \"Table\", or another caption label).",
+      "name": "sCaption",
+      "type": "CaptionLabel | string"
+    }
+  ],
+  "returns": {
+    "type": "ApiParagraph[]"
+  },
+  "signature": "GetAllCaptionParagraphs(sCaption: CaptionLabel | string): ApiParagraph[]"
+}

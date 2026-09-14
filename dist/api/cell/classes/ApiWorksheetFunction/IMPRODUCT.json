@@ -1,0 +1,15 @@
+{
+  "description": "Returns the product of the specified complex numbers.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMPRODUCT/",
+  "params": [
+    {
+      "description": "Up to 255 complex numbers expressed in the *x + yi* or *x + yj* form.",
+      "name": "args",
+      "type": "ApiRange | ApiName | string"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "IMPRODUCT(args: ApiRange | ApiName | string): number"
+}

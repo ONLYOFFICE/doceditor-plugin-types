@@ -1,0 +1,9 @@
+{
+  "description": "Adds a tab stop to the current paragraph.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/AddTabStop/",
+  "params": [],
+  "returns": {
+    "type": "ApiRun"
+  },
+  "signature": "AddTabStop(): ApiRun"
+}

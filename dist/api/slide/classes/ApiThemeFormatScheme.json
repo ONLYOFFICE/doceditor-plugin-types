@@ -1,0 +1,93 @@
+{
+  "description": "Class representing a theme format scheme.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFormatScheme/",
+  "methods": {
+    "ChangeBgFillStyles": {
+      "description": "Sets the background fill styles to the current theme format scheme.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFormatScheme/Methods/ChangeBgFillStyles/",
+      "params": [
+        {
+          "description": "The array of background fill styles must contain 3 elements - subtle, moderate and intense fills.\rIf an array is empty or NoFill elements are in the array, it will be filled with the Api.CreateNoFill() elements.",
+          "name": "arrBgFill",
+          "type": "ApiFill[]"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "ChangeBgFillStyles(arrBgFill: ApiFill[]): void"
+    },
+    "ChangeFillStyles": {
+      "description": "Sets the fill styles to the current theme format scheme.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFormatScheme/Methods/ChangeFillStyles/",
+      "params": [
+        {
+          "description": "The array of fill styles must contain 3 elements - subtle, moderate and intense fills.\rIf an array is empty or NoFill elements are in the array, it will be filled with the Api.CreateNoFill() elements.",
+          "name": "arrFill",
+          "type": "ApiFill[]"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "ChangeFillStyles(arrFill: ApiFill[]): void"
+    },
+    "ChangeLineStyles": {
+      "description": "Sets the line styles to the current theme format scheme.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFormatScheme/Methods/ChangeLineStyles/",
+      "params": [
+        {
+          "description": "The array of line styles must contain 3 elements - subtle, moderate and intense fills.\rIf an array is empty or ApiStroke elements are with no fill, it will be filled with the Api.CreateStroke(0, Api.CreateNoFill()) elements.",
+          "name": "arrLine",
+          "type": "ApiStroke[]"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "ChangeLineStyles(arrLine: ApiStroke[]): void"
+    },
+    "Copy": {
+      "description": "Creates a copy of the current theme format scheme.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFormatScheme/Methods/Copy/",
+      "params": [],
+      "returns": {
+        "type": "ApiThemeFormatScheme"
+      },
+      "signature": "Copy(): ApiThemeFormatScheme"
+    },
+    "GetClassType": {
+      "description": "Returns the type of the ApiThemeFormatScheme class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFormatScheme/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"themeFormatScheme\""
+      },
+      "signature": "GetClassType(): \"themeFormatScheme\""
+    },
+    "SetSchemeName": {
+      "description": "Sets a name to the current theme format scheme.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFormatScheme/Methods/SetSchemeName/",
+      "params": [
+        {
+          "description": "Theme format scheme name.",
+          "name": "sName",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetSchemeName(sName: string): boolean"
+    },
+    "ToJSON": {
+      "description": "Converts the ApiThemeFormatScheme object into the JSON object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFormatScheme/Methods/ToJSON/",
+      "params": [],
+      "returns": {
+        "type": "object"
+      },
+      "signature": "ToJSON(): object"
+    }
+  }
+}

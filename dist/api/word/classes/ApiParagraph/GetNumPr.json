@@ -1,0 +1,9 @@
+{
+  "description": "Returns the numbering level for the current paragraph referencing the numbering definition instance in the current document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetNumPr/",
+  "params": [],
+  "returns": {
+    "type": "ApiNumberingLevel | undefined"
+  },
+  "signature": "GetNumPr(): ApiNumberingLevel | undefined"
+}

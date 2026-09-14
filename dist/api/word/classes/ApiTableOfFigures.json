@@ -1,0 +1,89 @@
+{
+  "description": "Class representing a table of figures.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/",
+  "methods": {
+    "GetCaption": {
+      "description": "Returns the caption label that the table of figures is built from (for example, \"Figure\").",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/GetCaption/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "string | null"
+      },
+      "signature": "GetCaption(): string | null",
+      "since": "10.0.0"
+    },
+    "GetClassType": {
+      "description": "Returns a type of the ApiTableOfFigures class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/GetClassType/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "\"tableofcontents\""
+      },
+      "signature": "GetClassType(): \"tableofcontents\"",
+      "since": "10.0.0"
+    },
+    "GetIncludeLabel": {
+      "description": "Returns whether the caption label and number are included in the table of figures entries.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/GetIncludeLabel/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetIncludeLabel(): boolean",
+      "since": "10.0.0"
+    },
+    "SetCaption": {
+      "description": "Sets the caption label that the table of figures is built from (for example, \"Figure\").",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/SetCaption/",
+      "params": [
+        {
+          "description": "The caption label.",
+          "name": "sCaption",
+          "type": "string"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetCaption(sCaption: string): boolean",
+      "since": "10.0.0"
+    },
+    "SetIncludeLabel": {
+      "description": "Specifies whether the caption label and number are included in the table of figures entries.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/SetIncludeLabel/",
+      "params": [
+        {
+          "name": "isInclude",
+          "type": "boolean"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetIncludeLabel(isInclude: boolean): boolean",
+      "since": "10.0.0"
+    },
+    "SetPr": {
+      "description": "Applies the specified properties to the table of figures and rebuilds it.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/SetPr/",
+      "params": [
+        {
+          "description": "Table of figures properties.",
+          "name": "oTofPr",
+          "type": "TofPr"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetPr(oTofPr: TofPr): boolean",
+      "since": "10.0.0"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "description": "Adds all the numbers in a range of cells.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/SUM/",
+  "params": [
+    {
+      "description": "Up to 255 numeric values to add. The first argument is required, subsequent arguments are optional.\rArguments can be numbers, logical values, text representations of numbers, ranges, or arrays.",
+      "name": "args",
+      "type": "ApiRange | ApiName | string | number | boolean | (string | number | boolean)[]"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "SUM(args: ApiRange | ApiName | string | number | boolean | (string | number | boolean)[]): number"
+}

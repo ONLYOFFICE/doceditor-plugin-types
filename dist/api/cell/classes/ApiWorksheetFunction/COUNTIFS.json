@@ -1,0 +1,30 @@
+{
+  "description": "Counts a number of cells specified by a given set of conditions or criteria.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/COUNTIFS/",
+  "params": [
+    {
+      "description": "The first range of cells to count nonblank cells.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName"
+    },
+    {
+      "description": "The first condition in the form of a number, expression, or text that defines which cells will be counted.",
+      "name": "arg2",
+      "type": "ApiRange | ApiName | number | string"
+    },
+    {
+      "description": "Up to 127 additional ranges of cells to count nonblank cells. This argument is optional.",
+      "name": "arg3",
+      "type": "ApiRange | ApiName"
+    },
+    {
+      "description": "Up to 127 additional conditions in the form of a number, expression, or text that define which cells will be counted.",
+      "name": "arg4",
+      "type": "ApiRange | ApiName | number | string"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "COUNTIFS(arg1: ApiRange | ApiName, arg2: ApiRange | ApiName | number | string, arg3: ApiRange | ApiName, arg4: ApiRange | ApiName | number | string): number"
+}

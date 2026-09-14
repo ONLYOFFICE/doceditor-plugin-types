@@ -1,0 +1,15 @@
+{
+  "description": "Returns the number of columns in the cell range.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/COLUMNS/",
+  "params": [
+    {
+      "description": "A range or array of cells for which the number of columns will be returned.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number[]"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "COLUMNS(arg1: ApiRange | ApiName | number[]): number"
+}

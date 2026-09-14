@@ -1,0 +1,26 @@
+{
+  "description": "Finds the average (arithmetic mean) for the cells specified by a given condition or criteria.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/AVERAGEIF/",
+  "params": [
+    {
+      "description": "The range of cells which will be evaluated.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName"
+    },
+    {
+      "description": "The condition or criteria in the form of a number, expression, or text that defines which cells will be used to find the average.",
+      "name": "arg2",
+      "type": "ApiRange | ApiName | number | string"
+    },
+    {
+      "description": "The actual cells to be used to find the average. If omitted, the cells in the range are used.",
+      "name": "arg3",
+      "optional": true,
+      "type": "ApiRange | ApiName"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "AVERAGEIF(arg1: ApiRange | ApiName, arg2: ApiRange | ApiName | number | string, arg3?: ApiRange | ApiName): number"
+}

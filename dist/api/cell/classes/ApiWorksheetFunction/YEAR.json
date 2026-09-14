@@ -1,0 +1,15 @@
+{
+  "description": "Returns the year of a date, an integer in the range 1900-9999.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/YEAR/",
+  "params": [
+    {
+      "description": "A number in the date-time code, or a result of other formulas or functions.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "YEAR(arg1: ApiRange | ApiName | number): number"
+}

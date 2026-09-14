@@ -1,0 +1,9 @@
+{
+  "description": "Returns a collection of section objects in the document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetSections/",
+  "params": [],
+  "returns": {
+    "type": "ApiSection[]"
+  },
+  "signature": "GetSections(): ApiSection[]"
+}

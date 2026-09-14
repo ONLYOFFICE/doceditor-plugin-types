@@ -1,0 +1,9 @@
+{
+  "description": "Returns the **false** logical value.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/FALSE/",
+  "params": [],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "FALSE(): boolean"
+}

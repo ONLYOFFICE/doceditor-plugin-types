@@ -1,0 +1,36 @@
+{
+  "description": "Class representing a Scheme Color.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiSchemeColor/",
+  "extends": [
+    "ApiUniColor"
+  ],
+  "methods": {
+    "GetClassType": {
+      "description": "Returns a type of the ApiSchemeColor class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiSchemeColor/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"schemeColor\""
+      },
+      "signature": "GetClassType(): \"schemeColor\""
+    },
+    "GetRGB": {
+      "description": "Returns a color value in RGB format.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiUniColor/Methods/GetRGB/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetRGB(): number"
+    },
+    "ToJSON": {
+      "description": "Converts the ApiSchemeColor object into the JSON object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiSchemeColor/Methods/ToJSON/",
+      "params": [],
+      "returns": {
+        "type": "object"
+      },
+      "signature": "ToJSON(): object"
+    }
+  }
+}

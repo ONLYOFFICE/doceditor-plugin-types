@@ -1,0 +1,9 @@
+{
+  "description": "Returns the last document element.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/Last/",
+  "params": [],
+  "returns": {
+    "type": "DocumentElement"
+  },
+  "signature": "Last(): DocumentElement"
+}

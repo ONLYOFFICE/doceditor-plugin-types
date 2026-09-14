@@ -1,0 +1,9 @@
+{
+  "description": "Selects the current paragraph.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/Select/",
+  "params": [],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "Select(): boolean"
+}

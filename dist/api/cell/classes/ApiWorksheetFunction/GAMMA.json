@@ -1,0 +1,15 @@
+{
+  "description": "Returns the gamma function value.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/GAMMA/",
+  "params": [
+    {
+      "description": "The value for which the gamma function will be calculated.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "GAMMA(arg1: ApiRange | ApiName | number): number"
+}

@@ -1,0 +1,10 @@
+{
+  "description": "Returns the spacing before value of the current paragraph.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetSpacingBefore/",
+  "params": [],
+  "returns": {
+    "description": "The value of the spacing before the current paragraph measured in twentieths of a point (1/1440 of an inch).",
+    "type": "twips"
+  },
+  "signature": "GetSpacingBefore(): twips"
+}

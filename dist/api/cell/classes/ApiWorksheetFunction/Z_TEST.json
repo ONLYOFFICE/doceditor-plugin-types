@@ -1,0 +1,26 @@
+{
+  "description": "Returns the one-tailed P-value of a z-test.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/Z_TEST/",
+  "params": [
+    {
+      "description": "The array or range of data against which to test X.",
+      "name": "arg1",
+      "type": "number[] | ApiRange"
+    },
+    {
+      "description": "The value to test.",
+      "name": "arg2",
+      "type": "ApiRange | ApiName | number"
+    },
+    {
+      "description": "The population (known) standard deviation. If omitted, the sample standard deviation is used.",
+      "name": "arg3",
+      "optional": true,
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "Z_TEST(arg1: number[] | ApiRange, arg2: ApiRange | ApiName | number, arg3?: ApiRange | ApiName | number): number"
+}

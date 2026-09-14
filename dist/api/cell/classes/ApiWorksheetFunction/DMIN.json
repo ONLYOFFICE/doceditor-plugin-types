@@ -1,0 +1,25 @@
+{
+  "description": "Returns the smallest number in the field (column) of records in the database that match the conditions you specify.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/DMIN/",
+  "params": [
+    {
+      "description": "The range of cells that makes up the list or database. A database is a list of related data.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName"
+    },
+    {
+      "description": "The column which is used in the function. Either the label of the column in double quotation marks or a number that represents the column's position in the list.",
+      "name": "arg2",
+      "type": "ApiRange | ApiName | number | string"
+    },
+    {
+      "description": "The range of cells that contains the conditions you specify. The range includes at least one column label and at least one cell below the column label for a condition.",
+      "name": "arg3",
+      "type": "ApiRange | ApiName"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "DMIN(arg1: ApiRange | ApiName, arg2: ApiRange | ApiName | number | string, arg3: ApiRange | ApiName): number"
+}

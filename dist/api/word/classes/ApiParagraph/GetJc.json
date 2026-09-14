@@ -1,0 +1,9 @@
+{
+  "description": "Returns the paragraph contents justification.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetJc/",
+  "params": [],
+  "returns": {
+    "type": "\"left\" | \"right\" | \"both\" | \"center\" | undefined"
+  },
+  "signature": "GetJc(): \"left\" | \"right\" | \"both\" | \"center\" | undefined"
+}

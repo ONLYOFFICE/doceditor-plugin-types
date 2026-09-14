@@ -1,0 +1,16 @@
+{
+  "description": "Sets the italic property to the text character.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/SetItalic/",
+  "params": [
+    {
+      "description": "Specifies that the contents of the current paragraph are displayed italicized.",
+      "name": "isItalic",
+      "type": "boolean"
+    }
+  ],
+  "returns": {
+    "description": "this",
+    "type": "ApiParagraph"
+  },
+  "signature": "SetItalic(isItalic: boolean): ApiParagraph"
+}

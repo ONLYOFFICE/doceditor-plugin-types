@@ -1,0 +1,15 @@
+{
+  "description": "Returns the inverse hyperbolic cosine of a number.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/ACOSH/",
+  "params": [
+    {
+      "description": "Any real number equal to or greater than 1.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "ACOSH(arg1: ApiRange | ApiName | number): number"
+}

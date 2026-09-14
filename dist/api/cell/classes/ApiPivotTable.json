@@ -1,0 +1,833 @@
+{
+  "description": "Class representing a pivot table.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/",
+  "methods": {
+    "AddDataField": {
+      "description": "Adds a data field to the pivot table report.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/AddDataField/",
+      "params": [
+        {
+          "description": "The index number or name of the data field.",
+          "name": "field",
+          "type": "number | string"
+        }
+      ],
+      "returns": {
+        "type": "ApiPivotDataField"
+      },
+      "signature": "AddDataField(field: number | string): ApiPivotDataField",
+      "since": "8.2.0"
+    },
+    "AddFields": {
+      "description": "Adds the row, column, and page fields to the pivot table report.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/AddFields/",
+      "params": [
+        {
+          "description": "The settings for adding row, column, and page fields to the pivot table report.",
+          "name": "options",
+          "type": "PivotTableFieldOptions"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "AddFields(options: PivotTableFieldOptions): void",
+      "since": "8.2.0"
+    },
+    "ClearAllFilters": {
+      "description": "Deletes all filters currently applied to the pivot table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/ClearAllFilters/",
+      "params": [],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "ClearAllFilters(): void",
+      "since": "8.2.0"
+    },
+    "ClearTable": {
+      "description": "Clears the pivot table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/ClearTable/",
+      "params": [],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "ClearTable(): void",
+      "since": "8.2.0"
+    },
+    "GetColumnFields": {
+      "description": "Returns a collection that is currently displayed as column fields in the pivot table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetColumnFields/",
+      "params": [
+        {
+          "description": "The name or index of the field to be returned.",
+          "name": "field",
+          "optional": true,
+          "type": "number | string"
+        }
+      ],
+      "returns": {
+        "type": "ApiPivotField[]"
+      },
+      "signature": "GetColumnFields(field?: number | string): ApiPivotField[]",
+      "since": "8.2.0"
+    },
+    "GetColumnGrand": {
+      "description": "Returns the **Grand Totals** setting of the pivot table columns.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetColumnGrand/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetColumnGrand(): boolean",
+      "since": "8.2.0"
+    },
+    "GetColumnRange": {
+      "description": "Returns a Range object that represents the column area in the pivot table report.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetColumnRange/",
+      "params": [],
+      "returns": {
+        "type": "ApiRange | null"
+      },
+      "signature": "GetColumnRange(): ApiRange | null",
+      "since": "8.2.0"
+    },
+    "GetData": {
+      "description": "Returns the value for the data field in a pivot table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetData/",
+      "params": [
+        {
+          "description": "Describes a single cell in the pivot table report.\rFor example, \"'Estimated Costs' Tables May\", which shows the estimated costs for tables in May\r(Data field = Costs, Product = Tables, Month = May).",
+          "name": "items",
+          "type": "string[]"
+        }
+      ],
+      "returns": {
+        "type": "number | null"
+      },
+      "signature": "GetData(items: string[]): number | null",
+      "since": "8.2.0"
+    },
+    "GetDataBodyRange": {
+      "description": "Returns a Range object that represents the range of values in the pivot table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetDataBodyRange/",
+      "params": [],
+      "returns": {
+        "type": "ApiRange"
+      },
+      "signature": "GetDataBodyRange(): ApiRange",
+      "since": "8.2.0"
+    },
+    "GetDataFields": {
+      "description": "Returns a collection that represents either a single pivot table data field\nor a collection of all visible data fields.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetDataFields/",
+      "params": [
+        {
+          "description": "The name or index of the field to be returned.",
+          "name": "field",
+          "optional": true,
+          "type": "number | string"
+        }
+      ],
+      "returns": {
+        "type": "ApiPivotDataField[] | ApiPivotDataField | null"
+      },
+      "signature": "GetDataFields(field?: number | string): ApiPivotDataField[] | ApiPivotDataField | null",
+      "since": "8.2.0"
+    },
+    "GetDescription": {
+      "description": "Returns the pivot table description.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetDescription/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetDescription(): string",
+      "since": "8.2.0"
+    },
+    "GetDisplayFieldCaptions": {
+      "description": "Returns the setting which specifies whether to display field headers for rows and columns.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetDisplayFieldCaptions/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetDisplayFieldCaptions(): boolean",
+      "since": "8.2.0"
+    },
+    "GetDisplayFieldsInReportFilterArea": {
+      "description": "Returns the pivot table display fields in the report filter area settings.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetDisplayFieldsInReportFilterArea/",
+      "params": [],
+      "returns": {
+        "type": "PivotTableFilterAreaInfo"
+      },
+      "signature": "GetDisplayFieldsInReportFilterArea(): PivotTableFilterAreaInfo",
+      "since": "8.2.0"
+    },
+    "GetGrandTotalName": {
+      "description": "Returns the text string label that is displayed in the grand total column or row heading in the specified pivot table report.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetGrandTotalName/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetGrandTotalName(): string",
+      "since": "8.2.0"
+    },
+    "GetHiddenFields": {
+      "description": "Returns an array that represents all the hidden fields in the pivot table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetHiddenFields/",
+      "params": [],
+      "returns": {
+        "type": "ApiPivotField[]"
+      },
+      "signature": "GetHiddenFields(): ApiPivotField[]",
+      "since": "8.2.0"
+    },
+    "GetName": {
+      "description": "Returns the pivot table name.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetName/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetName(): string",
+      "since": "8.2.0"
+    },
+    "GetPageFields": {
+      "description": "Returns a collection that represents either a single pivot table page field\nor a collection of all visible page fields.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetPageFields/",
+      "params": [
+        {
+          "description": "The name or index of the field to be returned.",
+          "name": "field",
+          "optional": true,
+          "type": "number | string"
+        }
+      ],
+      "returns": {
+        "type": "ApiPivotField[]"
+      },
+      "signature": "GetPageFields(field?: number | string): ApiPivotField[]",
+      "since": "8.2.0"
+    },
+    "GetParent": {
+      "description": "Returns the parent object for the current pivot table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetParent/",
+      "params": [],
+      "returns": {
+        "description": "The parent object for the current pivot table.",
+        "type": "ApiWorksheet"
+      },
+      "signature": "GetParent(): ApiWorksheet",
+      "since": "8.2.0"
+    },
+    "GetPivotData": {
+      "description": "Returns a Range object with information about a data item in the pivot table report.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetPivotData/",
+      "params": [
+        {
+          "description": "The name of the field containing the data for the PivotTable.",
+          "name": "dataField",
+          "optional": true,
+          "type": "string"
+        },
+        {
+          "description": "An array of field items from the pivot table.",
+          "name": "fieldItemsArray",
+          "optional": true,
+          "type": "string[]"
+        }
+      ],
+      "returns": {
+        "type": "ApiRange"
+      },
+      "signature": "GetPivotData(dataField?: string, fieldItemsArray?: string[]): ApiRange",
+      "since": "8.2.0"
+    },
+    "GetPivotFields": {
+      "description": "Returns a collection that represents either a single pivot table field\nor a collection of both the visible and hidden fields in the pivot table report.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetPivotFields/",
+      "params": [
+        {
+          "description": "The name or index of the field to be returned.",
+          "name": "field",
+          "optional": true,
+          "type": "string | number"
+        }
+      ],
+      "returns": {
+        "type": "ApiPivotField[] | ApiPivotField | ApiPivotDataField | null"
+      },
+      "signature": "GetPivotFields(field?: string | number): ApiPivotField[] | ApiPivotField | ApiPivotDataField | null",
+      "since": "8.2.0"
+    },
+    "GetRowFields": {
+      "description": "Returns a collection that is currently displayed as row fields in the pivot table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetRowFields/",
+      "params": [
+        {
+          "description": "The name or index of the field to be returned.",
+          "name": "field",
+          "optional": true,
+          "type": "number | string"
+        }
+      ],
+      "returns": {
+        "type": "ApiPivotField[]"
+      },
+      "signature": "GetRowFields(field?: number | string): ApiPivotField[]",
+      "since": "8.2.0"
+    },
+    "GetRowGrand": {
+      "description": "Returns the **Grand Totals** setting of the pivot table rows.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetRowGrand/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetRowGrand(): boolean",
+      "since": "8.2.0"
+    },
+    "GetRowRange": {
+      "description": "Returns a Range object that represents the row area in the pivot table report.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetRowRange/",
+      "params": [],
+      "returns": {
+        "type": "ApiRange | null"
+      },
+      "signature": "GetRowRange(): ApiRange | null",
+      "since": "8.2.0"
+    },
+    "GetSource": {
+      "description": "Returns the source range for the pivot table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetSource/",
+      "params": [],
+      "returns": {
+        "type": "ApiRange"
+      },
+      "signature": "GetSource(): ApiRange",
+      "since": "8.2.0"
+    },
+    "GetStyleName": {
+      "description": "Returns the pivot table style name.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetStyleName/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetStyleName(): string",
+      "since": "8.2.0"
+    },
+    "GetTableRange1": {
+      "description": "Returns a Range object that represents the entire pivot table report, but doesn't include page fields.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetTableRange1/",
+      "params": [],
+      "returns": {
+        "type": "ApiRange | null"
+      },
+      "signature": "GetTableRange1(): ApiRange | null",
+      "since": "8.2.0"
+    },
+    "GetTableRange2": {
+      "description": "Returns a Range object that represents the entire pivot table report, including page fields.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetTableRange2/",
+      "params": [],
+      "returns": {
+        "type": "ApiRange | null"
+      },
+      "signature": "GetTableRange2(): ApiRange | null",
+      "since": "8.2.0"
+    },
+    "GetTableStyleColumnHeaders": {
+      "description": "Returns the setting which specifies whether the column headers of the pivot table will be highlighted with the special formatting.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetTableStyleColumnHeaders/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetTableStyleColumnHeaders(): boolean",
+      "since": "8.2.0"
+    },
+    "GetTableStyleColumnStripes": {
+      "description": "Returns the setting which specifies whether the background color alternation for odd and even columns will be enabled for the pivot table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetTableStyleColumnStripes/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetTableStyleColumnStripes(): boolean",
+      "since": "8.2.0"
+    },
+    "GetTableStyleRowHeaders": {
+      "description": "Returns the setting which specifies whether the row headers of the pivot table will be highlighted with the special formatting.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetTableStyleRowHeaders/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetTableStyleRowHeaders(): boolean",
+      "since": "8.2.0"
+    },
+    "GetTableStyleRowStripes": {
+      "description": "Returns the setting which specifies whether the background color alternation for odd and even rows will be enabled for the pivot table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetTableStyleRowStripes/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetTableStyleRowStripes(): boolean",
+      "since": "8.2.0"
+    },
+    "GetTitle": {
+      "description": "Returns the pivot table title.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetTitle/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetTitle(): string",
+      "since": "8.2.0"
+    },
+    "GetVisibleFields": {
+      "description": "Returns an array that represents all the visible fields in the pivot table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetVisibleFields/",
+      "params": [],
+      "returns": {
+        "type": "ApiPivotField[]"
+      },
+      "signature": "GetVisibleFields(): ApiPivotField[]",
+      "since": "8.2.0"
+    },
+    "MoveField": {
+      "description": "Moves the specified field from one category to another.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/MoveField/",
+      "params": [
+        {
+          "description": "The index number or name of the field.",
+          "name": "identifier",
+          "type": "number | string"
+        },
+        {
+          "description": "The direction to move the pivot table field,\ror the pivot field orientation type.",
+          "name": "type",
+          "type": "PivotMoveFieldType | PivotFieldOrientationType"
+        },
+        {
+          "description": "The field index in a new category.",
+          "name": "index",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "MoveField(identifier: number | string, type: PivotMoveFieldType | PivotFieldOrientationType, index?: number): void",
+      "since": "8.2.0"
+    },
+    "PivotValueCell": {
+      "description": "Returns the value of a pivot table cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/PivotValueCell/",
+      "params": [
+        {
+          "description": "The position of the pivot line (a line of rows in the pivot table) on the row area.",
+          "name": "rowLine",
+          "type": "number"
+        },
+        {
+          "description": "The position of the pivot line (a line of columns in the pivot table) on the column area.",
+          "name": "colLine",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "number | string | null"
+      },
+      "signature": "PivotValueCell(rowLine: number, colLine: number): number | string | null",
+      "since": "8.2.0"
+    },
+    "RefreshTable": {
+      "description": "Refreshes the pivot table report from the source data.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/RefreshTable/",
+      "params": [],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "RefreshTable(): void",
+      "since": "8.2.0"
+    },
+    "RemoveField": {
+      "description": "Removes the specified field from all the pivot table categories.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/RemoveField/",
+      "params": [
+        {
+          "description": "The index number or name of the field.",
+          "name": "identifier",
+          "type": "number | string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "RemoveField(identifier: number | string): void",
+      "since": "8.2.0"
+    },
+    "Select": {
+      "description": "Selects the current pivot table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/Select/",
+      "params": [],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "Select(): void",
+      "since": "8.2.0"
+    },
+    "SetColumnGrand": {
+      "description": "Sets the **Grand Totals** setting to the pivot table columns.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetColumnGrand/",
+      "params": [
+        {
+          "description": "Specifies whether to display the grand totals for columns.",
+          "name": "show",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetColumnGrand(show: boolean): void",
+      "since": "8.2.0"
+    },
+    "SetDescription": {
+      "description": "Sets the pivot table description.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetDescription/",
+      "params": [
+        {
+          "description": "The pivot table description.",
+          "name": "description",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetDescription(description: string): void",
+      "since": "8.2.0"
+    },
+    "SetDisplayFieldCaptions": {
+      "description": "Sets whether to display field headers for rows and columns.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetDisplayFieldCaptions/",
+      "params": [
+        {
+          "description": "Specifies whether to display field headers for rows and columns.",
+          "name": "show",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetDisplayFieldCaptions(show: boolean): void",
+      "since": "8.2.0"
+    },
+    "SetDisplayFieldsInReportFilterArea": {
+      "description": "Sets the pivot table display fields in the report filter area settings.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetDisplayFieldsInReportFilterArea/",
+      "params": [
+        {
+          "description": "Specifies how the report filter fields are located.",
+          "name": "type",
+          "type": "FieldsInReportFilterType"
+        },
+        {
+          "description": "A number of the report filter fields.",
+          "name": "fields",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetDisplayFieldsInReportFilterArea(type: FieldsInReportFilterType, fields: number): void",
+      "since": "8.2.0"
+    },
+    "SetGrandTotalName": {
+      "description": "Sets the text string label that is displayed in the grand total column or row heading in the specified pivot table report.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetGrandTotalName/",
+      "params": [
+        {
+          "description": "The grand total name.",
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetGrandTotalName(name: string): void",
+      "since": "8.2.0"
+    },
+    "SetLayoutBlankLine": {
+      "description": "Sets the setting which specifies whether to insert blank rows after each item.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetLayoutBlankLine/",
+      "params": [
+        {
+          "description": "Specifies whether to insert blank rows after each item.",
+          "name": "insert",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetLayoutBlankLine(insert: boolean): void",
+      "since": "8.2.0"
+    },
+    "SetLayoutSubtotals": {
+      "description": "Sets the setting which specifies whether to show subtotals.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetLayoutSubtotals/",
+      "params": [
+        {
+          "description": "Specifies whether to show subtotals.",
+          "name": "show",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetLayoutSubtotals(show: boolean): void",
+      "since": "8.2.0"
+    },
+    "SetName": {
+      "description": "Sets the pivot table name.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetName/",
+      "params": [
+        {
+          "description": "The pivot table name.",
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetName(name: string): void",
+      "since": "8.2.0"
+    },
+    "SetRepeatAllLabels": {
+      "description": "Specifies whether to repeat item labels for all pivot fields in the specified pivot table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetRepeatAllLabels/",
+      "params": [
+        {
+          "description": "Specifies whether to repeat all field item labels in a pivot table report.",
+          "name": "repeat",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetRepeatAllLabels(repeat: boolean): void",
+      "since": "8.2.0"
+    },
+    "SetRowAxisLayout": {
+      "description": "Sets the way the specified pivot table items appear — in table format or in outline format.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetRowAxisLayout/",
+      "params": [
+        {
+          "description": "The layout type of the pivot table report.",
+          "name": "type",
+          "type": "PivotLayoutType"
+        },
+        {
+          "description": "Specifies whether the pivot table items will be displayed in the compact form.",
+          "name": "compact",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetRowAxisLayout(type: PivotLayoutType, compact: boolean): void",
+      "since": "8.2.0"
+    },
+    "SetRowGrand": {
+      "description": "Sets the **Grand Totals** setting to the pivot table rows.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetRowGrand/",
+      "params": [
+        {
+          "description": "Specifies whether to display the grand totals for rows.",
+          "name": "show",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetRowGrand(show: boolean): void",
+      "since": "8.2.0"
+    },
+    "SetSource": {
+      "description": "Sets the source range for the pivot table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetSource/",
+      "params": [
+        {
+          "description": "The range where the pivot table will be located.",
+          "name": "source",
+          "type": "ApiRange"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetSource(source: ApiRange): void",
+      "since": "8.2.0"
+    },
+    "SetStyleName": {
+      "description": "Sets the pivot table style name.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetStyleName/",
+      "params": [
+        {
+          "description": "The pivot table style name.",
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetStyleName(name: string): void",
+      "since": "8.2.0"
+    },
+    "SetSubtotalLocation": {
+      "description": "Sets the layout subtotal location in the pivot table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetSubtotalLocation/",
+      "params": [
+        {
+          "description": "The type of the pivot table subtotal layout.",
+          "name": "type",
+          "type": "PivotSubtotalLayoutType"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetSubtotalLocation(type: PivotSubtotalLayoutType): void",
+      "since": "8.2.0"
+    },
+    "SetTableStyleColumnHeaders": {
+      "description": "Sets the setting which specifies whether the column headers of the pivot table will be highlighted with the special formatting.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetTableStyleColumnHeaders/",
+      "params": [
+        {
+          "description": "Specifies whether the column headers of the pivot table will be highlighted with the special formatting.",
+          "name": "show",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetTableStyleColumnHeaders(show: boolean): void",
+      "since": "8.2.0"
+    },
+    "SetTableStyleColumnStripes": {
+      "description": "Sets the setting which specifies whether the background color alternation for odd and even columns will be enabled for the pivot table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetTableStyleColumnStripes/",
+      "params": [
+        {
+          "description": "Specifies whether the background color alternation for odd and even columns will be enabled for the pivot table.",
+          "name": "show",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetTableStyleColumnStripes(show: boolean): void",
+      "since": "8.2.0"
+    },
+    "SetTableStyleRowHeaders": {
+      "description": "Sets the setting which specifies whether the row headers of the pivot table will be highlighted with the special formatting.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetTableStyleRowHeaders/",
+      "params": [
+        {
+          "description": "Specifies whether the row headers of the pivot table will be highlighted with the special formatting.",
+          "name": "show",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetTableStyleRowHeaders(show: boolean): void",
+      "since": "8.2.0"
+    },
+    "SetTableStyleRowStripes": {
+      "description": "Sets the setting which specifies whether the background color alternation for odd and even rows will be enabled for the pivot table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetTableStyleRowStripes/",
+      "params": [
+        {
+          "description": "Specifies whether the background color alternation for odd and even rows will be enabled for the pivot table.",
+          "name": "show",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetTableStyleRowStripes(show: boolean): void",
+      "since": "8.2.0"
+    },
+    "SetTitle": {
+      "description": "Sets the pivot table title.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetTitle/",
+      "params": [
+        {
+          "description": "The pivot table title.",
+          "name": "title",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetTitle(title: string): void",
+      "since": "8.2.0"
+    },
+    "ShowDetails": {
+      "description": "Shows details of the pivot table cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/ShowDetails/",
+      "params": [
+        {
+          "description": "The position of the pivot line (a line of rows in the pivot table) on the row area.",
+          "name": "rowLine",
+          "type": "number"
+        },
+        {
+          "description": "The position of the pivot line (a line of columns in the pivot table) on the column area.",
+          "name": "colLine",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "Returns true if the operation is successful.",
+        "type": "boolean"
+      },
+      "signature": "ShowDetails(rowLine: number, colLine: number): boolean",
+      "since": "8.2.0"
+    },
+    "Update": {
+      "description": "Updates the current pivot table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/Update/",
+      "params": [],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "Update(): void",
+      "since": "8.2.0"
+    }
+  }
+}

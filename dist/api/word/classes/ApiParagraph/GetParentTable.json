@@ -1,0 +1,10 @@
+{
+  "description": "Returns a table that contains the current paragraph.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/GetParentTable/",
+  "params": [],
+  "returns": {
+    "description": "returns null if parent table doesn't exist.",
+    "type": "ApiTable | null"
+  },
+  "signature": "GetParentTable(): ApiTable | null"
+}

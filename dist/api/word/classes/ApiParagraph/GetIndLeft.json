@@ -1,0 +1,10 @@
+{
+  "description": "Returns the paragraph left side indentation.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetIndLeft/",
+  "params": [],
+  "returns": {
+    "description": "The paragraph left side indentation value measured in twentieths of a point (1/1440 of an inch).",
+    "type": "twips | undefined"
+  },
+  "signature": "GetIndLeft(): twips | undefined"
+}

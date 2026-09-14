@@ -1,0 +1,25 @@
+{
+  "description": "Returns the Poisson distribution.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/POISSON_DIST/",
+  "params": [
+    {
+      "description": "The number of events.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    },
+    {
+      "description": "The expected numeric value, a positive number.",
+      "name": "arg2",
+      "type": "ApiRange | ApiName | number"
+    },
+    {
+      "description": "A logical value (**true** or **false**) that determines the function form.\rIf it is **true**, the function returns the cumulative Poisson probability.\rIf it is **false**, the function returns the Poisson probability mass function.",
+      "name": "arg3",
+      "type": "ApiRange | ApiName | boolean"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "POISSON_DIST(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number, arg3: ApiRange | ApiName | boolean): number"
+}

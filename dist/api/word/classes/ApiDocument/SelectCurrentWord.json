@@ -1,0 +1,10 @@
+{
+  "description": "Selects the current word if it is possible.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/SelectCurrentWord/",
+  "params": [],
+  "returns": {
+    "type": "object"
+  },
+  "signature": "SelectCurrentWord(): object",
+  "since": "8.2.0"
+}

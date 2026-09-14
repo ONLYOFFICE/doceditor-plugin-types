@@ -1,0 +1,15 @@
+{
+  "description": "Returns the sum of squares of deviations of data points from their sample mean.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/DEVSQ/",
+  "params": [
+    {
+      "description": "Up to 255 numerical values for which to find the sum of squares of deviations.\rThe first argument is required, subsequent arguments are optional. Arguments can be numbers, names, or arrays of numbers.",
+      "name": "args",
+      "type": "ApiRange | ApiName | number | number[]"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "DEVSQ(args: ApiRange | ApiName | number | number[]): number"
+}

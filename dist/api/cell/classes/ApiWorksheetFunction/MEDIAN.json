@@ -1,0 +1,15 @@
+{
+  "description": "Returns the median, or the number in the middle of the set of given numbers.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/MEDIAN/",
+  "params": [
+    {
+      "description": "Up to 255 numeric values for which the median will be calculated.\rThe first argument is required, subsequent arguments are optional. Arguments can be numbers, names, ranges, or arrays of numbers.",
+      "name": "args",
+      "type": "number | number[] | ApiRange | ApiName"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "MEDIAN(args: number | number[] | ApiRange | ApiName): number"
+}

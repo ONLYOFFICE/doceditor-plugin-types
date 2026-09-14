@@ -1,0 +1,20 @@
+{
+  "description": "Returns the k-th smallest value in a data set. For example, the fifth smallest number.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/SMALL/",
+  "params": [
+    {
+      "description": "An array or range of numerical data for which the k-th smallest value will be determined.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number[]"
+    },
+    {
+      "description": "The position (from the smallest) in the range of the value to return.",
+      "name": "arg2",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "SMALL(arg1: ApiRange | ApiName | number[], arg2: ApiRange | ApiName | number): number"
+}

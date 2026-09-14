@@ -1,0 +1,73 @@
+{
+  "description": "Class representing a pivot table field item.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotItem/",
+  "methods": {
+    "GetCaption": {
+      "description": "Returns a caption of the pivot item.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotItem/Methods/GetCaption/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetCaption(): string",
+      "since": "8.2.0"
+    },
+    "GetName": {
+      "description": "Returns a name of the pivot item.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotItem/Methods/GetName/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetName(): string",
+      "since": "8.2.0"
+    },
+    "GetParent": {
+      "description": "Returns a parent of the pivot item.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotItem/Methods/GetParent/",
+      "params": [],
+      "returns": {
+        "type": "ApiPivotField"
+      },
+      "signature": "GetParent(): ApiPivotField",
+      "since": "8.2.0"
+    },
+    "GetValue": {
+      "description": "Returns a name of the specified item in the pivot table field.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotItem/Methods/GetValue/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetValue(): string",
+      "since": "8.2.0"
+    },
+    "GetVisible": {
+      "description": "Returns the visibility of the pivot item.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotItem/Methods/GetVisible/",
+      "params": [],
+      "returns": {
+        "description": "True if the pivot item is visible, false otherwise.",
+        "type": "boolean"
+      },
+      "signature": "GetVisible(): boolean",
+      "since": "9.1.0"
+    },
+    "SetVisible": {
+      "description": "Sets the visibility of the pivot item.\n<note> At least one item must remain visible when hiding others. </note>",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotItem/Methods/SetVisible/",
+      "params": [
+        {
+          "description": "Specifies whether the pivot item is visible.",
+          "name": "visible",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetVisible(visible: boolean): void",
+      "since": "9.1.0"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "description": "Calculates how often values occur within a range of values and then returns the first value of the returned vertical array of numbers.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/FREQUENCY/",
+  "params": [
+    {
+      "description": "An array of values or the selected range for which the frequencies will be counted (blanks and text are ignored).",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number[]"
+    },
+    {
+      "description": "An array of intervals or the selected range into which the values in the first range will be grouped.",
+      "name": "arg2",
+      "type": "ApiRange | ApiName | number[]"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "FREQUENCY(arg1: ApiRange | ApiName | number[], arg2: ApiRange | ApiName | number[]): number"
+}

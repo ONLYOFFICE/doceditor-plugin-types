@@ -1,0 +1,15 @@
+{
+  "description": "Counts a number of empty cells in a specified range of cells.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/COUNTBLANK/",
+  "params": [
+    {
+      "description": "The range to count the empty cells.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "COUNTBLANK(arg1: ApiRange | ApiName): number"
+}

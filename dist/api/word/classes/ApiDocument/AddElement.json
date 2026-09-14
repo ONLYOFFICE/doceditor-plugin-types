@@ -1,0 +1,20 @@
+{
+  "description": "Adds a paragraph or a table or a blockLvl content control using its position in the document content.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/AddElement/",
+  "params": [
+    {
+      "description": "The position where the current element will be added.",
+      "name": "nPos",
+      "type": "number"
+    },
+    {
+      "description": "The document element which will be added at the current position.",
+      "name": "oElement",
+      "type": "DocumentElement"
+    }
+  ],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "AddElement(nPos: number, oElement: DocumentElement): boolean"
+}

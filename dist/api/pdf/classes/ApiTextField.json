@@ -1,0 +1,527 @@
+{
+  "description": "Class representing a text field.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/",
+  "extends": [
+    "ApiBaseField"
+  ],
+  "methods": {
+    "AddWidget": {
+      "description": "Adds new widget - visual representation for field",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/AddWidget/",
+      "params": [
+        {
+          "description": "page index to add widget",
+          "name": "pageIndex",
+          "type": "number"
+        },
+        {
+          "description": "field rect",
+          "name": "rect",
+          "type": "Rect"
+        }
+      ],
+      "returns": {
+        "type": "ApiWidget"
+      },
+      "signature": "AddWidget(pageIndex: number, rect: Rect): ApiWidget"
+    },
+    "ClearFormat": {
+      "description": "Clears format of field.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/ClearFormat/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "ClearFormat(): boolean"
+    },
+    "Delete": {
+      "description": "Removes field from document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/Delete/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "Delete(): boolean"
+    },
+    "GetAllWidgets": {
+      "description": "Gets array with widgets of the current field.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/GetAllWidgets/",
+      "params": [],
+      "returns": {
+        "description": "returns emptry array if the field is not added to the document.",
+        "type": "ApiWidget[]"
+      },
+      "signature": "GetAllWidgets(): ApiWidget[]"
+    },
+    "GetCharLimit": {
+      "description": "Gets the text field character limit.\n<note> Char limit 0 means field doesn't have char limit",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/GetCharLimit/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetCharLimit(): number"
+    },
+    "GetClassType": {
+      "description": "Returns a type of the ApiTextField class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"textField\""
+      },
+      "signature": "GetClassType(): \"textField\""
+    },
+    "GetFormattedValue": {
+      "description": "Gets formatted value of a field.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/GetFormattedValue/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetFormattedValue(): string"
+    },
+    "GetFullName": {
+      "description": "Gets field full name.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/GetFullName/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetFullName(): string"
+    },
+    "GetInternalId": {
+      "description": "Returns an internal ID of the current field.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/GetInternalId/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetInternalId(): string",
+      "since": "9.4.0"
+    },
+    "GetPartialName": {
+      "description": "Gets field partial name.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/GetPartialName/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetPartialName(): string"
+    },
+    "GetPlaceholder": {
+      "description": "Gets text field placeholder.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/GetPlaceholder/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetPlaceholder(): string"
+    },
+    "GetRegularExp": {
+      "description": "Gets text widget regular validate expression.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/GetRegularExp/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetRegularExp(): boolean"
+    },
+    "GetTooltip": {
+      "description": "Gets field tooltip",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/GetTooltip/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetTooltip(): boolean",
+      "since": "9.4.0"
+    },
+    "GetValue": {
+      "description": "Gets field value",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/GetValue/",
+      "params": [],
+      "returns": {
+        "type": "string | string[]"
+      },
+      "signature": "GetValue(): string | string[]"
+    },
+    "IsComb": {
+      "description": "Checks if the text field uses comb formatting.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/IsComb/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "IsComb(): boolean"
+    },
+    "IsMultiline": {
+      "description": "Checks if text field is multiline.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/IsMultiline/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "IsMultiline(): boolean"
+    },
+    "IsReadOnly": {
+      "description": "Checks if field is read only",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/IsReadOnly/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "IsReadOnly(): boolean"
+    },
+    "IsRequired": {
+      "description": "Checks if field is required",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/IsRequired/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "IsRequired(): boolean"
+    },
+    "IsScrollLongText": {
+      "description": "Checks if text field can scroll long text.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/IsScrollLongText/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "IsScrollLongText(): boolean"
+    },
+    "SetCharLimit": {
+      "description": "Sets the text field character limit.\n<note> Character limit 0 means the field doesn't have a character limit.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/SetCharLimit/",
+      "params": [
+        {
+          "description": "The maximum number of characters allowed in the field.",
+          "name": "charLimit",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetCharLimit(charLimit: number): boolean"
+    },
+    "SetComb": {
+      "description": "Sets whether the text field uses comb formatting.\n<note>The character limit must be greater than 0.</note>",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/SetComb/",
+      "params": [
+        {
+          "description": "Specifies whether comb formatting is enabled.",
+          "name": "comb",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetComb(comb: boolean): boolean"
+    },
+    "SetDateFormat": {
+      "description": "Sets date format for field.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/SetDateFormat/",
+      "params": [
+        {
+          "description": "date format (e.g. \"dd.mm.yyyy\")",
+          "name": "format",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetDateFormat(format: string): boolean"
+    },
+    "SetFullName": {
+      "description": "Sets new field name if possible.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/SetFullName/",
+      "params": [
+        {
+          "description": "The new full name for the field.",
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetFullName(name: string): boolean"
+    },
+    "SetMask": {
+      "description": "Sets the input mask for entered text.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/SetMask/",
+      "params": [
+        {
+          "description": "The input mask (e.g. \"(999)999-9999\").",
+          "name": "inputMask",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetMask(inputMask: string): boolean"
+    },
+    "SetMultiline": {
+      "description": "Sets text field multiline prop.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/SetMultiline/",
+      "params": [
+        {
+          "description": "will the field be multiline",
+          "name": "multiline",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetMultiline(multiline: boolean): boolean"
+    },
+    "SetNumberFormat": {
+      "description": "Sets number format for field.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/SetNumberFormat/",
+      "params": [
+        {
+          "description": "The number of digits after the decimal point.",
+          "name": "decimalPlaces",
+          "type": "number"
+        },
+        {
+          "description": "The number separator style.",
+          "name": "separatorStyle",
+          "type": "NumberSepStyle"
+        },
+        {
+          "description": "The negative number display style.",
+          "name": "negativeStyle",
+          "type": "NumberNegStyle"
+        },
+        {
+          "description": "The currency symbol.",
+          "name": "currency",
+          "type": "string"
+        },
+        {
+          "description": "If true, places the currency symbol before the number (e.g., $1,234.56);\rif false, places it after (e.g., 1,234.56$).",
+          "name": "currencyPrepend",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetNumberFormat(decimalPlaces: number, separatorStyle: NumberSepStyle, negativeStyle: NumberNegStyle, currency: string, currencyPrepend: boolean): boolean"
+    },
+    "SetPartialName": {
+      "description": "Sets new field partial name.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/SetPartialName/",
+      "params": [
+        {
+          "description": "The new partial name for the field.",
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetPartialName(name: string): boolean"
+    },
+    "SetPercentageFormat": {
+      "description": "Sets percentage format for field.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/SetPercentageFormat/",
+      "params": [
+        {
+          "description": "The number of digits after the decimal point.",
+          "name": "decimalPlaces",
+          "type": "number"
+        },
+        {
+          "description": "The number separator style.",
+          "name": "separatorStyle",
+          "type": "NumberSepStyle"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetPercentageFormat(decimalPlaces: number, separatorStyle: NumberSepStyle): boolean"
+    },
+    "SetPlaceholder": {
+      "description": "Sets text field placeholder.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/SetPlaceholder/",
+      "params": [
+        {
+          "description": "field placeholder",
+          "name": "sPlaceholder",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetPlaceholder(sPlaceholder: string): boolean"
+    },
+    "SetReadOnly": {
+      "description": "Sets field read only",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/SetReadOnly/",
+      "params": [
+        {
+          "description": "Specifies whether the field is read-only.",
+          "name": "readOnly",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetReadOnly(readOnly: boolean): boolean"
+    },
+    "SetRegularExp": {
+      "description": "Sets regular expression validate string for field.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/SetRegularExp/",
+      "params": [
+        {
+          "description": "The validation regular expression (e.g. \"\\\\S+@\\\\S+\\\\.\\\\S+\")",
+          "name": "regularExpression",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetRegularExp(regularExpression: string): boolean"
+    },
+    "SetRequired": {
+      "description": "Sets field required",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/SetRequired/",
+      "params": [
+        {
+          "description": "Specifies whether the field is required.",
+          "name": "required",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetRequired(required: boolean): boolean"
+    },
+    "SetScrollLongText": {
+      "description": "Sets whether the text field can scroll long text.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/SetScrollLongText/",
+      "params": [
+        {
+          "description": "Specifies whether long text can be scrolled.",
+          "name": "allowScroll",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetScrollLongText(allowScroll: boolean): boolean"
+    },
+    "SetSpecialFormat": {
+      "description": "Sets special format for field.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/SetSpecialFormat/",
+      "params": [
+        {
+          "description": "the formatting style to apply to the value",
+          "name": "format",
+          "type": "PsfFormat"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetSpecialFormat(format: PsfFormat): boolean"
+    },
+    "SetTimeFormat": {
+      "description": "Sets time format for field.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/SetTimeFormat/",
+      "params": [
+        {
+          "description": "available time format",
+          "name": "format",
+          "type": "TimeFormat"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetTimeFormat(format: TimeFormat): boolean"
+    },
+    "SetTooltip": {
+      "description": "Sets field tooltip",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/SetTooltip/",
+      "params": [
+        {
+          "description": "The tooltip text for the field.",
+          "name": "tooltip",
+          "type": "string"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetTooltip(tooltip: string): boolean",
+      "since": "9.4.0"
+    },
+    "SetValidateRange": {
+      "description": "Sets validate range for field.\n<note> Can only be applied to fields with a percentage or number format. </note>",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/SetValidateRange/",
+      "params": [
+        {
+          "description": "If true, enables minimum value validation using `greaterThanValue`.",
+          "name": "greaterThan",
+          "optional": true,
+          "type": "boolean"
+        },
+        {
+          "description": "The minimum allowed value.",
+          "name": "greaterThanValue",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "If true, enables maximum value validation using `lessThanValue`.",
+          "name": "lessThan",
+          "optional": true,
+          "type": "boolean"
+        },
+        {
+          "description": "The maximum allowed value.",
+          "name": "lessThanValue",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetValidateRange(greaterThan?: boolean, greaterThanValue?: number, lessThan?: boolean, lessThanValue?: number): boolean"
+    },
+    "SetValue": {
+      "description": "Sets field value",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/SetValue/",
+      "params": [
+        {
+          "description": "The new value for the field.",
+          "name": "value",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetValue(value: string): boolean"
+    }
+  }
+}

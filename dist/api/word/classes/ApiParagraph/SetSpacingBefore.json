@@ -1,0 +1,21 @@
+{
+  "description": "Sets the spacing before the current paragraph. If the value of the isBeforeAuto parameter is true, then \nany value of the nBefore is ignored. If isBeforeAuto parameter is not specified, then \nit will be interpreted as false.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetSpacingBefore/",
+  "params": [
+    {
+      "description": "The value of the spacing before the current paragraph measured in twentieths of a point (1/1440 of an inch).",
+      "name": "nBefore",
+      "type": "twips"
+    },
+    {
+      "description": "The true value disables the spacing before the current paragraph.",
+      "name": "isBeforeAuto",
+      "optional": true,
+      "type": "boolean"
+    }
+  ],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "SetSpacingBefore(nBefore: twips, isBeforeAuto?: boolean): boolean"
+}

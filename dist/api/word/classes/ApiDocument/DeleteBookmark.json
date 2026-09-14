@@ -1,0 +1,16 @@
+{
+  "description": "Removes a bookmark from the document, if one exists.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/DeleteBookmark/",
+  "params": [
+    {
+      "description": "The bookmark name.",
+      "name": "sName",
+      "type": "string"
+    }
+  ],
+  "returns": {
+    "description": "returns false if param is invalid.",
+    "type": "boolean"
+  },
+  "signature": "DeleteBookmark(sName: string): boolean"
+}

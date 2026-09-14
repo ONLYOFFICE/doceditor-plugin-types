@@ -1,0 +1,10 @@
+{
+  "description": "Returns the previous paragraph.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/GetPrevious/",
+  "params": [],
+  "returns": {
+    "description": "returns null if paragraph is first.",
+    "type": "ApiParagraph"
+  },
+  "signature": "GetPrevious(): ApiParagraph"
+}

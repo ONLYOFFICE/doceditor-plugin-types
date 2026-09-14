@@ -1,0 +1,38 @@
+{
+  "description": "Adds the cells specified by a given set of conditions or criteria.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/SUMIFS/",
+  "params": [
+    {
+      "description": "The range of cells to be evaluated.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName"
+    },
+    {
+      "description": "The first condition or criteria in the form of a number, expression, or text that defines which cells will be added.",
+      "name": "arg2",
+      "type": "ApiRange | ApiName | number | string"
+    },
+    {
+      "description": "The first range to sum. If omitted, the cells in range are used.",
+      "name": "arg3",
+      "optional": true,
+      "type": "ApiRange | ApiName"
+    },
+    {
+      "description": "Up to 127 additional conditions or criteria in the form of a number, expression, or text that defines which cells will be added.\rThese arguments are optional.",
+      "name": "arg4",
+      "optional": true,
+      "type": "ApiRange | ApiName | number | string"
+    },
+    {
+      "description": "Up to 127 actual ranges to be used to be added. If omitted, the cells in the range are used. These arguments are optional.",
+      "name": "arg5",
+      "optional": true,
+      "type": "ApiRange | ApiName"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "SUMIFS(arg1: ApiRange | ApiName, arg2: ApiRange | ApiName | number | string, arg3?: ApiRange | ApiName, arg4?: ApiRange | ApiName | number | string, arg5?: ApiRange | ApiName): number"
+}

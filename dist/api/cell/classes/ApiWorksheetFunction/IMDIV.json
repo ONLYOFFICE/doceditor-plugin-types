@@ -1,0 +1,20 @@
+{
+  "description": "Returns the quotient of two complex numbers.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMDIV/",
+  "params": [
+    {
+      "description": "The complex numerator or dividend in the *x + yi* or *x + yj* form.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    },
+    {
+      "description": "The complex denominator or divisor in the *x + yi* or *x + yj* form.",
+      "name": "arg2",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "IMDIV(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number): number"
+}

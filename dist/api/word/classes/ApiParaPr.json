@@ -1,0 +1,758 @@
+{
+  "description": "Class representing the paragraph properties.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/",
+  "methods": {
+    "GetBetweenBorder": {
+      "description": "Returns the between border of the current paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetBetweenBorder/",
+      "params": [],
+      "returns": {
+        "description": "Returns the border properties object, or _undefined_ if the between border is not set.",
+        "type": "Border | undefined"
+      },
+      "signature": "GetBetweenBorder(): Border | undefined",
+      "since": "9.4.0"
+    },
+    "GetBottomBorder": {
+      "description": "Returns the bottom border of the current paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetBottomBorder/",
+      "params": [],
+      "returns": {
+        "description": "Returns the border properties object, or _undefined_ if the bottom border is not set.",
+        "type": "Border | undefined"
+      },
+      "signature": "GetBottomBorder(): Border | undefined",
+      "since": "9.4.0"
+    },
+    "GetClassType": {
+      "description": "Returns a type of the ApiParaPr class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"paraPr\""
+      },
+      "signature": "GetClassType(): \"paraPr\""
+    },
+    "GetContextualSpacing": {
+      "description": "Returns the contextual spacing value of the current paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetContextualSpacing/",
+      "params": [],
+      "returns": {
+        "description": "Returns _true_ if the contextual spacing is enabled, _false_ if it is disabled,\ror _undefined_ if the value is not set.",
+        "type": "boolean | undefined"
+      },
+      "signature": "GetContextualSpacing(): boolean | undefined",
+      "since": "9.4.0"
+    },
+    "GetIndFirstLine": {
+      "description": "Returns the paragraph first line indentation.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetIndFirstLine/",
+      "params": [],
+      "returns": {
+        "description": "The paragraph first line indentation value measured in twentieths of a point (1/1440 of an inch).",
+        "type": "twips | undefined"
+      },
+      "signature": "GetIndFirstLine(): twips | undefined"
+    },
+    "GetIndLeft": {
+      "description": "Returns the paragraph left side indentation.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetIndLeft/",
+      "params": [],
+      "returns": {
+        "description": "The paragraph left side indentation value measured in twentieths of a point (1/1440 of an inch).",
+        "type": "twips | undefined"
+      },
+      "signature": "GetIndLeft(): twips | undefined"
+    },
+    "GetIndRight": {
+      "description": "Returns the paragraph right side indentation.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetIndRight/",
+      "params": [],
+      "returns": {
+        "description": "The paragraph right side indentation value measured in twentieths of a point (1/1440 of an inch).",
+        "type": "twips | undefined"
+      },
+      "signature": "GetIndRight(): twips | undefined"
+    },
+    "GetJc": {
+      "description": "Returns the paragraph contents justification.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetJc/",
+      "params": [],
+      "returns": {
+        "type": "\"left\" | \"right\" | \"both\" | \"center\" | undefined"
+      },
+      "signature": "GetJc(): \"left\" | \"right\" | \"both\" | \"center\" | undefined"
+    },
+    "GetKeepLines": {
+      "description": "Returns the keep lines value of the current paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetKeepLines/",
+      "params": [],
+      "returns": {
+        "description": "Returns _true_ if all lines of the paragraph are kept on a single page,\r_false_ if they are not, or _undefined_ if the value is not set.",
+        "type": "boolean | undefined"
+      },
+      "signature": "GetKeepLines(): boolean | undefined",
+      "since": "9.4.0"
+    },
+    "GetKeepNext": {
+      "description": "Returns the keep next value of the current paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetKeepNext/",
+      "params": [],
+      "returns": {
+        "description": "Returns _true_ if the paragraph is kept on the same page as the following paragraph,\r_false_ if it is not, or _undefined_ if the value is not set.",
+        "type": "boolean | undefined"
+      },
+      "signature": "GetKeepNext(): boolean | undefined",
+      "since": "9.4.0"
+    },
+    "GetLeftBorder": {
+      "description": "Returns the left border of the current paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetLeftBorder/",
+      "params": [],
+      "returns": {
+        "description": "Returns the border properties object, or _undefined_ if the left border is not set.",
+        "type": "Border | undefined"
+      },
+      "signature": "GetLeftBorder(): Border | undefined",
+      "since": "9.4.0"
+    },
+    "GetNumPr": {
+      "description": "Returns the numbering level for the current paragraph referencing the numbering definition instance in the current document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetNumPr/",
+      "params": [],
+      "returns": {
+        "type": "ApiNumberingLevel | undefined"
+      },
+      "signature": "GetNumPr(): ApiNumberingLevel | undefined"
+    },
+    "GetOutlineLvl": {
+      "description": "Returns the outline level of the specified properties.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetOutlineLvl/",
+      "params": [],
+      "returns": {
+        "type": "number | undefined"
+      },
+      "signature": "GetOutlineLvl(): number | undefined",
+      "since": "8.2.0"
+    },
+    "GetPageBreakBefore": {
+      "description": "Returns the page break before value of the current paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetPageBreakBefore/",
+      "params": [],
+      "returns": {
+        "description": "Returns _true_ if the paragraph is rendered at the beginning of a new page,\r_false_ if it is not, or _undefined_ if the value is not set.",
+        "type": "boolean | undefined"
+      },
+      "signature": "GetPageBreakBefore(): boolean | undefined",
+      "since": "9.4.0"
+    },
+    "GetRightBorder": {
+      "description": "Returns the right border of the current paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetRightBorder/",
+      "params": [],
+      "returns": {
+        "description": "Returns the border properties object, or _undefined_ if the right border is not set.",
+        "type": "Border | undefined"
+      },
+      "signature": "GetRightBorder(): Border | undefined",
+      "since": "9.4.0"
+    },
+    "GetShd": {
+      "description": "Returns the shading applied to the contents of the paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetShd/",
+      "params": [],
+      "returns": {
+        "type": "Shd | undefined"
+      },
+      "signature": "GetShd(): Shd | undefined"
+    },
+    "GetSpacingAfter": {
+      "description": "Returns the spacing after value of the current paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetSpacingAfter/",
+      "params": [],
+      "returns": {
+        "description": "The value of the spacing after the current paragraph measured in twentieths of a point (1/1440 of an inch).",
+        "type": "twips"
+      },
+      "signature": "GetSpacingAfter(): twips"
+    },
+    "GetSpacingBefore": {
+      "description": "Returns the spacing before value of the current paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetSpacingBefore/",
+      "params": [],
+      "returns": {
+        "description": "The value of the spacing before the current paragraph measured in twentieths of a point (1/1440 of an inch).",
+        "type": "twips"
+      },
+      "signature": "GetSpacingBefore(): twips"
+    },
+    "GetSpacingLineRule": {
+      "description": "Returns the paragraph line spacing rule.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetSpacingLineRule/",
+      "params": [],
+      "returns": {
+        "type": "\"auto\" | \"atLeast\" | \"exact\" | undefined"
+      },
+      "signature": "GetSpacingLineRule(): \"auto\" | \"atLeast\" | \"exact\" | undefined"
+    },
+    "GetSpacingLineValue": {
+      "description": "Returns the paragraph line spacing value.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetSpacingLineValue/",
+      "params": [],
+      "returns": {
+        "description": "to know is twips or line240 use ApiParaPr.prototype.GetSpacingLineRule().",
+        "type": "twips | line240 | undefined"
+      },
+      "signature": "GetSpacingLineValue(): twips | line240 | undefined"
+    },
+    "GetStyle": {
+      "description": "Returns the paragraph style method.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetStyle/",
+      "params": [],
+      "returns": {
+        "description": "The style of the paragraph.",
+        "type": "ApiStyle"
+      },
+      "signature": "GetStyle(): ApiStyle"
+    },
+    "GetTabs": {
+      "description": "Returns the custom tab stops of the current paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetTabs/",
+      "params": [],
+      "returns": {
+        "type": "TabStop[]"
+      },
+      "signature": "GetTabs(): TabStop[]",
+      "since": "9.4.0"
+    },
+    "GetTopBorder": {
+      "description": "Returns the top border of the current paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetTopBorder/",
+      "params": [],
+      "returns": {
+        "description": "Returns the border properties object, or _undefined_ if the top border is not set.",
+        "type": "Border | undefined"
+      },
+      "signature": "GetTopBorder(): Border | undefined",
+      "since": "9.4.0"
+    },
+    "GetWidowControl": {
+      "description": "Returns the widow control value of the current paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetWidowControl/",
+      "params": [],
+      "returns": {
+        "description": "Returns _true_ if widow control is enabled, _false_ if it is disabled,\ror _undefined_ if the value is not set.",
+        "type": "boolean | undefined"
+      },
+      "signature": "GetWidowControl(): boolean | undefined",
+      "since": "9.4.0"
+    },
+    "SetBetweenBorder": {
+      "description": "Specifies the border which will be displayed between each paragraph in a set of paragraphs which have the same set of paragraph border settings.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetBetweenBorder/",
+      "params": [
+        {
+          "description": "The border style.",
+          "name": "sType",
+          "type": "BorderType"
+        },
+        {
+          "description": "The width of the current border measured in eighths of a point.",
+          "name": "nSize",
+          "type": "pt_8"
+        },
+        {
+          "description": "The spacing offset between the paragraphs measured in points used to place this border.",
+          "name": "nSpace",
+          "type": "pt"
+        },
+        {
+          "description": "Red color component value.",
+          "name": "r",
+          "type": "number"
+        },
+        {
+          "description": "Green color component value.",
+          "name": "g",
+          "type": "number"
+        },
+        {
+          "description": "Blue color component value.",
+          "name": "b",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetBetweenBorder(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean"
+    },
+    "SetBottomBorder": {
+      "description": "Specifies the border which will be displayed below a set of paragraphs which have the same paragraph border settings.\n<note>The paragraphs of the same style going one by one are considered as a single block, so the border is added\nto the whole block rather than to every paragraph in this block.</note>",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetBottomBorder/",
+      "params": [
+        {
+          "description": "The border style.",
+          "name": "sType",
+          "type": "BorderType"
+        },
+        {
+          "description": "The width of the current bottom border measured in eighths of a point.",
+          "name": "nSize",
+          "type": "pt_8"
+        },
+        {
+          "description": "The spacing offset below the paragraph measured in points used to place this border.",
+          "name": "nSpace",
+          "type": "pt"
+        },
+        {
+          "description": "Red color component value.",
+          "name": "r",
+          "type": "number"
+        },
+        {
+          "description": "Green color component value.",
+          "name": "g",
+          "type": "number"
+        },
+        {
+          "description": "Blue color component value.",
+          "name": "b",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetBottomBorder(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean"
+    },
+    "SetContextualSpacing": {
+      "description": "Specifies that any space before or after this paragraph set using the \n{@link ApiParaPr#SetSpacingBefore} or {@link ApiParaPr#SetSpacingAfter} spacing element, should not be applied when the preceding and \nfollowing paragraphs are of the same paragraph style, affecting the top and bottom spacing respectively.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetContextualSpacing/",
+      "params": [
+        {
+          "description": "The true value will enable the paragraph contextual spacing.",
+          "name": "isContextualSpacing",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetContextualSpacing(isContextualSpacing: boolean): boolean"
+    },
+    "SetIndFirstLine": {
+      "description": "Sets the paragraph first line indentation.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetIndFirstLine/",
+      "params": [
+        {
+          "description": "The paragraph first line indentation value measured in twentieths of a point (1/1440 of an inch).",
+          "name": "nValue",
+          "type": "twips"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetIndFirstLine(nValue: twips): boolean"
+    },
+    "SetIndLeft": {
+      "description": "Sets the paragraph left side indentation.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetIndLeft/",
+      "params": [
+        {
+          "description": "The paragraph left side indentation value measured in twentieths of a point (1/1440 of an inch).",
+          "name": "nValue",
+          "type": "twips"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetIndLeft(nValue: twips): boolean"
+    },
+    "SetIndRight": {
+      "description": "Sets the paragraph right side indentation.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetIndRight/",
+      "params": [
+        {
+          "description": "The paragraph right side indentation value measured in twentieths of a point (1/1440 of an inch).",
+          "name": "nValue",
+          "type": "twips"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetIndRight(nValue: twips): boolean"
+    },
+    "SetJc": {
+      "description": "Sets the paragraph contents justification.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetJc/",
+      "params": [
+        {
+          "description": "The justification type that\rwill be applied to the paragraph contents.",
+          "name": "sJc",
+          "type": "\"left\" | \"right\" | \"both\" | \"center\""
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetJc(sJc: \"left\" | \"right\" | \"both\" | \"center\"): boolean"
+    },
+    "SetKeepLines": {
+      "description": "Specifies that when rendering the document using a page view, all lines of the current paragraph are maintained on a single page whenever possible.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetKeepLines/",
+      "params": [
+        {
+          "description": "The true value enables the option to keep lines of the paragraph on a single page.",
+          "name": "isKeepLines",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetKeepLines(isKeepLines: boolean): boolean"
+    },
+    "SetKeepNext": {
+      "description": "Specifies that when rendering the document using a paginated view, the contents of the current paragraph are at least\npartly rendered on the same page as the following paragraph whenever possible.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetKeepNext/",
+      "params": [
+        {
+          "description": "The true value enables the option to keep lines of the paragraph on the same\rpage as the following paragraph.",
+          "name": "isKeepNext",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetKeepNext(isKeepNext: boolean): boolean"
+    },
+    "SetLeftBorder": {
+      "description": "Specifies the border which will be displayed at the left side of the page around the specified paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetLeftBorder/",
+      "params": [
+        {
+          "description": "The border style.",
+          "name": "sType",
+          "type": "BorderType"
+        },
+        {
+          "description": "The width of the current left border measured in eighths of a point.",
+          "name": "nSize",
+          "type": "pt_8"
+        },
+        {
+          "description": "The spacing offset to the left of the paragraph measured in points used to place this border.",
+          "name": "nSpace",
+          "type": "pt"
+        },
+        {
+          "description": "Red color component value.",
+          "name": "r",
+          "type": "number"
+        },
+        {
+          "description": "Green color component value.",
+          "name": "g",
+          "type": "number"
+        },
+        {
+          "description": "Blue color component value.",
+          "name": "b",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetLeftBorder(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean"
+    },
+    "SetNumPr": {
+      "description": "Specifies that the current paragraph references a numbering definition instance in the current document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetNumPr/",
+      "params": [
+        {
+          "description": "Specifies a numbering definition, or _undefined_/_null_ to remove numbering.",
+          "name": "numPr",
+          "type": "ApiNumbering"
+        },
+        {
+          "description": "Specifies a numbering level reference. If the current instance of the ApiParaPr class is direct\rformatting of a paragraph, then this parameter MUST BE specified. Otherwise, if the current instance of the ApiParaPr class\ris the part of ApiStyle properties, this parameter will be ignored.",
+          "name": "lvl",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetNumPr(numPr: ApiNumbering, lvl?: number): boolean"
+    },
+    "SetOutlineLvl": {
+      "description": "Sets the outline level for the specified properties.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetOutlineLvl/",
+      "params": [
+        {
+          "description": "The outline level. Possible values: 1-9. The 1 value means the basic outline level.\rTo set no outline level, use this method without a parameter.",
+          "name": "lvl",
+          "optional": true,
+          "type": "number | null"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetOutlineLvl(lvl?: number | null): boolean",
+      "since": "8.2.0"
+    },
+    "SetPageBreakBefore": {
+      "description": "Specifies that when rendering the document using a paginated view, the contents of the current paragraph are rendered at\nthe beginning of a new page in the document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetPageBreakBefore/",
+      "params": [
+        {
+          "description": "The true value enables the option to render the contents of the paragraph\rat the beginning of a new page in the document.",
+          "name": "isPageBreakBefore",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetPageBreakBefore(isPageBreakBefore: boolean): boolean"
+    },
+    "SetRightBorder": {
+      "description": "Specifies the border which will be displayed at the right side of the page around the specified paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetRightBorder/",
+      "params": [
+        {
+          "description": "The border style.",
+          "name": "sType",
+          "type": "BorderType"
+        },
+        {
+          "description": "The width of the current right border measured in eighths of a point.",
+          "name": "nSize",
+          "type": "pt_8"
+        },
+        {
+          "description": "The spacing offset to the right of the paragraph measured in points used to place this border.",
+          "name": "nSpace",
+          "type": "pt"
+        },
+        {
+          "description": "Red color component value.",
+          "name": "r",
+          "type": "number"
+        },
+        {
+          "description": "Green color component value.",
+          "name": "g",
+          "type": "number"
+        },
+        {
+          "description": "Blue color component value.",
+          "name": "b",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetRightBorder(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean"
+    },
+    "SetShd": {
+      "description": "Specifies the shading applied to the contents of the paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetShd/",
+      "params": [
+        {
+          "description": "The shading type which will be applied to the contents of the current paragraph.",
+          "name": "type",
+          "type": "ShdType"
+        },
+        {
+          "description": "The color or pattern used to fill the shading.",
+          "name": "color",
+          "type": "ApiColor"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetShd(type: ShdType, color: ApiColor): boolean",
+      "since": "9.1.0"
+    },
+    "SetSpacingAfter": {
+      "description": "Sets the spacing after the current paragraph. If the value of the isAfterAuto parameter is true, then \nany value of the nAfter is ignored. If isAfterAuto parameter is not specified, then it \nwill be interpreted as false.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetSpacingAfter/",
+      "params": [
+        {
+          "description": "The value of the spacing after the current paragraph measured in twentieths of a point (1/1440 of an inch).",
+          "name": "nAfter",
+          "type": "twips"
+        },
+        {
+          "description": "The true value disables the spacing after the current paragraph.",
+          "name": "isAfterAuto",
+          "optional": true,
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetSpacingAfter(nAfter: twips, isAfterAuto?: boolean): boolean"
+    },
+    "SetSpacingBefore": {
+      "description": "Sets the spacing before the current paragraph. If the value of the isBeforeAuto parameter is true, then \nany value of the nBefore is ignored. If isBeforeAuto parameter is not specified, then \nit will be interpreted as false.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetSpacingBefore/",
+      "params": [
+        {
+          "description": "The value of the spacing before the current paragraph measured in twentieths of a point (1/1440 of an inch).",
+          "name": "nBefore",
+          "type": "twips"
+        },
+        {
+          "description": "The true value disables the spacing before the current paragraph.",
+          "name": "isBeforeAuto",
+          "optional": true,
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetSpacingBefore(nBefore: twips, isBeforeAuto?: boolean): boolean"
+    },
+    "SetSpacingLine": {
+      "description": "Sets the paragraph line spacing. If the value of the sLineRule parameter is either \n\"atLeast\" or \"exact\", then the value of nLine will be interpreted as twentieths of a point. If \nthe value of the sLineRule parameter is \"auto\", then the value of the \nnLine parameter will be interpreted as 240ths of a line.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetSpacingLine/",
+      "params": [
+        {
+          "description": "The line spacing value measured either in twentieths of a point (1/1440 of an inch) or in 240ths of a line.",
+          "name": "nLine",
+          "type": "twips | line240"
+        },
+        {
+          "description": "The rule that determines the measuring units of the line spacing.",
+          "name": "sLineRule",
+          "type": "\"auto\" | \"atLeast\" | \"exact\""
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetSpacingLine(nLine: twips | line240, sLineRule: \"auto\" | \"atLeast\" | \"exact\"): boolean"
+    },
+    "SetStyle": {
+      "description": "The paragraph style base method.\n<note>This method is not used by itself, as it only forms the basis for the {@link ApiParagraph#SetStyle} method which sets the selected or created style for the paragraph.</note>",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetStyle/",
+      "params": [
+        {
+          "description": "The style of the paragraph to be set, or the name of an existing style, or _undefined_/_null_ to remove the style.",
+          "name": "style",
+          "type": "ApiStyle | string"
+        }
+      ],
+      "returns": {
+        "description": "this paragraph properties.",
+        "type": "ApiParaPr"
+      },
+      "signature": "SetStyle(style: ApiStyle | string): ApiParaPr"
+    },
+    "SetTabs": {
+      "description": "Specifies a sequence of custom tab stops which will be used for any tab characters in the current paragraph.\n**Warning**: The lengths of aPos array and aVal array **MUST BE** equal to each other.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetTabs/",
+      "params": [
+        {
+          "description": "An array of the positions of custom tab stops with respect to the current page margins\rmeasured in twentieths of a point (1/1440 of an inch).",
+          "name": "aPos",
+          "type": "twips[]"
+        },
+        {
+          "description": "An array of the styles of custom tab stops, which determines the behavior of the tab\rstop and the alignment which will be applied to text entered at the current custom tab stop.",
+          "name": "aVal",
+          "type": "TabJc[]"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetTabs(aPos: twips[], aVal: TabJc[]): boolean"
+    },
+    "SetTopBorder": {
+      "description": "Specifies the border which will be displayed above a set of paragraphs which have the same set of paragraph border settings.\n<note>The paragraphs of the same style going one by one are considered as a single block, so the border is added to the whole block rather than to every paragraph in this block.</note>",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetTopBorder/",
+      "params": [
+        {
+          "description": "The border style.",
+          "name": "sType",
+          "type": "BorderType"
+        },
+        {
+          "description": "The width of the current top border measured in eighths of a point.",
+          "name": "nSize",
+          "type": "pt_8"
+        },
+        {
+          "description": "The spacing offset above the paragraph measured in points used to place this border.",
+          "name": "nSpace",
+          "type": "pt"
+        },
+        {
+          "description": "Red color component value.",
+          "name": "r",
+          "type": "number"
+        },
+        {
+          "description": "Green color component value.",
+          "name": "g",
+          "type": "number"
+        },
+        {
+          "description": "Blue color component value.",
+          "name": "b",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetTopBorder(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean"
+    },
+    "SetWidowControl": {
+      "description": "Specifies whether a single line of the current paragraph will be displayed on a separate page from the remaining content at display time by moving the line onto the following page.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetWidowControl/",
+      "params": [
+        {
+          "description": "The true value means that a single line of the current paragraph will be displayed on a separate page from the remaining content at display time by moving the line onto the following page.",
+          "name": "isWidowControl",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetWidowControl(isWidowControl: boolean): boolean"
+    },
+    "ToJSON": {
+      "description": "Converts the ApiParaPr object into the JSON object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/ToJSON/",
+      "params": [
+        {
+          "description": "Specifies if the used styles will be written to the JSON object or not.",
+          "name": "bWriteStyles",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "object"
+      },
+      "signature": "ToJSON(bWriteStyles: boolean): object"
+    }
+  }
+}

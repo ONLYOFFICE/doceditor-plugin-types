@@ -1,0 +1,47 @@
+{
+  "description": "Class representing a single data row in a list object (table).",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListRow/",
+  "methods": {
+    "Delete": {
+      "description": "Deletes the row from the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListRow/Methods/Delete/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "Returns false if the row cannot be deleted due to a table intersection conflict, otherwise true.",
+        "type": "boolean"
+      },
+      "signature": "Delete(): boolean"
+    },
+    "GetIndex": {
+      "description": "Returns the 1-based index of the row within the data body of the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListRow/Methods/GetIndex/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetIndex(): number"
+    },
+    "GetParent": {
+      "description": "Returns the parent list object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListRow/Methods/GetParent/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiListObject"
+      },
+      "signature": "GetParent(): ApiListObject"
+    },
+    "GetRange": {
+      "description": "Returns the range of the entire row, spanning all columns of the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListRow/Methods/GetRange/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiRange | null"
+      },
+      "signature": "GetRange(): ApiRange | null"
+    }
+  }
+}

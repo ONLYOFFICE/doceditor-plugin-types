@@ -1,0 +1,10 @@
+{
+  "description": "Returns the index of the current page.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetCurrentPage/",
+  "params": [],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "GetCurrentPage(): number",
+  "since": "8.3.0"
+}

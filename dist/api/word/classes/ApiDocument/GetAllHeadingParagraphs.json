@@ -1,0 +1,9 @@
+{
+  "description": "Returns all heading paragraphs from the current document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetAllHeadingParagraphs/",
+  "params": [],
+  "returns": {
+    "type": "ApiParagraph[]"
+  },
+  "signature": "GetAllHeadingParagraphs(): ApiParagraph[]"
+}

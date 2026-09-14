@@ -1,0 +1,15 @@
+{
+  "description": "Returns the secant of an angle.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/SEC/",
+  "params": [
+    {
+      "description": "The angle in radians for which the secant will be returned.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "SEC(arg1: ApiRange | ApiName | number): number"
+}

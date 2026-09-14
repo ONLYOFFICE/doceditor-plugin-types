@@ -1,0 +1,15 @@
+{
+  "description": "Checks whether all conditions in a test are **true**.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/AND/",
+  "params": [
+    {
+      "description": "A condition to check.",
+      "name": "args",
+      "type": "number | string | ApiRange | boolean | ApiName"
+    }
+  ],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "AND(args: number | string | ApiRange | boolean | ApiName): boolean"
+}

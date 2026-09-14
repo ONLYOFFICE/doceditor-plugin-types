@@ -1,0 +1,119 @@
+{
+  "description": "Class representing a single column in a list object (table).",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListColumn/",
+  "methods": {
+    "Delete": {
+      "description": "Deletes the column from the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListColumn/Methods/Delete/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "Returns false if the column cannot be deleted due to a table intersection conflict, otherwise true.",
+        "type": "boolean"
+      },
+      "signature": "Delete(): boolean"
+    },
+    "GetDataBodyRange": {
+      "description": "Returns the range of the data body of the column, excluding the header and totals rows.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListColumn/Methods/GetDataBodyRange/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiRange | null"
+      },
+      "signature": "GetDataBodyRange(): ApiRange | null"
+    },
+    "GetIndex": {
+      "description": "Returns the 1-based index of the column within the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListColumn/Methods/GetIndex/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetIndex(): number"
+    },
+    "GetName": {
+      "description": "Returns the name of the table column.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListColumn/Methods/GetName/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetName(): string"
+    },
+    "GetParent": {
+      "description": "Returns the parent list object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListColumn/Methods/GetParent/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiListObject"
+      },
+      "signature": "GetParent(): ApiListObject"
+    },
+    "GetRange": {
+      "description": "Returns the range of the entire column, including the header and totals rows.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListColumn/Methods/GetRange/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiRange | null"
+      },
+      "signature": "GetRange(): ApiRange | null"
+    },
+    "GetTotal": {
+      "description": "Returns the range of the totals row cell for the column.\nReturns null if the table has no totals row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListColumn/Methods/GetTotal/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiRange | null"
+      },
+      "signature": "GetTotal(): ApiRange | null"
+    },
+    "GetTotalsCalculation": {
+      "description": "Returns the totals calculation type for the column.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListColumn/Methods/GetTotalsCalculation/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "XlTotalsCalculation"
+      },
+      "signature": "GetTotalsCalculation(): XlTotalsCalculation"
+    },
+    "SetName": {
+      "description": "Sets the name of the table column.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListColumn/Methods/SetName/",
+      "params": [
+        {
+          "description": "The new column name.",
+          "name": "sName",
+          "type": "string"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetName(sName: string): void"
+    },
+    "SetTotalsCalculation": {
+      "description": "Sets the totals calculation type for the column.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListColumn/Methods/SetTotalsCalculation/",
+      "params": [
+        {
+          "description": "The totals calculation type.",
+          "name": "sType",
+          "type": "XlTotalsCalculation"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetTotalsCalculation(sType: XlTotalsCalculation): void"
+    }
+  }
+}

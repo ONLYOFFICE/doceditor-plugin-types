@@ -1,0 +1,9 @@
+{
+  "description": "Clears all forms in the document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/ClearAllFields/",
+  "params": [],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "ClearAllFields(): boolean"
+}

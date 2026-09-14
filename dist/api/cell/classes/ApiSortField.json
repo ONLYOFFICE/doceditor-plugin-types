@@ -1,0 +1,162 @@
+{
+  "description": "Class representing a single sort field within a SortFields collection.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSortField/",
+  "methods": {
+    "Delete": {
+      "description": "Removes this sort field from the collection.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSortField/Methods/Delete/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "Delete(): void"
+    },
+    "GetKey": {
+      "description": "Returns the sort key range (the full table column).",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSortField/Methods/GetKey/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiRange | null"
+      },
+      "signature": "GetKey(): ApiRange | null"
+    },
+    "GetOrder": {
+      "description": "Returns the sort order: \"xlAscending\" or \"xlDescending\".",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSortField/Methods/GetOrder/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "SortOrder"
+      },
+      "signature": "GetOrder(): SortOrder"
+    },
+    "GetParent": {
+      "description": "Returns the parent SortFields collection.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSortField/Methods/GetParent/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiSortFields"
+      },
+      "signature": "GetParent(): ApiSortFields"
+    },
+    "GetPriority": {
+      "description": "Returns the 1-based priority of this sort field within the collection.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSortField/Methods/GetPriority/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetPriority(): number"
+    },
+    "GetSortOn": {
+      "description": "Returns the sort-on type: \"xlSortOnValues\", \"xlSortOnCellColor\", \"xlSortOnFontColor\", \"xlSortOnIcon\".",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSortField/Methods/GetSortOn/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "XlSortOn"
+      },
+      "signature": "GetSortOn(): XlSortOn"
+    },
+    "GetSortOnValue": {
+      "description": "Returns the value (color or null) by which this sort field is sorted.\nFor color-based sorts returns the fill/font color; otherwise returns null.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSortField/Methods/GetSortOnValue/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiColor | null"
+      },
+      "signature": "GetSortOnValue(): ApiColor | null"
+    },
+    "ModifyKey": {
+      "description": "Changes the sort key column.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSortField/Methods/ModifyKey/",
+      "params": [
+        {
+          "description": "New sort key range.",
+          "name": "rng",
+          "type": "ApiRange"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "ModifyKey(rng: ApiRange): void"
+    },
+    "SetOrder": {
+      "description": "Sets the sort order.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSortField/Methods/SetOrder/",
+      "params": [
+        {
+          "description": "The sort order.",
+          "name": "sOrder",
+          "type": "SortOrder"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetOrder(sOrder: SortOrder): void"
+    },
+    "SetPriority": {
+      "description": "Sets the 1-based priority of this sort field, repositioning it within the collection.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSortField/Methods/SetPriority/",
+      "params": [
+        {
+          "description": "The new 1-based priority of the sort field.",
+          "name": "priority",
+          "type": "number"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetPriority(priority: number): void"
+    },
+    "SetSortOn": {
+      "description": "Sets the sort-on type.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSortField/Methods/SetSortOn/",
+      "params": [
+        {
+          "description": "The value used as the sort criteria.",
+          "name": "sSortOn",
+          "type": "XlSortOn"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetSortOn(sSortOn: XlSortOn): void"
+    },
+    "SetSortOnColor": {
+      "description": "Sets the color for color-based sorting.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSortField/Methods/SetSortOnColor/",
+      "params": [
+        {
+          "description": "The color to sort by.",
+          "name": "oColor",
+          "type": "ApiColor"
+        },
+        {
+          "description": "\"xlSortOnCellColor\" or \"xlSortOnFontColor\".",
+          "name": "sSortOn",
+          "optional": true,
+          "type": "XlSortOn"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetSortOnColor(oColor: ApiColor, sSortOn?: XlSortOn): void"
+    }
+  }
+}

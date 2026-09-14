@@ -1,0 +1,11 @@
+{
+  "description": "Returns the collection of all tables of contents in the document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetTablesOfContents/",
+  "params": [],
+  "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+  "returns": {
+    "type": "ApiTablesOfContents"
+  },
+  "signature": "GetTablesOfContents(): ApiTablesOfContents",
+  "since": "10.0.0"
+}

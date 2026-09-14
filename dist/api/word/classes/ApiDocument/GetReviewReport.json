@@ -1,0 +1,9 @@
+{
+  "description": "Returns a report about every change which was made to the document in the review mode.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetReviewReport/",
+  "params": [],
+  "returns": {
+    "type": "ReviewReport"
+  },
+  "signature": "GetReviewReport(): ReviewReport"
+}

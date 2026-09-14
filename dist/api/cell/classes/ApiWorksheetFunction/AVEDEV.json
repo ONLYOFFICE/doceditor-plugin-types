@@ -1,0 +1,15 @@
+{
+  "description": "Returns the average of the absolute deviations of data points from their mean.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/AVEDEV/",
+  "params": [
+    {
+      "description": "Up to 255 numeric values for which the average of the absolute deviations will be returned. The first argument is required,\rsubsequent arguments are optional. Arguments can be numbers, names, or arrays of numbers.",
+      "name": "args",
+      "type": "ApiRange | ApiName | number | number[]"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "AVEDEV(args: ApiRange | ApiName | number | number[]): number"
+}

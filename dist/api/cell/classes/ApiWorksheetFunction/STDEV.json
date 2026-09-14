@@ -1,0 +1,15 @@
+{
+  "description": "Estimates standard deviation based on a sample (ignores logical values and text in the sample).",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/STDEV/",
+  "params": [
+    {
+      "description": "Up to 255 numeric values for which the standard deviation will be calculated.\rThe first argument is required, subsequent arguments are optional. Arguments can be numbers, names, ranges, or arrays of numbers.",
+      "name": "args",
+      "type": "number[] | number | ApiName | ApiRange"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "STDEV(args: number[] | number | ApiName | ApiRange): number"
+}

@@ -1,0 +1,9 @@
+{
+  "description": "Returns a random number greater than or equal to 0 and less than 1, evenly distributed (changes on recalculation).",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/RAND/",
+  "params": [],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "RAND(): number"
+}

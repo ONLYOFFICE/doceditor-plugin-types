@@ -1,0 +1,15 @@
+{
+  "description": "Converts a Roman numeral to Arabic.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/ARABIC/",
+  "params": [
+    {
+      "description": "The Roman numeral to convert.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | string"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "ARABIC(arg1: ApiRange | ApiName | string): number"
+}

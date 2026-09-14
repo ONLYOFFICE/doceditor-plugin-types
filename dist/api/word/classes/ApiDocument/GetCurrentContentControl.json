@@ -1,0 +1,10 @@
+{
+  "description": "Returns the currently selected content control.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/GetCurrentContentControl/",
+  "params": [],
+  "returns": {
+    "type": "ApiBlockLvlSdt | ApiInlineLvlSdt | null"
+  },
+  "signature": "GetCurrentContentControl(): ApiBlockLvlSdt | ApiInlineLvlSdt | null",
+  "since": "9.0.0"
+}

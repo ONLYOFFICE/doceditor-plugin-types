@@ -1,0 +1,158 @@
+{
+  "description": "Class representing a set of formatting properties which shall be conditionally applied to the parts of a table\nwhich match the requirement specified on the `Type`.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableStylePr/",
+  "methods": {
+    "GetClassType": {
+      "description": "Returns a type of the ApiTableStylePr class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableStylePr/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"tableStylePr\""
+      },
+      "signature": "GetClassType(): \"tableStylePr\""
+    },
+    "GetParaPr": {
+      "description": "Returns a set of the paragraph properties which will be applied to all the paragraphs within a table which match the conditional formatting type.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableStylePr/Methods/GetParaPr/",
+      "params": [],
+      "returns": {
+        "type": "ApiParaPr"
+      },
+      "signature": "GetParaPr(): ApiParaPr"
+    },
+    "GetTableCellPr": {
+      "description": "Returns a set of the table cell properties which will be applied to all the cells within a table which match the conditional formatting type.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableStylePr/Methods/GetTableCellPr/",
+      "params": [],
+      "returns": {
+        "type": "ApiTableCellPr"
+      },
+      "signature": "GetTableCellPr(): ApiTableCellPr"
+    },
+    "GetTablePr": {
+      "description": "Returns a set of the table properties which will be applied to all the regions within a table which match the conditional formatting type.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableStylePr/Methods/GetTablePr/",
+      "params": [],
+      "returns": {
+        "type": "ApiTablePr"
+      },
+      "signature": "GetTablePr(): ApiTablePr"
+    },
+    "GetTableRowPr": {
+      "description": "Returns a set of the table row properties which will be applied to all the rows within a table which match the conditional formatting type.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableStylePr/Methods/GetTableRowPr/",
+      "params": [],
+      "returns": {
+        "type": "ApiTableRowPr"
+      },
+      "signature": "GetTableRowPr(): ApiTableRowPr"
+    },
+    "GetTextPr": {
+      "description": "Returns a set of the text run properties which will be applied to all the text runs within the table which match the conditional formatting type.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableStylePr/Methods/GetTextPr/",
+      "params": [],
+      "returns": {
+        "type": "ApiTextPr"
+      },
+      "signature": "GetTextPr(): ApiTextPr"
+    },
+    "GetType": {
+      "description": "Returns a type of the current table conditional style.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableStylePr/Methods/GetType/",
+      "params": [],
+      "returns": {
+        "type": "TableStyleOverrideType"
+      },
+      "signature": "GetType(): TableStyleOverrideType"
+    },
+    "SetParaPr": {
+      "description": "Sets the paragraph properties to the current table style properties.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableStylePr/Methods/SetParaPr/",
+      "params": [
+        {
+          "description": "The paragraph properties that will be set.",
+          "name": "oParaPr",
+          "type": "ApiParaPr"
+        }
+      ],
+      "returns": {
+        "description": "this",
+        "type": "ApiTableStylePr"
+      },
+      "signature": "SetParaPr(oParaPr: ApiParaPr): ApiTableStylePr"
+    },
+    "SetTableCellPr": {
+      "description": "Sets the table cell properties to the current table style properties.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableStylePr/Methods/SetTableCellPr/",
+      "params": [
+        {
+          "description": "The table cell properties that will be set.",
+          "name": "oTableCellPr",
+          "type": "ApiTableCellPr"
+        }
+      ],
+      "returns": {
+        "description": "this",
+        "type": "ApiTableStylePr"
+      },
+      "signature": "SetTableCellPr(oTableCellPr: ApiTableCellPr): ApiTableStylePr"
+    },
+    "SetTablePr": {
+      "description": "Sets the table properties to the current table style properties.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableStylePr/Methods/SetTablePr/",
+      "params": [
+        {
+          "description": "The table properties that will be set.",
+          "name": "tablePr",
+          "type": "ApiTablePr"
+        }
+      ],
+      "returns": {
+        "description": "this",
+        "type": "ApiTableStylePr"
+      },
+      "signature": "SetTablePr(tablePr: ApiTablePr): ApiTableStylePr"
+    },
+    "SetTableRowPr": {
+      "description": "Sets the table row properties to the current table style properties.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableStylePr/Methods/SetTableRowPr/",
+      "params": [
+        {
+          "description": "The table row properties that will be set.",
+          "name": "oTableRowPr",
+          "type": "ApiTableRowPr"
+        }
+      ],
+      "returns": {
+        "description": "this",
+        "type": "ApiTableStylePr"
+      },
+      "signature": "SetTableRowPr(oTableRowPr: ApiTableRowPr): ApiTableStylePr"
+    },
+    "SetTextPr": {
+      "description": "Sets the text properties to the current table style properties.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableStylePr/Methods/SetTextPr/",
+      "params": [
+        {
+          "description": "The text properties that will be set.",
+          "name": "oTextPr",
+          "type": "ApiTextPr"
+        }
+      ],
+      "returns": {
+        "description": "this",
+        "type": "ApiTableStylePr"
+      },
+      "signature": "SetTextPr(oTextPr: ApiTextPr): ApiTableStylePr"
+    },
+    "ToJSON": {
+      "description": "Converts the ApiTableStylePr object into the JSON object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableStylePr/Methods/ToJSON/",
+      "params": [],
+      "returns": {
+        "type": "object"
+      },
+      "signature": "ToJSON(): object"
+    }
+  }
+}

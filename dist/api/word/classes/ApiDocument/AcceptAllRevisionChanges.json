@@ -1,0 +1,9 @@
+{
+  "description": "Accepts all changes made in review mode.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/AcceptAllRevisionChanges/",
+  "params": [],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "AcceptAllRevisionChanges(): boolean"
+}

@@ -1,0 +1,77 @@
+{
+  "description": "Class representing freeze panes.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFreezePanes/",
+  "methods": {
+    "FreezeAt": {
+      "description": "Sets the frozen cells in the active worksheet view. The range provided corresponds to the cells that will be frozen in the top- and left-most pane.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFreezePanes/Methods/FreezeAt/",
+      "params": [
+        {
+          "description": "A range that represents the cells to be frozen.",
+          "name": "frozenRange",
+          "type": "ApiRange | string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "FreezeAt(frozenRange: ApiRange | string): void",
+      "since": "8.0.0"
+    },
+    "FreezeColumns": {
+      "description": "Freezes the first column or columns of the current worksheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFreezePanes/Methods/FreezeColumns/",
+      "params": [
+        {
+          "description": "Optional number of columns to freeze, or zero to unfreeze all columns.",
+          "name": "count",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "FreezeColumns(count?: number): void",
+      "since": "8.0.0"
+    },
+    "FreezeRows": {
+      "description": "Freezes the top row or rows of the current worksheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFreezePanes/Methods/FreezeRows/",
+      "params": [
+        {
+          "description": "Optional number of rows to freeze, or zero to unfreeze all rows.",
+          "name": "count",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "FreezeRows(count?: number): void",
+      "since": "8.0.0"
+    },
+    "GetLocation": {
+      "description": "Returns a range that describes the frozen cells in the active worksheet view.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFreezePanes/Methods/GetLocation/",
+      "params": [],
+      "returns": {
+        "description": "Returns null if there is no frozen pane.",
+        "type": "ApiRange | null"
+      },
+      "signature": "GetLocation(): ApiRange | null",
+      "since": "8.0.0"
+    },
+    "Unfreeze": {
+      "description": "Removes all frozen panes in the current worksheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFreezePanes/Methods/Unfreeze/",
+      "params": [],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "Unfreeze(): void",
+      "since": "8.0.0"
+    }
+  }
+}

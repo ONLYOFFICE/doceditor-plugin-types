@@ -1,0 +1,10 @@
+{
+  "description": "Returns the paragraph right side indentation.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetIndRight/",
+  "params": [],
+  "returns": {
+    "description": "The paragraph right side indentation value measured in twentieths of a point (1/1440 of an inch).",
+    "type": "twips | undefined"
+  },
+  "signature": "GetIndRight(): twips | undefined"
+}

@@ -1,0 +1,280 @@
+{
+  "description": "Class representing a comment.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/",
+  "methods": {
+    "AddReply": {
+      "description": "Adds a reply to a comment.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/AddReply/",
+      "params": [
+        {
+          "description": "The comment reply text.",
+          "name": "sText",
+          "type": "string"
+        },
+        {
+          "description": "The name of the comment reply author.",
+          "name": "sAuthorName",
+          "optional": true,
+          "type": "string"
+        },
+        {
+          "description": "The user ID of the comment reply author.",
+          "name": "sUserId",
+          "optional": true,
+          "type": "string"
+        },
+        {
+          "description": "The comment reply position. If nPos=-1 add to the end.",
+          "name": "nPos",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "this",
+        "type": "ApiComment"
+      },
+      "signature": "AddReply(sText: string, sAuthorName?: string, sUserId?: string, nPos?: number): ApiComment"
+    },
+    "Delete": {
+      "description": "Deletes the current comment from the document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/Delete/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "Delete(): boolean"
+    },
+    "GetAuthorName": {
+      "description": "Returns the comment author's name.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/GetAuthorName/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetAuthorName(): string"
+    },
+    "GetClassType": {
+      "description": "Returns a type of the ApiComment class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"comment\""
+      },
+      "signature": "GetClassType(): \"comment\""
+    },
+    "GetId": {
+      "description": "Returns the current comment ID. If the comment doesn't have an ID, null is returned.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/GetId/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetId(): string"
+    },
+    "GetQuoteText": {
+      "description": "Returns the quote text of the current comment.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/GetQuoteText/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetQuoteText(): number"
+    },
+    "GetRepliesCount": {
+      "description": "Returns a number of the comment replies.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/GetRepliesCount/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetRepliesCount(): number"
+    },
+    "GetReply": {
+      "description": "Returns the specified comment reply.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/GetReply/",
+      "params": [
+        {
+          "description": "The comment reply index.",
+          "name": "nIndex",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "ApiCommentReply"
+      },
+      "signature": "GetReply(nIndex?: number): ApiCommentReply"
+    },
+    "GetText": {
+      "description": "Returns the comment text.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/GetText/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetText(): string"
+    },
+    "GetTime": {
+      "description": "Returns the timestamp of the comment creation in the current time zone format.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/GetTime/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetTime(): number"
+    },
+    "GetTimeUTC": {
+      "description": "Returns the timestamp of the comment creation in UTC format.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/GetTimeUTC/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetTimeUTC(): number"
+    },
+    "GetUserId": {
+      "description": "Returns the user ID of the comment author.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/GetUserId/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetUserId(): string"
+    },
+    "IsSolved": {
+      "description": "Checks if a comment is solved or not.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/IsSolved/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "IsSolved(): boolean"
+    },
+    "RemoveReplies": {
+      "description": "Removes the specified comment replies.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/RemoveReplies/",
+      "params": [
+        {
+          "description": "The position of the first comment reply to remove.",
+          "name": "nPos",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "A number of comment replies to remove.",
+          "name": "nCount",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "Specifies whether to remove all comment replies or not.",
+          "name": "bRemoveAll",
+          "optional": true,
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "this",
+        "type": "ApiComment"
+      },
+      "signature": "RemoveReplies(nPos?: number, nCount?: number, bRemoveAll?: boolean): ApiComment"
+    },
+    "SetAuthorName": {
+      "description": "Sets the comment author's name.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/SetAuthorName/",
+      "params": [
+        {
+          "description": "The comment author's name.",
+          "name": "authorName",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "description": "this",
+        "type": "ApiComment"
+      },
+      "signature": "SetAuthorName(authorName: string): ApiComment"
+    },
+    "SetSolved": {
+      "description": "Marks a comment as solved.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/SetSolved/",
+      "params": [
+        {
+          "description": "Specifies if a comment is solved or not.",
+          "name": "solved",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "this",
+        "type": "ApiComment"
+      },
+      "signature": "SetSolved(solved: boolean): ApiComment"
+    },
+    "SetText": {
+      "description": "Sets the comment text.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/SetText/",
+      "params": [
+        {
+          "description": "The comment text.",
+          "name": "sText",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "description": "this",
+        "type": "ApiComment"
+      },
+      "signature": "SetText(sText: string): ApiComment"
+    },
+    "SetTime": {
+      "description": "Sets the timestamp of the comment creation in the current time zone format.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/SetTime/",
+      "params": [
+        {
+          "description": "The timestamp of the comment creation in the current time zone format.",
+          "name": "nTimeStamp",
+          "type": "number | string"
+        }
+      ],
+      "returns": {
+        "description": "this",
+        "type": "ApiComment"
+      },
+      "signature": "SetTime(nTimeStamp: number | string): ApiComment"
+    },
+    "SetTimeUTC": {
+      "description": "Sets the timestamp of the comment creation in UTC format.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/SetTimeUTC/",
+      "params": [
+        {
+          "description": "The timestamp of the comment creation in UTC format.",
+          "name": "nTimeStamp",
+          "type": "number | string"
+        }
+      ],
+      "returns": {
+        "description": "this",
+        "type": "ApiComment"
+      },
+      "signature": "SetTimeUTC(nTimeStamp: number | string): ApiComment"
+    },
+    "SetUserId": {
+      "description": "Sets the user ID to the comment author.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/SetUserId/",
+      "params": [
+        {
+          "description": "The user ID of the comment author.",
+          "name": "userId",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "description": "this",
+        "type": "ApiComment"
+      },
+      "signature": "SetUserId(userId: string): ApiComment"
+    }
+  }
+}

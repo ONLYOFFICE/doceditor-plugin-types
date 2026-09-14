@@ -1,0 +1,9 @@
+{
+  "description": "Returns an array with names of all bookmarks in the current document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetAllBookmarksNames/",
+  "params": [],
+  "returns": {
+    "type": "string[]"
+  },
+  "signature": "GetAllBookmarksNames(): string[]"
+}

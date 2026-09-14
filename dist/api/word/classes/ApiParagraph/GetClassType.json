@@ -1,0 +1,9 @@
+{
+  "description": "Returns a type of the ApiParagraph class.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/GetClassType/",
+  "params": [],
+  "returns": {
+    "type": "\"paragraph\""
+  },
+  "signature": "GetClassType(): \"paragraph\""
+}

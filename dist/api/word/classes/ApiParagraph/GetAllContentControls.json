@@ -1,0 +1,9 @@
+{
+  "description": "Returns a collection of content control objects in the paragraph.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/GetAllContentControls/",
+  "params": [],
+  "returns": {
+    "type": "ApiInlineLvlSdt[]"
+  },
+  "signature": "GetAllContentControls(): ApiInlineLvlSdt[]"
+}

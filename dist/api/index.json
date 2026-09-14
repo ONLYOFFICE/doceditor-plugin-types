@@ -1,0 +1,47 @@
+{
+  "editors": {
+    "cell": {
+      "classes": 120,
+      "events": 1,
+      "executeMethods": 46,
+      "methods": 1898,
+      "typedefs": 172
+    },
+    "forms": {
+      "classes": 67,
+      "events": 1,
+      "executeMethods": 49,
+      "methods": 379,
+      "typedefs": 114
+    },
+    "pdf": {
+      "classes": 110,
+      "events": 2,
+      "executeMethods": 30,
+      "methods": 1434,
+      "typedefs": 145
+    },
+    "slide": {
+      "classes": 83,
+      "events": 5,
+      "executeMethods": 59,
+      "methods": 1034,
+      "typedefs": 109
+    },
+    "word": {
+      "classes": 71,
+      "events": 19,
+      "executeMethods": 112,
+      "methods": 2085,
+      "typedefs": 104
+    }
+  },
+  "howToUse": [
+    "Load <editor>/index.json for every member name and signature in that editor.",
+    "Then read one detail file: <editor>/classes/<Class>.json, or <editor>/classes/<Class>/<Method>.json when the class was sharded.",
+    "executeMethod names live in <editor>/executeMethods.json; the plugin runtime (Asc.plugin, config.json) in runtime.json.",
+    "Do not concatenate the tree - it is deliberately split so no single read is large."
+  ],
+  "package": "@onlyoffice/plugins-types",
+  "version": "10.0.0"
+}

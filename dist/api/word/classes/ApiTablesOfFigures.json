@@ -1,0 +1,80 @@
+{
+  "description": "Class representing the collection of all tables of figures in a document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablesOfFigures/",
+  "methods": {
+    "Add": {
+      "description": "Adds a table of figures to the document and returns it.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablesOfFigures/Methods/Add/",
+      "params": [
+        {
+          "description": "Table of figures properties.",
+          "name": "oTofPr",
+          "optional": true,
+          "type": "TofPr"
+        },
+        {
+          "description": "The range that the table of figures replaces. If omitted, the table of figures is inserted at the current position.",
+          "name": "oRange",
+          "optional": true,
+          "type": "ApiRange"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiTableOfFigures | null"
+      },
+      "signature": "Add(oTofPr?: TofPr, oRange?: ApiRange): ApiTableOfFigures | null",
+      "since": "10.0.0"
+    },
+    "GetClassType": {
+      "description": "Returns a type of the ApiTablesOfFigures class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablesOfFigures/Methods/GetClassType/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "\"tablesOfFigures\""
+      },
+      "signature": "GetClassType(): \"tablesOfFigures\"",
+      "since": "10.0.0"
+    },
+    "GetCount": {
+      "description": "Returns the number of tables of figures in the document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablesOfFigures/Methods/GetCount/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetCount(): number",
+      "since": "10.0.0"
+    },
+    "GetItem": {
+      "description": "Returns the table of figures at the specified position in the collection.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablesOfFigures/Methods/GetItem/",
+      "params": [
+        {
+          "description": "The position (zero-based) of the table of figures.",
+          "name": "nIndex",
+          "type": "number"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiTableOfFigures | null"
+      },
+      "signature": "GetItem(nIndex: number): ApiTableOfFigures | null",
+      "since": "10.0.0"
+    },
+    "GetParent": {
+      "description": "Returns the document that owns this collection.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablesOfFigures/Methods/GetParent/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiDocument"
+      },
+      "signature": "GetParent(): ApiDocument",
+      "since": "10.0.0"
+    }
+  }
+}

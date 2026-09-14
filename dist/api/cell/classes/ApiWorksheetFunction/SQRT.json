@@ -1,0 +1,15 @@
+{
+  "description": "Returns the square root of a number.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/SQRT/",
+  "params": [
+    {
+      "description": "The number for which the square root will be returned.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "SQRT(arg1: ApiRange | ApiName | number): number"
+}

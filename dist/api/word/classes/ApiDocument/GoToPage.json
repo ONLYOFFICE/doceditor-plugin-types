@@ -1,0 +1,16 @@
+{
+  "description": "Moves a cursor to the start of the specified page in the document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GoToPage/",
+  "params": [
+    {
+      "description": "The page index.",
+      "name": "index",
+      "type": "number"
+    }
+  ],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "GoToPage(index: number): boolean",
+  "since": "9.1.0"
+}

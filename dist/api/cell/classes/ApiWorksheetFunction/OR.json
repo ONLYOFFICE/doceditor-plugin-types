@@ -1,0 +1,15 @@
+{
+  "description": "Checks whether any of the arguments are **true**. Returns **false** only if all arguments are **false**.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/OR/",
+  "params": [
+    {
+      "description": "A condition to check.",
+      "name": "args",
+      "type": "number | string | ApiRange | ApiName | boolean"
+    }
+  ],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "OR(args: number | string | ApiRange | ApiName | boolean): boolean"
+}

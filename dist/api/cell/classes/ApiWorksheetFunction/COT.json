@@ -1,0 +1,15 @@
+{
+  "description": "Returns the cotangent of an angle.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/COT/",
+  "params": [
+    {
+      "description": "The angle in radians for which the cotangent will be returned.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "COT(arg1: ApiRange | ApiName | number): number"
+}

@@ -1,0 +1,24 @@
+{
+  "description": "Class representing gradient stop.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiGradientStop/",
+  "methods": {
+    "GetClassType": {
+      "description": "Returns a type of the ApiGradientStop class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiGradientStop/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"gradientStop\""
+      },
+      "signature": "GetClassType(): \"gradientStop\""
+    },
+    "ToJSON": {
+      "description": "Converts the ApiGradientStop object into the JSON object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiGradientStop/Methods/ToJSON/",
+      "params": [],
+      "returns": {
+        "type": "object"
+      },
+      "signature": "ToJSON(): object"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "description": "Returns the cosecant of an angle.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/CSC/",
+  "params": [
+    {
+      "description": "The angle in radians for which the cosecant will be returned.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "CSC(arg1: ApiRange | ApiName | number): number"
+}

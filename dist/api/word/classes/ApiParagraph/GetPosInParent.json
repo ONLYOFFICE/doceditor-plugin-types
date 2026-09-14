@@ -1,0 +1,10 @@
+{
+  "description": "Returns the paragraph position within its parent element.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/GetPosInParent/",
+  "params": [],
+  "returns": {
+    "description": "returns -1 if the paragraph parent doesn't exist.",
+    "type": "number"
+  },
+  "signature": "GetPosInParent(): number"
+}

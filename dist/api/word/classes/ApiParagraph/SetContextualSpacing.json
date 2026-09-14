@@ -1,0 +1,15 @@
+{
+  "description": "Specifies that any space before or after this paragraph set using the \n{@link ApiParaPr#SetSpacingBefore} or {@link ApiParaPr#SetSpacingAfter} spacing element, should not be applied when the preceding and \nfollowing paragraphs are of the same paragraph style, affecting the top and bottom spacing respectively.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetContextualSpacing/",
+  "params": [
+    {
+      "description": "The true value will enable the paragraph contextual spacing.",
+      "name": "isContextualSpacing",
+      "type": "boolean"
+    }
+  ],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "SetContextualSpacing(isContextualSpacing: boolean): boolean"
+}

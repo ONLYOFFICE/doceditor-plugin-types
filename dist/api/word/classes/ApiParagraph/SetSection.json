@@ -1,0 +1,15 @@
+{
+  "description": "Sets the specified section to the current paragraph.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/SetSection/",
+  "params": [
+    {
+      "description": "The section which will be set to the paragraph.",
+      "name": "oSection",
+      "type": "ApiSection"
+    }
+  ],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "SetSection(oSection: ApiSection): boolean"
+}

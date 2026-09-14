@@ -1,0 +1,100 @@
+{
+  "description": "Class representing a presentation theme.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTheme/",
+  "methods": {
+    "GetClassType": {
+      "description": "Returns the type of the ApiTheme class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTheme/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"theme\""
+      },
+      "signature": "GetClassType(): \"theme\""
+    },
+    "GetColorScheme": {
+      "description": "Returns the color scheme of the current theme.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTheme/Methods/GetColorScheme/",
+      "params": [],
+      "returns": {
+        "type": "ApiThemeColorScheme"
+      },
+      "signature": "GetColorScheme(): ApiThemeColorScheme"
+    },
+    "GetFontScheme": {
+      "description": "Returns the font scheme of the current theme.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTheme/Methods/GetFontScheme/",
+      "params": [],
+      "returns": {
+        "type": "ApiThemeFontScheme"
+      },
+      "signature": "GetFontScheme(): ApiThemeFontScheme"
+    },
+    "GetFormatScheme": {
+      "description": "Returns the format scheme of the current theme.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTheme/Methods/GetFormatScheme/",
+      "params": [],
+      "returns": {
+        "type": "ApiThemeFormatScheme"
+      },
+      "signature": "GetFormatScheme(): ApiThemeFormatScheme"
+    },
+    "GetMaster": {
+      "description": "Returns the slide master of the current theme.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTheme/Methods/GetMaster/",
+      "params": [],
+      "returns": {
+        "description": "returns null if slide master doesn't exist.",
+        "type": "ApiMaster | null"
+      },
+      "signature": "GetMaster(): ApiMaster | null"
+    },
+    "SetColorScheme": {
+      "description": "Sets the color scheme to the current presentation theme.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTheme/Methods/SetColorScheme/",
+      "params": [
+        {
+          "description": "Theme color scheme.",
+          "name": "oApiColorScheme",
+          "type": "ApiThemeColorScheme"
+        }
+      ],
+      "returns": {
+        "description": "return false if color scheme doesn't exist.",
+        "type": "boolean"
+      },
+      "signature": "SetColorScheme(oApiColorScheme: ApiThemeColorScheme): boolean"
+    },
+    "SetFontScheme": {
+      "description": "Sets the font scheme to the current presentation theme.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTheme/Methods/SetFontScheme/",
+      "params": [
+        {
+          "description": "Theme font scheme.",
+          "name": "oApiFontScheme",
+          "type": "ApiThemeFontScheme"
+        }
+      ],
+      "returns": {
+        "description": "return false if font scheme doesn't exist.",
+        "type": "boolean"
+      },
+      "signature": "SetFontScheme(oApiFontScheme: ApiThemeFontScheme): boolean"
+    },
+    "SetFormatScheme": {
+      "description": "Sets the format scheme to the current presentation theme.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTheme/Methods/SetFormatScheme/",
+      "params": [
+        {
+          "description": "Theme format scheme.",
+          "name": "oApiFormatScheme",
+          "type": "ApiThemeFormatScheme"
+        }
+      ],
+      "returns": {
+        "description": "return false if format scheme doesn't exist.",
+        "type": "boolean"
+      },
+      "signature": "SetFormatScheme(oApiFormatScheme: ApiThemeFormatScheme): boolean"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "description": "Returns the least common multiple.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/LCM/",
+  "params": [
+    {
+      "description": "Up to 255 numeric values for which the least common multiple will be returned. The first argument is required, subsequent arguments are optional.",
+      "name": "args",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "LCM(args: ApiRange | ApiName | number): number"
+}

@@ -1,0 +1,15 @@
+{
+  "description": "Returns a comment from the current document by its ID.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetCommentById/",
+  "params": [
+    {
+      "description": "The comment ID.",
+      "name": "sId",
+      "type": "string"
+    }
+  ],
+  "returns": {
+    "type": "ApiComment"
+  },
+  "signature": "GetCommentById(sId: string): ApiComment"
+}

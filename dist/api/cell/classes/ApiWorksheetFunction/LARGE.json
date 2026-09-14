@@ -1,0 +1,20 @@
+{
+  "description": "Returns the k-th largest value in a data set. For example, the fifth largest number.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/LARGE/",
+  "params": [
+    {
+      "description": "The array or range of data for which the k-th largest value will be determined.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number[]"
+    },
+    {
+      "description": "The position (from the largest) in the array or cell range of data to return.",
+      "name": "arg2",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "LARGE(arg1: ApiRange | ApiName | number[], arg2: ApiRange | ApiName | number): number"
+}

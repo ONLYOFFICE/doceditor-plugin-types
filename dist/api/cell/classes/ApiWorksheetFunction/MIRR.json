@@ -1,0 +1,25 @@
+{
+  "description": "Returns the internal rate of return for a series of periodic cash flows, considering both cost of investment and interest on reinvestment of cash.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/MIRR/",
+  "params": [
+    {
+      "description": "A range or array of cells that contain numbers that represent a series of payments (negative) and income (positive) at regular periods.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number[]"
+    },
+    {
+      "description": "The interest rate paid on the money used in the cash flows.",
+      "name": "arg2",
+      "type": "ApiRange | ApiName | number"
+    },
+    {
+      "description": "The interest rate received on the cash reinvestment.",
+      "name": "arg3",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "MIRR(arg1: ApiRange | ApiName | number[], arg2: ApiRange | ApiName | number, arg3: ApiRange | ApiName | number): number"
+}

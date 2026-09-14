@@ -1,0 +1,15 @@
+{
+  "description": "Returns the sine of an angle.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/SIN/",
+  "params": [
+    {
+      "description": "The angle in radians for which the sine will be returned. If your argument is in degrees, multiply it by *PI()/180*.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "SIN(arg1: ApiRange | ApiName | number): number"
+}

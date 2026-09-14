@@ -1,0 +1,20 @@
+{
+  "description": "Returns the net present value of an investment based on a discount rate and a series of future payments (negative values) and income (positive values).",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/NPV/",
+  "params": [
+    {
+      "description": "The discount rate.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    },
+    {
+      "description": "Up to 255 arguments representing future payments (negative values) and income (positive values).\rThe first argument is required, the subsequent values are optional. Arguments can be numbers, ranges, arrays of numbers.",
+      "name": "args",
+      "type": "number | ApiRange | number[]"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "NPV(arg1: ApiRange | ApiName | number, args: number | ApiRange | number[]): number"
+}

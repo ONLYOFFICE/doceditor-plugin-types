@@ -1,0 +1,1478 @@
+{
+  "description": "Base class.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/",
+  "methods": {
+    "AddComment": {
+      "description": "Returns an array of ApiComment objects.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/AddComment/",
+      "params": [
+        {
+          "description": "The comment text.",
+          "name": "sText",
+          "type": "string"
+        },
+        {
+          "description": "The author's name (optional).",
+          "name": "sAuthor",
+          "optional": true,
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "ApiComment | null"
+      },
+      "signature": "AddComment(sText: string, sAuthor?: string): ApiComment | null",
+      "since": "7.5.0"
+    },
+    "AddCustomFunction": {
+      "description": "Creates a new custom function.\nThe description of the function parameters and result is specified using JSDoc. The *@customfunction* tag is required in JSDoc.\nParameters and results can be specified as the *number / string / boolean / any / number[][] / string[][] / boolean[][] / any[][]* types.\nParameters can be required or optional. A user can also set a default value.\nThe passed function can be asynchronous (async function or function returning a Promise).\nInside the passed function, you can access the current cell address where the calculation is performed using *this.address*.\nYou can also access the addresses of function arguments using *this.args[0].address*, *this.args[1].address*, etc.\nThis method is not used in ONLYOFFICE Document Builder. Use AddCustomFunctionLibrary instead.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/AddCustomFunction/",
+      "params": [
+        {
+          "description": "A new function for calculating. Can be synchronous or asynchronous.",
+          "name": "fCustom",
+          "type": "(...args: unknown[]) => unknown"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "AddCustomFunction(fCustom: (...args: unknown[]) => unknown): void"
+    },
+    "AddCustomFunctionLibrary": {
+      "description": "Registers a new custom functions library (see the **SetCustomFunctions** plugin method).\nThe description of the function parameters and result is specified using JSDoc. The *@customfunction* tag is required in JSDoc.\nParameters and results can be specified as the *number / string / boolean / any / number[][] / string[][] / boolean[][] / any[][]* types.\nParameters can be required or optional. A user can also set a default value.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/AddCustomFunctionLibrary/",
+      "params": [
+        {
+          "description": "The library name.",
+          "name": "sName",
+          "type": "string"
+        },
+        {
+          "description": "The custom functions library code.",
+          "name": "Func",
+          "type": "(...args: unknown[]) => unknown"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "AddCustomFunctionLibrary(sName: string, Func: (...args: unknown[]) => unknown): void",
+      "since": "8.2.0"
+    },
+    "AddDefName": {
+      "description": "Adds a new name to a range of cells.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/AddDefName/",
+      "params": [
+        {
+          "description": "The range name.",
+          "name": "sName",
+          "type": "string"
+        },
+        {
+          "description": "The reference to the specified range. It must contain the sheet name, followed by sign ! and a range of cells.\rExample: \"Sheet1!$A$1:$B$2\".",
+          "name": "sRef",
+          "type": "string"
+        },
+        {
+          "description": "Defines if the range name is hidden or not.",
+          "name": "isHidden",
+          "optional": true,
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "returns false if sName or sRef are invalid.",
+        "type": "boolean"
+      },
+      "signature": "AddDefName(sName: string, sRef: string, isHidden?: boolean): boolean"
+    },
+    "AddSheet": {
+      "description": "Creates a new worksheet. The new worksheet becomes the active sheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/AddSheet/",
+      "params": [
+        {
+          "description": "The name of a new worksheet.",
+          "name": "sName",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "ApiWorksheet"
+      },
+      "signature": "AddSheet(sName: string): ApiWorksheet"
+    },
+    "Calculate": {
+      "description": "Recalculates the cells that need recalculation (changed, added or volatile) across the active workbook, similar to Application.Calculate in VBA. Forces the recalc that is otherwise deferred until a macro finishes, so up-to-date formula results can be read within the same macro.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/Calculate/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "Calculate(): boolean",
+      "since": "10.0.0"
+    },
+    "CentimetersToPoints": {
+      "description": "Converts centimeters to points.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CentimetersToPoints/",
+      "params": [
+        {
+          "description": "The number of centimeters to convert to points.",
+          "name": "cm",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "CentimetersToPoints(cm: number): number"
+    },
+    "ClearCustomFunctions": {
+      "description": "Clears all custom functions.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/ClearCustomFunctions/",
+      "params": [],
+      "returns": {
+        "description": "returns false if such functions do not exist.",
+        "type": "boolean"
+      },
+      "signature": "ClearCustomFunctions(): boolean"
+    },
+    "Color": {
+      "description": "Creates an ApiColor from a universal input. The method recognizes several call signatures and either delegates to a narrower factory or constructs an ApiColor directly.\n**Numeric components**: \"Api.Color(r, g, b)\" or \"Api.Color(r, g, b, a)\" creates an RGB or RGBA color from byte components (0-255).\n**Packed integer**: \"Api.Color(0xRRGGBB)\" creates an RGB color from a 24-bit integer.\n**Full HEX string**: \"Api.Color('#RRGGBB')\" or \"Api.Color('RRGGBB')\" creates a HEX color; the leading \"#\" is optional.\n**Short HEX string**: \"Api.Color('#RGB')\" expands each digit by duplication, so \"#F0A\" becomes \"#FF00AA\".\n**Theme color name**: \"Api.Color('accent1')\" creates a theme color; any value of SchemeColorId is accepted.\n**Preset color name**: \"Api.Color('aliceBlue')\" resolves any value of PresetColor to its RGB equivalent.\n**Auto color**: \"Api.Color('auto')\" creates an auto color.\nFor a single string argument, the resolution priority is: \"auto\", a string starting with \"#\", a theme name, a preset name, a bare 6-digit HEX. Theme and preset palettes do not overlap. A 3-digit shorthand is accepted only with the leading \"#\".\nUnsupported inputs (objects, arrays, an existing ApiColor, unknown strings, no arguments) return a black color (#000000).",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/Color/",
+      "params": [
+        {
+          "description": "The universal color input. With three or four arguments, the red component (0-255).",
+          "name": "r",
+          "type": "number | string | number | SchemeColorId | PresetColor"
+        },
+        {
+          "description": "The green component (0-255). Used only with the (r, g, b) and (r, g, b, a) forms.",
+          "name": "g",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "The blue component (0-255). Used only with the (r, g, b) and (r, g, b, a) forms.",
+          "name": "b",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "The alpha component (0-255). Used only with the (r, g, b, a) form.",
+          "name": "a",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "ApiColor"
+      },
+      "signature": "Color(r: number | string | number | SchemeColorId | PresetColor, g?: number, b?: number, a?: number): ApiColor"
+    },
+    "CreateBlipFill": {
+      "description": "Creates a blip fill to apply to the object using the selected image as the object background.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateBlipFill/",
+      "params": [
+        {
+          "description": "The path to the image used for the blip fill (currently only internet URL or Base64 encoded images are supported).",
+          "name": "imageUrl",
+          "type": "string"
+        },
+        {
+          "description": "The type of the fill used for the blip fill (tile or stretch).",
+          "name": "blipFillType",
+          "type": "BlipFillType"
+        }
+      ],
+      "returns": {
+        "type": "ApiFill"
+      },
+      "signature": "CreateBlipFill(imageUrl: string, blipFillType: BlipFillType): ApiFill"
+    },
+    "CreateBullet": {
+      "description": "Creates a bullet for a paragraph with the character or symbol specified with the sSymbol parameter.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateBullet/",
+      "params": [
+        {
+          "description": "The character or symbol which will be used to create the bullet for the paragraph.",
+          "name": "sSymbol",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "ApiBullet"
+      },
+      "signature": "CreateBullet(sSymbol: string): ApiBullet"
+    },
+    "CreateColorByName": {
+      "description": "Creates a color selecting it from one of the available color presets.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateColorByName/",
+      "params": [
+        {
+          "description": "A preset selected from the list of the available color preset names.",
+          "name": "sPresetColor",
+          "type": "PresetColor"
+        }
+      ],
+      "returns": {
+        "type": "ApiColor"
+      },
+      "signature": "CreateColorByName(sPresetColor: PresetColor): ApiColor"
+    },
+    "CreateColorFromRGB": {
+      "description": "Creates an RGB color setting the appropriate values for the red, green and blue color components.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateColorFromRGB/",
+      "params": [
+        {
+          "description": "Red color component value.",
+          "name": "r",
+          "type": "number"
+        },
+        {
+          "description": "Green color component value.",
+          "name": "g",
+          "type": "number"
+        },
+        {
+          "description": "Blue color component value.",
+          "name": "b",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "ApiColor"
+      },
+      "signature": "CreateColorFromRGB(r: number, g: number, b: number): ApiColor"
+    },
+    "CreateCustomGeometry": {
+      "description": "Creates a new custom geometry.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateCustomGeometry/",
+      "params": [],
+      "returns": {
+        "type": "ApiGeometry"
+      },
+      "signature": "CreateCustomGeometry(): ApiGeometry",
+      "since": "9.1.0"
+    },
+    "CreateGradientStop": {
+      "description": "Creates a gradient stop used for different types of gradients.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateGradientStop/",
+      "params": [
+        {
+          "description": "The color used for the gradient stop.",
+          "name": "color",
+          "type": "ApiColor"
+        },
+        {
+          "description": "The position of the gradient stop measured in 1000th of percent.",
+          "name": "pos",
+          "type": "PositivePercentage"
+        }
+      ],
+      "returns": {
+        "type": "ApiGradientStop"
+      },
+      "signature": "CreateGradientStop(color: ApiColor, pos: PositivePercentage): ApiGradientStop",
+      "since": "9.1.0"
+    },
+    "CreateLinearGradientFill": {
+      "description": "Creates a linear gradient fill to apply to the object using the selected linear gradient as the object background.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateLinearGradientFill/",
+      "params": [
+        {
+          "description": "The array of gradient color stops measured in 1000th of percent.",
+          "name": "gradientStops",
+          "type": "number[]"
+        },
+        {
+          "description": "The angle measured in 60000th of a degree that will define the gradient direction.",
+          "name": "angle",
+          "type": "PositiveFixedAngle"
+        }
+      ],
+      "returns": {
+        "type": "ApiFill"
+      },
+      "signature": "CreateLinearGradientFill(gradientStops: number[], angle: PositiveFixedAngle): ApiFill"
+    },
+    "CreateMath": {
+      "description": "Creates a math equation from a linear text string. The resulting object can be inserted into\na paragraph the same way as a run (e.g. via {@link ApiParagraph#AddElement} or {@link ApiParagraph#Push}).",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateMath/",
+      "params": [
+        {
+          "description": "An equation written as a linear text string.",
+          "name": "text",
+          "type": "string"
+        },
+        {
+          "description": "The format of the specified linear representation.",
+          "name": "format",
+          "optional": true,
+          "type": "\"unicode\" | \"latex\" | \"mathml\""
+        }
+      ],
+      "returns": {
+        "type": "ApiMath"
+      },
+      "signature": "CreateMath(text: string, format?: \"unicode\" | \"latex\" | \"mathml\"): ApiMath",
+      "since": "10.0.0"
+    },
+    "CreateNewHistoryPoint": {
+      "description": "Creates a new history point.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateNewHistoryPoint/",
+      "params": [],
+      "returns": {
+        "description": "returns true if the history point was created successfully.",
+        "type": "boolean"
+      },
+      "signature": "CreateNewHistoryPoint(): boolean"
+    },
+    "CreateNoFill": {
+      "description": "Creates no fill and removes the fill from the element.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateNoFill/",
+      "params": [],
+      "returns": {
+        "type": "ApiFill"
+      },
+      "signature": "CreateNoFill(): ApiFill"
+    },
+    "CreateNumbering": {
+      "description": "Creates a bullet for a paragraph with the numbering character or symbol specified with the numType parameter.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateNumbering/",
+      "params": [
+        {
+          "description": "The numbering type the paragraphs will be numbered with.",
+          "name": "numType",
+          "type": "BulletType"
+        },
+        {
+          "description": "The number the first numbered paragraph will start with.",
+          "name": "startAt",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "returns null if numType is not one of the BulletType values.",
+        "type": "ApiBullet"
+      },
+      "signature": "CreateNumbering(numType: BulletType, startAt: number): ApiBullet"
+    },
+    "CreateParagraph": {
+      "description": "Creates a new paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateParagraph/",
+      "params": [],
+      "returns": {
+        "type": "ApiParagraph"
+      },
+      "signature": "CreateParagraph(): ApiParagraph"
+    },
+    "CreatePatternFill": {
+      "description": "Creates a pattern fill to apply to the object using the selected pattern as the object background.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreatePatternFill/",
+      "params": [
+        {
+          "description": "The pattern type used for the fill selected from one of the available pattern types.",
+          "name": "patternType",
+          "type": "PatternType"
+        },
+        {
+          "description": "The background color used for the pattern creation.",
+          "name": "bgColor",
+          "type": "ApiColor"
+        },
+        {
+          "description": "The foreground color used for the pattern creation.",
+          "name": "fgColor",
+          "type": "ApiColor"
+        }
+      ],
+      "returns": {
+        "type": "ApiFill"
+      },
+      "signature": "CreatePatternFill(patternType: PatternType, bgColor: ApiColor, fgColor: ApiColor): ApiFill",
+      "since": "9.1.0"
+    },
+    "CreatePresetColor": {
+      "description": "Creates a color selecting it from one of the available color presets.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreatePresetColor/",
+      "params": [
+        {
+          "description": "A preset selected from the list of the available color preset names.",
+          "name": "presetColor",
+          "type": "PresetColor"
+        }
+      ],
+      "returns": {
+        "description": ";",
+        "type": "ApiPresetColor"
+      },
+      "signature": "CreatePresetColor(presetColor: PresetColor): ApiPresetColor"
+    },
+    "CreatePresetGeometry": {
+      "description": "Creates a geometry using one of the available preset shapes.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreatePresetGeometry/",
+      "params": [
+        {
+          "description": "The preset name.",
+          "name": "preset",
+          "optional": true,
+          "type": "ShapeType"
+        }
+      ],
+      "returns": {
+        "type": "ApiGeometry"
+      },
+      "signature": "CreatePresetGeometry(preset?: ShapeType): ApiGeometry",
+      "since": "9.1.0"
+    },
+    "CreateRGBColor": {
+      "description": "Creates an RGB color setting the appropriate values for the red, green and blue color components.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateRGBColor/",
+      "params": [
+        {
+          "description": "Red color component value.",
+          "name": "r",
+          "type": "number"
+        },
+        {
+          "description": "Green color component value.",
+          "name": "g",
+          "type": "number"
+        },
+        {
+          "description": "Blue color component value.",
+          "name": "b",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "ApiRGBColor"
+      },
+      "signature": "CreateRGBColor(r: number, g: number, b: number): ApiRGBColor"
+    },
+    "CreateRadialGradientFill": {
+      "description": "Creates a radial gradient fill to apply to the object using the selected radial gradient as the object background.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateRadialGradientFill/",
+      "params": [
+        {
+          "description": "The array of gradient color stops measured in 1000th of percent.",
+          "name": "gradientStops",
+          "type": "number[]"
+        }
+      ],
+      "returns": {
+        "type": "ApiFill"
+      },
+      "signature": "CreateRadialGradientFill(gradientStops: number[]): ApiFill"
+    },
+    "CreateRun": {
+      "description": "Creates a new smaller text block to be inserted to the current paragraph or table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateRun/",
+      "params": [],
+      "returns": {
+        "type": "ApiRun"
+      },
+      "signature": "CreateRun(): ApiRun"
+    },
+    "CreateSchemeColor": {
+      "description": "Creates a complex color scheme selecting from one of the available schemes.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateSchemeColor/",
+      "params": [
+        {
+          "description": "The color scheme identifier.",
+          "name": "schemeColorId",
+          "type": "SchemeColorId"
+        }
+      ],
+      "returns": {
+        "type": "ApiSchemeColor"
+      },
+      "signature": "CreateSchemeColor(schemeColorId: SchemeColorId): ApiSchemeColor"
+    },
+    "CreateShadow": {
+      "description": "Creates a shadow which can be applied to a graphic object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateShadow/",
+      "params": [
+        {
+          "description": "The shadow properties.",
+          "name": "settings",
+          "type": "ShadowSettings"
+        }
+      ],
+      "returns": {
+        "type": "ApiShadow"
+      },
+      "signature": "CreateShadow(settings: ShadowSettings): ApiShadow",
+      "since": "10.0.0"
+    },
+    "CreateSolidFill": {
+      "description": "Creates a solid fill to apply to the object using a selected solid color as the object background.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateSolidFill/",
+      "params": [
+        {
+          "description": "The color used for the element fill.",
+          "name": "color",
+          "type": "ApiColor"
+        }
+      ],
+      "returns": {
+        "type": "ApiFill"
+      },
+      "signature": "CreateSolidFill(color: ApiColor): ApiFill",
+      "since": "9.1.0"
+    },
+    "CreateStroke": {
+      "description": "Creates a stroke adding shadows to the element.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateStroke/",
+      "params": [
+        {
+          "description": "The width of the shadow measured in English measure units.",
+          "name": "width",
+          "type": "EMU"
+        },
+        {
+          "description": "The fill type used to create the shadow.",
+          "name": "fill",
+          "type": "ApiFill"
+        },
+        {
+          "description": "The type of line dash.",
+          "name": "sDash",
+          "optional": true,
+          "type": "DashType"
+        }
+      ],
+      "returns": {
+        "type": "ApiStroke"
+      },
+      "signature": "CreateStroke(width: EMU, fill: ApiFill, sDash?: DashType): ApiStroke",
+      "since": "9.3.0"
+    },
+    "CreateTextPr": {
+      "description": "Creates the empty text properties.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateTextPr/",
+      "params": [],
+      "returns": {
+        "type": "ApiTextPr"
+      },
+      "signature": "CreateTextPr(): ApiTextPr"
+    },
+    "EmusToMillimeters": {
+      "description": "Converts English Metric Units (EMUs) to millimeters.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/EmusToMillimeters/",
+      "params": [
+        {
+          "description": "The value in English Metric Units (EMUs).",
+          "name": "emu",
+          "type": "EMU"
+        }
+      ],
+      "returns": {
+        "description": "The value in millimeters.",
+        "type": "mm"
+      },
+      "signature": "EmusToMillimeters(emu: EMU): mm"
+    },
+    "EmusToPoints": {
+      "description": "Converts EMUs (English Metric Units) to points.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/EmusToPoints/",
+      "params": [
+        {
+          "description": "The number of EMUs to convert to points.",
+          "name": "emu",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "EmusToPoints(emu: number): number"
+    },
+    "Format": {
+      "description": "Returns a class formatted according to the instructions contained in the format expression.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/Format/",
+      "params": [
+        {
+          "description": "Any valid expression.",
+          "name": "expression",
+          "type": "string"
+        },
+        {
+          "description": "A valid named or user-defined format expression.",
+          "name": "format",
+          "optional": true,
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "Format(expression: string, format?: string): string"
+    },
+    "GetActiveSheet": {
+      "description": "Returns an object that represents the active sheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetActiveSheet/",
+      "params": [],
+      "returns": {
+        "type": "ApiWorksheet"
+      },
+      "signature": "GetActiveSheet(): ApiWorksheet"
+    },
+    "GetActiveWorkbook": {
+      "description": "Returns an object that represents the active workbook.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetActiveWorkbook/",
+      "params": [],
+      "returns": {
+        "type": "ApiWorkbook"
+      },
+      "signature": "GetActiveWorkbook(): ApiWorkbook"
+    },
+    "GetAllComments": {
+      "description": "Returns all comments from the current workbook including comments from all worksheets.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetAllComments/",
+      "params": [],
+      "returns": {
+        "type": "ApiComment[]"
+      },
+      "signature": "GetAllComments(): ApiComment[]"
+    },
+    "GetAllPivotTables": {
+      "description": "Returns all pivot tables.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetAllPivotTables/",
+      "params": [],
+      "returns": {
+        "type": "ApiPivotTable[]"
+      },
+      "signature": "GetAllPivotTables(): ApiPivotTable[]",
+      "since": "8.2.0"
+    },
+    "GetCommentById": {
+      "description": "Returns a comment from the current document by its ID.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetCommentById/",
+      "params": [
+        {
+          "description": "The comment ID.",
+          "name": "sId",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "ApiComment"
+      },
+      "signature": "GetCommentById(sId: string): ApiComment"
+    },
+    "GetComments": {
+      "description": "Returns all comments related to the whole workbook.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetComments/",
+      "params": [],
+      "returns": {
+        "type": "ApiComment[]"
+      },
+      "signature": "GetComments(): ApiComment[]"
+    },
+    "GetCore": {
+      "description": "Returns the core properties interface for the workbook.\nThis method is used to view or modify standard metadata such as title, author, and keywords.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetCore/",
+      "params": [],
+      "returns": {
+        "type": "ApiCore"
+      },
+      "signature": "GetCore(): ApiCore",
+      "since": "9.0.0"
+    },
+    "GetCustomProperties": {
+      "description": "Returns the workbook custom properties.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetCustomProperties/",
+      "params": [],
+      "returns": {
+        "type": "ApiCustomProperties"
+      },
+      "signature": "GetCustomProperties(): ApiCustomProperties",
+      "since": "9.0.0"
+    },
+    "GetDefName": {
+      "description": "Returns the ApiName object by the range name.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetDefName/",
+      "params": [
+        {
+          "description": "The range name.",
+          "name": "defName",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "ApiName"
+      },
+      "signature": "GetDefName(defName: string): ApiName"
+    },
+    "GetDefNames": {
+      "description": "Returns an array of all ApiName objects defined in the workbook, across all scopes (workbook-level and sheet-level).",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetDefNames/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "Returns an empty array if no defined names are found.",
+        "type": "ApiName[]"
+      },
+      "signature": "GetDefNames(): ApiName[]"
+    },
+    "GetDocumentInfo": {
+      "description": "Returns the document information:\n**Application** - the application the document has been created with.\n**CreatedRaw** - the date and time when the file was created.\n**Created** - the parsed date and time when the file was created.\n**LastModifiedRaw** - the date and time when the file was last modified.\n**LastModified** - the parsed date and time when the file was last modified.\n**LastModifiedBy** - the name of the user who has made the latest change to the document.\n**Authors** - the persons who has created the file.\n**Title** - this property allows you to simplify your documents classification.\n**Tags** - this property allows you to simplify your documents classification.\n**Subject** - this property allows you to simplify your documents classification.\n**Comment** - this property allows you to simplify your documents classification.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetDocumentInfo/",
+      "params": [],
+      "returns": {
+        "type": "object"
+      },
+      "signature": "GetDocumentInfo(): object"
+    },
+    "GetFreezePanesType": {
+      "description": "Returns the freeze panes type.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetFreezePanesType/",
+      "params": [],
+      "returns": {
+        "description": "FreezePaneType - The freeze panes type (\"null\" if there are no freeze panes).",
+        "type": "FreezePaneType"
+      },
+      "signature": "GetFreezePanesType(): FreezePaneType",
+      "since": "8.0.0"
+    },
+    "GetFullName": {
+      "description": "Returns the full name of the currently opened file.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetFullName/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetFullName(): string"
+    },
+    "GetLocale": {
+      "description": "Returns the current locale ID.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetLocale/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetLocale(): number"
+    },
+    "GetMailMergeData": {
+      "description": "Returns the mail merge data.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetMailMergeData/",
+      "params": [
+        {
+          "description": "The sheet index.",
+          "name": "nSheet",
+          "type": "number"
+        },
+        {
+          "description": "Specifies that the data will be received with the format.",
+          "name": "bWithFormat",
+          "optional": true,
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "string[][]"
+      },
+      "signature": "GetMailMergeData(nSheet: number, bWithFormat?: boolean): string[][]"
+    },
+    "GetPivotByName": {
+      "description": "Returns a pivot table by its name, or null if it does not exist.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetPivotByName/",
+      "params": [
+        {
+          "description": "The pivot table name.",
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "ApiPivotTable | null"
+      },
+      "signature": "GetPivotByName(name: string): ApiPivotTable | null",
+      "since": "8.2.0"
+    },
+    "GetRange": {
+      "description": "Returns the ApiRange object by the range reference.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetRange/",
+      "params": [
+        {
+          "description": "The range of cells from the current sheet.",
+          "name": "sRange",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "ApiRange"
+      },
+      "signature": "GetRange(sRange: string): ApiRange"
+    },
+    "GetReferenceStyle": {
+      "description": "Returns the cell reference style.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetReferenceStyle/",
+      "params": [],
+      "returns": {
+        "description": "The cell reference style.",
+        "type": "ReferenceStyle"
+      },
+      "signature": "GetReferenceStyle(): ReferenceStyle",
+      "since": "8.1.0"
+    },
+    "GetSelection": {
+      "description": "Returns an object that represents the selected range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetSelection/",
+      "params": [],
+      "returns": {
+        "type": "ApiRange"
+      },
+      "signature": "GetSelection(): ApiRange"
+    },
+    "GetSheet": {
+      "description": "Returns an object that represents a sheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetSheet/",
+      "params": [
+        {
+          "description": "Sheet name or sheet index.",
+          "name": "nameOrIndex",
+          "type": "string | number"
+        }
+      ],
+      "returns": {
+        "type": "ApiWorksheet | null"
+      },
+      "signature": "GetSheet(nameOrIndex: string | number): ApiWorksheet | null"
+    },
+    "GetSheets": {
+      "description": "Returns a sheet collection that represents all the sheets in the active workbook.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetSheets/",
+      "params": [],
+      "returns": {
+        "type": "ApiWorksheet[]"
+      },
+      "signature": "GetSheets(): ApiWorksheet[]"
+    },
+    "GetThemesColors": {
+      "description": "Returns a list of all the available theme colors for the spreadsheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetThemesColors/",
+      "params": [],
+      "returns": {
+        "type": "string[]"
+      },
+      "signature": "GetThemesColors(): string[]"
+    },
+    "GetWorksheetFunction": {
+      "description": "Returns the ApiWorksheetFunction object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetWorksheetFunction/",
+      "params": [],
+      "returns": {
+        "type": "ApiWorksheetFunction"
+      },
+      "signature": "GetWorksheetFunction(): ApiWorksheetFunction"
+    },
+    "HexColor": {
+      "description": "Creates a color from a HEX string.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/HexColor/",
+      "params": [
+        {
+          "description": "The HEX string representing a color.",
+          "name": "hexString",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "ApiColor"
+      },
+      "signature": "HexColor(hexString: string): ApiColor"
+    },
+    "InchesToPoints": {
+      "description": "Converts inches to points.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/InchesToPoints/",
+      "params": [
+        {
+          "description": "The number of inches to convert to points.",
+          "name": "inches",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "InchesToPoints(inches: number): number"
+    },
+    "InsertPivotExistingWorksheet": {
+      "description": "Inserts the specified pivot table into an existing worksheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/InsertPivotExistingWorksheet/",
+      "params": [
+        {
+          "description": "The source data range.",
+          "name": "dataRef",
+          "type": "ApiRange"
+        },
+        {
+          "description": "A range in which the pivot table will be located.",
+          "name": "pivotRef",
+          "type": "ApiRange"
+        },
+        {
+          "description": "Specifies whether to replace the data in the specified pivot table range (if it exists) or create a dialog box for this (if it exists).",
+          "name": "confirmation",
+          "optional": true,
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "ApiPivotTable"
+      },
+      "signature": "InsertPivotExistingWorksheet(dataRef: ApiRange, pivotRef: ApiRange, confirmation?: boolean): ApiPivotTable",
+      "since": "8.2.0"
+    },
+    "InsertPivotNewWorksheet": {
+      "description": "Inserts the specified pivot table into a new worksheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/InsertPivotNewWorksheet/",
+      "params": [
+        {
+          "description": "The source data range.",
+          "name": "dataRef",
+          "type": "ApiRange"
+        },
+        {
+          "description": "A new worksheet name.",
+          "name": "newSheetName",
+          "optional": true,
+          "type": "ApiRange"
+        }
+      ],
+      "returns": {
+        "type": "ApiPivotTable"
+      },
+      "signature": "InsertPivotNewWorksheet(dataRef: ApiRange, newSheetName?: ApiRange): ApiPivotTable",
+      "since": "8.2.0"
+    },
+    "Intersect": {
+      "description": "Returns the ApiRange object that represents the rectangular intersection of two or more ranges.\nIf one or more ranges from a different worksheet are specified, an error will be returned.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/Intersect/",
+      "params": [
+        {
+          "description": "One of the intersecting ranges. At least two Range objects must be specified.",
+          "name": "Range1",
+          "type": "ApiRange"
+        },
+        {
+          "description": "One of the intersecting ranges. At least two Range objects must be specified.",
+          "name": "Range2",
+          "type": "ApiRange"
+        },
+        {
+          "description": "Up to 28 additional intersecting ranges. These arguments are optional.",
+          "name": "Range3_Range30",
+          "optional": true,
+          "type": "ApiRange"
+        }
+      ],
+      "returns": {
+        "type": "ApiRange | null"
+      },
+      "signature": "Intersect(Range1: ApiRange, Range2: ApiRange, Range3_Range30?: ApiRange): ApiRange | null"
+    },
+    "LinesToPoints": {
+      "description": "Converts lines to points (1 line = 12 points).",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/LinesToPoints/",
+      "params": [
+        {
+          "description": "The number of lines to convert to points.",
+          "name": "lines",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "LinesToPoints(lines: number): number"
+    },
+    "MillimetersToEmus": {
+      "description": "Converts millimeters to English Metric Units (EMUs).\nThe result is an integer value.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/MillimetersToEmus/",
+      "params": [
+        {
+          "description": "The value in millimeters.",
+          "name": "mm",
+          "type": "mm"
+        }
+      ],
+      "returns": {
+        "description": "The value in English Metric Units (EMUs), as an integer.",
+        "type": "EMU"
+      },
+      "signature": "MillimetersToEmus(mm: mm): EMU"
+    },
+    "MillimetersToPixels": {
+      "description": "Converts millimeters to pixels.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/MillimetersToPixels/",
+      "params": [
+        {
+          "description": "The number of millimeters to convert to pixels.",
+          "name": "mm",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "MillimetersToPixels(mm: number): number"
+    },
+    "MillimetersToPoints": {
+      "description": "Converts millimeters to points.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/MillimetersToPoints/",
+      "params": [
+        {
+          "description": "The number of millimeters to convert to points.",
+          "name": "mm",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "MillimetersToPoints(mm: number): number"
+    },
+    "PicasToPoints": {
+      "description": "Converts picas to points.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/PicasToPoints/",
+      "params": [
+        {
+          "description": "The number of picas to convert to points.",
+          "name": "pc",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "PicasToPoints(pc: number): number"
+    },
+    "PixelsToEmus": {
+      "description": "Converts pixels to EMUs (English Metric Units).",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/PixelsToEmu/",
+      "params": [
+        {
+          "description": "The number of pixels to convert to EMUs.",
+          "name": "px",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "PixelsToEmus(px: number): number"
+    },
+    "PixelsToPoints": {
+      "description": "Converts pixels to points.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/PixelsToPoints/",
+      "params": [
+        {
+          "description": "The number of pixels to convert to points.",
+          "name": "px",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "PixelsToPoints(px: number): number"
+    },
+    "PointsToCentimeters": {
+      "description": "Converts points to centimeters.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/PointsToCentimeters/",
+      "params": [
+        {
+          "description": "The number of points to convert to centimeters.",
+          "name": "pt",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "PointsToCentimeters(pt: number): number"
+    },
+    "PointsToEmus": {
+      "description": "Converts points to EMUs (English Metric Units).",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/PointsToEmus/",
+      "params": [
+        {
+          "description": "The number of points to convert to EMUs.",
+          "name": "pt",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "PointsToEmus(pt: number): number"
+    },
+    "PointsToInches": {
+      "description": "Converts points to inches.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/PointsToInches/",
+      "params": [
+        {
+          "description": "The number of points to convert to inches.",
+          "name": "pt",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "PointsToInches(pt: number): number"
+    },
+    "PointsToLines": {
+      "description": "Converts points to lines (1 line = 12 points).",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/PointsToLines/",
+      "params": [
+        {
+          "description": "The number of points to convert to lines.",
+          "name": "pt",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "PointsToLines(pt: number): number"
+    },
+    "PointsToMillimeters": {
+      "description": "Converts points to millimeters.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/PointsToMillimeters/",
+      "params": [
+        {
+          "description": "The number of points to convert to millimeters.",
+          "name": "pt",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "PointsToMillimeters(pt: number): number"
+    },
+    "PointsToPicas": {
+      "description": "Converts points to picas (1 pica = 12 points).",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/PointsToPicas/",
+      "params": [
+        {
+          "description": "The number of points to convert to picas.",
+          "name": "pt",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "PointsToPicas(pt: number): number"
+    },
+    "PointsToPixels": {
+      "description": "Converts points to pixels.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/PointsToPixels/",
+      "params": [
+        {
+          "description": "The number of points to convert to pixels.",
+          "name": "pt",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "PointsToPixels(pt: number): number"
+    },
+    "PointsToTwips": {
+      "description": "Converts points to twips.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/PointsToTwips/",
+      "params": [
+        {
+          "description": "The number of points to convert to twips.",
+          "name": "pt",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "PointsToTwips(pt: number): number"
+    },
+    "RGB": {
+      "description": "Creates an RGB color from red, green and blue components.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/RGB/",
+      "params": [
+        {
+          "description": "Red component (0-255).",
+          "name": "r",
+          "type": "number"
+        },
+        {
+          "description": "Green component (0-255).",
+          "name": "g",
+          "type": "number"
+        },
+        {
+          "description": "Blue component (0-255).",
+          "name": "b",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "ApiColor"
+      },
+      "signature": "RGB(r: number, g: number, b: number): ApiColor"
+    },
+    "RGBA": {
+      "description": "Creates an RGBA color from red, green, blue and alpha components.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/RGBA/",
+      "params": [
+        {
+          "description": "Red component (0-255).",
+          "name": "r",
+          "type": "number"
+        },
+        {
+          "description": "Green component (0-255).",
+          "name": "g",
+          "type": "number"
+        },
+        {
+          "description": "Blue component (0-255).",
+          "name": "b",
+          "type": "number"
+        },
+        {
+          "description": "Alpha component (0-255).",
+          "name": "a",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "ApiColor"
+      },
+      "signature": "RGBA(r: number, g: number, b: number, a: number): ApiColor"
+    },
+    "RecalculateAllFormulas": {
+      "description": "Recalculates all formulas in the active workbook.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/RecalculateAllFormulas/",
+      "params": [
+        {
+          "description": "A function which specifies the logger object for checking recalculation of formulas.",
+          "name": "fLogger",
+          "optional": true,
+          "type": "(...args: unknown[]) => unknown"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "RecalculateAllFormulas(fLogger?: (...args: unknown[]) => unknown): boolean"
+    },
+    "Redraw": {
+      "description": "Redraws the editor screen, making the changes already made by a macro visible without waiting for it to finish. Observable from asynchronous code only. Repaints without recalculating: call {@link Api#Calculate} first if formula results must be up to date.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/Redraw/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "Redraw(): boolean",
+      "since": "10.0.0"
+    },
+    "RefreshAllPivots": {
+      "description": "Refreshes all pivot tables.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/RefreshAllPivots/",
+      "params": [],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "RefreshAllPivots(): void",
+      "since": "8.2.0"
+    },
+    "RemoveCustomFunction": {
+      "description": "Removes a custom function.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/RemoveCustomFunction/",
+      "params": [
+        {
+          "description": "The name of a custom function.",
+          "name": "sName",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "description": "returns false if such a function does not exist.",
+        "type": "boolean"
+      },
+      "signature": "RemoveCustomFunction(sName: string): boolean"
+    },
+    "ReplaceTextSmart": {
+      "description": "Replaces each paragraph (or text in cell) in the select with the corresponding text from an array of strings.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/ReplaceTextSmart/",
+      "params": [
+        {
+          "description": "An array of replacement strings.",
+          "name": "textStrings",
+          "type": "string[]"
+        },
+        {
+          "description": "A character which is used to specify the tab in the source text.",
+          "name": "tab",
+          "optional": true,
+          "type": "string"
+        },
+        {
+          "description": "A character which is used to specify the line break character in the source text.",
+          "name": "newLine",
+          "optional": true,
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "ReplaceTextSmart(textStrings: string[], tab?: string, newLine?: string): boolean"
+    },
+    "Save": {
+      "description": "Saves changes to the specified document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/Save/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "Save(): boolean"
+    },
+    "SetFreezePanesType": {
+      "description": "Sets a type to the freeze panes.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/SetFreezePanesType/",
+      "params": [
+        {
+          "description": "The freeze panes type (\"null\" to unfreeze).",
+          "name": "FreezePaneType",
+          "type": "FreezePaneType"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetFreezePanesType(FreezePaneType: FreezePaneType): void",
+      "since": "8.0.0"
+    },
+    "SetLocale": {
+      "description": "Sets a locale to the document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/SetLocale/",
+      "params": [
+        {
+          "description": "The locale specified.",
+          "name": "LCID",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the locale was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetLocale(LCID: number): boolean"
+    },
+    "SetReferenceStyle": {
+      "description": "Sets the cell reference style.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/SetReferenceStyle/",
+      "params": [
+        {
+          "description": "The cell reference style.",
+          "name": "sReferenceStyle",
+          "type": "ReferenceStyle"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetReferenceStyle(sReferenceStyle: ReferenceStyle): void",
+      "since": "8.1.0"
+    },
+    "SetThemeColors": {
+      "description": "Sets the theme colors to the current spreadsheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/SetThemeColors/",
+      "params": [
+        {
+          "description": "The color scheme that will be set to the current spreadsheet.",
+          "name": "sTheme",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "description": "returns false if sTheme isn't a string.",
+        "type": "boolean"
+      },
+      "signature": "SetThemeColors(sTheme: string): boolean"
+    },
+    "ThemeColor": {
+      "description": "Creates a theme color.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/ThemeColor/",
+      "params": [
+        {
+          "description": "The theme color name. If the provided name is not supported, the 'tx1' color will be used.",
+          "name": "name",
+          "optional": true,
+          "type": "SchemeColorId"
+        }
+      ],
+      "returns": {
+        "description": "Instance of ApiColor with 'theme' type.",
+        "type": "ApiColor"
+      },
+      "signature": "ThemeColor(name?: SchemeColorId): ApiColor"
+    },
+    "TwipsToPoints": {
+      "description": "Converts twips to points.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/TwipsToPoints/",
+      "params": [
+        {
+          "description": "The number of twips to convert to points.",
+          "name": "twips",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "TwipsToPoints(twips: number): number"
+    },
+    "attachEvent": {
+      "description": "Subscribes to the specified event and calls the callback function when the event fires.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/attachEvent/",
+      "params": [
+        {
+          "description": "The event name.",
+          "name": "eventName",
+          "type": "string"
+        },
+        {
+          "description": "Function to be called when the event fires.",
+          "name": "callback",
+          "type": "(...args: unknown[]) => unknown"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "attachEvent(eventName: string, callback: (...args: unknown[]) => unknown): void"
+    },
+    "detachEvent": {
+      "description": "Unsubscribes from the specified event.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/detachEvent/",
+      "params": [
+        {
+          "description": "The event name.",
+          "name": "eventName",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "detachEvent(eventName: string): void"
+    }
+  }
+}

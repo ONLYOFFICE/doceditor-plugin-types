@@ -1,0 +1,15 @@
+{
+  "description": "Returns the double factorial of a number.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/FACTDOUBLE/",
+  "params": [
+    {
+      "description": "The value for which to return the double factorial.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "FACTDOUBLE(arg1: ApiRange | ApiName | number): number"
+}

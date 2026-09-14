@@ -1,0 +1,751 @@
+{
+  "description": "Class representing a table cell.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/",
+  "extends": [
+    "ApiTableCellPr"
+  ],
+  "methods": {
+    "AddColumns": {
+      "description": "Adds the new columns to the current table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/AddColumns/",
+      "params": [
+        {
+          "description": "Count of columns to be added.",
+          "name": "nCount",
+          "type": "number"
+        },
+        {
+          "description": "Specifies if the new columns will be added before or after the current cell.",
+          "name": "isBefore",
+          "optional": true,
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "returns null if parent table doesn't exist.",
+        "type": "ApiTable | null"
+      },
+      "signature": "AddColumns(nCount: number, isBefore?: boolean): ApiTable | null"
+    },
+    "AddElement": {
+      "description": "Adds a paragraph or a table or a blockLvl content control using its position in the cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/AddElement/",
+      "params": [
+        {
+          "description": "The position where the current element will be added.",
+          "name": "nPos",
+          "type": "number"
+        },
+        {
+          "description": "The document element which will be added at the current position.",
+          "name": "oElement",
+          "type": "DocumentElement"
+        }
+      ],
+      "returns": {
+        "description": "returns false if oElement is invalid.",
+        "type": "boolean"
+      },
+      "signature": "AddElement(nPos: number, oElement: DocumentElement): boolean"
+    },
+    "AddRows": {
+      "description": "Adds the new rows to the current table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/AddRows/",
+      "params": [
+        {
+          "description": "Count of rows to be added.",
+          "name": "nCount",
+          "type": "number"
+        },
+        {
+          "description": "Specifies if the new rows will be added before or after the current cell.",
+          "name": "isBefore",
+          "optional": true,
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "returns null if parent table doesn't exist.",
+        "type": "ApiTable | null"
+      },
+      "signature": "AddRows(nCount: number, isBefore?: boolean): ApiTable | null"
+    },
+    "AddText": {
+      "description": "Appends text to the end of the cell content.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/AddText/",
+      "params": [
+        {
+          "description": "The text to append.",
+          "name": "text",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "ApiRun"
+      },
+      "signature": "AddText(text: string): ApiRun",
+      "since": "9.4.0"
+    },
+    "Clear": {
+      "description": "Clears the content of the current cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/Clear/",
+      "params": [],
+      "returns": {
+        "description": "Returns true when the content has been cleared.",
+        "type": "boolean"
+      },
+      "signature": "Clear(): boolean"
+    },
+    "GetBackgroundColor": {
+      "description": "Returns the background color of the current table cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/GetBackgroundColor/",
+      "params": [],
+      "returns": {
+        "type": "ApiColor"
+      },
+      "signature": "GetBackgroundColor(): ApiColor",
+      "since": "9.1.0"
+    },
+    "GetClassType": {
+      "description": "Returns a type of the ApiTableCell class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"tableCell\""
+      },
+      "signature": "GetClassType(): \"tableCell\""
+    },
+    "GetContent": {
+      "description": "Returns the current cell content.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/GetContent/",
+      "params": [],
+      "returns": {
+        "type": "ApiDocumentContent"
+      },
+      "signature": "GetContent(): ApiDocumentContent"
+    },
+    "GetIndex": {
+      "description": "Returns the current cell index.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/GetIndex/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetIndex(): number"
+    },
+    "GetInternalId": {
+      "description": "Returns an internal id of the current table cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/GetInternalId/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetInternalId(): string",
+      "since": "9.2.0"
+    },
+    "GetNext": {
+      "description": "Returns the next cell if exists.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/GetNext/",
+      "params": [],
+      "returns": {
+        "description": "returns null if cell is last.",
+        "type": "ApiTableCell | null"
+      },
+      "signature": "GetNext(): ApiTableCell | null"
+    },
+    "GetParentRow": {
+      "description": "Returns a parent row of the current cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/GetParentRow/",
+      "params": [],
+      "returns": {
+        "description": "returns null if parent row doesn't exist.",
+        "type": "ApiTableRow | null"
+      },
+      "signature": "GetParentRow(): ApiTableRow | null"
+    },
+    "GetParentTable": {
+      "description": "Returns a parent table of the current cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/GetParentTable/",
+      "params": [],
+      "returns": {
+        "description": "returns null if parent table doesn't exist.",
+        "type": "ApiTable | null"
+      },
+      "signature": "GetParentTable(): ApiTable | null"
+    },
+    "GetPrevious": {
+      "description": "Returns the previous cell if exists.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/GetPrevious/",
+      "params": [],
+      "returns": {
+        "description": "returns null is cell is first.",
+        "type": "ApiTableCell | null"
+      },
+      "signature": "GetPrevious(): ApiTableCell | null"
+    },
+    "GetRowIndex": {
+      "description": "Returns an index of the parent row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/GetRowIndex/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetRowIndex(): number"
+    },
+    "GetText": {
+      "description": "Returns the inner text of the current table cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/GetText/",
+      "params": [
+        {
+          "description": "Options for formatting the returned text.",
+          "name": "pr",
+          "optional": true,
+          "type": "object"
+        },
+        {
+          "description": "Defines if the resulting string will include numbering or not.",
+          "name": "pr_Numbering",
+          "optional": true,
+          "type": "boolean"
+        },
+        {
+          "description": "Defines if the resulting string will include mathematical expressions or not.",
+          "name": "pr_Math",
+          "optional": true,
+          "type": "boolean"
+        },
+        {
+          "description": "Defines how the table cell separator will be specified in the resulting string.",
+          "name": "pr_TableCellSeparator",
+          "optional": true,
+          "type": "string"
+        },
+        {
+          "description": "Defines how the table row separator will be specified in the resulting string.",
+          "name": "pr_TableRowSeparator",
+          "optional": true,
+          "type": "string"
+        },
+        {
+          "description": "Defines how the paragraph separator will be specified in the resulting string.",
+          "name": "pr_ParaSeparator",
+          "optional": true,
+          "type": "string"
+        },
+        {
+          "description": "Defines how the tab will be specified in the resulting string.",
+          "name": "pr_TabSymbol",
+          "optional": true,
+          "type": "string"
+        },
+        {
+          "description": "Defines how the line separator will be specified in the resulting string.",
+          "name": "pr_NewLineSeparator",
+          "optional": true,
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetText(pr?: object, pr_Numbering?: boolean, pr_Math?: boolean, pr_TableCellSeparator?: string, pr_TableRowSeparator?: string, pr_ParaSeparator?: string, pr_TabSymbol?: string, pr_NewLineSeparator?: string): string",
+      "since": "9.4.0"
+    },
+    "RemoveColumn": {
+      "description": "Removes a column containing the current cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/RemoveColumn/",
+      "params": [],
+      "returns": {
+        "description": "returns false if table doen't exist",
+        "type": "boolean"
+      },
+      "signature": "RemoveColumn(): boolean"
+    },
+    "RemoveRow": {
+      "description": "Removes a row containing the current cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/RemoveRow/",
+      "params": [],
+      "returns": {
+        "description": "Is the table empty after removing.",
+        "type": "boolean"
+      },
+      "signature": "RemoveRow(): boolean"
+    },
+    "Search": {
+      "description": "Searches for a scope of a table cell object. The search results are a collection of ApiRange objects.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/Search/",
+      "params": [
+        {
+          "description": "Search string, or a regular expression to match. When a RegExp is passed, the isMatchCase parameter is ignored (control case sensitivity with the \"i\" flag instead).",
+          "name": "sText",
+          "type": "string | RegExp"
+        },
+        {
+          "description": "Case sensitive or not.",
+          "name": "isMatchCase",
+          "optional": true,
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "ApiRange[]"
+      },
+      "signature": "Search(sText: string | RegExp, isMatchCase?: boolean): ApiRange[]"
+    },
+    "SetBackgroundColor": {
+      "description": "Sets the background color to the current table cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/SetBackgroundColor/",
+      "params": [
+        {
+          "description": "If not passed, the background color will be cleared.",
+          "name": "color",
+          "optional": true,
+          "type": "ApiColor"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetBackgroundColor(color?: ApiColor): boolean",
+      "since": "9.1.0"
+    },
+    "SetCellBorderBottom": {
+      "description": "Sets the border which will be displayed at the bottom of the current table cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetCellBorderBottom/",
+      "params": [
+        {
+          "description": "The cell bottom border style.",
+          "name": "sType",
+          "type": "BorderType"
+        },
+        {
+          "description": "The width of the current cell bottom border measured in eighths of a point.",
+          "name": "nSize",
+          "type": "pt_8"
+        },
+        {
+          "description": "The spacing offset in the bottom part of the table cell measured in points used to place this border.",
+          "name": "nSpace",
+          "optional": true,
+          "type": "pt"
+        },
+        {
+          "description": "Red color component value.",
+          "name": "r",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "Green color component value.",
+          "name": "g",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "Blue color component value.",
+          "name": "b",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetCellBorderBottom(sType: BorderType, nSize: pt_8, nSpace?: pt, r?: number, g?: number, b?: number): boolean"
+    },
+    "SetCellBorderLeft": {
+      "description": "Sets the border which will be displayed to the left of the current table cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetCellBorderLeft/",
+      "params": [
+        {
+          "description": "The cell left border style.",
+          "name": "sType",
+          "type": "BorderType"
+        },
+        {
+          "description": "The width of the current cell left border measured in eighths of a point.",
+          "name": "nSize",
+          "type": "pt_8"
+        },
+        {
+          "description": "The spacing offset in the left part of the table cell measured in points used to place this border.",
+          "name": "nSpace",
+          "optional": true,
+          "type": "pt"
+        },
+        {
+          "description": "Red color component value.",
+          "name": "r",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "Green color component value.",
+          "name": "g",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "Blue color component value.",
+          "name": "b",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetCellBorderLeft(sType: BorderType, nSize: pt_8, nSpace?: pt, r?: number, g?: number, b?: number): boolean"
+    },
+    "SetCellBorderRight": {
+      "description": "Sets the border which will be displayed to the right of the current table cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetCellBorderRight/",
+      "params": [
+        {
+          "description": "The cell right border style.",
+          "name": "sType",
+          "type": "BorderType"
+        },
+        {
+          "description": "The width of the current cell right border measured in eighths of a point.",
+          "name": "nSize",
+          "type": "pt_8"
+        },
+        {
+          "description": "The spacing offset in the right part of the table cell measured in points used to place this border.",
+          "name": "nSpace",
+          "optional": true,
+          "type": "pt"
+        },
+        {
+          "description": "Red color component value.",
+          "name": "r",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "Green color component value.",
+          "name": "g",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "Blue color component value.",
+          "name": "b",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetCellBorderRight(sType: BorderType, nSize: pt_8, nSpace?: pt, r?: number, g?: number, b?: number): boolean"
+    },
+    "SetCellBorderTop": {
+      "description": "Sets the border which will be displayed at the top of the current table cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetCellBorderTop/",
+      "params": [
+        {
+          "description": "The cell top border style.",
+          "name": "sType",
+          "type": "BorderType"
+        },
+        {
+          "description": "The width of the current cell top border measured in eighths of a point.",
+          "name": "nSize",
+          "type": "pt_8"
+        },
+        {
+          "description": "The spacing offset in the top part of the table cell measured in points used to place this border.",
+          "name": "nSpace",
+          "optional": true,
+          "type": "pt"
+        },
+        {
+          "description": "Red color component value.",
+          "name": "r",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "Green color component value.",
+          "name": "g",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "Blue color component value.",
+          "name": "b",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetCellBorderTop(sType: BorderType, nSize: pt_8, nSpace?: pt, r?: number, g?: number, b?: number): boolean"
+    },
+    "SetCellMarginBottom": {
+      "description": "Specifies an amount of space which will be left between the bottom extent of the cell contents and the border\nof a specific table cell within a table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetCellMarginBottom/",
+      "params": [
+        {
+          "description": "The value for the amount of space below the bottom extent of the cell measured in twentieths\rof a point (1/1440 of an inch). If this value is `null`, then default table cell bottom margin will be used, otherwise\rthe table cell bottom margin will be overridden with the specified value for the current cell.",
+          "name": "nValue",
+          "type": "twips"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetCellMarginBottom(nValue: twips): boolean"
+    },
+    "SetCellMarginLeft": {
+      "description": "Specifies an amount of space which will be left between the left extent of the cell contents and \nthe border of a specific table cell within a table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetCellMarginLeft/",
+      "params": [
+        {
+          "description": "The value for the amount of space to the left extent of the cell measured in twentieths\rof a point (1/1440 of an inch). If this value is `null`, then default table cell left margin will be used, otherwise\rthe table cell left margin will be overridden with the specified value for the current cell.",
+          "name": "nValue",
+          "type": "twips"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetCellMarginLeft(nValue: twips): boolean"
+    },
+    "SetCellMarginRight": {
+      "description": "Specifies an amount of space which will be left between the right extent of the cell contents and the border of a specific table cell within a table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetCellMarginRight/",
+      "params": [
+        {
+          "description": "The value for the amount of space to the right extent of the cell measured in twentieths\rof a point (1/1440 of an inch). If this value is `null`, then default table cell right margin will be used, otherwise\rthe table cell right margin will be overridden with the specified value for the current cell.",
+          "name": "nValue",
+          "type": "twips"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetCellMarginRight(nValue: twips): boolean"
+    },
+    "SetCellMarginTop": {
+      "description": "Specifies an amount of space which will be left between the upper extent of the cell contents\nand the border of a specific table cell within a table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetCellMarginTop/",
+      "params": [
+        {
+          "description": "The value for the amount of space above the upper extent of the cell measured in twentieths\rof a point (1/1440 of an inch). If this value is `null`, then default table cell top margin will be used, otherwise\rthe table cell top margin will be overridden with the specified value for the current cell.",
+          "name": "nValue",
+          "type": "twips"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetCellMarginTop(nValue: twips): boolean"
+    },
+    "SetCellPr": {
+      "description": "Sets the cell properties to the current cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/SetCellPr/",
+      "params": [
+        {
+          "description": "The properties that will be set to the current table cell.",
+          "name": "oApiTableCellPr",
+          "type": "ApiTableCellPr"
+        }
+      ],
+      "returns": {
+        "description": "returns false if param is invalid.",
+        "type": "boolean"
+      },
+      "signature": "SetCellPr(oApiTableCellPr: ApiTableCellPr): boolean"
+    },
+    "SetColumnBackgroundColor": {
+      "description": "Sets the background color to all cells in the column containing the current cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/SetColumnBackgroundColor/",
+      "params": [
+        {
+          "description": "If not passed, the background color will be cleared.",
+          "name": "color",
+          "optional": true,
+          "type": "ApiColor"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetColumnBackgroundColor(color?: ApiColor): boolean",
+      "since": "9.1.0"
+    },
+    "SetNoWrap": {
+      "description": "Specifies how the current table cell is laid out when the parent table is displayed in a document. This setting\nonly affects the behavior of the cell when the {@link ApiTablePr#SetTableLayout} table layout for this table is set to use the `\"autofit\"` algorithm.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetNoWrap/",
+      "params": [
+        {
+          "description": "The true value means that the current table cell will not be wrapped in the parent table.",
+          "name": "isNoWrap",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetNoWrap(isNoWrap: boolean): boolean"
+    },
+    "SetShd": {
+      "description": "Specifies the shading applied to the contents of the table cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetShd/",
+      "params": [
+        {
+          "description": "The shading type which will be applied to the contents of the current table cell.",
+          "name": "sType",
+          "type": "ShdType"
+        },
+        {
+          "description": "Red color component value.",
+          "name": "r",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "Green color component value.",
+          "name": "g",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "Blue color component value.",
+          "name": "b",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "The true value disables the table cell contents shading.",
+          "name": "isAuto",
+          "optional": true,
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetShd(sType: ShdType, r?: number, g?: number, b?: number, isAuto?: boolean): boolean"
+    },
+    "SetText": {
+      "description": "Replaces all content of the current table cell with the specified text,\npreserving the formatting of the first paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/SetText/",
+      "params": [
+        {
+          "description": "The text to set.",
+          "name": "text",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "ApiRun"
+      },
+      "signature": "SetText(text: string): ApiRun",
+      "since": "9.4.0"
+    },
+    "SetTextDirection": {
+      "description": "Specifies the direction of the text flow for this table cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetTextDirection/",
+      "params": [
+        {
+          "description": "The available types of the text direction in the table cell: `\"lrtb\"`\r- text direction left-to-right moving from top to bottom, `\"tbrl\"` - text direction top-to-bottom moving from right\rto left, `\"btlr\"` - text direction bottom-to-top moving from left to right.",
+          "name": "sType",
+          "type": "TextFlowDirection"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetTextDirection(sType: TextFlowDirection): boolean"
+    },
+    "SetTextPr": {
+      "description": "Applies the text settings to the entire contents of the current cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/SetTextPr/",
+      "params": [
+        {
+          "description": "The properties that will be set to the current table cell text.",
+          "name": "oTextPr",
+          "type": "ApiTextPr"
+        }
+      ],
+      "returns": {
+        "description": "returns false if param is invalid.",
+        "type": "boolean"
+      },
+      "signature": "SetTextPr(oTextPr: ApiTextPr): boolean"
+    },
+    "SetVerticalAlign": {
+      "description": "Specifies the vertical alignment for the text contents within the current table cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetVerticalAlign/",
+      "params": [
+        {
+          "description": "The available types of the vertical alignment for the text contents of the current table cell.",
+          "name": "sType",
+          "type": "\"top\" | \"center\" | \"bottom\""
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetVerticalAlign(sType: \"top\" | \"center\" | \"bottom\"): boolean"
+    },
+    "SetWidth": {
+      "description": "Sets the preferred width to the current table cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetWidth/",
+      "params": [
+        {
+          "description": "Type of the width value from one of the available width values types.",
+          "name": "sType",
+          "type": "TableWidth"
+        },
+        {
+          "description": "The table cell width value measured in positive integers.",
+          "name": "nValue",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetWidth(sType: TableWidth, nValue?: number): boolean"
+    },
+    "Split": {
+      "description": "Splits the cell into a given number of rows and columns.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/Split/",
+      "params": [
+        {
+          "description": "Count of rows into which the cell will be split.",
+          "name": "nRow",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "Count of columns into which the cell will be split.",
+          "name": "nCol",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "returns null if parent table doesn't exist.",
+        "type": "ApiTable | null"
+      },
+      "signature": "Split(nRow?: number, nCol?: number): ApiTable | null"
+    },
+    "ToJSON": {
+      "description": "Converts the ApiTableCellPr object into the JSON object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/ToJSON/",
+      "params": [],
+      "returns": {
+        "type": "object"
+      },
+      "signature": "ToJSON(): object"
+    }
+  }
+}

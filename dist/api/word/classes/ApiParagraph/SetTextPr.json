@@ -1,0 +1,16 @@
+{
+  "description": "Sets the paragraph text properties.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/SetTextPr/",
+  "params": [
+    {
+      "description": "The paragraph text properties.",
+      "name": "oTextPr",
+      "type": "ApiTextPr"
+    }
+  ],
+  "returns": {
+    "description": "returns false if param is invalid.",
+    "type": "boolean"
+  },
+  "signature": "SetTextPr(oTextPr: ApiTextPr): boolean"
+}

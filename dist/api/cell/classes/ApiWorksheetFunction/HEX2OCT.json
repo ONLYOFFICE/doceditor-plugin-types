@@ -1,0 +1,21 @@
+{
+  "description": "Converts a hexadecimal number to octal.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/HEX2OCT/",
+  "params": [
+    {
+      "description": "The hexadecimal number to convert.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    },
+    {
+      "description": "The number of characters to use.",
+      "name": "arg2",
+      "optional": true,
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "HEX2OCT(arg1: ApiRange | ApiName | number, arg2?: ApiRange | ApiName | number): number"
+}

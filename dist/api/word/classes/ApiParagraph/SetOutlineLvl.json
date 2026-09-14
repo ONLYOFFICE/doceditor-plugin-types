@@ -1,0 +1,17 @@
+{
+  "description": "Sets the outline level for the specified properties.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetOutlineLvl/",
+  "params": [
+    {
+      "description": "The outline level. Possible values: 1-9. The 1 value means the basic outline level.\rTo set no outline level, use this method without a parameter.",
+      "name": "lvl",
+      "optional": true,
+      "type": "number | null"
+    }
+  ],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "SetOutlineLvl(lvl?: number | null): boolean",
+  "since": "8.2.0"
+}

@@ -1,0 +1,26 @@
+{
+  "description": "Replaces a drawing with a new drawing.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/ReplaceDrawing/",
+  "params": [
+    {
+      "description": "A drawing which will be replaced.",
+      "name": "oOldDrawing",
+      "type": "ApiDrawing"
+    },
+    {
+      "description": "A drawing to replace the old drawing.",
+      "name": "oNewDrawing",
+      "type": "ApiDrawing"
+    },
+    {
+      "description": "Specifies if the old drawing settings will be saved.",
+      "name": "bSaveOldDrawingPr",
+      "optional": true,
+      "type": "boolean"
+    }
+  ],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "ReplaceDrawing(oOldDrawing: ApiDrawing, oNewDrawing: ApiDrawing, bSaveOldDrawingPr?: boolean): boolean"
+}

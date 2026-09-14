@@ -1,0 +1,1270 @@
+{
+  "description": "Class representing a sheet.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/",
+  "methods": {
+    "AddChart": {
+      "description": "Creates a chart of the specified type from the selected data range of the current sheet.\n<note>Please note that the horizontal and vertical offsets are calculated within the limits of the specified column and\nrow cells only. If this value exceeds the cell width or height, another vertical/horizontal position will be set.</note>\n**Note:**\nValues of _nStyleIndex_ outside **1 - 48** are interpreted as a chart style id from the _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs Enterprise](https://www.onlyoffice.com/docs-enterprise-prices.aspx?from=api) and [ONLYOFFICE Docs Developer](https://www.onlyoffice.com/developer-edition-prices.aspx?from=api).\n",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/AddChart/",
+      "params": [
+        {
+          "description": "The selected cell range which will be used to get the data for the chart, formed specifically and including the sheet name.",
+          "name": "sDataRange",
+          "type": "string"
+        },
+        {
+          "description": "Specifies whether to take the data from the rows or from the columns. If true, the data from the rows will be used.",
+          "name": "bInRows",
+          "type": "boolean"
+        },
+        {
+          "description": "The chart type used for the chart display.",
+          "name": "sType",
+          "type": "ChartType"
+        },
+        {
+          "description": "The chart color style index (can be **1 - 48**, as described in OOXML specification).",
+          "name": "nStyleIndex",
+          "type": "number"
+        },
+        {
+          "description": "The chart width in English measure units",
+          "name": "nExtX",
+          "type": "EMU"
+        },
+        {
+          "description": "The chart height in English measure units.",
+          "name": "nExtY",
+          "type": "EMU"
+        },
+        {
+          "description": "The number of the column where the beginning of the chart will be placed.",
+          "name": "nFromCol",
+          "type": "number"
+        },
+        {
+          "description": "The offset from the nFromCol column to the left part of the chart measured in English measure units.",
+          "name": "nColOffset",
+          "type": "EMU"
+        },
+        {
+          "description": "The number of the row where the beginning of the chart will be placed.",
+          "name": "nFromRow",
+          "type": "number"
+        },
+        {
+          "description": "The offset from the nFromRow row to the upper part of the chart measured in English measure units.",
+          "name": "nRowOffset",
+          "type": "EMU"
+        }
+      ],
+      "returns": {
+        "type": "ApiChart | null"
+      },
+      "signature": "AddChart(sDataRange: string, bInRows: boolean, sType: ChartType, nStyleIndex: number, nExtX: EMU, nExtY: EMU, nFromCol: number, nColOffset: EMU, nFromRow: number, nRowOffset: EMU): ApiChart | null"
+    },
+    "AddDefName": {
+      "description": "Adds a new name to the current worksheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/AddDefName/",
+      "params": [
+        {
+          "description": "The range name.",
+          "name": "sName",
+          "type": "string"
+        },
+        {
+          "description": "Must contain the sheet name, followed by sign ! and a range of cells.\rExample: \"Sheet1!$A$1:$B$2\".",
+          "name": "sRef",
+          "type": "string"
+        },
+        {
+          "description": "Defines if the range name is hidden or not.",
+          "name": "isHidden",
+          "optional": true,
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "returns false if sName or sRef are invalid.",
+        "type": "boolean"
+      },
+      "signature": "AddDefName(sName: string, sRef: string, isHidden?: boolean): boolean"
+    },
+    "AddDrawing": {
+      "description": "Adds a detached drawing object (e.g. a copy returned by ApiDrawing.Copy) to the worksheet at the specified anchor.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/AddDrawing/",
+      "params": [
+        {
+          "description": "The drawing object to add.",
+          "name": "oDrawing",
+          "type": "ApiDrawing"
+        },
+        {
+          "description": "The number of the column where the upper-left corner of the drawing will be placed.",
+          "name": "nFromCol",
+          "type": "number"
+        },
+        {
+          "description": "The offset from the nFromCol column to the upper-left corner of the drawing measured in English measure units.",
+          "name": "nColOffset",
+          "type": "EMU"
+        },
+        {
+          "description": "The number of the row where the upper-left corner of the drawing will be placed.",
+          "name": "nFromRow",
+          "type": "number"
+        },
+        {
+          "description": "The offset from the nFromRow row to the upper-left corner of the drawing measured in English measure units.",
+          "name": "nRowOffset",
+          "type": "EMU"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "returns false if the drawing is missing or already attached to a worksheet.",
+        "type": "boolean"
+      },
+      "signature": "AddDrawing(oDrawing: ApiDrawing, nFromCol: number, nColOffset: EMU, nFromRow: number, nRowOffset: EMU): boolean",
+      "since": "9.4.0"
+    },
+    "AddImage": {
+      "description": "Adds an image to the current sheet with the parameters specified.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/AddImage/",
+      "params": [
+        {
+          "description": "The image source where the image to be inserted should be taken from (currently only internet URL or Base64 encoded images are supported).",
+          "name": "sImageSrc",
+          "type": "string"
+        },
+        {
+          "description": "The image width in English measure units.",
+          "name": "nWidth",
+          "type": "EMU"
+        },
+        {
+          "description": "The image height in English measure units.",
+          "name": "nHeight",
+          "type": "EMU"
+        },
+        {
+          "description": "The number of the column where the beginning of the image will be placed.",
+          "name": "nFromCol",
+          "type": "number"
+        },
+        {
+          "description": "The offset from the nFromCol column to the left part of the image measured in English measure units.",
+          "name": "nColOffset",
+          "type": "EMU"
+        },
+        {
+          "description": "The number of the row where the beginning of the image will be placed.",
+          "name": "nFromRow",
+          "type": "number"
+        },
+        {
+          "description": "The offset from the nFromRow row to the upper part of the image measured in English measure units.",
+          "name": "nRowOffset",
+          "type": "EMU"
+        }
+      ],
+      "returns": {
+        "type": "ApiImage | null"
+      },
+      "signature": "AddImage(sImageSrc: string, nWidth: EMU, nHeight: EMU, nFromCol: number, nColOffset: EMU, nFromRow: number, nRowOffset: EMU): ApiImage | null"
+    },
+    "AddListObject": {
+      "description": "Adds a formatted table to the worksheet and returns the ApiListObject object.",
+      "params": [
+        {
+          "description": "The source type for the table. Currently only **\"xlSrcRange\"** is supported.",
+          "name": "sSourceType",
+          "optional": true,
+          "type": "XlListObjectSourceType"
+        },
+        {
+          "description": "The range to which the table will be applied, e.g. **\"A1:D10\"**. Required when _sSourceType_ is **\"xlSrcRange\"**.",
+          "name": "sSource",
+          "optional": true,
+          "type": "string"
+        },
+        {
+          "description": "Not supported.",
+          "name": "bLinkSource",
+          "optional": true,
+          "type": "boolean"
+        },
+        {
+          "description": "Specifies whether the source range has column labels.",
+          "name": "sHasHeaders",
+          "optional": true,
+          "type": "XlYesNoGuess"
+        },
+        {
+          "description": "Not supported.",
+          "name": "sDestination",
+          "optional": true,
+          "type": "string"
+        },
+        {
+          "description": "The table style name.",
+          "name": "sTableStyleName",
+          "optional": true,
+          "type": "string"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiListObject | null"
+      },
+      "signature": "AddListObject(sSourceType?: XlListObjectSourceType, sSource?: string, bLinkSource?: boolean, sHasHeaders?: XlYesNoGuess, sDestination?: string, sTableStyleName?: string): ApiListObject | null"
+    },
+    "AddOleObject": {
+      "description": "Adds an OLE object to the current sheet with the parameters specified.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/AddOleObject/",
+      "params": [
+        {
+          "description": "The image source where the image to be inserted should be taken from (currently, only internet URL or Base64 encoded images are supported).",
+          "name": "sImageSrc",
+          "type": "string"
+        },
+        {
+          "description": "The OLE object width in English measure units.",
+          "name": "nWidth",
+          "type": "EMU"
+        },
+        {
+          "description": "The OLE object height in English measure units.",
+          "name": "nHeight",
+          "type": "EMU"
+        },
+        {
+          "description": "The OLE object string data.",
+          "name": "sData",
+          "type": "string"
+        },
+        {
+          "description": "The application ID associated with the current OLE object.",
+          "name": "sAppId",
+          "type": "string"
+        },
+        {
+          "description": "The number of the column where the beginning of the OLE object will be placed.",
+          "name": "nFromCol",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "The offset from the nFromCol column to the left part of the OLE object measured in English measure units.",
+          "name": "nColOffset",
+          "optional": true,
+          "type": "EMU"
+        },
+        {
+          "description": "The number of the row where the beginning of the OLE object will be placed.",
+          "name": "nFromRow",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "The offset from the nFromRow row to the upper part of the OLE object measured in English measure units.",
+          "name": "nRowOffset",
+          "optional": true,
+          "type": "EMU"
+        }
+      ],
+      "returns": {
+        "type": "ApiOleObject | null"
+      },
+      "signature": "AddOleObject(sImageSrc: string, nWidth: EMU, nHeight: EMU, sData: string, sAppId: string, nFromCol?: number, nColOffset?: EMU, nFromRow?: number, nRowOffset?: EMU): ApiOleObject | null"
+    },
+    "AddProtectedRange": {
+      "description": "Creates a protected range of the specified type from the selected data range of the current sheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/AddProtectedRange/",
+      "params": [
+        {
+          "description": "The title which will be displayed for the current protected range.",
+          "name": "sTitle",
+          "type": "string"
+        },
+        {
+          "description": "The selected cell range which will be used to get the data for the protected range.",
+          "name": "sDataRange",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "ApiProtectedRange | null"
+      },
+      "signature": "AddProtectedRange(sTitle: string, sDataRange: string): ApiProtectedRange | null",
+      "since": "8.1.0"
+    },
+    "AddShape": {
+      "description": "Adds a shape to the current sheet with the parameters specified.\n<note>Please note that the horizontal and vertical offsets are\ncalculated within the limits of the specified column and row cells\nonly. If this value exceeds the cell width or height, another vertical/horizontal position will be set.</note>",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/AddShape/",
+      "params": [
+        {
+          "description": "The shape type which specifies the preset shape geometry.",
+          "name": "sType",
+          "optional": true,
+          "type": "ShapeType"
+        },
+        {
+          "description": "The shape width in English measure units.",
+          "name": "nWidth",
+          "optional": true,
+          "type": "EMU"
+        },
+        {
+          "description": "The shape height in English measure units.",
+          "name": "nHeight",
+          "optional": true,
+          "type": "EMU"
+        },
+        {
+          "description": "The color or pattern used to fill the shape. If not specified, the default shape style fill (theme accent) is used.",
+          "name": "oFill",
+          "optional": true,
+          "type": "ApiFill"
+        },
+        {
+          "description": "The stroke used to draw the shape outline. If not specified, the default shape style outline (theme accent) is used.",
+          "name": "oStroke",
+          "optional": true,
+          "type": "ApiStroke"
+        },
+        {
+          "description": "The number of the column where the beginning of the shape will be placed.",
+          "name": "nFromCol",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "The offset from the nFromCol column to the left part of the shape measured in English measure units.",
+          "name": "nColOffset",
+          "optional": true,
+          "type": "EMU"
+        },
+        {
+          "description": "The number of the row where the beginning of the shape will be placed.",
+          "name": "nFromRow",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "The offset from the nFromRow row to the upper part of the shape measured in English measure units.",
+          "name": "nRowOffset",
+          "optional": true,
+          "type": "EMU"
+        }
+      ],
+      "returns": {
+        "type": "ApiShape | null"
+      },
+      "signature": "AddShape(sType?: ShapeType, nWidth?: EMU, nHeight?: EMU, oFill?: ApiFill, oStroke?: ApiStroke, nFromCol?: number, nColOffset?: EMU, nFromRow?: number, nRowOffset?: EMU): ApiShape | null"
+    },
+    "AddWordArt": {
+      "description": "Adds a Text Art object to the current sheet with the parameters specified.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/AddWordArt/",
+      "params": [
+        {
+          "description": "The text properties.",
+          "name": "oTextPr",
+          "optional": true,
+          "type": "ApiTextPr"
+        },
+        {
+          "description": "The text for the Text Art object.",
+          "name": "sText",
+          "optional": true,
+          "type": "string"
+        },
+        {
+          "description": "Text transform type.",
+          "name": "sTransform",
+          "optional": true,
+          "type": "TextTransform"
+        },
+        {
+          "description": "The color or pattern used to fill the Text Art object.",
+          "name": "oFill",
+          "optional": true,
+          "type": "ApiFill"
+        },
+        {
+          "description": "The stroke used to create the Text Art object shadow.",
+          "name": "oStroke",
+          "optional": true,
+          "type": "ApiStroke"
+        },
+        {
+          "description": "Rotation angle.",
+          "name": "nRotAngle",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "The Text Art width measured in English measure units.",
+          "name": "nWidth",
+          "optional": true,
+          "type": "EMU"
+        },
+        {
+          "description": "The Text Art heigth measured in English measure units.",
+          "name": "nHeight",
+          "optional": true,
+          "type": "EMU"
+        },
+        {
+          "description": "The column number where the beginning of the Text Art object will be placed.",
+          "name": "nFromCol",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "The row number where the beginning of the Text Art object will be placed.",
+          "name": "nFromRow",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "The offset from the nFromCol column to the left part of the Text Art object measured in English measure units.",
+          "name": "nColOffset",
+          "optional": true,
+          "type": "EMU"
+        },
+        {
+          "description": "The offset from the nFromRow row to the upper part of the Text Art object measured in English measure units.",
+          "name": "nRowOffset",
+          "optional": true,
+          "type": "EMU"
+        }
+      ],
+      "returns": {
+        "type": "ApiDrawing | null"
+      },
+      "signature": "AddWordArt(oTextPr?: ApiTextPr, sText?: string, sTransform?: TextTransform, oFill?: ApiFill, oStroke?: ApiStroke, nRotAngle?: number, nWidth?: EMU, nHeight?: EMU, nFromCol?: number, nFromRow?: number, nColOffset?: EMU, nRowOffset?: EMU): ApiDrawing | null"
+    },
+    "Delete": {
+      "description": "Deletes the current worksheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/Delete/",
+      "params": [],
+      "returns": {
+        "description": "returns true if the sheet was deleted successfully.",
+        "type": "boolean"
+      },
+      "signature": "Delete(): boolean"
+    },
+    "FormatAsTable": {
+      "description": "Formats the selected range of cells from the current sheet as a table (with the first row formatted as a header).\n<note>As the first row is always formatted as a table header, you need to select at least two rows for the table to be formed correctly.</note>",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/FormatAsTable/",
+      "params": [
+        {
+          "description": "The range of cells from the current sheet which will be formatted as a table.",
+          "name": "sRange",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the range was formatted as a table successfully.",
+        "type": "boolean"
+      },
+      "signature": "FormatAsTable(sRange: string): boolean"
+    },
+    "GetActiveCell": {
+      "description": "Returns an object that represents an active cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetActiveCell/",
+      "params": [],
+      "returns": {
+        "type": "ApiRange"
+      },
+      "signature": "GetActiveCell(): ApiRange"
+    },
+    "GetAllCharts": {
+      "description": "Returns all charts from the current sheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetAllCharts/",
+      "params": [],
+      "returns": {
+        "description": ".",
+        "type": "ApiChart[]"
+      },
+      "signature": "GetAllCharts(): ApiChart[]"
+    },
+    "GetAllDrawings": {
+      "description": "Returns all drawings from the current sheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetAllDrawings/",
+      "params": [],
+      "returns": {
+        "description": ".",
+        "type": "Drawing[]"
+      },
+      "signature": "GetAllDrawings(): Drawing[]"
+    },
+    "GetAllImages": {
+      "description": "Returns all images from the current sheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetAllImages/",
+      "params": [],
+      "returns": {
+        "description": ".",
+        "type": "ApiImage[]"
+      },
+      "signature": "GetAllImages(): ApiImage[]"
+    },
+    "GetAllOleObjects": {
+      "description": "Returns all OLE objects from the current sheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetAllOleObjects/",
+      "params": [],
+      "returns": {
+        "description": ".",
+        "type": "ApiOleObject[]"
+      },
+      "signature": "GetAllOleObjects(): ApiOleObject[]"
+    },
+    "GetAllPivotTables": {
+      "description": "Returns all pivot tables from the current worksheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetAllPivotTables/",
+      "params": [],
+      "returns": {
+        "type": "ApiPivotTable[]"
+      },
+      "signature": "GetAllPivotTables(): ApiPivotTable[]",
+      "since": "8.2.0"
+    },
+    "GetAllProtectedRanges": {
+      "description": "Returns all protected ranges from the current worksheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetAllProtectedRanges/",
+      "params": [],
+      "returns": {
+        "type": "ApiProtectedRange[] | null"
+      },
+      "signature": "GetAllProtectedRanges(): ApiProtectedRange[] | null",
+      "since": "8.1.0"
+    },
+    "GetAllShapes": {
+      "description": "Returns all shapes from the current sheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetAllShapes/",
+      "params": [],
+      "returns": {
+        "description": ".",
+        "type": "ApiShape[]"
+      },
+      "signature": "GetAllShapes(): ApiShape[]"
+    },
+    "GetAutoFilter": {
+      "description": "Returns the instante of ApiAutoFilter object that represents the worksheet AutoFilter.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetAutoFilter/",
+      "params": [],
+      "returns": {
+        "type": "ApiAutoFilter"
+      },
+      "signature": "GetAutoFilter(): ApiAutoFilter"
+    },
+    "GetBottomMargin": {
+      "description": "Returns the bottom margin of the sheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetBottomMargin/",
+      "params": [],
+      "returns": {
+        "description": "The bottom margin size measured in points.",
+        "type": "number"
+      },
+      "signature": "GetBottomMargin(): number"
+    },
+    "GetCells": {
+      "description": "Returns the ApiRange that represents all the cells on the worksheet (not just the cells that are currently in use).",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetCells/",
+      "params": [
+        {
+          "description": "The row number or the cell number (if only row is defined).",
+          "name": "row",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "The column number.",
+          "name": "col",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "ApiRange | null"
+      },
+      "signature": "GetCells(row?: number, col?: number): ApiRange | null"
+    },
+    "GetCols": {
+      "description": "Returns the ApiRange object that represents all the cells on the columns range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetCols/",
+      "params": [
+        {
+          "description": "Specifies the columns range in the string format.",
+          "name": "sRange",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "ApiRange"
+      },
+      "signature": "GetCols(sRange: string): ApiRange"
+    },
+    "GetComments": {
+      "description": "Returns all comments from the current worksheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetComments/",
+      "params": [],
+      "returns": {
+        "type": "ApiComment[]"
+      },
+      "signature": "GetComments(): ApiComment[]"
+    },
+    "GetCustomXmlParts": {
+      "description": "Retrieves the custom XML manager associated with the current sheet.\nThis manager allows manipulation and access to custom XML parts within the current sheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetCustomXmlParts/",
+      "params": [],
+      "returns": {
+        "description": "Returns an instance of ApiCustomXmlParts if the custom XML manager exists, otherwise returns null.",
+        "type": "ApiCustomXmlParts | null"
+      },
+      "signature": "GetCustomXmlParts(): ApiCustomXmlParts | null",
+      "since": "9.1.0"
+    },
+    "GetDefName": {
+      "description": "Returns the ApiName object by the worksheet name.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetDefName/",
+      "params": [
+        {
+          "description": "The worksheet name.",
+          "name": "defName",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "description": "returns null if definition name doesn't exist.",
+        "type": "ApiName | null"
+      },
+      "signature": "GetDefName(defName: string): ApiName | null"
+    },
+    "GetDefNames": {
+      "description": "Returns an array of ApiName objects.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetDefNames/",
+      "params": [],
+      "returns": {
+        "description": "Returns an empty array if no defined names are found.",
+        "type": "ApiName[]"
+      },
+      "signature": "GetDefNames(): ApiName[]"
+    },
+    "GetFreezePanes": {
+      "description": "Returns the freeze panes from the current worksheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetFreezePanes/",
+      "params": [],
+      "returns": {
+        "type": "ApiFreezePanes"
+      },
+      "signature": "GetFreezePanes(): ApiFreezePanes",
+      "since": "8.0.0"
+    },
+    "GetHyperlinks": {
+      "description": "Returns a collection of all the hyperlinks on the worksheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetHyperlinks/",
+      "params": [],
+      "returns": {
+        "type": "ApiHyperlinks"
+      },
+      "signature": "GetHyperlinks(): ApiHyperlinks"
+    },
+    "GetIndex": {
+      "description": "Returns a sheet index.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetIndex/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetIndex(): number"
+    },
+    "GetLeftMargin": {
+      "description": "Returns the left margin of the sheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetLeftMargin/",
+      "params": [],
+      "returns": {
+        "description": "The left margin size measured in points.",
+        "type": "number"
+      },
+      "signature": "GetLeftMargin(): number"
+    },
+    "GetListObjects": {
+      "description": "Returns an array of ApiListObject objects representing the formatted tables on the worksheet.",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiListObject[]"
+      },
+      "signature": "GetListObjects(): ApiListObject[]"
+    },
+    "GetName": {
+      "description": "Returns a sheet name.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetName/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetName(): string"
+    },
+    "GetPageOrientation": {
+      "description": "Returns the page orientation.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetPageOrientation/",
+      "params": [],
+      "returns": {
+        "type": "PageOrientation"
+      },
+      "signature": "GetPageOrientation(): PageOrientation"
+    },
+    "GetPageSetup": {
+      "description": "Returns the page setup object that represents the print layout settings of the current worksheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetPageSetup/",
+      "params": [],
+      "returns": {
+        "type": "ApiPageSetup"
+      },
+      "signature": "GetPageSetup(): ApiPageSetup",
+      "since": "10.0.0"
+    },
+    "GetPivotByName": {
+      "description": "Returns a pivot table by its name from the current worksheet, or null if it does not exist.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetPivotByName/",
+      "params": [
+        {
+          "description": "The pivot table name.",
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "ApiPivotTable | null"
+      },
+      "signature": "GetPivotByName(name: string): ApiPivotTable | null",
+      "since": "8.2.0"
+    },
+    "GetPrintGridlines": {
+      "description": "Returns the page PrintGridlines property which specifies whether the current sheet gridlines must be printed or not.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetPrintGridlines/",
+      "params": [],
+      "returns": {
+        "description": "True if cell gridlines are printed on this page.",
+        "type": "boolean"
+      },
+      "signature": "GetPrintGridlines(): boolean"
+    },
+    "GetPrintHeadings": {
+      "description": "Returns the page PrintHeadings property which specifies whether the current sheet row/column headings must be printed or not.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetPrintHeadings/",
+      "params": [],
+      "returns": {
+        "description": "Specifies whether the current sheet row/column headings must be printed or not.",
+        "type": "boolean"
+      },
+      "signature": "GetPrintHeadings(): boolean"
+    },
+    "GetProtectedRange": {
+      "description": "Returns a protected range object by its title.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetProtectedRange/",
+      "params": [
+        {
+          "description": "The title of the protected range that will be returned.",
+          "name": "sTitle",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "ApiProtectedRange | null"
+      },
+      "signature": "GetProtectedRange(sTitle: string): ApiProtectedRange | null",
+      "since": "8.1.0"
+    },
+    "GetRange": {
+      "description": "Returns an object that represents the selected range of the current sheet. Can be a single cell - **A1**, or cells\nfrom a single row - **A1:E1**, or cells from a single column - **A1:A10**, or cells from several rows and columns - **A1:E10**.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetRange/",
+      "params": [
+        {
+          "description": "The range of cells from the current sheet.",
+          "name": "Range1",
+          "type": "string | ApiRange"
+        },
+        {
+          "description": "The range of cells from the current sheet.",
+          "name": "Range2",
+          "optional": true,
+          "type": "string | ApiRange"
+        }
+      ],
+      "returns": {
+        "description": "returns null if such a range does not exist.",
+        "type": "ApiRange | null"
+      },
+      "signature": "GetRange(Range1: string | ApiRange, Range2?: string | ApiRange): ApiRange | null"
+    },
+    "GetRangeByNumber": {
+      "description": "Returns an object that represents the selected range of the current sheet using the **row/column** coordinates for the cell selection.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetRangeByNumber/",
+      "params": [
+        {
+          "description": "The row number.",
+          "name": "nRow",
+          "type": "number"
+        },
+        {
+          "description": "The column number.",
+          "name": "nCol",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "ApiRange"
+      },
+      "signature": "GetRangeByNumber(nRow: number, nCol: number): ApiRange"
+    },
+    "GetRightMargin": {
+      "description": "Returns the right margin of the sheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetRightMargin/",
+      "params": [],
+      "returns": {
+        "description": "The right margin size measured in points.",
+        "type": "number"
+      },
+      "signature": "GetRightMargin(): number"
+    },
+    "GetRows": {
+      "description": "Returns the ApiRange object that represents all the cells on the rows range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetRows/",
+      "params": [
+        {
+          "description": "Specifies the rows range in the string or number format.",
+          "name": "value",
+          "type": "string | number"
+        }
+      ],
+      "returns": {
+        "type": "ApiRange | null"
+      },
+      "signature": "GetRows(value: string | number): ApiRange | null"
+    },
+    "GetSelectedDrawings": {
+      "description": "Returns selected drawings from the current sheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetSelectedDrawings/",
+      "params": [],
+      "returns": {
+        "description": ".",
+        "type": "Drawing[]"
+      },
+      "signature": "GetSelectedDrawings(): Drawing[]"
+    },
+    "GetSelectedShapes": {
+      "description": "Returns selected shapes from the current sheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetSelectedShapes/",
+      "params": [],
+      "returns": {
+        "description": ".",
+        "type": "ApiShape[]"
+      },
+      "signature": "GetSelectedShapes(): ApiShape[]"
+    },
+    "GetSelection": {
+      "description": "Returns an object that represents the selected range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetSelection/",
+      "params": [],
+      "returns": {
+        "type": "ApiRange"
+      },
+      "signature": "GetSelection(): ApiRange"
+    },
+    "GetTopMargin": {
+      "description": "Returns the top margin of the sheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetTopMargin/",
+      "params": [],
+      "returns": {
+        "description": "The top margin size measured in points.",
+        "type": "number"
+      },
+      "signature": "GetTopMargin(): number"
+    },
+    "GetUsedRange": {
+      "description": "Returns the ApiRange object that represents the used range on the specified worksheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetUsedRange/",
+      "params": [],
+      "returns": {
+        "type": "ApiRange"
+      },
+      "signature": "GetUsedRange(): ApiRange"
+    },
+    "GetVisible": {
+      "description": "Returns the state of sheet visibility.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetVisible/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetVisible(): boolean"
+    },
+    "GroupDrawings": {
+      "description": "Groups an array of drawings in the current sheet.\n<note>This method is not supported in the document builder and works only in the editor.</note>",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GroupDrawings/",
+      "params": [
+        {
+          "description": "An array of drawings to group.",
+          "name": "aDrawings",
+          "type": "ApiDrawing[]"
+        }
+      ],
+      "returns": {
+        "description": "Returns null if the drawings cannot be grouped or when called in the document builder.",
+        "type": "ApiGroup | null"
+      },
+      "signature": "GroupDrawings(aDrawings: ApiDrawing[]): ApiGroup | null",
+      "since": "10.0.0"
+    },
+    "Move": {
+      "description": "Moves the current sheet to another location in the workbook.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/Move/",
+      "params": [
+        {
+          "description": "The sheet before which the current sheet will be placed. You cannot specify \"before\" if you specify \"after\".",
+          "name": "before",
+          "type": "ApiWorksheet"
+        },
+        {
+          "description": "The sheet after which the current sheet will be placed. You cannot specify \"after\" if you specify \"before\".",
+          "name": "after",
+          "optional": true,
+          "type": "ApiWorksheet"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "Move(before: ApiWorksheet, after?: ApiWorksheet): void"
+    },
+    "Paste": {
+      "description": "Pastes the contents of the clipboard to the current sheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/Paste/",
+      "params": [
+        {
+          "description": "The cell range where the clipboard contents should be pasted. If this argument is omitted, the current selection is used.",
+          "name": "destination",
+          "optional": true,
+          "type": "ApiRange"
+        }
+      ],
+      "returns": {
+        "description": "Returns false if there is nothing to paste. Only the data copied by the editor itself is available, the system clipboard can be read asynchronously only.",
+        "type": "boolean"
+      },
+      "signature": "Paste(destination?: ApiRange): boolean",
+      "since": "8.1.0"
+    },
+    "RefreshAllPivots": {
+      "description": "Refreshes all pivot tables on the current worksheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/RefreshAllPivots/",
+      "params": [],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "RefreshAllPivots(): void",
+      "since": "8.2.0"
+    },
+    "ReplaceCurrentImage": {
+      "description": "Replaces the current image with a new one.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/ReplaceCurrentImage/",
+      "params": [
+        {
+          "description": "The image source where the image to be inserted should be taken from (currently only internet URL or Base64 encoded images are supported).",
+          "name": "sImageUrl",
+          "type": "string"
+        },
+        {
+          "description": "The image width in English measure units.",
+          "name": "nWidth",
+          "type": "EMU"
+        },
+        {
+          "description": "The image height in English measure units.",
+          "name": "nHeight",
+          "type": "EMU"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the image was replaced successfully.",
+        "type": "boolean"
+      },
+      "signature": "ReplaceCurrentImage(sImageUrl: string, nWidth: EMU, nHeight: EMU): boolean"
+    },
+    "SetActive": {
+      "description": "Makes the current sheet active.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetActive/",
+      "params": [],
+      "returns": {
+        "description": "returns true if the sheet was made active successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetActive(): boolean"
+    },
+    "SetBottomMargin": {
+      "description": "Sets the bottom margin of the sheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetBottomMargin/",
+      "params": [
+        {
+          "description": "The bottom margin size measured in points.",
+          "name": "nPoints",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the bottom margin was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetBottomMargin(nPoints: number): boolean"
+    },
+    "SetColumnWidth": {
+      "description": "Sets the width of the specified column.\nOne unit of column width is equal to the width of one character in the Normal style.\nFor proportional fonts, the width of the character 0 (zero) is used.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetColumnWidth/",
+      "params": [
+        {
+          "description": "The number of the column to set the width to.",
+          "name": "nColumn",
+          "type": "number"
+        },
+        {
+          "description": "The width of the column divided by 7 pixels.",
+          "name": "nWidth",
+          "type": "number"
+        },
+        {
+          "description": "Specifies whether nWidth will be set without standard paddings.",
+          "name": "bWithotPaddings",
+          "optional": true,
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the column width was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetColumnWidth(nColumn: number, nWidth: number, bWithotPaddings?: boolean): boolean"
+    },
+    "SetDisplayGridlines": {
+      "description": "Specifies whether the current sheet gridlines must be displayed or not.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetDisplayGridlines/",
+      "params": [
+        {
+          "description": "Specifies whether the current sheet gridlines must be displayed or not. The default value is **true**.",
+          "name": "isDisplayed",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the display of gridlines was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetDisplayGridlines(isDisplayed: boolean): boolean"
+    },
+    "SetDisplayHeadings": {
+      "description": "Specifies whether the current sheet row/column headers must be displayed or not.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetDisplayHeadings/",
+      "params": [
+        {
+          "description": "Specifies whether the current sheet row/column headers must be displayed or not. The default value is **true**.",
+          "name": "isDisplayed",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the display of headings was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetDisplayHeadings(isDisplayed: boolean): boolean"
+    },
+    "SetHyperlink": {
+      "description": "Adds a hyperlink to the specified range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetHyperlink/",
+      "params": [
+        {
+          "description": "The range where the hyperlink will be added to.",
+          "name": "sRange",
+          "type": "string"
+        },
+        {
+          "description": "The link address.",
+          "name": "sAddress",
+          "type": "string"
+        },
+        {
+          "description": "The link subaddress to insert internal sheet hyperlinks.",
+          "name": "subAddress",
+          "optional": true,
+          "type": "string"
+        },
+        {
+          "description": "The screen tip text.",
+          "name": "sScreenTip",
+          "optional": true,
+          "type": "string"
+        },
+        {
+          "description": "The link text that will be displayed on the sheet.",
+          "name": "sTextToDisplay",
+          "optional": true,
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the hyperlink was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetHyperlink(sRange: string, sAddress: string, subAddress?: string, sScreenTip?: string, sTextToDisplay?: string): boolean"
+    },
+    "SetLeftMargin": {
+      "description": "Sets the left margin of the sheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetLeftMargin/",
+      "params": [
+        {
+          "description": "The left margin size measured in points.",
+          "name": "nPoints",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the left margin was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetLeftMargin(nPoints: number): boolean"
+    },
+    "SetName": {
+      "description": "Sets a name to the current active sheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetName/",
+      "params": [
+        {
+          "description": "The name which will be displayed for the current sheet at the sheet tab.",
+          "name": "sName",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetName(sName: string): void"
+    },
+    "SetPageOrientation": {
+      "description": "Sets the page orientation.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetPageOrientation/",
+      "params": [
+        {
+          "description": "The page orientation type.",
+          "name": "sPageOrientation",
+          "type": "PageOrientation"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the page orientation was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetPageOrientation(sPageOrientation: PageOrientation): boolean"
+    },
+    "SetPrintGridlines": {
+      "description": "Specifies whether the current sheet gridlines must be printed or not.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetPrintGridlines/",
+      "params": [
+        {
+          "description": "Defines if cell gridlines are printed on this page or not.",
+          "name": "bPrint",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the print gridlines option was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetPrintGridlines(bPrint: boolean): boolean"
+    },
+    "SetPrintHeadings": {
+      "description": "Specifies whether the current sheet row/column headers must be printed or not.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetPrintHeadings/",
+      "params": [
+        {
+          "description": "Specifies whether the current sheet row/column headers must be printed or not.",
+          "name": "bPrint",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the print headings option was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetPrintHeadings(bPrint: boolean): boolean"
+    },
+    "SetRightMargin": {
+      "description": "Sets the right margin of the sheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetRightMargin/",
+      "params": [
+        {
+          "description": "The right margin size measured in points.",
+          "name": "nPoints",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the right margin was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetRightMargin(nPoints: number): boolean"
+    },
+    "SetRowHeight": {
+      "description": "Sets the height of the specified row measured in points.\nA point is 1/72 inch.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetRowHeight/",
+      "params": [
+        {
+          "description": "The number of the row to set the height to.",
+          "name": "nRow",
+          "type": "number"
+        },
+        {
+          "description": "The height of the row measured in points.",
+          "name": "nHeight",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the row height was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetRowHeight(nRow: number, nHeight: number): boolean"
+    },
+    "SetTopMargin": {
+      "description": "Sets the top margin of the sheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetTopMargin/",
+      "params": [
+        {
+          "description": "The top margin size measured in points.",
+          "name": "nPoints",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the top margin was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetTopMargin(nPoints: number): boolean"
+    },
+    "SetVisible": {
+      "description": "Sets the state of sheet visibility.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetVisible/",
+      "params": [
+        {
+          "description": "Specifies if the sheet is visible or not.",
+          "name": "isVisible",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the visibility state was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetVisible(isVisible: boolean): boolean"
+    }
+  }
+}

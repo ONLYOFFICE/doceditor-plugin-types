@@ -1,0 +1,20 @@
+{
+  "description": "Returns the quartile of a data set, based on percentile values from 0..1, inclusive.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/QUARTILE_INC/",
+  "params": [
+    {
+      "description": "The array or cell range of numeric values for which the quartile value will be returned.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number[]"
+    },
+    {
+      "description": "The quartile value to return: minimum value = 0; 1st quartile = 1; median value = 2; 3rd quartile = 3; maximum value = 4.",
+      "name": "arg2",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "QUARTILE_INC(arg1: ApiRange | ApiName | number[], arg2: ApiRange | ApiName | number): number"
+}

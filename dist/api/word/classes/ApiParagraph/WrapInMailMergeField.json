@@ -1,0 +1,9 @@
+{
+  "description": "Wraps the paragraph content in a mail merge field.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/WrapInMailMergeField/",
+  "params": [],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "WrapInMailMergeField(): boolean"
+}

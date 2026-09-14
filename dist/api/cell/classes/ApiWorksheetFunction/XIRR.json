@@ -1,0 +1,26 @@
+{
+  "description": "Returns the internal rate of return for a schedule of cash flows.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/XIRR/",
+  "params": [
+    {
+      "description": "A range that contains the series of cash flows that corresponds to a schedule of payments in dates.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName"
+    },
+    {
+      "description": "A range that contains the schedule of payment dates that corresponds to the cash flow payments.",
+      "name": "arg2",
+      "type": "ApiRange | ApiName"
+    },
+    {
+      "description": "An estimate at what the internal rate of return will be. If it is omitted, the function will assume guess to be 0.1 (10 percent).",
+      "name": "arg3",
+      "optional": true,
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "XIRR(arg1: ApiRange | ApiName, arg2: ApiRange | ApiName, arg3?: ApiRange | ApiName | number): number"
+}

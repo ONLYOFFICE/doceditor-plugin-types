@@ -1,0 +1,15 @@
+{
+  "description": "Returns the default style parameters for the specified document element.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetDefaultStyle/",
+  "params": [
+    {
+      "description": "The document element which we want to get the style for.",
+      "name": "sStyleType",
+      "type": "StyleType"
+    }
+  ],
+  "returns": {
+    "type": "ApiStyle"
+  },
+  "signature": "GetDefaultStyle(sStyleType: StyleType): ApiStyle"
+}

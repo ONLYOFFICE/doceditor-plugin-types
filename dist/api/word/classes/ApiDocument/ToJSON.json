@@ -1,0 +1,40 @@
+{
+  "description": "Converts the ApiDocument object into the JSON object.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/ToJSON/",
+  "params": [
+    {
+      "description": "Specifies if the default text properties will be written to the JSON object or not.",
+      "name": "bWriteDefaultTextPr",
+      "type": "boolean"
+    },
+    {
+      "description": "Specifies if the default paragraph properties will be written to the JSON object or not.",
+      "name": "bWriteDefaultParaPr",
+      "type": "boolean"
+    },
+    {
+      "description": "Specifies if the document theme will be written to the JSON object or not.",
+      "name": "bWriteTheme",
+      "type": "boolean"
+    },
+    {
+      "description": "Specifies if the document section properties will be written to the JSON object or not.",
+      "name": "bWriteSectionPr",
+      "type": "boolean"
+    },
+    {
+      "description": "Specifies if the document numberings will be written to the JSON object or not.",
+      "name": "bWriteNumberings",
+      "type": "boolean"
+    },
+    {
+      "description": "Specifies if the document styles will be written to the JSON object or not.",
+      "name": "bWriteStyles",
+      "type": "boolean"
+    }
+  ],
+  "returns": {
+    "type": "object"
+  },
+  "signature": "ToJSON(bWriteDefaultTextPr: boolean, bWriteDefaultParaPr: boolean, bWriteTheme: boolean, bWriteSectionPr: boolean, bWriteNumberings: boolean, bWriteStyles: boolean): object"
+}

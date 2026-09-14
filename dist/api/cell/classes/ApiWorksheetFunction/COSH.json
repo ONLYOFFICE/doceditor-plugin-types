@@ -1,0 +1,15 @@
+{
+  "description": "Returns the hyperbolic cosine of a number.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/COSH/",
+  "params": [
+    {
+      "description": "Any real number for which the hyperbolic cosine will be returned.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "COSH(arg1: ApiRange | ApiName | number): number"
+}

@@ -1,0 +1,25 @@
+{
+  "description": "Returns the net present value for a schedule of cash flows.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/XNPV/",
+  "params": [
+    {
+      "description": "The discount rate to apply to the cash flows.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    },
+    {
+      "description": "A range that contains the series of cash flows that corresponds to a schedule of payments in dates.",
+      "name": "arg2",
+      "type": "ApiRange | ApiName"
+    },
+    {
+      "description": "A range that contains the schedule of payment dates that corresponds to the cash flow payments.",
+      "name": "arg3",
+      "type": "ApiRange | ApiName"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "XNPV(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName, arg3: ApiRange | ApiName): number"
+}

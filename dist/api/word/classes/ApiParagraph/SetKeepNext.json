@@ -1,0 +1,15 @@
+{
+  "description": "Specifies that when rendering the document using a paginated view, the contents of the current paragraph are at least\npartly rendered on the same page as the following paragraph whenever possible.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetKeepNext/",
+  "params": [
+    {
+      "description": "The true value enables the option to keep lines of the paragraph on the same\rpage as the following paragraph.",
+      "name": "isKeepNext",
+      "type": "boolean"
+    }
+  ],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "SetKeepNext(isKeepNext: boolean): boolean"
+}

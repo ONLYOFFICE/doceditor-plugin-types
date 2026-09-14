@@ -1,0 +1,251 @@
+{
+  "description": "Class that contains the font attributes (font name, font size, color, and so on).",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/",
+  "methods": {
+    "GetBold": {
+      "description": "Returns the bold property of the specified font.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/GetBold/",
+      "params": [],
+      "returns": {
+        "type": "boolean | null"
+      },
+      "signature": "GetBold(): boolean | null",
+      "since": "7.4.0"
+    },
+    "GetColor": {
+      "description": "Returns the font color property of the specified font.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/GetColor/",
+      "params": [],
+      "returns": {
+        "type": "ApiColor | null"
+      },
+      "signature": "GetColor(): ApiColor | null",
+      "since": "7.4.0"
+    },
+    "GetItalic": {
+      "description": "Returns the italic property of the specified font.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/GetItalic/",
+      "params": [],
+      "returns": {
+        "type": "boolean | null"
+      },
+      "signature": "GetItalic(): boolean | null",
+      "since": "7.4.0"
+    },
+    "GetName": {
+      "description": "Returns the font name property of the specified font.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/GetName/",
+      "params": [],
+      "returns": {
+        "type": "string | null"
+      },
+      "signature": "GetName(): string | null",
+      "since": "7.4.0"
+    },
+    "GetParent": {
+      "description": "Returns the parent ApiCharacters object of the specified font.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/GetParent/",
+      "params": [],
+      "returns": {
+        "description": "The parent ApiCharacters object.",
+        "type": "ApiCharacters"
+      },
+      "signature": "GetParent(): ApiCharacters",
+      "since": "7.4.0"
+    },
+    "GetSize": {
+      "description": "Returns the font size property of the specified font.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/GetSize/",
+      "params": [],
+      "returns": {
+        "type": "number | null"
+      },
+      "signature": "GetSize(): number | null",
+      "since": "7.4.0"
+    },
+    "GetStrikethrough": {
+      "description": "Returns the strikethrough property of the specified font.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/GetStrikethrough/",
+      "params": [],
+      "returns": {
+        "type": "boolean | null"
+      },
+      "signature": "GetStrikethrough(): boolean | null",
+      "since": "7.4.0"
+    },
+    "GetSubscript": {
+      "description": "Returns the subscript property of the specified font.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/GetSubscript/",
+      "params": [],
+      "returns": {
+        "type": "boolean | null"
+      },
+      "signature": "GetSubscript(): boolean | null",
+      "since": "7.4.0"
+    },
+    "GetSuperscript": {
+      "description": "Returns the superscript property of the specified font.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/GetSuperscript/",
+      "params": [],
+      "returns": {
+        "type": "boolean | null"
+      },
+      "signature": "GetSuperscript(): boolean | null",
+      "since": "7.4.0"
+    },
+    "GetUnderline": {
+      "description": "Returns the type of underline applied to the specified font.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/GetUnderline/",
+      "params": [],
+      "returns": {
+        "type": "XlUnderlineStyle | null"
+      },
+      "signature": "GetUnderline(): XlUnderlineStyle | null",
+      "since": "7.4.0"
+    },
+    "SetBold": {
+      "description": "Sets the bold property to the specified font.\n<note>This method will work only with the text format of the cell.</note>",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/SetBold/",
+      "params": [
+        {
+          "description": "Specifies that the text characters are displayed bold.",
+          "name": "isBold",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetBold(isBold: boolean): void",
+      "since": "7.4.0"
+    },
+    "SetColor": {
+      "description": "Sets the font color property to the specified font.\n<note>This method will work only with the text format of the cell.</note>",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/SetColor/",
+      "params": [
+        {
+          "description": "Font color.",
+          "name": "Color",
+          "type": "ApiColor"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetColor(Color: ApiColor): void",
+      "since": "7.4.0"
+    },
+    "SetItalic": {
+      "description": "Sets the italic property to the specified font.\n<note>This method will work only with the text format of the cell.</note>",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/SetItalic/",
+      "params": [
+        {
+          "description": "Specifies that the text characters are displayed italic.",
+          "name": "isItalic",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetItalic(isItalic: boolean): void",
+      "since": "7.4.0"
+    },
+    "SetName": {
+      "description": "Sets the font name property to the specified font.\n<note>This method will work only with the text format of the cell.</note>",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/SetName/",
+      "params": [
+        {
+          "description": "Font name.",
+          "name": "FontName",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetName(FontName: string): void",
+      "since": "7.4.0"
+    },
+    "SetSize": {
+      "description": "Sets the font size property to the specified font.\n<note>This method will work only with the text format of the cell.</note>",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/SetSize/",
+      "params": [
+        {
+          "description": "Font size.",
+          "name": "Size",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetSize(Size: number): void",
+      "since": "7.4.0"
+    },
+    "SetStrikethrough": {
+      "description": "Sets the strikethrough property to the specified font.\n<note>This method will work only with the text format of the cell.</note>",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/SetStrikethrough/",
+      "params": [
+        {
+          "description": "Specifies that the text characters are displayed strikethrough.",
+          "name": "isStrikethrough",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetStrikethrough(isStrikethrough: boolean): void",
+      "since": "7.4.0"
+    },
+    "SetSubscript": {
+      "description": "Sets the subscript property to the specified font.\n<note>This method will work only with the text format of the cell.</note>",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/SetSubscript/",
+      "params": [
+        {
+          "description": "Specifies that the text characters are displayed subscript.",
+          "name": "isSubscript",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetSubscript(isSubscript: boolean): void",
+      "since": "7.4.0"
+    },
+    "SetSuperscript": {
+      "description": "Sets the superscript property to the specified font.\n<note>This method will work only with the text format of the cell.</note>",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/SetSuperscript/",
+      "params": [
+        {
+          "description": "Specifies that the text characters are displayed superscript.",
+          "name": "isSuperscript",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetSuperscript(isSuperscript: boolean): void",
+      "since": "7.4.0"
+    },
+    "SetUnderline": {
+      "description": "Sets an underline of the type specified in the request to the current font.\n<note>This method will work only with the text format of the cell.</note>",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/SetUnderline/",
+      "params": [
+        {
+          "description": "Underline type.",
+          "name": "Underline",
+          "type": "XlUnderlineStyle"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetUnderline(Underline: XlUnderlineStyle): void",
+      "since": "7.4.0"
+    }
+  }
+}

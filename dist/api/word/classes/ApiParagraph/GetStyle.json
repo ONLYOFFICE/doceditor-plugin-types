@@ -1,0 +1,10 @@
+{
+  "description": "Returns the paragraph style method.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetStyle/",
+  "params": [],
+  "returns": {
+    "description": "The style of the paragraph.",
+    "type": "ApiStyle"
+  },
+  "signature": "GetStyle(): ApiStyle"
+}

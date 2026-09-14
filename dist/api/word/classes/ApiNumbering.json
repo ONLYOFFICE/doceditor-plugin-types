@@ -1,0 +1,39 @@
+{
+  "description": "Class representing the numbering properties.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiNumbering/",
+  "methods": {
+    "GetClassType": {
+      "description": "Returns a type of the ApiNumbering class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiNumbering/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"numbering\""
+      },
+      "signature": "GetClassType(): \"numbering\""
+    },
+    "GetLevel": {
+      "description": "Returns the specified level of the current numbering.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiNumbering/Methods/GetLevel/",
+      "params": [
+        {
+          "description": "The numbering level index. This value MUST BE from 0 to 8.",
+          "name": "nLevel",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "ApiNumberingLevel"
+      },
+      "signature": "GetLevel(nLevel: number): ApiNumberingLevel"
+    },
+    "ToJSON": {
+      "description": "Converts the ApiNumbering object into the JSON object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiNumbering/Methods/ToJSON/",
+      "params": [],
+      "returns": {
+        "type": "object"
+      },
+      "signature": "ToJSON(): object"
+    }
+  }
+}

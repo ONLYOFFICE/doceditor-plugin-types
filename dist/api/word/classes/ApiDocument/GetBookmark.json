@@ -1,0 +1,16 @@
+{
+  "description": "Returns a bookmark by its name from the current document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetBookmark/",
+  "params": [
+    {
+      "description": "The bookmark name.",
+      "name": "sBookmarkName",
+      "type": "string"
+    }
+  ],
+  "returns": {
+    "type": "ApiBookmark"
+  },
+  "signature": "GetBookmark(sBookmarkName: string): ApiBookmark",
+  "since": "8.3.0"
+}

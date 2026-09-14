@@ -1,0 +1,9 @@
+{
+  "description": "Returns the paragraph section.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/GetSection/",
+  "params": [],
+  "returns": {
+    "type": "ApiSection"
+  },
+  "signature": "GetSection(): ApiSection"
+}

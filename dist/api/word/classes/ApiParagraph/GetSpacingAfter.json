@@ -1,0 +1,10 @@
+{
+  "description": "Returns the spacing after value of the current paragraph.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetSpacingAfter/",
+  "params": [],
+  "returns": {
+    "description": "The value of the spacing after the current paragraph measured in twentieths of a point (1/1440 of an inch).",
+    "type": "twips"
+  },
+  "signature": "GetSpacingAfter(): twips"
+}

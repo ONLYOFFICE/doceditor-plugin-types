@@ -1,0 +1,16 @@
+{
+  "description": "Sets the data to the specified forms.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/SetFormsData/",
+  "params": [
+    {
+      "description": "An array of form data to set to the specified forms.",
+      "name": "arrData",
+      "type": "FormData[]"
+    }
+  ],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "SetFormsData(arrData: FormData[]): boolean",
+  "since": "8.0.0"
+}

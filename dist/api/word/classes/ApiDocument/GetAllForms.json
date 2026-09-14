@@ -1,0 +1,9 @@
+{
+  "description": "Returns all existing forms in the document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetAllForms/",
+  "params": [],
+  "returns": {
+    "type": "ApiForm[]"
+  },
+  "signature": "GetAllForms(): ApiForm[]"
+}

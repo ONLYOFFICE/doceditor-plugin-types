@@ -1,0 +1,15 @@
+{
+  "description": "Returns the ratio of the factorial of a sum of numbers to the product of factorials.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/MULTINOMIAL/",
+  "params": [
+    {
+      "description": "Up to 255 numeric values for which the multinomial will be returned. The first argument is required, subsequent arguments are optional.",
+      "name": "args",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "MULTINOMIAL(args: ApiRange | ApiName | number): number"
+}

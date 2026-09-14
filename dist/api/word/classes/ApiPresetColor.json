@@ -1,0 +1,36 @@
+{
+  "description": "Class representing a Preset Color.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiPresetColor/",
+  "extends": [
+    "ApiUniColor"
+  ],
+  "methods": {
+    "GetClassType": {
+      "description": "Returns a type of the ApiPresetColor class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiPresetColor/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"presetColor\""
+      },
+      "signature": "GetClassType(): \"presetColor\""
+    },
+    "GetRGB": {
+      "description": "Returns a color value in RGB format.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiUniColor/Methods/GetRGB/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetRGB(): number"
+    },
+    "ToJSON": {
+      "description": "Converts the ApiPresetColor object into the JSON object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiPresetColor/Methods/ToJSON/",
+      "params": [],
+      "returns": {
+        "type": "object"
+      },
+      "signature": "ToJSON(): object"
+    }
+  }
+}

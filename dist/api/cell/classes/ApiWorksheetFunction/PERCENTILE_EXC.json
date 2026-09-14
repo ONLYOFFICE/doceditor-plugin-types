@@ -1,0 +1,20 @@
+{
+  "description": "Returns the k-th percentile of values in a range, where k is in the range 0..1, exclusive.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/PERCENTILE_EXC/",
+  "params": [
+    {
+      "description": "The array or range of data that defines relative standing.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number[]"
+    },
+    {
+      "description": "The percentile value that is greater than 0 but less than 1.",
+      "name": "arg2",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "PERCENTILE_EXC(arg1: ApiRange | ApiName | number[], arg2: ApiRange | ApiName | number): number"
+}

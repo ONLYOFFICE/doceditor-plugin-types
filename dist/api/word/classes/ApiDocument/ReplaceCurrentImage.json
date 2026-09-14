@@ -1,0 +1,25 @@
+{
+  "description": "Replaces the current image with an image specified.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/ReplaceCurrentImage/",
+  "params": [
+    {
+      "description": "The image source where the image to be inserted should be taken from (currently, only internet URL or Base64 encoded images are supported).",
+      "name": "sImageUrl",
+      "type": "string"
+    },
+    {
+      "description": "The image width in English measure units.",
+      "name": "Width",
+      "type": "EMU"
+    },
+    {
+      "description": "The image height in English measure units.",
+      "name": "Height",
+      "type": "EMU"
+    }
+  ],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "ReplaceCurrentImage(sImageUrl: string, Width: EMU, Height: EMU): boolean"
+}

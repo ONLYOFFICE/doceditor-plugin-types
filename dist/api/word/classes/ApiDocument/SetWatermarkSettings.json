@@ -1,0 +1,16 @@
+{
+  "description": "Sets the watermark settings in the current document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/SetWatermarkSettings/",
+  "params": [
+    {
+      "description": "The object which represents the watermark settings.",
+      "name": "Settings",
+      "type": "ApiWatermarkSettings"
+    }
+  ],
+  "returns": {
+    "description": "The object which represents the watermark drawing if the watermark type in Settings is not \"none\".",
+    "type": "ApiDrawing"
+  },
+  "signature": "SetWatermarkSettings(Settings: ApiWatermarkSettings): ApiDrawing"
+}

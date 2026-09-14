@@ -1,0 +1,10 @@
+{
+  "description": "Returns a range object by the current selection.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetRangeBySelect/",
+  "params": [],
+  "returns": {
+    "description": "returns null if selection doesn't exist.",
+    "type": "ApiRange | null"
+  },
+  "signature": "GetRangeBySelect(): ApiRange | null"
+}

@@ -1,0 +1,179 @@
+{
+  "description": "Base class",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/Api/",
+  "methods": {
+    "ConvertDocument": {
+      "description": "Converts a document to Markdown or HTML text.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/Api/Methods/ConvertDocument/",
+      "params": [
+        {
+          "description": "Conversion type.",
+          "name": "convertType",
+          "optional": true,
+          "type": "\"markdown\" | \"html\""
+        },
+        {
+          "description": "Defines if the HTML headings and IDs will be generated when the Markdown renderer of your target platform does not handle Markdown-style IDs.",
+          "name": "htmlHeadings",
+          "optional": true,
+          "type": "boolean"
+        },
+        {
+          "description": "Defines if the images will be created in the base64 format.",
+          "name": "base64img",
+          "optional": true,
+          "type": "boolean"
+        },
+        {
+          "description": "Defines if all heading levels in your document will be demoted to conform with the following standard: single H1 as title, H2 as top-level heading in the text body.",
+          "name": "demoteHeadings",
+          "optional": true,
+          "type": "boolean"
+        },
+        {
+          "description": "Defines if HTML tags will be preserved in your Markdown. If you just want to use an occasional HTML tag, you can avoid using the opening angle bracket\rin the following way: \\<tag>text\\</tag>. By default, the opening angle brackets will be replaced with the special characters.",
+          "name": "renderHTMLTags",
+          "optional": true,
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "ConvertDocument(convertType?: \"markdown\" | \"html\", htmlHeadings?: boolean, base64img?: boolean, demoteHeadings?: boolean, renderHTMLTags?: boolean): string"
+    },
+    "CreateCheckBoxForm": {
+      "description": "Creates a checkbox / radio button with the specified checkbox / radio button properties.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/Api/Methods/CreateCheckBoxForm/",
+      "params": [
+        {
+          "description": "Checkbox / radio button properties.",
+          "name": "formPr",
+          "type": "CheckBoxFormPr"
+        }
+      ],
+      "returns": {
+        "type": "ApiCheckBoxForm"
+      },
+      "signature": "CreateCheckBoxForm(formPr: CheckBoxFormPr): ApiCheckBoxForm"
+    },
+    "CreateComboBoxForm": {
+      "description": "Creates a combo box / dropdown list with the specified combo box / dropdown list properties.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/Api/Methods/CreateComboBoxForm/",
+      "params": [
+        {
+          "description": "Combo box / dropdown list properties.",
+          "name": "formPr",
+          "type": "ComboBoxFormPr"
+        }
+      ],
+      "returns": {
+        "type": "ApiComboBoxForm"
+      },
+      "signature": "CreateComboBoxForm(formPr: ComboBoxFormPr): ApiComboBoxForm"
+    },
+    "CreateComplexForm": {
+      "description": "Creates a complex form with the specified complex form properties.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/Api/Methods/CreateComplexForm/",
+      "params": [
+        {
+          "description": "Complex form properties.",
+          "name": "formPr",
+          "type": "FormPrBase"
+        }
+      ],
+      "returns": {
+        "type": "ApiComplexForm"
+      },
+      "signature": "CreateComplexForm(formPr: FormPrBase): ApiComplexForm"
+    },
+    "CreateDateForm": {
+      "description": "Creates a date form with the specified date form properties.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/Api/Methods/CreateDateForm/",
+      "params": [
+        {
+          "description": "Date form properties.",
+          "name": "formPr",
+          "type": "DateFormPr"
+        }
+      ],
+      "returns": {
+        "type": "ApiDateForm"
+      },
+      "signature": "CreateDateForm(formPr: DateFormPr): ApiDateForm"
+    },
+    "CreatePictureForm": {
+      "description": "Creates a picture form with the specified picture form properties.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/Api/Methods/CreatePictureForm/",
+      "params": [
+        {
+          "description": "Picture form properties.",
+          "name": "formPr",
+          "type": "PictureFormPr"
+        }
+      ],
+      "returns": {
+        "type": "ApiPictureForm"
+      },
+      "signature": "CreatePictureForm(formPr: PictureFormPr): ApiPictureForm"
+    },
+    "CreateSignatureForm": {
+      "description": "Creates a signature form with the specified form properties.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/Api/Methods/CreateSignatureForm/",
+      "params": [
+        {
+          "description": "Signature form properties.",
+          "name": "formPr",
+          "type": "FormPrBase"
+        }
+      ],
+      "returns": {
+        "type": "ApiSignatureForm"
+      },
+      "signature": "CreateSignatureForm(formPr: FormPrBase): ApiSignatureForm",
+      "since": "9.4.0"
+    },
+    "CreateTextForm": {
+      "description": "Creates a text field with the specified text field properties.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/Api/Methods/CreateTextForm/",
+      "params": [
+        {
+          "description": "Text field properties.",
+          "name": "formPr",
+          "type": "TextFormPr"
+        }
+      ],
+      "returns": {
+        "type": "ApiTextForm"
+      },
+      "signature": "CreateTextForm(formPr: TextFormPr): ApiTextForm"
+    },
+    "ReplaceTextSmart": {
+      "description": "Replaces each paragraph (or text in cell) in the select with the corresponding text from an array of strings.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/Api/Methods/ReplaceTextSmart/",
+      "params": [
+        {
+          "description": "An array of replacement strings.",
+          "name": "textStrings",
+          "type": "string[]"
+        },
+        {
+          "description": "A character which is used to specify the tab in the source text.",
+          "name": "tab",
+          "optional": true,
+          "type": "string"
+        },
+        {
+          "description": "A character which is used to specify the line break character in the source text.",
+          "name": "newLine",
+          "optional": true,
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "ReplaceTextSmart(textStrings: string[], tab?: string, newLine?: string): boolean"
+    }
+  }
+}

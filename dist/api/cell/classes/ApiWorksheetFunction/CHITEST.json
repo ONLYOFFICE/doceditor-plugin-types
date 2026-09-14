@@ -1,0 +1,20 @@
+{
+  "description": "Returns the test for independence: the value from the chi-squared distribution for the statistic and the appropriate degrees of freedom.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/CHITEST/",
+  "params": [
+    {
+      "description": "The range of data that contains observations to test against expected values.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number | string | boolean"
+    },
+    {
+      "description": "The range of data that contains the ratio of the product of row totals and column totals to the grand total.",
+      "name": "arg2",
+      "type": "ApiRange | ApiName | number | string | boolean"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "CHITEST(arg1: ApiRange | ApiName | number | string | boolean, arg2: ApiRange | ApiName | number | string | boolean): number"
+}

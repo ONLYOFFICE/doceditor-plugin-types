@@ -1,0 +1,16 @@
+{
+  "description": "Groups an array of drawings in the current document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GroupDrawings/",
+  "params": [
+    {
+      "description": "An array of drawings to group.",
+      "name": "aDrawings",
+      "type": "DrawingForGroup[]"
+    }
+  ],
+  "returns": {
+    "type": "ApiGroup"
+  },
+  "signature": "GroupDrawings(aDrawings: DrawingForGroup[]): ApiGroup",
+  "since": "8.3.0"
+}

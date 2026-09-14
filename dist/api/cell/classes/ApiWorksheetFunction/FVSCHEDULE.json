@@ -1,0 +1,20 @@
+{
+  "description": "Returns the future value of an initial principal after applying a series of compound interest rates.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/FVSCHEDULE/",
+  "params": [
+    {
+      "description": "The present value of an investment.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    },
+    {
+      "description": "An array of interest rates to apply.",
+      "name": "arg2",
+      "type": "number[] | ApiRange | ApiName"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "FVSCHEDULE(arg1: ApiRange | ApiName | number, arg2: number[] | ApiRange | ApiName): number"
+}

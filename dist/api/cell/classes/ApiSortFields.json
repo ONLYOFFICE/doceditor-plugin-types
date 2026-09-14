@@ -1,0 +1,138 @@
+{
+  "description": "Class representing the collection of sort fields for a Sort object.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSortFields/",
+  "methods": {
+    "Add": {
+      "description": "Adds a sort field to the collection.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSortFields/Methods/Add/",
+      "params": [
+        {
+          "description": "A range within the table that defines the sort column.",
+          "name": "Key",
+          "type": "ApiRange"
+        },
+        {
+          "description": "The value used as the sort criteria.",
+          "name": "SortOn",
+          "optional": true,
+          "type": "XlSortOn"
+        },
+        {
+          "description": "The sort order.",
+          "name": "Order",
+          "optional": true,
+          "type": "SortOrder"
+        },
+        {
+          "description": "Reserved. Custom order sorting is not yet supported by the engine.",
+          "name": "CustomOrder",
+          "optional": true,
+          "type": "number | string"
+        },
+        {
+          "description": "The data sort option.",
+          "name": "DataOption",
+          "optional": true,
+          "type": "XlSortDataOption"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiSortField | null"
+      },
+      "signature": "Add(Key: ApiRange, SortOn?: XlSortOn, Order?: SortOrder, CustomOrder?: number | string, DataOption?: XlSortDataOption): ApiSortField | null"
+    },
+    "Add2": {
+      "description": "Adds a sort field with subfield support for linked data types (Stocks, Geography).",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSortFields/Methods/Add2/",
+      "params": [
+        {
+          "description": "A range within the table that defines the sort column.",
+          "name": "Key",
+          "type": "ApiRange"
+        },
+        {
+          "description": "The value used as the sort criteria.",
+          "name": "SortOn",
+          "optional": true,
+          "type": "XlSortOn"
+        },
+        {
+          "description": "The sort order.",
+          "name": "Order",
+          "optional": true,
+          "type": "SortOrder"
+        },
+        {
+          "description": "Reserved. Custom order sorting is not yet supported by the engine.",
+          "name": "CustomOrder",
+          "optional": true,
+          "type": "number | string"
+        },
+        {
+          "description": "The data sort option.",
+          "name": "DataOption",
+          "optional": true,
+          "type": "XlSortDataOption"
+        },
+        {
+          "description": "Subfield name for linked data types (e.g. \"Population\", \"Volume\").",
+          "name": "SubField",
+          "optional": true,
+          "type": "string"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiSortField | null"
+      },
+      "signature": "Add2(Key: ApiRange, SortOn?: XlSortOn, Order?: SortOrder, CustomOrder?: number | string, DataOption?: XlSortDataOption, SubField?: string): ApiSortField | null"
+    },
+    "Clear": {
+      "description": "Removes all sort fields from the collection.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSortFields/Methods/Clear/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "Clear(): void"
+    },
+    "GetCount": {
+      "description": "Returns the number of sort fields.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSortFields/Methods/GetCount/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetCount(): number"
+    },
+    "GetParent": {
+      "description": "Returns the parent Sort object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSortFields/Methods/GetParent/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiSort"
+      },
+      "signature": "GetParent(): ApiSort"
+    },
+    "Item": {
+      "description": "Returns the sort field at the given 1-based index.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSortFields/Methods/Item/",
+      "params": [
+        {
+          "description": "1-based index.",
+          "name": "nIndex",
+          "type": "number"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiSortField | null"
+      },
+      "signature": "Item(nIndex: number): ApiSortField | null"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "description": "Adds a comment to the current document selection, or to the current word if no text is selected.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/AddComment/",
+  "params": [
+    {
+      "description": "The comment text.",
+      "name": "sText",
+      "type": "string"
+    },
+    {
+      "description": "The author's name.",
+      "name": "sAuthor",
+      "optional": true,
+      "type": "string"
+    },
+    {
+      "description": "The user ID of the comment author.",
+      "name": "sUserId",
+      "optional": true,
+      "type": "string"
+    }
+  ],
+  "returns": {
+    "description": "Returns null if the comment was not added.",
+    "type": "ApiComment"
+  },
+  "signature": "AddComment(sText: string, sAuthor?: string, sUserId?: string): ApiComment"
+}

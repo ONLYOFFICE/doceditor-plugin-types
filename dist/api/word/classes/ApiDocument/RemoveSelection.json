@@ -1,0 +1,9 @@
+{
+  "description": "Removes the current selection.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/RemoveSelection/",
+  "params": [],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "RemoveSelection(): boolean"
+}

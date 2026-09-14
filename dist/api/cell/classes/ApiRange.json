@@ -1,0 +1,1337 @@
+{
+  "description": "Class representing a range.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/",
+  "methods": {
+    "AddComment": {
+      "description": "Adds a comment to the current range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/AddComment/",
+      "params": [
+        {
+          "description": "The comment text.",
+          "name": "sText",
+          "type": "string"
+        },
+        {
+          "description": "The author's name (optional).",
+          "name": "sAuthor",
+          "optional": true,
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "description": "returns false if comment can't be added.",
+        "type": "ApiComment | null"
+      },
+      "signature": "AddComment(sText: string, sAuthor?: string): ApiComment | null"
+    },
+    "AutoFit": {
+      "description": "Changes the width of the columns or the height of the rows in the range to achieve the best fit.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/AutoFit/",
+      "params": [
+        {
+          "description": "Specifies if the width of the columns will be autofit.",
+          "name": "bRows",
+          "optional": true,
+          "type": "boolean"
+        },
+        {
+          "description": "Specifies if the height of the rows will be autofit.",
+          "name": "bCols",
+          "optional": true,
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "AutoFit(bRows?: boolean, bCols?: boolean): void"
+    },
+    "Clear": {
+      "description": "Clears the current range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/Clear/",
+      "params": [],
+      "returns": {
+        "description": "returns true if the range was cleared successfully.",
+        "type": "boolean"
+      },
+      "signature": "Clear(): boolean"
+    },
+    "ClearContents": {
+      "description": "Clears all contents from the current range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/ClearContents/",
+      "params": [],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "ClearContents(): void",
+      "since": "9.1.0"
+    },
+    "ClearFormats": {
+      "description": "Clears all formatting from the current range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/ClearFormats/",
+      "params": [],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "ClearFormats(): void",
+      "since": "9.1.0"
+    },
+    "ClearHyperlinks": {
+      "description": "Clears all hyperlinks from the current range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/ClearHyperlinks/",
+      "params": [],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "ClearHyperlinks(): void",
+      "since": "9.1.0"
+    },
+    "Copy": {
+      "description": "Copies the range to the specified range or to the clipboard.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/Copy/",
+      "params": [
+        {
+          "description": "Specifies the new range to which the specified range will be copied. If this argument is omitted, the range will be copied to the clipboard.",
+          "name": "destination",
+          "optional": true,
+          "type": "ApiRange"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "Copy(destination?: ApiRange): void"
+    },
+    "Cut": {
+      "description": "Cuts the range and save it to the clipboard or paste it to the specified range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/Cut/",
+      "params": [
+        {
+          "description": "Specifies the new range to which the cut range will be pasted. If this argument is omitted, the range will be copied to the clipboard.",
+          "name": "destination",
+          "optional": true,
+          "type": "ApiRange"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "Cut(destination?: ApiRange): void",
+      "since": "8.1.0"
+    },
+    "Delete": {
+      "description": "Deletes the Range object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/Delete/",
+      "params": [
+        {
+          "description": "Specifies how to shift cells to replace the deleted cells. If omitted, the direction is determined automatically: _\"up\"_ if the range has more columns than rows, otherwise _\"left\"_.",
+          "name": "shift",
+          "optional": true,
+          "type": "DeleteShiftDirection"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "Delete(shift?: DeleteShiftDirection): void"
+    },
+    "DeleteColumns": {
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "DeleteColumns(): void"
+    },
+    "DeleteRows": {
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "DeleteRows(): void"
+    },
+    "End": {
+      "description": "Returns a Range object that represents the end in the specified direction in the specified range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/End/",
+      "params": [
+        {
+          "description": "The direction of end in the specified range. *",
+          "name": "direction",
+          "type": "Direction"
+        }
+      ],
+      "returns": {
+        "type": "ApiRange"
+      },
+      "signature": "End(direction: Direction): ApiRange"
+    },
+    "FillDown": {
+      "description": "Copies the contents and formatting of the top row of the range into the remaining rows.\nIf the range has only one row, the method succeeds but makes no changes.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/FillDown/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "returns false if the operation was blocked by sheet protection or an incompatible merged cell structure.",
+        "type": "boolean"
+      },
+      "signature": "FillDown(): boolean",
+      "since": "9.4.0"
+    },
+    "FillLeft": {
+      "description": "Copies the contents and formatting of the rightmost column of the range into the remaining columns.\nIf the range has only one column, the method succeeds but makes no changes.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/FillLeft/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "returns false if the operation was blocked by sheet protection or an incompatible merged cell structure.",
+        "type": "boolean"
+      },
+      "signature": "FillLeft(): boolean",
+      "since": "9.4.0"
+    },
+    "FillRight": {
+      "description": "Copies the contents and formatting of the leftmost column of the range into the remaining columns.\nIf the range has only one column, the method succeeds but makes no changes.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/FillRight/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "returns false if the operation was blocked by sheet protection or an incompatible merged cell structure.",
+        "type": "boolean"
+      },
+      "signature": "FillRight(): boolean",
+      "since": "9.4.0"
+    },
+    "FillUp": {
+      "description": "Copies the contents and formatting of the bottom row of the range into the remaining rows.\nIf the range has only one row, the method succeeds but makes no changes.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/FillUp/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "returns false if the operation was blocked by sheet protection or an incompatible merged cell structure.",
+        "type": "boolean"
+      },
+      "signature": "FillUp(): boolean",
+      "since": "9.4.0"
+    },
+    "Find": {
+      "description": "Finds specific information in the current range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/Find/",
+      "params": [
+        {
+          "description": "The search data used to make search.",
+          "name": "oSearchData",
+          "type": "SearchData"
+        }
+      ],
+      "returns": {
+        "description": "Returns null if the current range does not contain such text.",
+        "type": "ApiRange | null"
+      },
+      "signature": "Find(oSearchData: SearchData): ApiRange | null"
+    },
+    "FindNext": {
+      "description": "Continues a search that was begun with the {@link ApiRange#Find} method. Finds the next cell that matches those same conditions and returns the ApiRange object that represents that cell. This does not affect the selection or the active cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/FindNext/",
+      "params": [
+        {
+          "description": "The cell after which the search will start. If this argument is not specified, the search starts from the last cell found.",
+          "name": "After",
+          "type": "ApiRange"
+        }
+      ],
+      "returns": {
+        "description": "Returns null if the range does not contain such text.",
+        "type": "ApiRange | null"
+      },
+      "signature": "FindNext(After: ApiRange): ApiRange | null"
+    },
+    "FindPrevious": {
+      "description": "Continues a search that was begun with the {@link ApiRange#Find} method. Finds the previous cell that matches those same conditions and returns the ApiRange object that represents that cell. This does not affect the selection or the active cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/FindPrevious/",
+      "params": [
+        {
+          "description": "The cell before which the search will start. If this argument is not specified, the search starts from the last cell found.",
+          "name": "Before",
+          "type": "ApiRange"
+        }
+      ],
+      "returns": {
+        "description": "Returns null if the range does not contain such text.",
+        "type": "ApiRange | null"
+      },
+      "signature": "FindPrevious(Before: ApiRange): ApiRange | null"
+    },
+    "ForEach": {
+      "description": "Executes a provided function once for each cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/ForEach/",
+      "params": [
+        {
+          "description": "A function which will be executed for each cell.",
+          "name": "fCallback",
+          "type": "(...args: unknown[]) => unknown"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the callback was executed, false if the callback is not a function.",
+        "type": "boolean"
+      },
+      "signature": "ForEach(fCallback: (...args: unknown[]) => unknown): boolean"
+    },
+    "GetAddress": {
+      "description": "Returns the range address.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetAddress/",
+      "params": [
+        {
+          "description": "Defines if the link to the row is absolute or not.",
+          "name": "RowAbs",
+          "type": "boolean"
+        },
+        {
+          "description": "Defines if the link to the column is absolute or not.",
+          "name": "ColAbs",
+          "type": "boolean"
+        },
+        {
+          "description": "The reference style.",
+          "name": "RefStyle",
+          "type": "string"
+        },
+        {
+          "description": "Defines if the range is in the current file or not.",
+          "name": "External",
+          "type": "boolean"
+        },
+        {
+          "description": "The range which the current range is relative to.",
+          "name": "RelativeTo",
+          "optional": true,
+          "type": "ApiRange"
+        }
+      ],
+      "returns": {
+        "description": "returns address of range as string.",
+        "type": "string | null"
+      },
+      "signature": "GetAddress(RowAbs: boolean, ColAbs: boolean, RefStyle: string, External: boolean, RelativeTo?: ApiRange): string | null"
+    },
+    "GetAreas": {
+      "description": "Returns a collection of the ranges.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetAreas/",
+      "params": [],
+      "returns": {
+        "type": "ApiAreas"
+      },
+      "signature": "GetAreas(): ApiAreas"
+    },
+    "GetCells": {
+      "description": "Returns a Range object that represents all the cells in the specified range or a specified cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetCells/",
+      "params": [
+        {
+          "description": "The row number or the cell number (if only row is defined).",
+          "name": "row",
+          "type": "number"
+        },
+        {
+          "description": "The column number.",
+          "name": "col",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "ApiRange"
+      },
+      "signature": "GetCells(row: number, col: number): ApiRange"
+    },
+    "GetCellsCount": {
+      "description": "Returns a number of cells in the current range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetCellsCount/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetCellsCount(): number",
+      "since": "9.1.0"
+    },
+    "GetCharacters": {
+      "description": "Returns the ApiCharacters object that represents a range of characters within the object text. Use the ApiCharacters object to format characters within a text string.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetCharacters/",
+      "params": [
+        {
+          "description": "The first character to be returned. If this argument is either 1 or omitted, this property returns a range of characters starting with the first character.",
+          "name": "Start",
+          "type": "number"
+        },
+        {
+          "description": "The number of characters to be returned. If this argument is omitted, this property returns the remainder of the string (everything after the Start character).",
+          "name": "Length",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "ApiCharacters"
+      },
+      "signature": "GetCharacters(Start: number, Length: number): ApiCharacters",
+      "since": "7.4.0"
+    },
+    "GetClassType": {
+      "description": "Returns a type of the ApiRange class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"range\""
+      },
+      "signature": "GetClassType(): \"range\""
+    },
+    "GetCol": {
+      "description": "Returns a column number for the selected cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetCol/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetCol(): number"
+    },
+    "GetCols": {
+      "description": "Returns a Range object that represents the columns in the specified range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetCols/",
+      "params": [
+        {
+          "description": "The column number. *",
+          "name": "nCol",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "ApiRange | null"
+      },
+      "signature": "GetCols(nCol: number): ApiRange | null"
+    },
+    "GetColumnWidth": {
+      "description": "Returns the column width value.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetColumnWidth/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetColumnWidth(): number"
+    },
+    "GetColumnsCount": {
+      "description": "Returns a number of columns in the current range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetColumnsCount/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetColumnsCount(): number",
+      "since": "9.1.0"
+    },
+    "GetComment": {
+      "description": "Returns the ApiComment object of the current range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetComment/",
+      "params": [],
+      "returns": {
+        "description": "returns null if range does not consist of one cell.",
+        "type": "ApiComment | null"
+      },
+      "signature": "GetComment(): ApiComment | null"
+    },
+    "GetCount": {
+      "description": "Returns the rows or columns count.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetCount/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetCount(): number"
+    },
+    "GetCurrentRegion": {
+      "description": "Returns a range that represents the expanded range around the current range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetCurrentRegion/",
+      "params": [],
+      "returns": {
+        "description": "Returns the expanded range or null if the range cannot be expanded.",
+        "type": "ApiRange | null"
+      },
+      "signature": "GetCurrentRegion(): ApiRange | null",
+      "since": "9.1.0"
+    },
+    "GetDefName": {
+      "description": "Returns the ApiName object of the current range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetDefName/",
+      "params": [],
+      "returns": {
+        "type": "ApiName"
+      },
+      "signature": "GetDefName(): ApiName"
+    },
+    "GetEntireColumn": {
+      "description": "Returns a Range object that represents the entire column(s) containing the specified range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetEntireColumn/",
+      "params": [],
+      "returns": {
+        "description": "Returns the entire column range, or null if invalid.",
+        "type": "ApiRange | null"
+      },
+      "signature": "GetEntireColumn(): ApiRange | null",
+      "since": "9.1.0"
+    },
+    "GetEntireRow": {
+      "description": "Returns a Range object that represents the entire row(s) containing the specified range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetEntireRow/",
+      "params": [],
+      "returns": {
+        "description": "Returns the entire row range, or null if invalid.",
+        "type": "ApiRange | null"
+      },
+      "signature": "GetEntireRow(): ApiRange | null",
+      "since": "9.1.0"
+    },
+    "GetFillColor": {
+      "description": "Returns the background color for the current cell range. Returns 'No Fill' when the color of the background in the cell / cell range is null.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetFillColor/",
+      "params": [],
+      "returns": {
+        "description": "return 'No Fill' when the color to the background in the cell / cell range is null.",
+        "type": "ApiColor | 'No Fill'"
+      },
+      "signature": "GetFillColor(): ApiColor | 'No Fill'"
+    },
+    "GetFormatConditions": {
+      "description": "Returns the collection of conditional formatting rules for the current range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetFormatConditions/",
+      "params": [],
+      "returns": {
+        "type": "ApiFormatConditions"
+      },
+      "signature": "GetFormatConditions(): ApiFormatConditions",
+      "since": "9.1.0"
+    },
+    "GetFormula": {
+      "description": "Returns a formula of the specified range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetFormula/",
+      "params": [],
+      "returns": {
+        "description": "return Value2 property (value without format) if formula doesn't exist.",
+        "type": "string | string[][]"
+      },
+      "signature": "GetFormula(): string | string[][]"
+    },
+    "GetFormulaArray": {
+      "description": "Returns an array formula from the current range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetFormulaArray/",
+      "params": [],
+      "returns": {
+        "type": "string | null"
+      },
+      "signature": "GetFormulaArray(): string | null",
+      "since": "9.0.0"
+    },
+    "GetHidden": {
+      "description": "Returns the value hiding property. The specified range must span an entire column or row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetHidden/",
+      "params": [],
+      "returns": {
+        "description": "returns true if the values in the range specified are hidden.",
+        "type": "boolean"
+      },
+      "signature": "GetHidden(): boolean"
+    },
+    "GetHyperlinks": {
+      "description": "Returns a collection of all the hyperlinks in the range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetHyperlinks/",
+      "params": [],
+      "returns": {
+        "type": "ApiHyperlinks"
+      },
+      "signature": "GetHyperlinks(): ApiHyperlinks"
+    },
+    "GetNumberFormat": {
+      "description": "Returns a value that represents the format code for the current range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetNumberFormat/",
+      "params": [],
+      "returns": {
+        "description": "This property returns null if all cells in the specified range don't have the same number format.",
+        "type": "string | null"
+      },
+      "signature": "GetNumberFormat(): string | null"
+    },
+    "GetOrientation": {
+      "description": "Returns the current range angle.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetOrientation/",
+      "params": [],
+      "returns": {
+        "type": "Angle"
+      },
+      "signature": "GetOrientation(): Angle"
+    },
+    "GetPivotTable": {
+      "description": "Returns the ApiPivotTable object that represents the pivot table report containing the upper-left corner of the specified range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetPivotTable/",
+      "params": [],
+      "returns": {
+        "type": "ApiPivotTable | null"
+      },
+      "signature": "GetPivotTable(): ApiPivotTable | null",
+      "since": "8.2.0"
+    },
+    "GetRange": {
+      "description": "Returns a Range object that represents a cell or a range of cells.\nWhen applied to a Range object, the property is relative to that Range object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetRange/",
+      "params": [
+        {
+          "description": "The first cell address (e.g., \"A1\" or \"A1:B2\").",
+          "name": "cell1",
+          "type": "string | ApiRange"
+        },
+        {
+          "description": "The second cell address (optional, defines the corner with \"cell1\").",
+          "name": "cell2",
+          "optional": true,
+          "type": "string | ApiRange"
+        }
+      ],
+      "returns": {
+        "description": "Returns the range relative to this range, or null if invalid.",
+        "type": "ApiRange | null"
+      },
+      "signature": "GetRange(cell1: string | ApiRange, cell2?: string | ApiRange): ApiRange | null",
+      "since": "9.1.0"
+    },
+    "GetRow": {
+      "description": "Returns a row number for the selected cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetRow/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetRow(): number"
+    },
+    "GetRowHeight": {
+      "description": "Returns the row height value.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetRowHeight/",
+      "params": [],
+      "returns": {
+        "description": "The row height in the range specified, measured in points.",
+        "type": "pt"
+      },
+      "signature": "GetRowHeight(): pt"
+    },
+    "GetRows": {
+      "description": "Returns a Range object that represents the rows in the specified range. If the specified row is outside the Range object, a new Range will be returned that represents the cells between the columns of the original range in the specified row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetRows/",
+      "params": [
+        {
+          "description": "The row number (starts counting from 1, the 0 value returns an error).",
+          "name": "nRow",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "ApiRange | null"
+      },
+      "signature": "GetRows(nRow: number): ApiRange | null"
+    },
+    "GetRowsCount": {
+      "description": "Returns a number of rows in the current range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetRowsCount/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetRowsCount(): number",
+      "since": "9.1.0"
+    },
+    "GetText": {
+      "description": "Returns the text of the specified range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetText/",
+      "params": [],
+      "returns": {
+        "type": "string | string[][]"
+      },
+      "signature": "GetText(): string | string[][]"
+    },
+    "GetValidation": {
+      "description": "Returns the data validation object associated with this range. If no validation object exists yet, it will be created.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetValidation/",
+      "params": [],
+      "returns": {
+        "type": "ApiValidation"
+      },
+      "signature": "GetValidation(): ApiValidation"
+    },
+    "GetValue": {
+      "description": "Returns a value of the specified range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetValue/",
+      "params": [],
+      "returns": {
+        "type": "string | number | boolean | (string | number | boolean)[][]"
+      },
+      "signature": "GetValue(): string | number | boolean | (string | number | boolean)[][]"
+    },
+    "GetValue2": {
+      "description": "Returns the Value2 property (value without format) of the specified range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetValue2/",
+      "params": [],
+      "returns": {
+        "type": "string | string[][]"
+      },
+      "signature": "GetValue2(): string | string[][]"
+    },
+    "GetWorksheet": {
+      "description": "Returns the Worksheet object that represents the worksheet containing the specified range. It will be available in the read-only mode.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetWorksheet/",
+      "params": [],
+      "returns": {
+        "type": "ApiWorksheet"
+      },
+      "signature": "GetWorksheet(): ApiWorksheet"
+    },
+    "GetWrapText": {
+      "description": "Returns the information about the wrapping cell style.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetWrapText/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetWrapText(): boolean"
+    },
+    "Insert": {
+      "description": "Inserts a cell or a range of cells into the worksheet or macro sheet and shifts other cells away to make space.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/Insert/",
+      "params": [
+        {
+          "description": "Specifies which way to shift the cells (\"right\", \"down\").",
+          "name": "shift",
+          "optional": true,
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "Insert(shift?: string): void"
+    },
+    "InsertColumns": {
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "InsertColumns(): void"
+    },
+    "InsertRows": {
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "InsertRows(): void"
+    },
+    "Merge": {
+      "description": "Merges the selected cell range into a single cell or a cell row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/Merge/",
+      "params": [
+        {
+          "description": "When set to **true**, the cells within the selected range will be merged along the rows,\rbut remain split in the columns. When set to **false**, the whole selected range of cells will be merged into a single cell.",
+          "name": "isAcross",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the range was merged successfully.",
+        "type": "boolean"
+      },
+      "signature": "Merge(isAcross: boolean): boolean"
+    },
+    "Offset": {
+      "description": "Returns a Range object offset from the current range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/Offset/",
+      "params": [
+        {
+          "description": "The number of rows to offset the range.",
+          "name": "rowOffset",
+          "type": "number"
+        },
+        {
+          "description": "The number of columns to offset the range.",
+          "name": "columnOffset",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "Returns the offset range, or null if invalid.",
+        "type": "ApiRange | null"
+      },
+      "signature": "Offset(rowOffset: number, columnOffset: number): ApiRange | null",
+      "since": "9.1.0"
+    },
+    "Paste": {
+      "description": "Pastes the Range object to the specified range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/Paste/",
+      "params": [
+        {
+          "description": "Specifies the range to be pasted to the current range",
+          "name": "rangeFrom",
+          "type": "ApiRange"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "Paste(rangeFrom: ApiRange): void"
+    },
+    "PasteSpecial": {
+      "description": "Pastes the Range object to the specified range using the special paste options.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/PasteSpecial/",
+      "params": [
+        {
+          "description": "Paste option.",
+          "name": "sPasteType",
+          "optional": true,
+          "type": "PasteType"
+        },
+        {
+          "description": "The mathematical operation which will be applied to the copied data.",
+          "name": "sPasteSpecialOperation",
+          "optional": true,
+          "type": "PasteSpecialOperation"
+        },
+        {
+          "description": "Specifies whether to avoid replacing values in the paste area when blank cells occur in the copy area.",
+          "name": "bSkipBlanks",
+          "optional": true,
+          "type": "boolean"
+        },
+        {
+          "description": "Specifies whether the pasted data will be transposed from rows to columns.",
+          "name": "bTranspose",
+          "optional": true,
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "Returns false if there is nothing to paste. Only the data copied by the editor itself is available, the system clipboard can be read asynchronously only.",
+        "type": "boolean"
+      },
+      "signature": "PasteSpecial(sPasteType?: PasteType, sPasteSpecialOperation?: PasteSpecialOperation, bSkipBlanks?: boolean, bTranspose?: boolean): boolean",
+      "since": "8.1.0"
+    },
+    "Replace": {
+      "description": "Replaces specific information to another one in a range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/Replace/",
+      "params": [
+        {
+          "description": "The data used to make search and replace.",
+          "name": "oReplaceData",
+          "type": "ReplaceData"
+        }
+      ],
+      "returns": {
+        "description": "Returns true if at least one match was found and replacement was initiated, false otherwise.",
+        "type": "boolean"
+      },
+      "signature": "Replace(oReplaceData: ReplaceData): boolean"
+    },
+    "Resize": {
+      "description": "Resizes the current range by changing the number of rows and columns.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/Resize/",
+      "params": [
+        {
+          "description": "The number of rows for the new range.",
+          "name": "rowSize",
+          "type": "number"
+        },
+        {
+          "description": "The number of columns for the new range.",
+          "name": "columnSize",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "Returns the resized range, or null if invalid.",
+        "type": "ApiRange | null"
+      },
+      "signature": "Resize(rowSize: number, columnSize: number): ApiRange | null",
+      "since": "9.1.0"
+    },
+    "Select": {
+      "description": "Selects the current range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/Select/",
+      "params": [],
+      "returns": {
+        "description": "returns true if the range was selected successfully.",
+        "type": "boolean"
+      },
+      "signature": "Select(): boolean"
+    },
+    "SetAlignHorizontal": {
+      "description": "Sets the horizontal alignment of the text in the current cell range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetAlignHorizontal/",
+      "params": [
+        {
+          "description": "The horizontal alignment that will be applied to the cell contents.",
+          "name": "sAlignment",
+          "type": "'left' | 'right' | 'center' | 'justify'"
+        }
+      ],
+      "returns": {
+        "description": "return false if sAlignment doesn't exist.",
+        "type": "boolean"
+      },
+      "signature": "SetAlignHorizontal(sAlignment: 'left' | 'right' | 'center' | 'justify'): boolean"
+    },
+    "SetAlignVertical": {
+      "description": "Sets the vertical alignment of the text in the current cell range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetAlignVertical/",
+      "params": [
+        {
+          "description": "The vertical alignment that will be applied to the cell contents.",
+          "name": "sAlignment",
+          "type": "'center' | 'bottom' | 'top' | 'distributed' | 'justify'"
+        }
+      ],
+      "returns": {
+        "description": "return false if sAlignment doesn't exist.",
+        "type": "boolean"
+      },
+      "signature": "SetAlignVertical(sAlignment: 'center' | 'bottom' | 'top' | 'distributed' | 'justify'): boolean"
+    },
+    "SetAutoFilter": {
+      "description": "Adds an AutoFilter to the current range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetAutoFilter/",
+      "params": [
+        {
+          "description": "The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field one). If {null} provided, clears the AutoFilter for the range.",
+          "name": "Field",
+          "optional": true,
+          "type": "number | null"
+        },
+        {
+          "description": "The criteria (a string; for example, \"101\"). Use \"=\" to find blank fields, \"<>\" to find non-blank fields, and \"><\" to select (No Data) fields in data types.\rIf this argument is omitted, the criteria is All. If Operator is xlTop10Items, Criteria1 specifies the number of items (for example, \"10\").",
+          "name": "Criteria1",
+          "optional": true,
+          "type": "string | string[] | ApiColor | XlDynamicFilterCriteria"
+        },
+        {
+          "description": "An XlAutoFilterOperator constant specifying the type of filter.",
+          "name": "Operator",
+          "optional": true,
+          "type": "XlAutoFilterOperator"
+        },
+        {
+          "description": "The second criteria (a string). Used with Criteria1 and Operator to construct compound criteria.",
+          "name": "Criteria2",
+          "optional": true,
+          "type": "string"
+        },
+        {
+          "description": "True to display the AutoFilter drop-down arrow for the filtered field. False to hide the AutoFilter drop-down arrow for the filtered field. True by default.",
+          "name": "VisibleDropDown",
+          "optional": true,
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetAutoFilter(Field?: number | null, Criteria1?: string | string[] | ApiColor | XlDynamicFilterCriteria, Operator?: XlAutoFilterOperator, Criteria2?: string, VisibleDropDown?: boolean): void",
+      "since": "8.3.0"
+    },
+    "SetBold": {
+      "description": "Sets the bold property to the text characters in the current cell or cell range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetBold/",
+      "params": [
+        {
+          "description": "Specifies that the contents of the current cell / cell range are displayed bold.",
+          "name": "isBold",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the bold property was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetBold(isBold: boolean): boolean"
+    },
+    "SetBorders": {
+      "description": "Sets the border to the cell / cell range with the parameters specified.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetBorders/",
+      "params": [
+        {
+          "description": "Specifies the cell border position.",
+          "name": "bordersIndex",
+          "type": "BordersIndex"
+        },
+        {
+          "description": "Specifies the line style used to form the cell border.",
+          "name": "lineStyle",
+          "type": "LineStyle"
+        },
+        {
+          "description": "The color object which specifies the color to be set to the cell border.",
+          "name": "oColor",
+          "type": "ApiColor"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the borders were set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetBorders(bordersIndex: BordersIndex, lineStyle: LineStyle, oColor: ApiColor): boolean"
+    },
+    "SetColumnWidth": {
+      "description": "Sets the width of all the columns in the current range.\nOne unit of column width is equal to the width of one character in the Normal style.\nFor proportional fonts, the width of the character 0 (zero) is used.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetColumnWidth/",
+      "params": [
+        {
+          "description": "The width of the column divided by 7 pixels.",
+          "name": "nWidth",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetColumnWidth(nWidth: number): void"
+    },
+    "SetFillColor": {
+      "description": "Sets the background color to the current cell range with the previously created color object.\nSets 'No Fill' when the previously created color object is 'No Fill' or null.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetFillColor/",
+      "params": [
+        {
+          "description": "The color object which specifies the color to be set to the background in the cell / cell range. Pass 'No Fill' or null to clear the background color.",
+          "name": "color",
+          "type": "ApiColor | 'No Fill' | null"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the fill color was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetFillColor(color: ApiColor | 'No Fill' | null): boolean"
+    },
+    "SetFontColor": {
+      "description": "Sets the text color to the current cell range with the previously created color object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetFontColor/",
+      "params": [
+        {
+          "description": "The color object which specifies the color to be set to the text in the cell / cell range.",
+          "name": "oColor",
+          "type": "ApiColor"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the font color was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetFontColor(oColor: ApiColor): boolean"
+    },
+    "SetFontName": {
+      "description": "Sets the specified font family as the font name for the current cell range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetFontName/",
+      "params": [
+        {
+          "description": "The font family name used for the current cell range.",
+          "name": "sName",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the font name was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetFontName(sName: string): boolean"
+    },
+    "SetFontSize": {
+      "description": "Sets the font size to the characters of the current cell range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetFontSize/",
+      "params": [
+        {
+          "description": "The font size value measured in points.",
+          "name": "nSize",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the font size was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetFontSize(nSize: number): boolean"
+    },
+    "SetFormula": {
+      "description": "Sets a formula or value to the current cell or cell range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetFormula/",
+      "params": [
+        {
+          "description": "The formula or value for the cell or cell range.",
+          "name": "data",
+          "type": "string | number | boolean | (string | number | boolean)[] | (string | number | boolean)[][]"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "returns false if such a range does not exist.",
+        "type": "boolean"
+      },
+      "signature": "SetFormula(data: string | number | boolean | (string | number | boolean)[] | (string | number | boolean)[][]): boolean"
+    },
+    "SetFormulaArray": {
+      "description": "Sets an array formula to the current range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetFormulaArray/",
+      "params": [
+        {
+          "description": "The general value for the cell or cell range.",
+          "name": "data",
+          "type": "string | boolean | number"
+        }
+      ],
+      "returns": {
+        "description": "Returns false if such a range does not exist.",
+        "type": "boolean"
+      },
+      "signature": "SetFormulaArray(data: string | boolean | number): boolean",
+      "since": "9.0.0"
+    },
+    "SetHidden": {
+      "description": "Sets the value hiding property. The specified range must span an entire column or row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetHidden/",
+      "params": [
+        {
+          "description": "Specifies if the values in the current range are hidden or not.",
+          "name": "isHidden",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the hidden property was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetHidden(isHidden: boolean): boolean"
+    },
+    "SetItalic": {
+      "description": "Sets the italic property to the text characters in the current cell or cell range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetItalic/",
+      "params": [
+        {
+          "description": "Specifies that the contents of the current cell / cell range are displayed italicized.",
+          "name": "isItalic",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the italic property was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetItalic(isItalic: boolean): boolean"
+    },
+    "SetNumberFormat": {
+      "description": "Specifies whether a number in the cell should be treated like number, currency, date, time, etc. or just like text.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetNumberFormat/",
+      "params": [
+        {
+          "description": "Specifies the mask applied to the number in the cell.",
+          "name": "sFormat",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the number format was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetNumberFormat(sFormat: string): boolean"
+    },
+    "SetOffset": {
+      "description": "Sets the cell offset.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetOffset/",
+      "params": [
+        {
+          "description": "The row number.",
+          "name": "nRow",
+          "type": "number"
+        },
+        {
+          "description": "The column number.",
+          "name": "nCol",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the offset was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetOffset(nRow: number, nCol: number): boolean"
+    },
+    "SetOrientation": {
+      "description": "Sets an angle to the current cell range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetOrientation/",
+      "params": [
+        {
+          "description": "Specifies the range angle.",
+          "name": "angle",
+          "type": "Angle"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetOrientation(angle: Angle): void"
+    },
+    "SetReadingOrder": {
+      "description": "Sets the direction (reading order) of the text in the current cell range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetReadingOrder/",
+      "params": [
+        {
+          "description": "The direction (reading order) that will be applied to the cell contents.",
+          "name": "direction",
+          "type": "'context' | 'ltr' | 'rtl'"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetReadingOrder(direction: 'context' | 'ltr' | 'rtl'): void"
+    },
+    "SetRowHeight": {
+      "description": "Sets the row height value.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetRowHeight/",
+      "params": [
+        {
+          "description": "The row height in the current range measured in points.",
+          "name": "nHeight",
+          "type": "pt"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the row height was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetRowHeight(nHeight: pt): boolean"
+    },
+    "SetSort": {
+      "description": "Sorts the cells in the given range by the parameters specified in the request.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetSort/",
+      "params": [
+        {
+          "description": "First sort field.",
+          "name": "key1",
+          "type": "ApiRange | string"
+        },
+        {
+          "description": "The sort order for the values specified in Key1.",
+          "name": "sSortOrder1",
+          "type": "SortOrder"
+        },
+        {
+          "description": "Second sort field.",
+          "name": "key2",
+          "type": "ApiRange | string"
+        },
+        {
+          "description": "The sort order for the values specified in Key2.",
+          "name": "sSortOrder2",
+          "type": "SortOrder"
+        },
+        {
+          "description": "Third sort field.",
+          "name": "key3",
+          "type": "ApiRange | string"
+        },
+        {
+          "description": "The sort order for the values specified in Key3.",
+          "name": "sSortOrder3",
+          "type": "SortOrder"
+        },
+        {
+          "description": "Specifies whether the first row contains header information.",
+          "name": "sHeader",
+          "type": "SortHeader"
+        },
+        {
+          "description": "Specifies if the sort should be by row (default) or column.",
+          "name": "sOrientation",
+          "type": "SortOrientation"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetSort(key1: ApiRange | string, sSortOrder1: SortOrder, key2: ApiRange | string, sSortOrder2: SortOrder, key3: ApiRange | string, sSortOrder3: SortOrder, sHeader: SortHeader, sOrientation: SortOrientation): void"
+    },
+    "SetStrikeout": {
+      "description": "Specifies that the contents of the cell / cell range are displayed with a single horizontal line through the center of the contents.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetStrikeout/",
+      "params": [
+        {
+          "description": "Specifies if the contents of the current cell / cell range are displayed struck through.",
+          "name": "isStrikeout",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the strikeout property was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetStrikeout(isStrikeout: boolean): boolean"
+    },
+    "SetUnderline": {
+      "description": "Specifies that the contents of the current cell / cell range are displayed along with a line appearing directly below the character.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetUnderline/",
+      "params": [
+        {
+          "description": "Specifies the type of the\rline displayed under the characters. The following values are available:\r**\"none\"** - for no underlining;\r**\"single\"** - for a single line underlining the cell contents;\r**\"singleAccounting\"** - for a single line underlining the cell contents but not protruding beyond the cell borders;\r**\"double\"** - for a double line underlining the cell contents;\r**\"doubleAccounting\"** - for a double line underlining the cell contents but not protruding beyond the cell borders.",
+          "name": "undelineType",
+          "type": "'none' | 'single' | 'singleAccounting' | 'double' | 'doubleAccounting'"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the underline property was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetUnderline(undelineType: 'none' | 'single' | 'singleAccounting' | 'double' | 'doubleAccounting'): boolean"
+    },
+    "SetValue": {
+      "description": "Sets a value to the current cell or cell range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetValue/",
+      "params": [
+        {
+          "description": "The general value for the cell or cell range.",
+          "name": "data",
+          "type": "string | boolean | number | (string | boolean | number)[] | (string | boolean | number)[][]"
+        }
+      ],
+      "returns": {
+        "description": "returns false if such a range does not exist.",
+        "type": "boolean"
+      },
+      "signature": "SetValue(data: string | boolean | number | (string | boolean | number)[] | (string | boolean | number)[][]): boolean"
+    },
+    "SetWrap": {
+      "description": "Specifies whether the words in the cell must be wrapped to fit the cell size or not.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetWrap/",
+      "params": [
+        {
+          "description": "Specifies if the words in the cell will be wrapped to fit the cell size.",
+          "name": "isWrap",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the wrap property was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetWrap(isWrap: boolean): boolean"
+    },
+    "UnMerge": {
+      "description": "Splits the selected merged cell range into the single cells.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/UnMerge/",
+      "params": [],
+      "returns": {
+        "description": "returns true if the range was unmerged successfully.",
+        "type": "boolean"
+      },
+      "signature": "UnMerge(): boolean"
+    }
+  }
+}

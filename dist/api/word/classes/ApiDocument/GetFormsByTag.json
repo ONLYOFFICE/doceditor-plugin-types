@@ -1,0 +1,15 @@
+{
+  "description": "Returns a list of all forms in the document with the specified tag name.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetFormsByTag/",
+  "params": [
+    {
+      "description": "Form tag.",
+      "name": "sTag",
+      "type": "string"
+    }
+  ],
+  "returns": {
+    "type": "ApiForm[]"
+  },
+  "signature": "GetFormsByTag(sTag: string): ApiForm[]"
+}

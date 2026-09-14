@@ -1,0 +1,15 @@
+{
+  "description": "Adds a drawing object (image, shape or chart) to the current paragraph.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/AddDrawing/",
+  "params": [
+    {
+      "description": "The object which will be added to the current paragraph.",
+      "name": "oDrawing",
+      "type": "ApiDrawing"
+    }
+  ],
+  "returns": {
+    "type": "ApiRun"
+  },
+  "signature": "AddDrawing(oDrawing: ApiDrawing): ApiRun"
+}

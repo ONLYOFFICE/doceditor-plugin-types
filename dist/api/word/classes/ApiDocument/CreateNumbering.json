@@ -1,0 +1,16 @@
+{
+  "description": "Creates an abstract multilevel numbering with a specified type.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/CreateNumbering/",
+  "params": [
+    {
+      "description": "The type of the numbering which will be created.",
+      "name": "sType",
+      "optional": true,
+      "type": "\"bullet\" | \"numbered\""
+    }
+  ],
+  "returns": {
+    "type": "ApiNumbering"
+  },
+  "signature": "CreateNumbering(sType?: \"bullet\" | \"numbered\"): ApiNumbering"
+}

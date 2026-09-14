@@ -1,0 +1,20 @@
+{
+  "description": "Checks if there is an error in the formula in the first argument. The function returns the result of the formula if there is no error, or the value specified in the second argument if there is one.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IFERROR/",
+  "params": [
+    {
+      "description": "The value, expression, or reference that is checked for an error.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number | string | boolean"
+    },
+    {
+      "description": "The value to be returned if the formula evaluates to an error. The following errors are evaluated: **#N/A**, **#VALUE!**, **#REF!**, **#DIV/0!**, **#NUM!**, **#NAME?**, **#NULL!**.",
+      "name": "arg2",
+      "type": "ApiRange | ApiName | number | string | boolean"
+    }
+  ],
+  "returns": {
+    "type": "number | string | boolean"
+  },
+  "signature": "IFERROR(arg1: ApiRange | ApiName | number | string | boolean, arg2: ApiRange | ApiName | number | string | boolean): number | string | boolean"
+}

@@ -1,0 +1,9 @@
+{
+  "description": "Creates a paragraph copy. Ingnore comments, footnote references, complex fields.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/Copy/",
+  "params": [],
+  "returns": {
+    "type": "ApiParagraph"
+  },
+  "signature": "Copy(): ApiParagraph"
+}

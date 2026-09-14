@@ -1,0 +1,9 @@
+{
+  "description": "Returns the *#N/A* error value which means \"no value is available\".",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/NA/",
+  "params": [],
+  "returns": {
+    "type": "string"
+  },
+  "signature": "NA(): string"
+}

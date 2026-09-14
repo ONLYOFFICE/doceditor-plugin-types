@@ -1,0 +1,9 @@
+{
+  "description": "Removes a watermark from the current document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/RemoveWatermark/",
+  "params": [],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "RemoveWatermark(): boolean"
+}

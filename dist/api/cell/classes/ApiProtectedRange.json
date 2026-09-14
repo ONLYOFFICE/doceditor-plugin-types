@@ -1,0 +1,125 @@
+{
+  "description": "Class representing a user-protected range.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiProtectedRange/",
+  "methods": {
+    "AddUser": {
+      "description": "Sets a user to the current protected range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiProtectedRange/Methods/AddUser/",
+      "params": [
+        {
+          "description": "The user ID.",
+          "name": "sId",
+          "type": "string"
+        },
+        {
+          "description": "The user name.",
+          "name": "sName",
+          "type": "string"
+        },
+        {
+          "description": "The user type of the protected range.",
+          "name": "protectedRangeUserType",
+          "type": "ProtectedRangeUserType"
+        }
+      ],
+      "returns": {
+        "description": "Returns null if a user doesn't have permission to modify the protected range.",
+        "type": "ApiProtectedRangeUserInfo | null"
+      },
+      "signature": "AddUser(sId: string, sName: string, protectedRangeUserType: ProtectedRangeUserType): ApiProtectedRangeUserInfo | null",
+      "since": "8.1.0"
+    },
+    "DeleteUser": {
+      "description": "Removes a user from the current protected range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiProtectedRange/Methods/DeleteUser/",
+      "params": [
+        {
+          "description": "The user ID.",
+          "name": "sId",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "DeleteUser(sId: string): boolean",
+      "since": "8.1.0"
+    },
+    "GetAllUsers": {
+      "description": "Returns all users from the current protected range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiProtectedRange/Methods/GetAllUsers/",
+      "params": [],
+      "returns": {
+        "type": "ApiProtectedRangeUserInfo[] | null"
+      },
+      "signature": "GetAllUsers(): ApiProtectedRangeUserInfo[] | null",
+      "since": "8.1.0"
+    },
+    "GetUser": {
+      "description": "Returns an object that represents a user from the current protected range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiProtectedRange/Methods/GetUser/",
+      "params": [
+        {
+          "description": "The user ID.",
+          "name": "sId",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "ApiProtectedRangeUserInfo | null"
+      },
+      "signature": "GetUser(sId: string): ApiProtectedRangeUserInfo | null",
+      "since": "8.1.0"
+    },
+    "SetAnyoneType": {
+      "description": "Sets the type of the \"Anyone\" user to the current protected range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiProtectedRange/Methods/SetAnyoneType/",
+      "params": [
+        {
+          "description": "The user type of the protected range.",
+          "name": "protectedRangeUserType",
+          "type": "ProtectedRangeUserType"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetAnyoneType(protectedRangeUserType: ProtectedRangeUserType): boolean",
+      "since": "8.1.0"
+    },
+    "SetRange": {
+      "description": "Sets a range to the current protected range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiProtectedRange/Methods/SetRange/",
+      "params": [
+        {
+          "description": "The cell range which will be set for the current protected range.",
+          "name": "sRange",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "description": "Returns false if a user doesn't have permission to modify the protected range.",
+        "type": "boolean"
+      },
+      "signature": "SetRange(sRange: string): boolean",
+      "since": "8.1.0"
+    },
+    "SetTitle": {
+      "description": "Sets a title to the current protected range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiProtectedRange/Methods/SetTitle/",
+      "params": [
+        {
+          "description": "The title which will be displayed for the current protected range.",
+          "name": "sTitle",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "description": "Returns false if a user doesn't have permission to modify the protected range.",
+        "type": "boolean"
+      },
+      "signature": "SetTitle(sTitle: string): boolean",
+      "since": "8.1.0"
+    }
+  }
+}

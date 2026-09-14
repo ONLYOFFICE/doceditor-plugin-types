@@ -1,0 +1,81 @@
+{
+  "description": "Class representing a comment reply.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiCommentReply/",
+  "methods": {
+    "GetAuthorName": {
+      "description": "Returns the comment reply author's name.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiCommentReply/Methods/GetAuthorName/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetAuthorName(): string"
+    },
+    "GetClassType": {
+      "description": "Returns a type of the ApiCommentReply class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiCommentReply/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"commentReply\""
+      },
+      "signature": "GetClassType(): \"commentReply\""
+    },
+    "GetText": {
+      "description": "Returns the comment reply text.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiCommentReply/Methods/GetText/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetText(): string"
+    },
+    "SetAuthorName": {
+      "description": "Sets the comment reply author's name.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiCommentReply/Methods/SetAuthorName/",
+      "params": [
+        {
+          "description": "The comment reply author's name.",
+          "name": "authorName",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "description": "this",
+        "type": "ApiCommentReply"
+      },
+      "signature": "SetAuthorName(authorName: string): ApiCommentReply"
+    },
+    "SetText": {
+      "description": "Sets the comment reply text.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiCommentReply/Methods/SetText/",
+      "params": [
+        {
+          "description": "The comment reply text.",
+          "name": "sText",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "description": "this",
+        "type": "ApiCommentReply"
+      },
+      "signature": "SetText(sText: string): ApiCommentReply"
+    },
+    "SetUserId": {
+      "description": "Sets the user ID to the comment reply author.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiCommentReply/Methods/SetUserId/",
+      "params": [
+        {
+          "description": "The user ID of the comment reply author.",
+          "name": "userId",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "description": "this",
+        "type": "ApiCommentReply"
+      },
+      "signature": "SetUserId(userId: string): ApiCommentReply"
+    }
+  }
+}

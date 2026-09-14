@@ -1,0 +1,15 @@
+{
+  "description": "Returns the absolute value of a number, a number without its sign.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/ABS/",
+  "params": [
+    {
+      "description": "The real number for which the absolute value will be returned.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "ABS(arg1: ApiRange | ApiName | number): number"
+}

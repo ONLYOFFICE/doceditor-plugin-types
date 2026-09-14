@@ -1,0 +1,10 @@
+{
+  "description": "Returns the paragraph line spacing value.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetSpacingLineValue/",
+  "params": [],
+  "returns": {
+    "description": "to know is twips or line240 use ApiParaPr.prototype.GetSpacingLineRule().",
+    "type": "twips | line240 | undefined"
+  },
+  "signature": "GetSpacingLineValue(): twips | line240 | undefined"
+}

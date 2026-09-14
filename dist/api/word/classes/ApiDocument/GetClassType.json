@@ -1,0 +1,9 @@
+{
+  "description": "Returns a type of the ApiDocument class.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetClassType/",
+  "params": [],
+  "returns": {
+    "type": "\"document\""
+  },
+  "signature": "GetClassType(): \"document\""
+}

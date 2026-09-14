@@ -1,0 +1,15 @@
+{
+  "description": "Returns **true** if a number is odd.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/ISODD/",
+  "params": [
+    {
+      "description": "The value to test.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "ISODD(arg1: ApiRange | ApiName | number): boolean"
+}

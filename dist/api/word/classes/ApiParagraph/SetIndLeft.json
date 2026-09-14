@@ -1,0 +1,15 @@
+{
+  "description": "Sets the paragraph left side indentation.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetIndLeft/",
+  "params": [
+    {
+      "description": "The paragraph left side indentation value measured in twentieths of a point (1/1440 of an inch).",
+      "name": "nValue",
+      "type": "twips"
+    }
+  ],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "SetIndLeft(nValue: twips): boolean"
+}

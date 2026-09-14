@@ -1,0 +1,15 @@
+{
+  "description": "Sets the paragraph contents justification.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetJc/",
+  "params": [
+    {
+      "description": "The justification type that\rwill be applied to the paragraph contents.",
+      "name": "sJc",
+      "type": "\"left\" | \"right\" | \"both\" | \"center\""
+    }
+  ],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "SetJc(sJc: \"left\" | \"right\" | \"both\" | \"center\"): boolean"
+}

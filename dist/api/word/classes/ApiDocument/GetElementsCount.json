@@ -1,0 +1,9 @@
+{
+  "description": "Returns a number of elements in the current document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/GetElementsCount/",
+  "params": [],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "GetElementsCount(): number"
+}

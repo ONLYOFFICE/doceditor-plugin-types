@@ -1,0 +1,9 @@
+{
+  "description": "Returns a collection of drawing objects from the document content.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/GetAllDrawingObjects/",
+  "params": [],
+  "returns": {
+    "type": "Drawing[]"
+  },
+  "signature": "GetAllDrawingObjects(): Drawing[]"
+}

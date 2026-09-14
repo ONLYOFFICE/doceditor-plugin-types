@@ -1,0 +1,16 @@
+{
+  "description": "Returns an array of document elements from the current ApiDocumentContent object.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/GetContent/",
+  "params": [
+    {
+      "description": "Specifies if the copies of the document elements will be returned or not.",
+      "name": "bGetCopies",
+      "optional": true,
+      "type": "boolean"
+    }
+  ],
+  "returns": {
+    "type": "DocumentElement[]"
+  },
+  "signature": "GetContent(bGetCopies?: boolean): DocumentElement[]"
+}

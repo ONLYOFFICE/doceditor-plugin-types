@@ -1,0 +1,80 @@
+{
+  "description": "Class representing the collection of all tables of contents in a document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablesOfContents/",
+  "methods": {
+    "Add": {
+      "description": "Adds a table of contents to the document and returns it.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablesOfContents/Methods/Add/",
+      "params": [
+        {
+          "description": "Table of contents properties.",
+          "name": "oTocPr",
+          "optional": true,
+          "type": "TocPr"
+        },
+        {
+          "description": "The range that the table of contents replaces. If omitted, the table of contents is inserted at the current position.",
+          "name": "oRange",
+          "optional": true,
+          "type": "ApiRange"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiTableOfContents | null"
+      },
+      "signature": "Add(oTocPr?: TocPr, oRange?: ApiRange): ApiTableOfContents | null",
+      "since": "10.0.0"
+    },
+    "GetClassType": {
+      "description": "Returns a type of the ApiTablesOfContents class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablesOfContents/Methods/GetClassType/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "\"tablesOfContents\""
+      },
+      "signature": "GetClassType(): \"tablesOfContents\"",
+      "since": "10.0.0"
+    },
+    "GetCount": {
+      "description": "Returns the number of tables of contents in the document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablesOfContents/Methods/GetCount/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetCount(): number",
+      "since": "10.0.0"
+    },
+    "GetItem": {
+      "description": "Returns the table of contents at the specified position in the collection.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablesOfContents/Methods/GetItem/",
+      "params": [
+        {
+          "description": "The position (zero-based) of the table of contents.",
+          "name": "nIndex",
+          "type": "number"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiTableOfContents | null"
+      },
+      "signature": "GetItem(nIndex: number): ApiTableOfContents | null",
+      "since": "10.0.0"
+    },
+    "GetParent": {
+      "description": "Returns the document that owns this collection.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablesOfContents/Methods/GetParent/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiDocument"
+      },
+      "signature": "GetParent(): ApiDocument",
+      "since": "10.0.0"
+    }
+  }
+}

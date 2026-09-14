@@ -1,0 +1,202 @@
+{
+  "description": "Class representing the settings which are used to create a watermark.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiWatermarkSettings/",
+  "methods": {
+    "GetClassType": {
+      "description": "Returns a type of the ApiWatermarkSettings class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiWatermarkSettings/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"watermarkSettings\""
+      },
+      "signature": "GetClassType(): \"watermarkSettings\""
+    },
+    "GetDirection": {
+      "description": "Returns the direction of the watermark in the document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiWatermarkSettings/Methods/GetDirection/",
+      "params": [],
+      "returns": {
+        "description": "The watermark direction.",
+        "type": "WatermarkDirection"
+      },
+      "signature": "GetDirection(): WatermarkDirection"
+    },
+    "GetImageHeight": {
+      "description": "Returns the height of the watermark image in the document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiWatermarkSettings/Methods/GetImageHeight/",
+      "params": [],
+      "returns": {
+        "description": "The watermark image height in EMU.",
+        "type": "EMU | null"
+      },
+      "signature": "GetImageHeight(): EMU | null"
+    },
+    "GetImageURL": {
+      "description": "Returns the image URL of the watermark in the document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiWatermarkSettings/Methods/GetImageURL/",
+      "params": [],
+      "returns": {
+        "description": "The watermark image URL.",
+        "type": "string | null"
+      },
+      "signature": "GetImageURL(): string | null"
+    },
+    "GetImageWidth": {
+      "description": "Returns the width of the watermark image in the document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiWatermarkSettings/Methods/GetImageWidth/",
+      "params": [],
+      "returns": {
+        "description": "The watermark image width in EMU.",
+        "type": "EMU | null"
+      },
+      "signature": "GetImageWidth(): EMU | null"
+    },
+    "GetOpacity": {
+      "description": "Returns the opacity of the watermark in the document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiWatermarkSettings/Methods/GetOpacity/",
+      "params": [],
+      "returns": {
+        "description": "The watermark opacity. This value must be from 0 to 255.",
+        "type": "number"
+      },
+      "signature": "GetOpacity(): number"
+    },
+    "GetText": {
+      "description": "Returns the text of the watermark in the document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiWatermarkSettings/Methods/GetText/",
+      "params": [],
+      "returns": {
+        "type": "string | null"
+      },
+      "signature": "GetText(): string | null"
+    },
+    "GetTextPr": {
+      "description": "Returns the text properties of the watermark in the document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiWatermarkSettings/Methods/GetTextPr/",
+      "params": [],
+      "returns": {
+        "type": "ApiTextPr"
+      },
+      "signature": "GetTextPr(): ApiTextPr"
+    },
+    "GetType": {
+      "description": "Returns the type of the watermark in the document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiWatermarkSettings/Methods/GetType/",
+      "params": [],
+      "returns": {
+        "type": "WatermarkType"
+      },
+      "signature": "GetType(): WatermarkType"
+    },
+    "SetDirection": {
+      "description": "Sets the direction of the watermark in the document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiWatermarkSettings/Methods/SetDirection/",
+      "params": [
+        {
+          "description": "The watermark direction.",
+          "name": "sDirection",
+          "type": "WatermarkDirection"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetDirection(sDirection: WatermarkDirection): boolean"
+    },
+    "SetImageSize": {
+      "description": "Sets the size (width and height) of the watermark image in the document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiWatermarkSettings/Methods/SetImageSize/",
+      "params": [
+        {
+          "description": "The watermark image width.",
+          "name": "nWidth",
+          "type": "EMU"
+        },
+        {
+          "description": "The watermark image height.",
+          "name": "nHeight",
+          "type": "EMU"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetImageSize(nWidth: EMU, nHeight: EMU): boolean"
+    },
+    "SetImageURL": {
+      "description": "Sets the image URL of the watermark in the document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiWatermarkSettings/Methods/SetImageURL/",
+      "params": [
+        {
+          "description": "The watermark image URL.",
+          "name": "sURL",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetImageURL(sURL: string): boolean"
+    },
+    "SetOpacity": {
+      "description": "Sets the opacity of the watermark in the document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiWatermarkSettings/Methods/SetOpacity/",
+      "params": [
+        {
+          "description": "The watermark opacity. This value must be from 0 to 255.",
+          "name": "opacity",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetOpacity(opacity: number): boolean"
+    },
+    "SetText": {
+      "description": "Sets the text of the watermark in the document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiWatermarkSettings/Methods/SetText/",
+      "params": [
+        {
+          "description": "The watermark text.",
+          "name": "sText",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetText(sText: string): boolean"
+    },
+    "SetTextPr": {
+      "description": "Sets the text properties of the watermark in the document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiWatermarkSettings/Methods/SetTextPr/",
+      "params": [
+        {
+          "description": "The watermark text properties.",
+          "name": "oTextPr",
+          "type": "ApiTextPr"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetTextPr(oTextPr: ApiTextPr): boolean"
+    },
+    "SetType": {
+      "description": "Sets the type of the watermark in the document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiWatermarkSettings/Methods/SetType/",
+      "params": [
+        {
+          "description": "The watermark type.",
+          "name": "sType",
+          "type": "WatermarkType"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetType(sType: WatermarkType): boolean"
+    }
+  }
+}

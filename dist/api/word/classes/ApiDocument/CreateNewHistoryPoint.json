@@ -1,0 +1,9 @@
+{
+  "description": "Creates a new history point.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/CreateNewHistoryPoint/",
+  "params": [],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "CreateNewHistoryPoint(): boolean"
+}

@@ -1,0 +1,15 @@
+{
+  "description": "Converts an octal number to decimal.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/OCT2DEC/",
+  "params": [
+    {
+      "description": "The octal number to convert.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "OCT2DEC(arg1: ApiRange | ApiName | number): number"
+}

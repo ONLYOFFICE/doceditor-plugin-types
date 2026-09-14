@@ -1,0 +1,274 @@
+{
+  "generator": {
+    "packageVersion": "10.0.0",
+    "jsdoc": "4.0.5",
+    "typescript": "5.9.3"
+  },
+  "repositories": {
+    "docs": {
+      "commit": "fd1ee501024242f9466cea33c11f08d9c7b79836",
+      "describe": "v9.2.0",
+      "dirty": false,
+      "version": "9.2.0"
+    },
+    "sdkjs": {
+      "commit": "365696866026c970d3cd585a9cadc008bb3b18de",
+      "describe": "v10.0.0.79",
+      "dirty": false
+    },
+    "sdkjsExt": {
+      "commit": "86f068332d49be600c5630697f7360370ebdddcd",
+      "describe": "v10.0.0.78",
+      "dirty": false
+    },
+    "sdkjsForms": {
+      "commit": "8b23390006b4303cbb1161698a5d763eab73a440",
+      "describe": "v10.0.0.70",
+      "dirty": false
+    }
+  },
+  "sourceFiles": [
+    {
+      "repository": "sdkjs",
+      "path": "word/apiBuilder.js",
+      "sha256": "7548c118354e377e5bd023083ea07182b3dbef0174a01375aa924151d49deb1d"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "word/plugin-events.js",
+      "sha256": "82c81a0031fd0fd7c543fd2d656e379d6143f3cece2bfab6e6c0fad763b42cd4"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/word/api-document-content.js",
+      "sha256": "06e974826c4cfb96513f46e4190d3f3d1c80585492e0e5b45db4bd374395ae91"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/word/api-document-visitor.js",
+      "sha256": "d5e070a8573caa66983baecb2cd20a822c847ca8b5809646836485f78ee8d43a"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/word/api-document.js",
+      "sha256": "e4f56cd7d1c975c771d2da2e35c700a8729aabe6d70d9e34ed85178b1e8135f1"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/word/api-drawing.js",
+      "sha256": "28ed1e06a9d5605393a646cc61c16cbe476be28fb61faa7918c981007de5f88e"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/word/api-paragraph.js",
+      "sha256": "0fde021b415a4b52f5e124ba925a885df6bebb66d912fc9875245fb27a7f8af9"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/word/api-range.js",
+      "sha256": "b85fb3686535ce6d94debd8cac7d0242a8bd76418872bcd860e82892060eb98e"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/word/api-table-of-contents.js",
+      "sha256": "3b94563cbb802cae743bf32ef571b565474df9ebc61b234cfc63d8bc0ad9ec22"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/word/api-table-of-figures.js",
+      "sha256": "a537f2eb0f9e7c60116720095bbda7e5aab0ec650f9bb5353f8453ea243fcda6"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/word/api-tables-of-contents.js",
+      "sha256": "06a84176304c187b0ae88d929afea097cda70b2bb60422a19a99cf32b50bbf8b"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/word/api-tables-of-figures.js",
+      "sha256": "4c3cf007f7250ceb8faab97b4a9f7dd6fd31d8ec2b1a2e410495a6709333434e"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "slide/apiBuilder.js",
+      "sha256": "8650e025961d91fd98a800790f5a8bb9197982280aeb26bf4e4047e79334cdbc"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "cell/apiBuilder.js",
+      "sha256": "aabddf51a766ee0114874113daa4205b3b9316bfcc5602ac5144eba1c79e810f"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "cell/plugin-events.js",
+      "sha256": "781a39f5548534428b3c935e8d7c102b093bccf9fd23ad55bcafd8ad29e7282f"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/cell/api-chart.js",
+      "sha256": "895d1237b25aaa2b47601795a2c25cf522fb660412047c8d695c499721911c57"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/cell/api-drawing.js",
+      "sha256": "747febb16943195a10e12388c7b478e67dc1a3ecbf7de7ff5b1addfd89fe7c68"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/cell/api-group.js",
+      "sha256": "e248425fd31e15792ba298ead2ff4c7b9e5d0d8d9726bf92290bd685c36fb406"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/cell/api-image.js",
+      "sha256": "70e335531fa2ada490576bf78816ba25f0821b807c4a3fda3c50a17fa3f912e5"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/cell/api-list-column.js",
+      "sha256": "473ad7c9625e4d6567ed525341219af093ed20339dbba0acf829f4cc7b04073f"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/cell/api-list-object.js",
+      "sha256": "912549c6d213b00ab1d255b6bc09ca4179c0d0491e72c631bf7ce16ccd73c893"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/cell/api-list-row.js",
+      "sha256": "41376a0febec7be4cd2992cfdad9e0d5a510f85edc8453e69fd223b3b390d1d2"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/cell/api-ole-object.js",
+      "sha256": "187c0f3d5f7151d974b236573c700d308c81c316b8ea0361b56d794e0236c611"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/cell/api-pivot-table.js",
+      "sha256": "fcdd63c474d36613e177357bd6b1e3d3e36134d4a3f98ba2ccfade3b8e6e47ad"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/cell/api-range.js",
+      "sha256": "e70616a2a85fa8ce47b0ba02a64bcf02c40a2014364b6a8ff5b5d8d92a01cac7"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/cell/api-shape.js",
+      "sha256": "fdcdf0eb870cd1faffd3655ed4729bbcf1ef189808870a4f54c3533d0898e676"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/cell/api-sort.js",
+      "sha256": "7d57a13a8a480bfced7fe129cba8e52eac3a82cff1f6403efa9a4e3c1152153e"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/cell/api-worksheet.js",
+      "sha256": "1af60822aab0f00dbe5e913718c17163b5233290eac18a7aadda4c7adff77572"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/cell/api.js",
+      "sha256": "63198678c19ff52f7313bd91c69ccfcc11ad830ef9d0f910c95ac361b8904638"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "slide/plugin-events.js",
+      "sha256": "8429b2f63672d14772aa9f0dac206c736a416e1ba60a0dcd070d9f7587707bd8"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/slide/api-drawing.js",
+      "sha256": "cd493a39c313ebb65a0457fd65bdf271c19d99dcaf664a8b9117b00e905652d3"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/slide/api-presentation.js",
+      "sha256": "24c988cbe20dd3a6e883158e86e092d4d52795b49380723f107428e2b76edd5d"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/slide/api-shape.js",
+      "sha256": "7cbc8b7ed6c7f2fb8cfb692ca4ddbd4f63cc67129f72ecfc244589f8ccfcbc8a"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/slide/api.js",
+      "sha256": "ab9bae951c049989be9314ea1d0650bf1562551192151f582f3520487de61a13"
+    },
+    {
+      "repository": "sdkjs-forms",
+      "path": "apiBuilder.js",
+      "sha256": "7f46b866a5cc3acd6d23c4be4787d23f1ed5b459c3fc705447b0eab466bee02e"
+    },
+    {
+      "repository": "sdkjs-forms",
+      "path": "plugin-events.js",
+      "sha256": "ddaf87041c1c86af47143eed8a227763ef7fac0c6f65f9d6f3dc3d23882a6c93"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "pdf/apiBuilder.js",
+      "sha256": "e49df42896b997b0556747e0c4098f619d9f3d47d5bd8172e973cb571c737454"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "pdf/plugin-events.js",
+      "sha256": "294890d55ebab7c4fd668d52578493ce1c0499cc2a096bd3f5c774b64090bc0b"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/pdf/api-base-annot.js",
+      "sha256": "0806b99f713bc56322a1fa5f9478bb7685dec7e83e9191ddd753770c1ad33380"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/pdf/api-base-field.js",
+      "sha256": "a302a4f812a47802a58506f9b38557ec82c3bcc289304f334d01d8f0940a8ac4"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/pdf/api-base-widget.js",
+      "sha256": "f02c41df03edb46c52566532b1b4233402564b04c8d43833edaf0d0be3c7a463"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/pdf/api-button-field.js",
+      "sha256": "eeafb83ec0c7648325bc45eaef1d0b01a63d6995f11300f6af06b509dda30bbb"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/pdf/api-drawing.js",
+      "sha256": "ef61271eae78ff32cc91f452a210ace37dce0c7c99757b07f64f04019d3029c9"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/pdf/api-page.js",
+      "sha256": "31f64e72d8815e3091448ecaa4dc4ddf22ef7ecdc8a9dcfadcfe46a9f68ff9e4"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/pdf/api.js",
+      "sha256": "43959e9792357339398747a6d5f0dc70cebaa40ae99e924fb15560261d3543dd"
+    }
+  ],
+  "pluginMethodSourceFiles": [
+    {
+      "repository": "sdkjs-ext",
+      "path": "common/apiBase_plugins.js",
+      "sha256": "34028b4906b7aa718b13dcc54f16dd5c4f43613ed2edacf6559b5972aa8e79b6"
+    },
+    {
+      "repository": "sdkjs-ext",
+      "path": "slide/api_plugins.js",
+      "sha256": "163ada8f6deba463321f00010e102570a491c8d8e49b6373c95f87b6912ab2d0"
+    },
+    {
+      "repository": "sdkjs-ext",
+      "path": "word/api_plugins.js",
+      "sha256": "92429c46e4ebb63b60844319342a0cb3fab1bb117859b9c48fea86e45665fb0b"
+    }
+  ]
+}

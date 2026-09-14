@@ -1,0 +1,558 @@
+{
+  "description": "Class representing a formatted table.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/",
+  "methods": {
+    "AddListColumn": {
+      "description": "Adds a new column to the table at the specified 1-based position.\nIf no position is provided, the column is appended at the end.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/AddListColumn/",
+      "params": [
+        {
+          "description": "The 1-based position at which to insert the new column.",
+          "name": "nPosition",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiListColumn | null"
+      },
+      "signature": "AddListColumn(nPosition?: number): ApiListColumn | null"
+    },
+    "AddListRow": {
+      "description": "Adds a new data row to the table at the specified 1-based position.\nIf no position is provided, the row is appended at the end.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/AddListRow/",
+      "params": [
+        {
+          "description": "The 1-based position within the data body at which to insert the row. If omitted, the row is appended at the end.",
+          "name": "nPosition",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "Specifies whether cells outside the table are shifted when a row is added.",
+          "name": "bAlwaysInsert",
+          "optional": true,
+          "type": "boolean"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiListRow | null"
+      },
+      "signature": "AddListRow(nPosition?: number, bAlwaysInsert?: boolean): ApiListRow | null"
+    },
+    "Delete": {
+      "description": "Deletes the ListObject object and clears the cell formatting.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/Delete/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "Delete(): void"
+    },
+    "GetActive": {
+      "description": "Returns a Boolean value that indicates whether the ListObject is active.\nThe ListObject is considered active when the active cell is within the range of the ListObject.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetActive/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetActive(): boolean"
+    },
+    "GetAlternativeText": {
+      "description": "Returns the alternative text for the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetAlternativeText/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetAlternativeText(): string"
+    },
+    "GetAutoFilter": {
+      "description": "Returns the ApiAutoFilter object representing the autofilter applied to the table.\nReturns null if the table has no autofilter.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetAutoFilter/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiAutoFilter | null"
+      },
+      "signature": "GetAutoFilter(): ApiAutoFilter | null"
+    },
+    "GetComment": {
+      "description": "Returns the comment (summary alternative text) for the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetComment/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetComment(): string"
+    },
+    "GetDataBodyRange": {
+      "description": "Returns the range of the data rows in the table, excluding the header row and totals row.\nReturns null if the table has no data rows.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetDataBodyRange/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiRange | null"
+      },
+      "signature": "GetDataBodyRange(): ApiRange | null"
+    },
+    "GetDisplayName": {
+      "description": "Returns the display name of the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetDisplayName/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetDisplayName(): string"
+    },
+    "GetHeaderRowRange": {
+      "description": "Returns the range of the header row of the table.\nReturns null if the table has no header row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetHeaderRowRange/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiRange | null"
+      },
+      "signature": "GetHeaderRowRange(): ApiRange | null"
+    },
+    "GetListColumns": {
+      "description": "Returns an array of all columns in the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetListColumns/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiListColumn[]"
+      },
+      "signature": "GetListColumns(): ApiListColumn[]"
+    },
+    "GetListRows": {
+      "description": "Returns an array of all data rows in the table, excluding the header and totals rows.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetListRows/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiListRow[]"
+      },
+      "signature": "GetListRows(): ApiListRow[]"
+    },
+    "GetName": {
+      "description": "Returns the name of the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetName/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetName(): string"
+    },
+    "GetParent": {
+      "description": "Returns the ApiWorksheet object that is the parent of the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetParent/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiWorksheet"
+      },
+      "signature": "GetParent(): ApiWorksheet"
+    },
+    "GetRange": {
+      "description": "Returns the ApiRange object that represents the range of the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetRange/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiRange | null"
+      },
+      "signature": "GetRange(): ApiRange | null"
+    },
+    "GetShowAutoFilter": {
+      "description": "Returns whether the AutoFilter dropdown buttons are displayed on the header row of the table.\nReturns true by default for a new table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetShowAutoFilter/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetShowAutoFilter(): boolean"
+    },
+    "GetShowAutoFilterDropDown": {
+      "description": "Returns whether the AutoFilter dropdown arrows are displayed on the header row of the table.\nReturns true by default for a new table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetShowAutoFilterDropDown/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetShowAutoFilterDropDown(): boolean"
+    },
+    "GetShowHeaders": {
+      "description": "Returns whether the header row is displayed for the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetShowHeaders/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetShowHeaders(): boolean"
+    },
+    "GetShowTableStyleColumnStripes": {
+      "description": "Returns whether banded column formatting is applied to the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetShowTableStyleColumnStripes/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetShowTableStyleColumnStripes(): boolean"
+    },
+    "GetShowTableStyleFirstColumn": {
+      "description": "Returns whether the first column formatting is applied to the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetShowTableStyleFirstColumn/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetShowTableStyleFirstColumn(): boolean"
+    },
+    "GetShowTableStyleLastColumn": {
+      "description": "Returns whether the last column formatting is applied to the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetShowTableStyleLastColumn/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetShowTableStyleLastColumn(): boolean"
+    },
+    "GetShowTableStyleRowStripes": {
+      "description": "Returns whether banded row formatting is applied to the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetShowTableStyleRowStripes/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetShowTableStyleRowStripes(): boolean"
+    },
+    "GetShowTotals": {
+      "description": "Returns whether the totals row is displayed for the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetShowTotals/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetShowTotals(): boolean"
+    },
+    "GetSort": {
+      "description": "Returns the Sort object for this list object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetSort/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiSort"
+      },
+      "signature": "GetSort(): ApiSort"
+    },
+    "GetSourceType": {
+      "description": "Returns the source type of the table. Always returns \"xlSrcRange\" for range-based tables.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetSourceType/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetSourceType(): string"
+    },
+    "GetSummary": {
+      "description": "Returns the summary description (alternative text summary) for the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetSummary/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetSummary(): string"
+    },
+    "GetTableStyle": {
+      "description": "Returns the name of the table style applied to the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetTableStyle/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetTableStyle(): string"
+    },
+    "GetTotalsRowRange": {
+      "description": "Returns the range of the totals row of the table.\nReturns null if the table has no totals row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetTotalsRowRange/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiRange | null"
+      },
+      "signature": "GetTotalsRowRange(): ApiRange | null"
+    },
+    "Resize": {
+      "description": "Resizes the ListObject to a new range. Cells are not inserted or moved.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/Resize/",
+      "params": [
+        {
+          "description": "The new range for the table as an ApiRange object or address string, e.g. **\"A1:D10\"**.",
+          "name": "Range",
+          "type": "ApiRange | string"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "Resize(Range: ApiRange | string): void"
+    },
+    "SetAlternativeText": {
+      "description": "Sets the alternative text for the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/SetAlternativeText/",
+      "params": [
+        {
+          "description": "The alternative text string.",
+          "name": "sAltText",
+          "type": "string"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetAlternativeText(sAltText: string): void"
+    },
+    "SetComment": {
+      "description": "Sets the comment (summary alternative text) for the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/SetComment/",
+      "params": [
+        {
+          "description": "The comment string.",
+          "name": "sComment",
+          "type": "string"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetComment(sComment: string): void"
+    },
+    "SetDisplayName": {
+      "description": "Sets the display name of the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/SetDisplayName/",
+      "params": [
+        {
+          "description": "The new display name for the table.",
+          "name": "sDisplayName",
+          "type": "string"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "Returns false if the name is invalid or already used by another table.",
+        "type": "boolean"
+      },
+      "signature": "SetDisplayName(sDisplayName: string): boolean"
+    },
+    "SetName": {
+      "description": "Sets the name of the table. Equivalent to SetDisplayName.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/SetName/",
+      "params": [
+        {
+          "description": "The new name for the table.",
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "Returns false if the name is invalid or already used by another table.",
+        "type": "boolean"
+      },
+      "signature": "SetName(name: string): boolean"
+    },
+    "SetShowAutoFilter": {
+      "description": "Sets whether the AutoFilter is present on the table.\nSetting to false removes the AutoFilter entirely; setting to true creates it if not present.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/SetShowAutoFilter/",
+      "params": [
+        {
+          "description": "Specifies whether the AutoFilter is present on the table.",
+          "name": "show",
+          "type": "boolean"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetShowAutoFilter(show: boolean): void"
+    },
+    "SetShowAutoFilterDropDown": {
+      "description": "Sets whether the AutoFilter dropdown arrows are displayed on the header row of the table.\nDoes not remove the AutoFilter itself, only hides or shows the dropdown buttons.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/SetShowAutoFilterDropDown/",
+      "params": [
+        {
+          "description": "Pass true to show the dropdown arrows, false to hide them.",
+          "name": "bShow",
+          "type": "boolean"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetShowAutoFilterDropDown(bShow: boolean): void"
+    },
+    "SetShowHeaders": {
+      "description": "Sets whether the header row is displayed for the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/SetShowHeaders/",
+      "params": [
+        {
+          "description": "Specifies whether the header row is displayed for the table.",
+          "name": "show",
+          "type": "boolean"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetShowHeaders(show: boolean): void"
+    },
+    "SetShowTableStyleColumnStripes": {
+      "description": "Sets whether banded column formatting is applied to the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/SetShowTableStyleColumnStripes/",
+      "params": [
+        {
+          "description": "Specifies whether banded column formatting is applied to the table.",
+          "name": "show",
+          "type": "boolean"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetShowTableStyleColumnStripes(show: boolean): void"
+    },
+    "SetShowTableStyleFirstColumn": {
+      "description": "Sets whether the first column formatting is applied to the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/SetShowTableStyleFirstColumn/",
+      "params": [
+        {
+          "description": "Specifies whether the first column formatting is applied to the table.",
+          "name": "show",
+          "type": "boolean"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetShowTableStyleFirstColumn(show: boolean): void"
+    },
+    "SetShowTableStyleLastColumn": {
+      "description": "Sets whether the last column formatting is applied to the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/SetShowTableStyleLastColumn/",
+      "params": [
+        {
+          "description": "Specifies whether the last column formatting is applied to the table.",
+          "name": "show",
+          "type": "boolean"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetShowTableStyleLastColumn(show: boolean): void"
+    },
+    "SetShowTableStyleRowStripes": {
+      "description": "Sets whether banded row formatting is applied to the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/SetShowTableStyleRowStripes/",
+      "params": [
+        {
+          "description": "Specifies whether banded row formatting is applied to the table.",
+          "name": "show",
+          "type": "boolean"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetShowTableStyleRowStripes(show: boolean): void"
+    },
+    "SetShowTotals": {
+      "description": "Sets whether the totals row is displayed for the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/SetShowTotals/",
+      "params": [
+        {
+          "description": "Specifies whether the totals row is displayed for the table.",
+          "name": "show",
+          "type": "boolean"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetShowTotals(show: boolean): void"
+    },
+    "SetSummary": {
+      "description": "Sets the summary description (alternative text summary) for the table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/SetSummary/",
+      "params": [
+        {
+          "description": "The alternative text summary for the table.",
+          "name": "summary",
+          "type": "string"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetSummary(summary: string): void"
+    },
+    "SetTableStyle": {
+      "description": "Sets the table style by name.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/SetTableStyle/",
+      "params": [
+        {
+          "description": "The name of the table style to apply.",
+          "name": "styleName",
+          "type": "string"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetTableStyle(styleName: string): void"
+    },
+    "Unlist": {
+      "description": "Removes the list functionality from the ListObject and converts it to a regular data range.\nCell data, formatting, and formulas remain on the sheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/Unlist/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "void"
+      },
+      "signature": "Unlist(): void"
+    }
+  }
+}

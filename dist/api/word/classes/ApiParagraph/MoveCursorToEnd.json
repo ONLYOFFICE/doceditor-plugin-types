@@ -1,0 +1,11 @@
+{
+  "description": "Moves the cursor to the end of the paragraph.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/MoveCursorToEnd/",
+  "params": [],
+  "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "MoveCursorToEnd(): boolean",
+  "since": "9.4.0"
+}

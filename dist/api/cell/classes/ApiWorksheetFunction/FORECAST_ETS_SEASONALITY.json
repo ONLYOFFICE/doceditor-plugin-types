@@ -1,0 +1,32 @@
+{
+  "description": "Returns the length of the repetitive pattern an application detects for the specified time series.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/FORECAST_ETS_SEASONALITY/",
+  "params": [
+    {
+      "description": "A range or an array of numeric data that determines the historical values for which a new point will be predicted.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number[]"
+    },
+    {
+      "description": "A range of date/time values that correspond to the historical values.\rThe timeline range must be of the same size as the second argument. Date/time values must have a constant step between them and can't be zero.",
+      "name": "arg2",
+      "type": "ApiRange | ApiName"
+    },
+    {
+      "description": "An optional numeric value to handle missing values. The default value of 1 replaces missing values by interpolation, and 0 replaces them with zeros.",
+      "name": "arg3",
+      "optional": true,
+      "type": "ApiRange | ApiName | number"
+    },
+    {
+      "description": "An optional numeric value to aggregate multiple values with the same time stamp.",
+      "name": "arg4",
+      "optional": true,
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "FORECAST_ETS_SEASONALITY(arg1: ApiRange | ApiName | number[], arg2: ApiRange | ApiName, arg3?: ApiRange | ApiName | number, arg4?: ApiRange | ApiName | number): number"
+}

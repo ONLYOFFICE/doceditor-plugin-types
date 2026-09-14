@@ -1,0 +1,219 @@
+{
+  "description": "Class representing a table of contents.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/",
+  "methods": {
+    "Delete": {
+      "description": "Removes the table of contents from the document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/Delete/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "Delete(): boolean",
+      "since": "10.0.0"
+    },
+    "GetClassType": {
+      "description": "Returns a type of the ApiTableOfContents class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/GetClassType/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "\"tableOfContents\""
+      },
+      "signature": "GetClassType(): \"tableOfContents\"",
+      "since": "10.0.0"
+    },
+    "GetIncludePageNumbers": {
+      "description": "Returns whether page numbers are shown in the table of contents.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/GetIncludePageNumbers/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetIncludePageNumbers(): boolean",
+      "since": "10.0.0"
+    },
+    "GetLowerHeadingLevel": {
+      "description": "Returns the lowest (innermost) heading level included in the table of contents.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/GetLowerHeadingLevel/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetLowerHeadingLevel(): number",
+      "since": "10.0.0"
+    },
+    "GetParent": {
+      "description": "Returns the document that contains the table of contents.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/GetParent/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiDocument | null"
+      },
+      "signature": "GetParent(): ApiDocument | null",
+      "since": "10.0.0"
+    },
+    "GetRange": {
+      "description": "Returns a range that covers the entire table of contents.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/GetRange/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiRange | null"
+      },
+      "signature": "GetRange(): ApiRange | null",
+      "since": "10.0.0"
+    },
+    "GetRightAlignPageNumbers": {
+      "description": "Returns whether page numbers are right-aligned in the table of contents.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/GetRightAlignPageNumbers/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetRightAlignPageNumbers(): boolean",
+      "since": "10.0.0"
+    },
+    "GetUpperHeadingLevel": {
+      "description": "Returns the highest (outermost) heading level included in the table of contents.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/GetUpperHeadingLevel/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetUpperHeadingLevel(): number",
+      "since": "10.0.0"
+    },
+    "GetUseHyperlinks": {
+      "description": "Returns whether entries are formatted as hyperlinks.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/GetUseHyperlinks/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetUseHyperlinks(): boolean",
+      "since": "10.0.0"
+    },
+    "SetIncludePageNumbers": {
+      "description": "Specifies whether page numbers are shown in the table of contents.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/SetIncludePageNumbers/",
+      "params": [
+        {
+          "name": "isInclude",
+          "type": "boolean"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetIncludePageNumbers(isInclude: boolean): boolean",
+      "since": "10.0.0"
+    },
+    "SetLowerHeadingLevel": {
+      "description": "Sets the lowest (innermost) heading level included in the table of contents.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/SetLowerHeadingLevel/",
+      "params": [
+        {
+          "name": "nLevel",
+          "type": "number"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetLowerHeadingLevel(nLevel: number): boolean",
+      "since": "10.0.0"
+    },
+    "SetPr": {
+      "description": "Applies the specified properties to the table of contents and rebuilds it.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/SetPr/",
+      "params": [
+        {
+          "description": "Table of contents properties.",
+          "name": "oTocPr",
+          "type": "TocPr"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetPr(oTocPr: TocPr): boolean",
+      "since": "10.0.0"
+    },
+    "SetRightAlignPageNumbers": {
+      "description": "Specifies whether page numbers are right-aligned in the table of contents.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/SetRightAlignPageNumbers/",
+      "params": [
+        {
+          "name": "isRightAlign",
+          "type": "boolean"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetRightAlignPageNumbers(isRightAlign: boolean): boolean",
+      "since": "10.0.0"
+    },
+    "SetUpperHeadingLevel": {
+      "description": "Sets the highest (outermost) heading level included in the table of contents.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/SetUpperHeadingLevel/",
+      "params": [
+        {
+          "name": "nLevel",
+          "type": "number"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetUpperHeadingLevel(nLevel: number): boolean",
+      "since": "10.0.0"
+    },
+    "SetUseHyperlinks": {
+      "description": "Specifies whether entries are formatted as hyperlinks.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/SetUseHyperlinks/",
+      "params": [
+        {
+          "name": "isUseHyperlinks",
+          "type": "boolean"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetUseHyperlinks(isUseHyperlinks: boolean): boolean",
+      "since": "10.0.0"
+    },
+    "Update": {
+      "description": "Updates the table of contents.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/Update/",
+      "params": [
+        {
+          "name": "bOnlyPageNumbers",
+          "optional": true,
+          "type": "boolean"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "Update(bOnlyPageNumbers?: boolean): boolean",
+      "since": "10.0.0"
+    }
+  }
+}

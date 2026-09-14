@@ -1,0 +1,75 @@
+{
+  "description": "Class representing a name.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiName/",
+  "methods": {
+    "Delete": {
+      "description": "Deletes the DefName object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiName/Methods/Delete/",
+      "params": [],
+      "returns": {
+        "description": "returns true if the name was deleted successfully.",
+        "type": "boolean"
+      },
+      "signature": "Delete(): boolean"
+    },
+    "GetName": {
+      "description": "Returns a type of the ApiName class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiName/Methods/GetName/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetName(): string"
+    },
+    "GetRefersTo": {
+      "description": "Returns a formula that the name is defined to refer to.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiName/Methods/GetRefersTo/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetRefersTo(): string"
+    },
+    "GetRefersToRange": {
+      "description": "Returns the ApiRange object by its name.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiName/Methods/GetRefersToRange/",
+      "params": [],
+      "returns": {
+        "type": "ApiRange"
+      },
+      "signature": "GetRefersToRange(): ApiRange"
+    },
+    "SetName": {
+      "description": "Sets a string value representing the object name.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiName/Methods/SetName/",
+      "params": [
+        {
+          "description": "New name for the range.",
+          "name": "sName",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "description": "returns false if sName is invalid.",
+        "type": "boolean"
+      },
+      "signature": "SetName(sName: string): boolean"
+    },
+    "SetRefersTo": {
+      "description": "Sets a formula that the name is defined to refer to.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiName/Methods/SetRefersTo/",
+      "params": [
+        {
+          "description": "The range reference which must contain the sheet name, followed by sign ! and a range of cells.\rExample: \"Sheet1!$A$1:$B$2\".",
+          "name": "sRef",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "description": "returns true if the reference was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetRefersTo(sRef: string): boolean"
+    }
+  }
+}

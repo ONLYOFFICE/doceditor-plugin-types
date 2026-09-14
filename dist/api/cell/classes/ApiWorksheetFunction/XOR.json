@@ -1,0 +1,15 @@
+{
+  "description": "Returns the logical **Exclusive Or** value of all arguments. The function returns **true** when the number of **true** inputs is odd and **false** when the number of **true** inputs is even.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/XOR/",
+  "params": [
+    {
+      "description": "The conditions to check.",
+      "name": "args",
+      "type": "ApiRange | ApiName | boolean | boolean[]"
+    }
+  ],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "XOR(args: ApiRange | ApiName | boolean | boolean[]): boolean"
+}

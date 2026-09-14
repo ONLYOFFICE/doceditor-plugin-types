@@ -1,0 +1,17 @@
+{
+  "description": "Adds a new date picker content control to the document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/AddDatePickerContentControl/",
+  "params": [
+    {
+      "description": "The optional date picker properties.",
+      "name": "datePickerPr",
+      "optional": true,
+      "type": "ContentControlDatePr"
+    }
+  ],
+  "returns": {
+    "type": "ApiInlineLvlSdt"
+  },
+  "signature": "AddDatePickerContentControl(datePickerPr?: ContentControlDatePr): ApiInlineLvlSdt",
+  "since": "9.0.0"
+}

@@ -1,0 +1,22 @@
+{
+  "description": "Replaces the current word or part of the current word with the specified text.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/ReplaceCurrentWord/",
+  "params": [
+    {
+      "description": "The string to replace the current word with.",
+      "name": "sReplace",
+      "type": "string"
+    },
+    {
+      "description": "The desired part of the current word to be replaced.",
+      "name": "sPart",
+      "optional": true,
+      "type": "\"before\" | \"after\""
+    }
+  ],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "ReplaceCurrentWord(sReplace: string, sPart?: \"before\" | \"after\"): boolean",
+  "since": "8.2.0"
+}

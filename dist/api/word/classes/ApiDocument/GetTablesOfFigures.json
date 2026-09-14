@@ -1,0 +1,11 @@
+{
+  "description": "Returns the collection of all tables of figures in the document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetTablesOfFigures/",
+  "params": [],
+  "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+  "returns": {
+    "type": "ApiTablesOfFigures"
+  },
+  "signature": "GetTablesOfFigures(): ApiTablesOfFigures",
+  "since": "10.0.0"
+}

@@ -1,0 +1,9 @@
+{
+  "description": "Returns a report about all the comments added to the document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetCommentsReport/",
+  "params": [],
+  "returns": {
+    "type": "CommentReport"
+  },
+  "signature": "GetCommentsReport(): CommentReport"
+}

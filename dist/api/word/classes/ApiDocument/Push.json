@@ -1,0 +1,16 @@
+{
+  "description": "Pushes a paragraph or a table to actually add it to the document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/Push/",
+  "params": [
+    {
+      "description": "The element type which will be pushed to the document.",
+      "name": "oElement",
+      "type": "DocumentElement"
+    }
+  ],
+  "returns": {
+    "description": "returns false if oElement is unsupported.",
+    "type": "boolean"
+  },
+  "signature": "Push(oElement: DocumentElement): boolean"
+}

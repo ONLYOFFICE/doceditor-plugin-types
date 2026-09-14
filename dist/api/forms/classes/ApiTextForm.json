@@ -1,0 +1,643 @@
+{
+  "description": "Class representing a document text field.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiTextForm/",
+  "extends": [
+    "ApiFormBase"
+  ],
+  "methods": {
+    "Clear": {
+      "description": "Clears the current form.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/Clear/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "Clear(): boolean"
+    },
+    "Copy": {
+      "description": "Copies the current form (copies with the shape if it exists).",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/Copy/",
+      "params": [],
+      "returns": {
+        "type": "ApiForm"
+      },
+      "signature": "Copy(): ApiForm"
+    },
+    "Delete": {
+      "description": "Removes a form and its content. If keepContent is true, the content is not deleted.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/Delete/",
+      "params": [
+        {
+          "description": "Specifies if the content will be deleted or not.",
+          "name": "keepContent",
+          "optional": true,
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "returns false if form wasn't added to the document.",
+        "type": "boolean"
+      },
+      "signature": "Delete(keepContent?: boolean): boolean",
+      "since": "9.2.0"
+    },
+    "GetAllowedSymbols": {
+      "description": "Returns the allowed symbols for the current text field.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiTextForm/Methods/GetAllowedSymbols/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetAllowedSymbols(): string"
+    },
+    "GetBackgroundColor": {
+      "description": "Returns the background color of the current form.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetBackgroundColor/",
+      "params": [],
+      "returns": {
+        "type": "ApiColor"
+      },
+      "signature": "GetBackgroundColor(): ApiColor",
+      "since": "9.1.0"
+    },
+    "GetBorderColor": {
+      "description": "Returns the border color of the current form.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetBorderColor/",
+      "params": [],
+      "returns": {
+        "type": "ApiColor"
+      },
+      "signature": "GetBorderColor(): ApiColor",
+      "since": "9.1.0"
+    },
+    "GetCharactersLimit": {
+      "description": "Returns a limit of the text field characters.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiTextForm/Methods/GetCharactersLimit/",
+      "params": [],
+      "returns": {
+        "description": "if this method returns -1 -> the form has no limit for characters",
+        "type": "number"
+      },
+      "signature": "GetCharactersLimit(): number"
+    },
+    "GetClassType": {
+      "description": "Returns a type of the ApiTextForm class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiTextForm/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"textForm\""
+      },
+      "signature": "GetClassType(): \"textForm\"",
+      "since": "9.0.4"
+    },
+    "GetFormKey": {
+      "description": "Returns the current form key.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetFormKey/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetFormKey(): string"
+    },
+    "GetFormType": {
+      "description": "Returns a type of the current form.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetFormType/",
+      "params": [],
+      "returns": {
+        "type": "FormType"
+      },
+      "signature": "GetFormType(): FormType"
+    },
+    "GetFormat": {
+      "description": "Returns the format of the current text field.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiTextForm/Methods/GetFormat/",
+      "params": [],
+      "returns": {
+        "type": "TextFormFormat"
+      },
+      "signature": "GetFormat(): TextFormFormat"
+    },
+    "GetInternalId": {
+      "description": "Returns an internal id of the current form.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetInternalId/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetInternalId(): string",
+      "since": "9.2.0"
+    },
+    "GetLock": {
+      "description": "Returns the lock state of the current form.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetLock/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetLock(): boolean",
+      "since": "9.3.0"
+    },
+    "GetParent": {
+      "description": "Returns the parent element (a paragraph or an inline content control) that directly contains the current form.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetParent/",
+      "params": [],
+      "returns": {
+        "description": "returns null if the form has no parent.",
+        "type": "ParagraphLikeContainer"
+      },
+      "signature": "GetParent(): ParagraphLikeContainer",
+      "since": "10.0.0"
+    },
+    "GetPlaceholderText": {
+      "description": "Returns the placeholder text from the current form.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetPlaceholderText/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetPlaceholderText(): string",
+      "since": "9.1.0"
+    },
+    "GetPosInParent": {
+      "description": "Returns the position (index) of the current form within its parent element.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetPosInParent/",
+      "params": [],
+      "returns": {
+        "description": "returns -1 if the form has no parent.",
+        "type": "number"
+      },
+      "signature": "GetPosInParent(): number",
+      "since": "10.0.0"
+    },
+    "GetRole": {
+      "description": "Returns the role of the current form.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetRole/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetRole(): string",
+      "since": "9.0.0"
+    },
+    "GetTag": {
+      "description": "Returns the tag attribute for the current form.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetTag/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetTag(): string",
+      "since": "9.0.0"
+    },
+    "GetText": {
+      "description": "Returns the text from the current form.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetText/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetText(): string"
+    },
+    "GetTextPr": {
+      "description": "Returns the text properties from the current form.\n*Used if possible for this type of form*",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetTextPr/",
+      "params": [],
+      "returns": {
+        "type": "ApiTextPr"
+      },
+      "signature": "GetTextPr(): ApiTextPr"
+    },
+    "GetTipText": {
+      "description": "Returns the tip text of the current form.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetTipText/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetTipText(): string"
+    },
+    "GetValue": {
+      "description": "Returns the current text value of the text form.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiTextForm/Methods/GetValue/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetValue(): string",
+      "since": "9.4.0"
+    },
+    "GetWrapperShape": {
+      "description": "Returns a shape in which the form is placed to control the position and size of the fixed size form frame.\nThe null value will be returned for the inline forms.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetWrapperShape/",
+      "params": [],
+      "returns": {
+        "description": "returns the shape in which the form is placed.",
+        "type": "ApiShape"
+      },
+      "signature": "GetWrapperShape(): ApiShape"
+    },
+    "IsAutoFit": {
+      "description": "Checks if the text field content is autofit, i.e. whether the font size adjusts to the size of the fixed size form.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiTextForm/Methods/IsAutoFit/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "IsAutoFit(): boolean"
+    },
+    "IsComb": {
+      "description": "Checks if the text field is a comb of characters with the same cell width.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiTextForm/Methods/IsComb/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "IsComb(): boolean"
+    },
+    "IsFilled": {
+      "description": "Checks if the current form is filled.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/IsFilled/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "IsFilled(): boolean",
+      "since": "9.4.0"
+    },
+    "IsFixed": {
+      "description": "Checks if the current form is fixed size.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/IsFixed/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "IsFixed(): boolean"
+    },
+    "IsMultiline": {
+      "description": "Checks if the current text field is multiline.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiTextForm/Methods/IsMultiline/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "IsMultiline(): boolean"
+    },
+    "IsRequired": {
+      "description": "Checks if the current form is required.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/IsRequired/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "IsRequired(): boolean"
+    },
+    "MoveCursorOutside": {
+      "description": "Places a cursor before/after the current form.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/MoveCursorOutside/",
+      "params": [
+        {
+          "description": "Specifies whether a cursor will be placed before (false) or after (true) the current form.",
+          "name": "isAfter",
+          "optional": true,
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "MoveCursorOutside(isAfter?: boolean): boolean",
+      "since": "8.1.0"
+    },
+    "SetAllowedSymbols": {
+      "description": "Sets the allowed symbols for the current text field. Only the specified characters will be accepted as input.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiTextForm/Methods/SetAllowedSymbols/",
+      "params": [
+        {
+          "description": "A string of allowed characters.",
+          "name": "symbols",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetAllowedSymbols(symbols: string): boolean"
+    },
+    "SetAutoFit": {
+      "description": "Specifies if the text field content should be autofit, i.e. whether the font size adjusts to the size of the fixed size form.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiTextForm/Methods/SetAutoFit/",
+      "params": [
+        {
+          "description": "Defines if the text field content is autofit (true) or not (false).",
+          "name": "bAutoFit",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetAutoFit(bAutoFit: boolean): boolean"
+    },
+    "SetBackgroundColor": {
+      "description": "Sets the background color to the current form.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/SetBackgroundColor/",
+      "params": [
+        {
+          "description": "The background color.",
+          "name": "color",
+          "optional": true,
+          "type": "ApiColor"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetBackgroundColor(color?: ApiColor): boolean",
+      "since": "9.1.0"
+    },
+    "SetBorderColor": {
+      "description": "Sets the border color to the current form.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/SetBorderColor/",
+      "params": [
+        {
+          "description": "The border color.",
+          "name": "color",
+          "optional": true,
+          "type": "ApiColor"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetBorderColor(color?: ApiColor): boolean",
+      "since": "9.1.0"
+    },
+    "SetCellWidth": {
+      "description": "Sets the cell width to the applied comb of characters.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiTextForm/Methods/SetCellWidth/",
+      "params": [
+        {
+          "description": "The cell width measured in millimeters.\rIf this parameter is not specified or equal to 0 or less, then the width will be set automatically. Must be >= 1 and <= 558.8.",
+          "name": "nCellWidth",
+          "optional": true,
+          "type": "mm"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetCellWidth(nCellWidth?: mm): boolean"
+    },
+    "SetCharactersLimit": {
+      "description": "Sets a limit to the text field characters.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiTextForm/Methods/SetCharactersLimit/",
+      "params": [
+        {
+          "description": "The maximum number of characters in the text field. If this parameter is equal to -1, no limit will be set.\rA limit is required to be set if a comb of characters is applied.\rMaximum value for this parameter is 1000000.",
+          "name": "nChars",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetCharactersLimit(nChars: number): boolean"
+    },
+    "SetComb": {
+      "description": "Specifies if the text field should be a comb of characters with the same cell width.\nThe maximum number of characters must be set to a positive value.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiTextForm/Methods/SetComb/",
+      "params": [
+        {
+          "description": "Defines if the text field is a comb of characters (true) or not (false).",
+          "name": "bComb",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetComb(bComb: boolean): boolean"
+    },
+    "SetFormKey": {
+      "description": "Sets a key to the current form.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/SetFormKey/",
+      "params": [
+        {
+          "description": "Form key.",
+          "name": "sKey",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetFormKey(sKey: string): boolean"
+    },
+    "SetFormat": {
+      "description": "Sets the format for the current text field.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiTextForm/Methods/SetFormat/",
+      "params": [
+        {
+          "description": "The format to set.",
+          "name": "format",
+          "type": "TextFormFormat"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetFormat(format: TextFormFormat): boolean"
+    },
+    "SetLock": {
+      "description": "Sets the lock state of the current form.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/SetLock/",
+      "params": [
+        {
+          "description": "Specifies whether to lock the form (true) or unlock it (false).",
+          "name": "isLock",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "Returns true if the operation is successful.",
+        "type": "boolean"
+      },
+      "signature": "SetLock(isLock: boolean): boolean",
+      "since": "9.3.0"
+    },
+    "SetMultiline": {
+      "description": "Specifies if the current text field should be miltiline.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiTextForm/Methods/SetMultiline/",
+      "params": [
+        {
+          "description": "Defines if the current text field is multiline (true) or not (false).",
+          "name": "bMultiline",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "return false, if the text field is not fixed size.",
+        "type": "boolean"
+      },
+      "signature": "SetMultiline(bMultiline: boolean): boolean"
+    },
+    "SetPlaceholderText": {
+      "description": "Sets the placeholder text to the current form.\n*Can't be set to checkbox or radio button.*",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/SetPlaceholderText/",
+      "params": [
+        {
+          "description": "The text that will be set to the current form.",
+          "name": "sText",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetPlaceholderText(sText: string): boolean"
+    },
+    "SetRequired": {
+      "description": "Specifies if the current form should be required.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/SetRequired/",
+      "params": [
+        {
+          "description": "Defines if the current form is required (true) or not (false).",
+          "name": "bRequired",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetRequired(bRequired: boolean): boolean"
+    },
+    "SetRole": {
+      "description": "Sets the role to the current form.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/SetRole/",
+      "params": [
+        {
+          "description": "The role which will be attached to the current form.",
+          "name": "role",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetRole(role: string): boolean",
+      "since": "9.0.0"
+    },
+    "SetTag": {
+      "description": "Sets the tag attribute to the current form.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/SetTag/",
+      "params": [
+        {
+          "description": "The tag which will be added to the current container.",
+          "name": "tag",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetTag(tag: string): boolean",
+      "since": "9.0.0"
+    },
+    "SetText": {
+      "description": "Sets the text to the current text field.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiTextForm/Methods/SetText/",
+      "params": [
+        {
+          "description": "The text that will be set to the current text field.",
+          "name": "text",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetText(text: string): boolean"
+    },
+    "SetTextPr": {
+      "description": "Sets the text properties to the current form.\n*Used if possible for this type of form*",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/SetTextPr/",
+      "params": [
+        {
+          "description": "The text properties that will be set to the current form.",
+          "name": "textPr",
+          "type": "ApiTextPr"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetTextPr(textPr: ApiTextPr): boolean"
+    },
+    "SetTipText": {
+      "description": "Sets the tip text to the current form.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/SetTipText/",
+      "params": [
+        {
+          "description": "Tip text.",
+          "name": "sText",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetTipText(sText: string): boolean"
+    },
+    "SetValue": {
+      "description": "Sets the text value of the text form.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiTextForm/Methods/SetValue/",
+      "params": [
+        {
+          "description": "The text value to set.",
+          "name": "value",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetValue(value: string): boolean",
+      "since": "9.4.0"
+    },
+    "ToFixed": {
+      "description": "Converts the current form to a fixed size form.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/ToFixed/",
+      "params": [
+        {
+          "description": "The wrapper shape width measured in twentieths of a point (1/1440 of an inch).",
+          "name": "width",
+          "type": "twips"
+        },
+        {
+          "description": "The wrapper shape height measured in twentieths of a point (1/1440 of an inch).",
+          "name": "height",
+          "type": "twips"
+        },
+        {
+          "description": "Save position on the page (it can be a little bit slow, because it runs the document calculation).",
+          "name": "keepPosition",
+          "optional": true,
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "ToFixed(width: twips, height: twips, keepPosition?: boolean): boolean"
+    },
+    "ToInline": {
+      "description": "Converts the current form to an inline form.\n*Picture form can't be converted to an inline form, it's always a fixed size object.*",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/ToInline/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "ToInline(): boolean"
+    }
+  }
+}

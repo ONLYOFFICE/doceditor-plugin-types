@@ -1,0 +1,25 @@
+{
+  "description": "Returns the Student's t-distribution.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/TDIST/",
+  "params": [
+    {
+      "description": "The numeric value at which to evaluate the distribution.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    },
+    {
+      "description": "An integer indicating the number of degrees of freedom that characterize the distribution.",
+      "name": "arg2",
+      "type": "ApiRange | ApiName | number"
+    },
+    {
+      "description": "Specifies the number of distribution tails to return: one-tailed distribution = 1; two-tailed distribution = 2.",
+      "name": "arg3",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "TDIST(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number, arg3: ApiRange | ApiName | number): number"
+}

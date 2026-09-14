@@ -1,0 +1,15 @@
+{
+  "description": "Returns the arcsine of a number in radians, in the range from *-Pi/2* to *Pi/2*.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/ASIN/",
+  "params": [
+    {
+      "description": "The angle sine. It must be from -1 to 1.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "ASIN(arg1: ApiRange | ApiName | number): number"
+}

@@ -1,0 +1,9 @@
+{
+  "description": "Returns the **true** logical value.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/TRUE/",
+  "params": [],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "TRUE(): boolean"
+}

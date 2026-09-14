@@ -1,0 +1,15 @@
+{
+  "description": "Converts all letters in a text string to lowercase.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/LOWER/",
+  "params": [
+    {
+      "description": "The text to convert to lowercase. The text characters that are not letters are not changed.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | string"
+    }
+  ],
+  "returns": {
+    "type": "string"
+  },
+  "signature": "LOWER(arg1: ApiRange | ApiName | string): string"
+}

@@ -1,0 +1,36 @@
+{
+  "description": "Class representing a user from the current protected range.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiProtectedRangeUserInfo/",
+  "methods": {
+    "GetId": {
+      "description": "Returns the ID property of the current user's information.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiProtectedRangeUserInfo/Methods/GetId/",
+      "params": [],
+      "returns": {
+        "type": "string | null"
+      },
+      "signature": "GetId(): string | null",
+      "since": "8.1.0"
+    },
+    "GetName": {
+      "description": "Returns the name property of the current user's information.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiProtectedRangeUserInfo/Methods/GetName/",
+      "params": [],
+      "returns": {
+        "type": "string | null"
+      },
+      "signature": "GetName(): string | null",
+      "since": "8.1.0"
+    },
+    "GetType": {
+      "description": "Returns the type property of the current user's information.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiProtectedRangeUserInfo/Methods/GetType/",
+      "params": [],
+      "returns": {
+        "type": "ProtectedRangeUserType"
+      },
+      "signature": "GetType(): ProtectedRangeUserType",
+      "since": "8.1.0"
+    }
+  }
+}

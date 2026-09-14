@@ -1,0 +1,89 @@
+{
+  "description": "Class representing a theme font scheme.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFontScheme/",
+  "methods": {
+    "Copy": {
+      "description": "Creates a copy of the current theme font scheme.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFontScheme/Methods/Copy/",
+      "params": [],
+      "returns": {
+        "type": "ApiThemeFontScheme"
+      },
+      "signature": "Copy(): ApiThemeFontScheme"
+    },
+    "GetClassType": {
+      "description": "Returns the type of the ApiThemeFontScheme class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFontScheme/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"themeFontScheme\""
+      },
+      "signature": "GetClassType(): \"themeFontScheme\""
+    },
+    "SetFonts": {
+      "description": "Sets the fonts to the current theme font scheme.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFontScheme/Methods/SetFonts/",
+      "params": [
+        {
+          "description": "The major theme font applied to the latin text.",
+          "name": "mjLatin",
+          "type": "string"
+        },
+        {
+          "description": "The major theme font applied to the east asian text.",
+          "name": "mjEa",
+          "type": "string"
+        },
+        {
+          "description": "The major theme font applied to the complex script text.",
+          "name": "mjCs",
+          "type": "string"
+        },
+        {
+          "description": "The minor theme font applied to the latin text.",
+          "name": "mnLatin",
+          "type": "string"
+        },
+        {
+          "description": "The minor theme font applied to the east asian text.",
+          "name": "mnEa",
+          "type": "string"
+        },
+        {
+          "description": "The minor theme font applied to the complex script text.",
+          "name": "mnCs",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetFonts(mjLatin: string, mjEa: string, mjCs: string, mnLatin: string, mnEa: string, mnCs: string): void"
+    },
+    "SetSchemeName": {
+      "description": "Sets a name to the current theme font scheme.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFontScheme/Methods/SetSchemeName/",
+      "params": [
+        {
+          "description": "Theme font scheme name.",
+          "name": "sName",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "description": "returns false if font scheme doesn't exist.",
+        "type": "boolean"
+      },
+      "signature": "SetSchemeName(sName: string): boolean"
+    },
+    "ToJSON": {
+      "description": "Converts the ApiThemeFontScheme object into the JSON object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFontScheme/Methods/ToJSON/",
+      "params": [],
+      "returns": {
+        "type": "object"
+      },
+      "signature": "ToJSON(): object"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "description": "Returns the value of the density function for a standard normal distribution.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/PHI/",
+  "params": [
+    {
+      "description": "The number for which the density of the standard normal distribution will be returned.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "PHI(arg1: ApiRange | ApiName | number): number"
+}

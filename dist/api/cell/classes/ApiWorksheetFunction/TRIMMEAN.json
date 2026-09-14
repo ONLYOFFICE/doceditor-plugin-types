@@ -1,0 +1,20 @@
+{
+  "description": "Returns the mean of the interior portion of a set of data values.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/TRIMMEAN/",
+  "params": [
+    {
+      "description": "The array or range of values to trim and average.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number[]"
+    },
+    {
+      "description": "The fractional number of data points to exclude from the top and bottom of the data set.",
+      "name": "arg2",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "TRIMMEAN(arg1: ApiRange | ApiName | number[], arg2: ApiRange | ApiName | number): number"
+}

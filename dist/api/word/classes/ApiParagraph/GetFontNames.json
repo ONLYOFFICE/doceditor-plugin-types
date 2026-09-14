@@ -1,0 +1,10 @@
+{
+  "description": "Returns all font names from all elements inside the current paragraph.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/GetFontNames/",
+  "params": [],
+  "returns": {
+    "description": "The font names used for the current paragraph.",
+    "type": "string[]"
+  },
+  "signature": "GetFontNames(): string[]"
+}

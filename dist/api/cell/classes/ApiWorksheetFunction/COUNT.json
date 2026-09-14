@@ -1,0 +1,15 @@
+{
+  "description": "Counts a number of cells in a range that contains numbers ignoring empty cells or those contaning text.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/COUNT/",
+  "params": [
+    {
+      "description": "Up to 255 items, or ranges to count numbers.\rThe first argument is required, subsequent arguments are optional. Arguments can be numbers, logical values and text representations of numbers, ranges, names, or arrays.",
+      "name": "args",
+      "type": "string | number | boolean | (string | number | boolean)[] | ApiRange | ApiName"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "COUNT(args: string | number | boolean | (string | number | boolean)[] | ApiRange | ApiName): number"
+}

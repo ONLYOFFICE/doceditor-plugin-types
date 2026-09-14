@@ -1,0 +1,33 @@
+{
+  "description": "Calculates predicted exponential growth by using existing data.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/GROWTH/",
+  "params": [
+    {
+      "description": "The set of y-values from the *y = b*m^x* equation, an array or range of positive numbers.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number[]"
+    },
+    {
+      "description": "An optional set of x-values from the *y = b*m^x* equation, an array or range of positive numbers that has the same size as the set of y-values.",
+      "name": "arg2",
+      "optional": true,
+      "type": "ApiRange | ApiName | number[]"
+    },
+    {
+      "description": "New x-values for which the function will return the corresponding y-values.",
+      "name": "arg3",
+      "optional": true,
+      "type": "ApiRange | ApiName | number[]"
+    },
+    {
+      "description": "A logical value: the constant *b* is calculated normally if this parameter is set to **true**,\rand *b* is set equal to 1 if the parameter is **false** or omitted.",
+      "name": "arg4",
+      "optional": true,
+      "type": "ApiRange | ApiName | boolean"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "GROWTH(arg1: ApiRange | ApiName | number[], arg2?: ApiRange | ApiName | number[], arg3?: ApiRange | ApiName | number[], arg4?: ApiRange | ApiName | boolean): number"
+}

@@ -1,0 +1,15 @@
+{
+  "description": "Estimates standard deviation based on a sample, including logical values and text. Text and the **false** logical value have the value 0; the **true** logical value has the value 1.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/STDEVA/",
+  "params": [
+    {
+      "description": "Up to 255 values for which the standard deviation will be calculated.\rThe first argument is required, subsequent arguments are optional. Arguments can be numbers, logical values, text strings, names, ranges, or arrays.",
+      "name": "args",
+      "type": "number[] | number | string | boolean | ApiRange | ApiName"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "STDEVA(args: number[] | number | string | boolean | ApiRange | ApiName): number"
+}

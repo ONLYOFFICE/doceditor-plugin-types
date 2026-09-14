@@ -1,0 +1,70 @@
+{
+  "description": "Class representing a placeholder.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPlaceholder/",
+  "methods": {
+    "GetClassType": {
+      "description": "Returns the type of the ApiPlaceholder class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPlaceholder/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"placeholder\""
+      },
+      "signature": "GetClassType(): \"placeholder\""
+    },
+    "GetIndex": {
+      "description": "Returns the placeholder index.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPlaceholder/Methods/GetIndex/",
+      "params": [],
+      "returns": {
+        "description": "Returns the placeholder index.",
+        "type": "number | undefined"
+      },
+      "signature": "GetIndex(): number | undefined",
+      "since": "8.2.0"
+    },
+    "GetType": {
+      "description": "Returns the placeholder type.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPlaceholder/Methods/GetType/",
+      "params": [],
+      "returns": {
+        "description": "Returns the placeholder type.",
+        "type": "PlaceholderType"
+      },
+      "signature": "GetType(): PlaceholderType",
+      "since": "8.2.0"
+    },
+    "SetIndex": {
+      "description": "Sets the placeholder index.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPlaceholder/Methods/SetIndex/",
+      "params": [
+        {
+          "description": "The placeholder index.",
+          "name": "nIdx",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "Returns false if the placeholder index wasn't set.",
+        "type": "boolean"
+      },
+      "signature": "SetIndex(nIdx: number): boolean",
+      "since": "8.2.0"
+    },
+    "SetType": {
+      "description": "Sets the placeholder type.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPlaceholder/Methods/SetType/",
+      "params": [
+        {
+          "description": "Placeholder type",
+          "name": "sType",
+          "type": "PlaceholderType"
+        }
+      ],
+      "returns": {
+        "description": "returns false if placeholder type doesn't exist.",
+        "type": "boolean"
+      },
+      "signature": "SetType(sType: PlaceholderType): boolean"
+    }
+  }
+}

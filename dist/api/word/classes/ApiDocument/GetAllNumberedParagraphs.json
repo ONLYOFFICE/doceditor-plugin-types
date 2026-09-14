@@ -1,0 +1,9 @@
+{
+  "description": "Returns all numbered paragraphs from the current document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetAllNumberedParagraphs/",
+  "params": [],
+  "returns": {
+    "type": "ApiParagraph[]"
+  },
+  "signature": "GetAllNumberedParagraphs(): ApiParagraph[]"
+}

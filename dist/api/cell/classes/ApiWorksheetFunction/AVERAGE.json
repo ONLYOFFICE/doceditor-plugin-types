@@ -1,0 +1,15 @@
+{
+  "description": "Returns the average (arithmetic mean) of the specified arguments.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/AVERAGE/",
+  "params": [
+    {
+      "description": "Up to 255 numeric values for which the average value will be returned. The first argument is required,\rsubsequent arguments are optional. Arguments can be numbers, names, or arrays of numbers.",
+      "name": "args",
+      "type": "ApiRange | ApiName | number | number[]"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "AVERAGE(args: ApiRange | ApiName | number | number[]): number"
+}

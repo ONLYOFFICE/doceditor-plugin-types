@@ -1,0 +1,204 @@
+{
+  "description": "Class representing the table properties.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTablePr/",
+  "methods": {
+    "SetShd": {
+      "description": "Specifies the shading which is applied to the extents of the current table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTablePr/Methods/SetShd/",
+      "params": [
+        {
+          "description": "The color or pattern used to fill the current table. If not passed, the shading will be cleared.",
+          "name": "fill",
+          "type": "ApiFill"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetShd(fill: ApiFill): boolean",
+      "since": "10.0.0"
+    },
+    "SetTableBorderAll": {
+      "description": "Specifies a border which will be displayed on all table cell borders.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTablePr/Methods/SetTableBorderAll/",
+      "params": [
+        {
+          "description": "The border style.",
+          "name": "type",
+          "type": "BorderType"
+        },
+        {
+          "description": "The width of the current border.",
+          "name": "size",
+          "type": "mm"
+        },
+        {
+          "description": "The color or pattern used to fill the current border.",
+          "name": "fill",
+          "type": "ApiFill"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetTableBorderAll(type: BorderType, size: mm, fill: ApiFill): boolean",
+      "since": "10.0.0"
+    },
+    "SetTableBorderBottom": {
+      "description": "Sets the border which will be displayed at the bottom of the current table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTablePr/Methods/SetTableBorderBottom/",
+      "params": [
+        {
+          "description": "The bottom border style.",
+          "name": "type",
+          "type": "BorderType"
+        },
+        {
+          "description": "The width of the current bottom border.",
+          "name": "size",
+          "type": "mm"
+        },
+        {
+          "description": "The color or pattern used to fill the current border.",
+          "name": "fill",
+          "type": "ApiFill"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetTableBorderBottom(type: BorderType, size: mm, fill: ApiFill): boolean",
+      "since": "10.0.0"
+    },
+    "SetTableBorderInsideH": {
+      "description": "Specifies the border which will be displayed on all horizontal table cell borders which are not on the outmost edge\nof the parent table (all horizontal borders which are not the topmost or bottommost borders).",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTablePr/Methods/SetTableBorderInsideH/",
+      "params": [
+        {
+          "description": "The horizontal table cell border style.",
+          "name": "type",
+          "type": "BorderType"
+        },
+        {
+          "description": "The width of the current border.",
+          "name": "size",
+          "type": "mm"
+        },
+        {
+          "description": "The color or pattern used to fill the current border.",
+          "name": "fill",
+          "type": "ApiFill"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetTableBorderInsideH(type: BorderType, size: mm, fill: ApiFill): boolean",
+      "since": "10.0.0"
+    },
+    "SetTableBorderInsideV": {
+      "description": "Specifies the border which will be displayed on all vertical table cell borders which are not on the outmost edge\nof the parent table (all vertical borders which are not the leftmost or rightmost borders).",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTablePr/Methods/SetTableBorderInsideV/",
+      "params": [
+        {
+          "description": "The vertical table cell border style.",
+          "name": "type",
+          "type": "BorderType"
+        },
+        {
+          "description": "The width of the current border.",
+          "name": "size",
+          "type": "mm"
+        },
+        {
+          "description": "The color or pattern used to fill the current border.",
+          "name": "fill",
+          "type": "ApiFill"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetTableBorderInsideV(type: BorderType, size: mm, fill: ApiFill): boolean",
+      "since": "10.0.0"
+    },
+    "SetTableBorderLeft": {
+      "description": "Sets the border which will be displayed on the left of the current table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTablePr/Methods/SetTableBorderLeft/",
+      "params": [
+        {
+          "description": "The left border style.",
+          "name": "type",
+          "type": "BorderType"
+        },
+        {
+          "description": "The width of the current left border.",
+          "name": "size",
+          "type": "mm"
+        },
+        {
+          "description": "The color or pattern used to fill the current border.",
+          "name": "fill",
+          "type": "ApiFill"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetTableBorderLeft(type: BorderType, size: mm, fill: ApiFill): boolean",
+      "since": "10.0.0"
+    },
+    "SetTableBorderRight": {
+      "description": "Sets the border which will be displayed on the right of the current table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTablePr/Methods/SetTableBorderRight/",
+      "params": [
+        {
+          "description": "The right border style.",
+          "name": "type",
+          "type": "BorderType"
+        },
+        {
+          "description": "The width of the current right border.",
+          "name": "size",
+          "type": "mm"
+        },
+        {
+          "description": "The color or pattern used to fill the current border.",
+          "name": "fill",
+          "type": "ApiFill"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetTableBorderRight(type: BorderType, size: mm, fill: ApiFill): boolean",
+      "since": "10.0.0"
+    },
+    "SetTableBorderTop": {
+      "description": "Sets the border which will be displayed at the top of the current table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTablePr/Methods/SetTableBorderTop/",
+      "params": [
+        {
+          "description": "The top border style.",
+          "name": "type",
+          "type": "BorderType"
+        },
+        {
+          "description": "The width of the current top border.",
+          "name": "size",
+          "type": "mm"
+        },
+        {
+          "description": "The color or pattern used to fill the current border.",
+          "name": "fill",
+          "type": "ApiFill"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetTableBorderTop(type: BorderType, size: mm, fill: ApiFill): boolean",
+      "since": "10.0.0"
+    }
+  }
+}

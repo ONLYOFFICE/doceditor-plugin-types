@@ -1,0 +1,10 @@
+{
+  "description": "Returns the watermark settings in the current document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetWatermarkSettings/",
+  "params": [],
+  "returns": {
+    "description": "The object which represents the watermark settings.",
+    "type": "ApiWatermarkSettings"
+  },
+  "signature": "GetWatermarkSettings(): ApiWatermarkSettings"
+}

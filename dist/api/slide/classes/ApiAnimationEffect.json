@@ -1,0 +1,178 @@
+{
+  "description": "Class representing an animation effect.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiAnimationEffect/",
+  "methods": {
+    "Delete": {
+      "description": "Deletes the animation effect.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiAnimationEffect/Methods/Delete/",
+      "params": [],
+      "returns": {
+        "description": "True if the effect was deleted successfully.",
+        "type": "boolean"
+      },
+      "signature": "Delete(): boolean",
+      "since": "9.3.0"
+    },
+    "GetClassType": {
+      "description": "Returns the type of the ApiAnimationEffect class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiAnimationEffect/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"animationEffect\""
+      },
+      "signature": "GetClassType(): \"animationEffect\"",
+      "since": "9.3.0"
+    },
+    "GetDelay": {
+      "description": "Returns the delay before the animation effect starts in milliseconds.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiAnimationEffect/Methods/GetDelay/",
+      "params": [],
+      "returns": {
+        "description": "The delay in milliseconds.",
+        "type": "number"
+      },
+      "signature": "GetDelay(): number",
+      "since": "9.3.0"
+    },
+    "GetDuration": {
+      "description": "Returns the duration of the animation effect in milliseconds.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiAnimationEffect/Methods/GetDuration/",
+      "params": [],
+      "returns": {
+        "description": "The duration in milliseconds.",
+        "type": "number"
+      },
+      "signature": "GetDuration(): number",
+      "since": "9.3.0"
+    },
+    "GetEffectType": {
+      "description": "Returns the animation effect type.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiAnimationEffect/Methods/GetEffectType/",
+      "params": [],
+      "returns": {
+        "description": "The effect type name (e.g., \"entranceFade\", \"exitFadeOut\", \"emphasisPulse\"), or null if unknown.",
+        "type": "AnimationEffectType | null"
+      },
+      "signature": "GetEffectType(): AnimationEffectType | null",
+      "since": "9.3.0"
+    },
+    "GetRepeatCount": {
+      "description": "Returns the repeat count for the animation effect.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiAnimationEffect/Methods/GetRepeatCount/",
+      "params": [],
+      "returns": {
+        "description": "The repeat count (1 = play once, 2 = play twice, etc.). Returns 1 if not set.",
+        "type": "number"
+      },
+      "signature": "GetRepeatCount(): number",
+      "since": "9.3.0"
+    },
+    "GetShape": {
+      "description": "Returns the animated drawing object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiAnimationEffect/Methods/GetShape/",
+      "params": [],
+      "returns": {
+        "description": "The animated drawing or null if not found.",
+        "type": "ApiDrawing | null"
+      },
+      "signature": "GetShape(): ApiDrawing | null",
+      "since": "9.3.0"
+    },
+    "GetTriggerType": {
+      "description": "Returns the trigger type for the animation effect.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiAnimationEffect/Methods/GetTriggerType/",
+      "params": [],
+      "returns": {
+        "description": "The trigger type: \"onclick\", \"withprevious\", or \"afterprevious\".",
+        "type": "AnimationTriggerType"
+      },
+      "signature": "GetTriggerType(): AnimationTriggerType",
+      "since": "9.3.0"
+    },
+    "MoveTo": {
+      "description": "Moves the animation effect to the specified position in the sequence.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiAnimationEffect/Methods/MoveTo/",
+      "params": [
+        {
+          "description": "The new zero-based position for the effect.",
+          "name": "index",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "True if the effect was moved successfully.",
+        "type": "boolean"
+      },
+      "signature": "MoveTo(index: number): boolean",
+      "since": "9.3.0"
+    },
+    "SetDelay": {
+      "description": "Sets the delay before the animation effect starts in milliseconds.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiAnimationEffect/Methods/SetDelay/",
+      "params": [
+        {
+          "description": "The delay in milliseconds.",
+          "name": "delay",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "True if the delay was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetDelay(delay: number): boolean",
+      "since": "9.3.0"
+    },
+    "SetDuration": {
+      "description": "Sets the duration of the animation effect in milliseconds.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiAnimationEffect/Methods/SetDuration/",
+      "params": [
+        {
+          "description": "The duration in milliseconds.",
+          "name": "duration",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "True if the duration was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetDuration(duration: number): boolean",
+      "since": "9.3.0"
+    },
+    "SetRepeatCount": {
+      "description": "Sets the repeat count for the animation effect.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiAnimationEffect/Methods/SetRepeatCount/",
+      "params": [
+        {
+          "description": "The repeat count (1 = play once, 2 = play twice, etc.).",
+          "name": "count",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "True if the repeat count was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetRepeatCount(count: number): boolean",
+      "since": "9.3.0"
+    },
+    "SetTriggerType": {
+      "description": "Sets the trigger type for the animation effect.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiAnimationEffect/Methods/SetTriggerType/",
+      "params": [
+        {
+          "description": "The trigger type: \"onclick\", \"withprevious\", or \"afterprevious\".",
+          "name": "trigger",
+          "type": "AnimationTriggerType"
+        }
+      ],
+      "returns": {
+        "description": "True if the trigger type was set successfully.",
+        "type": "boolean"
+      },
+      "signature": "SetTriggerType(trigger: AnimationTriggerType): boolean",
+      "since": "9.3.0"
+    }
+  }
+}

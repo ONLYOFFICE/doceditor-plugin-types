@@ -1,0 +1,15 @@
+{
+  "description": "Returns the arctangent of a number in radians, in the range from *-Pi/2* to *Pi/2*.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/ATAN/",
+  "params": [
+    {
+      "description": "The angle tangent.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "ATAN(arg1: ApiRange | ApiName | number): number"
+}

@@ -1,0 +1,15 @@
+{
+  "description": "Specifies that when rendering the document using a page view, all lines of the current paragraph are maintained on a single page whenever possible.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetKeepLines/",
+  "params": [
+    {
+      "description": "The true value enables the option to keep lines of the paragraph on a single page.",
+      "name": "isKeepLines",
+      "type": "boolean"
+    }
+  ],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "SetKeepLines(isKeepLines: boolean): boolean"
+}

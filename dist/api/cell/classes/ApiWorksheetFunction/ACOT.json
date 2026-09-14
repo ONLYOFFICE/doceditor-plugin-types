@@ -1,0 +1,15 @@
+{
+  "description": "Returns the arccotangent of a number, in radians in the range from 0 to Pi.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/ACOT/",
+  "params": [
+    {
+      "description": "The angle cotangent.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "ACOT(arg1: ApiRange | ApiName | number): number"
+}

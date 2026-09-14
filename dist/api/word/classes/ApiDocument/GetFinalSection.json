@@ -1,0 +1,9 @@
+{
+  "description": "Returns the document final section.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetFinalSection/",
+  "params": [],
+  "returns": {
+    "type": "ApiSection"
+  },
+  "signature": "GetFinalSection(): ApiSection"
+}

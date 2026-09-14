@@ -1,0 +1,76 @@
+{
+  "description": "Class representing an OLE object.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiOleObject/",
+  "extends": [
+    "ApiDrawing"
+  ],
+  "methods": {
+    "GetApplicationId": {
+      "description": "Returns the application ID from the current OLE object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiOleObject/Methods/GetApplicationId/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetApplicationId(): string"
+    },
+    "GetClassType": {
+      "description": "Returns a type of the ApiOleObject class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiOleObject/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"oleObject\""
+      },
+      "signature": "GetClassType(): \"oleObject\""
+    },
+    "GetData": {
+      "description": "Returns the string data from the current OLE object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiOleObject/Methods/GetData/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetData(): string"
+    },
+    "GetParentSheet": {
+      "description": "Returns the parent sheet of the current drawing.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetParentSheet/",
+      "params": [],
+      "returns": {
+        "type": "ApiWorksheet"
+      },
+      "signature": "GetParentSheet(): ApiWorksheet",
+      "since": "8.3.0"
+    },
+    "SetApplicationId": {
+      "description": "Sets the application ID to the current OLE object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiOleObject/Methods/SetApplicationId/",
+      "params": [
+        {
+          "description": "The application ID associated with the current OLE object.",
+          "name": "sAppId",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetApplicationId(sAppId: string): boolean"
+    },
+    "SetData": {
+      "description": "Sets the data to the current OLE object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiOleObject/Methods/SetData/",
+      "params": [
+        {
+          "description": "The OLE object string data.",
+          "name": "sData",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetData(sData: string): boolean"
+    }
+  }
+}

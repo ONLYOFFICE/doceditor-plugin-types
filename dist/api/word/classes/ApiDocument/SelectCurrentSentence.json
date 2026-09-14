@@ -1,0 +1,10 @@
+{
+  "description": "Selects the current sentence if it is possible.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/SelectCurrentSentence/",
+  "params": [],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "SelectCurrentSentence(): boolean",
+  "since": "10.0.0"
+}

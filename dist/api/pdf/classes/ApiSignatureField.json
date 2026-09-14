@@ -1,0 +1,47 @@
+{
+  "description": "Class representing a signature field.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiSignatureField/",
+  "extends": [
+    "ApiButtonField"
+  ],
+  "methods": {
+    "GetClassType": {
+      "description": "Returns a type of the ApiSignatureField class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiSignatureField/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"signatureField\""
+      },
+      "signature": "GetClassType(): \"signatureField\"",
+      "since": "10.0.0"
+    },
+    "GetValue": {
+      "description": "Gets image of the button field",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiButtonField/Methods/GetValue/",
+      "params": [],
+      "returns": {
+        "description": "The image URL, or an empty string if the field has no image.",
+        "type": "string"
+      },
+      "signature": "GetValue(): string",
+      "since": "10.0.0"
+    },
+    "SetValue": {
+      "description": "Sets image for all button field widgets",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiButtonField/Methods/SetValue/",
+      "params": [
+        {
+          "description": "The URL of the image to set for the button.",
+          "name": "imageUrl",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetValue(imageUrl: string): boolean",
+      "since": "9.4.0"
+    }
+  },
+  "since": "10.0.0"
+}

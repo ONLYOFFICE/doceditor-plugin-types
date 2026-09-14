@@ -1,0 +1,15 @@
+{
+  "description": "Returns the number of characters in a text string.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/LEN/",
+  "params": [
+    {
+      "description": "The text whose length will be returned. Spaces are considered as characters.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | string"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "LEN(arg1: ApiRange | ApiName | string): number"
+}

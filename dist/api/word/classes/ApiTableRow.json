@@ -1,0 +1,267 @@
+{
+  "description": "Class representing a table row.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/",
+  "extends": [
+    "ApiTableRowPr"
+  ],
+  "methods": {
+    "AddRows": {
+      "description": "Adds the new rows to the current table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/Methods/AddRows/",
+      "params": [
+        {
+          "description": "Count of rows to be added.",
+          "name": "nCount",
+          "type": "number"
+        },
+        {
+          "description": "Specifies if the rows will be added before or after the current row.",
+          "name": "isBefore",
+          "optional": true,
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "returns null if parent table doesn't exist.",
+        "type": "ApiTable | null"
+      },
+      "signature": "AddRows(nCount: number, isBefore?: boolean): ApiTable | null"
+    },
+    "Clear": {
+      "description": "Clears the content from the current row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/Methods/Clear/",
+      "params": [],
+      "returns": {
+        "description": "returns false if parent table doesn't exist.",
+        "type": "boolean"
+      },
+      "signature": "Clear(): boolean"
+    },
+    "GetCell": {
+      "description": "Returns a cell by its position.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/Methods/GetCell/",
+      "params": [
+        {
+          "description": "The cell index in the current row.",
+          "name": "cellIndex",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "ApiTableCell"
+      },
+      "signature": "GetCell(cellIndex: number): ApiTableCell"
+    },
+    "GetCellsCount": {
+      "description": "Returns a number of cells in the current row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/Methods/GetCellsCount/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetCellsCount(): number"
+    },
+    "GetClassType": {
+      "description": "Returns a type of the ApiTableRow class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"tableRow\""
+      },
+      "signature": "GetClassType(): \"tableRow\""
+    },
+    "GetHeight": {
+      "description": "Returns the height of the current table row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/Methods/GetHeight/",
+      "params": [],
+      "returns": {
+        "type": "EMU | null"
+      },
+      "signature": "GetHeight(): EMU | null",
+      "since": "10.0.0"
+    },
+    "GetIndex": {
+      "description": "Returns the current row index.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/Methods/GetIndex/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetIndex(): number"
+    },
+    "GetInternalId": {
+      "description": "Returns an internal id of the current table row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/Methods/GetInternalId/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetInternalId(): string",
+      "since": "9.2.0"
+    },
+    "GetNext": {
+      "description": "Returns the next row if exists.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/Methods/GetNext/",
+      "params": [],
+      "returns": {
+        "description": "returns null if row is last.",
+        "type": "ApiTableRow | null"
+      },
+      "signature": "GetNext(): ApiTableRow | null"
+    },
+    "GetParentTable": {
+      "description": "Returns the parent table of the current row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/Methods/GetParentTable/",
+      "params": [],
+      "returns": {
+        "description": "returns null if parent table doesn't exist.",
+        "type": "ApiTable | null"
+      },
+      "signature": "GetParentTable(): ApiTable | null"
+    },
+    "GetPrevious": {
+      "description": "Returns the previous row if exists.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/Methods/GetPrevious/",
+      "params": [],
+      "returns": {
+        "description": "returns null if row is first.",
+        "type": "ApiTableRow | null"
+      },
+      "signature": "GetPrevious(): ApiTableRow | null"
+    },
+    "MergeCells": {
+      "description": "Merges the cells in the current row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/Methods/MergeCells/",
+      "params": [],
+      "returns": {
+        "description": "return null if can't merge.",
+        "type": "ApiTableCell | null"
+      },
+      "signature": "MergeCells(): ApiTableCell | null"
+    },
+    "Remove": {
+      "description": "Removes the current table row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/Methods/Remove/",
+      "params": [],
+      "returns": {
+        "description": "return false if parent table doesn't exist.",
+        "type": "boolean"
+      },
+      "signature": "Remove(): boolean"
+    },
+    "Search": {
+      "description": "Searches for a scope of a table row object. The search results are a collection of ApiRange objects.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/Methods/Search/",
+      "params": [
+        {
+          "description": "Search string, or a regular expression to match. When a RegExp is passed, the isMatchCase parameter is ignored (control case sensitivity with the \"i\" flag instead).",
+          "name": "sText",
+          "type": "string | RegExp"
+        },
+        {
+          "description": "Case sensitive or not.",
+          "name": "isMatchCase",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "ApiRange[]"
+      },
+      "signature": "Search(sText: string | RegExp, isMatchCase: boolean): ApiRange[]"
+    },
+    "SetBackgroundColor": {
+      "description": "Sets the background color to all cells in the current table row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/Methods/SetBackgroundColor/",
+      "params": [
+        {
+          "description": "If not passed, the background color will be cleared.",
+          "name": "color",
+          "optional": true,
+          "type": "ApiColor"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetBackgroundColor(color?: ApiColor): boolean",
+      "since": "9.1.0"
+    },
+    "SetHeight": {
+      "description": "Sets the height to the current table row within the current table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRowPr/Methods/SetHeight/",
+      "params": [
+        {
+          "description": "The rule to apply the height value to the current table row or ignore it. Use the `\"atLeast\"` value to enable the `SetHeight` method use.",
+          "name": "sHRule",
+          "type": "\"auto\" | \"atLeast\""
+        },
+        {
+          "description": "The height for the current table row measured in twentieths of a point (1/1440 of an inch). This value will be ignored if `sHRule=\"auto\"`.",
+          "name": "nValue",
+          "optional": true,
+          "type": "twips"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetHeight(sHRule: \"auto\" | \"atLeast\", nValue?: twips): boolean"
+    },
+    "SetRowPr": {
+      "description": "Sets the properties to the current table row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/Methods/SetRowPr/",
+      "params": [
+        {
+          "description": "The table row properties.",
+          "name": "oApiTableRowPr",
+          "type": "ApiTableRowPr"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetRowPr(oApiTableRowPr: ApiTableRowPr): boolean",
+      "since": "10.0.0"
+    },
+    "SetTableHeader": {
+      "description": "Specifies that the current table row will be repeated at the top of each new page \nwherever this table is displayed. This gives this table row the behavior of a 'header' row on \neach of these pages. This element can be applied to any number of rows at the top of the \ntable structure in order to generate multi-row table headers.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRowPr/Methods/SetTableHeader/",
+      "params": [
+        {
+          "description": "The true value means that the current table row will be repeated at the top of each new page.",
+          "name": "isHeader",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetTableHeader(isHeader: boolean): boolean"
+    },
+    "SetTextPr": {
+      "description": "Sets the text properties to the current row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/Methods/SetTextPr/",
+      "params": [
+        {
+          "description": "The text properties that will be set to the current row.",
+          "name": "oTextPr",
+          "type": "ApiTextPr"
+        }
+      ],
+      "returns": {
+        "description": "returns false if parent table doesn't exist or param is invalid.",
+        "type": "boolean"
+      },
+      "signature": "SetTextPr(oTextPr: ApiTextPr): boolean"
+    },
+    "ToJSON": {
+      "description": "Converts the ApiTableRowPr object into the JSON object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRowPr/Methods/ToJSON/",
+      "params": [],
+      "returns": {
+        "type": "object"
+      },
+      "signature": "ToJSON(): object"
+    }
+  }
+}

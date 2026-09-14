@@ -1,0 +1,9 @@
+{
+  "description": "Checks if change tracking mode is enabled or not.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/IsTrackRevisions/",
+  "params": [],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "IsTrackRevisions(): boolean"
+}

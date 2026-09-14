@@ -1,0 +1,21 @@
+{
+  "description": "Creates a new style with the specified type and name. If a style with the specified name already exists, it will be returned without creating a new one.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/CreateStyle/",
+  "params": [
+    {
+      "description": "The name of the style which will be created.",
+      "name": "styleName",
+      "type": "string"
+    },
+    {
+      "description": "The document element which the style will be applied to.",
+      "name": "type",
+      "optional": true,
+      "type": "StyleType"
+    }
+  ],
+  "returns": {
+    "type": "ApiStyle"
+  },
+  "signature": "CreateStyle(styleName: string, type?: StyleType): ApiStyle"
+}

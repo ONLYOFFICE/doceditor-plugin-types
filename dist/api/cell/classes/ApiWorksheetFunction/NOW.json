@@ -1,0 +1,9 @@
+{
+  "description": "Returns the current date and time in the *MM/dd/yy hh:mm* format.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/NOW/",
+  "params": [],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "NOW(): number"
+}

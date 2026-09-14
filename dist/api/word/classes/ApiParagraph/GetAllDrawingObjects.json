@@ -1,0 +1,9 @@
+{
+  "description": "Returns a collection of drawing objects in the paragraph.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/GetAllDrawingObjects/",
+  "params": [],
+  "returns": {
+    "type": "Drawing[]"
+  },
+  "signature": "GetAllDrawingObjects(): Drawing[]"
+}

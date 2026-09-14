@@ -1,0 +1,15 @@
+{
+  "description": "Returns the average (arithmetic mean) of the specified arguments, evaluating text and **false** in arguments as 0; **true** evaluates as 1.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/AVERAGEA/",
+  "params": [
+    {
+      "description": "Up to 255 numeric values for which the average value will be returned. The first argument is required,\rsubsequent arguments are optional. Arguments can be numbers, text, or logical values, such as **true** and **false**, names, or arrays of numbers.",
+      "name": "args",
+      "type": "ApiRange | ApiName | number | string | number[]"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "AVERAGEA(args: ApiRange | ApiName | number | string | number[]): number"
+}

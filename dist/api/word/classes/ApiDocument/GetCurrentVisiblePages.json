@@ -1,0 +1,10 @@
+{
+  "description": "Returns the indexes of the currently visible pages.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetCurrentVisiblePages/",
+  "params": [],
+  "returns": {
+    "type": "number[]"
+  },
+  "signature": "GetCurrentVisiblePages(): number[]",
+  "since": "8.3.0"
+}

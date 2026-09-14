@@ -1,0 +1,16 @@
+{
+  "description": "Sets the highlight to the content controls from the current document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/SetControlsHighlight/",
+  "params": [
+    {
+      "description": "The highlight color for the content controls.",
+      "name": "color",
+      "type": "ApiColor"
+    }
+  ],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "SetControlsHighlight(color: ApiColor): boolean",
+  "since": "9.1.0"
+}

@@ -1,0 +1,15 @@
+{
+  "description": "Converts radians to degrees.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/DEGREES/",
+  "params": [
+    {
+      "description": "The angle in radians to convert.",
+      "name": "arg1",
+      "type": "ApiRange | ApiName | number"
+    }
+  ],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "DEGREES(arg1: ApiRange | ApiName | number): number"
+}

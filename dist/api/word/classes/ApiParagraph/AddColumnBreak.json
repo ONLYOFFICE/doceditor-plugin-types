@@ -1,0 +1,9 @@
+{
+  "description": "Adds a column break to the current position and starts the next element from a new column.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/AddColumnBreak/",
+  "params": [],
+  "returns": {
+    "type": "ApiRun"
+  },
+  "signature": "AddColumnBreak(): ApiRun"
+}

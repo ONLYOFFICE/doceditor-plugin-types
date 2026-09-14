@@ -1,0 +1,9 @@
+{
+  "description": "Returns the current date in the *MM/dd/yy* format.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/TODAY/",
+  "params": [],
+  "returns": {
+    "type": "number"
+  },
+  "signature": "TODAY(): number"
+}
