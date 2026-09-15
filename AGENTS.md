@@ -88,12 +88,42 @@ three channels, and confusing them is the most common source of broken plugin co
   api.onlyoffice.com. About 10% of those links point at pages the docs site has not published yet -
   it trails sdkjs by a few minor versions - so a 404 there means "not documented yet", not "wrong
   member".
-- `dist/ambient/` holds five flattened no-import `.d.ts` bundles for Monaco-style tooling
-  (`addExtraLib()`), one per editor: `onlyoffice-plugins-types.<editor>.ambient.d.ts` for `word`,
-  `cell`, `slide`, `pdf`, `forms`. Each is self-contained (0.54-2.49 MB) - load exactly one, since
-  the five declare the same globals with different types. Not shipped in the npm package (those
-  consumers take the modular sources instead) - fetch from git:
+- `dist/ambient/` holds five flattened no-import `.d.ts` bundles, one per editor:
+  `onlyoffice-plugins-types.<editor>.ambient.d.ts` for `word`, `cell`, `slide`, `pdf`, `forms`. Each
+  is self-contained (0.54-2.49 MB) - load exactly one, since the five declare the same globals with
+  different types. Written for editors that take a single global-scope blob (a Monaco
+  `addExtraLib()`), and useful here for a different reason - see below. Not shipped in the npm
+  package (those consumers take the modular sources instead) - fetch from git:
   `https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/master/dist/ambient/<file>`.
+
+### Checking the plugin code you just wrote
+
+Read `dist/api/` to find an API; run the code past a compiler to find out whether you used it
+correctly. An ambient bundle makes the second step one command with no install and no tsconfig,
+which is what a sandbox or a tool call usually has room for:
+
+```bash
+tsc --noEmit --allowJs --checkJs --target ES2020 --lib es2020,dom \
+    onlyoffice-plugins-types.word.ambient.d.ts plugin.js
+```
+
+Plugin code is written against globals with no imports, which is exactly the shape a single
+global-scope `.d.ts` checks. What that catches, on real mistakes rather than in principle: a
+misspelled `executeMethod` name, an argument of the wrong type, a method that belongs to a different
+editor, and a member that does not exist (with TypeScript's own "Did you mean" suggestion). Correct
+code produces no output, so any output is a defect to fix before handing the code over.
+
+Use the bundle for the editor the plugin targets. Each one carries only its own editor's
+`executeMethod` names, so calling a Cell-only method from a Word plugin is rejected rather than
+accepted.
+
+The modular package checks the same things if `npm install` is available, but needs a tsconfig with
+one editor entry point in `files` and a separate program per editor - the four editors declare the
+same global `Api`, so two in one program is a TS2403 collision.
+
+Do not put a bundle in your context: `word` alone is ~2.6M characters. It is something to run, not
+to read - `dist/api/` is the surface meant for reading, and it carries what the JSDoc does not
+express in machine-readable form (`requires` for paid members, `since`, a verified `docsUrl`).
 
 ## Working on this package
 

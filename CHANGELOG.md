@@ -64,7 +64,8 @@ building on it: everything listed under `9.5.0` ships here, regenerated against 
   is practically unchanged (7.98 MB to 8.25 MB) because only the ~55 KB of non-editor declarations
   is duplicated; the editor namespaces, which are the bulk, do not reference each other.
   `Asc.plugin.executeMethod("...")` consequently completes with one editor's method names rather
-  than all five editors' merged; `forms` has no global `Api`, matching the modular package.
+  than all five editors' merged, and calling another editor's method is now a compile error instead
+  of passing silently; `forms` has no global `Api`, matching the modular package.
 - Generating the ambient bundles now type-checks each one against `lib.dom` and fails if it doesn't
   compile. Nothing else in this repo checks the flattened output, so dangling references used to be
   discoverable only in a consumer's editor.
