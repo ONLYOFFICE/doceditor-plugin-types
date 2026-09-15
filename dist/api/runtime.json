@@ -139,7 +139,7 @@
           "signature": "variations: VariationConfig[];"
         },
         "version": {
-          "description": "The plugin's own version, e.g. `\"1.0\"`. Optional per the reference, and genuinely omitted by\r\nshipped plugins - `guid`, `name` and `variations` are the only required top-level fields.",
+          "description": "The plugin's own version, e.g. `\"1.0\"`. Optional per the reference, and genuinely omitted by\nshipped plugins - `guid`, `name` and `variations` are the only required top-level fields.",
           "optional": true,
           "signature": "version?: string;"
         }
@@ -356,7 +356,7 @@
           "signature": "attachContextMenuClickEvent: (id: string, callback: CustomMenuClickCallback) => void;"
         },
         "attachEditorEvent": {
-          "description": "Per-editor overloads (typed from each editor's own plugin-events.js) come first so a known\r\nevent name gets its real payload type; the final overload is a loose fallback for events\r\nnot modeled yet (e.g. the low-level common/UI ones - onContextMenuShow, onClick, onKeyDown, ...).",
+          "description": "Per-editor overloads (typed from each editor's own plugin-events.js) come first so a known\nevent name gets its real payload type; the final overload is a loose fallback for events\nnot modeled yet (e.g. the low-level common/UI ones - onContextMenuShow, onClick, onKeyDown, ...).",
           "signature": "attachEditorEvent: (<T extends Word.EditorEventName>(eventName: T, callback: (...args: Word.EditorEventArgs[T]) => void) => void) & (<T extends Cell.EditorEventName>(eventName: T, callback: (...args: Cell.EditorEventArgs[T]) => void) => void) & (<T extends Slide.EditorEventName>(eventName: T, callback: (...args: Slide.EditorEventArgs[T]) => void) => void) & (<T extends Forms.EditorEventName>(eventName: T, callback: (...args: Forms.EditorEventArgs[T]) => void) => void) & (<T extends Pdf.EditorEventName>(eventName: T, callback: (...args: Pdf.EditorEventArgs[T]) => void) => void) & ((eventName: PluginEditorEventName, callback: PluginEditorEventCallback) => void);"
         },
         "attachEvent": {
@@ -372,11 +372,11 @@
           "signature": "button: (id: number, text: string) => void;"
         },
         "callCommand": {
-          "description": "Runs `command` inside the editor's process, where the global `Api` is the entry point.\r\n\r\nThe function is serialized with `Function.prototype.toString()`, so it is **not a closure**:\r\nnothing from the surrounding scope is visible inside it. Pass data in through\r\n`Asc.scope` (JSON-serialized into the command's context and readable there as `Asc.scope` or\r\nthe bare `scope`) rather than by capturing variables.\r\n\r\n`command`'s return value is delivered to `callback`. It must be plain data - see\r\n{@link CommandSerializable}; returning an `Api.*` object yields `undefined` at runtime and is\r\nrejected here at compile time.",
+          "description": "Runs `command` inside the editor's process, where the global `Api` is the entry point.\n\nThe function is serialized with `Function.prototype.toString()`, so it is **not a closure**:\nnothing from the surrounding scope is visible inside it. Pass data in through\n`Asc.scope` (JSON-serialized into the command's context and readable there as `Asc.scope` or\nthe bare `scope`) rather than by capturing variables.\n\n`command`'s return value is delivered to `callback`. It must be plain data - see\n{@link CommandSerializable}; returning an `Api.*` object yields `undefined` at runtime and is\nrejected here at compile time.",
           "signature": "callCommand: <T>( command: () => T & CommandSerializable<T>, isClose?: boolean, isCalc?: boolean, callback?: (value: T) => void, ) => void;"
         },
         "callCommandAsync": {
-          "description": "Promise-returning {@link AscPlugin.callCommand}, available when the host supports async\r\nfunctions. Always runs with `isClose: false` and `isCalc: true`; use `callCommand` directly\r\nwhen you need either of those to differ.",
+          "description": "Promise-returning {@link AscPlugin.callCommand}, available when the host supports async\nfunctions. Always runs with `isClose: false` and `isCalc: true`; use `callCommand` directly\nwhen you need either of those to differ.",
           "signature": "callCommandAsync: <T>(command: () => T & CommandSerializable<T>) => Promise<T>;"
         },
         "callMethodAsync": {
@@ -384,7 +384,7 @@
           "signature": "callMethodAsync: (<T extends WordMethodName>(methodName: T, args?: WordMethodArgs[T]) => Promise<WordMethodReturn<T>>) & (<T extends CellMethodName>(methodName: T, args?: CellMethodArgs[T]) => Promise<CellMethodReturn<T>>) & (<T extends SlideMethodName>(methodName: T, args?: SlideMethodArgs[T]) => Promise<SlideMethodReturn<T>>) & (<T extends PdfMethodName>(methodName: T, args?: PdfMethodArgs[T]) => Promise<PdfMethodReturn<T>>) & (<T extends FormsMethodName>(methodName: T, args?: FormsMethodArgs[T]) => Promise<FormsMethodReturn<T>>);"
         },
         "callModule": {
-          "description": "Fetches a remotely located script and executes it as a command, the same way\r\n{@link AscPlugin.callCommand} executes an inline function. The callback receives the fetched\r\nsource text, not the command's return value.",
+          "description": "Fetches a remotely located script and executes it as a command, the same way\n{@link AscPlugin.callCommand} executes an inline function. The callback receives the fetched\nsource text, not the command's return value.",
           "signature": "callModule: (url: string, callback?: (response: string) => void, isClose?: boolean) => void;"
         },
         "createInputHelper": {
@@ -491,7 +491,7 @@
           "signature": "loadModule: (url: string, callback?: (response: string) => void) => void;"
         },
         "onCommandCallback": {
-          "description": "Fallback for a {@link AscPlugin.callCommand} result when that call was made without its own\r\n`callback` argument.",
+          "description": "Fallback for a {@link AscPlugin.callCommand} result when that call was made without its own\n`callback` argument.",
           "optional": true,
           "signature": "onCommandCallback?: (returnValue: unknown) => void;"
         },
@@ -511,7 +511,7 @@
           "signature": "onExternalPluginMessage?: (data: { type: string; [key: string]: unknown }) => void;"
         },
         "onMethodReturn": {
-          "description": "Fallback for an {@link AscPlugin.executeMethod} result when that call was made without its\r\nown `callback` argument.",
+          "description": "Fallback for an {@link AscPlugin.executeMethod} result when that call was made without its\nown `callback` argument.",
           "optional": true,
           "signature": "onMethodReturn?: (returnValue: unknown) => void;"
         },
@@ -720,7 +720,7 @@
       }
     },
     "CommandSerializable": {
-      "description": "Rejects anything a `callCommand` result can't survive.\r\n\r\nThe command body is serialized with `Function.prototype.toString()` and re-run inside the\r\neditor's own process, so its return value has to cross a process boundary. The editor filters it\r\nthrough `Asc.checkReturnCommand`, which walks the value up to 10 levels deep and replaces\r\nanything carrying methods - an `ApiParagraph`, an `ApiDocument`, any other `Api.*` object - with\r\n`undefined`. Mapping function-valued properties to `never` turns that silent data loss into a\r\ncompile error, while plain data (object literals, interfaces, arrays, unions, nested\r\ncombinations) passes through untouched.",
+      "description": "Rejects anything a `callCommand` result can't survive.\n\nThe command body is serialized with `Function.prototype.toString()` and re-run inside the\neditor's own process, so its return value has to cross a process boundary. The editor filters it\nthrough `Asc.checkReturnCommand`, which walks the value up to 10 levels deep and replaces\nanything carrying methods - an `ApiParagraph`, an `ApiDocument`, any other `Api.*` object - with\n`undefined`. Mapping function-valued properties to `never` turns that silent data loss into a\ncompile error, while plain data (object literals, interfaces, arrays, unions, nested\ncombinations) passes through untouched.",
       "kind": "type",
       "type": "T extends Function ? never : T extends object ? { [K in keyof T]: CommandSerializable<T[K]> } : T"
     },
@@ -741,7 +741,7 @@
       "kind": "interface"
     },
     "InputHelper": {
-      "description": "A window that appears and disappears as the user types, positioned against the cursor. Obtained\r\nfrom `Asc.plugin.getInputHelper()` after `Asc.plugin.createInputHelper()`.",
+      "description": "A window that appears and disappears as the user types, positioned against the cursor. Obtained\nfrom `Asc.plugin.getInputHelper()` after `Asc.plugin.createInputHelper()`.",
       "kind": "interface",
       "members": {
         "createWindow": {
@@ -753,7 +753,7 @@
           "signature": "getItems(): InputHelperItem[];"
         },
         "getScrollSizes": {
-          "description": "Returns the scrollable size of the input helper window.\r\n\r\nKeyed `w`/`h`, not `width`/`height`: sdkjs's own JSDoc declares this `@returns {number}` and\r\ndescribes it as \"width and height\", but the implementation returns `{ w, h }` - the shape\r\nhere follows the implementation.",
+          "description": "Returns the scrollable size of the input helper window.\n\nKeyed `w`/`h`, not `width`/`height`: sdkjs's own JSDoc declares this `@returns {number}` and\ndescribes it as \"width and height\", but the implementation returns `{ w, h }` - the shape\nhere follows the implementation.",
           "signature": "getScrollSizes(): { w: number; h: number };"
         },
         "setItems": {
@@ -775,7 +775,7 @@
       "kind": "interface",
       "members": {
         "id": {
-          "description": "The item index. Optional when setting items - the runtime assigns the array position as the\r\nid for any item that omits it - and always present on items read back via `getItems`.",
+          "description": "The item index. Optional when setting items - the runtime assigns the array position as the\nid for any item that omits it - and always present on items read back via `getItems`.",
           "optional": true,
           "signature": "id?: string;"
         },
@@ -812,7 +812,7 @@
         },
         "onBlurAnnotation": {
           "description": "Word only. Fired when a text annotation (e.g. a grammar/spellcheck range) loses focus.",
-          "requires": "ONLYOFFICE Docs Developer Edition. Annotations are not present in other\r\nbuilds, where this event is never fired.",
+          "requires": "ONLYOFFICE Docs Developer Edition. Annotations are not present in other\nbuilds, where this event is never fired.",
           "signature": "onBlurAnnotation: [annotation: TextAnnotation];",
           "since": "9.2.0"
         },
@@ -850,7 +850,7 @@
         },
         "onClickAnnotation": {
           "description": "Word only. Fired when the user clicks a text annotation.",
-          "requires": "ONLYOFFICE Docs Developer Edition. Annotations are not present in other\r\nbuilds, where this event is never fired.",
+          "requires": "ONLYOFFICE Docs Developer Edition. Annotations are not present in other\nbuilds, where this event is never fired.",
           "signature": "onClickAnnotation: [annotation: TextAnnotation];",
           "since": "9.2.0"
         },
@@ -876,7 +876,7 @@
         },
         "onFocusAnnotation": {
           "description": "Word only. Fired when a text annotation receives focus.",
-          "requires": "ONLYOFFICE Docs Developer Edition. Annotations are not present in other\r\nbuilds, where this event is never fired.",
+          "requires": "ONLYOFFICE Docs Developer Edition. Annotations are not present in other\nbuilds, where this event is never fired.",
           "signature": "onFocusAnnotation: [annotation: TextAnnotation];",
           "since": "9.2.0"
         },
@@ -905,7 +905,7 @@
         },
         "onParagraphText": {
           "description": "Word only. Fired when a paragraph's text is updated in the document.",
-          "requires": "ONLYOFFICE Docs Developer Edition. Dispatched only by the annotation\r\nengine, which other builds do not have, so this event is never fired there.",
+          "requires": "ONLYOFFICE Docs Developer Edition. Dispatched only by the annotation\nengine, which other builds do not have, so this event is never fired there.",
           "signature": "onParagraphText: [data: { paragraphId: string; recalcId: string; text: string; annotations: TextAnnotationRange[] }];",
           "since": "9.2.0"
         },
@@ -1014,7 +1014,7 @@
       "kind": "interface",
       "members": {
         "prototype": {
-          "description": "Only present on the initial `Asc.scope` the runtime bootstraps (`plugins.dev.js` sets it once\r\nat startup as a convenience for plugin authors - the runtime itself never calls it). Plugins\r\nroutinely replace `Asc.scope` wholesale with a plain data payload before `callCommand`\r\n(`window.Asc.scope = { foo: 1 }`) so that data is readable inside the sandboxed callback -\r\nthat payload has no reason to carry `prototype.clear`, so it must stay optional here.",
+          "description": "Only present on the initial `Asc.scope` the runtime bootstraps (`plugins.dev.js` sets it once\nat startup as a convenience for plugin authors - the runtime itself never calls it). Plugins\nroutinely replace `Asc.scope` wholesale with a plain data payload before `callCommand`\n(`window.Asc.scope = { foo: 1 }`) so that data is readable inside the sandboxed callback -\nthat payload has no reason to carry `prototype.clear`, so it must stay optional here.",
           "optional": true,
           "signature": "prototype?: { clear(): void; };"
         }

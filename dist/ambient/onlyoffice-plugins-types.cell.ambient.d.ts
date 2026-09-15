@@ -62174,6 +62174,7 @@ type VariationType = 'window' | 'panel' | 'panelRight' | 'background' | 'system'
 // A handful of Word-only events reuse ContentControl/comment/TextAnnotation/TextAnnotationRange -
 // the same shapes `executeMethod`'s Word surface already models (with real-example-verified
 // optionality) - rather than duplicating them by hand and letting the copies drift.
+
 interface ContextMenuShowEvent {
     /** The context type used by the editor, for example `All`. */
     type: string;
@@ -62302,6 +62303,7 @@ type PluginEditorEventCallback<T = unknown> = (...args: T[]) => void;
 // Plugin menu buttons (Asc.Buttons and the context-menu/toolbar/window-header/content-control
 // button classes) - split out of index.d.ts since it's a self-contained group referencing only
 // config types (EditorType/IconConfig), not the plugin runtime itself.
+
 type CustomMenuClickCallback = (data?: string) => void;
 
 type ToolbarButtonType = "button" | "big-button";
@@ -62376,6 +62378,7 @@ interface WindowHeaderFrameOptions {
 // PluginWindow, PluginScope, and PluginInfo. This is the hub module - it cross-imports the
 // per-editor namespaces/method types, theme, config, events, and buttons to assemble AscPlugin's
 // executeMethod/attachEditorEvent overloads and Asc's button constructors.
+
 /**
  * Rejects anything a `callCommand` result can't survive.
  *
@@ -62676,7 +62679,6 @@ interface AscSimpleRequest {
 }
 
 // ---- window.Asc / window.AscDesktopEditor / window.AscSimpleRequest ----
-
 interface Window {
     Asc: Asc;
     AscDesktopEditor?: AscDesktopEditor;
@@ -62687,7 +62689,6 @@ declare var AscDesktopEditor: AscDesktopEditor | undefined;
 declare var AscSimpleRequest: AscSimpleRequest | undefined;
 
 // ---- global Api ----
-
 interface Window {
     Api: Cell.Api;
 }

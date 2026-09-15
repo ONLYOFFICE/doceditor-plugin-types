@@ -55,14 +55,14 @@ building on it: everything listed under `9.5.0` ships here, regenerated against 
 - Regenerated against sdkjs `v10.0.0.79`, which adds `Word.SetRangeHtml` (Developer Edition only)
   and extends `Cell.Api.Intersect`. The paid surface is 211 members.
 - `dist/ambient/` is now five self-contained per-editor bundles -
-  `onlyoffice-plugins-types.{word,cell,slide,pdf,forms}.ambient.d.ts`, 0.56-2.55 MB each - instead of
-  one 8.37 MB bundle plus four ~10-line `Api` addons. Load exactly one; nothing goes alongside it.
+  `onlyoffice-plugins-types.{word,cell,slide,pdf,forms}.ambient.d.ts`, 0.54-2.49 MB each - instead of
+  one 7.98 MB bundle plus four ~10-line `Api` addons. Load exactly one; nothing goes alongside it.
   The old layout made a consumer parse all five editor namespaces to use one: a word consumer loaded
-  7.98 MB where it now loads 2.55 MB, and the first completion after `Api.GetDocument().` went from
-  515-542 ms to 346-372 ms in Monaco 0.52.2, or 690 ms to 280 ms measured cold through
-  `ts.LanguageService`. The completion itself is unchanged - 152 members either way. Total tracked
-  size is practically unchanged (8.37 MB to 8.46 MB) because only the ~55 KB of non-editor
-  declarations is duplicated; the editor namespaces, which are the bulk, do not reference each other.
+  7.98 MB where it now loads 2.49 MB, and the first completion after `Api.GetDocument().` went from
+  636-663 ms to 259-262 ms measured cold through `ts.LanguageService`, or 515-542 ms to 346-372 ms
+  in Monaco 0.52.2. The completion itself is unchanged - 152 members either way. Total tracked size
+  is practically unchanged (7.98 MB to 8.25 MB) because only the ~55 KB of non-editor declarations
+  is duplicated; the editor namespaces, which are the bulk, do not reference each other.
   `Asc.plugin.executeMethod("...")` consequently completes with one editor's method names rather
   than all five editors' merged; `forms` has no global `Api`, matching the modular package.
 - Generating the ambient bundles now type-checks each one against `lib.dom` and fails if it doesn't

@@ -1,0 +1,7 @@
+# The blobs in this repository are LF, and the generated output committed under src/generated/ and
+# dist/ was produced from an LF working tree. A clone made with core.autocrlf=true - git's default
+# on Windows - checks the sources out as CRLF, the generators then embed `\r\n` inside JSON string
+# values, and check-generated / check-runtime-index / check-schema fail on a fresh clone. Those are
+# escape sequences inside strings, not line terminators, so git's own conversion cannot even them
+# out. Pin the working tree to LF on every platform instead.
+* text=auto eol=lf

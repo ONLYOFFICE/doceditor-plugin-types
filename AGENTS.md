@@ -90,7 +90,7 @@ three channels, and confusing them is the most common source of broken plugin co
   member".
 - `dist/ambient/` holds five flattened no-import `.d.ts` bundles for Monaco-style tooling
   (`addExtraLib()`), one per editor: `onlyoffice-plugins-types.<editor>.ambient.d.ts` for `word`,
-  `cell`, `slide`, `pdf`, `forms`. Each is self-contained (0.56-2.55 MB) - load exactly one, since
+  `cell`, `slide`, `pdf`, `forms`. Each is self-contained (0.54-2.49 MB) - load exactly one, since
   the five declare the same globals with different types. Not shipped in the npm package (those
   consumers take the modular sources instead) - fetch from git:
   `https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/master/dist/ambient/<file>`.

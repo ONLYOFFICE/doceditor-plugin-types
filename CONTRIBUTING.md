@@ -329,13 +329,13 @@ directly linkable/reviewable, but excluded from the npm package (`package.json`'
 consumers get the modular package instead:
 
 ```text
-dist/ambient/onlyoffice-plugins-types.word.ambient.d.ts   # 2.55 MB - Asc/AscPlugin/events/buttons/
+dist/ambient/onlyoffice-plugins-types.word.ambient.d.ts   # 2.49 MB - Asc/AscPlugin/events/buttons/
                                                           # config/theme/services + namespace Word
                                                           # + a global `Api: Word.Api`
-dist/ambient/onlyoffice-plugins-types.cell.ambient.d.ts   # 2.48 MB - ...same, for Cell
-dist/ambient/onlyoffice-plugins-types.slide.ambient.d.ts  # 1.46 MB - ...same, for Slide
-dist/ambient/onlyoffice-plugins-types.pdf.ambient.d.ts    # 1.41 MB - ...same, for Pdf
-dist/ambient/onlyoffice-plugins-types.forms.ambient.d.ts  # 0.56 MB - ...same, for Forms, minus the
+dist/ambient/onlyoffice-plugins-types.cell.ambient.d.ts   # 2.42 MB - ...same, for Cell
+dist/ambient/onlyoffice-plugins-types.slide.ambient.d.ts  # 1.43 MB - ...same, for Slide
+dist/ambient/onlyoffice-plugins-types.pdf.ambient.d.ts    # 1.37 MB - ...same, for Pdf
+dist/ambient/onlyoffice-plugins-types.forms.ambient.d.ts  # 0.54 MB - ...same, for Forms, minus the
                                                           # global `Api` (Forms has none: its
                                                           # methods go through executeMethod)
 ```
@@ -348,7 +348,7 @@ monaco.languages.typescript.javascriptDefaults.addExtraLib(wordBundleText, "only
 ```
 
 One bundle per editor, even though that repeats the ~55 KB of non-editor declarations five times:
-the editor namespaces are the bulk of the text (0.4-2.4 MB each) and none of them references
+the editor namespaces are the bulk of the text (0.5-2.5 MB each) and none of them references
 another, so a combined bundle made every consumer parse all five to use one. That is paid on load,
 not just on download - a Monaco worker binds the whole blob before it can answer the first
 completion.

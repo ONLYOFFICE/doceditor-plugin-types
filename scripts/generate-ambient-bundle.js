@@ -391,6 +391,8 @@ function pruneEditorOverloads(source, keepNamespace) {
   return out.join('\n');
 }
 
+const collapseBlankRuns = (text) => text.replace(/\n{3,}/g, '\n\n');
+
 function applyAmbientRenames(body) {
   let renamed = body;
   for (const [from, to] of Object.entries(AMBIENT_RENAMES)) {
@@ -515,7 +517,9 @@ function buildEditorBundle(editor, pool) {
     const preamble = pulled.size > 0
       ? ["// ---- typedefs used by the shared sources, declared in another editor's ----", ...pulled.values(), ''].join('\n')
       : '';
-    const body = applyAmbientRenames(dedupeTopLevelDeclarations([preamble, ...sections].join('\n')));
+    // Stripping the module syntax and the duplicate declarations leaves the blank lines those
+    // occupied - up to six in a row where a file opened with a block of `import type` lines.
+    const body = collapseBlankRuns(applyAmbientRenames(dedupeTopLevelDeclarations([preamble, ...sections].join('\n'))));
     const tail = [`// ---- window.Asc / window.AscDesktopEditor / window.AscSimpleRequest ----\n${globalBlock}\n`];
     if (apiBlock) tail.push(`// ---- global Api ----\n${apiBlock}\n`);
     const bundle = [header, body, ...tail].join('\n');
