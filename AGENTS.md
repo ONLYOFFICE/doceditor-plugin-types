@@ -88,10 +88,11 @@ three channels, and confusing them is the most common source of broken plugin co
   api.onlyoffice.com. About 10% of those links point at pages the docs site has not published yet -
   it trails sdkjs by a few minor versions - so a 404 there means "not documented yet", not "wrong
   member".
-- `dist/ambient/` holds a flattened no-import `.d.ts` bundle for Monaco-style tooling
-  (`addExtraLib()`): load `onlyoffice-plugins-types.ambient.d.ts` plus exactly one
-  `onlyoffice-plugins-types.<editor>-api.ambient.d.ts` addon, in that order. Not shipped in the npm
-  package (those consumers take the modular sources instead) - fetch it from git:
+- `dist/ambient/` holds five flattened no-import `.d.ts` bundles for Monaco-style tooling
+  (`addExtraLib()`), one per editor: `onlyoffice-plugins-types.<editor>.ambient.d.ts` for `word`,
+  `cell`, `slide`, `pdf`, `forms`. Each is self-contained (0.56-2.55 MB) - load exactly one, since
+  the five declare the same globals with different types. Not shipped in the npm package (those
+  consumers take the modular sources instead) - fetch from git:
   `https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/master/dist/ambient/<file>`.
 
 ## Working on this package

@@ -319,39 +319,53 @@ misplaced field, a typo) rather than a schema gap; anything else that fails is a
 
 ## Ambient bundle (non-npm consumers)
 
-`npm run generate-ambient` flattens the modular sources into a single, import/export-free
-`.d.ts` blob - the format tools that don't install npm packages expect, such as a Monaco editor's
-`addExtraLib()` (the same mechanism used by the ONLYOFFICE plugin playground for its `Api.*`
-autocomplete). It also runs automatically as a `postgenerate` step whenever `npm run generate`
-regenerates the types from `sdkjs`, so the ambient bundle can't silently go stale relative to the
-modular package. It writes to `dist/ambient/` - tracked in git (unlike the rest of `dist/`) so the
-generated files themselves are directly linkable/reviewable, but excluded from the npm package
-(`package.json`'s `files`) since npm consumers get the modular package instead:
+`npm run generate-ambient` flattens the modular sources into import/export-free `.d.ts` blobs - the
+format tools that don't install npm packages expect, such as a Monaco editor's `addExtraLib()` (the
+same mechanism used by the ONLYOFFICE plugin playground for its `Api.*` autocomplete). It also runs
+automatically as a `postgenerate` step whenever `npm run generate` regenerates the types from
+`sdkjs`, so the bundles can't silently go stale relative to the modular package. They are written to
+`dist/ambient/` - tracked in git (unlike the rest of `dist/`) so the generated files themselves are
+directly linkable/reviewable, but excluded from the npm package (`package.json`'s `files`) since npm
+consumers get the modular package instead:
 
 ```text
-dist/ambient/onlyoffice-plugins-types.ambient.d.ts           # Asc/AscPlugin/events/buttons/config/
-                                                             # theme/services + all 5 editor
-                                                             # namespaces, no global Api (matches
-                                                             # the root package)
-dist/ambient/onlyoffice-plugins-types.word-api.ambient.d.ts   # +10 lines: a global `Api: Word.Api`
-dist/ambient/onlyoffice-plugins-types.cell-api.ambient.d.ts   # ...same, for Cell
-dist/ambient/onlyoffice-plugins-types.slide-api.ambient.d.ts  # ...same, for Slide
-dist/ambient/onlyoffice-plugins-types.pdf-api.ambient.d.ts    # ...same, for Pdf
+dist/ambient/onlyoffice-plugins-types.word.ambient.d.ts   # 2.55 MB - Asc/AscPlugin/events/buttons/
+                                                          # config/theme/services + namespace Word
+                                                          # + a global `Api: Word.Api`
+dist/ambient/onlyoffice-plugins-types.cell.ambient.d.ts   # 2.48 MB - ...same, for Cell
+dist/ambient/onlyoffice-plugins-types.slide.ambient.d.ts  # 1.46 MB - ...same, for Slide
+dist/ambient/onlyoffice-plugins-types.pdf.ambient.d.ts    # 1.41 MB - ...same, for Pdf
+dist/ambient/onlyoffice-plugins-types.forms.ambient.d.ts  # 0.56 MB - ...same, for Forms, minus the
+                                                          # global `Api` (Forms has none: its
+                                                          # methods go through executeMethod)
 ```
 
-Load the base bundle plus exactly one editor addon (in that order - the addon refers to the
-namespace the base bundle declares, and the four addons declare the same `Api` global with a
-different type):
+Each bundle is self-contained. Load exactly one, and nothing alongside it - the five declare the
+same globals with different types:
 
 ```js
-monaco.languages.typescript.javascriptDefaults.addExtraLib(baseBundleText, "onlyoffice.d.ts");
-monaco.languages.typescript.javascriptDefaults.addExtraLib(wordApiAddonText, "onlyoffice.word.d.ts");
+monaco.languages.typescript.javascriptDefaults.addExtraLib(wordBundleText, "onlyoffice.word.d.ts");
 ```
 
-The per-editor part is a small addon rather than four more self-contained copies of the base bundle:
-with per-method JSDoc the base bundle is a few megabytes, and five near-identical copies of it would
-be that much duplicated text rewritten in full in git on every regeneration, plus a needlessly large
-download for a Monaco consumer.
+One bundle per editor, even though that repeats the ~55 KB of non-editor declarations five times:
+the editor namespaces are the bulk of the text (0.4-2.4 MB each) and none of them references
+another, so a combined bundle made every consumer parse all five to use one. That is paid on load,
+not just on download - a Monaco worker binds the whole blob before it can answer the first
+completion.
+
+Splitting them means `AscPlugin`'s `executeMethod`, `callMethodAsync`, `attachEditorEvent` and
+`detachEditorEvent` - written in the modular sources as an intersection of one call signature per
+editor - have to keep only their own editor's signature, or that signature would drag the other
+editor's whole namespace back in (`pruneEditorOverloads`). A visible side effect: the string-literal
+completion for `executeMethod("...")` now offers one editor's method names instead of all five
+editors' names merged into one list.
+
+Pruning can leave a reference dangling - `src/plugin/events.d.ts`, for instance, uses typedefs only
+`word-methods.ts` declares. Rather than hand-maintaining a list of those, each candidate bundle is
+type-checked with TypeScript itself, and whatever comes back as TS2304/TS2503/TS2552 is pulled in
+by name from the other editors' generated sources before checking again. That same pass is the
+correctness gate for the flattening as a whole: generation fails unless every bundle compiles clean
+against `lib.dom`, which nothing else in this repo checks.
 
 A file with no top-level `import`/`export` is a TypeScript "script": every `interface`/`type`/
 `namespace` in it is automatically global, so this is what a `declare global {}` block would need
@@ -487,7 +501,7 @@ onlyoffice-types/
 │   └── config.schema.json
 ├── dist/                  # tracked in git: directly linkable build artifacts
 │   ├── api/                # machine-readable API tree (compact indexes + per-class detail) for agents/RAG
-│   └── ambient/            # flattened no-import .d.ts bundle + per-editor Api addons (Monaco etc.)
+│   └── ambient/            # five self-contained no-import .d.ts bundles, one per editor (Monaco etc.)
 ├── scripts/                   # generators, the modules they share, and the drift checkers
 │   ├── generate-types.js          # Api object model generator (src/generated/{word,cell,slide,pdf,forms}.ts)
 │   ├── generate-plugin-methods.js # executeMethod surface generator (src/generated/*-methods.ts)

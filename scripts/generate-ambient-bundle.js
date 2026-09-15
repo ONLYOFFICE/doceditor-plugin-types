@@ -3,21 +3,24 @@
 // `declare global { ... }` is invalid there (it's only legal inside a module) - so that block gets
 // unwrapped into plain top-level declarations instead.
 //
-// Produces:
-//   dist/ambient/onlyoffice-plugins-types.ambient.d.ts             - Asc/AscPlugin/events/buttons/
-//                                                                    config/theme/services + all 5
-//                                                                    editor namespaces, WITHOUT a
-//                                                                    global `Api` (matches the root
-//                                                                    package - no cross-editor Api).
-//   dist/ambient/onlyoffice-plugins-types.<editor>-api.ambient.d.ts - a few lines declaring that one
-//                                                                    editor's global `Api`, to load
-//                                                                    on top of the base bundle.
+// Produces one self-contained bundle per editor:
+//   dist/ambient/onlyoffice-plugins-types.<editor>.ambient.d.ts
 //
-// The per-editor part is a separate small addon rather than four more self-contained copies of the
-// base bundle: with per-method JSDoc the base bundle is several megabytes, and five near-identical
-// copies of it would be that much duplicated text in git (rewritten in full on every regeneration)
-// and in whatever a Monaco consumer downloads. `addExtraLib()` takes any number of files, so loading
-// the base bundle plus one addon is no harder than loading a single blob.
+// Each one carries Asc/AscPlugin/events/buttons/config/theme/services, that single editor's
+// namespace and executeMethod types, and - for the four editors that have one - a global `Api`.
+// Nothing else has to be loaded alongside it.
+//
+// One bundle per editor rather than a shared base plus per-editor addons, even though that repeats
+// the ~55 KB of non-editor declarations five times: the editor namespaces are the bulk of the text
+// (0.4-2.4 MB each) and none of them references another, so a combined bundle made every consumer
+// parse all five to use one. Whoever loads this pays for parsing, not just downloading - a Monaco
+// worker binds the whole blob before it can answer the first completion.
+//
+// AscPlugin's executeMethod/callMethodAsync/attachEditorEvent/detachEditorEvent are written in the
+// modular sources as an intersection of one call signature per editor; each bundle keeps only its
+// own (see pruneEditorOverloads). Whatever that leaves dangling - `src/plugin/events.d.ts` refers to
+// a few typedefs that only word-methods.ts declares, for instance - is pulled back in by name from
+// the other editors' generated sources, with TypeScript itself deciding what is missing.
 
 const fs = require('fs');
 const path = require('path');
@@ -41,17 +44,8 @@ const AMBIENT_RENAMES = {
 // work.
 const INTENTIONAL_DOM_MERGES = new Set(['Window']);
 
-const BASE_FILES = [
-  'src/generated/word.ts',
-  'src/generated/cell.ts',
-  'src/generated/slide.ts',
-  'src/generated/forms.ts',
-  'src/generated/pdf.ts',
-  'src/generated/word-methods.ts',
-  'src/generated/cell-methods.ts',
-  'src/generated/slide-methods.ts',
-  'src/generated/pdf-methods.ts',
-  'src/generated/forms-methods.ts',
+// Everything not tied to one editor. Repeated in all five bundles.
+const SHARED_FILES = [
   'src/theme/index.d.ts',
   'src/config/plugin-config.d.ts',
   'src/plugin/events.d.ts',
@@ -61,12 +55,27 @@ const BASE_FILES = [
   'src/services/simple-request.d.ts',
 ];
 
-const EDITOR_FILES = {
+// Editor name -> the namespace its generated sources declare, in the order bundles are written.
+const EDITOR_NAMESPACES = {
+  word: 'Word',
+  cell: 'Cell',
+  slide: 'Slide',
+  pdf: 'Pdf',
+  forms: 'Forms',
+};
+
+// The four editors with a global `Api`. Forms has none: its methods are reached through
+// executeMethod and the `Forms` namespace, and the modular package has no src/editors/forms.d.ts to
+// derive one from - inventing a global that no editor actually exposes would be worse than its
+// absence.
+const EDITOR_API_FILES = {
   word: 'src/editors/word.d.ts',
   cell: 'src/editors/cell.d.ts',
   slide: 'src/editors/slide.d.ts',
   pdf: 'src/editors/pdf.d.ts',
 };
+
+const editorSources = (editor) => [`src/generated/${editor}.ts`, `src/generated/${editor}-methods.ts`];
 
 function stripModuleSyntax(source) {
   return source
@@ -97,7 +106,7 @@ function stripModuleSyntax(source) {
 // `localeTranslate`, ...) rather than importing a common module - deliberate, since as real ES
 // modules those names are file-scoped and importing/exporting them between the 5 files would
 // reintroduce the TS2308 ambiguous-export collisions `generate-plugin-methods.js` was built to
-// avoid. Flattening all 5 files into one global-scope bundle turns those same file-scoped
+// avoid. Flattening those files into one global-scope bundle turns the same file-scoped
 // identically-named identifiers into duplicate GLOBAL ones, which TypeScript rejects - so the
 // bundle keeps only the first copy of each, and only after verifying every later copy is textually
 // identical (a name collision between two genuinely different shapes must fail loudly, not be
@@ -197,20 +206,18 @@ function forceOptional(memberLines, sig) {
   return out;
 }
 
-function dedupeTopLevelDeclarations(source) {
-  const lines = source.split('\n');
+// Walks a flattened source's top-level `interface X { ... }` / `type X = ...;` declarations,
+// yielding each one's name and line range. Brace-depth tracking (rather than stopping at the first
+// closing brace) keeps a declaration whose body contains nested object types in one piece.
+function* eachTopLevelDeclaration(lines) {
   const declRe = /^(?:export\s+)?(?:interface|type)\s+([A-Za-z_$][A-Za-z0-9_$]*)\b/;
-  const seen = new Map();
-  const output = [];
   let i = 0;
   while (i < lines.length) {
     const match = lines[i].match(declRe);
     if (!match) {
-      output.push(lines[i]);
       i += 1;
       continue;
     }
-    const name = match[1];
     let depth = 0;
     let sawBrace = false;
     let j = i;
@@ -222,7 +229,33 @@ function dedupeTopLevelDeclarations(source) {
       const closed = sawBrace ? depth === 0 : /;\s*$/.test(lines[j]);
       if (closed) { j += 1; break; }
     }
-    const block = lines.slice(i, j).join('\n');
+    yield { name: match[1], start: i, end: j };
+    i = j;
+  }
+}
+
+// Every top-level declaration of a source, keyed by name and carrying its own doc comment. This is
+// the pool a per-editor bundle pulls a missing shared typedef out of.
+function collectTopLevelBlocks(source) {
+  const lines = source.split('\n');
+  const blocks = new Map();
+  for (const { name, start, end } of eachTopLevelDeclaration(lines)) {
+    const preceding = lines.slice(0, start);
+    const comment = popTrailingJsDocComment(preceding) || [];
+    blocks.set(name, [...comment, ...lines.slice(start, end)].join('\n'));
+  }
+  return blocks;
+}
+
+function dedupeTopLevelDeclarations(source) {
+  const lines = source.split('\n');
+  const seen = new Map();
+  const output = [];
+  let cursor = 0;
+  for (const { name, start, end } of eachTopLevelDeclaration(lines)) {
+    output.push(...lines.slice(cursor, start));
+    cursor = end;
+    const block = lines.slice(start, end).join('\n');
     const comment = popTrailingJsDocComment(output);
     if (seen.has(name)) {
       const existing = seen.get(name);
@@ -233,8 +266,12 @@ function dedupeTopLevelDeclarations(source) {
         // real word/forms typedef a Pdf method also references, but pdf/api_plugins.js never
         // declares it). Prefer the real declared shape another editor's parse already found.
         const stubRe = new RegExp(`^type ${name} = unknown;$`);
-        if (stubRe.test(existing) && !stubRe.test(block)) { seen.set(name, block); output[output.indexOf(existing)] = block; i = j; continue; }
-        if (stubRe.test(block) && !stubRe.test(existing)) { i = j; continue; }
+        if (stubRe.test(existing) && !stubRe.test(block)) {
+          seen.set(name, block);
+          output[output.indexOf(existing)] = block;
+          continue;
+        }
+        if (stubRe.test(block) && !stubRe.test(existing)) continue;
         const merged = mergeInterfaceBodies(name, existing, block);
         if (merged === null) {
           throw new Error(`Ambient bundle: '${name}' is declared twice with different bodies - cannot flatten into one global scope. First:\n${existing}\n\nSecond:\n${block}`);
@@ -249,8 +286,8 @@ function dedupeTopLevelDeclarations(source) {
       if (comment) output.push(...comment);
       output.push(block);
     }
-    i = j;
   }
+  output.push(...lines.slice(cursor));
   return output.join('\n');
 }
 
@@ -283,27 +320,75 @@ function readStripped(relPath) {
   return stripModuleSyntax(raw);
 }
 
-function buildBaseBundle() {
-  const header = `// AUTO-GENERATED - do not edit by hand. Run \`npm run generate-ambient\` to regenerate.
-// A flattened, non-module ambient bundle of @onlyoffice/plugins-types for tools (e.g. a Monaco
-// editor's addExtraLib()) that want one global-scope .d.ts blob instead of an installable,
-// module-based npm package. Source of truth is still the modular package under src/ - this is a
-// build artifact, not something to hand-edit.
-`;
+function mentionsEditor(text, namespace) {
+  return new RegExp(`\\b${namespace}(?:MethodName|MethodArgs|MethodReturn)\\b|\\b${namespace}\\.`).test(text);
+}
 
-  const indexRaw = fs.readFileSync(path.join(ROOT, 'index.d.ts'), 'utf8');
-  const globalBlock = unwrapDeclareGlobal(indexRaw);
+// AscPlugin types executeMethod, callMethodAsync, attachEditorEvent and detachEditorEvent as an
+// intersection of call signatures - one per editor, one per line, chained with `&` and closed by a
+// `;`. Keeping another editor's signature in a single-editor bundle would drag that editor's whole
+// namespace in with it, so each bundle keeps only its own, plus the editor-independent signatures
+// (executeMethod's CloseWindow/ShowButton/ResizeWindow). A property whose type isn't laid out as a
+// recognizable chain is left exactly as it is rather than guessed at.
+function pruneEditorOverloads(source, keepNamespace) {
+  const others = Object.values(EDITOR_NAMESPACES).filter((ns) => ns !== keepNamespace);
+  const headRe = /^(\s*)([A-Za-z_$][\w$]*\??\s*:\s*)(\(.*\))\s*&\s*$/;
+  const altRe = /^\s*(\(.*\))\s*(&|;)\s*$/;
+  const commentRe = /^\s*(?:\/\*\*|\*|\*\/)/;
 
-  const sections = BASE_FILES.map((relPath) => {
-    const content = readStripped(relPath);
-    return `// ---- ${relPath} ----\n${content}\n`;
-  });
+  const lines = source.split('\n');
+  const out = [];
+  let i = 0;
+  while (i < lines.length) {
+    const head = lines[i].match(headRe);
+    if (!head) {
+      out.push(lines[i]);
+      i += 1;
+      continue;
+    }
+    const [, indent, prefix, firstSignature] = head;
+    // Each alternative is [...its own doc-comment lines, its signature line].
+    const alternatives = [[firstSignature]];
+    let pendingComment = [];
+    let closed = false;
+    let j = i + 1;
+    for (; j < lines.length; j += 1) {
+      const alt = lines[j].match(altRe);
+      if (alt) {
+        alternatives.push([...pendingComment, alt[1]]);
+        pendingComment = [];
+        if (alt[2] === ';') {
+          closed = true;
+          j += 1;
+          break;
+        }
+        continue;
+      }
+      if (commentRe.test(lines[j])) {
+        pendingComment.push(lines[j]);
+        continue;
+      }
+      break;
+    }
+    if (!closed) {
+      out.push(lines[i]);
+      i += 1;
+      continue;
+    }
 
-  const body = applyAmbientRenames(dedupeTopLevelDeclarations(sections.join('\n')));
-  const bundle = [header, body, `// ---- window.Asc / window.AscDesktopEditor / window.AscSimpleRequest ----\n${globalBlock}\n`].join('\n');
-
-  assertNoDomCollisions(bundle);
-  return bundle;
+    const kept = alternatives.filter((alt) => !others.some((ns) => mentionsEditor(alt.join('\n'), ns)));
+    if (kept.length === 0) {
+      throw new Error(`Ambient bundle: pruning '${prefix.trim()}' for ${keepNamespace} left no call signature.`);
+    }
+    kept.forEach((alt, k) => {
+      const signature = alt[alt.length - 1];
+      out.push(...alt.slice(0, -1));
+      const terminator = k === kept.length - 1 ? ';' : ' &';
+      out.push(k === 0 ? `${indent}${prefix}${signature}${terminator}` : `${indent}    ${signature}${terminator}`);
+    });
+    i = j;
+  }
+  return out.join('\n');
 }
 
 function applyAmbientRenames(body) {
@@ -324,10 +409,9 @@ function domGlobalNames() {
   return names;
 }
 
-// A collision is only visible once the bundle is loaded next to the DOM lib, which nothing in this
-// repo's own type-checking does - so without this the next shared name would ship and surface as a
-// TS2687 in a consumer's project instead. Fails the build rather than renaming silently: a new
-// collision needs a human to decide whether it is an accident (rename) or an augmentation (allow).
+// A collision is only visible once the bundle is loaded next to the DOM lib. Fails the build rather
+// than renaming silently: a new collision needs a human to decide whether it is an accident
+// (rename) or an augmentation (allow).
 function assertNoDomCollisions(bundle) {
   const dom = domGlobalNames();
   const clashes = [];
@@ -340,28 +424,160 @@ function assertNoDomCollisions(bundle) {
   }
 }
 
-function buildEditorAddon(editorFile) {
-  const stripped = readStripped(editorFile);
-  // The editor entry point files only ever contain a declare global {} block (the per-editor Api
-  // global) plus type-only re-exports already dropped by stripModuleSyntax - unwrap it directly.
-  return unwrapDeclareGlobal(stripped);
+// Without this, a pruning failure would hide instead of surfacing: if pruneEditorOverloads stopped
+// recognizing a chain (plugin.d.ts reformatted, a new property added in another shape), the leftover
+// signature's `CellMethodName`/`Cell.EditorEventName` would simply come back as an unresolved name
+// and the pull-in step would satisfy it from another editor's sources - a bundle that still compiles
+// and is still wrong, quietly carrying the editor the split was meant to leave out.
+function assertNoOtherEditors(bundle, keepNamespace) {
+  const found = Object.values(EDITOR_NAMESPACES)
+    .filter((ns) => ns !== keepNamespace)
+    .filter((ns) => mentionsEditor(bundle, ns));
+  if (found.length > 0) {
+    throw new Error(`Ambient bundle for ${keepNamespace} still refers to ${found.join(', ')} - pruneEditorOverloads did not recognize a call-signature chain.`);
+  }
+}
+
+// Type-checks a candidate bundle the way a consumer sees it: on its own, next to lib.dom. Nothing
+// else in this repo checks the flattened output, so this is also the correctness gate for the
+// flattening itself - a reference left dangling by pruning surfaces here as TS2304 instead of in
+// somebody's editor. lib.*.d.ts source files are parsed once and reused across the five bundles.
+const libSourceFiles = new Map();
+
+function bundleDiagnostics(bundleText) {
+  const ts = require('typescript');
+  // TypeScript normalizes every path it asks the host about to forward slashes, so the in-memory
+  // file has to be named that way too - `path.join` on Windows produces backslashes, the host's
+  // `name === checkPath` comparisons never match, and the program silently ends up with no source
+  // file at all and no diagnostics to report.
+  const checkPath = `${ROOT.replace(/\\/g, '/')}/__ambient-check.ts`;
+  const options = {
+    noEmit: true,
+    skipLibCheck: true,
+    target: ts.ScriptTarget.ES2020,
+    lib: ['lib.es2020.d.ts', 'lib.dom.d.ts'],
+    types: [],
+  };
+  const host = ts.createCompilerHost(options, true);
+  const readFile = host.readFile.bind(host);
+  const fileExists = host.fileExists.bind(host);
+  const getSourceFile = host.getSourceFile.bind(host);
+  host.readFile = (name) => (name === checkPath ? bundleText : readFile(name));
+  host.fileExists = (name) => name === checkPath || fileExists(name);
+  host.getSourceFile = (name, ...rest) => {
+    if (name === checkPath) return ts.createSourceFile(checkPath, bundleText, ts.ScriptTarget.ES2020, true);
+    if (!libSourceFiles.has(name)) libSourceFiles.set(name, getSourceFile(name, ...rest));
+    return libSourceFiles.get(name);
+  };
+  const program = ts.createProgram([checkPath], options, host);
+  const source = program.getSourceFile(checkPath);
+  // Without this, any future mismatch between the name we hand TypeScript and the one it asks the
+  // host for turns this whole gate into a no-op that reports a clean bundle.
+  if (!source) throw new Error(`Ambient bundle check: TypeScript did not load ${checkPath}.`);
+  return {
+    ts,
+    diagnostics: [...program.getSyntacticDiagnostics(source), ...program.getSemanticDiagnostics(source)],
+  };
+}
+
+// TS2304 "Cannot find name", TS2503 "Cannot find namespace", TS2552 "Cannot find name ... did you
+// mean". The identifier is read back out of the bundle at the diagnostic's own span rather than
+// parsed out of the message, which is localized and reworded between TypeScript releases.
+const UNRESOLVED_NAME_CODES = new Set([2304, 2503, 2552]);
+
+function buildEditorBundle(editor, pool) {
+  const namespace = EDITOR_NAMESPACES[editor];
+  const apiFile = EDITOR_API_FILES[editor];
+  const apiLine = apiFile
+    ? `,\n// plus the global \`Api: ${namespace}.Api\`.`
+    : `.\n// ${namespace} has no global \`Api\` - its methods are called through Asc.plugin.executeMethod.`;
+  const header = `// AUTO-GENERATED - do not edit by hand. Run \`npm run generate-ambient\` to regenerate.
+// Self-contained, non-module ambient bundle of @onlyoffice/plugins-types for the "${editor}" editor,
+// for tools (e.g. a Monaco editor's addExtraLib()) that want one global-scope .d.ts blob instead of
+// an installable, module-based npm package. Declares Asc/AscPlugin and the ${namespace} namespace${apiLine}
+// Load exactly one of the five bundles: they declare the same globals with different types.
+// Source of truth is still the modular package under src/ - this is a build artifact, not something
+// to hand-edit.
+`;
+
+  const globalBlock = unwrapDeclareGlobal(fs.readFileSync(path.join(ROOT, 'index.d.ts'), 'utf8'));
+  const apiBlock = apiFile ? unwrapDeclareGlobal(readStripped(apiFile)) : null;
+
+  const sections = [...editorSources(editor), ...SHARED_FILES].map((relPath) => {
+    const content = relPath === 'src/plugin/plugin.d.ts'
+      ? pruneEditorOverloads(readStripped(relPath), namespace)
+      : readStripped(relPath);
+    return `// ---- ${relPath} ----\n${content}\n`;
+  });
+
+  const pulled = new Map();
+  for (let round = 0; round <= 8; round += 1) {
+    const preamble = pulled.size > 0
+      ? ["// ---- typedefs used by the shared sources, declared in another editor's ----", ...pulled.values(), ''].join('\n')
+      : '';
+    const body = applyAmbientRenames(dedupeTopLevelDeclarations([preamble, ...sections].join('\n')));
+    const tail = [`// ---- window.Asc / window.AscDesktopEditor / window.AscSimpleRequest ----\n${globalBlock}\n`];
+    if (apiBlock) tail.push(`// ---- global Api ----\n${apiBlock}\n`);
+    const bundle = [header, body, ...tail].join('\n');
+
+    const { ts, diagnostics } = bundleDiagnostics(bundle);
+    const missing = new Set(
+      diagnostics
+        .filter((d) => UNRESOLVED_NAME_CODES.has(d.code) && d.start !== undefined)
+        .map((d) => bundle.substr(d.start, d.length)),
+    );
+    if (missing.size === 0) {
+      if (diagnostics.length > 0) {
+        const shown = diagnostics.slice(0, 5)
+          .map((d) => `  TS${d.code}: ${ts.flattenDiagnosticMessageText(d.messageText, ' ')}`)
+          .join('\n');
+        throw new Error(`Ambient bundle for '${editor}' does not type-check (${diagnostics.length} diagnostics):\n${shown}`);
+      }
+      assertNoDomCollisions(bundle);
+      assertNoOtherEditors(bundle, namespace);
+      return { bundle, pulled: [...pulled.keys()] };
+    }
+
+    const unavailable = [...missing].filter((name) => !pool.has(name));
+    if (unavailable.length > 0) {
+      throw new Error(`Ambient bundle for '${editor}' references ${unavailable.join(', ')}, which no editor's generated sources declare.`);
+    }
+    for (const name of missing) pulled.set(name, pool.get(name));
+  }
+  throw new Error(`Ambient bundle for '${editor}': unresolved references keep appearing after 8 rounds of pulling declarations in.`);
+}
+
+// Only the *-methods.ts files, not the namespace ones: a typedef a pruned bundle can still be
+// missing lives at their top level, whereas anything inside `namespace Word { ... }` is reachable
+// only as `Word.X`, and pruning removed every such reference by construction.
+function sharedTypedefPool() {
+  const sources = Object.keys(EDITOR_NAMESPACES)
+    .map((editor) => readStripped(`src/generated/${editor}-methods.ts`))
+    .join('\n');
+  return collectTopLevelBlocks(dedupeTopLevelDeclarations(sources));
 }
 
 function main() {
   fs.mkdirSync(OUT_DIR, { recursive: true });
+  const pool = sharedTypedefPool();
+  const written = new Set();
 
-  fs.writeFileSync(path.join(OUT_DIR, 'onlyoffice-plugins-types.ambient.d.ts'), buildBaseBundle());
-  console.log('Generated dist/ambient/onlyoffice-plugins-types.ambient.d.ts');
+  for (const editor of Object.keys(EDITOR_NAMESPACES)) {
+    const { bundle, pulled } = buildEditorBundle(editor, pool);
+    const fileName = `onlyoffice-plugins-types.${editor}.ambient.d.ts`;
+    fs.writeFileSync(path.join(OUT_DIR, fileName), bundle);
+    written.add(fileName);
+    const extra = pulled.length > 0 ? ` (+${pulled.length} pulled in: ${pulled.join(', ')})` : '';
+    console.log(`Generated dist/ambient/${fileName} - ${(Buffer.byteLength(bundle) / 1048576).toFixed(2)} MB${extra}`);
+  }
 
-  for (const [editorName, editorFile] of Object.entries(EDITOR_FILES)) {
-    const header = `// AUTO-GENERATED - do not edit by hand. Run \`npm run generate-ambient\` to regenerate.
-// Declares the global \`Api\` of the "${editorName}" editor (${editorFile}). Load this AFTER
-// onlyoffice-plugins-types.ambient.d.ts, which declares the namespace it refers to; load exactly one
-// editor addon, since the four declare the same \`Api\` global with a different type.
-`;
-    const outPath = path.join(OUT_DIR, `onlyoffice-plugins-types.${editorName}-api.ambient.d.ts`);
-    fs.writeFileSync(outPath, `${header}\n${buildEditorAddon(editorFile)}\n`);
-    console.log(`Generated dist/ambient/onlyoffice-plugins-types.${editorName}-api.ambient.d.ts`);
+  // The bundles are tracked in git, so a renamed or dropped output would otherwise linger as a
+  // stale file that still looks generated.
+  for (const name of fs.readdirSync(OUT_DIR)) {
+    if (!written.has(name)) {
+      fs.unlinkSync(path.join(OUT_DIR, name));
+      console.log(`Removed stale dist/ambient/${name}`);
+    }
   }
 }
 
