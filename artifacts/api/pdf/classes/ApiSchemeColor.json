@@ -1,4 +1,5 @@
 {
+  "agents": "https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md",
   "description": "Class representing a Scheme Color.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiSchemeColor/",
   "extends": [

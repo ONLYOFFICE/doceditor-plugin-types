@@ -1,4 +1,5 @@
 {
+  "agents": "https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md",
   "description": "Class representing a smart art.",
   "extends": [
     "ApiDrawing"

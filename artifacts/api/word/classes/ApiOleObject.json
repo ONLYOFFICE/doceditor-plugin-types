@@ -1,4 +1,5 @@
 {
+  "agents": "https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md",
   "description": "Class representing an Ole object.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiOleObject/",
   "extends": [

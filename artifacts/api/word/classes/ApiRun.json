@@ -1,4 +1,5 @@
 {
+  "agents": "https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md",
   "description": "Class representing a small text block called 'run'.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRun/",
   "extends": [

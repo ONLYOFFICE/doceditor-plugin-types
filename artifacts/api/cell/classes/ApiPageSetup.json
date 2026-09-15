@@ -1,4 +1,5 @@
 {
+  "agents": "https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md",
   "description": "Class representing the page setup (print layout) of a worksheet.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/",
   "methods": {

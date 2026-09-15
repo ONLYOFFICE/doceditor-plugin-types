@@ -1,4 +1,5 @@
 {
+  "agents": "https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md",
   "description": "Base class",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/",
   "methods": {

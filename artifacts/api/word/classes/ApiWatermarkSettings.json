@@ -1,4 +1,5 @@
 {
+  "agents": "https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md",
   "description": "Class representing the settings which are used to create a watermark.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiWatermarkSettings/",
   "methods": {

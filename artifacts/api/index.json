@@ -1,4 +1,5 @@
 {
+  "agents": "https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md",
   "editors": {
     "cell": {
       "classes": 120,
@@ -40,7 +41,9 @@
     "Load <editor>/index.json for every member name and signature in that editor.",
     "Then read one detail file: <editor>/classes/<Class>.json, or <editor>/classes/<Class>/<Method>.json when the class was sharded.",
     "executeMethod names live in <editor>/executeMethods.json; the plugin runtime (Asc.plugin, config.json) in runtime.json.",
-    "Do not concatenate the tree - it is deliberately split so no single read is large."
+    "Do not concatenate the tree - it is deliberately split so no single read is large.",
+    "Runnable examples are not here - they are in each member's JSDoc in the .d.ts. `requires` marks a member absent from Community Edition builds.",
+    "Read https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md before working from this tree: it is what the \"agents\" field on this file, each editor index, each class file and runtime.json points at."
   ],
   "package": "@onlyoffice/plugins-types",
   "version": "10.0.0"

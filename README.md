@@ -125,6 +125,19 @@ if that matters to you, and read the [changelog](CHANGELOG.md) before moving bet
 versions. Each release records the exact editor commit it was generated from; that record lives in
 the [repository](https://github.com/ONLYOFFICE/plugins-types), not in the published package.
 
+## For AI agents
+
+[AGENTS.md](AGENTS.md) is the guide: the runtime's three channels and what confuses them, how to
+look a member up without guessing, how to check plugin code you wrote against a compiler, and which
+211 members need a paid edition. It ships inside the npm package, so an installed copy has it at
+`node_modules/@onlyoffice/plugins-types/AGENTS.md`.
+
+Two things it points to live in this repository rather than the package, and are fetched by URL:
+`artifacts/api/` (the same API surface as JSON, split so no single read is large) and
+`artifacts/ambient/` (one flattened global-scope `.d.ts` per editor, for tools that take a single
+blob). The indexes, class files and bundles carry a link back to the guide, so a file fetched on
+its own says where the instructions are.
+
 ## Contributing / how the types are generated
 
 Almost nothing here is written by hand - the editor types are generated from the ONLYOFFICE editor

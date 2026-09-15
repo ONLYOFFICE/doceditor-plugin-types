@@ -39,6 +39,19 @@ function sortKeysDeep(value) {
   return value;
 }
 
+// This tree is not in the npm package, so it is normally reached by a raw.githubusercontent fetch of
+// one deep file - arriving with no way to learn that a guide exists, that `requires` marks a
+// Developer Edition member, or that the runnable examples are in the .d.ts rather than here. Files
+// whose root is a fixed-key container therefore carry a pointer back to the guide.
+//
+// NOT every file: `typedefs.json`, `events.json`, `executeMethods.json` and the per-method shards
+// are maps keyed by member name, where an extra key reads as another member. Adding one there put a
+// method called `agents` in word/executeMethods.json and shifted every count in the compact index by
+// one, because buildEditorIndex counts what was written. Those files are only ever reached through
+// the editor index, which does carry the pointer.
+const AGENTS_GUIDE = 'https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md';
+const withGuide = (value) => ({ agents: AGENTS_GUIDE, ...value });
+
 function writeJson(file, value) {
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, `${JSON.stringify(sortKeysDeep(value), null, 2)}\n`);
@@ -148,16 +161,18 @@ function rebuildRootIndex() {
     }
   }
 
-  writeJson(path.join(API_DIR, 'index.json'), {
+  writeJson(path.join(API_DIR, 'index.json'), withGuide({
     ...packageMeta(),
     howToUse: [
       'Load <editor>/index.json for every member name and signature in that editor.',
       'Then read one detail file: <editor>/classes/<Class>.json, or <editor>/classes/<Class>/<Method>.json when the class was sharded.',
       'executeMethod names live in <editor>/executeMethods.json; the plugin runtime (Asc.plugin, config.json) in runtime.json.',
       'Do not concatenate the tree - it is deliberately split so no single read is large.',
+      'Runnable examples are not here - they are in each member\'s JSDoc in the .d.ts. `requires` marks a member absent from Community Edition builds.',
+      `Read ${AGENTS_GUIDE} before working from this tree: it is what the "agents" field on this file, each editor index, each class file and runtime.json points at.`,
     ],
     editors,
-  });
+  }));
 }
 
 function writeClasses(editorDir, classes) {
@@ -167,16 +182,16 @@ function writeClasses(editorDir, classes) {
   for (const [name, data] of Object.entries(classes)) {
     const asOneFile = `${JSON.stringify(sortKeysDeep(data), null, 2)}\n`;
     if (Buffer.byteLength(asOneFile) <= SHARD_THRESHOLD_BYTES) {
-      writeJson(path.join(classesDir, `${name}.json`), data);
+      writeJson(path.join(classesDir, `${name}.json`), withGuide(data));
       continue;
     }
     // Sharded: the class's own prose goes to _class.json, each method to its own file.
     const { methods = {}, ...classOwn } = data;
-    writeJson(path.join(classesDir, name, '_class.json'), {
+    writeJson(path.join(classesDir, name, '_class.json'), withGuide({
       ...classOwn,
       sharded: true,
       methodCount: Object.keys(methods).length,
-    });
+    }));
     for (const [method, m] of Object.entries(methods)) {
       writeJson(path.join(classesDir, name, `${method}.json`), m);
     }
@@ -192,14 +207,14 @@ function mergeApiIndex(editor, sections) {
     writeJson(path.join(editorDir, `${key}.json`), sections[key]);
   }
 
-  writeJson(path.join(editorDir, 'index.json'), buildEditorIndex(editorDir));
+  writeJson(path.join(editorDir, 'index.json'), withGuide(buildEditorIndex(editorDir)));
   rebuildRootIndex();
 }
 
 // The plugin runtime surface (Asc.plugin, config.json, the services bridge) is not per-editor, so it
 // sits beside the editor directories rather than inside one.
 function mergeRuntimeIndex(sections) {
-  writeJson(path.join(API_DIR, 'runtime.json'), sections);
+  writeJson(path.join(API_DIR, 'runtime.json'), withGuide(sections));
   rebuildRootIndex();
 }
 

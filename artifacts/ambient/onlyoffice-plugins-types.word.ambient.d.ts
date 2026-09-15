@@ -6,6 +6,9 @@
 // Load exactly one of the five bundles: they declare the same globals with different types.
 // Source of truth is still the modular package under src/ - this is a build artifact, not something
 // to hand-edit.
+//
+// Reached by URL rather than through the npm package, so: the guide for working with these types is
+// https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md
 
 
 // ---- src/generated/word.ts ----

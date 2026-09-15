@@ -1,3 +1,4 @@
 {
+  "agents": "https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md",
   "description": "Class representing a drop cap. A drop cap is a large initial letter that is split off from a paragraph into a\nseparate framed paragraph."
 }

@@ -1,4 +1,5 @@
 {
+  "agents": "https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md",
   "classes": {
     "Api": {
       "AddComment": "AddComment(sText: string, sAuthor?: string): ApiComment | null",

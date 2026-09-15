@@ -1,4 +1,5 @@
 {
+  "agents": "https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md",
   "description": "Represents a color that can be applied to text.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiColor/",
   "methods": {

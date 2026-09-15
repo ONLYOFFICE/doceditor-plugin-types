@@ -28,6 +28,10 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..');
 const OUT_DIR = path.join(ROOT, 'artifacts', 'ambient');
 
+// These bundles are not in the npm package; whoever loads one fetched it by URL and has nothing
+// else of this repository in hand. The same pointer api-index.js puts in every JSON file.
+const AGENTS_GUIDE = 'https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md';
+
 // Flattening to global scope puts every declaration in the same namespace as the DOM lib, where a
 // name we share with it stops being a separate type and becomes a declaration *merge*. That is fine
 // when the shapes agree and fatal when they don't: sdkjs's `ImageData` typedef (a base64 image with
@@ -500,6 +504,9 @@ function buildEditorBundle(editor, pool) {
 // Load exactly one of the five bundles: they declare the same globals with different types.
 // Source of truth is still the modular package under src/ - this is a build artifact, not something
 // to hand-edit.
+//
+// Reached by URL rather than through the npm package, so: the guide for working with these types is
+// ${AGENTS_GUIDE}
 `;
 
   const globalBlock = unwrapDeclareGlobal(fs.readFileSync(path.join(ROOT, 'index.d.ts'), 'utf8'));
