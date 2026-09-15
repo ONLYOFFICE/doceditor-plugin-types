@@ -14,6 +14,13 @@ building on it: everything listed under `9.5.0` ships here, regenerated against 
 
 ### Added
 
+- `npm run check-package` guards what `npm publish` would actually ship - the one hand-written fact
+  with no check behind it, and the only one invisible in a checkout, since the repository holds the
+  files either way. It runs `npm pack --dry-run` and rejects a published path outside the package's
+  declared shape, a deliberately excluded one that came back, a `files` entry matching nothing, an
+  `.npmignore` (which overrides `files` wholesale), and an `exports`/`typesVersions` subpath pointing
+  at a file the tarball does not contain. The last of those is what prompted it: dropping `dist/api`
+  left `exports["./api/*"]` resolving to nothing, which nobody would have hit before an install.
 - The machine-readable index carries prose and signatures but no runnable examples, which halves it:
   9.1 MB to 4.7 MB, and the package from 18.1 MB to 13.5 MB. The examples were the same text already
   present in every member's JSDoc, so `dist/api` was shipping 4.5 MB of it a second time in a second
@@ -54,6 +61,13 @@ building on it: everything listed under `9.5.0` ships here, regenerated against 
 
 - Regenerated against sdkjs `v10.0.0.79`, which adds `Word.SetRangeHtml` (Developer Edition only)
   and extends `Cell.Api.Intersect`. The paid surface is 211 members.
+- `dist/api/` is no longer in the npm package, and `exports["./api/*"]` is gone with it. At 4.70 MB
+  it was 37% of the install for a surface only an agent reads, and an agent that reaches for it can
+  fetch it from raw.githubusercontent.com, where it stays tracked in git - while everyone installing
+  the package for editor completion carried it for nothing. The package is now 35 files, 0.99 MB
+  packed and 8.13 MB unpacked, down from 1201 files, 1.49 MB and 12.83 MB. Consumers who were
+  importing `@onlyoffice/plugins-types/api/<path>` must switch to the raw URL; nothing else moves,
+  and the same facts remain in each member's JSDoc for an agent working offline.
 - `dist/ambient/` is now five self-contained per-editor bundles -
   `onlyoffice-plugins-types.{word,cell,slide,pdf,forms}.ambient.d.ts`, 0.54-2.49 MB each - instead of
   one 7.98 MB bundle plus four ~10-line `Api` addons. Load exactly one; nothing goes alongside it.

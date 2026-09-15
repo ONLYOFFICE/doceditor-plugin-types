@@ -50,13 +50,17 @@ three channels, and confusing them is the most common source of broken plugin co
 
 ### Looking up the API without guessing
 
-- `dist/api/` (npm: `@onlyoffice/plugins-types/api/<path>`; raw:
-  `https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/master/dist/api/<path>`) — every
-  class/method/typedef/event/executeMethod with signature, markdown description, parameter list,
-  return type, `since` version and a verified `docsUrl`. Search this before inventing a method name;
-  if a member isn't there, it isn't public API. **Runnable examples are not here** — they are in the
-  JSDoc of the corresponding member in the `.d.ts`, and every member that has one also has a
+- `dist/api/` (`https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/master/dist/api/<path>`)
+  — every class/method/typedef/event/executeMethod with signature, markdown description, parameter
+  list, return type, `since` version and a verified `docsUrl`. Search this before inventing a method
+  name; if a member isn't there, it isn't public API. **Runnable examples are not here** — they are
+  in the JSDoc of the corresponding member in the `.d.ts`, and every member that has one also has a
   `docsUrl`; carrying them in both places duplicated 4.5 MB of identical text.
+
+  It lives in git, **not in the npm package** — at 4.70 MB it was 37% of an install that most
+  consumers make for editor completion alone. If you have no network, fall back to the `.d.ts`: the
+  same facts are in each member's JSDoc (`@since`, `@see`, `@requires` for paid members), and
+  `<Editor>PaidMethodName` types the paid `executeMethod` names.
 
   **It is a tree, split so that no single read is large. Read it in two steps, and do not
   concatenate it** — the whole point of the layout is that you never load more than you need:
@@ -137,6 +141,7 @@ npm run check-plugin-events  # plugin-window event map vs sdkjs event sources (S
 npm run validate-schema  # schemas/config.schema.json vs every real config.json (skips outside the monorepo)
 npm run check-arity      # parameter-optionality corrections vs the documented examples (DOCS_PATH)
 npm run check-structure  # CONTRIBUTING.md's file tree vs what is on disk
+npm run check-package    # what `npm publish` would ship, and that every exports subpath resolves in it
 npm run generate         # regenerate src/generated from sdkjs + rebuild dist/api
                          # (postgenerate also regenerates executeMethod types and dist/ambient)
 ```

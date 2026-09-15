@@ -230,7 +230,15 @@ after regenerating against a new sdkjs release.
 The same applies to the file tree at the end of this document: `npm run check-structure` compares it
 against disk in both directions, for the directories meant to be listed file by file. It was added
 after the tree was found listing 8 of 15 scripts - three of them missing long before the module split
-that finally exposed it. An unguarded hand-written fact drifts silently; that was the last one.
+that finally exposed it. An unguarded hand-written fact drifts silently.
+
+`npm run check-package` does the same for the one fact that is invisible in a checkout: what
+`npm publish` would actually ship. It runs `npm pack --dry-run` and rejects anything outside the
+package's declared shape (a new directory under `src/` publishes itself the moment it exists),
+anything deliberately excluded that came back, a `files` entry matching nothing, an `.npmignore`
+(which would override `files` wholesale), and - the one that prompted it - an `exports` or
+`typesVersions` subpath resolving to a file the tarball does not contain. That last failure is
+otherwise invisible until someone installs the package: the repository has the file either way.
 
 Two limits are deliberate. The evidence is taken only from the member's **own** page, never from
 sibling pages of the same class: a call is matched as plain text, so `.GetRange()` in a sibling example
@@ -437,9 +445,10 @@ Sharding is a threshold rule rather than a special case: most classes are tiny (
 few - `ApiWorksheetFunction` is the Excel formula library with 416 members - would otherwise be a
 single 100k-token read and reintroduce exactly the problem the split exists to solve.
 
-Three ways to get it: read it from an installed copy of the package
-(`@onlyoffice/plugins-types/api/<path>` - `dist/api` is in the published `files`), fetch the
-git-tracked files from raw.githubusercontent.com, or regenerate locally with `npm run generate`.
+Two ways to get it: fetch the git-tracked files from raw.githubusercontent.com, or regenerate
+locally with `npm run generate`. It is deliberately not in the npm package - at 4.70 MB it was 37%
+of the install for something only an agent reads, and an agent reaching for it can fetch it over
+HTTP, while everyone installing the package for editor completion carried it for nothing.
 Written by `generate-types.js` (object model + events), `generate-plugin-methods.js` (executeMethod
 surface) and `generate-runtime-index.js` (`runtime.json`); each replaces its own section wholesale,
 so removed members disappear instead of going stale.
@@ -518,6 +527,7 @@ onlyoffice-types/
 │   ├── check-plugin-events.js
 │   ├── check-arity.js
 │   ├── check-structure.js         # this tree against what is actually on disk
+│   ├── check-package-contents.js  # what `npm publish` would ship, and that exports resolve in it
 │   └── validate-config-schema.js
 ├── tsconfig.json           # builds/typechecks the library itself
 ├── tsconfig.typecheck.json # editor-agnostic test program (example.js + runtime tests)

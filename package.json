@@ -33,7 +33,6 @@
       "types": "./src/services/index.d.ts"
     },
     "./config/schema.json": "./schemas/config.schema.json",
-    "./api/*": "./dist/api/*",
     "./package.json": "./package.json"
   },
   "typesVersions": {
@@ -68,7 +67,6 @@
     "index.d.ts",
     "src",
     "schemas",
-    "dist/api",
     "README.md",
     "LICENSE",
     "CHANGELOG.md",
@@ -129,7 +127,8 @@
     "test:slide": "tsc --noEmit -p tsconfig.test.slide.json",
     "test:pdf": "tsc --noEmit -p tsconfig.test.pdf.json",
     "check-arity": "node scripts/check-arity.js",
-    "check-structure": "node scripts/check-structure.js"
+    "check-structure": "node scripts/check-structure.js",
+    "check-package": "node scripts/check-package-contents.js"
   },
   "peerDependencies": {
     "typescript": ">=5.0.0"
