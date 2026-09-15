@@ -61,6 +61,12 @@ building on it: everything listed under `9.5.0` ships here, regenerated against 
 
 - Regenerated against sdkjs `v10.0.0.79`, which adds `Word.SetRangeHtml` (Developer Edition only)
   and extends `Cell.Api.Intersect`. The paid surface is 211 members.
+- Every raw.githubusercontent.com link into this repository now points at `main` rather than `master`
+  - the config schema's `$id`, the `$schema` line README tells plugin authors to copy, and the
+  `dist/api` / `dist/ambient` locations AGENTS.md gives. They had been written for a branch this
+  repository does not have, which nothing would have caught: the files resolve locally either way,
+  and `dist/api` and `dist/ambient` are reachable only over those links now that neither ships on
+  npm.
 - `dist/api/` is no longer in the npm package, and `exports["./api/*"]` is gone with it. At 4.70 MB
   it was 37% of the install for a surface only an agent reads, and an agent that reaches for it can
   fetch it from raw.githubusercontent.com, where it stays tracked in git - while everyone installing

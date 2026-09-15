@@ -92,7 +92,7 @@ window.Asc.plugin.attachEditorEvent("onParagraphAdd", (data) => {
 
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/master/schemas/config.schema.json",
+  "$schema": "https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/schemas/config.schema.json",
   "name": "My Plugin"
 }
 ```

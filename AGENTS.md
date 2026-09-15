@@ -50,7 +50,7 @@ three channels, and confusing them is the most common source of broken plugin co
 
 ### Looking up the API without guessing
 
-- `dist/api/` (`https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/master/dist/api/<path>`)
+- `dist/api/` (`https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/dist/api/<path>`)
   — every class/method/typedef/event/executeMethod with signature, markdown description, parameter
   list, return type, `since` version and a verified `docsUrl`. Search this before inventing a method
   name; if a member isn't there, it isn't public API. **Runnable examples are not here** — they are
@@ -98,7 +98,7 @@ three channels, and confusing them is the most common source of broken plugin co
   different types. Written for editors that take a single global-scope blob (a Monaco
   `addExtraLib()`), and useful here for a different reason - see below. Not shipped in the npm
   package (those consumers take the modular sources instead) - fetch from git:
-  `https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/master/dist/ambient/<file>`.
+  `https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/dist/ambient/<file>`.
 
 ### Checking the plugin code you just wrote
 
