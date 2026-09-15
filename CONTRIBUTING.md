@@ -5,7 +5,7 @@ guards, how to read the machine-readable index, and where everything lives. For 
 in a plugin see [README.md](README.md); [AGENTS.md](AGENTS.md) is the condensed version for coding
 agents.
 
-Almost nothing here is written by hand. `src/generated/`, `dist/` and `schemas/` are produced from the
+Almost nothing here is written by hand. `src/generated/`, `artifacts/` and `schemas/` are produced from the
 ONLYOFFICE editor sources; only `src/plugin/`, `src/config/`, `src/services/` and `src/overrides/` are
 authored directly. Regenerating needs local checkouts of those editor sources, which are not publicly
 available - if you have access, the clone, tag and release procedure is in the team's internal notes.
@@ -112,7 +112,7 @@ Everything in that block comes from the sources above, not from hand-written pro
   and so does this generator - substituting it is what makes the link derive from sdkjs rather than
   from the snapshot, which is why PDF has documentation links at all.
 
-Examples are emitted in full and uncapped - into the declarations only. `dist/api/` deliberately
+Examples are emitted in full and uncapped - into the declarations only. `artifacts/api/` deliberately
 carries none: it would be the same text a second time, 4.5 MB and 45% of the tree, and every member
 with an example also has a `docsUrl`.
 Dropping them from the declarations was tried and reverted: the case for it was that they are ~47%
@@ -138,7 +138,7 @@ It contributes on three levels, all of them read directly by the generators:
 | object model | `js-api/<editor>/*.js` | 191 methods, ~30 classes |
 | runtime behaviour | `common/apiBase.js` | the GroupActions machinery |
 
-Members carry `@requires`, the tag reaches `dist/api/` as a structured `requires` field, and each
+Members carry `@requires`, the tag reaches `artifacts/api/` as a structured `requires` field, and each
 editor's compact index lists them outright. What follows is what the marking does *not* cover, and why.
 
 Two traps, both of which produced real bugs. ext has a `common/apiBase_plugins.js` of its own that is
@@ -346,18 +346,18 @@ format tools that don't install npm packages expect, such as a Monaco editor's `
 same mechanism used by the ONLYOFFICE plugin playground for its `Api.*` autocomplete). It also runs
 automatically as a `postgenerate` step whenever `npm run generate` regenerates the types from
 `sdkjs`, so the bundles can't silently go stale relative to the modular package. They are written to
-`dist/ambient/` - tracked in git (unlike the rest of `dist/`) so the generated files themselves are
+`artifacts/ambient/` - tracked in git, like everything under `artifacts/`, so the generated files are
 directly linkable/reviewable, but excluded from the npm package (`package.json`'s `files`) since npm
 consumers get the modular package instead:
 
 ```text
-dist/ambient/onlyoffice-plugins-types.word.ambient.d.ts   # 2.49 MB - Asc/AscPlugin/events/buttons/
+artifacts/ambient/onlyoffice-plugins-types.word.ambient.d.ts   # 2.49 MB - Asc/AscPlugin/events/buttons/
                                                           # config/theme/services + namespace Word
                                                           # + a global `Api: Word.Api`
-dist/ambient/onlyoffice-plugins-types.cell.ambient.d.ts   # 2.42 MB - ...same, for Cell
-dist/ambient/onlyoffice-plugins-types.slide.ambient.d.ts  # 1.43 MB - ...same, for Slide
-dist/ambient/onlyoffice-plugins-types.pdf.ambient.d.ts    # 1.37 MB - ...same, for Pdf
-dist/ambient/onlyoffice-plugins-types.forms.ambient.d.ts  # 0.54 MB - ...same, for Forms, minus the
+artifacts/ambient/onlyoffice-plugins-types.cell.ambient.d.ts   # 2.42 MB - ...same, for Cell
+artifacts/ambient/onlyoffice-plugins-types.slide.ambient.d.ts  # 1.43 MB - ...same, for Slide
+artifacts/ambient/onlyoffice-plugins-types.pdf.ambient.d.ts    # 1.37 MB - ...same, for Pdf
+artifacts/ambient/onlyoffice-plugins-types.forms.ambient.d.ts  # 0.54 MB - ...same, for Forms, minus the
                                                           # global `Api` (Forms has none: its
                                                           # methods go through executeMethod)
 ```
@@ -410,7 +410,7 @@ be a breaking change for consumers importing the type, to fix a problem they don
 
 ## Machine-readable index (AI agents, search, RAG)
 
-`dist/api/` is the same API surface as the `.d.ts` files - every class, method, typedef, editor event
+`artifacts/api/` is the same API surface as the `.d.ts` files - every class, method, typedef, editor event
 and `executeMethod` - but as JSON for tools that don't parse TypeScript. Each entry carries its
 signature, markdown description, parameter list, return type, runnable `examples`, `since` version
 and the verified `docsUrl` (derived from the sources, never guessed):
@@ -440,19 +440,19 @@ and carries each member's real declared signature plus its JSDoc:
 
 ### Why it is a tree and not one file
 
-It used to be a single `dist/api-index.json`. That file reached **6.3 MB / ~1.6M tokens** - about
+It used to be a single `artifacts/api-index.json`. That file reached **6.3 MB / ~1.6M tokens** - about
 eight times a typical model context - so the one consumer it was built for could not read it at all,
 only grep fragments out of pretty-printed JSON. The layout is now sized for how an agent actually
 works: load a small index, then read exactly one detail file.
 
 ```text
-dist/api/index.json                     manifest: editors, counts, navigation (~1 KB)
-dist/api/<editor>/index.json            every member name -> signature (7k-41k tokens)
-dist/api/<editor>/classes/<Class>.json  full detail for one class
-dist/api/<editor>/classes/<Class>/      ...sharded per method when a class exceeds 80 KB,
+artifacts/api/index.json                     manifest: editors, counts, navigation (~1 KB)
+artifacts/api/<editor>/index.json            every member name -> signature (7k-41k tokens)
+artifacts/api/<editor>/classes/<Class>.json  full detail for one class
+artifacts/api/<editor>/classes/<Class>/      ...sharded per method when a class exceeds 80 KB,
                                         with the class's own prose in _class.json
-dist/api/<editor>/{typedefs,events,executeMethods}.json
-dist/api/runtime.json                   AscPlugin/config/services
+artifacts/api/<editor>/{typedefs,events,executeMethods}.json
+artifacts/api/runtime.json                   AscPlugin/config/services
 ```
 
 Sharding is a threshold rule rather than a special case: most classes are tiny (median 1.6 KB), but a
@@ -472,7 +472,7 @@ than sdkjs - via the TypeScript compiler API, so the published signature is the 
 authored (`callCommand`'s serializability constraint, `executeMethod`'s overload chain) rather than
 a re-transcription of sdkjs's looser `@param {Function}` JSDoc. Because its inputs are hand-written
 files that change without a regeneration, it needs no `SDKJS_PATH` and has its own drift guard:
-`npm run check-runtime-index` regenerates and fails if the checked-in `dist/api/` differs.
+`npm run check-runtime-index` regenerates and fails if the checked-in `artifacts/api/` differs.
 Run it after editing anything under `src/plugin/`, `src/config/` or `src/services/`. `AGENTS.md` in this directory condenses the
 plugin-authoring contract (`callCommand` serialization, `Asc.scope`, the three channels) plus these
 lookup pointers for coding agents.
@@ -522,16 +522,16 @@ onlyoffice-types/
 │       └── index.d.ts           # re-exports both - the /services entry point
 ├── schemas/
 │   └── config.schema.json
-├── dist/                  # tracked in git: directly linkable build artifacts
+├── artifacts/             # generated, tracked in git, NOT published to npm - fetched over raw.githubusercontent
 │   ├── api/                # machine-readable API tree (compact indexes + per-class detail) for agents/RAG
 │   └── ambient/            # five self-contained no-import .d.ts bundles, one per editor (Monaco etc.)
 ├── scripts/                   # generators, the modules they share, and the drift checkers
 │   ├── generate-types.js          # Api object model generator (src/generated/{word,cell,slide,pdf,forms}.ts)
 │   ├── generate-plugin-methods.js # executeMethod surface generator (src/generated/*-methods.ts)
-│   ├── generate-runtime-index.js  # dist/api/runtime.json from this package's own declarations
+│   ├── generate-runtime-index.js  # artifacts/api/runtime.json from this package's own declarations
 │   ├── generate-ambient-bundle.js # flattened no-import bundle for Monaco-style tooling
 │   ├── generate-config-schema.js  # schemas/config.schema.json from src/config
-│   ├── api-index.js               # writer for the dist/api tree (splitting + sharding)
+│   ├── api-index.js               # writer for the artifacts/api tree (splitting + sharding)
 │   ├── resolve-paths.js           # one SOURCES table: every checkout path and env var
 │   ├── render-jsdoc.js            # doclet -> the JSDoc block that ships in the .d.ts
 │   ├── provenance.js              # git metadata, file hashes, the release-tag gate

@@ -1,4 +1,4 @@
-// Indexes the *plugin runtime* half of the API into dist/api/runtime.json.
+// Indexes the *plugin runtime* half of the API into artifacts/api/runtime.json.
 //
 // The other generators index what you can do INSIDE a `callCommand` body - the editor object model,
 // per-editor `executeMethod` names, editor events. None of them cover how you write a plugin in the
@@ -130,7 +130,7 @@ function main() {
   }
 
   mergeRuntimeIndex(sections);
-  console.log(`Wrote dist/api/runtime.json (${totalTypes} types)`);
+  console.log(`Wrote artifacts/api/runtime.json (${totalTypes} types)`);
 }
 
 main();

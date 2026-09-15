@@ -152,7 +152,7 @@ function renderJsDoc(doc, indent) {
   // itself ships `lib.dom.d.ts` at 1.8 MB in every install, so declarations of this size are
   // unremarkable. And the "unreadable in a tooltip" case is 5 members out of 2712 (18 exceed 2 KB,
   // median 492 B) - not worth a size threshold that would split members into documented and
-  // undocumented by an arbitrary rule. `dist/api/` keeps its own copy for consumers reading JSON.
+  // undocumented by an arbitrary rule. `artifacts/api/` keeps its own copy for consumers reading JSON.
   for (const example of examples) {
     blocks.push(['@example', '```js', ...example.split('\n').map((line) => line.trimEnd()), '```']);
   }

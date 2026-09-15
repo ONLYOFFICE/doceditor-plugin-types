@@ -4,7 +4,7 @@
 // unwrapped into plain top-level declarations instead.
 //
 // Produces one self-contained bundle per editor:
-//   dist/ambient/onlyoffice-plugins-types.<editor>.ambient.d.ts
+//   artifacts/ambient/onlyoffice-plugins-types.<editor>.ambient.d.ts
 //
 // Each one carries Asc/AscPlugin/events/buttons/config/theme/services, that single editor's
 // namespace and executeMethod types, and - for the four editors that have one - a global `Api`.
@@ -26,7 +26,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
-const OUT_DIR = path.join(ROOT, 'dist', 'ambient');
+const OUT_DIR = path.join(ROOT, 'artifacts', 'ambient');
 
 // Flattening to global scope puts every declaration in the same namespace as the DOM lib, where a
 // name we share with it stops being a separate type and becomes a declaration *merge*. That is fine
@@ -572,7 +572,7 @@ function main() {
     fs.writeFileSync(path.join(OUT_DIR, fileName), bundle);
     written.add(fileName);
     const extra = pulled.length > 0 ? ` (+${pulled.length} pulled in: ${pulled.join(', ')})` : '';
-    console.log(`Generated dist/ambient/${fileName} - ${(Buffer.byteLength(bundle) / 1048576).toFixed(2)} MB${extra}`);
+    console.log(`Generated artifacts/ambient/${fileName} - ${(Buffer.byteLength(bundle) / 1048576).toFixed(2)} MB${extra}`);
   }
 
   // The bundles are tracked in git, so a renamed or dropped output would otherwise linger as a
@@ -580,7 +580,7 @@ function main() {
   for (const name of fs.readdirSync(OUT_DIR)) {
     if (!written.has(name)) {
       fs.unlinkSync(path.join(OUT_DIR, name));
-      console.log(`Removed stale dist/ambient/${name}`);
+      console.log(`Removed stale artifacts/ambient/${name}`);
     }
   }
 }

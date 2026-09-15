@@ -26,16 +26,16 @@ building on it: everything listed under `9.5.0` ships here, regenerated against 
   files either way. It runs `npm pack --dry-run` and rejects a published path outside the package's
   declared shape, a deliberately excluded one that came back, a `files` entry matching nothing, an
   `.npmignore` (which overrides `files` wholesale), and an `exports`/`typesVersions` subpath pointing
-  at a file the tarball does not contain. The last of those is what prompted it: dropping `dist/api`
+  at a file the tarball does not contain. The last of those is what prompted it: dropping `artifacts/api`
   left `exports["./api/*"]` resolving to nothing, which nobody would have hit before an install.
 - The machine-readable index carries prose and signatures but no runnable examples, which halves it:
   9.1 MB to 4.7 MB, and the package from 18.1 MB to 13.5 MB. The examples were the same text already
-  present in every member's JSDoc, so `dist/api` was shipping 4.5 MB of it a second time in a second
+  present in every member's JSDoc, so `artifacts/api` was shipping 4.5 MB of it a second time in a second
   representation - 45% of the tree. Every member with an example also carries a `docsUrl` (5938 of
   5938), and a consumer reading the index has the declarations beside it, so nothing became
   unreachable. A side effect: with the class files that much smaller, only three classes still exceed
   the 80 KB per-method sharding threshold, down from dozens.
-- `dist/api/<editor>/index.json` lists `paidMethods` - every object-model member that needs a paid
+- `artifacts/api/<editor>/index.json` lists `paidMethods` - every object-model member that needs a paid
   edition, as `Class.method`. The executeMethod half was already there as `paidExecuteMethods`, but
   the object model is by far the larger one (Cell's table and sort classes alone are ~100 members),
   so a reader holding only the compact index could see `ApiListObject.GetRange` with no hint that the
@@ -75,20 +75,27 @@ building on it: everything listed under `9.5.0` ships here, regenerated against 
 
 - Regenerated against sdkjs `v10.0.0.79`, which adds `Word.SetRangeHtml` (Developer Edition only)
   and extends `Cell.Api.Intersect`. The paid surface is 211 members.
+- `dist/` is now `artifacts/`. The name said "what gets distributed" while describing the one part
+  of the repository that npm never sees: not a byte of it is in the tarball, and it is reachable
+  only over raw.githubusercontent.com. The mismatch was mild while `dist/api` was still in `files`
+  and total once it was removed. Anyone consuming `dist/api/...` or `dist/ambient/...` by URL
+  changes the path; this is the moment for it, before the public repository exists and the old URLs
+  are anywhere. `dist/` is now free for its conventional meaning - `tsconfig.json`'s `outDir` points
+  there, nothing emits into it, and it is gitignored.
 - Every raw.githubusercontent.com link into this repository now points at `main` rather than `master`
   - the config schema's `$id`, the `$schema` line README tells plugin authors to copy, and the
-  `dist/api` / `dist/ambient` locations AGENTS.md gives. They had been written for a branch this
+  `artifacts/api` / `artifacts/ambient` locations AGENTS.md gives. They had been written for a branch this
   repository does not have, which nothing would have caught: the files resolve locally either way,
-  and `dist/api` and `dist/ambient` are reachable only over those links now that neither ships on
+  and `artifacts/api` and `artifacts/ambient` are reachable only over those links now that neither ships on
   npm.
-- `dist/api/` is no longer in the npm package, and `exports["./api/*"]` is gone with it. At 4.70 MB
+- `artifacts/api/` is no longer in the npm package, and `exports["./api/*"]` is gone with it. At 4.70 MB
   it was 37% of the install for a surface only an agent reads, and an agent that reaches for it can
   fetch it from raw.githubusercontent.com, where it stays tracked in git - while everyone installing
   the package for editor completion carried it for nothing. The package is now 35 files, 0.99 MB
   packed and 8.13 MB unpacked, down from 1201 files, 1.49 MB and 12.83 MB. Consumers who were
   importing `@onlyoffice/plugins-types/api/<path>` must switch to the raw URL; nothing else moves,
   and the same facts remain in each member's JSDoc for an agent working offline.
-- `dist/ambient/` is now five self-contained per-editor bundles -
+- `artifacts/ambient/` is now five self-contained per-editor bundles -
   `onlyoffice-plugins-types.{word,cell,slide,pdf,forms}.ambient.d.ts`, 0.54-2.49 MB each - instead of
   one 7.98 MB bundle plus four ~10-line `Api` addons. Load exactly one; nothing goes alongside it.
   The old layout made a consumer parse all five editor namespaces to use one: a word consumer loaded

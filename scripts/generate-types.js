@@ -123,7 +123,7 @@ function docsMethodFile(docsRoot, editor, className, methodName) {
 
 // Examples are appended to the description as fenced blocks rather than carried in their own field,
 // because that is what `splitDescription` already lifts into `@example` for the declarations and
-// into `examples` for dist/api - one representation, both consumers.
+// into `examples` for artifacts/api - one representation, both consumers.
 function applyDocsExamples(classes, editor, docsRoot) {
   let applied = 0;
   for (const [className, classData] of Object.entries(classes)) {
@@ -721,7 +721,7 @@ function methodSignature(name, method) {
 
 // Prose only. The runnable snippets are deliberately dropped here: they are already in the JSDoc of
 // every generated member, so carrying them in the index too shipped the same 4.5 MB of text twice in
-// two representations - 45% of `dist/api` for nothing. Every member that has an example also has a
+// two representations - 45% of `artifacts/api` for nothing. Every member that has an example also has a
 // `docsUrl` (5938 of 5938 measured), and a consumer reading the index has the `.d.ts` beside it, so
 // nothing becomes unreachable.
 function proseFields(description) {
@@ -745,7 +745,7 @@ function buildApiIndexSection(classes, typedefs, events) {
         ...(method.since ? { since: method.since } : {}),
         // Carried through so a licence filter is one field lookup, the same as on the
         // executeMethod surface - without it the tag existed only in the .d.ts and an agent reading
-        // dist/api/ could not tell a paid member from a free one.
+        // artifacts/api/ could not tell a paid member from a free one.
         ...(method.requires ? { requires: method.requires } : {}),
         ...deprecatedField(method.deprecated),
         params: method.params.map((p) => ({

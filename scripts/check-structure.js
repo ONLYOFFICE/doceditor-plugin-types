@@ -6,7 +6,7 @@
 // missing since well before the module split that finally exposed it.
 //
 // Scoped to the directories whose contents are meant to be enumerated one file at a time. `src/`,
-// `dist/` and `test/` are described in the tree by shape rather than by listing (`dist/api/` is 1200
+// `artifacts/` and `test/` are described in the tree by shape rather than by listing (`artifacts/api/` is 1200
 // generated files), so adding a file there is not drift - but a new script, entry point or override is.
 
 const fs = require('fs');

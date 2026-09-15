@@ -50,7 +50,7 @@ three channels, and confusing them is the most common source of broken plugin co
 
 ### Looking up the API without guessing
 
-- `dist/api/` (`https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/dist/api/<path>`)
+- `artifacts/api/` (`https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/artifacts/api/<path>`)
   — every class/method/typedef/event/executeMethod with signature, markdown description, parameter
   list, return type, `since` version and a verified `docsUrl`. Search this before inventing a method
   name; if a member isn't there, it isn't public API. **Runnable examples are not here** — they are
@@ -65,7 +65,7 @@ three channels, and confusing them is the most common source of broken plugin co
   **It is a tree, split so that no single read is large. Read it in two steps, and do not
   concatenate it** — the whole point of the layout is that you never load more than you need:
 
-  1. `dist/api/<editor>/index.json` — every member name mapped to its signature, for one editor
+  1. `artifacts/api/<editor>/index.json` — every member name mapped to its signature, for one editor
     (7k–41k tokens). This is the file to hold in context while you work.
   2. Then exactly one detail file: `<editor>/classes/<Class>.json`, or
     `<editor>/classes/<Class>/<Method>.json` when a class was large enough to be sharded per method
@@ -73,14 +73,14 @@ three channels, and confusing them is the most common source of broken plugin co
 
   Also: `<editor>/typedefs.json`, `<editor>/events.json`, `<editor>/executeMethods.json`, and
   `runtime.json` for the plugin runtime itself (`AscPlugin.callCommand`, the async variants, `Asc`,
-  buttons, plugin events, `config.json` types). `dist/api/index.json` is a ~1 KB manifest listing the
+  buttons, plugin events, `config.json` types). `artifacts/api/index.json` is a ~1 KB manifest listing the
   editors and restating this navigation.
 
   Rule of thumb for which half to search: `<editor>/…` answers what you do *inside* a `callCommand`
   body; `runtime.json` answers how you write the plugin around it.
 - **Check `requires` before recommending a member.** 211 members need ONLYOFFICE Docs Developer
   Edition and are not present in a Community Edition build: 20 `executeMethod` names and 191
-  object-model methods (`ApiTableOfContents`, `ApiListObject`, `ApiSort`, ...). They carry a `requires` field in `dist/api/`, and each editor's `index.json` lists them
+  object-model methods (`ApiTableOfContents`, `ApiListObject`, `ApiSort`, ...). They carry a `requires` field in `artifacts/api/`, and each editor's `index.json` lists them
   outright - `paidExecuteMethods` and `paidMethods` - so a single read answers it. The executeMethod
   names are also typed as `<Editor>PaidMethodName`. Suggesting one to a Community Edition
   user produces code that compiles and fails at runtime, so prefer an unmarked member and say so
@@ -92,17 +92,17 @@ three channels, and confusing them is the most common source of broken plugin co
   api.onlyoffice.com. About 10% of those links point at pages the docs site has not published yet -
   it trails sdkjs by a few minor versions - so a 404 there means "not documented yet", not "wrong
   member".
-- `dist/ambient/` holds five flattened no-import `.d.ts` bundles, one per editor:
+- `artifacts/ambient/` holds five flattened no-import `.d.ts` bundles, one per editor:
   `onlyoffice-plugins-types.<editor>.ambient.d.ts` for `word`, `cell`, `slide`, `pdf`, `forms`. Each
   is self-contained (0.54-2.49 MB) - load exactly one, since the five declare the same globals with
   different types. Written for editors that take a single global-scope blob (a Monaco
   `addExtraLib()`), and useful here for a different reason - see below. Not shipped in the npm
   package (those consumers take the modular sources instead) - fetch from git:
-  `https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/dist/ambient/<file>`.
+  `https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/artifacts/ambient/<file>`.
 
 ### Checking the plugin code you just wrote
 
-Read `dist/api/` to find an API; run the code past a compiler to find out whether you used it
+Read `artifacts/api/` to find an API; run the code past a compiler to find out whether you used it
 correctly. An ambient bundle makes the second step one command with no install and no tsconfig,
 which is what a sandbox or a tool call usually has room for:
 
@@ -126,7 +126,7 @@ one editor entry point in `files` and a separate program per editor - the four e
 same global `Api`, so two in one program is a TS2403 collision.
 
 Do not put a bundle in your context: `word` alone is ~2.6M characters. It is something to run, not
-to read - `dist/api/` is the surface meant for reading, and it carries what the JSDoc does not
+to read - `artifacts/api/` is the surface meant for reading, and it carries what the JSDoc does not
 express in machine-readable form (`requires` for paid members, `since`, a verified `docsUrl`).
 
 ## Working on this package
@@ -142,8 +142,8 @@ npm run validate-schema  # schemas/config.schema.json vs every real config.json 
 npm run check-arity      # parameter-optionality corrections vs the documented examples (DOCS_PATH)
 npm run check-structure  # CONTRIBUTING.md's file tree vs what is on disk
 npm run check-package    # what `npm publish` would ship, and that every exports subpath resolves in it
-npm run generate         # regenerate src/generated from sdkjs + rebuild dist/api
-                         # (postgenerate also regenerates executeMethod types and dist/ambient)
+npm run generate         # regenerate src/generated from sdkjs + rebuild artifacts/api
+                         # (postgenerate also regenerates executeMethod types and artifacts/ambient)
 ```
 
 `generate` also needs `DOCS_PATH` - a checkout (clone or unpacked archive) of the api.onlyoffice.com
@@ -166,7 +166,7 @@ published package; regenerating from those commits must produce a byte-identical
   type that differs from the declared one) belong in the override tables in
   `scripts/generate-plugin-methods.js` with a comment citing the real usage — never as hand edits
   to `src/generated/*`, which the next regeneration would silently revert.
-- The same hand-edit rule applies to `dist/api/` and `dist/ambient/*`: both are build
+- The same hand-edit rule applies to `artifacts/api/` and `artifacts/ambient/*`: both are build
   artifacts of the generators, tracked in git only so they are directly linkable/reviewable.
 - JSDoc prose goes through `htmlToMarkdown`/`cleanProse`/`splitDescription` in
   `scripts/generate-types.js`; docs-site links are derived from the `@see

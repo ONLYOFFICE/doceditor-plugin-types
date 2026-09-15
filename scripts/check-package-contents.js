@@ -39,8 +39,12 @@ const FORBIDDEN = [
     why: 'pins the exact source commits a build came from - repository provenance, not something a consumer can act on',
   },
   {
+    pattern: /^artifacts\//,
+    why: 'generated output kept in git for direct linking over raw.githubusercontent; npm consumers take the modular sources',
+  },
+  {
     pattern: /^dist\//,
-    why: 'build artifacts kept in git for direct linking; npm consumers take the modular sources',
+    why: 'tsconfig.json\'s outDir - a stray local build, gitignored and never part of the package',
   },
   { pattern: /^scripts\//, why: 'generators need source checkouts nobody installing this package has' },
   { pattern: /^test\//, why: 'exercises this package, not a consumer\'s code' },
@@ -100,7 +104,7 @@ function main() {
   const packed = new Set(paths);
   const problems = [];
 
-  // One unwanted directory is one mistake, not 1166 of them: a whole `dist/api` slipping back in
+  // One unwanted directory is one mistake, not 1166 of them: a whole `artifacts/api` slipping back in
   // would otherwise bury every other problem under a line per file.
   const groups = new Map();
   const group = (key, file, message) => {

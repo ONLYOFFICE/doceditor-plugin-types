@@ -1,6 +1,11 @@
 node_modules/
 *.tgz
 
+# tsconfig.json points outDir here. Nothing in this package emits - every script passes
+# --noEmit - but a stray build should not land in the repository. The generated artifacts that ARE
+# tracked live in artifacts/, not here.
+dist/
+
 # Local working copy of the wiki page on building and releasing. Deliberately untracked: the wiki is
 # where that page is maintained, and this copy only exists to be read while working in the checkout.
 WIKI-building-and-releasing.md

@@ -16,7 +16,7 @@ const { resolveDocsPath } = require('./resolve-paths.js');
 const { PARAM_OPTIONAL_FROM } = require('./overrides-tables.js');
 
 const PACKAGE_ROOT = path.join(__dirname, '..');
-const API_DIR = path.join(PACKAGE_ROOT, 'dist', 'api');
+const API_DIR = path.join(PACKAGE_ROOT, 'artifacts', 'api');
 const BACKSLASH = String.fromCharCode(92);
 const NL = String.fromCharCode(10);
 const FENCE = '```';

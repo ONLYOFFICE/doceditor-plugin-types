@@ -1,21 +1,21 @@
-// dist/api/ is the machine-readable companion to the types: the same signatures, descriptions,
+// artifacts/api/ is the machine-readable companion to the types: the same signatures, descriptions,
 // runnable examples and docs links the .d.ts JSDoc carries, but as JSON for tools that don't parse
 // TypeScript (search indexes, RAG pipelines, AI agents).
 //
 // It is a TREE, not one file, and that is the whole point. The previous single
-// `dist/api-index.json` reached 6.3 MB / ~1.6M tokens - eight times a typical model context - so the
+// `artifacts/api-index.json` reached 6.3 MB / ~1.6M tokens - eight times a typical model context - so the
 // one consumer it was built for could not actually read it, only grep fragments out of it. The
 // layout below is sized for how an agent works: load a small index, then read exactly one detail
 // file.
 //
-//   dist/api/index.json                     manifest: editors, counts, how to navigate (~1 KB)
-//   dist/api/<editor>/index.json            every name -> signature for that editor (~20-40k tokens)
-//   dist/api/<editor>/classes/<Class>.json  full detail for one class: docs, params, examples
-//   dist/api/<editor>/classes/<Class>/      ...instead sharded per method when a class is huge
-//   dist/api/<editor>/typedefs.json
-//   dist/api/<editor>/events.json
-//   dist/api/<editor>/executeMethods.json
-//   dist/api/runtime.json                   AscPlugin/config/services (not per-editor)
+//   artifacts/api/index.json                     manifest: editors, counts, how to navigate (~1 KB)
+//   artifacts/api/<editor>/index.json            every name -> signature for that editor (~20-40k tokens)
+//   artifacts/api/<editor>/classes/<Class>.json  full detail for one class: docs, params, examples
+//   artifacts/api/<editor>/classes/<Class>/      ...instead sharded per method when a class is huge
+//   artifacts/api/<editor>/typedefs.json
+//   artifacts/api/<editor>/events.json
+//   artifacts/api/<editor>/executeMethods.json
+//   artifacts/api/runtime.json                   AscPlugin/config/services (not per-editor)
 //
 // Each generator replaces its own section wholesale, so a renamed or removed member disappears on
 // the next run instead of going stale.
@@ -23,7 +23,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const API_DIR = path.join(__dirname, '..', 'dist', 'api');
+const API_DIR = path.join(__dirname, '..', 'artifacts', 'api');
 
 // A class detail file above this stops being "one small read" and gets sharded into per-method
 // files. Only a handful of classes hit it - `ApiWorksheetFunction` is the Excel formula library with
