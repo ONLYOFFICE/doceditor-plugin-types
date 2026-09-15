@@ -1,5 +1,4 @@
 {
-  "agents": "https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md",
   "description": "Class representing a collection of form roles.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormRoles/",
   "methods": {

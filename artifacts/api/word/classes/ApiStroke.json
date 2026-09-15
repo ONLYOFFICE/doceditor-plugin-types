@@ -1,5 +1,4 @@
 {
-  "agents": "https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md",
   "description": "Class representing a stroke.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStroke/",
   "methods": {

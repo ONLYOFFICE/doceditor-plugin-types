@@ -1,4 +1,3 @@
 {
-  "agents": "https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md",
   "description": "Class representing a reference to a specified level of the numbering."
 }

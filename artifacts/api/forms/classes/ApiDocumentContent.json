@@ -1,4 +1,3 @@
 {
-  "agents": "https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md",
   "description": "Class representing a container for paragraphs and tables."
 }

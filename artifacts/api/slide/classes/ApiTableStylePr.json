@@ -1,5 +1,4 @@
 {
-  "agents": "https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md",
   "description": "Class representing a set of formatting properties which shall be conditionally applied to the parts of a table\nwhich match the requirement specified on the `Type`.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableStylePr/",
   "methods": {

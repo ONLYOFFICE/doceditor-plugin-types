@@ -39,16 +39,20 @@ function sortKeysDeep(value) {
   return value;
 }
 
-// This tree is not in the npm package, so it is normally reached by a raw.githubusercontent fetch of
-// one deep file - arriving with no way to learn that a guide exists, that `requires` marks a
-// Developer Edition member, or that the runnable examples are in the .d.ts rather than here. Files
-// whose root is a fixed-key container therefore carry a pointer back to the guide.
+// This tree is not in the npm package, so it is normally reached by a raw.githubusercontent fetch,
+// arriving with no way to learn that a guide exists, that `requires` marks a Developer Edition
+// member, or that the runnable examples are in the .d.ts rather than here. The files a reader starts
+// from therefore carry a pointer back to the guide: this manifest, each editor index, runtime.json.
 //
-// NOT every file: `typedefs.json`, `events.json`, `executeMethods.json` and the per-method shards
-// are maps keyed by member name, where an extra key reads as another member. Adding one there put a
-// method called `agents` in word/executeMethods.json and shifted every count in the compact index by
-// one, because buildEditorIndex counts what was written. Those files are only ever reached through
-// the editor index, which does carry the pointer.
+// Only those seven. The member files - class details, per-method shards, typedefs/events/
+// executeMethods - do not, for two reasons. The navigation they are reached through begins at an
+// index that already carries the pointer; and repeating one identical line across 448 class files
+// makes each of them open with something that is not about the class.
+//
+// Three of those shapes could not take it anyway: `typedefs.json`, `events.json` and
+// `executeMethods.json` are keyed by member name, so an extra key reads as another member. Adding
+// one there put a method called `agents` in word/executeMethods.json and shifted every count in the
+// compact index by one, because buildEditorIndex counts what was written.
 const AGENTS_GUIDE = 'https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md';
 const withGuide = (value) => ({ agents: AGENTS_GUIDE, ...value });
 
@@ -169,7 +173,7 @@ function rebuildRootIndex() {
       'executeMethod names live in <editor>/executeMethods.json; the plugin runtime (Asc.plugin, config.json) in runtime.json.',
       'Do not concatenate the tree - it is deliberately split so no single read is large.',
       'Runnable examples are not here - they are in each member\'s JSDoc in the .d.ts. `requires` marks a member absent from Community Edition builds.',
-      `Read ${AGENTS_GUIDE} before working from this tree: it is what the "agents" field on this file, each editor index, each class file and runtime.json points at.`,
+      `Read ${AGENTS_GUIDE} before working from this tree: it is what the "agents" field on this file, each editor index and runtime.json points at.`,
     ],
     editors,
   }));
@@ -182,16 +186,16 @@ function writeClasses(editorDir, classes) {
   for (const [name, data] of Object.entries(classes)) {
     const asOneFile = `${JSON.stringify(sortKeysDeep(data), null, 2)}\n`;
     if (Buffer.byteLength(asOneFile) <= SHARD_THRESHOLD_BYTES) {
-      writeJson(path.join(classesDir, `${name}.json`), withGuide(data));
+      writeJson(path.join(classesDir, `${name}.json`), data);
       continue;
     }
     // Sharded: the class's own prose goes to _class.json, each method to its own file.
     const { methods = {}, ...classOwn } = data;
-    writeJson(path.join(classesDir, name, '_class.json'), withGuide({
+    writeJson(path.join(classesDir, name, '_class.json'), {
       ...classOwn,
       sharded: true,
       methodCount: Object.keys(methods).length,
-    }));
+    });
     for (const [method, m] of Object.entries(methods)) {
       writeJson(path.join(classesDir, name, `${method}.json`), m);
     }

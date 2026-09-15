@@ -1065,6 +1065,7 @@
   },
   "services": {
     "AscDesktopEditor": {
+      "description": "The ONLYOFFICE Desktop Editor bridge, present only when the plugin runs in the desktop app -\nhence `AscDesktopEditor | undefined` on the global.\n\nNot reachable inside `Asc.plugin.callCommand`: that body runs in the editor's own scope, where the\neditor rebinds this name to an empty object. Read what you need in the plugin frame and pass it in\nthrough `Asc.scope`.",
       "kind": "interface",
       "members": {
         "AddChanges": {

@@ -14,15 +14,20 @@ building on it: everything listed under `9.5.0` ships here, regenerated against 
 
 ### Added
 
-- The files under `artifacts/` now point back at the agent guide: an `"agents"` field on the
-  manifest, each editor index, each class detail file and `runtime.json`, plus a line in each ambient
-  bundle's header - all carrying AGENTS.md's raw URL. Not the name-keyed maps (`typedefs.json`,
-  `events.json`, `executeMethods.json`, per-method shards), where an extra key reads as another
-  member; those are only reached through the editor index, which has the pointer.
-  The tree is not in the npm package, so it is normally reached by URL - and a fetch of one deep file
-  arrived with no way to learn that a guide exists, that `requires` marks a Developer Edition member,
-  or that the runnable examples are in the `.d.ts` rather than here. Only the top-level manifest
-  described itself, and only its navigation. 458 of the 1166 files carry it, ~40 KB on 4.70 MB. The manifest's `howToUse` gained the same two facts.
+- The files an agent starts from point back at the guide: an `"agents"` field carrying AGENTS.md's
+  raw URL on the manifest, each editor index and `runtime.json` - seven files - plus a line in each
+  ambient bundle's header. `artifacts/` is not in the npm package, so it is normally reached by URL,
+  and a fetch arrived with no way to learn that a guide exists, that `requires` marks a Developer
+  Edition member, or that the runnable examples are in the `.d.ts` rather than here; only the
+  top-level manifest described itself, and only its navigation. The manifest's `howToUse` gained
+  those two facts as well.
+
+  Deliberately not on the member files. Class details and per-method shards are reached through an
+  index that already carries the pointer, and one identical line repeated across 448 class files made
+  each of them open with something that is not about the class. `typedefs.json`, `events.json` and
+  `executeMethods.json` could not take it at all: they are keyed by member name, so the key read as
+  another member - it briefly put a method called `agents` in `word/executeMethods.json` and shifted
+  every count in the compact index by one.
 - `test/pdf-methods-original-examples.js` (22 examples) and `test/forms-methods-original-examples.js`
   (41) close the two gaps in example coverage: PDF had a 49-line smoke test where Word, Cell and
   Slide each compile ~650 lines of documented calls, and Forms had nothing at all. `npm test` now
@@ -53,6 +58,13 @@ building on it: everything listed under `9.5.0` ships here, regenerated against 
 
 ### Fixed
 
+- `AscDesktopEditor` documents that it is not reachable inside a `callCommand` body. That body does
+  not run in the plugin's scope: the editor evaluates it against a scope it builds itself
+  (`_safePluginEval` in sdkjs's `common/macros.js`), where the name is bound to an empty object -
+  `"AscDesktopEditor": {}` - alongside sandboxed `setTimeout`/`setInterval`/`XMLHttpRequest`. The
+  global type promised the desktop bridge there and every call reached a TypeError instead. Prose
+  only: the declaration stays global, since the plugin frame is where it is meant to be used and a
+  global cannot be scoped away inside one function body.
 - `executeMethod("GetSelectedContent", [])` did not type-check in any of the four editors that have
   the method. sdkjs's JSDoc marks its options object required, while ONLYOFFICE's own example on the
   method's page passes nothing - and both of the object's fields are optional, so an empty object

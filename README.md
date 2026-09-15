@@ -223,8 +223,8 @@ What it points to for looking a member up lives in this repository rather than t
 link, and `requires` where a paid edition is needed - split into a tree so no single read is large.
 Fetch it from
 `https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/artifacts/api/<path>`, starting at
-`index.json`. Each index and class file carries a link back to the guide, so a file fetched on its
-own says where the instructions are.
+`index.json`, which carries a link back to the guide - as does each editor's index and
+`runtime.json`, so whichever of them you start from says where the instructions are.
 
 For type-checking the code an agent just wrote, the per-editor bundles above are the short path:
 one file, one `tsc` command, no install.
