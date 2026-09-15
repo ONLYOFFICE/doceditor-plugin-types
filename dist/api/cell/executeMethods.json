@@ -215,6 +215,7 @@
       {
         "description": "The returned content properties.",
         "name": "prop",
+        "optional": true,
         "type": "{ type?: \"text\" | \"html\" }"
       }
     ],
@@ -222,7 +223,7 @@
       "description": "The selected content.",
       "type": "string"
     },
-    "signature": "executeMethod(\"GetSelectedContent\", [prop: { type?: \"text\" | \"html\" }], callback?): string",
+    "signature": "executeMethod(\"GetSelectedContent\", [prop?: { type?: \"text\" | \"html\" }], callback?): string",
     "since": "8.3.1"
   },
   "GetSelectedOleObjects": {

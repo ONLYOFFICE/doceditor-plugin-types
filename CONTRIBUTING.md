@@ -260,7 +260,7 @@ npm test                    # five programs: shared + one per editor (see below)
 npm run test:word           # a single editor's program, for a faster edit/check loop
 ```
 
-`npm test` compiles **five** TypeScript programs, not one. The four editor entry points each declare
+`npm test` compiles **six** TypeScript programs, not one. The four editor entry points each declare
 the same global `Api` with a different type, so putting two of them in one program is an immediate
 `TS2403` collision - which is why a shared `declare var Api: any` stub used to sit in `test/`,
 silently reducing every `Api.*` call in the copied documentation examples to `any`. Now
@@ -269,6 +269,20 @@ and `tsconfig.typecheck.json` keeps the editor-agnostic files (`example.js`, whi
 multi-editor sampler with its own `any`, and the plugin-runtime tests). Each editor program also
 compiles `test/<editor>-api-global.js`, whose `@ts-expect-error` on another editor's entry method
 only holds while that program's `Api` is genuinely typed - so the stub cannot creep back unnoticed.
+
+`tsconfig.test.forms.json` is the sixth. Forms has no editor entry point to borrow - its methods are
+reached through `executeMethod` and there is no global `Api: Forms.Api` - but its documented examples
+still call `Api.GetDocument()` and `Api.ReplaceTextSmart()` inside `callCommand` bodies, both Word's,
+so that is the global it compiles against. It is a program of its own rather than a slot in the word
+one because the copied snippets declare top-level variables that collide across files.
+
+The examples in `test/{pdf,forms}-methods-original-examples.js` are the same text, taken from the
+`@example` blocks of the generated `*-methods.ts` rather than re-copied from the site. Two liberties,
+neither touching a snippet: each example sits in a function of its own (several declare the same
+top-level variable with different shapes), and names the surrounding page defines but the copied
+block does not are declared as `any` at the top. Adding them found a real defect on the first run -
+`GetSelectedContent` typed its options object as required while ONLYOFFICE's own example omits it -
+which is now a `METHOD_OVERRIDES` entry rather than a suppression.
 
 `check-runtime` is a static Level 2 check with two halves, against two sources:
 
@@ -535,6 +549,7 @@ onlyoffice-types/
 ├── tsconfig.test.cell.json
 ├── tsconfig.test.slide.json
 ├── tsconfig.test.pdf.json
+├── tsconfig.test.forms.json # Forms has no Api global of its own - borrows word's, see the file
 ├── example.js             # Usage examples
 ├── test/                  # Call-shape smoke tests copied from the official docs
 ├── README.md              # for someone consuming the package from npm

@@ -2117,7 +2117,7 @@
     "GetImageDataFromSelection": "executeMethod(\"GetImageDataFromSelection\", [], callback?): ImageData",
     "GetInstalledPlugins": "executeMethod(\"GetInstalledPlugins\", [], callback?): PluginData[]",
     "GetMacros": "executeMethod(\"GetMacros\", [oContent?: string], callback?): string",
-    "GetSelectedContent": "executeMethod(\"GetSelectedContent\", [prop: { type?: \"text\" | \"html\" }], callback?): string",
+    "GetSelectedContent": "executeMethod(\"GetSelectedContent\", [prop?: { type?: \"text\" | \"html\" }], callback?): string",
     "GetSelectedOleObjects": "executeMethod(\"GetSelectedOleObjects\", [], callback?): OLEProperties[]",
     "GetSelectedText": "executeMethod(\"GetSelectedText\", [prop?: { Numbering?: boolean; Math?: boolean; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string; NewLineSeparator?: string }], callback?): string",
     "GetSelectionType": "executeMethod(\"GetSelectionType\", [], callback?): SelectionType",

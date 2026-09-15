@@ -14,6 +14,13 @@ building on it: everything listed under `9.5.0` ships here, regenerated against 
 
 ### Added
 
+- `test/pdf-methods-original-examples.js` (22 examples) and `test/forms-methods-original-examples.js`
+  (41) close the two gaps in example coverage: PDF had a 49-line smoke test where Word, Cell and
+  Slide each compile ~650 lines of documented calls, and Forms had nothing at all. `npm test` now
+  compiles six programs; the sixth, `tsconfig.test.forms.json`, exists because Forms has no editor
+  entry point of its own and its examples still call Word's `Api` inside `callCommand` bodies.
+  Unlike the three hand-copied files, these are taken from the `@example` blocks of the generated
+  `*-methods.ts` - the same documentation text, one transcription instead of two.
 - `npm run check-package` guards what `npm publish` would actually ship - the one hand-written fact
   with no check behind it, and the only one invisible in a checkout, since the repository holds the
   files either way. It runs `npm pack --dry-run` and rejects a published path outside the package's
@@ -37,6 +44,13 @@ building on it: everything listed under `9.5.0` ships here, regenerated against 
 
 ### Fixed
 
+- `executeMethod("GetSelectedContent", [])` did not type-check in any of the four editors that have
+  the method. sdkjs's JSDoc marks its options object required, while ONLYOFFICE's own example on the
+  method's page passes nothing - and both of the object's fields are optional, so an empty object
+  carries no information anyway. Now a `METHOD_OVERRIDES` entry, the same correction
+  `GetSelectedText` already had. Found by compiling the new Forms example file: `check-arity`
+  re-derives the object-model corrections from the documentation but does not cover the
+  `executeMethod` surface, so nothing else would have caught it.
 - 88 generated signatures rejected ONLYOFFICE's own sample code. sdkjs's JSDoc writes
   `@param {Type} name` where `[name]` was meant, so parameters that are optional in fact came out
   required - `worksheet.GetRange("A2")`, which the spreadsheet examples use 5932 times, did not

@@ -121,6 +121,11 @@ const METHOD_OVERRIDES = {
   // Every real GetSelectedText() call omits the options object entirely - the JSDoc @param has no
   // `[bracket]` marking, but it's optional in practice for the same reason its own sub-fields are.
   GetSelectedText: { paramOptional: [0] },
+  // Same defect as GetSelectedText, found the same way: sdkjs's JSDoc marks the options object
+  // required, while ONLYOFFICE's own example on the method's page is
+  // `executeMethod('GetSelectedContent', [], console.log)`. Both of the object's fields are
+  // optional, so an empty object carries nothing and omitting it is the documented call.
+  GetSelectedContent: { paramOptional: [0] },
   // sdkjs's JSDoc stops at `"Information" | "Block"`, but the implementation branches on a third
   // value - `if ("GroupActions" === type) this.startGroupActions(pr)` - taking `description` as an
   // options object. Real plugins use it (zotero passes `["GroupActions", { lockScroll: true, … }]`),

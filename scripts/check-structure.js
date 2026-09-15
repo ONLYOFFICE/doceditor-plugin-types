@@ -57,9 +57,15 @@ function namesIn(block) {
   return names;
 }
 
-// Root files the tree deliberately does not draw: build output and local tooling state, not part of
-// the package's shape.
-const ROOT_IGNORED = new Set(['.gitignore', '.npmignore', '.editorconfig', 'tsconfig.tsbuildinfo']);
+// Root files the tree deliberately does not draw: build output, local tooling state and untracked
+// working copies - none of them part of the package's shape.
+const ROOT_IGNORED = new Set([
+  '.gitignore',
+  '.npmignore',
+  '.editorconfig',
+  'tsconfig.tsbuildinfo',
+ 'WIKI-building-and-releasing.md',
+]);
 
 function main() {
   const listed = namesIn(structureBlock());

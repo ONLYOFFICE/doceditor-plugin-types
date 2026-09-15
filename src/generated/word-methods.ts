@@ -1604,7 +1604,7 @@ type WordMethodArgs = {
    * Asc.plugin.executeMethod('GetSelectedContent', [], console.log);
    * ```
    */
-  GetSelectedContent: [prop: { type?: "text" | "html" }];
+  GetSelectedContent: [prop?: { type?: "text" | "html" }];
   /**
    * Returns an array of the selected OLE objects.
    *

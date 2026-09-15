@@ -1,0 +1,31 @@
+{
+  // The Forms API has no editor entry point of its own - sdkjs-forms' methods are reached through
+  // executeMethod, and there is no global `Api: Forms.Api` to declare. Its documented examples still
+  // call `Api.GetDocument()` and `Api.ReplaceTextSmart()` inside callCommand bodies, both of which
+  // are Word.Api's, so the word entry point is what makes those incidental calls check. The point of
+  // the file is the executeMethod call shapes, which are Forms' own.
+  //
+  // A separate program rather than a slot in tsconfig.test.word.json: the copied examples declare
+  // top-level variables, and two files' worth of them in one program collide.
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "declaration": false,
+    "declarationMap": false,
+    "sourceMap": false,
+    "allowJs": true,
+    "checkJs": true,
+    "strict": false
+  },
+  "files": ["src/editors/word.d.ts"],
+  "include": [
+    "index.d.ts",
+    "src/generated/*.ts",
+    "src/overrides/*.ts",
+    "src/plugin/**/*.d.ts",
+    "src/config/**/*.d.ts",
+    "src/services/**/*.d.ts",
+    "src/theme/**/*.d.ts",
+    "test/forms-methods-original-examples.js"
+  ]
+}

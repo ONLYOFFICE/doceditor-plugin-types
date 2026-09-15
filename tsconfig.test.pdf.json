@@ -26,6 +26,7 @@
     "src/services/**/*.d.ts",
     "src/theme/**/*.d.ts",
     "test/pdf-methods-smoke.js",
+    "test/pdf-methods-original-examples.js",
     "test/pdf-api-global.js"
   ]
 }

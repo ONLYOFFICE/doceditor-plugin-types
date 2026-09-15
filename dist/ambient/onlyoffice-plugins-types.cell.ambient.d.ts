@@ -60825,7 +60825,7 @@ type CellMethodArgs = {
    * @returns The selected content.
    * @since 8.3.1
    */
-  GetSelectedContent: [prop: { type?: "text" | "html" }];
+  GetSelectedContent: [prop?: { type?: "text" | "html" }];
   /**
    * Returns an array of the selected OLE objects.
    *
