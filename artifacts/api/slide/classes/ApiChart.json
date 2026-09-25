@@ -20,16 +20,6 @@
       },
       "signature": "ApplyChartStyle(nStyleId: unknown): boolean"
     },
-    "CreateTextRange": {
-      "description": "Creates a text body for the drawing if it does not already exist and returns its full text range.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/CreateTextRange/",
-      "params": [],
-      "returns": {
-        "type": "ApiTextRange | null"
-      },
-      "signature": "CreateTextRange(): ApiTextRange | null",
-      "since": "10.0.0"
-    },
     "GetAllSeries": {
       "description": "Returns all series from the chart space.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/GetAllSeries/",
@@ -158,16 +148,6 @@
       },
       "signature": "GetSeries(nIdx: number): ApiChartSeries"
     },
-    "GetTextRange": {
-      "description": "Returns an ApiTextRange covering the full text content of the shape, or null if the shape has no text body (use CreateTextRange to create one).",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetTextRange/",
-      "params": [],
-      "returns": {
-        "type": "ApiTextRange | null"
-      },
-      "signature": "GetTextRange(): ApiTextRange | null",
-      "since": "10.0.0"
-    },
     "GetTitle": {
       "description": "Returns the chart title text.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/GetTitle/",
@@ -187,14 +167,15 @@
       },
       "signature": "GetType(): ChartType"
     },
-    "IsTextRange": {
-      "description": "Checks whether the drawing has an associated text body.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/IsTextRange/",
+    "GetVisitor": {
+      "description": "Returns a visitor object for traversing the text of the current drawing, including the drawings nested in a group.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetVisitor/",
       "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
       "returns": {
-        "type": "boolean"
+        "type": "ApiPresentationVisitor"
       },
-      "signature": "IsTextRange(): boolean",
+      "signature": "GetVisitor(): ApiPresentationVisitor",
       "since": "10.0.0"
     },
     "RemoveSeria": {
@@ -380,15 +361,15 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/SetHorAxisLabelsFontSize/",
       "params": [
         {
-          "description": "The text size value measured in points.",
-          "name": "nFontSize",
-          "type": "pt"
+          "description": "The text size value measured in half-points (1/144 of an inch).",
+          "name": "fontSize",
+          "type": "hps"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetHorAxisLabelsFontSize(nFontSize: pt): boolean"
+      "signature": "SetHorAxisLabelsFontSize(fontSize: hps): boolean"
     },
     "SetHorAxisMajorTickMark": {
       "description": "Specifies major tick mark for the horizontal axis.",
@@ -460,9 +441,9 @@
           "type": "string"
         },
         {
-          "description": "The text size value measured in points.",
-          "name": "nFontSize",
-          "type": "pt"
+          "description": "The text size value measured in half-points (1/144 of an inch).",
+          "name": "fontSize",
+          "type": "hps"
         },
         {
           "description": "Specifies if the horizontal axis title is written in bold font or not.",
@@ -474,7 +455,7 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetHorAxisTitle(sTitle: string, nFontSize: pt, bIsBold?: boolean): boolean"
+      "signature": "SetHorAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean"
     },
     "SetHyperlink": {
       "description": "Sets a hyperlink to the current drawing object (shape or image).\nPass null to remove the hyperlink.",
@@ -512,15 +493,15 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/SetLegendFontSize/",
       "params": [
         {
-          "description": "The text size value measured in points.",
-          "name": "nFontSize",
-          "type": "pt"
+          "description": "The text size value measured in half-points (1/144 of an inch).",
+          "name": "fontSize",
+          "type": "hps"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetLegendFontSize(nFontSize: pt): boolean"
+      "signature": "SetLegendFontSize(fontSize: hps): boolean"
     },
     "SetLegendOutLine": {
       "description": "Sets the outline to the chart legend.",
@@ -1011,9 +992,9 @@
           "type": "string"
         },
         {
-          "description": "The text size value measured in points.",
-          "name": "nFontSize",
-          "type": "pt"
+          "description": "The text size value measured in half-points (1/144 of an inch).",
+          "name": "fontSize",
+          "type": "hps"
         },
         {
           "description": "Specifies if the chart title is written in bold font or not.",
@@ -1025,7 +1006,7 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetTitle(sTitle: string, nFontSize: pt, bIsBold?: boolean): boolean"
+      "signature": "SetTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean"
     },
     "SetTitleFill": {
       "description": "Sets the fill to the chart title.",
@@ -1082,9 +1063,9 @@
           "type": "string"
         },
         {
-          "description": "The text size value measured in points.",
-          "name": "nFontSize",
-          "type": "pt"
+          "description": "The text size value measured in half-points (1/144 of an inch).",
+          "name": "fontSize",
+          "type": "hps"
         },
         {
           "description": "Specifies if the vertical axis title is written in bold font or not.",
@@ -1096,22 +1077,22 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetVerAxisTitle(sTitle: string, nFontSize: pt, bIsBold?: boolean): boolean"
+      "signature": "SetVerAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean"
     },
     "SetVertAxisLabelsFontSize": {
       "description": "Specifies font size for labels of the vertical axis.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/SetVertAxisLabelsFontSize/",
       "params": [
         {
-          "description": "The text size value measured in points.",
-          "name": "nFontSize",
-          "type": "pt"
+          "description": "The text size value measured in half-points (1/144 of an inch).",
+          "name": "fontSize",
+          "type": "hps"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetVertAxisLabelsFontSize(nFontSize: pt): boolean"
+      "signature": "SetVertAxisLabelsFontSize(fontSize: hps): boolean"
     },
     "SetVertAxisMajorTickMark": {
       "description": "Specifies major tick mark for the vertical axis.",

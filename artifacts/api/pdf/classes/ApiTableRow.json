@@ -45,7 +45,8 @@
       "returns": {
         "type": "EMU"
       },
-      "signature": "GetHeight(): EMU"
+      "signature": "GetHeight(): EMU",
+      "since": "10.0.0"
     },
     "GetNext": {
       "description": "Returns the next row if exists.",

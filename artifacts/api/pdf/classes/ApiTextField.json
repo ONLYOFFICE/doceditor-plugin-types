@@ -18,12 +18,18 @@
           "description": "field rect",
           "name": "rect",
           "type": "Rect"
+        },
+        {
+          "description": "whether the new widget have the same visual and actions settings as the original",
+          "name": "isCopy",
+          "optional": true,
+          "type": "boolean"
         }
       ],
       "returns": {
         "type": "ApiWidget"
       },
-      "signature": "AddWidget(pageIndex: number, rect: Rect): ApiWidget"
+      "signature": "AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget"
     },
     "ClearFormat": {
       "description": "Clears format of field.",
@@ -78,7 +84,8 @@
       "returns": {
         "type": "string"
       },
-      "signature": "GetFormattedValue(): string"
+      "signature": "GetFormattedValue(): string",
+      "since": "10.0.0"
     },
     "GetFullName": {
       "description": "Gets field full name.",
@@ -116,7 +123,8 @@
       "returns": {
         "type": "string"
       },
-      "signature": "GetPlaceholder(): string"
+      "signature": "GetPlaceholder(): string",
+      "since": "10.0.0"
     },
     "GetRegularExp": {
       "description": "Gets text widget regular validate expression.",
@@ -125,7 +133,8 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "GetRegularExp(): boolean"
+      "signature": "GetRegularExp(): boolean",
+      "since": "10.0.0"
     },
     "GetTooltip": {
       "description": "Gets field tooltip",
@@ -365,7 +374,8 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetPlaceholder(sPlaceholder: string): boolean"
+      "signature": "SetPlaceholder(sPlaceholder: string): boolean",
+      "since": "10.0.0"
     },
     "SetReadOnly": {
       "description": "Sets field read only",

@@ -3,19 +3,14 @@
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetShd/",
   "params": [
     {
-      "description": "The shading type which will be applied to the contents of the current paragraph.",
-      "name": "type",
-      "type": "ShdType"
-    },
-    {
-      "description": "The color or pattern used to fill the shading.",
-      "name": "color",
-      "type": "ApiColor"
+      "description": "The shading created with the Api.CreateShd method.",
+      "name": "shd",
+      "type": "ApiShd"
     }
   ],
   "returns": {
     "type": "boolean"
   },
-  "signature": "SetShd(type: ShdType, color: ApiColor): boolean",
-  "since": "9.1.0"
+  "signature": "SetShd(shd: ApiShd): boolean",
+  "since": "10.0.0"
 }

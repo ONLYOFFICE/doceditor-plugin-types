@@ -197,6 +197,17 @@
       "signature": "GetName(): string",
       "since": "8.3.0"
     },
+    "GetVisitor": {
+      "description": "Returns a visitor object for traversing the drawings and text of the current slide layout.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiLayout/Methods/GetVisitor/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiPresentationVisitor"
+      },
+      "signature": "GetVisitor(): ApiPresentationVisitor",
+      "since": "10.0.0"
+    },
     "GroupDrawings": {
       "description": "Groups an array of drawings in the current layout.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiLayout/Methods/GroupDrawings/",
@@ -256,9 +267,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiLayout/Methods/Search/",
       "params": [
         {
-          "description": "The text to search for.",
+          "description": "The text to search for, or a regular expression to match. When a RegExp is passed, isMatchCase and isWholeWords are ignored (control case sensitivity with the \"i\" flag instead).",
           "name": "text",
-          "type": "string"
+          "type": "string | RegExp"
         },
         {
           "description": "Case sensitive or not.",
@@ -276,7 +287,7 @@
       "returns": {
         "type": "ApiTextRange[]"
       },
-      "signature": "Search(text: string, isMatchCase?: boolean, isWholeWords?: boolean): ApiTextRange[]",
+      "signature": "Search(text: string | RegExp, isMatchCase?: boolean, isWholeWords?: boolean): ApiTextRange[]",
       "since": "10.0.0"
     },
     "SetBackground": {

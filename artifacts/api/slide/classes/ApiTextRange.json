@@ -2,6 +2,33 @@
   "description": "Class representing a text range within a presentation shape's text frame.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/",
   "methods": {
+    "AddHyperlink": {
+      "description": "Adds a hyperlink to the current text range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/AddHyperlink/",
+      "params": [
+        {
+          "description": "The link address.",
+          "name": "link",
+          "type": "string"
+        },
+        {
+          "description": "The screen tip text.",
+          "name": "screenTipText",
+          "type": "string"
+        },
+        {
+          "description": "Name of a bookmark",
+          "name": "bookmarkName",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "description": "returns null if the range spans more than one paragraph or params are invalid.",
+        "type": "ApiHyperlink"
+      },
+      "signature": "AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink",
+      "since": "10.0.0"
+    },
     "AddText": {
       "description": "Adds a text to the specified position. The current range is expanded to include the added text.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/AddText/",
@@ -41,14 +68,14 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/ExpandTo/",
       "params": [
         {
-          "name": "oRange",
+          "name": "range",
           "type": "ApiTextRange"
         }
       ],
       "returns": {
         "type": "ApiTextRange | null"
       },
-      "signature": "ExpandTo(oRange: ApiTextRange): ApiTextRange | null",
+      "signature": "ExpandTo(range: ApiTextRange): ApiTextRange | null",
       "since": "10.0.0"
     },
     "Find": {
@@ -57,24 +84,24 @@
       "params": [
         {
           "description": "Text to search for.",
-          "name": "sFindWhat",
+          "name": "findWhat",
           "type": "string"
         },
         {
           "description": "1-based position within this range to start searching from.",
-          "name": "nAfter",
+          "name": "after",
           "optional": true,
           "type": "number"
         },
         {
           "description": "Case-sensitive search.",
-          "name": "bMatchCase",
+          "name": "matchCase",
           "optional": true,
           "type": "boolean"
         },
         {
           "description": "Match whole words only.",
-          "name": "bWholeWords",
+          "name": "wholeWords",
           "optional": true,
           "type": "boolean"
         }
@@ -82,7 +109,7 @@
       "returns": {
         "type": "ApiTextRange | null"
       },
-      "signature": "Find(sFindWhat: string, nAfter?: number, bMatchCase?: boolean, bWholeWords?: boolean): ApiTextRange | null",
+      "signature": "Find(findWhat: string, after?: number, matchCase?: boolean, wholeWords?: boolean): ApiTextRange | null",
       "since": "10.0.0"
     },
     "GetAllParagraphs": {
@@ -120,14 +147,14 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/GetParagraph/",
       "params": [
         {
-          "name": "nIndex",
+          "name": "index",
           "type": "number"
         }
       ],
       "returns": {
         "type": "ApiParagraph | null"
       },
-      "signature": "GetParagraph(nIndex: number): ApiParagraph | null",
+      "signature": "GetParagraph(index: number): ApiParagraph | null",
       "since": "10.0.0"
     },
     "GetRange": {
@@ -136,13 +163,13 @@
       "params": [
         {
           "description": "Start offset (0-based) relative to the beginning of this range.",
-          "name": "nStart",
+          "name": "start",
           "optional": true,
           "type": "number"
         },
         {
           "description": "End offset relative to the beginning of this range. -1 means the end of this range.",
-          "name": "nEnd",
+          "name": "rangeEnd",
           "optional": true,
           "type": "number"
         }
@@ -150,7 +177,7 @@
       "returns": {
         "type": "ApiTextRange | null"
       },
-      "signature": "GetRange(nStart?: number, nEnd?: number): ApiTextRange | null",
+      "signature": "GetRange(start?: number, rangeEnd?: number): ApiTextRange | null",
       "since": "10.0.0"
     },
     "GetStartPos": {
@@ -231,14 +258,14 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/IntersectWith/",
       "params": [
         {
-          "name": "oRange",
+          "name": "range",
           "type": "ApiTextRange"
         }
       ],
       "returns": {
         "type": "ApiTextRange | null"
       },
-      "signature": "IntersectWith(oRange: ApiTextRange): ApiTextRange | null",
+      "signature": "IntersectWith(range: ApiTextRange): ApiTextRange | null",
       "since": "10.0.0"
     },
     "MoveCursorToPos": {
@@ -247,7 +274,7 @@
       "params": [
         {
           "description": "The desired cursor position.",
-          "name": "nPos",
+          "name": "pos",
           "optional": true,
           "type": "number"
         }
@@ -255,7 +282,7 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "MoveCursorToPos(nPos?: number): boolean",
+      "signature": "MoveCursorToPos(pos?: number): boolean",
       "since": "10.0.0"
     },
     "Replace": {
@@ -264,23 +291,23 @@
       "params": [
         {
           "description": "Text to search for.",
-          "name": "sFindWhat",
+          "name": "findWhat",
           "type": "string"
         },
         {
           "description": "Replacement text.",
-          "name": "sReplaceWith",
+          "name": "replaceWith",
           "type": "string"
         },
         {
           "description": "Case-sensitive search.",
-          "name": "bMatchCase",
+          "name": "matchCase",
           "optional": true,
           "type": "boolean"
         },
         {
           "description": "Match whole words only.",
-          "name": "bWholeWords",
+          "name": "wholeWords",
           "optional": true,
           "type": "boolean"
         }
@@ -289,7 +316,7 @@
         "description": "this",
         "type": "ApiTextRange"
       },
-      "signature": "Replace(sFindWhat: string, sReplaceWith: string, bMatchCase?: boolean, bWholeWords?: boolean): ApiTextRange",
+      "signature": "Replace(findWhat: string, replaceWith: string, matchCase?: boolean, wholeWords?: boolean): ApiTextRange",
       "since": "10.0.0"
     },
     "Select": {
@@ -369,14 +396,14 @@
       "params": [
         {
           "description": "End position.",
-          "name": "nPos",
+          "name": "pos",
           "type": "number"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetEndPos(nPos: number): boolean",
+      "signature": "SetEndPos(pos: number): boolean",
       "since": "10.0.0"
     },
     "SetFontFamily": {
@@ -416,14 +443,14 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetHighlight/",
       "params": [
         {
-          "name": "sColor",
+          "name": "colorName",
           "type": "highlightColor"
         }
       ],
       "returns": {
         "type": "ApiTextRange | null"
       },
-      "signature": "SetHighlight(sColor: highlightColor): ApiTextRange | null",
+      "signature": "SetHighlight(colorName: highlightColor): ApiTextRange | null",
       "since": "10.0.0"
     },
     "SetItalic": {
@@ -463,14 +490,14 @@
       "params": [
         {
           "description": "The value of the text spacing measured in twentieths of a point (1/1440 of an inch).",
-          "name": "nSpacing",
+          "name": "spacing",
           "type": "twips"
         }
       ],
       "returns": {
         "type": "ApiTextRange | null"
       },
-      "signature": "SetSpacing(nSpacing: twips): ApiTextRange | null",
+      "signature": "SetSpacing(spacing: twips): ApiTextRange | null",
       "since": "10.0.0"
     },
     "SetStartPos": {
@@ -479,14 +506,14 @@
       "params": [
         {
           "description": "Start position.",
-          "name": "nPos",
+          "name": "pos",
           "type": "number"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetStartPos(nPos: number): boolean",
+      "signature": "SetStartPos(pos: number): boolean",
       "since": "10.0.0"
     },
     "SetStrikeout": {
@@ -510,7 +537,7 @@
       "params": [
         {
           "description": "New text value.",
-          "name": "sText",
+          "name": "text",
           "type": "string"
         }
       ],
@@ -518,7 +545,7 @@
         "description": "this",
         "type": "ApiTextRange"
       },
-      "signature": "SetText(sText: string): ApiTextRange",
+      "signature": "SetText(text: string): ApiTextRange",
       "since": "10.0.0"
     },
     "SetTextPr": {
@@ -527,14 +554,14 @@
       "params": [
         {
           "description": "The text properties that will be applied to the current range.",
-          "name": "oTextPr",
+          "name": "textPr",
           "type": "ApiTextPr"
         }
       ],
       "returns": {
         "type": "ApiTextRange | null"
       },
-      "signature": "SetTextPr(oTextPr: ApiTextPr): ApiTextRange | null",
+      "signature": "SetTextPr(textPr: ApiTextPr): ApiTextRange | null",
       "since": "10.0.0"
     },
     "SetUnderline": {
@@ -567,6 +594,23 @@
         "type": "ApiTextRange | null"
       },
       "signature": "SetVertAlign(type: \"baseline\" | \"subscript\" | \"superscript\"): ApiTextRange | null",
+      "since": "10.0.0"
+    },
+    "ToHtml": {
+      "description": "Converts the text range to HTML.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/ToHtml/",
+      "params": [
+        {
+          "description": "The HTML conversion options.",
+          "name": "options",
+          "optional": true,
+          "type": "ToHtmlOptions"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "ToHtml(options?: ToHtmlOptions): string",
       "since": "10.0.0"
     }
   }

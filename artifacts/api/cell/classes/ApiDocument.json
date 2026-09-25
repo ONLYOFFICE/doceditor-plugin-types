@@ -172,6 +172,30 @@
       "signature": "GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_TableCellSeparator?: string, options_TableRowSeparator?: string, options_ParaSeparator?: string, options_TabSymbol?: string, options_NewLineSeparator?: string): string",
       "since": "8.3.0"
     },
+    "GetTextRange": {
+      "description": "Returns an ApiTextRange object that represents the part of the text contained in the current document content.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDocumentContent/Methods/GetTextRange/",
+      "params": [
+        {
+          "description": "Start character position (0-based, inclusive).",
+          "name": "start",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "End character position (0-based, exclusive). Defaults to the end of the content.",
+          "name": "end",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "returns null if the specified range is empty.",
+        "type": "ApiTextRange | null"
+      },
+      "signature": "GetTextRange(start?: number, end?: number): ApiTextRange | null",
+      "since": "10.0.0"
+    },
     "Push": {
       "description": "Pushes a paragraph or a table to actually add it to the document.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDocumentContent/Methods/Push/",

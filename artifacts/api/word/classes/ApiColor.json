@@ -71,6 +71,17 @@
       "signature": "GetThemeName(): SchemeColorId | null",
       "since": "9.3.0"
     },
+    "GetTintAndShade": {
+      "description": "Returns the luminance shift applied to the color.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiColor/Methods/GetTintAndShade/",
+      "params": [],
+      "returns": {
+        "description": "The shift from -1 (the darkest shade) to 1 (the lightest tint), 0 when the color is not shifted.",
+        "type": "number"
+      },
+      "signature": "GetTintAndShade(): number",
+      "since": "10.0.0"
+    },
     "IsAutoColor": {
       "description": "Returns true if the color is set to auto.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiColor/Methods/IsAutoColor/",

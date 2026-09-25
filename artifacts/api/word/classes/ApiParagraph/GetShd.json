@@ -3,7 +3,7 @@
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetShd/",
   "params": [],
   "returns": {
-    "type": "Shd | undefined"
+    "type": "ApiShd | undefined"
   },
-  "signature": "GetShd(): Shd | undefined"
+  "signature": "GetShd(): ApiShd | undefined"
 }

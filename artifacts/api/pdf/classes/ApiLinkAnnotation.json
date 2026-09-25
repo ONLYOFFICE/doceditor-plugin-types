@@ -5,6 +5,16 @@
     "ApiBaseMarkupAnnotation"
   ],
   "methods": {
+    "GetAction": {
+      "description": "Gets the action executed when the link is clicked. Changes to the returned action update the link.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiLinkAnnotation/Methods/GetAction/",
+      "params": [],
+      "returns": {
+        "type": "ApiBaseAction"
+      },
+      "signature": "GetAction(): ApiBaseAction",
+      "since": "10.0.0"
+    },
     "GetClassType": {
       "description": "Returns a type of the ApiLinkAnnotation class.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiLinkAnnotation/Methods/GetClassType/",
@@ -22,6 +32,22 @@
         "type": "Quad[]"
       },
       "signature": "GetQuads(): Quad[]"
+    },
+    "SetAction": {
+      "description": "Sets the action executed when the link is clicked.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiLinkAnnotation/Methods/SetAction/",
+      "params": [
+        {
+          "description": "GoTo, URI, or another PDF action; null removes the action.",
+          "name": "action",
+          "type": "ApiBaseAction"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetAction(action: ApiBaseAction): boolean",
+      "since": "10.0.0"
     },
     "SetQuads": {
       "description": "Sets quads to current markup annotation.",

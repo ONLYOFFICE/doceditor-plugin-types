@@ -185,6 +185,16 @@
       "signature": "GetShadow(): ApiShadow | null",
       "since": "10.0.0"
     },
+    "GetTextRange": {
+      "description": "Returns a text range that covers the whole text of the current drawing.\nCreates a text body if the drawing does not yet have one.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetTextRange/",
+      "params": [],
+      "returns": {
+        "type": "ApiTextRange | null"
+      },
+      "signature": "GetTextRange(): ApiTextRange | null",
+      "since": "10.0.0"
+    },
     "GetTitle": {
       "description": "Gets the title of the current drawing.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetTitle/",
@@ -204,6 +214,16 @@
         "type": "EMU"
       },
       "signature": "GetWidth(): EMU"
+    },
+    "HasTextContent": {
+      "description": "Checks whether the current drawing has a text body.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/HasTextContent/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "HasTextContent(): boolean",
+      "since": "10.0.0"
     },
     "Select": {
       "description": "Selects the current graphic object.",

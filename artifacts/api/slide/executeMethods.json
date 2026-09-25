@@ -262,6 +262,16 @@
     },
     "signature": "executeMethod(\"GetMacros\", [oContent?: string], callback?): string"
   },
+  "GetRestrictions": {
+    "description": "Returns the restrictions the editor currently applies to the document.",
+    "params": [],
+    "returns": {
+      "description": "The current restrictions.",
+      "type": "EditorRestrictions"
+    },
+    "signature": "executeMethod(\"GetRestrictions\", [], callback?): EditorRestrictions",
+    "since": "10.0.0"
+  },
   "GetSelectedContent": {
     "description": "Returns the selected content in the specified format.",
     "params": [
@@ -736,6 +746,61 @@
       "type": "unknown"
     },
     "signature": "executeMethod(\"SetMacros\", [data: string], callback?): unknown"
+  },
+  "SetParagraphHtml": {
+    "description": "Replaces all content of the specified paragraph with the content parsed from the given HTML string.\nSlide number and date fields and equations of the paragraph are kept as they are.",
+    "params": [
+      {
+        "description": "The HTML string to parse and apply.",
+        "name": "html",
+        "type": "string"
+      },
+      {
+        "description": "The paragraph ID. If not specified, the current paragraph is used.",
+        "name": "paraId",
+        "optional": true,
+        "type": "string"
+      }
+    ],
+    "requires": "ONLYOFFICE Docs Developer Edition. This method is not present in Community Edition builds.",
+    "returns": {
+      "description": "Returns false when the paragraph cannot be replaced.",
+      "type": "boolean"
+    },
+    "signature": "executeMethod(\"SetParagraphHtml\", [html: string, paraId?: string], callback?): boolean",
+    "since": "10.0.0"
+  },
+  "SetParagraphRangeHtml": {
+    "description": "Replaces a part of the specified paragraph with the content parsed from the given HTML string.\nSlide number and date fields and equations of the paragraph are kept as they are.",
+    "params": [
+      {
+        "description": "The HTML string to parse and apply.",
+        "name": "html",
+        "type": "string"
+      },
+      {
+        "description": "The paragraph ID.",
+        "name": "paraId",
+        "type": "string"
+      },
+      {
+        "description": "Start offset inside the paragraph.",
+        "name": "from",
+        "type": "number"
+      },
+      {
+        "description": "End offset inside the paragraph.",
+        "name": "to",
+        "type": "number"
+      }
+    ],
+    "requires": "ONLYOFFICE Docs Developer Edition. This method is not present in Community Edition builds.",
+    "returns": {
+      "description": "Returns false when the range cannot be replaced.",
+      "type": "boolean"
+    },
+    "signature": "executeMethod(\"SetParagraphRangeHtml\", [html: string, paraId: string, from: number, to: number], callback?): boolean",
+    "since": "10.0.0"
   },
   "SetPluginsOptions": {
     "description": "Configures plugins from an external source. The settings can be set for all plugins or for a specific plugin.\nFor example, this method can be used to pass an authorization token to the plugin. This method can be used only with the connector class.",

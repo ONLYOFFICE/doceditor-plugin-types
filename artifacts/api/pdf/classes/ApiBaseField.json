@@ -15,12 +15,18 @@
           "description": "field rect",
           "name": "rect",
           "type": "Rect"
+        },
+        {
+          "description": "whether the new widget have the same visual and actions settings as the original",
+          "name": "isCopy",
+          "optional": true,
+          "type": "boolean"
         }
       ],
       "returns": {
         "type": "ApiWidget"
       },
-      "signature": "AddWidget(pageIndex: number, rect: Rect): ApiWidget"
+      "signature": "AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget"
     },
     "Delete": {
       "description": "Removes field from document.",

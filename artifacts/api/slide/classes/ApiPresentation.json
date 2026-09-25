@@ -248,6 +248,24 @@
       },
       "signature": "GetCurSlideIndex(): number"
     },
+    "GetCurrentSentence": {
+      "description": "Returns the current sentence or a part of the current sentence at the cursor.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/GetCurrentSentence/",
+      "params": [
+        {
+          "description": "The part of the sentence to return. If omitted, the whole sentence is returned.",
+          "name": "part",
+          "optional": true,
+          "type": "\"before\" | \"after\""
+        }
+      ],
+      "returns": {
+        "description": "returns an empty string if the cursor is not in the text or some text is selected.",
+        "type": "string"
+      },
+      "signature": "GetCurrentSentence(part?: \"before\" | \"after\"): string",
+      "since": "10.0.0"
+    },
     "GetCurrentSlide": {
       "description": "Returns the current slide.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/GetCurrentSlide/",
@@ -267,6 +285,24 @@
       },
       "signature": "GetCurrentVisibleSlide(): ApiSlide | null",
       "since": "9.0.0"
+    },
+    "GetCurrentWord": {
+      "description": "Returns the current word or a part of the current word at the cursor.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/GetCurrentWord/",
+      "params": [
+        {
+          "description": "The part of the word to return. If omitted, the whole word is returned.",
+          "name": "part",
+          "optional": true,
+          "type": "\"before\" | \"after\""
+        }
+      ],
+      "returns": {
+        "description": "returns an empty string if the cursor is not in the text or some text is selected.",
+        "type": "string"
+      },
+      "signature": "GetCurrentWord(part?: \"before\" | \"after\"): string",
+      "since": "10.0.0"
     },
     "GetCustomProperties": {
       "description": "Returns the custom properties from the current presentation.",
@@ -408,6 +444,17 @@
         "type": "ApiStyle | null"
       },
       "signature": "GetStyle(sStyleName: string): ApiStyle | null",
+      "since": "10.0.0"
+    },
+    "GetVisitor": {
+      "description": "Returns a visitor object for traversing the slides, layouts, masters, speaker notes, drawings and text of the presentation.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/GetVisitor/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiPresentationVisitor"
+      },
+      "signature": "GetVisitor(): ApiPresentationVisitor",
       "since": "10.0.0"
     },
     "GetWidth": {
@@ -575,6 +622,42 @@
       "signature": "MoveCursorUp(count?: number, addToSelect?: boolean): boolean",
       "since": "10.0.0"
     },
+    "MoveToNextCell": {
+      "description": "Moves the cursor to the next table cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/MoveToNextCell/",
+      "params": [
+        {
+          "description": "Number of cells to move through.",
+          "name": "count",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "returns false if the cursor isn't currently inside a table cell.",
+        "type": "boolean"
+      },
+      "signature": "MoveToNextCell(count?: number): boolean",
+      "since": "10.0.0"
+    },
+    "MoveToPrevCell": {
+      "description": "Moves the cursor to the previous table cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/MoveToPrevCell/",
+      "params": [
+        {
+          "description": "Number of cells to move through.",
+          "name": "count",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "returns false if the cursor isn't currently inside a table cell.",
+        "type": "boolean"
+      },
+      "signature": "MoveToPrevCell(count?: number): boolean",
+      "since": "10.0.0"
+    },
     "RemoveSlide": {
       "description": "Removes a slide at the specified position from the presentation.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/RemoveSlide/",
@@ -639,14 +722,60 @@
       },
       "signature": "ReplaceCurrentImage(sImageUrl: string, Width: EMU, Height: EMU): void"
     },
+    "ReplaceCurrentSentence": {
+      "description": "Replaces the current sentence or a part of the current sentence at the cursor with the specified text.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/ReplaceCurrentSentence/",
+      "params": [
+        {
+          "description": "The text to replace the current sentence with.",
+          "name": "text",
+          "type": "string"
+        },
+        {
+          "description": "The part of the sentence to replace. If omitted, the whole sentence is replaced.",
+          "name": "part",
+          "optional": true,
+          "type": "\"before\" | \"after\""
+        }
+      ],
+      "returns": {
+        "description": "returns false if there is no sentence at the cursor or some text is selected.",
+        "type": "boolean"
+      },
+      "signature": "ReplaceCurrentSentence(text: string, part?: \"before\" | \"after\"): boolean",
+      "since": "10.0.0"
+    },
+    "ReplaceCurrentWord": {
+      "description": "Replaces the current word or a part of the current word at the cursor with the specified text.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/ReplaceCurrentWord/",
+      "params": [
+        {
+          "description": "The text to replace the current word with.",
+          "name": "text",
+          "type": "string"
+        },
+        {
+          "description": "The part of the word to replace. If omitted, the whole word is replaced.",
+          "name": "part",
+          "optional": true,
+          "type": "\"before\" | \"after\""
+        }
+      ],
+      "returns": {
+        "description": "returns false if there is no word at the cursor or some text is selected.",
+        "type": "boolean"
+      },
+      "signature": "ReplaceCurrentWord(text: string, part?: \"before\" | \"after\"): boolean",
+      "since": "10.0.0"
+    },
     "Search": {
       "description": "Searches for the specified text in the presentation and returns all found occurrences as text ranges.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/Search/",
       "params": [
         {
-          "description": "The text to search for.",
+          "description": "The text to search for, or a regular expression to match. When a RegExp is passed, isMatchCase and isWholeWords are ignored (control case sensitivity with the \"i\" flag instead).",
           "name": "text",
-          "type": "string"
+          "type": "string | RegExp"
         },
         {
           "description": "Case sensitive or not.",
@@ -664,7 +793,7 @@
       "returns": {
         "type": "ApiTextRange[]"
       },
-      "signature": "Search(text: string, isMatchCase?: boolean, isWholeWords?: boolean): ApiTextRange[]",
+      "signature": "Search(text: string | RegExp, isMatchCase?: boolean, isWholeWords?: boolean): ApiTextRange[]",
       "since": "10.0.0"
     },
     "SearchAndReplace": {
@@ -703,6 +832,28 @@
         "type": "boolean"
       },
       "signature": "SearchAndReplace(properties: object, properties_searchString: string, properties_replaceString: string, properties_matchCase?: boolean, properties_wholeWords?: boolean): boolean",
+      "since": "10.0.0"
+    },
+    "SelectCurrentSentence": {
+      "description": "Selects the sentence at the cursor. The current text selection, if any, is removed first.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/SelectCurrentSentence/",
+      "params": [],
+      "returns": {
+        "description": "returns false if there is no sentence at the cursor.",
+        "type": "boolean"
+      },
+      "signature": "SelectCurrentSentence(): boolean",
+      "since": "10.0.0"
+    },
+    "SelectCurrentWord": {
+      "description": "Selects the word at the cursor. The current text selection, if any, is removed first.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/SelectCurrentWord/",
+      "params": [],
+      "returns": {
+        "description": "returns false if there is no word at the cursor.",
+        "type": "boolean"
+      },
+      "signature": "SelectCurrentWord(): boolean",
       "since": "10.0.0"
     },
     "SetLanguage": {

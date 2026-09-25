@@ -442,7 +442,7 @@ declare namespace Word {
   export type ScaleFlag = "always" | "never" | "tooBig" | "tooSmall";
 
   /** The available color scheme identifiers. */
-  export type SchemeColorId = "accent1" | "accent2" | "accent3" | "accent4" | "accent5" | "accent6" | "bg1" | "bg2" | "dk1" | "dk2" | "lt1" | "lt2" | "tx1" | "tx2";
+  export type SchemeColorId = "accent1" | "accent2" | "accent3" | "accent4" | "accent5" | "accent6" | "bg1" | "bg2" | "dk1" | "dk2" | "folHlink" | "hlink" | "lt1" | "lt2" | "tx1" | "tx2";
 
   /** The lock type of the content control. */
   export type SdtLock = "unlocked" | "contentLocked" | "sdtContentLocked" | "sdtLocked";
@@ -466,7 +466,7 @@ declare namespace Word {
   /** Properties used to create a shadow. */
   export interface ShadowSettings {
     /** The shadow color (black by default). */
-    color?: ApiUniColor;
+    color?: ApiColor | ApiUniColor;
 
     /** The shadow transparency from 0.0 (opaque) to 1.0 (clear). */
     transparency?: number;
@@ -486,15 +486,6 @@ declare namespace Word {
 
   /** This type specifies the preset shape geometry that will be used for a shape. */
   export type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "trapezoid" | "triangle" | "upArrowCallout" | "upDownArrow" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
-
-  /** The shading information object. */
-  export interface Shd {
-    /** The shading type: **"nil"** - no shading, **"clear"** - solid fill. */
-    Type: ShdType;
-
-    /** The shading color. */
-    Color: ApiColor;
-  }
 
   /** A shade type which can be added to the document element. */
   export type ShdType = "nil" | "clear";
@@ -1158,8 +1149,8 @@ declare namespace Word {
      * **Note:**
      * Values of _styleIndex_ outside **1 - 48** are interpreted as a chart style id from the
      * _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs
-     * Enterprise](https://www.onlyoffice.com/docs-enterprise-prices.aspx?from=api) and [ONLYOFFICE Docs
-     * Developer](https://www.onlyoffice.com/developer-edition-prices.aspx?from=api).
+     * Enterprise](https://www.onlyoffice.com/docs-enterprise-prices?from=api) and [ONLYOFFICE Docs
+     * Developer](https://www.onlyoffice.com/developer-edition-prices?from=api).
      *
      * @param chartType - The chart type used for the chart display.
      * @param series - The array of the data used to build the chart from.
@@ -1173,6 +1164,7 @@ declare namespace Word {
      * @param numFormats - Numeric formats which will be applied to the series (can be custom formats). The default numeric
      *   format is "General".
      * @default chartType = "bar"
+     * @returns returns null if the chart type is not supported.
      *
      * @example
      * ```js
@@ -1195,8 +1187,8 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/CreateChart/
      */
-    CreateChart(series: number[][], seriesNames: number[] | string[], catNames: number[] | string[], width: EMU, height: EMU, styleIndex: number, numFormats: NumFormat[] | string[]): ApiChart;
-    CreateChart(chartType: ChartType, series: number[][], seriesNames: number[] | string[], catNames: number[] | string[], width: EMU, height: EMU, styleIndex: number, numFormats: NumFormat[] | string[]): ApiChart;
+    CreateChart(series: number[][], seriesNames: number[] | string[], catNames: number[] | string[], width: EMU, height: EMU, styleIndex: number, numFormats: NumFormat[] | string[]): ApiChart | null;
+    CreateChart(chartType: ChartType, series: number[][], seriesNames: number[] | string[], catNames: number[] | string[], width: EMU, height: EMU, styleIndex: number, numFormats: NumFormat[] | string[]): ApiChart | null;
 
     /**
      * Creates a checkbox content control.
@@ -2035,6 +2027,17 @@ declare namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/CreateShape/
      */
     CreateShape(shapeType?: ShapeType, width?: EMU, height?: EMU, fill?: ApiFill, stroke?: ApiStroke): ApiShape;
+
+    /**
+     * Creates the shading which can be applied to text, a paragraph, a table or a table cell.
+     *
+     * @param type - The shading type: **"nil"** - no shading, **"clear"** - solid fill.
+     * @param color - The shading color. Required for the **"clear"** type.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/CreateShd/
+     */
+    CreateShd(type: ShdType, color?: ApiColor): ApiShd;
 
     /**
      * Creates a solid fill to apply to the object using a selected solid color as the object background.
@@ -3209,7 +3212,10 @@ declare namespace Word {
      * Creates a theme color.
      *
      * @param name - The theme color name. If the provided name is not supported, the 'tx1' color will be used.
+     * @param tintAndShade - The luminance shift from -1 (the darkest shade) to 1 (the lightest tint). 0 keeps the theme
+     *   color as it is.
      * @default name = "tx1"
+     * @default tintAndShade = 0
      * @returns Instance of ApiColor with 'theme' type.
      *
      * @example
@@ -3227,7 +3233,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/ThemeColor/
      */
-    ThemeColor(name?: SchemeColorId): ApiColor;
+    ThemeColor(name?: SchemeColorId, tintAndShade?: number): ApiColor;
 
     /**
      * Converts twips to points.
@@ -5647,6 +5653,16 @@ declare namespace Word {
     GetShadow(): ApiShadow | null;
 
     /**
+     * Returns a range that covers the whole text of the current drawing.
+     * Creates a text body if the drawing does not yet have one.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetTextRange/
+     */
+    GetTextRange(): ApiRange | null;
+
+    /**
      * Returns the chart title text.
      *
      * @returns The chart title text or null if the chart has no title.
@@ -5723,6 +5739,15 @@ declare namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetWidth/
      */
     GetWidth(): EMU;
+
+    /**
+     * Checks whether the drawing has an associated text body.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/HasTextContent/
+     */
+    HasTextContent(): boolean;
 
     /**
      * Wraps the graphic object with a rich text content control.
@@ -6289,7 +6314,7 @@ declare namespace Word {
     /**
      * Specifies font size for labels of the horizontal axis.
      *
-     * @param nFontSize - The text size value measured in points.
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      *
      * @example
      * ```js
@@ -6316,7 +6341,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/SetHorAxisLabelsFontSize/
      */
-    SetHorAxisLabelsFontSize(nFontSize: pt): boolean;
+    SetHorAxisLabelsFontSize(fontSize: hps): boolean;
 
     /**
      * Specifies major tick mark for the horizontal axis.
@@ -6459,7 +6484,7 @@ declare namespace Word {
      * Specifies the chart horizontal axis title.
      *
      * @param sTitle - The title which will be displayed for the horizontal axis of the current chart.
-     * @param nFontSize - The text size value measured in points.
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      * @param bIsBold - Specifies if the horizontal axis title is written in bold font or not.
      *
      * @example
@@ -6488,7 +6513,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/SetHorAxisTitle/
      */
-    SetHorAxisTitle(sTitle: string, nFontSize: pt, bIsBold?: boolean): boolean;
+    SetHorAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean;
 
     /**
      * Flips the current drawing horizontally.
@@ -6601,7 +6626,7 @@ declare namespace Word {
     /**
      * Specifies the legend font size.
      *
-     * @param nFontSize - The text size value measured in points.
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      *
      * @example
      * ```js
@@ -6628,7 +6653,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/SetLegendFontSize/
      */
-    SetLegendFontSize(nFontSize: pt): boolean;
+    SetLegendFontSize(fontSize: hps): boolean;
 
     /**
      * Sets the outline to the chart legend.
@@ -7478,7 +7503,7 @@ declare namespace Word {
      * Specifies the chart title.
      *
      * @param sTitle - The title which will be displayed for the current chart.
-     * @param nFontSize - The text size value measured in points.
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      * @param bIsBold - Specifies if the chart title is written in bold font or not.
      *
      * @example
@@ -7507,7 +7532,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/SetTitle/
      */
-    SetTitle(sTitle: string, nFontSize: pt, bIsBold?: boolean): boolean;
+    SetTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean;
 
     /**
      * Sets the fill to the chart title.
@@ -7645,7 +7670,7 @@ declare namespace Word {
      * Specifies the chart vertical axis title.
      *
      * @param sTitle - The title which will be displayed for the vertical axis of the current chart.
-     * @param nFontSize - The text size value measured in points.
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      * @param bIsBold - Specifies if the vertical axis title is written in bold font or not.
      *
      * @example
@@ -7674,7 +7699,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/SetVerAxisTitle/
      */
-    SetVerAxisTitle(sTitle: string, nFontSize: pt, bIsBold?: boolean): boolean;
+    SetVerAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean;
 
     /**
      * Sets the absolute measurement for the vertical positioning of the floating object.
@@ -7728,7 +7753,7 @@ declare namespace Word {
     /**
      * Specifies font size for labels of the vertical axis.
      *
-     * @param nFontSize - The text size value measured in points.
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      *
      * @example
      * ```js
@@ -7755,7 +7780,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/SetVertAxisLabelsFontSize/
      */
-    SetVertAxisLabelsFontSize(nFontSize: pt): boolean;
+    SetVertAxisLabelsFontSize(fontSize: hps): boolean;
 
     /**
      * Specifies major tick mark for the vertical axis.
@@ -9759,6 +9784,16 @@ declare namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiColor/Methods/GetThemeName/
      */
     GetThemeName(): SchemeColorId | null;
+
+    /**
+     * Returns the luminance shift applied to the color.
+     *
+     * @returns The shift from -1 (the darkest shade) to 1 (the lightest tint), 0 when the color is not shifted.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiColor/Methods/GetTintAndShade/
+     */
+    GetTintAndShade(): number;
 
     /**
      * Returns true if the color is set to auto.
@@ -19402,9 +19437,13 @@ declare namespace Word {
      * @param content - An array of elements to insert.
      * @param isInline - Inline insert or not (works only for the last and the first element and only if it's a
      *   paragraph).
-     * @param pr - Specifies that text and paragraph document properties are preserved for the inserted elements.
-     *   The object should look like this: {"KeepTextOnly": true}.
+     * @param pr - Insert options.
+     * @param pr_KeepTextOnly - Specifies that text and paragraph document properties are preserved for the inserted elements.
+     * @param pr_OverwriteTableCells - Specifies that if a single table is inserted into a table cell, it overwrites the content of the
+     *   existing cells, starting from the current one, instead of being inserted as a nested table.
      * @default isInline = false
+     * @default pr_KeepTextOnly = false
+     * @default pr_OverwriteTableCells = false
      * @returns Success?
      *
      * @example
@@ -19422,7 +19461,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/InsertContent/
      */
-    InsertContent(content: (DocumentElement | ParagraphContent | ApiDrawing | string | number)[], isInline?: boolean, pr?: object): boolean;
+    InsertContent(content: (DocumentElement | ParagraphContent | ApiDrawing | string | number)[], isInline?: boolean, pr?: object, pr_KeepTextOnly?: boolean, pr_OverwriteTableCells?: boolean): boolean;
 
     /**
      * Add paragraph to the document on the cursor position.
@@ -19831,6 +19870,30 @@ declare namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/MoveCursorUp/
      */
     MoveCursorUp(count?: number, addToSelect?: boolean): boolean;
+
+    /**
+     * Moves the cursor to the next table cell.
+     *
+     * @param count - Number of cells to move through.
+     * @default count = 1
+     * @returns returns false if the cursor isn't currently inside a table cell.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/MoveToNextCell/
+     */
+    MoveToNextCell(count?: number): boolean;
+
+    /**
+     * Moves the cursor to the previous table cell.
+     *
+     * @param count - Number of cells to move through.
+     * @default count = 1
+     * @returns returns false if the cursor isn't currently inside a table cell.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/MoveToPrevCell/
+     */
+    MoveToPrevCell(count?: number): boolean;
 
     /**
      * Pushes a paragraph or a table to actually add it to the document.
@@ -22364,6 +22427,16 @@ declare namespace Word {
     GetShadow(): ApiShadow | null;
 
     /**
+     * Returns a range that covers the whole text of the current drawing.
+     * Creates a text body if the drawing does not yet have one.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetTextRange/
+     */
+    GetTextRange(): ApiRange | null;
+
+    /**
      * Gets the title of the current drawing.
      *
      * @returns The title of the current drawing, or null if not set.
@@ -22400,6 +22473,15 @@ declare namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetWidth/
      */
     GetWidth(): EMU;
+
+    /**
+     * Checks whether the drawing has an associated text body.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/HasTextContent/
+     */
+    HasTextContent(): boolean;
 
     /**
      * Wraps the graphic object with a rich text content control.
@@ -23501,6 +23583,25 @@ declare namespace Word {
     GetClassType(): "fill";
 
     /**
+     * Returns the color of a solid fill.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFill/Methods/GetColor/
+     */
+    GetColor(): ApiColor;
+
+    /**
+     * Returns the transparency of the fill.
+     *
+     * @returns The transparency value, from 0 (fully opaque) to 1 (fully transparent).
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFill/Methods/GetTransparent/
+     */
+    GetTransparent(): number;
+
+    /**
      * Gets the fill type.
      *
      * @returns returns "solid", "gradient", "pattern", "blip", "nofill" or null.
@@ -23544,6 +23645,16 @@ declare namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFill/Methods/GetType/
      */
     GetType(): FillType;
+
+    /**
+     * Sets the transparency of the fill.
+     *
+     * @param transparent - The transparency value, from 0 (fully opaque) to 1 (fully transparent).
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFill/Methods/SetTransparent/
+     */
+    SetTransparent(transparent: number): boolean;
 
     /**
      * Converts the ApiFill object into the JSON object.
@@ -25638,6 +25749,16 @@ declare namespace Word {
     GetShadow(): ApiShadow | null;
 
     /**
+     * Returns a range that covers the whole text of the current drawing.
+     * Creates a text body if the drawing does not yet have one.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetTextRange/
+     */
+    GetTextRange(): ApiRange | null;
+
+    /**
      * Gets the title of the current drawing.
      *
      * @returns The title of the current drawing, or null if not set.
@@ -25674,6 +25795,15 @@ declare namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetWidth/
      */
     GetWidth(): EMU;
+
+    /**
+     * Checks whether the drawing has an associated text body.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/HasTextContent/
+     */
+    HasTextContent(): boolean;
 
     /**
      * Wraps the graphic object with a rich text content control.
@@ -27653,6 +27783,16 @@ declare namespace Word {
     GetShadow(): ApiShadow | null;
 
     /**
+     * Returns a range that covers the whole text of the current drawing.
+     * Creates a text body if the drawing does not yet have one.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetTextRange/
+     */
+    GetTextRange(): ApiRange | null;
+
+    /**
      * Gets the title of the current drawing.
      *
      * @returns The title of the current drawing, or null if not set.
@@ -27689,6 +27829,15 @@ declare namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetWidth/
      */
     GetWidth(): EMU;
+
+    /**
+     * Checks whether the drawing has an associated text body.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/HasTextContent/
+     */
+    HasTextContent(): boolean;
 
     /**
      * Wraps the graphic object with a rich text content control.
@@ -31565,6 +31714,16 @@ declare namespace Word {
     GetShadow(): ApiShadow | null;
 
     /**
+     * Returns a range that covers the whole text of the current drawing.
+     * Creates a text body if the drawing does not yet have one.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetTextRange/
+     */
+    GetTextRange(): ApiRange | null;
+
+    /**
      * Gets the title of the current drawing.
      *
      * @returns The title of the current drawing, or null if not set.
@@ -31601,6 +31760,15 @@ declare namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetWidth/
      */
     GetWidth(): EMU;
+
+    /**
+     * Checks whether the drawing has an associated text body.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/HasTextContent/
+     */
+    HasTextContent(): boolean;
 
     /**
      * Wraps the graphic object with a rich text content control.
@@ -33069,7 +33237,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetShd/
      */
-    GetShd(): Shd | undefined;
+    GetShd(): ApiShd | undefined;
 
     /**
      * Returns the spacing after value of the current paragraph.
@@ -33304,12 +33472,11 @@ declare namespace Word {
      * Specifies the border which will be displayed between each paragraph in a set of paragraphs which
      * have the same set of paragraph border settings.
      *
-     * @param sType - The border style.
-     * @param nSize - The width of the current border measured in eighths of a point.
-     * @param nSpace - The spacing offset between the paragraphs measured in points used to place this border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param type - The border style.
+     * @param size - The width of the current border measured in eighths of a point.
+     * @param space - The spacing offset between the paragraphs measured in points used to place this border.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -33341,7 +33508,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetBetweenBorder/
      */
-    SetBetweenBorder(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetBetweenBorder(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Specifies the border which will be displayed below a set of paragraphs which have the same paragraph
@@ -33350,12 +33517,11 @@ declare namespace Word {
      * border is added
      * to the whole block rather than to every paragraph in this block.</note>
      *
-     * @param sType - The border style.
-     * @param nSize - The width of the current bottom border measured in eighths of a point.
-     * @param nSpace - The spacing offset below the paragraph measured in points used to place this border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param type - The border style.
+     * @param size - The width of the current bottom border measured in eighths of a point.
+     * @param space - The spacing offset below the paragraph measured in points used to place this border.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -33375,7 +33541,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetBottomBorder/
      */
-    SetBottomBorder(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetBottomBorder(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Specifies that any space before or after this paragraph set using the
@@ -33666,12 +33832,11 @@ declare namespace Word {
      * Specifies the border which will be displayed at the left side of the page around the specified
      * paragraph.
      *
-     * @param sType - The border style.
-     * @param nSize - The width of the current left border measured in eighths of a point.
-     * @param nSpace - The spacing offset to the left of the paragraph measured in points used to place this border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param type - The border style.
+     * @param size - The width of the current left border measured in eighths of a point.
+     * @param space - The spacing offset to the left of the paragraph measured in points used to place this border.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -33691,7 +33856,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetLeftBorder/
      */
-    SetLeftBorder(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetLeftBorder(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Specifies that the current paragraph references a numbering definition instance in the current
@@ -33800,12 +33965,11 @@ declare namespace Word {
      * Specifies the border which will be displayed at the right side of the page around the specified
      * paragraph.
      *
-     * @param sType - The border style.
-     * @param nSize - The width of the current right border measured in eighths of a point.
-     * @param nSpace - The spacing offset to the right of the paragraph measured in points used to place this border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param type - The border style.
+     * @param size - The width of the current right border measured in eighths of a point.
+     * @param space - The spacing offset to the right of the paragraph measured in points used to place this border.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -33825,14 +33989,13 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetRightBorder/
      */
-    SetRightBorder(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetRightBorder(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Specifies the shading applied to the contents of the paragraph.
      *
-     * @param type - The shading type which will be applied to the contents of the current paragraph.
-     * @param color - The color or pattern used to fill the shading.
-     * @since 9.1.0
+     * @param shd - The shading created with the Api.CreateShd method.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -33853,7 +34016,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetShd/
      */
-    SetShd(type: ShdType, color: ApiColor): boolean;
+    SetShd(shd: ApiShd): boolean;
 
     /**
      * Sets the spacing after the current paragraph. If the value of the isAfterAuto parameter is true,
@@ -34057,12 +34220,11 @@ declare namespace Word {
      * <note>The paragraphs of the same style going one by one are considered as a single block, so the
      * border is added to the whole block rather than to every paragraph in this block.</note>
      *
-     * @param sType - The border style.
-     * @param nSize - The width of the current top border measured in eighths of a point.
-     * @param nSpace - The spacing offset above the paragraph measured in points used to place this border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param type - The border style.
+     * @param size - The width of the current top border measured in eighths of a point.
+     * @param space - The spacing offset above the paragraph measured in points used to place this border.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -34082,7 +34244,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetTopBorder/
      */
-    SetTopBorder(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetTopBorder(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Specifies whether a single line of the current paragraph will be displayed on a separate page from
@@ -34489,9 +34651,9 @@ declare namespace Word {
     /**
      * Adds a hyperlink to a paragraph.
      *
-     * @param sLink - The link address.
-     * @param sScreenTipText - The screen tip text.
-     * @param sBookmarkName - name of a bookmark
+     * @param link - The link address.
+     * @param screenTipText - The screen tip text.
+     * @param bookmarkName - name of a bookmark
      * @returns returns null if params are invalid.
      *
      * @example
@@ -34510,7 +34672,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/AddHyperlink/
      */
-    AddHyperlink(sLink: string, sScreenTipText: string, sBookmarkName: string): ApiHyperlink;
+    AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink;
 
     /**
      * Adds an inline container.
@@ -35936,7 +36098,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetShd/
      */
-    GetShd(): Shd | undefined;
+    GetShd(): ApiShd | undefined;
 
     /**
      * Returns the spacing after value of the current paragraph.
@@ -36527,12 +36689,11 @@ declare namespace Word {
      * Specifies the border which will be displayed between each paragraph in a set of paragraphs which
      * have the same set of paragraph border settings.
      *
-     * @param sType - The border style.
-     * @param nSize - The width of the current border measured in eighths of a point.
-     * @param nSpace - The spacing offset between the paragraphs measured in points used to place this border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param type - The border style.
+     * @param size - The width of the current border measured in eighths of a point.
+     * @param space - The spacing offset between the paragraphs measured in points used to place this border.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -36564,7 +36725,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetBetweenBorder/
      */
-    SetBetweenBorder(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetBetweenBorder(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Sets the bold property to the text character.
@@ -36595,12 +36756,11 @@ declare namespace Word {
      * border is added
      * to the whole block rather than to every paragraph in this block.</note>
      *
-     * @param sType - The border style.
-     * @param nSize - The width of the current bottom border measured in eighths of a point.
-     * @param nSpace - The spacing offset below the paragraph measured in points used to place this border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param type - The border style.
+     * @param size - The width of the current bottom border measured in eighths of a point.
+     * @param space - The spacing offset below the paragraph measured in points used to place this border.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -36620,7 +36780,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetBottomBorder/
      */
-    SetBottomBorder(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetBottomBorder(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Specifies that any lowercase characters in this paragraph are formatted for display only as their
@@ -36774,7 +36934,7 @@ declare namespace Word {
     /**
      * Sets the font size to the characters of the current paragraph.
      *
-     * @param nSize - The text size value measured in half-points (1/144 of an inch).
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      * @returns this
      *
      * @example
@@ -36791,7 +36951,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/SetFontSize/
      */
-    SetFontSize(nSize: hps): ApiParagraph;
+    SetFontSize(fontSize: hps): ApiParagraph;
 
     /**
      * Specifies a highlighting color which is applied as a background to the contents of the current
@@ -37089,12 +37249,11 @@ declare namespace Word {
      * Specifies the border which will be displayed at the left side of the page around the specified
      * paragraph.
      *
-     * @param sType - The border style.
-     * @param nSize - The width of the current left border measured in eighths of a point.
-     * @param nSpace - The spacing offset to the left of the paragraph measured in points used to place this border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param type - The border style.
+     * @param size - The width of the current left border measured in eighths of a point.
+     * @param space - The spacing offset to the left of the paragraph measured in points used to place this border.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -37114,7 +37273,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetLeftBorder/
      */
-    SetLeftBorder(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetLeftBorder(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Specifies that the current paragraph references a numbering definition instance in the current
@@ -37322,12 +37481,11 @@ declare namespace Word {
      * Specifies the border which will be displayed at the right side of the page around the specified
      * paragraph.
      *
-     * @param sType - The border style.
-     * @param nSize - The width of the current right border measured in eighths of a point.
-     * @param nSpace - The spacing offset to the right of the paragraph measured in points used to place this border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param type - The border style.
+     * @param size - The width of the current right border measured in eighths of a point.
+     * @param space - The spacing offset to the right of the paragraph measured in points used to place this border.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -37347,7 +37505,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetRightBorder/
      */
-    SetRightBorder(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetRightBorder(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Sets the specified section to the current paragraph.
@@ -37387,9 +37545,8 @@ declare namespace Word {
     /**
      * Specifies the shading applied to the contents of the paragraph.
      *
-     * @param type - The shading type which will be applied to the contents of the current paragraph.
-     * @param color - The color or pattern used to fill the shading.
-     * @since 9.1.0
+     * @param shd - The shading created with the Api.CreateShd method.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -37410,7 +37567,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetShd/
      */
-    SetShd(type: ShdType, color: ApiColor): boolean;
+    SetShd(shd: ApiShd): boolean;
 
     /**
      * Specifies that all the small letter characters in this paragraph are formatted for display only as
@@ -37731,12 +37888,11 @@ declare namespace Word {
      * <note>The paragraphs of the same style going one by one are considered as a single block, so the
      * border is added to the whole block rather than to every paragraph in this block.</note>
      *
-     * @param sType - The border style.
-     * @param nSize - The width of the current top border measured in eighths of a point.
-     * @param nSpace - The spacing offset above the paragraph measured in points used to place this border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param type - The border style.
+     * @param size - The width of the current top border measured in eighths of a point.
+     * @param space - The spacing offset above the paragraph measured in points used to place this border.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -37756,7 +37912,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetTopBorder/
      */
-    SetTopBorder(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetTopBorder(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Specifies that the contents of this paragraph are displayed along with a line appearing directly
@@ -40509,9 +40665,9 @@ declare namespace Word {
     /**
      * Adds a hyperlink to the specified range.
      *
-     * @param sLink - The link address.
-     * @param sScreenTipText - The screen tip text.
-     * @param sBookmarkName - name of a bookmark
+     * @param link - The link address.
+     * @param screenTipText - The screen tip text.
+     * @param bookmarkName - name of a bookmark
      * @returns returns null if range contains more than one paragraph or sLink is invalid.
      *
      * @example
@@ -40529,7 +40685,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/AddHyperlink/
      */
-    AddHyperlink(sLink: string, sScreenTipText: string, sBookmarkName: string): ApiHyperlink;
+    AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink;
 
     /**
      * Adds a text to the specified position.
@@ -41141,7 +41297,7 @@ declare namespace Word {
     /**
      * Sets the font size to the characters of the current text Range.
      *
-     * @param FontSize - The text size value measured in half-points (1/144 of an inch).
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      * @returns returns null if can't set font size.
      *
      * @example
@@ -41159,7 +41315,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/SetFontSize/
      */
-    SetFontSize(FontSize: hps): ApiRange | null;
+    SetFontSize(fontSize: hps): ApiRange | null;
 
     /**
      * Specifies a highlighting color which is applied as a background to the contents of the current
@@ -41238,10 +41394,9 @@ declare namespace Word {
     /**
      * Specifies the shading applied to the contents of the current text Range.
      *
-     * @param type - The shading type applied to the contents of the current text Range.
-     * @param color - The shading color.
+     * @param shd - The shading created with the Api.CreateShd method.
      * @returns returns null if can't apply shadow.
-     * @since 9.1.0
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -41258,7 +41413,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/SetShd/
      */
-    SetShd(type: ShdType, color: ApiColor): ApiRange | null;
+    SetShd(shd: ApiShd): ApiRange | null;
 
     /**
      * Specifies that all the lowercase letter characters in the current text Range are formatted for
@@ -41999,7 +42154,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetShd/
      */
-    GetShd(): Shd | undefined;
+    GetShd(): ApiShd | undefined;
 
     /**
      * Returns whether the text with the current text properties are displayed capitalized two points
@@ -42556,10 +42711,9 @@ declare namespace Word {
     /**
      * Specifies the shading applied to the contents of the current text run.
      *
-     * @param type - The shading type applied to the contents of the current text run.
-     * @param color - The color or pattern used to fill the shading.
+     * @param shd - The shading created with the Api.CreateShd method.
      * @returns this text properties.
-     * @since 9.1.0
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -42576,7 +42730,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetShd/
      */
-    SetShd(type: ShdType, color: ApiColor): ApiTextPr;
+    SetShd(shd: ApiShd): ApiTextPr;
 
     /**
      * Specifies that all the small letter characters in the text run are formatted for display only as
@@ -42917,9 +43071,9 @@ declare namespace Word {
     /**
      * Adds a hyperlink to the current run.
      *
-     * @param sLink - The link address.
-     * @param sScreenTipText - The screen tip text.
-     * @param sBookmarkName - name of a bookmark
+     * @param link - The link address.
+     * @param screenTipText - The screen tip text.
+     * @param bookmarkName - name of a bookmark
      * @returns returns false if params are invalid.
      *
      * @example
@@ -42938,7 +43092,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRun/Methods/AddHyperlink/
      */
-    AddHyperlink(sLink: string, sScreenTipText: string, sBookmarkName: string): ApiHyperlink;
+    AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink;
 
     /**
      * Adds a line break to the current run position and starts the next element from a new line.
@@ -43789,7 +43943,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetShd/
      */
-    GetShd(): Shd | undefined;
+    GetShd(): ApiShd | undefined;
 
     /**
      * Returns whether the text with the current text properties are displayed capitalized two points
@@ -44504,10 +44658,9 @@ declare namespace Word {
     /**
      * Specifies the shading applied to the contents of the current text run.
      *
-     * @param type - The shading type applied to the contents of the current text run.
-     * @param color - The color or pattern used to fill the shading.
+     * @param shd - The shading created with the Api.CreateShd method.
      * @returns this text properties.
-     * @since 9.1.0
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -44528,7 +44681,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetShd/
      */
-    SetShd(type: ShdType, color: ApiColor): ApiTextPr;
+    SetShd(shd: ApiShd): ApiTextPr;
 
     /**
      * Specifies that all the small letter characters in the text run are formatted for display only as
@@ -44651,6 +44804,17 @@ declare namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetStyle/
      */
     SetStyle(style: ApiStyle | string): ApiTextPr;
+
+    /**
+     * Replaces the whole text of the current run with the specified text, keeping the run properties.
+     *
+     * @param text - The new text of the run, as a string or as an array of character codes.
+     * @returns The current run.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRun/Methods/SetText/
+     */
+    SetText(text: string | number[]): ApiRun;
 
     /**
      * Sets the text fill to the current text run.
@@ -46569,6 +46733,16 @@ declare namespace Word {
     GetShadow(): ApiShadow | null;
 
     /**
+     * Returns a range that covers the whole text of the current drawing.
+     * Creates a text body if the drawing does not yet have one.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetTextRange/
+     */
+    GetTextRange(): ApiRange | null;
+
+    /**
      * Gets the title of the current drawing.
      *
      * @returns The title of the current drawing, or null if not set.
@@ -46612,6 +46786,15 @@ declare namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetWidth/
      */
     GetWidth(): EMU;
+
+    /**
+     * Checks whether the drawing has an associated text body.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/HasTextContent/
+     */
+    HasTextContent(): boolean;
 
     /**
      * Wraps the graphic object with a rich text content control.
@@ -47720,6 +47903,40 @@ declare namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/Unselect/
      */
     Unselect(): boolean;
+  }
+
+  /**
+   * Class representing the shading of text, a paragraph, a table or a table cell.
+   *
+   * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiShd/
+   */
+  export interface ApiShd {
+    /**
+     * Returns a type of the ApiShd class.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiShd/Methods/GetClassType/
+     */
+    GetClassType(): "shd";
+
+    /**
+     * Returns the shading color.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiShd/Methods/GetColor/
+     */
+    GetColor(): ApiColor;
+
+    /**
+     * Returns the shading type.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiShd/Methods/GetType/
+     */
+    GetType(): ShdType;
   }
 
   /**
@@ -49251,6 +49468,16 @@ declare namespace Word {
     GetShadow(): ApiShadow | null;
 
     /**
+     * Returns a range that covers the whole text of the current drawing.
+     * Creates a text body if the drawing does not yet have one.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetTextRange/
+     */
+    GetTextRange(): ApiRange | null;
+
+    /**
      * Gets the title of the current drawing.
      *
      * @returns The title of the current drawing, or null if not set.
@@ -49287,6 +49514,15 @@ declare namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetWidth/
      */
     GetWidth(): EMU;
+
+    /**
+     * Checks whether the drawing has an associated text body.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/HasTextContent/
+     */
+    HasTextContent(): boolean;
 
     /**
      * Wraps the graphic object with a rich text content control.
@@ -51050,9 +51286,9 @@ declare namespace Word {
     /**
      * Adds a new column to the current table.
      *
-     * @param oCell - The cell after which a new column will be added. If not specified, a new column will be added at
-     *   the end of the table.
-     * @param isBefore - Adds a new column before (false) or after (true) the specified cell. If no cell is specified,
+     * @param oCell - The cell before or after which a new column will be added. If not specified, a new column will
+     *   be added at the end of the table.
+     * @param isBefore - Adds a new column before (true) or after (false) the specified cell. If no cell is specified,
      *   then this parameter will be ignored.
      * @default isBefore = false
      *
@@ -51081,10 +51317,10 @@ declare namespace Word {
     /**
      * Adds the new columns to the current table.
      *
-     * @param oCell - The cell after which the new columns will be added. If not specified, the new columns will be
-     *   added at the end of the table.
+     * @param oCell - The cell before or after which the new columns will be added. If not specified, the new columns
+     *   will be added at the end of the table.
      * @param nCount - Count of columns to be added.
-     * @param isBefore - Adds the new columns before (false) or after (true) the specified cell. If no cell is specified,
+     * @param isBefore - Adds the new columns before (true) or after (false) the specified cell. If no cell is specified,
      *   then this parameter will be ignored.
      * @default isBefore = false
      *
@@ -51176,9 +51412,9 @@ declare namespace Word {
     /**
      * Adds a new row to the current table.
      *
-     * @param oCell - The cell after which a new row will be added. If not specified, a new row will be added at the
-     *   end of the table.
-     * @param isBefore - Adds a new row before (false) or after (true) the specified cell. If no cell is specified, then
+     * @param oCell - The cell before or after which a new row will be added. If not specified, a new row will be
+     *   added at the end of the table.
+     * @param isBefore - Adds a new row before (true) or after (false) the specified cell. If no cell is specified, then
      *   this parameter will be ignored.
      * @default isBefore = false
      *
@@ -51207,10 +51443,10 @@ declare namespace Word {
     /**
      * Adds the new rows to the current table.
      *
-     * @param oCell - The cell after which the new rows will be added. If not specified, the new rows will be added at
-     *   the end of the table.
+     * @param oCell - The cell before or after which the new rows will be added. If not specified, the new rows will
+     *   be added at the end of the table.
      * @param nCount - Count of rows to be added.
-     * @param isBefore - Adds the new rows before (false) or after (true) the specified cell. If no cell is specified,
+     * @param isBefore - Adds the new rows before (true) or after (false) the specified cell. If no cell is specified,
      *   then this parameter will be ignored.
      * @default isBefore = false
      *
@@ -51386,6 +51622,15 @@ declare namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTable/Methods/GetColumnWidth/
      */
     GetColumnWidth(columnIndex: number): EMU | null;
+
+    /**
+     * Returns a number of columns in the current table.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTable/Methods/GetColumnsCount/
+     */
+    GetColumnsCount(): number;
 
     /**
      * Returns an internal ID of the current table.
@@ -52135,12 +52380,8 @@ declare namespace Word {
     /**
      * Specifies the shading which is applied to the extents of the current table.
      *
-     * @param sType - The shading type applied to the extents of the current table.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
-     * @param isAuto - The true value disables the SetShd method use.
-     * @default isAuto = false
+     * @param shd - The shading created with the Api.CreateShd method.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -52163,7 +52404,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablePr/Methods/SetShd/
      */
-    SetShd(sType: ShdType, r: number, g?: number, b?: number, isAuto?: boolean): boolean;
+    SetShd(shd: ApiShd): boolean;
 
     /**
      * Sets a style to the current table.
@@ -52268,13 +52509,11 @@ declare namespace Word {
     /**
      * Specifies a border which will be displayed on all table cell borders.
      *
-     * @param sType - The border style.
-     * @param nSize - The width of the current border measured in eighths of a point.
-     * @param nSpace - The spacing offset in the table cells measured in points used to place this border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
-     * @since 9.0.0
+     * @param type - The border style.
+     * @param size - The width of the current border measured in eighths of a point.
+     * @param space - The spacing offset in the table cells measured in points used to place this border.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -52298,17 +52537,16 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablePr/Methods/SetTableBorderAll/
      */
-    SetTableBorderAll(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetTableBorderAll(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Sets the border which will be displayed at the bottom of the current table.
      *
-     * @param sType - The bottom border style.
-     * @param nSize - The width of the current bottom border measured in eighths of a point.
-     * @param nSpace - The spacing offset in the bottom part of the table measured in points used to place this border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param type - The bottom border style.
+     * @param size - The width of the current bottom border measured in eighths of a point.
+     * @param space - The spacing offset in the bottom part of the table measured in points used to place this border.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -52332,20 +52570,19 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablePr/Methods/SetTableBorderBottom/
      */
-    SetTableBorderBottom(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetTableBorderBottom(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Specifies the border which will be displayed on all horizontal table cell borders which are not on
      * the outmost edge
      * of the parent table (all horizontal borders which are not the topmost or bottommost borders).
      *
-     * @param sType - The horizontal table cell border style.
-     * @param nSize - The width of the current border measured in eighths of a point.
-     * @param nSpace - The spacing offset in the horizontal table cells of the table measured in points used to place
+     * @param type - The horizontal table cell border style.
+     * @param size - The width of the current border measured in eighths of a point.
+     * @param space - The spacing offset in the horizontal table cells of the table measured in points used to place
      *   this border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -52369,20 +52606,19 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablePr/Methods/SetTableBorderInsideH/
      */
-    SetTableBorderInsideH(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetTableBorderInsideH(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Specifies the border which will be displayed on all vertical table cell borders which are not on the
      * outmost edge
      * of the parent table (all vertical borders which are not the leftmost or rightmost borders).
      *
-     * @param sType - The vertical table cell border style.
-     * @param nSize - The width of the current border measured in eighths of a point.
-     * @param nSpace - The spacing offset in the vertical table cells of the table measured in points used to place
+     * @param type - The vertical table cell border style.
+     * @param size - The width of the current border measured in eighths of a point.
+     * @param space - The spacing offset in the vertical table cells of the table measured in points used to place
      *   this border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -52406,17 +52642,16 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablePr/Methods/SetTableBorderInsideV/
      */
-    SetTableBorderInsideV(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetTableBorderInsideV(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Sets the border which will be displayed on the left of the current table.
      *
-     * @param sType - The left border style.
-     * @param nSize - The width of the current left border measured in eighths of a point.
-     * @param nSpace - The spacing offset in the left part of the table measured in points used to place this border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param type - The left border style.
+     * @param size - The width of the current left border measured in eighths of a point.
+     * @param space - The spacing offset in the left part of the table measured in points used to place this border.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -52440,17 +52675,16 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablePr/Methods/SetTableBorderLeft/
      */
-    SetTableBorderLeft(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetTableBorderLeft(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Sets the border which will be displayed on the right of the current table.
      *
-     * @param sType - The right border style.
-     * @param nSize - The width of the current right border measured in eighths of a point.
-     * @param nSpace - The spacing offset in the right part of the table measured in points used to place this border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param type - The right border style.
+     * @param size - The width of the current right border measured in eighths of a point.
+     * @param space - The spacing offset in the right part of the table measured in points used to place this border.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -52474,17 +52708,16 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablePr/Methods/SetTableBorderRight/
      */
-    SetTableBorderRight(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetTableBorderRight(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Sets the border which will be displayed at the top of the current table.
      *
-     * @param sType - The top border style.
-     * @param nSize - The width of the current top border measured in eighths of a point.
-     * @param nSpace - The spacing offset in the top part of the table measured in points used to place this border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param type - The top border style.
+     * @param size - The width of the current top border measured in eighths of a point.
+     * @param space - The spacing offset in the top part of the table measured in points used to place this border.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -52508,7 +52741,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablePr/Methods/SetTableBorderTop/
      */
-    SetTableBorderTop(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetTableBorderTop(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Specifies an amount of space which will be left between the bottom extent of the cell contents and
@@ -53001,7 +53234,7 @@ declare namespace Word {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/
    */
-  export interface ApiTableCell extends Omit<ApiTableCellPr, "GetClassType" | "SetShd" | "SetCellBorderBottom" | "SetCellBorderLeft" | "SetCellBorderRight" | "SetCellBorderTop"> {
+  export interface ApiTableCell extends Omit<ApiTableCellPr, "GetClassType" | "SetCellBorderBottom" | "SetCellBorderLeft" | "SetCellBorderRight" | "SetCellBorderTop"> {
     /**
      * Adds the new columns to the current table.
      *
@@ -53565,13 +53798,12 @@ declare namespace Word {
     /**
      * Sets the border which will be displayed at the bottom of the current table cell.
      *
-     * @param sType - The cell bottom border style.
-     * @param nSize - The width of the current cell bottom border measured in eighths of a point.
-     * @param nSpace - The spacing offset in the bottom part of the table cell measured in points used to place this
+     * @param type - The cell bottom border style.
+     * @param size - The width of the current cell bottom border measured in eighths of a point.
+     * @param space - The spacing offset in the bottom part of the table cell measured in points used to place this
      *   border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -53594,18 +53826,17 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetCellBorderBottom/
      */
-    SetCellBorderBottom(sType: BorderType, nSize: pt_8, nSpace?: pt, r?: number, g?: number, b?: number): boolean;
+    SetCellBorderBottom(type: BorderType, size: pt_8, space?: pt, color?: ApiColor): boolean;
 
     /**
      * Sets the border which will be displayed to the left of the current table cell.
      *
-     * @param sType - The cell left border style.
-     * @param nSize - The width of the current cell left border measured in eighths of a point.
-     * @param nSpace - The spacing offset in the left part of the table cell measured in points used to place this
+     * @param type - The cell left border style.
+     * @param size - The width of the current cell left border measured in eighths of a point.
+     * @param space - The spacing offset in the left part of the table cell measured in points used to place this
      *   border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -53628,18 +53859,17 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetCellBorderLeft/
      */
-    SetCellBorderLeft(sType: BorderType, nSize: pt_8, nSpace?: pt, r?: number, g?: number, b?: number): boolean;
+    SetCellBorderLeft(type: BorderType, size: pt_8, space?: pt, color?: ApiColor): boolean;
 
     /**
      * Sets the border which will be displayed to the right of the current table cell.
      *
-     * @param sType - The cell right border style.
-     * @param nSize - The width of the current cell right border measured in eighths of a point.
-     * @param nSpace - The spacing offset in the right part of the table cell measured in points used to place this
+     * @param type - The cell right border style.
+     * @param size - The width of the current cell right border measured in eighths of a point.
+     * @param space - The spacing offset in the right part of the table cell measured in points used to place this
      *   border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -53662,18 +53892,17 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetCellBorderRight/
      */
-    SetCellBorderRight(sType: BorderType, nSize: pt_8, nSpace?: pt, r?: number, g?: number, b?: number): boolean;
+    SetCellBorderRight(type: BorderType, size: pt_8, space?: pt, color?: ApiColor): boolean;
 
     /**
      * Sets the border which will be displayed at the top of the current table cell.
      *
-     * @param sType - The cell top border style.
-     * @param nSize - The width of the current cell top border measured in eighths of a point.
-     * @param nSpace - The spacing offset in the top part of the table cell measured in points used to place this
+     * @param type - The cell top border style.
+     * @param size - The width of the current cell top border measured in eighths of a point.
+     * @param space - The spacing offset in the top part of the table cell measured in points used to place this
      *   border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -53696,7 +53925,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetCellBorderTop/
      */
-    SetCellBorderTop(sType: BorderType, nSize: pt_8, nSpace?: pt, r?: number, g?: number, b?: number): boolean;
+    SetCellBorderTop(type: BorderType, size: pt_8, space?: pt, color?: ApiColor): boolean;
 
     /**
      * Specifies an amount of space which will be left between the bottom extent of the cell contents and
@@ -53943,12 +54172,8 @@ declare namespace Word {
     /**
      * Specifies the shading applied to the contents of the table cell.
      *
-     * @param sType - The shading type which will be applied to the contents of the current table cell.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
-     * @param isAuto - The true value disables the table cell contents shading.
-     * @default isAuto = false
+     * @param shd - The shading created with the Api.CreateShd method.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -53971,7 +54196,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetShd/
      */
-    SetShd(sType: ShdType, r?: number, g?: number, b?: number, isAuto?: boolean): boolean;
+    SetShd(shd: ApiShd): boolean;
 
     /**
      * Replaces all content of the current table cell with the specified text,
@@ -54215,13 +54440,12 @@ declare namespace Word {
     /**
      * Sets the border which will be displayed at the bottom of the current table cell.
      *
-     * @param sType - The cell bottom border style.
-     * @param nSize - The width of the current cell bottom border measured in eighths of a point.
-     * @param nSpace - The spacing offset in the bottom part of the table cell measured in points used to place this
+     * @param type - The cell bottom border style.
+     * @param size - The width of the current cell bottom border measured in eighths of a point.
+     * @param space - The spacing offset in the bottom part of the table cell measured in points used to place this
      *   border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -54244,18 +54468,17 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetCellBorderBottom/
      */
-    SetCellBorderBottom(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetCellBorderBottom(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Sets the border which will be displayed to the left of the current table cell.
      *
-     * @param sType - The cell left border style.
-     * @param nSize - The width of the current cell left border measured in eighths of a point.
-     * @param nSpace - The spacing offset in the left part of the table cell measured in points used to place this
+     * @param type - The cell left border style.
+     * @param size - The width of the current cell left border measured in eighths of a point.
+     * @param space - The spacing offset in the left part of the table cell measured in points used to place this
      *   border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -54278,18 +54501,17 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetCellBorderLeft/
      */
-    SetCellBorderLeft(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetCellBorderLeft(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Sets the border which will be displayed to the right of the current table cell.
      *
-     * @param sType - The cell right border style.
-     * @param nSize - The width of the current cell right border measured in eighths of a point.
-     * @param nSpace - The spacing offset in the right part of the table cell measured in points used to place this
+     * @param type - The cell right border style.
+     * @param size - The width of the current cell right border measured in eighths of a point.
+     * @param space - The spacing offset in the right part of the table cell measured in points used to place this
      *   border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -54312,18 +54534,17 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetCellBorderRight/
      */
-    SetCellBorderRight(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetCellBorderRight(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Sets the border which will be displayed at the top of the current table cell.
      *
-     * @param sType - The cell top border style.
-     * @param nSize - The width of the current cell top border measured in eighths of a point.
-     * @param nSpace - The spacing offset in the top part of the table cell measured in points used to place this
+     * @param type - The cell top border style.
+     * @param size - The width of the current cell top border measured in eighths of a point.
+     * @param space - The spacing offset in the top part of the table cell measured in points used to place this
      *   border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -54346,7 +54567,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetCellBorderTop/
      */
-    SetCellBorderTop(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetCellBorderTop(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Specifies an amount of space which will be left between the bottom extent of the cell contents and
@@ -54532,12 +54753,8 @@ declare namespace Word {
     /**
      * Specifies the shading applied to the contents of the table cell.
      *
-     * @param sType - The shading type which will be applied to the contents of the current table cell.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
-     * @param isAuto - The true value disables the table cell contents shading.
-     * @default isAuto = false
+     * @param shd - The shading created with the Api.CreateShd method.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -54560,7 +54777,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetShd/
      */
-    SetShd(sType: ShdType, r: number, g?: number, b?: number, isAuto?: boolean): boolean;
+    SetShd(shd: ApiShd): boolean;
 
     /**
      * Specifies the direction of the text flow for this table cell.
@@ -55068,12 +55285,8 @@ declare namespace Word {
     /**
      * Specifies the shading which is applied to the extents of the current table.
      *
-     * @param sType - The shading type applied to the extents of the current table.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
-     * @param isAuto - The true value disables the SetShd method use.
-     * @default isAuto = false
+     * @param shd - The shading created with the Api.CreateShd method.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -55096,7 +55309,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablePr/Methods/SetShd/
      */
-    SetShd(sType: ShdType, r: number, g?: number, b?: number, isAuto?: boolean): boolean;
+    SetShd(shd: ApiShd): boolean;
 
     /**
      * Specifies a number of columns which will comprise each table column band for this table style.
@@ -55175,13 +55388,11 @@ declare namespace Word {
     /**
      * Specifies a border which will be displayed on all table cell borders.
      *
-     * @param sType - The border style.
-     * @param nSize - The width of the current border measured in eighths of a point.
-     * @param nSpace - The spacing offset in the table cells measured in points used to place this border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
-     * @since 9.0.0
+     * @param type - The border style.
+     * @param size - The width of the current border measured in eighths of a point.
+     * @param space - The spacing offset in the table cells measured in points used to place this border.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -55205,17 +55416,16 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablePr/Methods/SetTableBorderAll/
      */
-    SetTableBorderAll(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetTableBorderAll(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Sets the border which will be displayed at the bottom of the current table.
      *
-     * @param sType - The bottom border style.
-     * @param nSize - The width of the current bottom border measured in eighths of a point.
-     * @param nSpace - The spacing offset in the bottom part of the table measured in points used to place this border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param type - The bottom border style.
+     * @param size - The width of the current bottom border measured in eighths of a point.
+     * @param space - The spacing offset in the bottom part of the table measured in points used to place this border.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -55239,20 +55449,19 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablePr/Methods/SetTableBorderBottom/
      */
-    SetTableBorderBottom(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetTableBorderBottom(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Specifies the border which will be displayed on all horizontal table cell borders which are not on
      * the outmost edge
      * of the parent table (all horizontal borders which are not the topmost or bottommost borders).
      *
-     * @param sType - The horizontal table cell border style.
-     * @param nSize - The width of the current border measured in eighths of a point.
-     * @param nSpace - The spacing offset in the horizontal table cells of the table measured in points used to place
+     * @param type - The horizontal table cell border style.
+     * @param size - The width of the current border measured in eighths of a point.
+     * @param space - The spacing offset in the horizontal table cells of the table measured in points used to place
      *   this border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -55276,20 +55485,19 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablePr/Methods/SetTableBorderInsideH/
      */
-    SetTableBorderInsideH(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetTableBorderInsideH(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Specifies the border which will be displayed on all vertical table cell borders which are not on the
      * outmost edge
      * of the parent table (all vertical borders which are not the leftmost or rightmost borders).
      *
-     * @param sType - The vertical table cell border style.
-     * @param nSize - The width of the current border measured in eighths of a point.
-     * @param nSpace - The spacing offset in the vertical table cells of the table measured in points used to place
+     * @param type - The vertical table cell border style.
+     * @param size - The width of the current border measured in eighths of a point.
+     * @param space - The spacing offset in the vertical table cells of the table measured in points used to place
      *   this border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -55313,17 +55521,16 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablePr/Methods/SetTableBorderInsideV/
      */
-    SetTableBorderInsideV(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetTableBorderInsideV(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Sets the border which will be displayed on the left of the current table.
      *
-     * @param sType - The left border style.
-     * @param nSize - The width of the current left border measured in eighths of a point.
-     * @param nSpace - The spacing offset in the left part of the table measured in points used to place this border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param type - The left border style.
+     * @param size - The width of the current left border measured in eighths of a point.
+     * @param space - The spacing offset in the left part of the table measured in points used to place this border.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -55347,17 +55554,16 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablePr/Methods/SetTableBorderLeft/
      */
-    SetTableBorderLeft(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetTableBorderLeft(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Sets the border which will be displayed on the right of the current table.
      *
-     * @param sType - The right border style.
-     * @param nSize - The width of the current right border measured in eighths of a point.
-     * @param nSpace - The spacing offset in the right part of the table measured in points used to place this border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param type - The right border style.
+     * @param size - The width of the current right border measured in eighths of a point.
+     * @param space - The spacing offset in the right part of the table measured in points used to place this border.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -55381,17 +55587,16 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablePr/Methods/SetTableBorderRight/
      */
-    SetTableBorderRight(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetTableBorderRight(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Sets the border which will be displayed at the top of the current table.
      *
-     * @param sType - The top border style.
-     * @param nSize - The width of the current top border measured in eighths of a point.
-     * @param nSpace - The spacing offset in the top part of the table measured in points used to place this border.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param type - The top border style.
+     * @param size - The width of the current top border measured in eighths of a point.
+     * @param space - The spacing offset in the top part of the table measured in points used to place this border.
+     * @param color - The border color.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -55415,7 +55620,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablePr/Methods/SetTableBorderTop/
      */
-    SetTableBorderTop(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean;
+    SetTableBorderTop(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean;
 
     /**
      * Specifies an amount of space which will be left between the bottom extent of the cell contents and
@@ -58727,7 +58932,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetShd/
      */
-    GetShd(): Shd | undefined;
+    GetShd(): ApiShd | undefined;
 
     /**
      * Returns whether the text with the current text properties are displayed capitalized two points
@@ -59284,10 +59489,9 @@ declare namespace Word {
     /**
      * Specifies the shading applied to the contents of the current text run.
      *
-     * @param type - The shading type applied to the contents of the current text run.
-     * @param color - The color or pattern used to fill the shading.
+     * @param shd - The shading created with the Api.CreateShd method.
      * @returns this text properties.
-     * @since 9.1.0
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -59304,7 +59508,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetShd/
      */
-    SetShd(type: ShdType, color: ApiColor): ApiTextPr;
+    SetShd(shd: ApiShd): ApiTextPr;
 
     /**
      * Specifies that all the small letter characters in the text run are formatted for display only as
@@ -59546,6 +59750,10 @@ declare namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/ToJSON/
      */
     ToJSON(bWriteStyles: boolean): object;
+  }
+
+  /** Class representing a text range within a presentation shape's text frame. */
+  export interface ApiTextRange {
   }
 
   /**
@@ -60480,6 +60688,16 @@ interface ContextMenuItem {
 type DocumentEditingRestrictions = 'none' | 'comments' | 'forms' | 'readOnly';
 
 /**
+ * The current editing restrictions, a combination of the flags:
+ * **0x00** - no editing restrictions,
+ * **0x01** - allows editing form fields,
+ * **0x02** - allows editing comments and regions delimited by range permissions,
+ * **0x04** - the document is signed and cannot be changed,
+ * **0x80** - does not allow editing.
+ */
+type EditorRestrictions = number;
+
+/**
  * Plugin event ("onDocumentContentReady", "onTargetPositionChanged", onClick", "onInputHelperClear",
  * "onInputHelperInput", etc.).
  */
@@ -60736,6 +60954,7 @@ type SelectionType = "none" | "text" | "drawing" | "slide" | "image";
 /** This type specifies the preset shape geometry that will be used for a shape. */
 type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "trapezoid" | "triangle" | "upArrowCallout" | "upDownArrow" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
 
+/** Identifies an annotation range within a paragraph. */
 interface TextAnnotation {
   /** ID of the paragraph containing the annotation. */
   paragraphId: string;
@@ -60747,6 +60966,7 @@ interface TextAnnotation {
   name?: string;
 }
 
+/** Defines a text range within a paragraph to be highlighted as an annotation. */
 interface TextAnnotationRange {
   /** Unique identifier for the range. */
   id: string;
@@ -61795,6 +62015,13 @@ type WordMethodArgs = {
    * @since 10.0.0
    */
   GetOFormRole: [];
+  /**
+   * Returns the restrictions the editor currently applies to the document.
+   *
+   * @returns The current restrictions.
+   * @since 10.0.0
+   */
+  GetRestrictions: [];
   /**
    * Returns the selected content in the specified format.
    *
@@ -62985,6 +63212,7 @@ type WordMethodReturnMap = {
   GetInstalledPlugins: PluginData[];
   GetMacros: string;
   GetOFormRole: string;
+  GetRestrictions: EditorRestrictions;
   GetSelectedContent: string;
   GetSelectedOleObjects: OLEProperties[];
   GetSelectedText: string;
@@ -63059,7 +63287,7 @@ type WordMethodReturnMap = {
 type WordMethodReturn<T extends WordMethodName> = WordMethodReturnMap[T];
 
 /**
- * Word `executeMethod` names that need a paid ONLYOFFICE edition (8 of 112).
+ * Word `executeMethod` names that need a paid ONLYOFFICE edition (8 of 113).
  * Each one's own `@requires` tag names the edition it needs.
  *
  * Nothing restricts these by default - use this to opt into enforcement, e.g.

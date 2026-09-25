@@ -17,39 +17,30 @@
       "params": [
         {
           "description": "The cell bottom border style.",
-          "name": "sType",
+          "name": "type",
           "type": "BorderType"
         },
         {
           "description": "The width of the current cell bottom border measured in eighths of a point.",
-          "name": "nSize",
+          "name": "size",
           "type": "pt_8"
         },
         {
           "description": "The spacing offset in the bottom part of the table cell measured in points used to place this border.",
-          "name": "nSpace",
+          "name": "space",
           "type": "pt"
         },
         {
-          "description": "Red color component value.",
-          "name": "r",
-          "type": "number"
-        },
-        {
-          "description": "Green color component value.",
-          "name": "g",
-          "type": "number"
-        },
-        {
-          "description": "Blue color component value.",
-          "name": "b",
-          "type": "number"
+          "description": "The border color.",
+          "name": "color",
+          "type": "ApiColor"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetCellBorderBottom(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean"
+      "signature": "SetCellBorderBottom(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean",
+      "since": "10.0.0"
     },
     "SetCellBorderLeft": {
       "description": "Sets the border which will be displayed to the left of the current table cell.",
@@ -57,39 +48,30 @@
       "params": [
         {
           "description": "The cell left border style.",
-          "name": "sType",
+          "name": "type",
           "type": "BorderType"
         },
         {
           "description": "The width of the current cell left border measured in eighths of a point.",
-          "name": "nSize",
+          "name": "size",
           "type": "pt_8"
         },
         {
           "description": "The spacing offset in the left part of the table cell measured in points used to place this border.",
-          "name": "nSpace",
+          "name": "space",
           "type": "pt"
         },
         {
-          "description": "Red color component value.",
-          "name": "r",
-          "type": "number"
-        },
-        {
-          "description": "Green color component value.",
-          "name": "g",
-          "type": "number"
-        },
-        {
-          "description": "Blue color component value.",
-          "name": "b",
-          "type": "number"
+          "description": "The border color.",
+          "name": "color",
+          "type": "ApiColor"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetCellBorderLeft(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean"
+      "signature": "SetCellBorderLeft(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean",
+      "since": "10.0.0"
     },
     "SetCellBorderRight": {
       "description": "Sets the border which will be displayed to the right of the current table cell.",
@@ -97,39 +79,30 @@
       "params": [
         {
           "description": "The cell right border style.",
-          "name": "sType",
+          "name": "type",
           "type": "BorderType"
         },
         {
           "description": "The width of the current cell right border measured in eighths of a point.",
-          "name": "nSize",
+          "name": "size",
           "type": "pt_8"
         },
         {
           "description": "The spacing offset in the right part of the table cell measured in points used to place this border.",
-          "name": "nSpace",
+          "name": "space",
           "type": "pt"
         },
         {
-          "description": "Red color component value.",
-          "name": "r",
-          "type": "number"
-        },
-        {
-          "description": "Green color component value.",
-          "name": "g",
-          "type": "number"
-        },
-        {
-          "description": "Blue color component value.",
-          "name": "b",
-          "type": "number"
+          "description": "The border color.",
+          "name": "color",
+          "type": "ApiColor"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetCellBorderRight(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean"
+      "signature": "SetCellBorderRight(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean",
+      "since": "10.0.0"
     },
     "SetCellBorderTop": {
       "description": "Sets the border which will be displayed at the top of the current table cell.",
@@ -137,39 +110,30 @@
       "params": [
         {
           "description": "The cell top border style.",
-          "name": "sType",
+          "name": "type",
           "type": "BorderType"
         },
         {
           "description": "The width of the current cell top border measured in eighths of a point.",
-          "name": "nSize",
+          "name": "size",
           "type": "pt_8"
         },
         {
           "description": "The spacing offset in the top part of the table cell measured in points used to place this border.",
-          "name": "nSpace",
+          "name": "space",
           "type": "pt"
         },
         {
-          "description": "Red color component value.",
-          "name": "r",
-          "type": "number"
-        },
-        {
-          "description": "Green color component value.",
-          "name": "g",
-          "type": "number"
-        },
-        {
-          "description": "Blue color component value.",
-          "name": "b",
-          "type": "number"
+          "description": "The border color.",
+          "name": "color",
+          "type": "ApiColor"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetCellBorderTop(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean"
+      "signature": "SetCellBorderTop(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean",
+      "since": "10.0.0"
     },
     "SetCellMarginBottom": {
       "description": "Specifies an amount of space which will be left between the bottom extent of the cell contents and the border\nof a specific table cell within a table.",
@@ -251,38 +215,16 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetShd/",
       "params": [
         {
-          "description": "The shading type which will be applied to the contents of the current table cell.",
-          "name": "sType",
-          "type": "ShdType"
-        },
-        {
-          "description": "Red color component value.",
-          "name": "r",
-          "type": "number"
-        },
-        {
-          "description": "Green color component value.",
-          "name": "g",
-          "optional": true,
-          "type": "number"
-        },
-        {
-          "description": "Blue color component value.",
-          "name": "b",
-          "optional": true,
-          "type": "number"
-        },
-        {
-          "description": "The true value disables the table cell contents shading.",
-          "name": "isAuto",
-          "optional": true,
-          "type": "boolean"
+          "description": "The shading created with the Api.CreateShd method.",
+          "name": "shd",
+          "type": "ApiShd"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetShd(sType: ShdType, r: number, g?: number, b?: number, isAuto?: boolean): boolean"
+      "signature": "SetShd(shd: ApiShd): boolean",
+      "since": "10.0.0"
     },
     "SetTextDirection": {
       "description": "Specifies the direction of the text flow for this table cell.",

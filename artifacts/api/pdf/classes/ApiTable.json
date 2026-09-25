@@ -179,6 +179,16 @@
       "signature": "GetColumnWidth(columnIndex: number): EMU | null",
       "since": "10.0.0"
     },
+    "GetColumnsCount": {
+      "description": "Returns a number of columns in the current table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/GetColumnsCount/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetColumnsCount(): number",
+      "since": "10.0.0"
+    },
     "GetInternalId": {
       "description": "Returns an internal ID of the current drawing.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetInternalId/",
@@ -259,7 +269,8 @@
       "returns": {
         "type": "TableLook"
       },
-      "signature": "GetTableLook(): TableLook"
+      "signature": "GetTableLook(): TableLook",
+      "since": "10.0.0"
     },
     "GetTableTitle": {
       "description": "Returns the table title.",
@@ -412,32 +423,16 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/SetShd/",
       "params": [
         {
-          "description": "The shading type or fill to apply.",
-          "name": "shadingType",
-          "type": "ShdType | ApiFill"
-        },
-        {
-          "description": "Red color component value.",
-          "name": "r",
-          "type": "number"
-        },
-        {
-          "description": "Green color component value.",
-          "name": "g",
-          "optional": true,
-          "type": "number"
-        },
-        {
-          "description": "Blue color component value.",
-          "name": "b",
-          "optional": true,
-          "type": "number"
+          "description": "The shading created with the Api.CreateShd method.",
+          "name": "shd",
+          "type": "ApiShd"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetShd(shadingType: ShdType | ApiFill, r: number, g?: number, b?: number): boolean"
+      "signature": "SetShd(shd: ApiShd): boolean",
+      "since": "10.0.0"
     },
     "SetSize": {
       "description": "Sets the table size.",

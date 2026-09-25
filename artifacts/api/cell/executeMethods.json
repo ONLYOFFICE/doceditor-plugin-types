@@ -209,6 +209,16 @@
     },
     "signature": "executeMethod(\"GetMacros\", [oContent?: string], callback?): string"
   },
+  "GetRestrictions": {
+    "description": "Returns the restrictions the editor currently applies to the document.",
+    "params": [],
+    "returns": {
+      "description": "The current restrictions.",
+      "type": "EditorRestrictions"
+    },
+    "signature": "executeMethod(\"GetRestrictions\", [], callback?): EditorRestrictions",
+    "since": "10.0.0"
+  },
   "GetSelectedContent": {
     "description": "Returns the selected content in the specified format.",
     "params": [

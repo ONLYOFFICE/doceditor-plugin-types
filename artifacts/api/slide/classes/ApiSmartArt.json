@@ -5,16 +5,6 @@
     "ApiDrawing"
   ],
   "methods": {
-    "CreateTextRange": {
-      "description": "Creates a text body for the drawing if it does not already exist and returns its full text range.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/CreateTextRange/",
-      "params": [],
-      "returns": {
-        "type": "ApiTextRange | null"
-      },
-      "signature": "CreateTextRange(): ApiTextRange | null",
-      "since": "10.0.0"
-    },
     "GetClassType": {
       "description": "Returns a type of the ApiSmartArt class.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiSmartArt/Methods/GetClassType/",
@@ -110,24 +100,15 @@
       },
       "signature": "GetPosY(): EMU"
     },
-    "GetTextRange": {
-      "description": "Returns an ApiTextRange covering the full text content of the shape, or null if the shape has no text body (use CreateTextRange to create one).",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetTextRange/",
+    "GetVisitor": {
+      "description": "Returns a visitor object for traversing the text of the current drawing, including the drawings nested in a group.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetVisitor/",
       "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
       "returns": {
-        "type": "ApiTextRange | null"
+        "type": "ApiPresentationVisitor"
       },
-      "signature": "GetTextRange(): ApiTextRange | null",
-      "since": "10.0.0"
-    },
-    "IsTextRange": {
-      "description": "Checks whether the drawing has an associated text body.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/IsTextRange/",
-      "params": [],
-      "returns": {
-        "type": "boolean"
-      },
-      "signature": "IsTextRange(): boolean",
+      "signature": "GetVisitor(): ApiPresentationVisitor",
       "since": "10.0.0"
     },
     "ReplacePlaceholder": {

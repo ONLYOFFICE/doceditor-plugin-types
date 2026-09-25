@@ -83,6 +83,17 @@
       "signature": "GetParentSheet(): ApiWorksheet",
       "since": "8.3.0"
     },
+    "GetPosition": {
+      "description": "Returns the cell anchor of the current drawing; the offsets are limited by the anchor cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetPosition/",
+      "params": [],
+      "returns": {
+        "description": "returns null for an absolutely positioned drawing.",
+        "type": "DrawingCellAnchor | null"
+      },
+      "signature": "GetPosition(): DrawingCellAnchor | null",
+      "since": "10.0.0"
+    },
     "GetSeries": {
       "description": "Returns the series with a specific index.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/GetSeries/",
@@ -250,15 +261,15 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/SetHorAxisLabelsFontSize/",
       "params": [
         {
-          "description": "The text size value measured in points.",
-          "name": "nFontSize",
-          "type": "pt"
+          "description": "The text size value measured in half-points (1/144 of an inch).",
+          "name": "fontSize",
+          "type": "hps"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetHorAxisLabelsFontSize(nFontSize: pt): boolean"
+      "signature": "SetHorAxisLabelsFontSize(fontSize: hps): boolean"
     },
     "SetHorAxisMajorTickMark": {
       "description": "Specifies major tick mark for the horizontal axis.",
@@ -330,9 +341,9 @@
           "type": "string"
         },
         {
-          "description": "The text size value measured in points.",
-          "name": "nFontSize",
-          "type": "pt"
+          "description": "The text size value measured in half-points (1/144 of an inch).",
+          "name": "fontSize",
+          "type": "hps"
         },
         {
           "description": "Specifies if the horizontal axis title is written in bold font or not.",
@@ -344,7 +355,7 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetHorAxisTitle(sTitle: string, nFontSize: pt, bIsBold?: boolean): boolean"
+      "signature": "SetHorAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean"
     },
     "SetLegendFill": {
       "description": "Sets the fill to the chart legend.",
@@ -366,15 +377,15 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/SetLegendFontSize/",
       "params": [
         {
-          "description": "The text size value measured in points.",
-          "name": "nFontSize",
-          "type": "pt"
+          "description": "The text size value measured in half-points (1/144 of an inch).",
+          "name": "fontSize",
+          "type": "hps"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetLegendFontSize(nFontSize: pt): boolean"
+      "signature": "SetLegendFontSize(fontSize: hps): boolean"
     },
     "SetLegendOutLine": {
       "description": "Sets the outline to the chart legend.",
@@ -799,9 +810,9 @@
           "type": "string"
         },
         {
-          "description": "The text size value measured in points.",
-          "name": "nFontSize",
-          "type": "pt"
+          "description": "The text size value measured in half-points (1/144 of an inch).",
+          "name": "fontSize",
+          "type": "hps"
         },
         {
           "description": "Specifies if the chart title is written in bold font or not.",
@@ -813,7 +824,7 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetTitle(sTitle: string, nFontSize: pt, bIsBold?: boolean): boolean"
+      "signature": "SetTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean"
     },
     "SetTitleFill": {
       "description": "Sets the fill to the chart title.",
@@ -870,9 +881,9 @@
           "type": "string"
         },
         {
-          "description": "The text size value measured in points.",
-          "name": "nFontSize",
-          "type": "pt"
+          "description": "The text size value measured in half-points (1/144 of an inch).",
+          "name": "fontSize",
+          "type": "hps"
         },
         {
           "description": "Specifies if the vertical axis title is written in bold font or not.",
@@ -884,22 +895,22 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetVerAxisTitle(sTitle: string, nFontSize: pt, bIsBold?: boolean): boolean"
+      "signature": "SetVerAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean"
     },
     "SetVertAxisLabelsFontSize": {
       "description": "Specifies font size for labels of the vertical axis.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/SetVertAxisLabelsFontSize/",
       "params": [
         {
-          "description": "The text size value measured in points.",
-          "name": "nFontSize",
-          "type": "pt"
+          "description": "The text size value measured in half-points (1/144 of an inch).",
+          "name": "fontSize",
+          "type": "hps"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetVertAxisLabelsFontSize(nFontSize: pt): boolean"
+      "signature": "SetVertAxisLabelsFontSize(fontSize: hps): boolean"
     },
     "SetVertAxisMajorTickMark": {
       "description": "Specifies major tick mark for the vertical axis.",

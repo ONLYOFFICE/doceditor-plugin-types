@@ -11,6 +11,27 @@
       },
       "signature": "GetClassType(): \"fill\""
     },
+    "GetColor": {
+      "description": "Returns the color of a solid fill.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiFill/Methods/GetColor/",
+      "params": [],
+      "returns": {
+        "type": "ApiColor"
+      },
+      "signature": "GetColor(): ApiColor",
+      "since": "10.0.0"
+    },
+    "GetTransparent": {
+      "description": "Returns the transparency of the fill.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiFill/Methods/GetTransparent/",
+      "params": [],
+      "returns": {
+        "description": "The transparency value, from 0 (fully opaque) to 1 (fully transparent).",
+        "type": "number"
+      },
+      "signature": "GetTransparent(): number",
+      "since": "10.0.0"
+    },
     "GetType": {
       "description": "Gets the fill type.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiFill/Methods/GetType/",
@@ -20,6 +41,22 @@
         "type": "FillType"
       },
       "signature": "GetType(): FillType"
+    },
+    "SetTransparent": {
+      "description": "Sets the transparency of the fill.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiFill/Methods/SetTransparent/",
+      "params": [
+        {
+          "description": "The transparency value, from 0 (fully opaque) to 1 (fully transparent).",
+          "name": "transparent",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetTransparent(transparent: number): boolean",
+      "since": "10.0.0"
     }
   }
 }

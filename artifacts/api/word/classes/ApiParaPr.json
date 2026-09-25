@@ -162,9 +162,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetShd/",
       "params": [],
       "returns": {
-        "type": "Shd | undefined"
+        "type": "ApiShd | undefined"
       },
-      "signature": "GetShd(): Shd | undefined"
+      "signature": "GetShd(): ApiShd | undefined"
     },
     "GetSpacingAfter": {
       "description": "Returns the spacing after value of the current paragraph.",
@@ -253,39 +253,30 @@
       "params": [
         {
           "description": "The border style.",
-          "name": "sType",
+          "name": "type",
           "type": "BorderType"
         },
         {
           "description": "The width of the current border measured in eighths of a point.",
-          "name": "nSize",
+          "name": "size",
           "type": "pt_8"
         },
         {
           "description": "The spacing offset between the paragraphs measured in points used to place this border.",
-          "name": "nSpace",
+          "name": "space",
           "type": "pt"
         },
         {
-          "description": "Red color component value.",
-          "name": "r",
-          "type": "number"
-        },
-        {
-          "description": "Green color component value.",
-          "name": "g",
-          "type": "number"
-        },
-        {
-          "description": "Blue color component value.",
-          "name": "b",
-          "type": "number"
+          "description": "The border color.",
+          "name": "color",
+          "type": "ApiColor"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetBetweenBorder(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean"
+      "signature": "SetBetweenBorder(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean",
+      "since": "10.0.0"
     },
     "SetBottomBorder": {
       "description": "Specifies the border which will be displayed below a set of paragraphs which have the same paragraph border settings.\n<note>The paragraphs of the same style going one by one are considered as a single block, so the border is added\nto the whole block rather than to every paragraph in this block.</note>",
@@ -293,39 +284,30 @@
       "params": [
         {
           "description": "The border style.",
-          "name": "sType",
+          "name": "type",
           "type": "BorderType"
         },
         {
           "description": "The width of the current bottom border measured in eighths of a point.",
-          "name": "nSize",
+          "name": "size",
           "type": "pt_8"
         },
         {
           "description": "The spacing offset below the paragraph measured in points used to place this border.",
-          "name": "nSpace",
+          "name": "space",
           "type": "pt"
         },
         {
-          "description": "Red color component value.",
-          "name": "r",
-          "type": "number"
-        },
-        {
-          "description": "Green color component value.",
-          "name": "g",
-          "type": "number"
-        },
-        {
-          "description": "Blue color component value.",
-          "name": "b",
-          "type": "number"
+          "description": "The border color.",
+          "name": "color",
+          "type": "ApiColor"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetBottomBorder(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean"
+      "signature": "SetBottomBorder(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean",
+      "since": "10.0.0"
     },
     "SetContextualSpacing": {
       "description": "Specifies that any space before or after this paragraph set using the \n{@link ApiParaPr#SetSpacingBefore} or {@link ApiParaPr#SetSpacingAfter} spacing element, should not be applied when the preceding and \nfollowing paragraphs are of the same paragraph style, affecting the top and bottom spacing respectively.",
@@ -438,39 +420,30 @@
       "params": [
         {
           "description": "The border style.",
-          "name": "sType",
+          "name": "type",
           "type": "BorderType"
         },
         {
           "description": "The width of the current left border measured in eighths of a point.",
-          "name": "nSize",
+          "name": "size",
           "type": "pt_8"
         },
         {
           "description": "The spacing offset to the left of the paragraph measured in points used to place this border.",
-          "name": "nSpace",
+          "name": "space",
           "type": "pt"
         },
         {
-          "description": "Red color component value.",
-          "name": "r",
-          "type": "number"
-        },
-        {
-          "description": "Green color component value.",
-          "name": "g",
-          "type": "number"
-        },
-        {
-          "description": "Blue color component value.",
-          "name": "b",
-          "type": "number"
+          "description": "The border color.",
+          "name": "color",
+          "type": "ApiColor"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetLeftBorder(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean"
+      "signature": "SetLeftBorder(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean",
+      "since": "10.0.0"
     },
     "SetNumPr": {
       "description": "Specifies that the current paragraph references a numbering definition instance in the current document.",
@@ -531,51 +504,21 @@
       "params": [
         {
           "description": "The border style.",
-          "name": "sType",
+          "name": "type",
           "type": "BorderType"
         },
         {
           "description": "The width of the current right border measured in eighths of a point.",
-          "name": "nSize",
+          "name": "size",
           "type": "pt_8"
         },
         {
           "description": "The spacing offset to the right of the paragraph measured in points used to place this border.",
-          "name": "nSpace",
+          "name": "space",
           "type": "pt"
         },
         {
-          "description": "Red color component value.",
-          "name": "r",
-          "type": "number"
-        },
-        {
-          "description": "Green color component value.",
-          "name": "g",
-          "type": "number"
-        },
-        {
-          "description": "Blue color component value.",
-          "name": "b",
-          "type": "number"
-        }
-      ],
-      "returns": {
-        "type": "boolean"
-      },
-      "signature": "SetRightBorder(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean"
-    },
-    "SetShd": {
-      "description": "Specifies the shading applied to the contents of the paragraph.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetShd/",
-      "params": [
-        {
-          "description": "The shading type which will be applied to the contents of the current paragraph.",
-          "name": "type",
-          "type": "ShdType"
-        },
-        {
-          "description": "The color or pattern used to fill the shading.",
+          "description": "The border color.",
           "name": "color",
           "type": "ApiColor"
         }
@@ -583,8 +526,24 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetShd(type: ShdType, color: ApiColor): boolean",
-      "since": "9.1.0"
+      "signature": "SetRightBorder(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean",
+      "since": "10.0.0"
+    },
+    "SetShd": {
+      "description": "Specifies the shading applied to the contents of the paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetShd/",
+      "params": [
+        {
+          "description": "The shading created with the Api.CreateShd method.",
+          "name": "shd",
+          "type": "ApiShd"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetShd(shd: ApiShd): boolean",
+      "since": "10.0.0"
     },
     "SetSpacingAfter": {
       "description": "Sets the spacing after the current paragraph. If the value of the isAfterAuto parameter is true, then \nany value of the nAfter is ignored. If isAfterAuto parameter is not specified, then it \nwill be interpreted as false.",
@@ -690,39 +649,30 @@
       "params": [
         {
           "description": "The border style.",
-          "name": "sType",
+          "name": "type",
           "type": "BorderType"
         },
         {
           "description": "The width of the current top border measured in eighths of a point.",
-          "name": "nSize",
+          "name": "size",
           "type": "pt_8"
         },
         {
           "description": "The spacing offset above the paragraph measured in points used to place this border.",
-          "name": "nSpace",
+          "name": "space",
           "type": "pt"
         },
         {
-          "description": "Red color component value.",
-          "name": "r",
-          "type": "number"
-        },
-        {
-          "description": "Green color component value.",
-          "name": "g",
-          "type": "number"
-        },
-        {
-          "description": "Blue color component value.",
-          "name": "b",
-          "type": "number"
+          "description": "The border color.",
+          "name": "color",
+          "type": "ApiColor"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetTopBorder(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean"
+      "signature": "SetTopBorder(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean",
+      "since": "10.0.0"
     },
     "SetWidowControl": {
       "description": "Specifies whether a single line of the current paragraph will be displayed on a separate page from the remaining content at display time by moving the line onto the following page.",

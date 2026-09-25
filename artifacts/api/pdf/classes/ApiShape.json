@@ -30,7 +30,8 @@
       "returns": {
         "type": "ApiDocumentContent"
       },
-      "signature": "GetDocContent(): ApiDocumentContent"
+      "signature": "GetDocContent(): ApiDocumentContent",
+      "since": "10.0.0"
     },
     "GetFill": {
       "description": "Gets the fill properties from the current shape.",
@@ -115,7 +116,8 @@
       "returns": {
         "type": "VerticalTextAlign"
       },
-      "signature": "GetVerticalTextAlign(): VerticalTextAlign"
+      "signature": "GetVerticalTextAlign(): VerticalTextAlign",
+      "since": "10.0.0"
     },
     "SetFill": {
       "description": "Sets the fill properties to the current shape.",

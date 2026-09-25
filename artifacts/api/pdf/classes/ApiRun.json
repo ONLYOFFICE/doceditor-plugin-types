@@ -229,6 +229,30 @@
       },
       "signature": "GetTextPr(): ApiTextPr"
     },
+    "GetTextRange": {
+      "description": "Returns an ApiTextRange object that represents the part of the text contained in the current run.\nThe run must be attached to the document before calling this method.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRun/Methods/GetTextRange/",
+      "params": [
+        {
+          "description": "Start character position (0-based, inclusive) relative to the run.",
+          "name": "start",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "End character position (0-based, exclusive). Defaults to the end of the run.",
+          "name": "end",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "returns null if the specified range is empty.",
+        "type": "ApiTextRange | null"
+      },
+      "signature": "GetTextRange(start?: number, end?: number): ApiTextRange | null",
+      "since": "10.0.0"
+    },
     "GetUnderline": {
       "description": "Gets the underline property from the current text properties.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetUnderline/",
@@ -438,6 +462,23 @@
         "type": "ApiTextPr"
       },
       "signature": "SetStrikeout(isStrikeout: boolean): ApiTextPr"
+    },
+    "SetText": {
+      "description": "Replaces the whole text of the current run with the specified text, keeping the run properties.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRun/Methods/SetText/",
+      "params": [
+        {
+          "description": "The new text of the run, as a string or as an array of character codes.",
+          "name": "text",
+          "type": "string | number[]"
+        }
+      ],
+      "returns": {
+        "description": "The current run.",
+        "type": "ApiRun"
+      },
+      "signature": "SetText(text: string | number[]): ApiRun",
+      "since": "10.0.0"
     },
     "SetTextFill": {
       "description": "Sets the text fill to the current text run.",

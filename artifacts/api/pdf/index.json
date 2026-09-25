@@ -8,14 +8,14 @@
       "CreateBullet": "CreateBullet(sSymbol: string): ApiBullet",
       "CreateButtonField": "CreateButtonField(rect: Rect): ApiButtonField",
       "CreateCaretAnnot": "CreateCaretAnnot(rect: Rect | Quad[]): ApiCaretAnnotation",
-      "CreateChart": "CreateChart(chartType?: ChartType, series?: number[][], seriesNames?: number[] | string[], categoryNames?: number[] | string[], width?: EMU, height?: EMU, styleIndex?: number, numFormats?: NumFormat[] | string[]): ApiChart",
+      "CreateChart": "CreateChart(chartType?: ChartType, series?: number[][], seriesNames?: number[] | string[], categoryNames?: number[] | string[], width?: EMU, height?: EMU, styleIndex?: number, numFormats?: NumFormat[] | string[]): ApiChart | null",
       "CreateCheckboxField": "CreateCheckboxField(rect: Rect): ApiCheckboxField",
       "CreateCircleAnnot": "CreateCircleAnnot(rect: Rect): ApiCircleAnnotation",
       "CreateComboboxField": "CreateComboboxField(rect: Rect): ApiComboboxField",
       "CreateCustomGeometry": "CreateCustomGeometry(): ApiGeometry",
       "CreateDateField": "CreateDateField(rect: Rect): ApiTextField",
       "CreateFreeTextAnnot": "CreateFreeTextAnnot(rect: Rect): ApiFreeTextAnnotation",
-      "CreateGoToAction": "CreateGoToAction(page: number, goToType: GoToType, zoom: number, rect: Rect): ApiGoToAction",
+      "CreateGoToAction": "CreateGoToAction(page: number, goToType: GoToType, zoom?: percentage, rect?: Rect): ApiGoToAction",
       "CreateGradientStop": "CreateGradientStop(color: ApiColor, pos: PositivePercentage): ApiGradientStop",
       "CreateHideShowFormsAction": "CreateHideShowFormsAction(isHidde: boolean, names: string[]): ApiHideShowFormsAction",
       "CreateHighlightAnnot": "CreateHighlightAnnot(rect: Rect | Quad[]): ApiHighlightAnnotation",
@@ -25,6 +25,7 @@
       "CreateJsAction": "CreateJsAction(script: string): ApiJsAction",
       "CreateLineAnnot": "CreateLineAnnot(rect: Rect, startPoint: Point, endPoint: Point): ApiLineAnnotation",
       "CreateLinearGradientFill": "CreateLinearGradientFill(gradientStops: number[], angle: PositiveFixedAngle): ApiFill",
+      "CreateLinkAnnot": "CreateLinkAnnot(rect: Rect, action?: ApiBaseAction): ApiLinkAnnotation",
       "CreateListboxField": "CreateListboxField(rect: Rect): ApiListboxField",
       "CreateMath": "CreateMath(text: string, format?: \"unicode\" | \"latex\" | \"mathml\"): ApiMath",
       "CreateNamedAction": "CreateNamedAction(name: NamedActionType): ApiNamedAction",
@@ -49,6 +50,7 @@
       "CreateSchemeColor": "CreateSchemeColor(schemeColorId: SchemeColorId): ApiSchemeColor",
       "CreateShadow": "CreateShadow(settings: ShadowSettings): ApiShadow",
       "CreateShape": "CreateShape(shapeType?: ShapeType, width?: EMU, height?: EMU, fill?: ApiFill, stroke?: ApiStroke): ApiShape",
+      "CreateShd": "CreateShd(type: ShdType, color?: ApiColor): ApiShd",
       "CreateSignatureField": "CreateSignatureField(rect: Rect): ApiSignatureField",
       "CreateSolidFill": "CreateSolidFill(color: ApiColor): ApiFill",
       "CreateSquareAnnot": "CreateSquareAnnot(rect: Rect): ApiSquareAnnotation",
@@ -86,7 +88,7 @@
       "PointsToTwips": "PointsToTwips(pt: number): number",
       "RGB": "RGB(r: number, g: number, b: number): ApiColor",
       "RGBA": "RGBA(r: number, g: number, b: number, a: number): ApiColor",
-      "ThemeColor": "ThemeColor(name?: SchemeColorId): ApiColor",
+      "ThemeColor": "ThemeColor(name?: SchemeColorId, tintAndShade?: number): ApiColor",
       "TwipsToPoints": "TwipsToPoints(twips: number): number"
     },
     "ApiActionCollection": {
@@ -157,7 +159,7 @@
       "SetUniqueName": "SetUniqueName(name: string): boolean"
     },
     "ApiBaseField": {
-      "AddWidget": "AddWidget(pageIndex: number, rect: Rect): ApiWidget",
+      "AddWidget": "AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget",
       "Delete": "Delete(): boolean",
       "GetAllWidgets": "GetAllWidgets(): ApiWidget[]",
       "GetFullName": "GetFullName(): string",
@@ -176,7 +178,7 @@
     },
     "ApiBaseListField": {
       "AddOption": "AddOption(option: ListOption, index?: number): boolean",
-      "AddWidget": "AddWidget(pageIndex: number, rect: Rect): ApiWidget",
+      "AddWidget": "AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget",
       "Delete": "Delete(): boolean",
       "GetAllWidgets": "GetAllWidgets(): ApiWidget[]",
       "GetFullName": "GetFullName(): string",
@@ -256,8 +258,9 @@
       "GetParent": "GetParent(): ApiField",
       "GetPosition": "GetPosition(): Point",
       "GetRect": "GetRect(): Rect",
+      "GetTextAlign": "GetTextAlign(): WidgetTextAlign | undefined",
       "GetTextColor": "GetTextColor(): ApiColor",
-      "GetTextSize": "GetTextSize(): pt",
+      "GetTextSize": "GetTextSize(): hps",
       "IsAutoFit": "IsAutoFit(): boolean",
       "SetAutoFit": "SetAutoFit(auto: boolean): boolean",
       "SetBackgroundColor": "SetBackgroundColor(color: ApiColor): boolean",
@@ -266,8 +269,9 @@
       "SetBorderWidth": "SetBorderWidth(borderWidth: WidgetBorderWidth): boolean",
       "SetPosition": "SetPosition(position: Point): boolean",
       "SetRect": "SetRect(rect: Rect): boolean",
+      "SetTextAlign": "SetTextAlign(textAlign: WidgetTextAlign): boolean",
       "SetTextColor": "SetTextColor(color: ApiColor): boolean",
-      "SetTextSize": "SetTextSize(size: pt): boolean"
+      "SetTextSize": "SetTextSize(size: hps): boolean"
     },
     "ApiBlockLvlSdt": {},
     "ApiBookmark": {},
@@ -276,7 +280,7 @@
       "ToJSON": "ToJSON(): object"
     },
     "ApiButtonField": {
-      "AddWidget": "AddWidget(pageIndex: number, rect: Rect): ApiWidget",
+      "AddWidget": "AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget",
       "Delete": "Delete(): boolean",
       "GetAllWidgets": "GetAllWidgets(): ApiWidget[]",
       "GetClassType": "GetClassType(): \"buttonField\"",
@@ -292,7 +296,7 @@
       "SetReadOnly": "SetReadOnly(readOnly: boolean): boolean",
       "SetRequired": "SetRequired(required: boolean): boolean",
       "SetTooltip": "SetTooltip(tooltip: string): boolean",
-      "SetValue": "SetValue(imageUrl: string): boolean"
+      "SetValue": "SetValue(imageUrl?: string): boolean"
     },
     "ApiButtonWidget": {
       "Delete": "Delete(): boolean",
@@ -312,8 +316,9 @@
       "GetRect": "GetRect(): Rect",
       "GetScaleHow": "GetScaleHow(): ButtonScaleHow",
       "GetScaleWhen": "GetScaleWhen(): ButtonScaleWhen",
+      "GetTextAlign": "GetTextAlign(): WidgetTextAlign | undefined",
       "GetTextColor": "GetTextColor(): ApiColor",
-      "GetTextSize": "GetTextSize(): pt",
+      "GetTextSize": "GetTextSize(): hps",
       "IsAutoFit": "IsAutoFit(): boolean",
       "IsFitBounds": "IsFitBounds(): boolean",
       "SetAutoFit": "SetAutoFit(auto: boolean): boolean",
@@ -332,8 +337,9 @@
       "SetRect": "SetRect(rect: Rect): boolean",
       "SetScaleHow": "SetScaleHow(scaleHow: ButtonScaleHow): boolean",
       "SetScaleWhen": "SetScaleWhen(scaleWhen: ButtonScaleWhen): boolean",
+      "SetTextAlign": "SetTextAlign(textAlign: WidgetTextAlign): boolean",
       "SetTextColor": "SetTextColor(color: ApiColor): boolean",
-      "SetTextSize": "SetTextSize(size: pt): boolean"
+      "SetTextSize": "SetTextSize(size: hps): boolean"
     },
     "ApiCaretAnnotation": {
       "GetClassType": "GetClassType(): \"caretAnnot\"",
@@ -358,14 +364,14 @@
       "SetDataPointFill": "SetDataPointFill(oFill: ApiFill, nSeries: number, nDataPoint: number, bAllSeries?: boolean): boolean",
       "SetDataPointNumFormat": "SetDataPointNumFormat(sFormat: NumFormat | string, nSeria: number, nDataPoint: number, bAllSeries: boolean): boolean",
       "SetDataPointOutLine": "SetDataPointOutLine(oStroke: ApiStroke, nSeries: number, nDataPoint: number, bAllSeries: boolean): boolean",
-      "SetHorAxisLabelsFontSize": "SetHorAxisLabelsFontSize(nFontSize: pt): boolean",
+      "SetHorAxisLabelsFontSize": "SetHorAxisLabelsFontSize(fontSize: hps): boolean",
       "SetHorAxisMajorTickMark": "SetHorAxisMajorTickMark(sTickMark: TickMark): boolean",
       "SetHorAxisMinorTickMark": "SetHorAxisMinorTickMark(sTickMark: TickMark): boolean",
       "SetHorAxisOrientation": "SetHorAxisOrientation(bIsMinMax: boolean): boolean",
       "SetHorAxisTickLabelPosition": "SetHorAxisTickLabelPosition(sTickLabelPosition: TickLabelPosition): boolean",
-      "SetHorAxisTitle": "SetHorAxisTitle(sTitle: string, nFontSize: pt, bIsBold?: boolean): boolean",
+      "SetHorAxisTitle": "SetHorAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean",
       "SetLegendFill": "SetLegendFill(oFill: ApiFill): boolean",
-      "SetLegendFontSize": "SetLegendFontSize(nFontSize: pt): boolean",
+      "SetLegendFontSize": "SetLegendFontSize(fontSize: hps): boolean",
       "SetLegendOutLine": "SetLegendOutLine(oStroke: ApiStroke): boolean",
       "SetLegendPos": "SetLegendPos(sLegendPos: \"left\" | \"top\" | \"right\" | \"bottom\" | \"none\"): boolean",
       "SetMajorHorizontalGridlines": "SetMajorHorizontalGridlines(oStroke: ApiStroke): boolean",
@@ -387,12 +393,12 @@
       "SetShowDataLabels": "SetShowDataLabels(bShowSerName: boolean, bShowCatName: boolean, bShowVal: boolean, bShowPercent: boolean): boolean",
       "SetShowDataTable": "SetShowDataTable(bShow: boolean, bShowKeys?: boolean): boolean",
       "SetShowPointDataLabel": "SetShowPointDataLabel(nSeriesIndex: number, nPointIndex: number, bShowSerName: boolean, bShowCatName: boolean, bShowVal: boolean, bShowPercent: boolean): boolean",
-      "SetTitle": "SetTitle(sTitle: string, nFontSize: pt, bIsBold?: boolean): boolean",
+      "SetTitle": "SetTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean",
       "SetTitleFill": "SetTitleFill(oFill: ApiFill): boolean",
       "SetTitleOutLine": "SetTitleOutLine(oStroke: ApiStroke): boolean",
       "SetVerAxisOrientation": "SetVerAxisOrientation(bIsMinMax: boolean): boolean",
-      "SetVerAxisTitle": "SetVerAxisTitle(sTitle: string, nFontSize: pt, bIsBold?: boolean): boolean",
-      "SetVertAxisLabelsFontSize": "SetVertAxisLabelsFontSize(nFontSize: pt): boolean",
+      "SetVerAxisTitle": "SetVerAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean",
+      "SetVertAxisLabelsFontSize": "SetVertAxisLabelsFontSize(fontSize: hps): boolean",
       "SetVertAxisMajorTickMark": "SetVertAxisMajorTickMark(sTickMark: TickMark): boolean",
       "SetVertAxisMinorTickMark": "SetVertAxisMinorTickMark(sTickMark: TickMark): boolean",
       "SetVertAxisTickLabelPosition": "SetVertAxisTickLabelPosition(sTickLabelPosition: TickLabelPosition): boolean",
@@ -407,7 +413,7 @@
     "ApiCheckBoxForm": {},
     "ApiCheckboxField": {
       "AddOption": "AddOption(pageIndex: number, rect: Rect, exportValue?: string): ApiCheckboxWidget",
-      "AddWidget": "AddWidget(pageIndex: number, rect: Rect): ApiWidget",
+      "AddWidget": "AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget",
       "Delete": "Delete(): boolean",
       "GetAllWidgets": "GetAllWidgets(): ApiWidget[]",
       "GetClassType": "GetClassType(): \"checkboxField\"",
@@ -440,8 +446,9 @@
       "GetInternalId": "GetInternalId(): string",
       "GetPosition": "GetPosition(): Point",
       "GetRect": "GetRect(): Rect",
+      "GetTextAlign": "GetTextAlign(): WidgetTextAlign | undefined",
       "GetTextColor": "GetTextColor(): ApiColor",
-      "GetTextSize": "GetTextSize(): pt",
+      "GetTextSize": "GetTextSize(): hps",
       "IsAutoFit": "IsAutoFit(): boolean",
       "IsChecked": "IsChecked(): boolean",
       "IsCheckedByDefault": "IsCheckedByDefault(): boolean",
@@ -456,8 +463,9 @@
       "SetExportValue": "SetExportValue(value: string): boolean",
       "SetPosition": "SetPosition(position: Point): boolean",
       "SetRect": "SetRect(rect: Rect): boolean",
+      "SetTextAlign": "SetTextAlign(textAlign: WidgetTextAlign): boolean",
       "SetTextColor": "SetTextColor(color: ApiColor): boolean",
-      "SetTextSize": "SetTextSize(size: pt): boolean"
+      "SetTextSize": "SetTextSize(size: hps): boolean"
     },
     "ApiCircleAnnotation": {
       "AddReply": "AddReply(textAnnot: ApiTextAnnotation): boolean",
@@ -509,6 +517,7 @@
       "GetRGB": "GetRGB(): object",
       "GetRGBA": "GetRGBA(): object",
       "GetThemeName": "GetThemeName(): SchemeColorId | null",
+      "GetTintAndShade": "GetTintAndShade(): number",
       "IsThemeColor": "IsThemeColor(): boolean",
       "ToJSON": "ToJSON(): string"
     },
@@ -573,6 +582,7 @@
       "GetSelectionQuads": "GetSelectionQuads(): DocQuads",
       "GetStyle": "GetStyle(sStyleName: string): ApiStyle | null",
       "GetText": "GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_TableCellSeparator?: string, options_TableRowSeparator?: string, options_ParaSeparator?: string, options_TabSymbol?: string, options_NewLineSeparator?: string): string",
+      "GetTextRange": "GetTextRange(start?: number, end?: number): ApiTextRange | null",
       "Merge": "Merge(position?: number, deleteCount?: number, files?: PdfFile[] | Base64[]): boolean",
       "Push": "Push(oElement: DocumentElement): boolean",
       "RemoveAllElements": "RemoveAllElements(): boolean",
@@ -595,6 +605,7 @@
       "GetElementsCount": "GetElementsCount(): number",
       "GetInternalId": "GetInternalId(): string",
       "GetText": "GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_TableCellSeparator?: string, options_TableRowSeparator?: string, options_ParaSeparator?: string, options_TabSymbol?: string, options_NewLineSeparator?: string): string",
+      "GetTextRange": "GetTextRange(start?: number, end?: number): ApiTextRange | null",
       "Push": "Push(oElement: DocumentElement): boolean",
       "RemoveAllElements": "RemoveAllElements(): boolean",
       "RemoveElement": "RemoveElement(nPos: number): boolean",
@@ -619,8 +630,10 @@
       "GetPosY": "GetPosY(): EMU",
       "GetRotation": "GetRotation(): number",
       "GetShadow": "GetShadow(): ApiShadow | null",
+      "GetTextRange": "GetTextRange(): ApiTextRange | null",
       "GetTitle": "GetTitle(): string | null",
       "GetWidth": "GetWidth(): EMU",
+      "HasTextContent": "HasTextContent(): boolean",
       "Select": "Select(isReplace?: boolean): boolean",
       "SetDescription": "SetDescription(description: string): boolean",
       "SetFill": "SetFill(fill: ApiFill): boolean",
@@ -642,7 +655,10 @@
     "ApiDropCap": {},
     "ApiFill": {
       "GetClassType": "GetClassType(): \"fill\"",
-      "GetType": "GetType(): FillType"
+      "GetColor": "GetColor(): ApiColor",
+      "GetTransparent": "GetTransparent(): number",
+      "GetType": "GetType(): FillType",
+      "SetTransparent": "SetTransparent(transparent: number): boolean"
     },
     "ApiFormBase": {},
     "ApiFreeTextAnnotation": {
@@ -713,10 +729,11 @@
       "GetPage": "GetPage(): number",
       "GetRect": "GetRect(): Rect",
       "GetType": "GetType(): GoToType",
-      "GetZoom": "GetZoom(): Rect",
+      "GetZoom": "GetZoom(): number",
       "SetPage": "SetPage(page: number): boolean",
       "SetRect": "SetRect(rect: Rect): boolean",
-      "SetType": "SetType(type: GoToType): boolean"
+      "SetType": "SetType(type: GoToType): boolean",
+      "SetZoom": "SetZoom(zoom?: number): boolean"
     },
     "ApiGradientStop": {
       "GetClassType": "GetClassType(): \"gradientStop\""
@@ -749,6 +766,7 @@
       "GetElementsCount": "GetElementsCount(): number",
       "GetLinkedText": "GetLinkedText(): string",
       "GetScreenTipText": "GetScreenTipText(): string",
+      "GetTextRange": "GetTextRange(start?: number, end?: number): ApiTextRange | null",
       "SetLink": "SetLink(sLink: string): boolean",
       "SetScreenTipText": "SetScreenTipText(sScreenTipText: string): boolean"
     },
@@ -861,8 +879,10 @@
       "SetUniqueName": "SetUniqueName(name: string): boolean"
     },
     "ApiLinkAnnotation": {
+      "GetAction": "GetAction(): ApiBaseAction",
       "GetClassType": "GetClassType(): \"linkAnnot\"",
       "GetQuads": "GetQuads(): Quad[]",
+      "SetAction": "SetAction(action: ApiBaseAction): boolean",
       "SetQuads": "SetQuads(quads: Quad[]): boolean"
     },
     "ApiListboxField": {
@@ -967,6 +987,7 @@
       "GetSpacingLineValue": "GetSpacingLineValue(): twips | line240 | undefined",
       "GetTabs": "GetTabs(): TabStop[]",
       "GetText": "GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_NewLineSeparator?: string, options_TabSymbol?: string): string",
+      "GetTextRange": "GetTextRange(start?: number, end?: number): ApiTextRange | null",
       "InsertParagraph": "InsertParagraph(paragraph: string | ApiParagraph, sPosition: string, beRNewPara: boolean): ApiParagraph | null",
       "IsEmpty": "IsEmpty(): boolean",
       "Last": "Last(): ParagraphContent",
@@ -979,7 +1000,7 @@
       "SetCaps": "SetCaps(isCaps: boolean): ApiParagraph",
       "SetDoubleStrikeout": "SetDoubleStrikeout(isDoubleStrikeout: boolean): ApiParagraph",
       "SetFontFamily": "SetFontFamily(sFontFamily: string): ApiParagraph",
-      "SetFontSize": "SetFontSize(nSize: hps): ApiParagraph",
+      "SetFontSize": "SetFontSize(fontSize: hps): ApiParagraph",
       "SetHighlight": "SetHighlight(sColor: highlightColor): ApiParagraph",
       "SetIndFirstLine": "SetIndFirstLine(nValue: twips): boolean",
       "SetIndLeft": "SetIndLeft(nValue: twips): boolean",
@@ -1242,6 +1263,7 @@
       "GetStrikeout": "GetStrikeout(): boolean",
       "GetTextFill": "GetTextFill(): ApiFill",
       "GetTextPr": "GetTextPr(): ApiTextPr",
+      "GetTextRange": "GetTextRange(start?: number, end?: number): ApiTextRange | null",
       "GetUnderline": "GetUnderline(): boolean",
       "RemoveAllElements": "RemoveAllElements(): boolean",
       "SetBold": "SetBold(isBold: boolean): ApiTextPr",
@@ -1256,6 +1278,7 @@
       "SetSmallCaps": "SetSmallCaps(isSmallCaps: boolean): ApiTextPr",
       "SetSpacing": "SetSpacing(nSpacing: twips): ApiTextPr",
       "SetStrikeout": "SetStrikeout(isStrikeout: boolean): ApiTextPr",
+      "SetText": "SetText(text: string | number[]): ApiRun",
       "SetTextFill": "SetTextFill(oApiFill: ApiFill): ApiTextPr",
       "SetTextPr": "SetTextPr(oTextPr: ApiTextPr): ApiTextPr",
       "SetUnderline": "SetUnderline(isUnderline: boolean): ApiTextPr",
@@ -1292,10 +1315,15 @@
       "SetTextFit": "SetTextFit(fitType: TextFitType): boolean",
       "SetVerticalTextAlign": "SetVerticalTextAlign(verticalAlign: VerticalTextAlign): boolean"
     },
+    "ApiShd": {
+      "GetClassType": "GetClassType(): \"shd\"",
+      "GetColor": "GetColor(): ApiColor",
+      "GetType": "GetType(): ShdType"
+    },
     "ApiSignatureField": {
       "GetClassType": "GetClassType(): \"signatureField\"",
       "GetValue": "GetValue(): string",
-      "SetValue": "SetValue(imageUrl: string): boolean"
+      "SetValue": "SetValue(imageUrl?: string): boolean"
     },
     "ApiSignatureForm": {},
     "ApiSmartArt": {
@@ -1422,6 +1450,7 @@
       "GetCell": "GetCell(rowIndex: number, cellIndex: number): ApiTableCell",
       "GetClassType": "GetClassType(): \"table\"",
       "GetColumnWidth": "GetColumnWidth(columnIndex: number): EMU | null",
+      "GetColumnsCount": "GetColumnsCount(): number",
       "GetInternalId": "GetInternalId(): string",
       "GetParentPage": "GetParentPage(): ApiPage",
       "GetPosX": "GetPosX(): EMU",
@@ -1439,7 +1468,7 @@
       "SetPosX": "SetPosX(posX: EMU): boolean",
       "SetPosY": "SetPosY(posY: EMU): boolean",
       "SetPosition": "SetPosition(posX: EMU, posY: EMU): boolean",
-      "SetShd": "SetShd(shadingType: ShdType | ApiFill, r: number, g?: number, b?: number): boolean",
+      "SetShd": "SetShd(shd: ApiShd): boolean",
       "SetSize": "SetSize(width: EMU, height: EMU): boolean",
       "SetStyle": "SetStyle(oStyle: ApiStyle): boolean",
       "SetTableDescription": "SetTableDescription(descr: string): boolean",
@@ -1467,7 +1496,7 @@
       "SetCellMarginRight": "SetCellMarginRight(margin: twips): boolean",
       "SetCellMarginTop": "SetCellMarginTop(margin: twips): boolean",
       "SetColumnBackgroundColor": "SetColumnBackgroundColor(color?: ApiColor): boolean",
-      "SetShd": "SetShd(shadingType: ShdType | ApiFill, r?: number, g?: number, b?: number): boolean",
+      "SetShd": "SetShd(shd: ApiShd): boolean",
       "SetText": "SetText(text: string): ApiRun",
       "SetTextDirection": "SetTextDirection(textDirection: TextFlowDirection): boolean",
       "SetVerticalAlign": "SetVerticalAlign(verticalAlign: VerticalTextAlign): boolean",
@@ -1531,7 +1560,7 @@
       "SetUniqueName": "SetUniqueName(name: string): boolean"
     },
     "ApiTextField": {
-      "AddWidget": "AddWidget(pageIndex: number, rect: Rect): ApiWidget",
+      "AddWidget": "AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget",
       "ClearFormat": "ClearFormat(): boolean",
       "Delete": "Delete(): boolean",
       "GetAllWidgets": "GetAllWidgets(): ApiWidget[]",
@@ -1603,6 +1632,43 @@
       "SetUnderline": "SetUnderline(isUnderline: boolean): ApiTextPr",
       "SetVertAlign": "SetVertAlign(sType: \"baseline\" | \"subscript\" | \"superscript\"): ApiTextPr"
     },
+    "ApiTextRange": {
+      "AddHyperlink": "AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink",
+      "AddText": "AddText(text: string, position?: \"after\" | \"before\"): boolean",
+      "Delete": "Delete(): boolean",
+      "ExpandTo": "ExpandTo(range: ApiTextRange): ApiTextRange | null",
+      "Find": "Find(findWhat: string, after?: number, matchCase?: boolean, wholeWords?: boolean): ApiTextRange | null",
+      "GetAllParagraphs": "GetAllParagraphs(): ApiParagraph[]",
+      "GetClassType": "GetClassType(): \"textRange\"",
+      "GetEndPos": "GetEndPos(): number",
+      "GetParagraph": "GetParagraph(index: number): ApiParagraph | null",
+      "GetRange": "GetRange(start?: number, rangeEnd?: number): ApiTextRange | null",
+      "GetStartPos": "GetStartPos(): number",
+      "GetText": "GetText(options?: object, options_Math?: boolean, options_NewLineSeparator?: string, options_TableCellSeparator?: string, options_TableRowSeparator?: string, options_ParaSeparator?: string, options_TabSymbol?: string): string",
+      "GetTextPr": "GetTextPr(): ApiTextPr",
+      "IntersectWith": "IntersectWith(range: ApiTextRange): ApiTextRange | null",
+      "MoveCursorToPos": "MoveCursorToPos(pos?: number): boolean",
+      "Replace": "Replace(findWhat: string, replaceWith: string, matchCase?: boolean, wholeWords?: boolean): ApiTextRange",
+      "Select": "Select(): boolean",
+      "SetBold": "SetBold(isBold: boolean): ApiTextRange",
+      "SetCaps": "SetCaps(isCaps: boolean): ApiTextRange",
+      "SetColor": "SetColor(color: ApiColor): ApiTextRange",
+      "SetDoubleStrikeout": "SetDoubleStrikeout(isDoubleStrikeout: boolean): ApiTextRange",
+      "SetEndPos": "SetEndPos(pos: number): boolean",
+      "SetFontFamily": "SetFontFamily(fontFamily: string): ApiTextRange | null",
+      "SetFontSize": "SetFontSize(fontSize: hps): ApiTextRange | null",
+      "SetHighlight": "SetHighlight(colorName: highlightColor): ApiTextRange | null",
+      "SetItalic": "SetItalic(isItalic: boolean): ApiTextRange",
+      "SetSmallCaps": "SetSmallCaps(isSmallCaps: boolean): ApiTextRange",
+      "SetSpacing": "SetSpacing(spacing: twips): ApiTextRange | null",
+      "SetStartPos": "SetStartPos(pos: number): boolean",
+      "SetStrikeout": "SetStrikeout(isStrikeout: boolean): ApiTextRange",
+      "SetText": "SetText(text: string): ApiTextRange",
+      "SetTextPr": "SetTextPr(textPr: ApiTextPr): ApiTextRange | null",
+      "SetUnderline": "SetUnderline(isUnderline: boolean): ApiTextRange",
+      "SetVertAlign": "SetVertAlign(type: \"baseline\" | \"subscript\" | \"superscript\"): ApiTextRange | null",
+      "ToHtml": "ToHtml(options?: ToHtmlOptions): string"
+    },
     "ApiUnderlineAnnotation": {
       "GetClassType": "GetClassType(): \"underlineAnnot\"",
       "GetQuads": "GetQuads(): Quad[]",
@@ -1640,6 +1706,7 @@
     "GetInstalledPlugins": "executeMethod(\"GetInstalledPlugins\", [], callback?): PluginData[]",
     "GetMacros": "executeMethod(\"GetMacros\", [oContent?: string], callback?): string",
     "GetPageImage": "executeMethod(\"GetPageImage\", [nPage: number, oParams?: { maxSize?: number; annotations?: boolean; fields?: boolean; drawings?: boolean; withInfo?: boolean }], callback?): string | object",
+    "GetRestrictions": "executeMethod(\"GetRestrictions\", [], callback?): EditorRestrictions",
     "GetSelectedText": "executeMethod(\"GetSelectedText\", [prop?: { Numbering?: boolean; Math?: boolean; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string; NewLineSeparator?: string }], callback?): string",
     "GetVersion": "executeMethod(\"GetVersion\", [], callback?): string",
     "GoToPage": "executeMethod(\"GoToPage\", [pageIndex: number, rect?: Rect], callback?): boolean",
@@ -1799,7 +1866,6 @@
     "SectionBreakType",
     "ShadowSettings",
     "ShapeType",
-    "Shd",
     "ShdType",
     "SizeRelFromH",
     "SizeRelFromV",
@@ -1835,6 +1901,7 @@
     "WatermarkType",
     "WidgetBorderStyle",
     "WidgetBorderWidth",
+    "WidgetTextAlign",
     "XmlMapping",
     "bookmarkRefTo",
     "byte",

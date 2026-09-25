@@ -5,16 +5,6 @@
     "ApiDrawing"
   ],
   "methods": {
-    "CreateTextRange": {
-      "description": "Creates a text body for the drawing if it does not already exist and returns its full text range.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/CreateTextRange/",
-      "params": [],
-      "returns": {
-        "type": "ApiTextRange | null"
-      },
-      "signature": "CreateTextRange(): ApiTextRange | null",
-      "since": "10.0.0"
-    },
     "GetClassType": {
       "description": "Returns the type of the ApiShape class.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShape/Methods/GetClassType/",
@@ -167,16 +157,6 @@
       "signature": "GetTextFit(): TextFitType",
       "since": "10.0.0"
     },
-    "GetTextRange": {
-      "description": "Returns an ApiTextRange covering the full text content of the shape, or null if the shape has no text body (use CreateTextRange to create one).",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetTextRange/",
-      "params": [],
-      "returns": {
-        "type": "ApiTextRange | null"
-      },
-      "signature": "GetTextRange(): ApiTextRange | null",
-      "since": "10.0.0"
-    },
     "GetVerticalTextAlign": {
       "description": "Gets the vertical alignment from the shape content where a paragraph or text runs can be inserted.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShape/Methods/GetVerticalTextAlign/",
@@ -186,14 +166,15 @@
       },
       "signature": "GetVerticalTextAlign(): VerticalTextAlign"
     },
-    "IsTextRange": {
-      "description": "Checks whether the drawing has an associated text body.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/IsTextRange/",
+    "GetVisitor": {
+      "description": "Returns a visitor object for traversing the text of the current drawing, including the drawings nested in a group.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetVisitor/",
       "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
       "returns": {
-        "type": "boolean"
+        "type": "ApiPresentationVisitor"
       },
-      "signature": "IsTextRange(): boolean",
+      "signature": "GetVisitor(): ApiPresentationVisitor",
       "since": "10.0.0"
     },
     "ReplacePlaceholder": {

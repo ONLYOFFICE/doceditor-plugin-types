@@ -1,8 +1,8 @@
 // Auto-generated from ONLYOFFICE/sdkjs JSDoc (common/apiBase_plugins.js + per-editor api_plugins.js).
 // executeMethod names/args/returns for Slide. Run `npm run generate-plugin-methods` to regenerate.
 
-// Requires ONLYOFFICE Docs Developer Edition (8, each tagged @requires below):
-// AnnotateParagraph, ApplyTheme, EndGroupActions, GetEditorThemes, InsertPresentationFromUrl, RemoveAnnotationRange, SelectAnnotationRange, StartGroupActions.
+// Requires ONLYOFFICE Docs Developer Edition (10, each tagged @requires below):
+// AnnotateParagraph, ApplyTheme, EndGroupActions, GetEditorThemes, InsertPresentationFromUrl, RemoveAnnotationRange, SelectAnnotationRange, SetParagraphHtml, SetParagraphRangeHtml, StartGroupActions.
 
 /**
  * The skinnable plugin button used in the plugin interface (used for visual plugins with their own
@@ -72,6 +72,16 @@ interface ContextMenuItem {
   /** An array containing the context menu items for the current item. */
   items: ContextMenuItem[];
 }
+
+/**
+ * The current editing restrictions, a combination of the flags:
+ * **0x00** - no editing restrictions,
+ * **0x01** - allows editing form fields,
+ * **0x02** - allows editing comments and regions delimited by range permissions,
+ * **0x04** - the document is signed and cannot be changed,
+ * **0x80** - does not allow editing.
+ */
+type EditorRestrictions = number;
 
 /**
  * Plugin event ("onDocumentContentReady", "onTargetPositionChanged", onClick", "onInputHelperClear",
@@ -856,6 +866,13 @@ type SlideMethodArgs = {
    */
   GetMacros: [oContent?: string];
   /**
+   * Returns the restrictions the editor currently applies to the document.
+   *
+   * @returns The current restrictions.
+   * @since 10.0.0
+   */
+  GetRestrictions: [];
+  /**
    * Returns the selected content in the specified format.
    *
    * @param prop - The returned content properties.
@@ -1381,6 +1398,30 @@ type SlideMethodArgs = {
    */
   SetMacros: [data: string];
   /**
+   * Replaces all content of the specified paragraph with the content parsed from the given HTML string.
+   * Slide number and date fields and equations of the paragraph are kept as they are.
+   *
+   * @requires ONLYOFFICE Docs Developer Edition. This method is not present in Community Edition builds.
+   * @param html - The HTML string to parse and apply.
+   * @param paraId - The paragraph ID. If not specified, the current paragraph is used.
+   * @returns Returns false when the paragraph cannot be replaced.
+   * @since 10.0.0
+   */
+  SetParagraphHtml: [html: string, paraId?: string];
+  /**
+   * Replaces a part of the specified paragraph with the content parsed from the given HTML string.
+   * Slide number and date fields and equations of the paragraph are kept as they are.
+   *
+   * @requires ONLYOFFICE Docs Developer Edition. This method is not present in Community Edition builds.
+   * @param html - The HTML string to parse and apply.
+   * @param paraId - The paragraph ID.
+   * @param from - Start offset inside the paragraph.
+   * @param to - End offset inside the paragraph.
+   * @returns Returns false when the range cannot be replaced.
+   * @since 10.0.0
+   */
+  SetParagraphRangeHtml: [html: string, paraId: string, from: number, to: number];
+  /**
    * Configures plugins from an external source. The settings can be set for all plugins or for a
    * specific plugin.
    * For example, this method can be used to pass an authorization token to the plugin. This method can
@@ -1597,6 +1638,7 @@ type SlideMethodReturnMap = {
   GetImageDataFromSelection: ImageData;
   GetInstalledPlugins: PluginData[];
   GetMacros: string;
+  GetRestrictions: EditorRestrictions;
   GetSelectedContent: string;
   GetSelectedOleObjects: OLEProperties[];
   GetSelectedText: string;
@@ -1627,6 +1669,8 @@ type SlideMethodReturnMap = {
   SelectAnnotationRange: unknown;
   SetButtonDisabled: unknown;
   SetMacros: unknown;
+  SetParagraphHtml: boolean;
+  SetParagraphRangeHtml: boolean;
   SetPluginsOptions: unknown;
   SetProperties: unknown;
   ShowButton: unknown;
@@ -1642,13 +1686,13 @@ type SlideMethodReturnMap = {
 type SlideMethodReturn<T extends SlideMethodName> = SlideMethodReturnMap[T];
 
 /**
- * Slide `executeMethod` names that need a paid ONLYOFFICE edition (8 of 59).
+ * Slide `executeMethod` names that need a paid ONLYOFFICE edition (10 of 62).
  * Each one's own `@requires` tag names the edition it needs.
  *
  * Nothing restricts these by default - use this to opt into enforcement, e.g.
  * `function run<T extends SlideFreeMethodName>(name: T, args: SlideMethodArgs[T])`.
  */
-type SlidePaidMethodName = "AnnotateParagraph" | "ApplyTheme" | "EndGroupActions" | "GetEditorThemes" | "InsertPresentationFromUrl" | "RemoveAnnotationRange" | "SelectAnnotationRange" | "StartGroupActions";
+type SlidePaidMethodName = "AnnotateParagraph" | "ApplyTheme" | "EndGroupActions" | "GetEditorThemes" | "InsertPresentationFromUrl" | "RemoveAnnotationRange" | "SelectAnnotationRange" | "SetParagraphHtml" | "SetParagraphRangeHtml" | "StartGroupActions";
 
 /** Slide `executeMethod` names available in every edition, including Community. */
 type SlideFreeMethodName = Exclude<SlideMethodName, SlidePaidMethodName>;

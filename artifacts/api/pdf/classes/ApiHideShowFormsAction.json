@@ -9,7 +9,8 @@
       "returns": {
         "type": "\"hideShowAction\""
       },
-      "signature": "GetClassType(): \"hideShowAction\""
+      "signature": "GetClassType(): \"hideShowAction\"",
+      "since": "10.0.0"
     },
     "GetNames": {
       "description": "Gets names of fields to hide",
@@ -18,7 +19,8 @@
       "returns": {
         "type": "string[]"
       },
-      "signature": "GetNames(): string[]"
+      "signature": "GetNames(): string[]",
+      "since": "10.0.0"
     },
     "IsHide": {
       "description": "Checks if action hide fields",
@@ -28,7 +30,8 @@
         "description": "if false then show fields",
         "type": "boolean"
       },
-      "signature": "IsHide(): boolean"
+      "signature": "IsHide(): boolean",
+      "since": "10.0.0"
     },
     "SetHide": {
       "description": "Sets action hide fields",
@@ -42,7 +45,8 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetHide(isHide: boolean): boolean"
+      "signature": "SetHide(isHide: boolean): boolean",
+      "since": "10.0.0"
     },
     "SetNames": {
       "description": "Sets names of fields to hide",
@@ -56,7 +60,8 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetNames(names: string[]): boolean"
+      "signature": "SetNames(names: string[]): boolean",
+      "since": "10.0.0"
     }
   }
 }

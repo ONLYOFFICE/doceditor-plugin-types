@@ -141,6 +141,37 @@
       "signature": "GetParentSheet(): ApiWorksheet",
       "since": "8.3.0"
     },
+    "GetPosX": {
+      "description": "Returns the x position of the current drawing on the worksheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetPosX/",
+      "params": [],
+      "returns": {
+        "type": "EMU"
+      },
+      "signature": "GetPosX(): EMU",
+      "since": "10.0.0"
+    },
+    "GetPosY": {
+      "description": "Returns the y position of the current drawing on the worksheet.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetPosY/",
+      "params": [],
+      "returns": {
+        "type": "EMU"
+      },
+      "signature": "GetPosY(): EMU",
+      "since": "10.0.0"
+    },
+    "GetPosition": {
+      "description": "Returns the cell anchor of the current drawing; the offsets are limited by the anchor cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetPosition/",
+      "params": [],
+      "returns": {
+        "description": "returns null for an absolutely positioned drawing.",
+        "type": "DrawingCellAnchor | null"
+      },
+      "signature": "GetPosition(): DrawingCellAnchor | null",
+      "since": "10.0.0"
+    },
     "GetRotation": {
       "description": "Returns the rotation angle of the current drawing object.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetRotation/",
@@ -159,6 +190,16 @@
         "type": "ApiShadow | null"
       },
       "signature": "GetShadow(): ApiShadow | null",
+      "since": "10.0.0"
+    },
+    "GetTextRange": {
+      "description": "Returns a text range that covers the whole text of the current drawing.\nCreates a text body if the drawing does not yet have one.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetTextRange/",
+      "params": [],
+      "returns": {
+        "type": "ApiTextRange | null"
+      },
+      "signature": "GetTextRange(): ApiTextRange | null",
       "since": "10.0.0"
     },
     "GetTitle": {
@@ -180,6 +221,16 @@
         "type": "EMU"
       },
       "signature": "GetWidth(): EMU"
+    },
+    "HasTextContent": {
+      "description": "Checks whether the current drawing has a text body.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/HasTextContent/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "HasTextContent(): boolean",
+      "since": "10.0.0"
     },
     "Select": {
       "description": "Selects the current graphic object.",

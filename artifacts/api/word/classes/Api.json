@@ -184,7 +184,7 @@
       "signature": "CreateBlockLvlSdt(): ApiBlockLvlSdt"
     },
     "CreateChart": {
-      "description": "Creates a chart with the parameters specified.\n**Note:**\nValues of _styleIndex_ outside **1 - 48** are interpreted as a chart style id from the _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs Enterprise](https://www.onlyoffice.com/docs-enterprise-prices.aspx?from=api) and [ONLYOFFICE Docs Developer](https://www.onlyoffice.com/developer-edition-prices.aspx?from=api).\n",
+      "description": "Creates a chart with the parameters specified.\n**Note:**\nValues of _styleIndex_ outside **1 - 48** are interpreted as a chart style id from the _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs Enterprise](https://www.onlyoffice.com/docs-enterprise-prices?from=api) and [ONLYOFFICE Docs Developer](https://www.onlyoffice.com/developer-edition-prices?from=api).\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/CreateChart/",
       "params": [
         {
@@ -237,9 +237,10 @@
         }
       ],
       "returns": {
-        "type": "ApiChart"
+        "description": "returns null if the chart type is not supported.",
+        "type": "ApiChart | null"
       },
-      "signature": "CreateChart(chartType?: ChartType, series?: number[][], seriesNames?: number[] | string[], catNames?: number[] | string[], width?: EMU, height?: EMU, styleIndex?: number, numFormats?: NumFormat[] | string[]): ApiChart"
+      "signature": "CreateChart(chartType?: ChartType, series?: number[][], seriesNames?: number[] | string[], catNames?: number[] | string[], width?: EMU, height?: EMU, styleIndex?: number, numFormats?: NumFormat[] | string[]): ApiChart | null"
     },
     "CreateCheckBoxContentControl": {
       "description": "Creates a checkbox content control.",
@@ -783,6 +784,28 @@
         "type": "ApiShape"
       },
       "signature": "CreateShape(shapeType?: ShapeType, width?: EMU, height?: EMU, fill?: ApiFill, stroke?: ApiStroke): ApiShape"
+    },
+    "CreateShd": {
+      "description": "Creates the shading which can be applied to text, a paragraph, a table or a table cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/CreateShd/",
+      "params": [
+        {
+          "description": "The shading type: **\"nil\"** - no shading, **\"clear\"** - solid fill.",
+          "name": "type",
+          "type": "ShdType"
+        },
+        {
+          "description": "The shading color. Required for the **\"clear\"** type.",
+          "name": "color",
+          "optional": true,
+          "type": "ApiColor"
+        }
+      ],
+      "returns": {
+        "type": "ApiShd"
+      },
+      "signature": "CreateShd(type: ShdType, color?: ApiColor): ApiShd",
+      "since": "10.0.0"
     },
     "CreateSolidFill": {
       "description": "Creates a solid fill to apply to the object using a selected solid color as the object background.",
@@ -1483,13 +1506,19 @@
           "name": "name",
           "optional": true,
           "type": "SchemeColorId"
+        },
+        {
+          "description": "The luminance shift from -1 (the darkest shade) to 1 (the lightest tint). 0 keeps the theme color as it is.",
+          "name": "tintAndShade",
+          "optional": true,
+          "type": "number"
         }
       ],
       "returns": {
         "description": "Instance of ApiColor with 'theme' type.",
         "type": "ApiColor"
       },
-      "signature": "ThemeColor(name?: SchemeColorId): ApiColor"
+      "signature": "ThemeColor(name?: SchemeColorId, tintAndShade?: number): ApiColor"
     },
     "TwipsToPoints": {
       "description": "Converts twips to points.",

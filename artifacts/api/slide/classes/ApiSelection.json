@@ -22,6 +22,17 @@
       "signature": "GetSlides(): ApiSlide[]",
       "since": "8.3.0"
     },
+    "GetTextRange": {
+      "description": "Returns the selected text as a text range. With the cursor in the text and nothing selected,\nthe range is empty and starts at the cursor.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiSelection/Methods/GetTextRange/",
+      "params": [],
+      "returns": {
+        "description": "returns null if the selection is not in the text of a shape, a table cell or the speaker notes.",
+        "type": "ApiTextRange | null"
+      },
+      "signature": "GetTextRange(): ApiTextRange | null",
+      "since": "10.0.0"
+    },
     "GetType": {
       "description": "Returns the type of the current selection.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiSelection/Methods/GetType/",

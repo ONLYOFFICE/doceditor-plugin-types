@@ -265,6 +265,16 @@ interface ContextMenuItem {
 type DocumentEditingRestrictions = 'none' | 'comments' | 'forms' | 'readOnly';
 
 /**
+ * The current editing restrictions, a combination of the flags:
+ * **0x00** - no editing restrictions,
+ * **0x01** - allows editing form fields,
+ * **0x02** - allows editing comments and regions delimited by range permissions,
+ * **0x04** - the document is signed and cannot be changed,
+ * **0x80** - does not allow editing.
+ */
+type EditorRestrictions = number;
+
+/**
  * Plugin event ("onDocumentContentReady", "onTargetPositionChanged", onClick", "onInputHelperClear",
  * "onInputHelperInput", etc.).
  */
@@ -521,6 +531,7 @@ type SelectionType = "none" | "text" | "drawing" | "slide" | "image";
 /** This type specifies the preset shape geometry that will be used for a shape. */
 type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "trapezoid" | "triangle" | "upArrowCallout" | "upDownArrow" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
 
+/** Identifies an annotation range within a paragraph. */
 interface TextAnnotation {
   /** ID of the paragraph containing the annotation. */
   paragraphId: string;
@@ -532,6 +543,7 @@ interface TextAnnotation {
   name?: string;
 }
 
+/** Defines a text range within a paragraph to be highlighted as an annotation. */
 interface TextAnnotationRange {
   /** Unique identifier for the range. */
   id: string;
@@ -1580,6 +1592,13 @@ type WordMethodArgs = {
    * @since 10.0.0
    */
   GetOFormRole: [];
+  /**
+   * Returns the restrictions the editor currently applies to the document.
+   *
+   * @returns The current restrictions.
+   * @since 10.0.0
+   */
+  GetRestrictions: [];
   /**
    * Returns the selected content in the specified format.
    *
@@ -2770,6 +2789,7 @@ type WordMethodReturnMap = {
   GetInstalledPlugins: PluginData[];
   GetMacros: string;
   GetOFormRole: string;
+  GetRestrictions: EditorRestrictions;
   GetSelectedContent: string;
   GetSelectedOleObjects: OLEProperties[];
   GetSelectedText: string;
@@ -2844,7 +2864,7 @@ type WordMethodReturnMap = {
 type WordMethodReturn<T extends WordMethodName> = WordMethodReturnMap[T];
 
 /**
- * Word `executeMethod` names that need a paid ONLYOFFICE edition (8 of 112).
+ * Word `executeMethod` names that need a paid ONLYOFFICE edition (8 of 113).
  * Each one's own `@requires` tag names the edition it needs.
  *
  * Nothing restricts these by default - use this to opt into enforcement, e.g.

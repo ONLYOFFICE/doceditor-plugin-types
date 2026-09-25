@@ -68,6 +68,16 @@ interface ContextMenuItem {
 }
 
 /**
+ * The current editing restrictions, a combination of the flags:
+ * **0x00** - no editing restrictions,
+ * **0x01** - allows editing form fields,
+ * **0x02** - allows editing comments and regions delimited by range permissions,
+ * **0x04** - the document is signed and cannot be changed,
+ * **0x80** - does not allow editing.
+ */
+type EditorRestrictions = number;
+
+/**
  * Plugin event ("onDocumentContentReady", "onTargetPositionChanged", onClick", "onInputHelperClear",
  * "onInputHelperInput", etc.).
  */
@@ -665,6 +675,13 @@ type PdfMethodArgs = {
    */
   GetPageImage: [nPage: number, oParams?: { maxSize?: number; annotations?: boolean; fields?: boolean; drawings?: boolean; withInfo?: boolean }];
   /**
+   * Returns the restrictions the editor currently applies to the document.
+   *
+   * @returns The current restrictions.
+   * @since 10.0.0
+   */
+  GetRestrictions: [];
+  /**
    * Returns the selected text from the document.
    *
    * @param prop - The resulting string display properties.
@@ -1058,6 +1075,7 @@ type PdfMethodReturnMap = {
   GetInstalledPlugins: PluginData[];
   GetMacros: string;
   GetPageImage: string | object;
+  GetRestrictions: EditorRestrictions;
   GetSelectedText: string;
   GetVersion: string;
   GoToPage: boolean;
@@ -1083,7 +1101,7 @@ type PdfMethodReturnMap = {
 type PdfMethodReturn<T extends PdfMethodName> = PdfMethodReturnMap[T];
 
 /**
- * Pdf `executeMethod` names that need a paid ONLYOFFICE edition (0 of 30).
+ * Pdf `executeMethod` names that need a paid ONLYOFFICE edition (0 of 31).
  * Each one's own `@requires` tag names the edition it needs.
  *
  * Nothing restricts these by default - use this to opt into enforcement, e.g.

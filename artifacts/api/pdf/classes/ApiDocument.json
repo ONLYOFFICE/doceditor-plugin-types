@@ -101,7 +101,8 @@
         "description": "order of fields names",
         "type": "string[]"
       },
-      "signature": "GetCalculateOrder(): string[]"
+      "signature": "GetCalculateOrder(): string[]",
+      "since": "10.0.0"
     },
     "GetClassType": {
       "description": "Returns a type of the ApiDocument class.",
@@ -212,7 +213,8 @@
       "returns": {
         "type": "string"
       },
-      "signature": "GetSelectedText(): string"
+      "signature": "GetSelectedText(): string",
+      "since": "10.0.0"
     },
     "GetSelection": {
       "description": "Gets document selection info",
@@ -221,7 +223,8 @@
       "returns": {
         "type": "DocSelection"
       },
-      "signature": "GetSelection(): DocSelection"
+      "signature": "GetSelection(): DocSelection",
+      "since": "10.0.0"
     },
     "GetSelectionQuads": {
       "description": "Gets document selection quads by page",
@@ -230,7 +233,8 @@
       "returns": {
         "type": "DocQuads"
       },
-      "signature": "GetSelectionQuads(): DocQuads"
+      "signature": "GetSelectionQuads(): DocQuads",
+      "since": "10.0.0"
     },
     "GetStyle": {
       "description": "Returns the document style by its name.",
@@ -307,6 +311,30 @@
       "signature": "GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_TableCellSeparator?: string, options_TableRowSeparator?: string, options_ParaSeparator?: string, options_TabSymbol?: string, options_NewLineSeparator?: string): string",
       "since": "8.3.0"
     },
+    "GetTextRange": {
+      "description": "Returns an ApiTextRange object that represents the part of the text contained in the current document content.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/GetTextRange/",
+      "params": [
+        {
+          "description": "Start character position (0-based, inclusive).",
+          "name": "start",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "End character position (0-based, exclusive). Defaults to the end of the content.",
+          "name": "end",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "returns null if the specified range is empty.",
+        "type": "ApiTextRange | null"
+      },
+      "signature": "GetTextRange(start?: number, end?: number): ApiTextRange | null",
+      "since": "10.0.0"
+    },
     "Merge": {
       "description": "Merges pdf files to current document in specified position.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/Merge/",
@@ -333,7 +361,8 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "Merge(position?: number, deleteCount?: number, files?: PdfFile[] | Base64[]): boolean"
+      "signature": "Merge(position?: number, deleteCount?: number, files?: PdfFile[] | Base64[]): boolean",
+      "since": "10.0.0"
     },
     "Push": {
       "description": "Pushes a paragraph or a table to actually add it to the document.",
@@ -418,7 +447,8 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetCalculateOrder(names: string[]): boolean"
+      "signature": "SetCalculateOrder(names: string[]): boolean",
+      "since": "10.0.0"
     },
     "SetSelection": {
       "description": "Sets document selection",
@@ -432,7 +462,8 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetSelection(selection: DocSelection): boolean"
+      "signature": "SetSelection(selection: DocSelection): boolean",
+      "since": "10.0.0"
     },
     "SetText": {
       "description": "Replaces all content of the current document content object with the specified text,\npreserving the formatting of the first paragraph.",
@@ -464,7 +495,8 @@
       "returns": {
         "type": "PdfFile"
       },
-      "signature": "Split(indexes?: number[]): PdfFile"
+      "signature": "Split(indexes?: number[]): PdfFile",
+      "since": "10.0.0"
     }
   }
 }

@@ -6,7 +6,7 @@ first publish; no `0.x` version was ever released to npm.
 
 ## 10.0.0
 
-First published release. Generated from sdkjs `v10.0.0.79`.
+First published release. Generated from sdkjs `v10.0.0.114`.
 
 The version follows the editor release the types were generated from (see
 [Versioning](README.md#versioning)), so this supersedes the unpublished `9.5.0` below rather than
@@ -94,8 +94,19 @@ building on it: everything listed under `9.5.0` ships here, regenerated against 
   that remain are explicit `METHOD_OVERRIDES` entries with their own recorded reasons.
 ### Changed
 
-- Regenerated against sdkjs `v10.0.0.79`, which adds `Word.SetRangeHtml` (Developer Edition only)
-  and extends `Cell.Api.Intersect`. The paid surface is 211 members.
+- Regenerated against sdkjs `v10.0.0.114` (with `sdkjs-ext` at the same tag and `sdkjs-forms` at
+  `v10.0.0.100`, its newest - the forms sources have not moved since `v10.0.0.70`). Against the
+  `v10.0.0.79` this package was first built from, that adds:
+  - `ApiShd` in all five editors, `ApiTextRange` in Word, PDF and Forms, `ApiPresentationVisitor` in
+    Slide - 9 new classes in total, and 174 new object-model members;
+  - the `GetRestrictions` executeMethod everywhere, plus `SetParagraphHtml` and
+    `SetParagraphRangeHtml` in Slide;
+  - `ApiUniColor` accepted by `SetColor`/`SetShd` where it was previously applied as black, and
+    `GetTextRange`/`HasTextContent` on the Word document API.
+
+  The paid surface grows from 211 members to 227: 205 object-model methods and 22 executeMethod
+  names. `check-arity`'s 57 corrections still hold against the new sources, so nothing sdkjs changed
+  in those 221 commits invalidated the documented evidence behind them.
 - `dist/` is now `artifacts/`. The name said "what gets distributed" while describing the one part
   of the repository that npm never sees: not a byte of it is in the tarball, and it is reachable
   only over raw.githubusercontent.com. The mismatch was mild while `dist/api` was still in `files`

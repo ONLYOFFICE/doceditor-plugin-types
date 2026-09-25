@@ -691,7 +691,7 @@ declare namespace Pdf {
   export type ScaleFlag = "always" | "never" | "tooBig" | "tooSmall";
 
   /** The available color scheme identifiers. */
-  export type SchemeColorId = "accent1" | "accent2" | "accent3" | "accent4" | "accent5" | "accent6" | "bg1" | "bg2" | "dk1" | "dk2" | "lt1" | "lt2" | "tx1" | "tx2";
+  export type SchemeColorId = "accent1" | "accent2" | "accent3" | "accent4" | "accent5" | "accent6" | "bg1" | "bg2" | "dk1" | "dk2" | "folHlink" | "hlink" | "lt1" | "lt2" | "tx1" | "tx2";
 
   /** The lock type of the content control. */
   export type SdtLock = "unlocked" | "contentLocked" | "sdtContentLocked" | "sdtLocked";
@@ -733,7 +733,7 @@ declare namespace Pdf {
   /** Properties used to create a shadow. */
   export interface ShadowSettings {
     /** The shadow color (black by default). */
-    color?: ApiUniColor;
+    color?: ApiColor | ApiUniColor;
 
     /** The shadow transparency from 0.0 (opaque) to 1.0 (clear). */
     transparency?: number;
@@ -753,15 +753,6 @@ declare namespace Pdf {
 
   /** This type specifies the preset shape geometry that will be used for a shape. */
   export type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "trapezoid" | "triangle" | "upArrowCallout" | "upDownArrow" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
-
-  /** The shading information object. */
-  export interface Shd {
-    /** The shading type: **"nil"** - no shading, **"clear"** - solid fill. */
-    Type: ShdType;
-
-    /** The shading color. */
-    Color: ApiColor;
-  }
 
   /** A shade type which can be added to the document element. */
   export type ShdType = "nil" | "clear";
@@ -1054,6 +1045,9 @@ declare namespace Pdf {
   /** The available widget border width. */
   export type WidgetBorderWidth = "none" | "thin" | "medium" | "thick";
 
+  /** The available widget text alignments. */
+  export type WidgetTextAlign = "left" | "center" | "right";
+
   /**
    * This element specifies the information which shall be used to establish a mapping to an XML element
    * stored within a Custom XML.
@@ -1332,6 +1326,7 @@ declare namespace Pdf {
      * Creates a button field.
      *
      * @param rect - widget rect
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateButtonField/
      */
@@ -1363,8 +1358,8 @@ declare namespace Pdf {
      * **Note:**
      * Values of _nStyleIndex_ outside **1 - 48** are interpreted as a chart style id from the
      * _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs
-     * Enterprise](https://www.onlyoffice.com/docs-enterprise-prices.aspx?from=api) and [ONLYOFFICE Docs
-     * Developer](https://www.onlyoffice.com/developer-edition-prices.aspx?from=api).
+     * Enterprise](https://www.onlyoffice.com/docs-enterprise-prices?from=api) and [ONLYOFFICE Docs
+     * Developer](https://www.onlyoffice.com/developer-edition-prices?from=api).
      *
      * @param chartType - The chart type used for the chart display.
      * @param series - The array of the data used to build the chart from.
@@ -1378,6 +1373,7 @@ declare namespace Pdf {
      * @param numFormats - Numeric formats which will be applied to the series (can be custom formats). The default numeric
      *   format is "General".
      * @default chartType = "bar"
+     * @returns returns null if the chart type is not supported.
      *
      * @example
      * ```js
@@ -1404,8 +1400,8 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateChart/
      */
-    CreateChart(series: number[][], seriesNames: number[] | string[], categoryNames: number[] | string[], width: EMU, height: EMU, styleIndex: number, numFormats: NumFormat[] | string[]): ApiChart;
-    CreateChart(chartType: ChartType, series: number[][], seriesNames: number[] | string[], categoryNames: number[] | string[], width: EMU, height: EMU, styleIndex: number, numFormats: NumFormat[] | string[]): ApiChart;
+    CreateChart(series: number[][], seriesNames: number[] | string[], categoryNames: number[] | string[], width: EMU, height: EMU, styleIndex: number, numFormats: NumFormat[] | string[]): ApiChart | null;
+    CreateChart(chartType: ChartType, series: number[][], seriesNames: number[] | string[], categoryNames: number[] | string[], width: EMU, height: EMU, styleIndex: number, numFormats: NumFormat[] | string[]): ApiChart | null;
 
     /**
      * Creates a checkbox field.
@@ -1675,11 +1671,14 @@ declare namespace Pdf {
     /**
      * Creates a GoTo action.
      *
-     * @param zoom - 1 = 100% (used only for goToType = "xyz")
+     * @param zoom - zoom ratio, 1 is equal 100% (used only for goToType == "xyz")
+     * @default zoom = 1
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateGoToAction/
      */
-    CreateGoToAction(page: number, goToType: GoToType, zoom: number, rect: Rect): ApiGoToAction;
+    CreateGoToAction(page: number, goToType: GoToType, rect: Rect): ApiGoToAction;
+    CreateGoToAction(page: number, goToType: GoToType, zoom: percentage, rect: Rect): ApiGoToAction;
 
     /**
      * Creates a gradient stop used for different types of gradients.
@@ -1715,6 +1714,7 @@ declare namespace Pdf {
      *
      * @param isHidde - to hide - true, to show - false
      * @param names - field names
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateHideShowFormsAction/
      */
@@ -1817,6 +1817,8 @@ declare namespace Pdf {
     /**
      * Creates a js action.
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateJsAction/
      */
     CreateJsAction(script: string): ApiJsAction;
@@ -1875,6 +1877,17 @@ declare namespace Pdf {
     CreateLinearGradientFill(gradientStops: number[], angle: PositiveFixedAngle): ApiFill;
 
     /**
+     * Creates a link annotation.
+     *
+     * @param rect - annotation rect.
+     * @param action - action executed when the link is clicked.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateLinkAnnot/
+     */
+    CreateLinkAnnot(rect: Rect, action?: ApiBaseAction): ApiLinkAnnotation;
+
+    /**
      * Creates a listbox field.
      *
      * @param rect - widget rect
@@ -1916,6 +1929,8 @@ declare namespace Pdf {
     /**
      * Creates a named action.
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateNamedAction/
      */
     CreateNamedAction(name: NamedActionType): ApiNamedAction;
@@ -1953,6 +1968,7 @@ declare namespace Pdf {
      * @param numType - The numbering type the paragraphs will be numbered with.
      * @param startAt - The number the first numbered paragraph will start with.
      * @returns returns null if numType is not one of the BulletType values.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -2256,6 +2272,7 @@ declare namespace Pdf {
      *
      * @param isAllExcept - will all fields be reset except the fields whose names are specified
      * @param names - field names
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateHideShowFormsAction/
      */
@@ -2497,9 +2514,21 @@ declare namespace Pdf {
     CreateShape(shapeType?: ShapeType, width?: EMU, height?: EMU, fill?: ApiFill, stroke?: ApiStroke): ApiShape;
 
     /**
+     * Creates the shading which can be applied to text, a paragraph, a table or a table cell.
+     *
+     * @param type - The shading type: **"nil"** - no shading, **"clear"** - solid fill.
+     * @param color - The shading color. Required for the **"clear"** type.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateShd/
+     */
+    CreateShd(type: ShdType, color?: ApiColor): ApiShd;
+
+    /**
      * Creates a signature field.
      *
      * @param rect - widget rect
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateSignatureField/
      */
@@ -2764,6 +2793,8 @@ declare namespace Pdf {
 
     /**
      * Creates an URI action.
+     *
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateUriAction/
      */
@@ -3435,7 +3466,10 @@ declare namespace Pdf {
      * Creates a theme color.
      *
      * @param name - The theme color name. If the provided name is not supported, the 'tx1' color will be used.
+     * @param tintAndShade - The luminance shift from -1 (the darkest shade) to 1 (the lightest tint). 0 keeps the theme
+     *   color as it is.
      * @default name = "tx1"
+     * @default tintAndShade = 0
      * @returns Instance of ApiColor with 'theme' type.
      *
      * @example
@@ -3457,7 +3491,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/ThemeColor/
      */
-    ThemeColor(name?: SchemeColorId): ApiColor;
+    ThemeColor(name?: SchemeColorId, tintAndShade?: number): ApiColor;
 
     /**
      * Converts twips to points.
@@ -3499,12 +3533,16 @@ declare namespace Pdf {
     /**
      * Gets Calculate action.
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/GetCalculate/
      */
     GetCalculate(): ApiJsAction;
 
     /**
      * Gets class type of this object.
+     *
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/GetClassType/
      */
@@ -3513,12 +3551,16 @@ declare namespace Pdf {
     /**
      * Gets Format action.
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/GetFormat/
      */
     GetFormat(): ApiJsAction;
 
     /**
      * Gets Keystroke action.
+     *
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/GetKeystroke/
      */
@@ -3527,12 +3569,16 @@ declare namespace Pdf {
     /**
      * Gets MouseDown action.
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/GetMouseDown/
      */
     GetMouseDown(): ApiBaseAction;
 
     /**
      * Gets MouseEnter action.
+     *
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/GetMouseEnter/
      */
@@ -3541,12 +3587,16 @@ declare namespace Pdf {
     /**
      * Gets MouseExit action.
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/GetMouseExit/
      */
     GetMouseExit(): ApiBaseAction;
 
     /**
      * Gets MouseUp action.
+     *
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/GetMouseUp/
      */
@@ -3555,6 +3605,8 @@ declare namespace Pdf {
     /**
      * Gets OnBlur action.
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/GetOnBlur/
      */
     GetOnBlur(): ApiBaseAction;
@@ -3562,12 +3614,16 @@ declare namespace Pdf {
     /**
      * Gets OnFocus action.
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/GetOnFocus/
      */
     GetOnFocus(): ApiBaseAction;
 
     /**
      * Gets Validate action.
+     *
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/GetValidate/
      */
@@ -3577,6 +3633,7 @@ declare namespace Pdf {
      * Sets the Calculate action.
      *
      * @param action - The action to set, or `null` to remove it.
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetCalculate/
      */
@@ -3586,6 +3643,7 @@ declare namespace Pdf {
      * Sets the Format action.
      *
      * @param action - The action to set, or `null` to remove it.
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetFormat/
      */
@@ -3595,6 +3653,7 @@ declare namespace Pdf {
      * Sets the Keystroke action.
      *
      * @param action - The action to set, or `null` to remove it.
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetKeystroke/
      */
@@ -3604,6 +3663,7 @@ declare namespace Pdf {
      * Sets the MouseDown action.
      *
      * @param action - The action to set, or `null` to remove it.
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetMouseDown/
      */
@@ -3613,6 +3673,7 @@ declare namespace Pdf {
      * Sets the MouseEnter action.
      *
      * @param action - The action to set, or `null` to remove it.
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetMouseEnter/
      */
@@ -3622,6 +3683,7 @@ declare namespace Pdf {
      * Sets the MouseExit action.
      *
      * @param action - The action to set, or `null` to remove it.
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetMouseExit/
      */
@@ -3631,6 +3693,7 @@ declare namespace Pdf {
      * Sets the MouseUp action.
      *
      * @param action - The action to set, or `null` to remove it.
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetMouseUp/
      */
@@ -3640,6 +3703,7 @@ declare namespace Pdf {
      * Sets the OnBlur action.
      *
      * @param action - The action to set, or `null` to remove it.
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetOnBlur/
      */
@@ -3649,6 +3713,7 @@ declare namespace Pdf {
      * Sets the OnFocus action.
      *
      * @param action - The action to set, or `null` to remove it.
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetOnFocus/
      */
@@ -3658,6 +3723,7 @@ declare namespace Pdf {
      * Sets the Validate action.
      *
      * @param action - The action to set, or `null` to remove it.
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetValidate/
      */
@@ -3673,6 +3739,8 @@ declare namespace Pdf {
     /**
      * Returns next action.
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAction/Methods/GetNext/
      */
     GetNext(): ApiBaseAction;
@@ -3681,6 +3749,7 @@ declare namespace Pdf {
      * Sets next action.
      *
      * @returns returns next action
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetNext/
      */
@@ -4528,6 +4597,8 @@ declare namespace Pdf {
      *
      * @param pageIndex - page index to add widget
      * @param rect - field rect
+     * @param isCopy - whether the new widget have the same visual and actions settings as the original
+     * @default isCopy = true
      *
      * @example
      * ```js
@@ -4546,7 +4617,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/AddWidget/
      */
-    AddWidget(pageIndex: number, rect: Rect): ApiWidget;
+    AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget;
 
     /**
      * Removes field from document.
@@ -4901,6 +4972,8 @@ declare namespace Pdf {
      *
      * @param pageIndex - page index to add widget
      * @param rect - field rect
+     * @param isCopy - whether the new widget have the same visual and actions settings as the original
+     * @default isCopy = true
      *
      * @example
      * ```js
@@ -4919,7 +4992,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/AddWidget/
      */
-    AddWidget(pageIndex: number, rect: Rect): ApiWidget;
+    AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget;
 
     /**
      * Removes field from document.
@@ -6348,6 +6421,8 @@ declare namespace Pdf {
     /**
      * Gets actions collection.
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetActions/
      */
     GetActions(): ApiActionCollection;
@@ -6511,6 +6586,8 @@ declare namespace Pdf {
     /**
      * Gets parent field.
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetParent/
      */
     GetParent(): ApiField;
@@ -6559,6 +6636,15 @@ declare namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetRect/
      */
     GetRect(): Rect;
+
+    /**
+     * Gets widget text alignment.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetTextAlign/
+     */
+    GetTextAlign(): WidgetTextAlign | undefined;
 
     /**
      * Gets widget text color.
@@ -6614,7 +6700,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetTextSize/
      */
-    GetTextSize(): pt;
+    GetTextSize(): hps;
 
     /**
      * Checks if text is autofit.
@@ -6836,6 +6922,17 @@ declare namespace Pdf {
     SetRect(rect: Rect): boolean;
 
     /**
+     * Sets widget text alignment.
+     * <note> Only for text/combobox/listbox fields widgets. </note>
+     *
+     * @param textAlign - The text alignment.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/SetTextAlign/
+     */
+    SetTextAlign(textAlign: WidgetTextAlign): boolean;
+
+    /**
      * Sets widget text color.
      *
      * @param color - The text color.
@@ -6868,7 +6965,7 @@ declare namespace Pdf {
      * Sets widget text size.
      * <note> Text size === 0 means autofit </note>
      *
-     * @param size - The font size in points.
+     * @param size - The font size measured in half-points (1/144 of an inch).
      *
      * @example
      * ```js
@@ -6893,7 +6990,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/SetTextSize/
      */
-    SetTextSize(size: pt): boolean;
+    SetTextSize(size: hps): boolean;
   }
 
   /** Class representing a container for the document content. */
@@ -6958,12 +7055,14 @@ declare namespace Pdf {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiButtonField/
    */
-  export interface ApiButtonField extends Omit<ApiBaseField, "GetValue"> {
+  export interface ApiButtonField extends Omit<ApiBaseField, "SetValue" | "GetValue"> {
     /**
      * Adds new widget - visual representation for field
      *
      * @param pageIndex - page index to add widget
      * @param rect - field rect
+     * @param isCopy - whether the new widget have the same visual and actions settings as the original
+     * @default isCopy = true
      *
      * @example
      * ```js
@@ -6982,7 +7081,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/AddWidget/
      */
-    AddWidget(pageIndex: number, rect: Rect): ApiWidget;
+    AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget;
 
     /**
      * Removes field from document.
@@ -7301,12 +7400,14 @@ declare namespace Pdf {
     /**
      * Sets image for all button field widgets
      *
-     * @param imageUrl - The URL of the image to set for the button.
+     * @param imageUrl - The URL of the image to set for the button (currently only internet URL or Base64 encoded images
+     *   are supported)
+     * @default imageUrl = ""
      * @since 9.4.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiButtonField/Methods/SetValue/
      */
-    SetValue(imageUrl: string): boolean;
+    SetValue(imageUrl?: string): boolean;
   }
 
   /**
@@ -7717,6 +7818,15 @@ declare namespace Pdf {
     GetScaleWhen(): ButtonScaleWhen;
 
     /**
+     * Gets widget text alignment.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetTextAlign/
+     */
+    GetTextAlign(): WidgetTextAlign | undefined;
+
+    /**
      * Gets widget text color.
      *
      * @example
@@ -7770,7 +7880,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetTextSize/
      */
-    GetTextSize(): pt;
+    GetTextSize(): hps;
 
     /**
      * Checks if text is autofit.
@@ -8074,7 +8184,8 @@ declare namespace Pdf {
     /**
      * Sets image to button widget field.
      *
-     * @param imageUrl - The image URL.
+     * @param imageUrl - The URL of the image to set for the button widget (currently only internet URL or Base64 encoded
+     *   images are supported)
      * @param appearance - The appearance state.
      * @default imageUrl = ""
      * @default appearance = "normal"
@@ -8255,6 +8366,17 @@ declare namespace Pdf {
     SetScaleWhen(scaleWhen: ButtonScaleWhen): boolean;
 
     /**
+     * Sets widget text alignment.
+     * <note> Only for text/combobox/listbox fields widgets. </note>
+     *
+     * @param textAlign - The text alignment.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/SetTextAlign/
+     */
+    SetTextAlign(textAlign: WidgetTextAlign): boolean;
+
+    /**
      * Sets widget text color.
      *
      * @param color - The text color.
@@ -8287,7 +8409,7 @@ declare namespace Pdf {
      * Sets widget text size.
      * <note> Text size === 0 means autofit </note>
      *
-     * @param size - The font size in points.
+     * @param size - The font size measured in half-points (1/144 of an inch).
      *
      * @example
      * ```js
@@ -8312,7 +8434,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/SetTextSize/
      */
-    SetTextSize(size: pt): boolean;
+    SetTextSize(size: hps): boolean;
   }
 
   /**
@@ -8926,7 +9048,7 @@ declare namespace Pdf {
     /**
      * Specifies font size for labels of the horizontal axis.
      *
-     * @param nFontSize - The text size value measured in points.
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      *
      * @example
      * ```js
@@ -8957,7 +9079,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiChart/Methods/SetHorAxisLabelsFontSize/
      */
-    SetHorAxisLabelsFontSize(nFontSize: pt): boolean;
+    SetHorAxisLabelsFontSize(fontSize: hps): boolean;
 
     /**
      * Specifies major tick mark for the horizontal axis.
@@ -9120,7 +9242,7 @@ declare namespace Pdf {
      * Specifies the chart horizontal axis title.
      *
      * @param sTitle - The title which will be displayed for the horizontal axis of the current chart.
-     * @param nFontSize - The text size value measured in points.
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      * @param bIsBold - Specifies if the horizontal axis title is written in bold font or not.
      *
      * @example
@@ -9153,7 +9275,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiChart/Methods/SetHorAxisTitle/
      */
-    SetHorAxisTitle(sTitle: string, nFontSize: pt, bIsBold?: boolean): boolean;
+    SetHorAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean;
 
     /**
      * Sets the fill to the chart legend.
@@ -9192,7 +9314,7 @@ declare namespace Pdf {
     /**
      * Specifies the legend font size.
      *
-     * @param nFontSize - The text size value measured in points.
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      *
      * @example
      * ```js
@@ -9223,7 +9345,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiChart/Methods/SetLegendFontSize/
      */
-    SetLegendFontSize(nFontSize: pt): boolean;
+    SetLegendFontSize(fontSize: hps): boolean;
 
     /**
      * Sets the outline to the chart legend.
@@ -9972,7 +10094,7 @@ declare namespace Pdf {
      * Specifies the chart title.
      *
      * @param sTitle - The title which will be displayed for the current chart.
-     * @param nFontSize - The text size value measured in points.
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      * @param bIsBold - Specifies if the chart title is written in bold font or not.
      *
      * @example
@@ -10005,7 +10127,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiChart/Methods/SetTitle/
      */
-    SetTitle(sTitle: string, nFontSize: pt, bIsBold?: boolean): boolean;
+    SetTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean;
 
     /**
      * Sets the fill to the chart title.
@@ -10117,7 +10239,7 @@ declare namespace Pdf {
      * Specifies the chart vertical axis title.
      *
      * @param sTitle - The title which will be displayed for the vertical axis of the current chart.
-     * @param nFontSize - The text size value measured in points.
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      * @param bIsBold - Specifies if the vertical axis title is written in bold font or not.
      *
      * @example
@@ -10150,12 +10272,12 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiChart/Methods/SetVerAxisTitle/
      */
-    SetVerAxisTitle(sTitle: string, nFontSize: pt, bIsBold?: boolean): boolean;
+    SetVerAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean;
 
     /**
      * Specifies font size for labels of the vertical axis.
      *
-     * @param nFontSize - The text size value measured in points.
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      *
      * @example
      * ```js
@@ -10186,7 +10308,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiChart/Methods/SetVertAxisLabelsFontSize/
      */
-    SetVertAxisLabelsFontSize(nFontSize: pt): boolean;
+    SetVertAxisLabelsFontSize(fontSize: hps): boolean;
 
     /**
      * Specifies major tick mark for the vertical axis.
@@ -10523,6 +10645,8 @@ declare namespace Pdf {
      *
      * @param pageIndex - page index to add widget
      * @param rect - field rect
+     * @param isCopy - whether the new widget have the same visual and actions settings as the original
+     * @default isCopy = true
      *
      * @example
      * ```js
@@ -10541,7 +10665,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/AddWidget/
      */
-    AddWidget(pageIndex: number, rect: Rect): ApiWidget;
+    AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget;
 
     /**
      * Removes field from document.
@@ -11200,6 +11324,15 @@ declare namespace Pdf {
     GetRect(): Rect;
 
     /**
+     * Gets widget text alignment.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetTextAlign/
+     */
+    GetTextAlign(): WidgetTextAlign | undefined;
+
+    /**
      * Gets widget text color.
      *
      * @example
@@ -11253,7 +11386,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetTextSize/
      */
-    GetTextSize(): pt;
+    GetTextSize(): hps;
 
     /**
      * Checks if text is autofit.
@@ -11629,6 +11762,17 @@ declare namespace Pdf {
     SetRect(rect: Rect): boolean;
 
     /**
+     * Sets widget text alignment.
+     * <note> Only for text/combobox/listbox fields widgets. </note>
+     *
+     * @param textAlign - The text alignment.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/SetTextAlign/
+     */
+    SetTextAlign(textAlign: WidgetTextAlign): boolean;
+
+    /**
      * Sets widget text color.
      *
      * @param color - The text color.
@@ -11661,7 +11805,7 @@ declare namespace Pdf {
      * Sets widget text size.
      * <note> Text size === 0 means autofit </note>
      *
-     * @param size - The font size in points.
+     * @param size - The font size measured in half-points (1/144 of an inch).
      *
      * @example
      * ```js
@@ -11686,7 +11830,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/SetTextSize/
      */
-    SetTextSize(size: pt): boolean;
+    SetTextSize(size: hps): boolean;
   }
 
   /**
@@ -12804,6 +12948,16 @@ declare namespace Pdf {
     GetThemeName(): SchemeColorId | null;
 
     /**
+     * Returns the luminance shift applied to the color.
+     *
+     * @returns The shift from -1 (the darkest shade) to 1 (the lightest tint), 0 when the color is not shifted.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiColor/Methods/GetTintAndShade/
+     */
+    GetTintAndShade(): number;
+
+    /**
      * Returns true if the color is a theme color.
      *
      * @since 9.1.0
@@ -12963,6 +13117,8 @@ declare namespace Pdf {
     /**
      * Gets formatted value of a field.
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiComboboxField/Methods/GetFormattedValue/
      */
     GetFormattedValue(): string;
@@ -13020,12 +13176,16 @@ declare namespace Pdf {
     /**
      * Gets text field placeholder.
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiComboboxField/Methods/GetPlaceholder/
      */
     GetPlaceholder(): string;
 
     /**
      * Gets text widget regular validate expression.
+     *
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiComboboxField/Methods/GetRegularExp/
      */
@@ -13315,6 +13475,7 @@ declare namespace Pdf {
      * <note>Makes combobox editable</note>
      *
      * @param sPlaceholder - field placeholder
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiComboboxField/Methods/SetPlaceholder/
      */
@@ -13624,6 +13785,7 @@ declare namespace Pdf {
      * Gets document calculate fields order
      *
      * @returns order of fields names
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/GetCalculateOrder/
      */
@@ -13760,6 +13922,8 @@ declare namespace Pdf {
     /**
      * Gets selected text in document
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/GetSelectedText/
      */
     GetSelectedText(): string;
@@ -13767,12 +13931,16 @@ declare namespace Pdf {
     /**
      * Gets document selection info
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/GetSelection/
      */
     GetSelection(): DocSelection;
 
     /**
      * Gets document selection quads by page
+     *
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/GetSelectionQuads/
      */
@@ -13818,12 +13986,27 @@ declare namespace Pdf {
     GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_TableCellSeparator?: string, options_TableRowSeparator?: string, options_ParaSeparator?: string, options_TabSymbol?: string, options_NewLineSeparator?: string): string;
 
     /**
+     * Returns an ApiTextRange object that represents the part of the text contained in the current
+     * document content.
+     *
+     * @param start - Start character position (0-based, inclusive).
+     * @param end - End character position (0-based, exclusive). Defaults to the end of the content.
+     * @default start = 0
+     * @returns returns null if the specified range is empty.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/GetTextRange/
+     */
+    GetTextRange(start?: number, end?: number): ApiTextRange | null;
+
+    /**
      * Merges pdf files to current document in specified position.
      *
      * @param position - page index to merge pdf files (paste to end if omitted)
      * @param deleteCount - number of existing pages to replace starting at position, limited to the remaining pages
      * @param files - pdf files
      * @default deleteCount = 0
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/Merge/
      */
@@ -13904,6 +14087,7 @@ declare namespace Pdf {
      * Sets document calculate fields order
      *
      * @param names - order of fields names
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/SetCalculateOrder/
      */
@@ -13911,6 +14095,8 @@ declare namespace Pdf {
 
     /**
      * Sets document selection
+     *
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/SetSelection/
      */
@@ -13931,6 +14117,7 @@ declare namespace Pdf {
      * Splits current pdf file with specified pages.
      *
      * @param indexes - pages indexes for split (returns result for all pages if the parameter is omitted.)
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/Split/
      */
@@ -14295,6 +14482,20 @@ declare namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/GetText/
      */
     GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_TableCellSeparator?: string, options_TableRowSeparator?: string, options_ParaSeparator?: string, options_TabSymbol?: string, options_NewLineSeparator?: string): string;
+
+    /**
+     * Returns an ApiTextRange object that represents the part of the text contained in the current
+     * document content.
+     *
+     * @param start - Start character position (0-based, inclusive).
+     * @param end - End character position (0-based, exclusive). Defaults to the end of the content.
+     * @default start = 0
+     * @returns returns null if the specified range is empty.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/GetTextRange/
+     */
+    GetTextRange(start?: number, end?: number): ApiTextRange | null;
 
     /**
      * Pushes a paragraph or a table to actually add it to the document.
@@ -14789,6 +14990,16 @@ declare namespace Pdf {
     GetShadow(): ApiShadow | null;
 
     /**
+     * Returns a text range that covers the whole text of the current drawing.
+     * Creates a text body if the drawing does not yet have one.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetTextRange/
+     */
+    GetTextRange(): ApiTextRange | null;
+
+    /**
      * Gets the title of the current drawing.
      *
      * @returns The title of the current drawing, or null if not set.
@@ -14825,6 +15036,15 @@ declare namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetWidth/
      */
     GetWidth(): EMU;
+
+    /**
+     * Checks whether the current drawing has a text body.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/HasTextContent/
+     */
+    HasTextContent(): boolean;
 
     /**
      * Selects the current graphic object.
@@ -15201,6 +15421,25 @@ declare namespace Pdf {
     GetClassType(): "fill";
 
     /**
+     * Returns the color of a solid fill.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiFill/Methods/GetColor/
+     */
+    GetColor(): ApiColor;
+
+    /**
+     * Returns the transparency of the fill.
+     *
+     * @returns The transparency value, from 0 (fully opaque) to 1 (fully transparent).
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiFill/Methods/GetTransparent/
+     */
+    GetTransparent(): number;
+
+    /**
      * Gets the fill type.
      *
      * @returns returns "solid", "gradient", "pattern", "blip", "nofill" or null.
@@ -15251,6 +15490,16 @@ declare namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiFill/Methods/GetType/
      */
     GetType(): FillType;
+
+    /**
+     * Sets the transparency of the fill.
+     *
+     * @param transparent - The transparency value, from 0 (fully opaque) to 1 (fully transparent).
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiFill/Methods/SetTransparent/
+     */
+    SetTransparent(transparent: number): boolean;
   }
 
   /** Class representing a document form base. */
@@ -16758,6 +17007,8 @@ declare namespace Pdf {
     /**
      * Returns a type of the ApiGoToAction class.
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/GetClassType/
      */
     GetClassType(): "goToAction";
@@ -16765,12 +17016,17 @@ declare namespace Pdf {
     /**
      * Gets desctination page index
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/GetPage/
      */
     GetPage(): number;
 
     /**
      * Gets goto destination rect
+     * <note> For all goto types except "fitR" used only x1, y1 coordinates </note>
+     *
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/GetRect/
      */
@@ -16779,19 +17035,25 @@ declare namespace Pdf {
     /**
      * Gets goto type
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/GetType/
      */
     GetType(): GoToType;
 
     /**
-     * Gets goto destination rect
+     * Gets zoom for action
+     *
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/GetRect/
      */
-    GetZoom(): Rect;
+    GetZoom(): number;
 
     /**
      * Sets desctination page index
+     *
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/SetPage/
      */
@@ -16799,6 +17061,9 @@ declare namespace Pdf {
 
     /**
      * Sets goto destination rect
+     * <note> For all goto types except "fitR" used only x1, y1 coordinates </note>
+     *
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/SetRect/
      */
@@ -16807,9 +17072,22 @@ declare namespace Pdf {
     /**
      * Sets goto type
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/SetType/
      */
     SetType(type: GoToType): boolean;
+
+    /**
+     * Sets goto zoom ratio
+     *
+     * @param zoom - zoom ratio, 1 is equal 100% (used only for goToType == "xyz")
+     * @default zoom = 1
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/SetZoom/
+     */
+    SetZoom(zoom?: number): boolean;
   }
 
   /**
@@ -17077,12 +17355,16 @@ declare namespace Pdf {
     /**
      * Returns a type of the ApiHideShowFormsAction class.
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiHideShowFormsAction/Methods/GetClassType/
      */
     GetClassType(): "hideShowAction";
 
     /**
      * Gets names of fields to hide
+     *
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiHideShowFormsAction/Methods/GetNames/
      */
@@ -17092,6 +17374,7 @@ declare namespace Pdf {
      * Checks if action hide fields
      *
      * @returns if false then show fields
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiHideShowFormsAction/Methods/IsHide/
      */
@@ -17100,12 +17383,16 @@ declare namespace Pdf {
     /**
      * Sets action hide fields
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiHideShowFormsAction/Methods/SetHide/
      */
     SetHide(isHide: boolean): boolean;
 
     /**
      * Sets names of fields to hide
+     *
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiHideShowFormsAction/Methods/GetNames/
      */
@@ -17367,6 +17654,20 @@ declare namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiHyperlink/Methods/GetScreenTipText/
      */
     GetScreenTipText(): string;
+
+    /**
+     * Returns an ApiTextRange object that represents the part of the text contained in the current
+     * hyperlink.
+     *
+     * @param start - Start character position (0-based, inclusive) relative to the hyperlink.
+     * @param end - End character position (0-based, exclusive). Defaults to the end of the hyperlink.
+     * @default start = 0
+     * @returns returns null if the hyperlink is not attached to the document or the specified range is empty.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiHyperlink/Methods/GetTextRange/
+     */
+    GetTextRange(start?: number, end?: number): ApiTextRange | null;
 
     /**
      * Sets the hyperlink address.
@@ -18598,6 +18899,8 @@ declare namespace Pdf {
     /**
      * Returns a type of the ApiJsAction class.
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiJsAction/Methods/GetClassType/
      */
     GetClassType(): "jsAction";
@@ -18605,12 +18908,16 @@ declare namespace Pdf {
     /**
      * Gets action script
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiJsAction/Methods/GetScript/
      */
     GetScript(): string;
 
     /**
      * Sets action script.
+     *
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiJsAction/Methods/SetScript/
      */
@@ -19653,6 +19960,15 @@ declare namespace Pdf {
    */
   export interface ApiLinkAnnotation extends ApiBaseMarkupAnnotation {
     /**
+     * Gets the action executed when the link is clicked. Changes to the returned action update the link.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiLinkAnnotation/Methods/GetAction/
+     */
+    GetAction(): ApiBaseAction;
+
+    /**
      * Returns a type of the ApiLinkAnnotation class.
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiLinkAnnotation/Methods/GetClassType/
@@ -19678,6 +19994,16 @@ declare namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseMarkupAnnotation/Methods/GetQuads/
      */
     GetQuads(): Quad[];
+
+    /**
+     * Sets the action executed when the link is clicked.
+     *
+     * @param action - GoTo, URI, or another PDF action; null removes the action.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiLinkAnnotation/Methods/SetAction/
+     */
+    SetAction(action: ApiBaseAction): boolean;
 
     /**
      * Sets quads to current markup annotation.
@@ -20055,6 +20381,8 @@ declare namespace Pdf {
     /**
      * Returns a type of the ApiNamedAction class.
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiNamedAction/Methods/GetClassType/
      */
     GetClassType(): "namedAction";
@@ -20062,12 +20390,16 @@ declare namespace Pdf {
     /**
      * Gets a name of action.
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiNamedAction/Methods/GetName/
      */
     GetName(): NamedActionType;
 
     /**
      * Sets a name of action.
+     *
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiNamedAction/Methods/SetName/
      */
@@ -20362,6 +20694,8 @@ declare namespace Pdf {
 
     /**
      * Gets page selection.
+     *
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiPage/Methods/GetSelection/
      */
@@ -22313,6 +22647,21 @@ declare namespace Pdf {
     GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_NewLineSeparator?: string, options_TabSymbol?: string): string;
 
     /**
+     * Returns an ApiTextRange object that represents the part of the text contained in the current
+     * paragraph.
+     * The paragraph must be attached to the document before calling this method.
+     *
+     * @param start - Start character position (0-based, inclusive) relative to the paragraph.
+     * @param end - End character position (0-based, exclusive). Defaults to the end of the paragraph.
+     * @default start = 0
+     * @returns returns null if the specified range is empty.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiParagraph/Methods/GetTextRange/
+     */
+    GetTextRange(start?: number, end?: number): ApiTextRange | null;
+
+    /**
      * Inserts a paragraph at the specified position.
      *
      * @param paragraph - Text or paragraph.
@@ -22686,7 +23035,7 @@ declare namespace Pdf {
     /**
      * Sets the font size to the characters of the current paragraph.
      *
-     * @param nSize - The text size value measured in half-points (1/144 of an inch).
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      * @returns this
      *
      * @example
@@ -22711,7 +23060,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiParagraph/Methods/SetFontSize/
      */
-    SetFontSize(nSize: hps): ApiParagraph;
+    SetFontSize(fontSize: hps): ApiParagraph;
 
     /**
      * Specifies a highlighting color which is applied as a background to the contents of the current
@@ -27004,12 +27353,16 @@ declare namespace Pdf {
     /**
      * Returns a type of the ApiResetFormsAction class.
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiResetFormsAction/Methods/GetClassType/
      */
     GetClassType(): "resetFormsAction";
 
     /**
      * Gets names of fields to reset
+     *
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiResetFormsAction/Methods/GetNames/
      */
@@ -27018,6 +27371,8 @@ declare namespace Pdf {
     /**
      * Will all fields be reset except the fields whose names are specified
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiResetFormsAction/Methods/IsAllExcept/
      */
     IsAllExcept(): boolean;
@@ -27025,12 +27380,16 @@ declare namespace Pdf {
     /**
      * Sets all fields be reset except the fields whose names are specified
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiResetFormsAction/Methods/SetAllExcept/
      */
     SetAllExcept(isAllExcept: boolean): boolean;
 
     /**
      * Sets names of fields to reset
+     *
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiResetFormsAction/Methods/GetNames/
      */
@@ -28734,6 +29093,20 @@ declare namespace Pdf {
     GetTextPr(): ApiTextPr;
 
     /**
+     * Returns an ApiTextRange object that represents the part of the text contained in the current run.
+     * The run must be attached to the document before calling this method.
+     *
+     * @param start - Start character position (0-based, inclusive) relative to the run.
+     * @param end - End character position (0-based, exclusive). Defaults to the end of the run.
+     * @default start = 0
+     * @returns returns null if the specified range is empty.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRun/Methods/GetTextRange/
+     */
+    GetTextRange(start?: number, end?: number): ApiTextRange | null;
+
+    /**
      * Gets the underline property from the current text properties.
      *
      * @since 8.1.0
@@ -29253,6 +29626,17 @@ declare namespace Pdf {
     SetStrikeout(isStrikeout: boolean): ApiTextPr;
 
     /**
+     * Replaces the whole text of the current run with the specified text, keeping the run properties.
+     *
+     * @param text - The new text of the run, as a string or as an array of character codes.
+     * @returns The current run.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRun/Methods/SetText/
+     */
+    SetText(text: string | number[]): ApiRun;
+
+    /**
      * Sets the text fill to the current text run.
      *
      * @param oApiFill - The color or pattern used to fill the text color.
@@ -29553,6 +29937,8 @@ declare namespace Pdf {
     /**
      * Returns the shape inner contents where a paragraph or text runs can be inserted.
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiShape/Methods/GetDocContent/
      */
     GetDocContent(): ApiDocumentContent;
@@ -29764,6 +30150,8 @@ declare namespace Pdf {
 
     /**
      * Gets the vertical alignment from the shape content where a paragraph or text runs can be inserted.
+     *
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiShape/Methods/GetVerticalTextAlign/
      */
@@ -30031,6 +30419,40 @@ declare namespace Pdf {
   }
 
   /**
+   * Class representing the shading of text, a paragraph, a table or a table cell.
+   *
+   * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiShd/
+   */
+  export interface ApiShd {
+    /**
+     * Returns a type of the ApiShd class.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiShd/Methods/GetClassType/
+     */
+    GetClassType(): "shd";
+
+    /**
+     * Returns the shading color.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiShd/Methods/GetColor/
+     */
+    GetColor(): ApiColor;
+
+    /**
+     * Returns the shading type.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiShd/Methods/GetType/
+     */
+    GetType(): ShdType;
+  }
+
+  /**
    * Class representing a signature field.
    *
    * @since 10.0.0
@@ -30060,12 +30482,14 @@ declare namespace Pdf {
     /**
      * Sets image for all button field widgets
      *
-     * @param imageUrl - The URL of the image to set for the button.
+     * @param imageUrl - The URL of the image to set for the button (currently only internet URL or Base64 encoded images
+     *   are supported)
+     * @default imageUrl = ""
      * @since 9.4.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiButtonField/Methods/SetValue/
      */
-    SetValue(imageUrl: string): boolean;
+    SetValue(imageUrl?: string): boolean;
   }
 
   /**
@@ -32588,6 +33012,15 @@ declare namespace Pdf {
     GetColumnWidth(columnIndex: number): EMU | null;
 
     /**
+     * Returns a number of columns in the current table.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/GetColumnsCount/
+     */
+    GetColumnsCount(): number;
+
+    /**
      * Returns an internal ID of the current drawing.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
@@ -32738,6 +33171,8 @@ declare namespace Pdf {
 
     /**
      * Gets table look properties
+     *
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/GetTableLook/
      */
@@ -32982,10 +33417,8 @@ declare namespace Pdf {
     /**
      * Specifies the shading which shall be applied to the extents of the current table.
      *
-     * @param shadingType - The shading type or fill to apply.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param shd - The shading created with the Api.CreateShd method.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -33004,7 +33437,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/SetShd/
      */
-    SetShd(shadingType: ShdType | ApiFill, r: number, g?: number, b?: number): boolean;
+    SetShd(shd: ApiShd): boolean;
 
     /**
      * Sets the table size.
@@ -33569,10 +34002,8 @@ declare namespace Pdf {
     /**
      * Specifies the shading which shall be applied to the extents of the current table cell.
      *
-     * @param shadingType - The shading type or fill to apply.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param shd - The shading created with the Api.CreateShd method.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -33594,7 +34025,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/Methods/SetShd/
      */
-    SetShd(shadingType: ShdType | ApiFill, r?: number, g?: number, b?: number): boolean;
+    SetShd(shd: ApiShd): boolean;
 
     /**
      * Replaces all content of the current table cell with the specified text,
@@ -33799,6 +34230,8 @@ declare namespace Pdf {
 
     /**
      * Gets the height from the current table row.
+     *
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableRow/Methods/GetHeight/
      */
@@ -34784,6 +35217,8 @@ declare namespace Pdf {
      *
      * @param pageIndex - page index to add widget
      * @param rect - field rect
+     * @param isCopy - whether the new widget have the same visual and actions settings as the original
+     * @default isCopy = true
      *
      * @example
      * ```js
@@ -34802,7 +35237,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/AddWidget/
      */
-    AddWidget(pageIndex: number, rect: Rect): ApiWidget;
+    AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget;
 
     /**
      * Clears format of field.
@@ -34926,6 +35361,8 @@ declare namespace Pdf {
     /**
      * Gets formatted value of a field.
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/GetFormattedValue/
      */
     GetFormattedValue(): string;
@@ -34986,12 +35423,16 @@ declare namespace Pdf {
     /**
      * Gets text field placeholder.
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/GetPlaceholder/
      */
     GetPlaceholder(): string;
 
     /**
      * Gets text widget regular validate expression.
+     *
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/GetRegularExp/
      */
@@ -35371,6 +35812,7 @@ declare namespace Pdf {
      * Sets text field placeholder.
      *
      * @param sPlaceholder - field placeholder
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/SetPlaceholder/
      */
@@ -36763,6 +37205,410 @@ declare namespace Pdf {
   }
 
   /**
+   * Class representing a text range within a presentation shape's text frame.
+   *
+   * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/
+   */
+  export interface ApiTextRange {
+    /**
+     * Adds a hyperlink to the current text range.
+     *
+     * @param link - The link address.
+     * @param screenTipText - The screen tip text.
+     * @param bookmarkName - Name of a bookmark
+     * @returns returns null if the range spans more than one paragraph or params are invalid.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/AddHyperlink/
+     */
+    AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink;
+
+    /**
+     * Adds a text to the specified position. The current range is expanded to include the added text.
+     *
+     * @param text - The text that will be added.
+     * @param position - The position where the text will be added ("before" or "after" the range specified).
+     * @default position = "after"
+     * @returns returns true if the text was successfully added.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/AddText/
+     */
+    AddText(text: string, position?: "after" | "before"): boolean;
+
+    /**
+     * Deletes the contents of the current text range.
+     *
+     * @returns returns false if the range is empty.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/Delete/
+     */
+    Delete(): boolean;
+
+    /**
+     * Returns a new range that spans both this range and the given range. The current range is not
+     * changed.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/ExpandTo/
+     */
+    ExpandTo(range: ApiTextRange): ApiTextRange | null;
+
+    /**
+     * Finds the first occurrence of the given text within this range and returns it as a new ApiTextRange.
+     * Returns null if the text is not found.
+     *
+     * @param findWhat - Text to search for.
+     * @param after - 1-based position within this range to start searching from.
+     * @param matchCase - Case-sensitive search.
+     * @param wholeWords - Match whole words only.
+     * @default after = 1
+     * @default matchCase = false
+     * @default wholeWords = false
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/Find/
+     */
+    Find(findWhat: string, after?: number, matchCase?: boolean, wholeWords?: boolean): ApiTextRange | null;
+
+    /**
+     * Returns all Paragraph objects within this range.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/GetAllParagraphs/
+     */
+    GetAllParagraphs(): ApiParagraph[];
+
+    /**
+     * Returns the class type identifier.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/GetClassType/
+     */
+    GetClassType(): "textRange";
+
+    /**
+     * Returns the end position of the current range.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/GetEndPos/
+     */
+    GetEndPos(): number;
+
+    /**
+     * Returns the paragraph at the given index within this range.
+     * Returns null if the index is out of bounds.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/GetParagraph/
+     */
+    GetParagraph(index: number): ApiParagraph | null;
+
+    /**
+     * Returns a new ApiTextRange that represents a sub-range of the current range.
+     *
+     * @param start - Start offset (0-based) relative to the beginning of this range.
+     * @param rangeEnd - End offset relative to the beginning of this range. -1 means the end of this range.
+     * @default start = 0
+     * @default rangeEnd = -1
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/GetRange/
+     */
+    GetRange(start?: number, rangeEnd?: number): ApiTextRange | null;
+
+    /**
+     * Returns the start position of the current range.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/GetStartPos/
+     */
+    GetStartPos(): number;
+
+    /**
+     * Returns the text content of the range. Paragraph breaks are represented as "\r".
+     *
+     * @param options - Options for formatting the returned text.
+     * @param options_Math - Defines if the resulting string will include mathematical expressions or not.
+     * @param options_NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
+     *   used. The default separator is "\r".
+     * @param options_TableCellSeparator - Defines how the table cell separator will be specified in the resulting string. Any symbol can
+     *   be used. The default separator is "\t".
+     * @param options_TableRowSeparator - Defines how the table row separator will be specified in the resulting string. Any symbol can be
+     *   used. The default separator is "\r\n".
+     * @param options_ParaSeparator - Defines how the paragraph separator will be specified in the resulting string. Any symbol can be
+     *   used. The default separator is "\r\n".
+     * @param options_TabSymbol - Defines how the tab will be specified in the resulting string (does not apply to numbering). Any
+     *   symbol can be used. The default symbol is "\t".
+     * @default options_Math = true
+     * @default options_NewLineSeparator = '\r'
+     * @default options_TableCellSeparator = '\t'
+     * @default options_TableRowSeparator = '\r\n'
+     * @default options_ParaSeparator = '\r\n'
+     * @default options_TabSymbol = '\t'
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/GetText/
+     */
+    GetText(options?: object, options_Math?: boolean, options_NewLineSeparator?: string, options_TableCellSeparator?: string, options_TableRowSeparator?: string, options_ParaSeparator?: string, options_TabSymbol?: string): string;
+
+    /**
+     * Returns the merged text properties of the entire range.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/GetTextPr/
+     */
+    GetTextPr(): ApiTextPr;
+
+    /**
+     * Returns a new range that is the intersection of this range and the given range. The current range is
+     * not changed.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/IntersectWith/
+     */
+    IntersectWith(range: ApiTextRange): ApiTextRange | null;
+
+    /**
+     * Moves a cursor to the specified position within the current range.
+     *
+     * @param pos - The desired cursor position.
+     * @default pos = 0
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/MoveCursorToPos/
+     */
+    MoveCursorToPos(pos?: number): boolean;
+
+    /**
+     * Replaces all occurrences of the specified text within this range.
+     *
+     * @param findWhat - Text to search for.
+     * @param replaceWith - Replacement text.
+     * @param matchCase - Case-sensitive search.
+     * @param wholeWords - Match whole words only.
+     * @default matchCase = false
+     * @default wholeWords = false
+     * @returns this
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/Replace/
+     */
+    Replace(findWhat: string, replaceWith: string, matchCase?: boolean, wholeWords?: boolean): ApiTextRange;
+
+    /**
+     * Selects the text range in the editor.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/Select/
+     */
+    Select(): boolean;
+
+    /**
+     * Sets bold formatting for the contents of the current text range.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetBold/
+     */
+    SetBold(isBold: boolean): ApiTextRange;
+
+    /**
+     * Specifies that any lowercase characters in the current text Range are formatted for display only as
+     * their capital letter character equivalents.
+     *
+     * @param isCaps - Specifies if the Range contents are displayed capitalized or not.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetCaps/
+     */
+    SetCaps(isCaps: boolean): ApiTextRange;
+
+    /**
+     * Sets the text color of the current range.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetColor/
+     */
+    SetColor(color: ApiColor): ApiTextRange;
+
+    /**
+     * Specifies that the contents of the current Range are displayed with two horizontal lines through
+     * each character displayed on the line.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetDoubleStrikeout/
+     */
+    SetDoubleStrikeout(isDoubleStrikeout: boolean): ApiTextRange;
+
+    /**
+     * Sets the end position of the current range.
+     *
+     * @param pos - End position.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetEndPos/
+     */
+    SetEndPos(pos: number): boolean;
+
+    /**
+     * Sets the font family for the current TextRange.
+     *
+     * @param fontFamily - The font family or families used for the current text Range.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetFontFamily/
+     */
+    SetFontFamily(fontFamily: string): ApiTextRange | null;
+
+    /**
+     * Sets the font size of the characters in the current text Range.
+     *
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetFontSize/
+     */
+    SetFontSize(fontSize: hps): ApiTextRange | null;
+
+    /**
+     * Specifies a highlighting color which is applied as a background to the contents of the current
+     * Range.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetHighlight/
+     */
+    SetHighlight(colorName: highlightColor): ApiTextRange | null;
+
+    /**
+     * Sets the italic property to the text character.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetItalic/
+     */
+    SetItalic(isItalic: boolean): ApiTextRange;
+
+    /**
+     * Specifies that all the lowercase letter characters in the current text Range are formatted for
+     * display only as their capital
+     * letter character equivalents which are two points smaller than the actual font size specified for
+     * this text.
+     *
+     * @param isSmallCaps - Specifies if the contents of the current Range are displayed capitalized two points smaller or
+     *   not.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetSmallCaps/
+     */
+    SetSmallCaps(isSmallCaps: boolean): ApiTextRange;
+
+    /**
+     * Sets the text spacing measured in twentieths of a point.
+     *
+     * @param spacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch).
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetSpacing/
+     */
+    SetSpacing(spacing: twips): ApiTextRange | null;
+
+    /**
+     * Sets the start position of the current range.
+     *
+     * @param pos - Start position.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetStartPos/
+     */
+    SetStartPos(pos: number): boolean;
+
+    /**
+     * Specifies that the contents of the current Range are displayed with a single horizontal line through
+     * the range center.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetStrikeout/
+     */
+    SetStrikeout(isStrikeout: boolean): ApiTextRange;
+
+    /**
+     * Replaces all text content with the given string. Use "\r" to separate paragraphs.
+     *
+     * @param text - New text value.
+     * @returns this
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetText/
+     */
+    SetText(text: string): ApiTextRange;
+
+    /**
+     * Sets the text properties to the current text range.
+     *
+     * @param textPr - The text properties that will be applied to the current range.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetTextPr/
+     */
+    SetTextPr(textPr: ApiTextPr): ApiTextRange | null;
+
+    /**
+     * Specifies that the contents of the current Range are displayed along with a line appearing directly
+     * below the character
+     * (less than all the spacing above and below the characters on the line).
+     *
+     * @param isUnderline - Specifies if the contents of the current Range are displayed underlined or not.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetUnderline/
+     */
+    SetUnderline(isUnderline: boolean): ApiTextRange;
+
+    /**
+     * Specifies the alignment which will be applied to the Range contents in relation to the default
+     * appearance of the Range text:
+     * **"baseline"** - the characters in the current text Range will be aligned by the default text
+     * baseline.
+     * **"subscript"** - the characters in the current text Range will be aligned below the default text
+     * baseline.
+     * **"superscript"** - the characters in the current text Range will be aligned above the default text
+     * baseline.
+     *
+     * @param type - The vertical alignment type applied to the text contents.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetVertAlign/
+     */
+    SetVertAlign(type: "baseline" | "subscript" | "superscript"): ApiTextRange | null;
+
+    /**
+     * Converts the text range to HTML.
+     *
+     * @param options - The HTML conversion options.
+     * @default options = {}
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/ToHtml/
+     */
+    ToHtml(options?: ToHtmlOptions): string;
+  }
+
+  /**
    * Class representing a underline annotation.
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiUnderlineAnnotation/
@@ -36895,6 +37741,8 @@ declare namespace Pdf {
     /**
      * Returns a type of the ApiUriAction class.
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiUriAction/Methods/GetClassType/
      */
     GetClassType(): "uriAction";
@@ -36902,12 +37750,16 @@ declare namespace Pdf {
     /**
      * Gets uri string
      *
+     * @since 10.0.0
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiUriAction/Methods/GetRect/
      */
     GetUri(): string;
 
     /**
      * Sets uri to action
+     *
+     * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiUriAction/Methods/GetRect/
      */
@@ -37019,6 +37871,16 @@ interface ContextMenuItem {
   /** An array containing the context menu items for the current item. */
   items: ContextMenuItem[];
 }
+
+/**
+ * The current editing restrictions, a combination of the flags:
+ * **0x00** - no editing restrictions,
+ * **0x01** - allows editing form fields,
+ * **0x02** - allows editing comments and regions delimited by range permissions,
+ * **0x04** - the document is signed and cannot be changed,
+ * **0x80** - does not allow editing.
+ */
+type EditorRestrictions = number;
 
 /**
  * Plugin event ("onDocumentContentReady", "onTargetPositionChanged", onClick", "onInputHelperClear",
@@ -37618,6 +38480,13 @@ type PdfMethodArgs = {
    */
   GetPageImage: [nPage: number, oParams?: { maxSize?: number; annotations?: boolean; fields?: boolean; drawings?: boolean; withInfo?: boolean }];
   /**
+   * Returns the restrictions the editor currently applies to the document.
+   *
+   * @returns The current restrictions.
+   * @since 10.0.0
+   */
+  GetRestrictions: [];
+  /**
    * Returns the selected text from the document.
    *
    * @param prop - The resulting string display properties.
@@ -38011,6 +38880,7 @@ type PdfMethodReturnMap = {
   GetInstalledPlugins: PluginData[];
   GetMacros: string;
   GetPageImage: string | object;
+  GetRestrictions: EditorRestrictions;
   GetSelectedText: string;
   GetVersion: string;
   GoToPage: boolean;
@@ -38036,7 +38906,7 @@ type PdfMethodReturnMap = {
 type PdfMethodReturn<T extends PdfMethodName> = PdfMethodReturnMap[T];
 
 /**
- * Pdf `executeMethod` names that need a paid ONLYOFFICE edition (0 of 30).
+ * Pdf `executeMethod` names that need a paid ONLYOFFICE edition (0 of 31).
  * Each one's own `@requires` tag names the edition it needs.
  *
  * Nothing restricts these by default - use this to opt into enforcement, e.g.

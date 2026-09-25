@@ -314,6 +314,30 @@
       },
       "signature": "GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_NewLineSeparator?: string, options_TabSymbol?: string): string"
     },
+    "GetTextRange": {
+      "description": "Returns an ApiTextRange object that represents the part of the text contained in the current paragraph.\nThe paragraph must be attached to the document before calling this method.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParagraph/Methods/GetTextRange/",
+      "params": [
+        {
+          "description": "Start character position (0-based, inclusive) relative to the paragraph.",
+          "name": "start",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "End character position (0-based, exclusive). Defaults to the end of the paragraph.",
+          "name": "end",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "returns null if the specified range is empty.",
+        "type": "ApiTextRange | null"
+      },
+      "signature": "GetTextRange(start?: number, end?: number): ApiTextRange | null",
+      "since": "10.0.0"
+    },
     "InsertParagraph": {
       "description": "Inserts a paragraph at the specified position.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParagraph/Methods/InsertParagraph/",
@@ -510,7 +534,7 @@
       "params": [
         {
           "description": "The text size value measured in half-points (1/144 of an inch).",
-          "name": "nSize",
+          "name": "fontSize",
           "type": "hps"
         }
       ],
@@ -518,7 +542,7 @@
         "description": "this",
         "type": "ApiParagraph"
       },
-      "signature": "SetFontSize(nSize: hps): ApiParagraph"
+      "signature": "SetFontSize(fontSize: hps): ApiParagraph"
     },
     "SetHighlight": {
       "description": "Specifies a highlighting color which is applied as a background to the contents of the current paragraph.",

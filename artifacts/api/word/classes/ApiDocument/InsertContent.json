@@ -14,15 +14,27 @@
       "type": "boolean"
     },
     {
-      "description": "Specifies that text and paragraph document properties are preserved for the inserted elements.\rThe object should look like this: {\"KeepTextOnly\": true}.",
+      "description": "Insert options.",
       "name": "pr",
       "optional": true,
       "type": "object"
+    },
+    {
+      "description": "Specifies that text and paragraph document properties are preserved for the inserted elements.",
+      "name": "pr_KeepTextOnly",
+      "optional": true,
+      "type": "boolean"
+    },
+    {
+      "description": "Specifies that if a single table is inserted into a table cell, it overwrites the content of the existing cells, starting from the current one, instead of being inserted as a nested table.",
+      "name": "pr_OverwriteTableCells",
+      "optional": true,
+      "type": "boolean"
     }
   ],
   "returns": {
     "description": "Success?",
     "type": "boolean"
   },
-  "signature": "InsertContent(content: (DocumentElement | ParagraphContent | ApiDrawing | string | number)[], isInline?: boolean, pr?: object): boolean"
+  "signature": "InsertContent(content: (DocumentElement | ParagraphContent | ApiDrawing | string | number)[], isInline?: boolean, pr?: object, pr_KeepTextOnly?: boolean, pr_OverwriteTableCells?: boolean): boolean"
 }

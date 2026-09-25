@@ -323,6 +323,21 @@ declare namespace Cell {
   /** Any valid drawing element. */
   export type Drawing = ApiShape | ApiImage | ApiOleObject | ApiChart | ApiGroup | ApiSmartArt;
 
+  /** The cell anchor of a drawing. */
+  export interface DrawingCellAnchor {
+    /** The number of the column where the drawing object begins. */
+    fromCol: number;
+
+    /** The offset from the fromCol column to the left part of the drawing object. */
+    colOffset: EMU;
+
+    /** The number of the row where the drawing object begins. */
+    fromRow: number;
+
+    /** The offset from the fromRow row to the upper part of the drawing object. */
+    rowOffset: EMU;
+  }
+
   /** Available drawing element for grouping. */
   export type DrawingForGroup = ApiShape | ApiGroup | ApiImage | ApiChart;
 
@@ -332,7 +347,7 @@ declare namespace Cell {
   /** English measure unit. 1 mm = 36000 EMUs, 1 inch = 914400 EMUs. */
   export type EMU = number;
 
-  /** The available slide transition effects (similar to PowerPoint VBA ppEffect). */
+  /** The available slide transition effects. */
   export type EntryEffect = "effectAppear" | "effectBlindsHorizontal" | "effectBlindsVertical" | "effectBoxDown" | "effectBoxIn" | "effectBoxLeft" | "effectBoxOut" | "effectBoxRight" | "effectBoxUp" | "effectCheckerboardAcross" | "effectCheckerboardDown" | "effectCircleOut" | "effectCombHorizontal" | "effectCombVertical" | "effectConveyorLeft" | "effectConveyorRight" | "effectCoverDown" | "effectCoverLeft" | "effectCoverLeftDown" | "effectCoverLeftUp" | "effectCoverRight" | "effectCoverRightDown" | "effectCoverRightUp" | "effectCoverUp" | "effectCubeDown" | "effectCubeLeft" | "effectCubeRight" | "effectCubeUp" | "effectCut" | "effectCutThroughBlack" | "effectDiamondOut" | "effectDissolve" | "effectDoorsHorizontal" | "effectDoorsVertical" | "effectFade" | "effectFadeSmoothly" | "effectFerrisWheelLeft" | "effectFerrisWheelRight" | "effectFlashbulb" | "effectFlipDown" | "effectFlipLeft" | "effectFlipRight" | "effectFlipUp" | "effectFlyThroughIn" | "effectFlyThroughInBounce" | "effectFlyThroughOut" | "effectFlyThroughOutBounce" | "effectGalleryLeft" | "effectGalleryRight" | "effectGlitterDiamondDown" | "effectGlitterDiamondLeft" | "effectGlitterDiamondRight" | "effectGlitterDiamondUp" | "effectGlitterHexagonDown" | "effectGlitterHexagonLeft" | "effectGlitterHexagonRight" | "effectGlitterHexagonUp" | "effectHoneycomb" | "effectNewsflash" | "effectOrbitDown" | "effectOrbitLeft" | "effectOrbitRight" | "effectOrbitUp" | "effectPanDown" | "effectPanLeft" | "effectPanRight" | "effectPanUp" | "effectPlusOut" | "effectPushDown" | "effectPushLeft" | "effectPushRight" | "effectPushUp" | "effectRandom" | "effectRandomBarsHorizontal" | "effectRandomBarsVertical" | "effectRevealBlackLeft" | "effectRevealBlackRight" | "effectRevealSmoothLeft" | "effectRevealSmoothRight" | "effectRippleCenter" | "effectRippleLeftDown" | "effectRippleLeftUp" | "effectRippleRightDown" | "effectRippleRightUp" | "effectRotateDown" | "effectRotateLeft" | "effectRotateRight" | "effectRotateUp" | "effectShredRectangleIn" | "effectShredRectangleOut" | "effectShredStripsIn" | "effectShredStripsOut" | "effectSplitHorizontalIn" | "effectSplitHorizontalOut" | "effectSplitVerticalIn" | "effectSplitVerticalOut" | "effectStripsDownLeft" | "effectStripsDownRight" | "effectStripsLeftDown" | "effectStripsLeftUp" | "effectStripsRightDown" | "effectStripsRightUp" | "effectStripsUpLeft" | "effectStripsUpRight" | "effectSwitchDown" | "effectSwitchLeft" | "effectSwitchRight" | "effectSwitchUp" | "effectUncoverDown" | "effectUncoverLeft" | "effectUncoverLeftDown" | "effectUncoverLeftUp" | "effectUncoverRight" | "effectUncoverRightDown" | "effectUncoverRightUp" | "effectUncoverUp" | "effectVortexDown" | "effectVortexLeft" | "effectVortexRight" | "effectVortexUp" | "effectWarpIn" | "effectWarpOut" | "effectWedge" | "effectWheel1Spoke" | "effectWheel2Spokes" | "effectWheel3Spokes" | "effectWheel4Spokes" | "effectWheel8Spokes" | "effectWheelReverse1Spoke" | "effectWindowHorizontal" | "effectWindowVertical" | "effectWipeDown" | "effectWipeLeft" | "effectWipeRight" | "effectWipeUp" | "effectNone" | "effectCrawlFromDown" | "effectCrawlFromLeft" | "effectCrawlFromRight" | "effectCrawlFromUp" | "effectFlashOnceFast" | "effectFlashOnceMedium" | "effectFlashOnceSlow" | "effectFlyFromBottom" | "effectFlyFromBottomLeft" | "effectFlyFromBottomRight" | "effectFlyFromLeft" | "effectFlyFromRight" | "effectFlyFromTop" | "effectFlyFromTopLeft" | "effectFlyFromTopRight" | "effectMixed" | "effectPeekFromDown" | "effectPeekFromLeft" | "effectPeekFromRight" | "effectPeekFromUp" | "effectSpiral" | "effectStretchAcross" | "effectStretchDown" | "effectStretchLeft" | "effectStretchRight" | "effectStretchUp" | "effectSwivel" | "effectZoomBottom" | "effectZoomCenter" | "effectZoomIn" | "effectZoomInSlightly" | "effectZoomOut" | "effectZoomOutSlightly";
 
   /**
@@ -653,7 +668,7 @@ declare namespace Cell {
   export type ScaleFlag = "always" | "never" | "tooBig" | "tooSmall";
 
   /** The available color scheme identifiers. */
-  export type SchemeColorId = "accent1" | "accent2" | "accent3" | "accent4" | "accent5" | "accent6" | "bg1" | "bg2" | "dk1" | "dk2" | "lt1" | "lt2" | "tx1" | "tx2";
+  export type SchemeColorId = "accent1" | "accent2" | "accent3" | "accent4" | "accent5" | "accent6" | "bg1" | "bg2" | "dk1" | "dk2" | "folHlink" | "hlink" | "lt1" | "lt2" | "tx1" | "tx2";
 
   /** The lock type of the content control. */
   export type SdtLock = "unlocked" | "contentLocked" | "sdtContentLocked" | "sdtLocked";
@@ -717,7 +732,7 @@ declare namespace Cell {
   /** Properties used to create a shadow. */
   export interface ShadowSettings {
     /** The shadow color (black by default). */
-    color?: ApiUniColor;
+    color?: ApiColor | ApiUniColor;
 
     /** The shadow transparency from 0.0 (opaque) to 1.0 (clear). */
     transparency?: number;
@@ -737,15 +752,6 @@ declare namespace Cell {
 
   /** This type specifies the preset shape geometry that will be used for a shape. */
   export type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "trapezoid" | "triangle" | "upArrowCallout" | "upDownArrow" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
-
-  /** The shading information object. */
-  export interface Shd {
-    /** The shading type: **"nil"** - no shading, **"clear"** - solid fill. */
-    Type: ShdType;
-
-    /** The shading color. */
-    Color: ApiColor;
-  }
 
   /** A shade type which can be added to the document element. */
   export type ShdType = "nil" | "clear";
@@ -879,6 +885,12 @@ declare namespace Cell {
   export type TextTransform = "textArchDown" | "textArchDownPour" | "textArchUp" | "textArchUpPour" | "textButton" | "textButtonPour" | "textCanDown" | "textCanUp" | "textCascadeDown" | "textCascadeUp" | "textChevron" | "textChevronInverted" | "textCircle" | "textCirclePour" | "textCurveDown" | "textCurveUp" | "textDeflate" | "textDeflateBottom" | "textDeflateInflate" | "textDeflateInflateDeflate" | "textDeflateTop" | "textDoubleWave1" | "textFadeDown" | "textFadeLeft" | "textFadeRight" | "textFadeUp" | "textInflate" | "textInflateBottom" | "textInflateTop" | "textPlain" | "textRingInside" | "textRingOutside" | "textSlantDown" | "textSlantUp" | "textStop" | "textTriangle" | "textTriangleInverted" | "textWave1" | "textWave2" | "textWave4" | "textNoShape";
 
   /**
+   * The available scripts of a theme font: **"latin"** - the latin text, **"ea"** - the east asian text,
+   * **"cs"** - the complex script text.
+   */
+  export type ThemeFontScript = "latin" | "ea" | "cs";
+
+  /**
    * Possible values for the position of chart tick labels (either horizontal or vertical).
    * **"none"** - does not display the selected tick labels.
    * **"nextTo"** - sets the position of the selected tick labels next to the main label.
@@ -1005,7 +1017,7 @@ declare namespace Cell {
   /** Possible values for the table of figures style. */
   export type TofStyle = "simple" | "online" | "classic" | "distinctive" | "centered" | "formal";
 
-  /** The available slide transition speed values (similar to PowerPoint VBA ppTransitionSpeed). */
+  /** The available slide transition speed values. */
   export type TransitionSpeed = "slow" | "medium" | "fast";
 
   /** Represents a user's comment history. */
@@ -1587,6 +1599,7 @@ declare namespace Cell {
      * Creates a color selecting it from one of the available color presets.
      *
      * @param sPresetColor - A preset selected from the list of the available color preset names.
+     * @deprecated since 10.0.0 version. Use Api#Color instead.
      *
      * @example
      * ```js
@@ -1610,6 +1623,7 @@ declare namespace Cell {
      * @param r - Red color component value.
      * @param g - Green color component value.
      * @param b - Blue color component value.
+     * @deprecated since 10.0.0 version. Use Api#RGB instead.
      *
      * @example
      * ```js
@@ -2121,6 +2135,17 @@ declare namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateShadow/
      */
     CreateShadow(settings: ShadowSettings): ApiShadow;
+
+    /**
+     * Creates the shading which can be applied to text, a paragraph, a table or a table cell.
+     *
+     * @param type - The shading type: **"nil"** - no shading, **"clear"** - solid fill.
+     * @param color - The shading color. Required for the **"clear"** type.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateShd/
+     */
+    CreateShd(type: ShdType, color?: ApiColor): ApiShd;
 
     /**
      * Creates a solid fill to apply to the object using a selected solid color as the object background.
@@ -3638,7 +3663,10 @@ declare namespace Cell {
      * Creates a theme color.
      *
      * @param name - The theme color name. If the provided name is not supported, the 'tx1' color will be used.
+     * @param tintAndShade - The luminance shift from -1 (the darkest shade) to 1 (the lightest tint). 0 keeps the theme
+     *   color as it is.
      * @default name = "tx1"
+     * @default tintAndShade = 0
      * @returns Instance of ApiColor with 'theme' type.
      *
      * @example
@@ -3656,7 +3684,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/ThemeColor/
      */
-    ThemeColor(name?: SchemeColorId): ApiColor;
+    ThemeColor(name?: SchemeColorId, tintAndShade?: number): ApiColor;
 
     /**
      * Converts twips to points.
@@ -5905,6 +5933,16 @@ declare namespace Cell {
     GetParentSheet(): ApiWorksheet;
 
     /**
+     * Returns the cell anchor of the current drawing; the offsets are limited by the anchor cell.
+     *
+     * @returns returns null for an absolutely positioned drawing.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetPosition/
+     */
+    GetPosition(): DrawingCellAnchor | null;
+
+    /**
      * Returns the series with a specific index.
      *
      * @param nIdx - Series index.
@@ -6163,7 +6201,7 @@ declare namespace Cell {
     /**
      * Specifies font size for labels of the horizontal axis.
      *
-     * @param nFontSize - The text size value measured in points.
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      *
      * @example
      * ```js
@@ -6194,7 +6232,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/SetHorAxisLabelsFontSize/
      */
-    SetHorAxisLabelsFontSize(nFontSize: pt): boolean;
+    SetHorAxisLabelsFontSize(fontSize: hps): boolean;
 
     /**
      * Specifies major tick mark for the horizontal axis.
@@ -6353,7 +6391,7 @@ declare namespace Cell {
      * Specifies the chart horizontal axis title.
      *
      * @param sTitle - The title which will be displayed for the horizontal axis of the current chart.
-     * @param nFontSize - The text size value measured in points.
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      * @param bIsBold - Specifies if the horizontal axis title is written in bold font or not.
      *
      * @example
@@ -6385,7 +6423,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/SetHorAxisTitle/
      */
-    SetHorAxisTitle(sTitle: string, nFontSize: pt, bIsBold?: boolean): boolean;
+    SetHorAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean;
 
     /**
      * Sets the fill to the chart legend.
@@ -6427,7 +6465,7 @@ declare namespace Cell {
     /**
      * Specifies the legend font size.
      *
-     * @param nFontSize - The text size value measured in points.
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      *
      * @example
      * ```js
@@ -6458,7 +6496,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/SetLegendFontSize/
      */
-    SetLegendFontSize(nFontSize: pt): boolean;
+    SetLegendFontSize(fontSize: hps): boolean;
 
     /**
      * Sets the outline to the chart legend.
@@ -7161,7 +7199,7 @@ declare namespace Cell {
      * Specifies the chart title.
      *
      * @param sTitle - The title which will be displayed for the current chart.
-     * @param nFontSize - The text size value measured in points.
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      * @param bIsBold - Specifies if the chart title is written in bold font or not.
      *
      * @example
@@ -7192,7 +7230,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/SetTitle/
      */
-    SetTitle(sTitle: string, nFontSize: pt, bIsBold?: boolean): boolean;
+    SetTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean;
 
     /**
      * Sets the fill to the chart title.
@@ -7309,7 +7347,7 @@ declare namespace Cell {
      * Specifies the chart vertical axis title.
      *
      * @param sTitle - The title which will be displayed for the vertical axis of the current chart.
-     * @param nFontSize - The text size value measured in points.
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      * @param bIsBold - Specifies if the vertical axis title is written in bold font or not.
      *
      * @example
@@ -7341,12 +7379,12 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/SetVerAxisTitle/
      */
-    SetVerAxisTitle(sTitle: string, nFontSize: pt, bIsBold?: boolean): boolean;
+    SetVerAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean;
 
     /**
      * Specifies font size for labels of the vertical axis.
      *
-     * @param nFontSize - The text size value measured in points.
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      *
      * @example
      * ```js
@@ -7377,7 +7415,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/SetVertAxisLabelsFontSize/
      */
-    SetVertAxisLabelsFontSize(nFontSize: pt): boolean;
+    SetVertAxisLabelsFontSize(fontSize: hps): boolean;
 
     /**
      * Specifies major tick mark for the vertical axis.
@@ -7633,7 +7671,7 @@ declare namespace Cell {
   }
 
   /**
-   * Class representing a base class for the color types.
+   * Represents a color that can be applied to text.
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiColor/
    */
@@ -7790,6 +7828,16 @@ declare namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiColor/Methods/GetThemeName/
      */
     GetThemeName(): SchemeColorId | null;
+
+    /**
+     * Returns the luminance shift applied to the color.
+     *
+     * @returns The shift from -1 (the darkest shade) to 1 (the lightest tint), 0 when the color is not shifted.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiColor/Methods/GetTintAndShade/
+     */
+    GetTintAndShade(): number;
 
     /**
      * Returns true if the color is a theme color.
@@ -14853,6 +14901,20 @@ declare namespace Cell {
     GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_TableCellSeparator?: string, options_TableRowSeparator?: string, options_ParaSeparator?: string, options_TabSymbol?: string, options_NewLineSeparator?: string): string;
 
     /**
+     * Returns an ApiTextRange object that represents the part of the text contained in the current
+     * document content.
+     *
+     * @param start - Start character position (0-based, inclusive).
+     * @param end - End character position (0-based, exclusive). Defaults to the end of the content.
+     * @default start = 0
+     * @returns returns null if the specified range is empty.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDocumentContent/Methods/GetTextRange/
+     */
+    GetTextRange(start?: number, end?: number): ApiTextRange | null;
+
+    /**
      * Pushes a paragraph or a table to actually add it to the document.
      *
      * @param oElement - The element type which will be pushed to the document.
@@ -15233,6 +15295,20 @@ declare namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDocumentContent/Methods/GetText/
      */
     GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_TableCellSeparator?: string, options_TableRowSeparator?: string, options_ParaSeparator?: string, options_TabSymbol?: string, options_NewLineSeparator?: string): string;
+
+    /**
+     * Returns an ApiTextRange object that represents the part of the text contained in the current
+     * document content.
+     *
+     * @param start - Start character position (0-based, inclusive).
+     * @param end - End character position (0-based, exclusive). Defaults to the end of the content.
+     * @default start = 0
+     * @returns returns null if the specified range is empty.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDocumentContent/Methods/GetTextRange/
+     */
+    GetTextRange(start?: number, end?: number): ApiTextRange | null;
 
     /**
      * Pushes a paragraph or a table to actually add it to the document.
@@ -15653,6 +15729,34 @@ declare namespace Cell {
     GetParentSheet(): ApiWorksheet;
 
     /**
+     * Returns the x position of the current drawing on the worksheet.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetPosX/
+     */
+    GetPosX(): EMU;
+
+    /**
+     * Returns the y position of the current drawing on the worksheet.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetPosY/
+     */
+    GetPosY(): EMU;
+
+    /**
+     * Returns the cell anchor of the current drawing; the offsets are limited by the anchor cell.
+     *
+     * @returns returns null for an absolutely positioned drawing.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetPosition/
+     */
+    GetPosition(): DrawingCellAnchor | null;
+
+    /**
      * Returns the rotation angle of the current drawing object.
      *
      * @since 9.0.0
@@ -15688,6 +15792,16 @@ declare namespace Cell {
     GetShadow(): ApiShadow | null;
 
     /**
+     * Returns a text range that covers the whole text of the current drawing.
+     * Creates a text body if the drawing does not yet have one.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetTextRange/
+     */
+    GetTextRange(): ApiTextRange | null;
+
+    /**
      * Gets the title of the current drawing.
      *
      * @returns The title of the current drawing, or null if not set.
@@ -15719,6 +15833,15 @@ declare namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetWidth/
      */
     GetWidth(): EMU;
+
+    /**
+     * Checks whether the current drawing has a text body.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/HasTextContent/
+     */
+    HasTextContent(): boolean;
 
     /**
      * Selects the current graphic object.
@@ -16109,6 +16232,25 @@ declare namespace Cell {
     GetClassType(): "fill";
 
     /**
+     * Returns the color of a solid fill.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFill/Methods/GetColor/
+     */
+    GetColor(): ApiColor;
+
+    /**
+     * Returns the transparency of the fill.
+     *
+     * @returns The transparency value, from 0 (fully opaque) to 1 (fully transparent).
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFill/Methods/GetTransparent/
+     */
+    GetTransparent(): number;
+
+    /**
      * Gets the fill type.
      *
      * @returns returns "solid", "gradient", "pattern", "blip", "nofill" or null.
@@ -16146,6 +16288,16 @@ declare namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFill/Methods/GetType/
      */
     GetType(): FillType;
+
+    /**
+     * Sets the transparency of the fill.
+     *
+     * @param transparent - The transparency value, from 0 (fully opaque) to 1 (fully transparent).
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFill/Methods/SetTransparent/
+     */
+    SetTransparent(transparent: number): boolean;
   }
 
   /**
@@ -16514,7 +16666,7 @@ declare namespace Cell {
     GetParent(): ApiCharacters;
 
     /**
-     * Returns the font size property of the specified font.
+     * Returns the font size property of the specified font measured in points.
      *
      * @since 7.4.0
      *
@@ -16745,7 +16897,7 @@ declare namespace Cell {
      * Sets the font size property to the specified font.
      * <note>This method will work only with the text format of the cell.</note>
      *
-     * @param Size - Font size.
+     * @param Size - The font size value measured in points.
      * @since 7.4.0
      *
      * @example
@@ -19056,6 +19208,16 @@ declare namespace Cell {
     GetParentSheet(): ApiWorksheet;
 
     /**
+     * Returns the cell anchor of the current drawing; the offsets are limited by the anchor cell.
+     *
+     * @returns returns null for an absolutely positioned drawing.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetPosition/
+     */
+    GetPosition(): DrawingCellAnchor | null;
+
+    /**
      * Ungroups the current group of drawings.
      * <note>This method is not supported in the document builder and works only in the editor.</note>
      *
@@ -19317,6 +19479,20 @@ declare namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiHyperlink/Methods/GetSubAddress/
      */
     GetSubAddress(): string;
+
+    /**
+     * Returns an ApiTextRange object that represents the part of the text contained in the current
+     * hyperlink.
+     *
+     * @param start - Start character position (0-based, inclusive) relative to the hyperlink.
+     * @param end - End character position (0-based, exclusive). Defaults to the end of the hyperlink.
+     * @default start = 0
+     * @returns returns null if the hyperlink is not attached to the document or the specified range is empty.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiHyperlink/Methods/GetTextRange/
+     */
+    GetTextRange(start?: number, end?: number): ApiTextRange | null;
 
     /**
      * Returns the text displayed for the hyperlink.
@@ -21307,6 +21483,16 @@ declare namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetParentSheet/
      */
     GetParentSheet(): ApiWorksheet;
+
+    /**
+     * Returns the cell anchor of the current drawing; the offsets are limited by the anchor cell.
+     *
+     * @returns returns null for an absolutely positioned drawing.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetPosition/
+     */
+    GetPosition(): DrawingCellAnchor | null;
   }
 
   /** Class representing a container for the paragraph elements. */
@@ -23382,6 +23568,16 @@ declare namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetParentSheet/
      */
     GetParentSheet(): ApiWorksheet;
+
+    /**
+     * Returns the cell anchor of the current drawing; the offsets are limited by the anchor cell.
+     *
+     * @returns returns null for an absolutely positioned drawing.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetPosition/
+     */
+    GetPosition(): DrawingCellAnchor | null;
 
     /**
      * Sets the application ID to the current OLE object.
@@ -25609,6 +25805,21 @@ declare namespace Cell {
     GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_NewLineSeparator?: string, options_TabSymbol?: string): string;
 
     /**
+     * Returns an ApiTextRange object that represents the part of the text contained in the current
+     * paragraph.
+     * The paragraph must be attached to the document before calling this method.
+     *
+     * @param start - Start character position (0-based, inclusive) relative to the paragraph.
+     * @param end - End character position (0-based, exclusive). Defaults to the end of the paragraph.
+     * @default start = 0
+     * @returns returns null if the specified range is empty.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/GetTextRange/
+     */
+    GetTextRange(start?: number, end?: number): ApiTextRange | null;
+
+    /**
      * Inserts a paragraph at the specified position.
      *
      * @param paragraph - Text or paragraph.
@@ -25971,7 +26182,7 @@ declare namespace Cell {
     /**
      * Sets the font size to the characters of the current paragraph.
      *
-     * @param nSize - The text size value measured in half-points (1/144 of an inch).
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      * @returns this
      *
      * @example
@@ -26002,7 +26213,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/SetFontSize/
      */
-    SetFontSize(nSize: hps): ApiParagraph;
+    SetFontSize(fontSize: hps): ApiParagraph;
 
     /**
      * Sets the paragraph first line indentation.
@@ -34895,6 +35106,16 @@ declare namespace Cell {
     GetGrandTotalName(): string;
 
     /**
+     * Returns whether the pivot table is automatically formatted on update, which in the editor fits the
+     * column widths to their content.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetHasAutoFormat/
+     */
+    GetHasAutoFormat(): boolean;
+
+    /**
      * Returns an array that represents all the hidden fields in the pivot table.
      *
      * @since 8.2.0
@@ -36425,6 +36646,17 @@ declare namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetGrandTotalName/
      */
     SetGrandTotalName(name: string): void;
+
+    /**
+     * Sets whether the pivot table is automatically formatted on update, which in the editor fits the
+     * column widths to their content.
+     *
+     * @param hasAutoFormat - Specifies whether to format the pivot table automatically on every update.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetHasAutoFormat/
+     */
+    SetHasAutoFormat(hasAutoFormat: boolean): void;
 
     /**
      * Sets the setting which specifies whether to insert blank rows after each item.
@@ -40805,6 +41037,20 @@ declare namespace Cell {
     GetTextPr(): ApiTextPr;
 
     /**
+     * Returns an ApiTextRange object that represents the part of the text contained in the current run.
+     * The run must be attached to the document before calling this method.
+     *
+     * @param start - Start character position (0-based, inclusive) relative to the run.
+     * @param end - End character position (0-based, exclusive). Defaults to the end of the run.
+     * @default start = 0
+     * @returns returns null if the specified range is empty.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRun/Methods/GetTextRange/
+     */
+    GetTextRange(start?: number, end?: number): ApiTextRange | null;
+
+    /**
      * Gets the underline property from the current text properties.
      *
      * @since 8.1.0
@@ -41215,6 +41461,17 @@ declare namespace Cell {
     SetStrikeout(isStrikeout: boolean): ApiTextPr;
 
     /**
+     * Replaces the whole text of the current run with the specified text, keeping the run properties.
+     *
+     * @param text - The new text of the run, as a string or as an array of character codes.
+     * @returns The current run.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRun/Methods/SetText/
+     */
+    SetText(text: string | number[]): ApiRun;
+
+    /**
      * Sets the text fill to the current text run.
      *
      * @param oApiFill - The color or pattern used to fill the text color.
@@ -41581,6 +41838,16 @@ declare namespace Cell {
     GetParentSheet(): ApiWorksheet;
 
     /**
+     * Returns the cell anchor of the current drawing; the offsets are limited by the anchor cell.
+     *
+     * @returns returns null for an absolutely positioned drawing.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetPosition/
+     */
+    GetPosition(): DrawingCellAnchor | null;
+
+    /**
      * Gets the vertical alignment from the shape content where a paragraph or text runs can be inserted.
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiShape/Methods/GetVerticalTextAlign/
@@ -41713,6 +41980,40 @@ declare namespace Cell {
   }
 
   /**
+   * Class representing the shading of text, a paragraph, a table or a table cell.
+   *
+   * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiShd/
+   */
+  export interface ApiShd {
+    /**
+     * Returns a type of the ApiShd class.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiShd/Methods/GetClassType/
+     */
+    GetClassType(): "shd";
+
+    /**
+     * Returns the shading color.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiShd/Methods/GetColor/
+     */
+    GetColor(): ApiColor;
+
+    /**
+     * Returns the shading type.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiShd/Methods/GetType/
+     */
+    GetType(): ShdType;
+  }
+
+  /**
    * Class representing a document picture form.
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSignatureForm/
@@ -41765,6 +42066,16 @@ declare namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetParentSheet/
      */
     GetParentSheet(): ApiWorksheet;
+
+    /**
+     * Returns the cell anchor of the current drawing; the offsets are limited by the anchor cell.
+     *
+     * @returns returns null for an absolutely positioned drawing.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetPosition/
+     */
+    GetPosition(): DrawingCellAnchor | null;
   }
 
   /**
@@ -42919,6 +43230,16 @@ declare namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetParentSheet/
      */
     GetParentSheet(): ApiWorksheet;
+
+    /**
+     * Returns the cell anchor of the current drawing; the offsets are limited by the anchor cell.
+     *
+     * @returns returns null for an absolutely positioned drawing.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetPosition/
+     */
+    GetPosition(): DrawingCellAnchor | null;
   }
 
   /** Class representing a table cell. */
@@ -43891,8 +44212,408 @@ declare namespace Cell {
     SetVertAlign(sType: "baseline" | "subscript" | "superscript"): ApiTextPr;
   }
 
-  /** Class representing a text range within a presentation shape's text frame. */
+  /**
+   * Class representing a text range within a presentation shape's text frame.
+   *
+   * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/
+   */
   export interface ApiTextRange {
+    /**
+     * Adds a hyperlink to the current text range.
+     *
+     * @param link - The link address.
+     * @param screenTipText - The screen tip text.
+     * @param bookmarkName - Name of a bookmark
+     * @returns returns null if the range spans more than one paragraph or params are invalid.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/AddHyperlink/
+     */
+    AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink;
+
+    /**
+     * Adds a text to the specified position. The current range is expanded to include the added text.
+     *
+     * @param text - The text that will be added.
+     * @param position - The position where the text will be added ("before" or "after" the range specified).
+     * @default position = "after"
+     * @returns returns true if the text was successfully added.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/AddText/
+     */
+    AddText(text: string, position?: "after" | "before"): boolean;
+
+    /**
+     * Deletes the contents of the current text range.
+     *
+     * @returns returns false if the range is empty.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/Delete/
+     */
+    Delete(): boolean;
+
+    /**
+     * Returns a new range that spans both this range and the given range. The current range is not
+     * changed.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/ExpandTo/
+     */
+    ExpandTo(range: ApiTextRange): ApiTextRange | null;
+
+    /**
+     * Finds the first occurrence of the given text within this range and returns it as a new ApiTextRange.
+     * Returns null if the text is not found.
+     *
+     * @param findWhat - Text to search for.
+     * @param after - 1-based position within this range to start searching from.
+     * @param matchCase - Case-sensitive search.
+     * @param wholeWords - Match whole words only.
+     * @default after = 1
+     * @default matchCase = false
+     * @default wholeWords = false
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/Find/
+     */
+    Find(findWhat: string, after?: number, matchCase?: boolean, wholeWords?: boolean): ApiTextRange | null;
+
+    /**
+     * Returns all Paragraph objects within this range.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/GetAllParagraphs/
+     */
+    GetAllParagraphs(): ApiParagraph[];
+
+    /**
+     * Returns the class type identifier.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/GetClassType/
+     */
+    GetClassType(): "textRange";
+
+    /**
+     * Returns the end position of the current range.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/GetEndPos/
+     */
+    GetEndPos(): number;
+
+    /**
+     * Returns the paragraph at the given index within this range.
+     * Returns null if the index is out of bounds.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/GetParagraph/
+     */
+    GetParagraph(index: number): ApiParagraph | null;
+
+    /**
+     * Returns a new ApiTextRange that represents a sub-range of the current range.
+     *
+     * @param start - Start offset (0-based) relative to the beginning of this range.
+     * @param rangeEnd - End offset relative to the beginning of this range. -1 means the end of this range.
+     * @default start = 0
+     * @default rangeEnd = -1
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/GetRange/
+     */
+    GetRange(start?: number, rangeEnd?: number): ApiTextRange | null;
+
+    /**
+     * Returns the start position of the current range.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/GetStartPos/
+     */
+    GetStartPos(): number;
+
+    /**
+     * Returns the text content of the range. Paragraph breaks are represented as "\r".
+     *
+     * @param options - Options for formatting the returned text.
+     * @param options_Math - Defines if the resulting string will include mathematical expressions or not.
+     * @param options_NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
+     *   used. The default separator is "\r".
+     * @param options_TableCellSeparator - Defines how the table cell separator will be specified in the resulting string. Any symbol can
+     *   be used. The default separator is "\t".
+     * @param options_TableRowSeparator - Defines how the table row separator will be specified in the resulting string. Any symbol can be
+     *   used. The default separator is "\r\n".
+     * @param options_ParaSeparator - Defines how the paragraph separator will be specified in the resulting string. Any symbol can be
+     *   used. The default separator is "\r\n".
+     * @param options_TabSymbol - Defines how the tab will be specified in the resulting string (does not apply to numbering). Any
+     *   symbol can be used. The default symbol is "\t".
+     * @default options_Math = true
+     * @default options_NewLineSeparator = '\r'
+     * @default options_TableCellSeparator = '\t'
+     * @default options_TableRowSeparator = '\r\n'
+     * @default options_ParaSeparator = '\r\n'
+     * @default options_TabSymbol = '\t'
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/GetText/
+     */
+    GetText(options?: object, options_Math?: boolean, options_NewLineSeparator?: string, options_TableCellSeparator?: string, options_TableRowSeparator?: string, options_ParaSeparator?: string, options_TabSymbol?: string): string;
+
+    /**
+     * Returns the merged text properties of the entire range.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/GetTextPr/
+     */
+    GetTextPr(): ApiTextPr;
+
+    /**
+     * Returns a new range that is the intersection of this range and the given range. The current range is
+     * not changed.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/IntersectWith/
+     */
+    IntersectWith(range: ApiTextRange): ApiTextRange | null;
+
+    /**
+     * Moves a cursor to the specified position within the current range.
+     *
+     * @param pos - The desired cursor position.
+     * @default pos = 0
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/MoveCursorToPos/
+     */
+    MoveCursorToPos(pos?: number): boolean;
+
+    /**
+     * Replaces all occurrences of the specified text within this range.
+     *
+     * @param findWhat - Text to search for.
+     * @param replaceWith - Replacement text.
+     * @param matchCase - Case-sensitive search.
+     * @param wholeWords - Match whole words only.
+     * @default matchCase = false
+     * @default wholeWords = false
+     * @returns this
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/Replace/
+     */
+    Replace(findWhat: string, replaceWith: string, matchCase?: boolean, wholeWords?: boolean): ApiTextRange;
+
+    /**
+     * Selects the text range in the editor.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/Select/
+     */
+    Select(): boolean;
+
+    /**
+     * Sets bold formatting for the contents of the current text range.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetBold/
+     */
+    SetBold(isBold: boolean): ApiTextRange;
+
+    /**
+     * Specifies that any lowercase characters in the current text Range are formatted for display only as
+     * their capital letter character equivalents.
+     *
+     * @param isCaps - Specifies if the Range contents are displayed capitalized or not.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetCaps/
+     */
+    SetCaps(isCaps: boolean): ApiTextRange;
+
+    /**
+     * Sets the text color of the current range.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetColor/
+     */
+    SetColor(color: ApiColor): ApiTextRange;
+
+    /**
+     * Specifies that the contents of the current Range are displayed with two horizontal lines through
+     * each character displayed on the line.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetDoubleStrikeout/
+     */
+    SetDoubleStrikeout(isDoubleStrikeout: boolean): ApiTextRange;
+
+    /**
+     * Sets the end position of the current range.
+     *
+     * @param pos - End position.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetEndPos/
+     */
+    SetEndPos(pos: number): boolean;
+
+    /**
+     * Sets the font family for the current TextRange.
+     *
+     * @param fontFamily - The font family or families used for the current text Range.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetFontFamily/
+     */
+    SetFontFamily(fontFamily: string): ApiTextRange | null;
+
+    /**
+     * Sets the font size of the characters in the current text Range.
+     *
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetFontSize/
+     */
+    SetFontSize(fontSize: hps): ApiTextRange | null;
+
+    /**
+     * Specifies a highlighting color which is applied as a background to the contents of the current
+     * Range.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetHighlight/
+     */
+    SetHighlight(colorName: highlightColor): ApiTextRange | null;
+
+    /**
+     * Sets the italic property to the text character.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetItalic/
+     */
+    SetItalic(isItalic: boolean): ApiTextRange;
+
+    /**
+     * Specifies that all the lowercase letter characters in the current text Range are formatted for
+     * display only as their capital
+     * letter character equivalents which are two points smaller than the actual font size specified for
+     * this text.
+     *
+     * @param isSmallCaps - Specifies if the contents of the current Range are displayed capitalized two points smaller or
+     *   not.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetSmallCaps/
+     */
+    SetSmallCaps(isSmallCaps: boolean): ApiTextRange;
+
+    /**
+     * Sets the text spacing measured in twentieths of a point.
+     *
+     * @param spacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch).
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetSpacing/
+     */
+    SetSpacing(spacing: twips): ApiTextRange | null;
+
+    /**
+     * Sets the start position of the current range.
+     *
+     * @param pos - Start position.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetStartPos/
+     */
+    SetStartPos(pos: number): boolean;
+
+    /**
+     * Specifies that the contents of the current Range are displayed with a single horizontal line through
+     * the range center.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetStrikeout/
+     */
+    SetStrikeout(isStrikeout: boolean): ApiTextRange;
+
+    /**
+     * Replaces all text content with the given string. Use "\r" to separate paragraphs.
+     *
+     * @param text - New text value.
+     * @returns this
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetText/
+     */
+    SetText(text: string): ApiTextRange;
+
+    /**
+     * Sets the text properties to the current text range.
+     *
+     * @param textPr - The text properties that will be applied to the current range.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetTextPr/
+     */
+    SetTextPr(textPr: ApiTextPr): ApiTextRange | null;
+
+    /**
+     * Specifies that the contents of the current Range are displayed along with a line appearing directly
+     * below the character
+     * (less than all the spacing above and below the characters on the line).
+     *
+     * @param isUnderline - Specifies if the contents of the current Range are displayed underlined or not.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetUnderline/
+     */
+    SetUnderline(isUnderline: boolean): ApiTextRange;
+
+    /**
+     * Specifies the alignment which will be applied to the Range contents in relation to the default
+     * appearance of the Range text:
+     * **"baseline"** - the characters in the current text Range will be aligned by the default text
+     * baseline.
+     * **"subscript"** - the characters in the current text Range will be aligned below the default text
+     * baseline.
+     * **"superscript"** - the characters in the current text Range will be aligned above the default text
+     * baseline.
+     *
+     * @param type - The vertical alignment type applied to the text contents.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetVertAlign/
+     */
+    SetVertAlign(type: "baseline" | "subscript" | "superscript"): ApiTextRange | null;
+
+    /**
+     * Converts the text range to HTML.
+     *
+     * @param options - The HTML conversion options.
+     * @default options = {}
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/ToHtml/
+     */
+    ToHtml(options?: ToHtmlOptions): string;
   }
 
   /**
@@ -47529,8 +48250,8 @@ declare namespace Cell {
      * **Note:**
      * Values of _nStyleIndex_ outside **1 - 48** are interpreted as a chart style id from the
      * _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs
-     * Enterprise](https://www.onlyoffice.com/docs-enterprise-prices.aspx?from=api) and [ONLYOFFICE Docs
-     * Developer](https://www.onlyoffice.com/developer-edition-prices.aspx?from=api).
+     * Enterprise](https://www.onlyoffice.com/docs-enterprise-prices?from=api) and [ONLYOFFICE Docs
+     * Developer](https://www.onlyoffice.com/developer-edition-prices?from=api).
      *
      * @param sDataRange - The selected cell range which will be used to get the data for the chart, formed specifically
      *   and including the sheet name.
@@ -47546,6 +48267,7 @@ declare namespace Cell {
      * @param nFromRow - The number of the row where the beginning of the chart will be placed.
      * @param nRowOffset - The offset from the nFromRow row to the upper part of the chart measured in English measure
      *   units.
+     * @returns returns null if the chart type is not supported.
      *
      * @example
      * ```js
@@ -60115,6 +60837,16 @@ interface ContextMenuItem {
 }
 
 /**
+ * The current editing restrictions, a combination of the flags:
+ * **0x00** - no editing restrictions,
+ * **0x01** - allows editing form fields,
+ * **0x02** - allows editing comments and regions delimited by range permissions,
+ * **0x04** - the document is signed and cannot be changed,
+ * **0x80** - does not allow editing.
+ */
+type EditorRestrictions = number;
+
+/**
  * Plugin event ("onDocumentContentReady", "onTargetPositionChanged", onClick", "onInputHelperClear",
  * "onInputHelperInput", etc.).
  */
@@ -60822,6 +61554,13 @@ type CellMethodArgs = {
    */
   GetMacros: [oContent?: string];
   /**
+   * Returns the restrictions the editor currently applies to the document.
+   *
+   * @returns The current restrictions.
+   * @since 10.0.0
+   */
+  GetRestrictions: [];
+  /**
    * Returns the selected content in the specified format.
    *
    * @param prop - The returned content properties.
@@ -61453,6 +62192,7 @@ type CellMethodReturnMap = {
   GetImageDataFromSelection: AscImageData;
   GetInstalledPlugins: PluginData[];
   GetMacros: string;
+  GetRestrictions: EditorRestrictions;
   GetSelectedContent: string;
   GetSelectedOleObjects: OLEProperties[];
   GetSelectedText: string;
@@ -61489,7 +62229,7 @@ type CellMethodReturnMap = {
 type CellMethodReturn<T extends CellMethodName> = CellMethodReturnMap[T];
 
 /**
- * Cell `executeMethod` names that need a paid ONLYOFFICE edition (2 of 46).
+ * Cell `executeMethod` names that need a paid ONLYOFFICE edition (2 of 47).
  * Each one's own `@requires` tag names the edition it needs.
  *
  * Nothing restricts these by default - use this to opt into enforcement, e.g.

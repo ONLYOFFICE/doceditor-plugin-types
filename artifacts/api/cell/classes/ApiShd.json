@@ -1,0 +1,36 @@
+{
+  "description": "Class representing the shading of text, a paragraph, a table or a table cell.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiShd/",
+  "methods": {
+    "GetClassType": {
+      "description": "Returns a type of the ApiShd class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiShd/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"shd\""
+      },
+      "signature": "GetClassType(): \"shd\"",
+      "since": "10.0.0"
+    },
+    "GetColor": {
+      "description": "Returns the shading color.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiShd/Methods/GetColor/",
+      "params": [],
+      "returns": {
+        "type": "ApiColor"
+      },
+      "signature": "GetColor(): ApiColor",
+      "since": "10.0.0"
+    },
+    "GetType": {
+      "description": "Returns the shading type.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiShd/Methods/GetType/",
+      "params": [],
+      "returns": {
+        "type": "ShdType"
+      },
+      "signature": "GetType(): ShdType",
+      "since": "10.0.0"
+    }
+  }
+}

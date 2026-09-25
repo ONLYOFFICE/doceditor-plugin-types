@@ -97,7 +97,8 @@
       "returns": {
         "type": "ApiButtonField"
       },
-      "signature": "CreateButtonField(rect: Rect): ApiButtonField"
+      "signature": "CreateButtonField(rect: Rect): ApiButtonField",
+      "since": "10.0.0"
     },
     "CreateCaretAnnot": {
       "description": "Creates caret annotation.",
@@ -115,7 +116,7 @@
       "signature": "CreateCaretAnnot(rect: Rect | Quad[]): ApiCaretAnnotation"
     },
     "CreateChart": {
-      "description": "Creates a chart with the parameters specified.\n**Note:**\nValues of _nStyleIndex_ outside **1 - 48** are interpreted as a chart style id from the _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs Enterprise](https://www.onlyoffice.com/docs-enterprise-prices.aspx?from=api) and [ONLYOFFICE Docs Developer](https://www.onlyoffice.com/developer-edition-prices.aspx?from=api).\n",
+      "description": "Creates a chart with the parameters specified.\n**Note:**\nValues of _nStyleIndex_ outside **1 - 48** are interpreted as a chart style id from the _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs Enterprise](https://www.onlyoffice.com/docs-enterprise-prices?from=api) and [ONLYOFFICE Docs Developer](https://www.onlyoffice.com/developer-edition-prices?from=api).\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateChart/",
       "params": [
         {
@@ -168,9 +169,10 @@
         }
       ],
       "returns": {
-        "type": "ApiChart"
+        "description": "returns null if the chart type is not supported.",
+        "type": "ApiChart | null"
       },
-      "signature": "CreateChart(chartType?: ChartType, series?: number[][], seriesNames?: number[] | string[], categoryNames?: number[] | string[], width?: EMU, height?: EMU, styleIndex?: number, numFormats?: NumFormat[] | string[]): ApiChart"
+      "signature": "CreateChart(chartType?: ChartType, series?: number[][], seriesNames?: number[] | string[], categoryNames?: number[] | string[], width?: EMU, height?: EMU, styleIndex?: number, numFormats?: NumFormat[] | string[]): ApiChart | null"
     },
     "CreateCheckboxField": {
       "description": "Creates a checkbox field.",
@@ -270,19 +272,22 @@
           "type": "GoToType"
         },
         {
-          "description": "1 = 100% (used only for goToType = \"xyz\")",
+          "description": "zoom ratio, 1 is equal 100% (used only for goToType == \"xyz\")",
           "name": "zoom",
-          "type": "number"
+          "optional": true,
+          "type": "percentage"
         },
         {
           "name": "rect",
+          "optional": true,
           "type": "Rect"
         }
       ],
       "returns": {
         "type": "ApiGoToAction"
       },
-      "signature": "CreateGoToAction(page: number, goToType: GoToType, zoom: number, rect: Rect): ApiGoToAction"
+      "signature": "CreateGoToAction(page: number, goToType: GoToType, zoom?: percentage, rect?: Rect): ApiGoToAction",
+      "since": "10.0.0"
     },
     "CreateGradientStop": {
       "description": "Creates a gradient stop used for different types of gradients.",
@@ -323,7 +328,8 @@
       "returns": {
         "type": "ApiHideShowFormsAction"
       },
-      "signature": "CreateHideShowFormsAction(isHidde: boolean, names: string[]): ApiHideShowFormsAction"
+      "signature": "CreateHideShowFormsAction(isHidde: boolean, names: string[]): ApiHideShowFormsAction",
+      "since": "10.0.0"
     },
     "CreateHighlightAnnot": {
       "description": "Creates highlight annotation.",
@@ -412,7 +418,8 @@
       "returns": {
         "type": "ApiJsAction"
       },
-      "signature": "CreateJsAction(script: string): ApiJsAction"
+      "signature": "CreateJsAction(script: string): ApiJsAction",
+      "since": "10.0.0"
     },
     "CreateLineAnnot": {
       "description": "Creates line annotation.",
@@ -458,6 +465,28 @@
         "type": "ApiFill"
       },
       "signature": "CreateLinearGradientFill(gradientStops: number[], angle: PositiveFixedAngle): ApiFill"
+    },
+    "CreateLinkAnnot": {
+      "description": "Creates a link annotation.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateLinkAnnot/",
+      "params": [
+        {
+          "description": "annotation rect.",
+          "name": "rect",
+          "type": "Rect"
+        },
+        {
+          "description": "action executed when the link is clicked.",
+          "name": "action",
+          "optional": true,
+          "type": "ApiBaseAction"
+        }
+      ],
+      "returns": {
+        "type": "ApiLinkAnnotation"
+      },
+      "signature": "CreateLinkAnnot(rect: Rect, action?: ApiBaseAction): ApiLinkAnnotation",
+      "since": "10.0.0"
     },
     "CreateListboxField": {
       "description": "Creates a listbox field.",
@@ -508,7 +537,8 @@
       "returns": {
         "type": "ApiNamedAction"
       },
-      "signature": "CreateNamedAction(name: NamedActionType): ApiNamedAction"
+      "signature": "CreateNamedAction(name: NamedActionType): ApiNamedAction",
+      "since": "10.0.0"
     },
     "CreateNoFill": {
       "description": "Creates no fill and removes the fill from the element.",
@@ -538,7 +568,8 @@
         "description": "returns null if numType is not one of the BulletType values.",
         "type": "ApiBullet"
       },
-      "signature": "CreateNumbering(numType: BulletType, startAt: number): ApiBullet"
+      "signature": "CreateNumbering(numType: BulletType, startAt: number): ApiBullet",
+      "since": "10.0.0"
     },
     "CreateParagraph": {
       "description": "Creates a new paragraph.",
@@ -736,7 +767,8 @@
       "returns": {
         "type": "ApiHideShowFormsAction"
       },
-      "signature": "CreateResetFormsAction(isAllExcept: boolean, names: string[]): ApiHideShowFormsAction"
+      "signature": "CreateResetFormsAction(isAllExcept: boolean, names: string[]): ApiHideShowFormsAction",
+      "since": "10.0.0"
     },
     "CreateRichParaPr": {
       "description": "Creates the empty rich paragraph properties.",
@@ -854,6 +886,28 @@
       },
       "signature": "CreateShape(shapeType?: ShapeType, width?: EMU, height?: EMU, fill?: ApiFill, stroke?: ApiStroke): ApiShape"
     },
+    "CreateShd": {
+      "description": "Creates the shading which can be applied to text, a paragraph, a table or a table cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateShd/",
+      "params": [
+        {
+          "description": "The shading type: **\"nil\"** - no shading, **\"clear\"** - solid fill.",
+          "name": "type",
+          "type": "ShdType"
+        },
+        {
+          "description": "The shading color. Required for the **\"clear\"** type.",
+          "name": "color",
+          "optional": true,
+          "type": "ApiColor"
+        }
+      ],
+      "returns": {
+        "type": "ApiShd"
+      },
+      "signature": "CreateShd(type: ShdType, color?: ApiColor): ApiShd",
+      "since": "10.0.0"
+    },
     "CreateSignatureField": {
       "description": "Creates a signature field.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateSignatureField/",
@@ -867,7 +921,8 @@
       "returns": {
         "type": "ApiSignatureField"
       },
-      "signature": "CreateSignatureField(rect: Rect): ApiSignatureField"
+      "signature": "CreateSignatureField(rect: Rect): ApiSignatureField",
+      "since": "10.0.0"
     },
     "CreateSolidFill": {
       "description": "Creates a solid fill to apply to the object using a selected solid color as the object background.",
@@ -1070,7 +1125,8 @@
       "returns": {
         "type": "ApiUriAction"
       },
-      "signature": "CreateUriAction(uri: string): ApiUriAction"
+      "signature": "CreateUriAction(uri: string): ApiUriAction",
+      "since": "10.0.0"
     },
     "EmusToMillimeters": {
       "description": "Converts English Metric Units (EMUs) to millimeters.",
@@ -1457,13 +1513,19 @@
           "name": "name",
           "optional": true,
           "type": "SchemeColorId"
+        },
+        {
+          "description": "The luminance shift from -1 (the darkest shade) to 1 (the lightest tint). 0 keeps the theme color as it is.",
+          "name": "tintAndShade",
+          "optional": true,
+          "type": "number"
         }
       ],
       "returns": {
         "description": "Instance of ApiColor with 'theme' type.",
         "type": "ApiColor"
       },
-      "signature": "ThemeColor(name?: SchemeColorId): ApiColor"
+      "signature": "ThemeColor(name?: SchemeColorId, tintAndShade?: number): ApiColor"
     },
     "TwipsToPoints": {
       "description": "Converts twips to points.",

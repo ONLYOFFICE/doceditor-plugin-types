@@ -9,7 +9,8 @@
       "returns": {
         "type": "\"goToAction\""
       },
-      "signature": "GetClassType(): \"goToAction\""
+      "signature": "GetClassType(): \"goToAction\"",
+      "since": "10.0.0"
     },
     "GetPage": {
       "description": "Gets desctination page index",
@@ -18,16 +19,18 @@
       "returns": {
         "type": "number"
       },
-      "signature": "GetPage(): number"
+      "signature": "GetPage(): number",
+      "since": "10.0.0"
     },
     "GetRect": {
-      "description": "Gets goto destination rect",
+      "description": "Gets goto destination rect\n<note> For all goto types except \"fitR\" used only x1, y1 coordinates </note>",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/GetRect/",
       "params": [],
       "returns": {
         "type": "Rect"
       },
-      "signature": "GetRect(): Rect"
+      "signature": "GetRect(): Rect",
+      "since": "10.0.0"
     },
     "GetType": {
       "description": "Gets goto type",
@@ -36,16 +39,18 @@
       "returns": {
         "type": "GoToType"
       },
-      "signature": "GetType(): GoToType"
+      "signature": "GetType(): GoToType",
+      "since": "10.0.0"
     },
     "GetZoom": {
-      "description": "Gets goto destination rect",
+      "description": "Gets zoom for action",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/GetRect/",
       "params": [],
       "returns": {
-        "type": "Rect"
+        "type": "number"
       },
-      "signature": "GetZoom(): Rect"
+      "signature": "GetZoom(): number",
+      "since": "10.0.0"
     },
     "SetPage": {
       "description": "Sets desctination page index",
@@ -59,10 +64,11 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetPage(page: number): boolean"
+      "signature": "SetPage(page: number): boolean",
+      "since": "10.0.0"
     },
     "SetRect": {
-      "description": "Sets goto destination rect",
+      "description": "Sets goto destination rect\n<note> For all goto types except \"fitR\" used only x1, y1 coordinates </note>",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/SetRect/",
       "params": [
         {
@@ -73,7 +79,8 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetRect(rect: Rect): boolean"
+      "signature": "SetRect(rect: Rect): boolean",
+      "since": "10.0.0"
     },
     "SetType": {
       "description": "Sets goto type",
@@ -87,7 +94,25 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetType(type: GoToType): boolean"
+      "signature": "SetType(type: GoToType): boolean",
+      "since": "10.0.0"
+    },
+    "SetZoom": {
+      "description": "Sets goto zoom ratio",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/SetZoom/",
+      "params": [
+        {
+          "description": "zoom ratio, 1 is equal 100% (used only for goToType == \"xyz\")",
+          "name": "zoom",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetZoom(zoom?: number): boolean",
+      "since": "10.0.0"
     }
   }
 }

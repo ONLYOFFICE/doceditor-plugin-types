@@ -4,17 +4,17 @@
   "params": [
     {
       "description": "The link address.",
-      "name": "sLink",
+      "name": "link",
       "type": "string"
     },
     {
       "description": "The screen tip text.",
-      "name": "sScreenTipText",
+      "name": "screenTipText",
       "type": "string"
     },
     {
       "description": "name of a bookmark",
-      "name": "sBookmarkName",
+      "name": "bookmarkName",
       "type": "string"
     }
   ],
@@ -22,5 +22,5 @@
     "description": "returns null if params are invalid.",
     "type": "ApiHyperlink"
   },
-  "signature": "AddHyperlink(sLink: string, sScreenTipText: string, sBookmarkName: string): ApiHyperlink"
+  "signature": "AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink"
 }

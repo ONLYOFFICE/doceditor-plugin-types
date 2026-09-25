@@ -9,7 +9,8 @@
       "returns": {
         "type": "\"resetFormsAction\""
       },
-      "signature": "GetClassType(): \"resetFormsAction\""
+      "signature": "GetClassType(): \"resetFormsAction\"",
+      "since": "10.0.0"
     },
     "GetNames": {
       "description": "Gets names of fields to reset",
@@ -18,7 +19,8 @@
       "returns": {
         "type": "string[]"
       },
-      "signature": "GetNames(): string[]"
+      "signature": "GetNames(): string[]",
+      "since": "10.0.0"
     },
     "IsAllExcept": {
       "description": "Will all fields be reset except the fields whose names are specified",
@@ -27,7 +29,8 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "IsAllExcept(): boolean"
+      "signature": "IsAllExcept(): boolean",
+      "since": "10.0.0"
     },
     "SetAllExcept": {
       "description": "Sets all fields be reset except the fields whose names are specified",
@@ -41,7 +44,8 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetAllExcept(isAllExcept: boolean): boolean"
+      "signature": "SetAllExcept(isAllExcept: boolean): boolean",
+      "since": "10.0.0"
     },
     "SetNames": {
       "description": "Sets names of fields to reset",
@@ -55,7 +59,8 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetNames(names: string[]): boolean"
+      "signature": "SetNames(names: string[]): boolean",
+      "since": "10.0.0"
     }
   }
 }

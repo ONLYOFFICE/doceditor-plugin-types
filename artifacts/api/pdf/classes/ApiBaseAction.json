@@ -9,7 +9,8 @@
       "returns": {
         "type": "ApiBaseAction"
       },
-      "signature": "GetNext(): ApiBaseAction"
+      "signature": "GetNext(): ApiBaseAction",
+      "since": "10.0.0"
     },
     "SetNext": {
       "description": "Sets next action.",
@@ -24,7 +25,8 @@
         "description": "returns next action",
         "type": "ApiBaseAction"
       },
-      "signature": "SetNext(action: ApiBaseAction): ApiBaseAction"
+      "signature": "SetNext(action: ApiBaseAction): ApiBaseAction",
+      "since": "10.0.0"
     }
   }
 }

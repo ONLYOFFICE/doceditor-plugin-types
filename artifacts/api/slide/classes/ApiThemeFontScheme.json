@@ -20,6 +20,52 @@
       },
       "signature": "GetClassType(): \"themeFontScheme\""
     },
+    "GetMajorFont": {
+      "description": "Returns the major theme font of the current theme font scheme.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFontScheme/Methods/GetMajorFont/",
+      "params": [
+        {
+          "description": "The script the font is applied to.",
+          "name": "script",
+          "optional": true,
+          "type": "ThemeFontScript"
+        }
+      ],
+      "returns": {
+        "description": "The font name, an empty string if the scheme has no font for this script, or null if the script is not supported.",
+        "type": "string"
+      },
+      "signature": "GetMajorFont(script?: ThemeFontScript): string",
+      "since": "10.0.0"
+    },
+    "GetMinorFont": {
+      "description": "Returns the minor theme font of the current theme font scheme.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFontScheme/Methods/GetMinorFont/",
+      "params": [
+        {
+          "description": "The script the font is applied to.",
+          "name": "script",
+          "optional": true,
+          "type": "ThemeFontScript"
+        }
+      ],
+      "returns": {
+        "description": "The font name, an empty string if the scheme has no font for this script, or null if the script is not supported.",
+        "type": "string"
+      },
+      "signature": "GetMinorFont(script?: ThemeFontScript): string",
+      "since": "10.0.0"
+    },
+    "GetSchemeName": {
+      "description": "Returns the name of the current theme font scheme.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFontScheme/Methods/GetSchemeName/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetSchemeName(): string",
+      "since": "10.0.0"
+    },
     "SetFonts": {
       "description": "Sets the fonts to the current theme font scheme.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFontScheme/Methods/SetFonts/",

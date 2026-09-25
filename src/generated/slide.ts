@@ -212,7 +212,7 @@ export namespace Slide {
   /** English measure unit. 1 mm = 36000 EMUs, 1 inch = 914400 EMUs. */
   export type EMU = number;
 
-  /** The available slide transition effects (similar to PowerPoint VBA ppEffect). */
+  /** The available slide transition effects. */
   export type EntryEffect = "effectAppear" | "effectBlindsHorizontal" | "effectBlindsVertical" | "effectBoxDown" | "effectBoxIn" | "effectBoxLeft" | "effectBoxOut" | "effectBoxRight" | "effectBoxUp" | "effectCheckerboardAcross" | "effectCheckerboardDown" | "effectCircleOut" | "effectCombHorizontal" | "effectCombVertical" | "effectConveyorLeft" | "effectConveyorRight" | "effectCoverDown" | "effectCoverLeft" | "effectCoverLeftDown" | "effectCoverLeftUp" | "effectCoverRight" | "effectCoverRightDown" | "effectCoverRightUp" | "effectCoverUp" | "effectCubeDown" | "effectCubeLeft" | "effectCubeRight" | "effectCubeUp" | "effectCut" | "effectCutThroughBlack" | "effectDiamondOut" | "effectDissolve" | "effectDoorsHorizontal" | "effectDoorsVertical" | "effectFade" | "effectFadeSmoothly" | "effectFerrisWheelLeft" | "effectFerrisWheelRight" | "effectFlashbulb" | "effectFlipDown" | "effectFlipLeft" | "effectFlipRight" | "effectFlipUp" | "effectFlyThroughIn" | "effectFlyThroughInBounce" | "effectFlyThroughOut" | "effectFlyThroughOutBounce" | "effectGalleryLeft" | "effectGalleryRight" | "effectGlitterDiamondDown" | "effectGlitterDiamondLeft" | "effectGlitterDiamondRight" | "effectGlitterDiamondUp" | "effectGlitterHexagonDown" | "effectGlitterHexagonLeft" | "effectGlitterHexagonRight" | "effectGlitterHexagonUp" | "effectHoneycomb" | "effectNewsflash" | "effectOrbitDown" | "effectOrbitLeft" | "effectOrbitRight" | "effectOrbitUp" | "effectPanDown" | "effectPanLeft" | "effectPanRight" | "effectPanUp" | "effectPlusOut" | "effectPushDown" | "effectPushLeft" | "effectPushRight" | "effectPushUp" | "effectRandom" | "effectRandomBarsHorizontal" | "effectRandomBarsVertical" | "effectRevealBlackLeft" | "effectRevealBlackRight" | "effectRevealSmoothLeft" | "effectRevealSmoothRight" | "effectRippleCenter" | "effectRippleLeftDown" | "effectRippleLeftUp" | "effectRippleRightDown" | "effectRippleRightUp" | "effectRotateDown" | "effectRotateLeft" | "effectRotateRight" | "effectRotateUp" | "effectShredRectangleIn" | "effectShredRectangleOut" | "effectShredStripsIn" | "effectShredStripsOut" | "effectSplitHorizontalIn" | "effectSplitHorizontalOut" | "effectSplitVerticalIn" | "effectSplitVerticalOut" | "effectStripsDownLeft" | "effectStripsDownRight" | "effectStripsLeftDown" | "effectStripsLeftUp" | "effectStripsRightDown" | "effectStripsRightUp" | "effectStripsUpLeft" | "effectStripsUpRight" | "effectSwitchDown" | "effectSwitchLeft" | "effectSwitchRight" | "effectSwitchUp" | "effectUncoverDown" | "effectUncoverLeft" | "effectUncoverLeftDown" | "effectUncoverLeftUp" | "effectUncoverRight" | "effectUncoverRightDown" | "effectUncoverRightUp" | "effectUncoverUp" | "effectVortexDown" | "effectVortexLeft" | "effectVortexRight" | "effectVortexUp" | "effectWarpIn" | "effectWarpOut" | "effectWedge" | "effectWheel1Spoke" | "effectWheel2Spokes" | "effectWheel3Spokes" | "effectWheel4Spokes" | "effectWheel8Spokes" | "effectWheelReverse1Spoke" | "effectWindowHorizontal" | "effectWindowVertical" | "effectWipeDown" | "effectWipeLeft" | "effectWipeRight" | "effectWipeUp" | "effectNone" | "effectCrawlFromDown" | "effectCrawlFromLeft" | "effectCrawlFromRight" | "effectCrawlFromUp" | "effectFlashOnceFast" | "effectFlashOnceMedium" | "effectFlashOnceSlow" | "effectFlyFromBottom" | "effectFlyFromBottomLeft" | "effectFlyFromBottomRight" | "effectFlyFromLeft" | "effectFlyFromRight" | "effectFlyFromTop" | "effectFlyFromTopLeft" | "effectFlyFromTopRight" | "effectMixed" | "effectPeekFromDown" | "effectPeekFromLeft" | "effectPeekFromRight" | "effectPeekFromUp" | "effectSpiral" | "effectStretchAcross" | "effectStretchDown" | "effectStretchLeft" | "effectStretchRight" | "effectStretchUp" | "effectSwivel" | "effectZoomBottom" | "effectZoomCenter" | "effectZoomIn" | "effectZoomInSlightly" | "effectZoomOut" | "effectZoomOutSlightly";
 
   /** The available fill types. */
@@ -366,7 +366,7 @@ export namespace Slide {
   export type ScaleFlag = "always" | "never" | "tooBig" | "tooSmall";
 
   /** The available color scheme identifiers. */
-  export type SchemeColorId = "accent1" | "accent2" | "accent3" | "accent4" | "accent5" | "accent6" | "bg1" | "bg2" | "dk1" | "dk2" | "lt1" | "lt2" | "tx1" | "tx2";
+  export type SchemeColorId = "accent1" | "accent2" | "accent3" | "accent4" | "accent5" | "accent6" | "bg1" | "bg2" | "dk1" | "dk2" | "folHlink" | "hlink" | "lt1" | "lt2" | "tx1" | "tx2";
 
   /** The lock type of the content control. */
   export type SdtLock = "unlocked" | "contentLocked" | "sdtContentLocked" | "sdtLocked";
@@ -393,7 +393,7 @@ export namespace Slide {
   /** Properties used to create a shadow. */
   export interface ShadowSettings {
     /** The shadow color (black by default). */
-    color?: ApiUniColor;
+    color?: ApiColor | ApiUniColor;
 
     /** The shadow transparency from 0.0 (opaque) to 1.0 (clear). */
     transparency?: number;
@@ -413,15 +413,6 @@ export namespace Slide {
 
   /** This type specifies the preset shape geometry that will be used for a shape. */
   export type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "trapezoid" | "triangle" | "upArrowCallout" | "upDownArrow" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
-
-  /** The shading information object. */
-  export interface Shd {
-    /** The shading type: **"nil"** - no shading, **"clear"** - solid fill. */
-    Type: ShdType;
-
-    /** The shading color. */
-    Color: ApiColor;
-  }
 
   /** A shade type which can be added to the document element. */
   export type ShdType = "nil" | "clear";
@@ -529,6 +520,12 @@ export namespace Slide {
 
   /** Text transform type. */
   export type TextTransform = "textArchDown" | "textArchDownPour" | "textArchUp" | "textArchUpPour" | "textButton" | "textButtonPour" | "textCanDown" | "textCanUp" | "textCascadeDown" | "textCascadeUp" | "textChevron" | "textChevronInverted" | "textCircle" | "textCirclePour" | "textCurveDown" | "textCurveUp" | "textDeflate" | "textDeflateBottom" | "textDeflateInflate" | "textDeflateInflateDeflate" | "textDeflateTop" | "textDoubleWave1" | "textFadeDown" | "textFadeLeft" | "textFadeRight" | "textFadeUp" | "textInflate" | "textInflateBottom" | "textInflateTop" | "textPlain" | "textRingInside" | "textRingOutside" | "textSlantDown" | "textSlantUp" | "textStop" | "textTriangle" | "textTriangleInverted" | "textWave1" | "textWave2" | "textWave4" | "textNoShape";
+
+  /**
+   * The available scripts of a theme font: **"latin"** - the latin text, **"ea"** - the east asian text,
+   * **"cs"** - the complex script text.
+   */
+  export type ThemeFontScript = "latin" | "ea" | "cs";
 
   /**
    * Possible values for the position of chart tick labels (either horizontal or vertical).
@@ -656,7 +653,7 @@ export namespace Slide {
   /** Possible values for the table of figures style. */
   export type TofStyle = "simple" | "online" | "classic" | "distinctive" | "centered" | "formal";
 
-  /** The available slide transition speed values (similar to PowerPoint VBA ppTransitionSpeed). */
+  /** The available slide transition speed values. */
   export type TransitionSpeed = "slow" | "medium" | "fast";
 
   /** Represents a user's comment history. */
@@ -948,8 +945,8 @@ export namespace Slide {
      * **Note:**
      * Values of _nStyleIndex_ outside **1 - 48** are interpreted as a chart style id from the
      * _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs
-     * Enterprise](https://www.onlyoffice.com/docs-enterprise-prices.aspx?from=api) and [ONLYOFFICE Docs
-     * Developer](https://www.onlyoffice.com/developer-edition-prices.aspx?from=api).
+     * Enterprise](https://www.onlyoffice.com/docs-enterprise-prices?from=api) and [ONLYOFFICE Docs
+     * Developer](https://www.onlyoffice.com/developer-edition-prices?from=api).
      *
      * @param sType - The chart type used for the chart display.
      * @param aSeries - The array of the data used to build the chart from.
@@ -963,6 +960,7 @@ export namespace Slide {
      * @param aNumFormats - Numeric formats which will be applied to the series (can be custom formats). The default numeric
      *   format is "General".
      * @default sType = "bar"
+     * @returns returns null if the chart type is not supported.
      *
      * @example
      * ```js
@@ -990,8 +988,8 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/CreateChart/
      */
-    CreateChart(aSeries: number[][], aSeriesNames: number[] | string[], aCatNames: number[] | string[], nWidth: EMU, nHeight: EMU, nStyleIndex: number, aNumFormats: NumFormat[] | string[]): ApiChart;
-    CreateChart(sType: ChartType, aSeries: number[][], aSeriesNames: number[] | string[], aCatNames: number[] | string[], nWidth: EMU, nHeight: EMU, nStyleIndex: number, aNumFormats: NumFormat[] | string[]): ApiChart;
+    CreateChart(aSeries: number[][], aSeriesNames: number[] | string[], aCatNames: number[] | string[], nWidth: EMU, nHeight: EMU, nStyleIndex: number, aNumFormats: NumFormat[] | string[]): ApiChart | null;
+    CreateChart(sType: ChartType, aSeries: number[][], aSeriesNames: number[] | string[], aCatNames: number[] | string[], nWidth: EMU, nHeight: EMU, nStyleIndex: number, aNumFormats: NumFormat[] | string[]): ApiChart | null;
 
     /**
      * Creates a new custom geometry.
@@ -1827,6 +1825,17 @@ export namespace Slide {
     CreateShape(sType?: ShapeType, nWidth?: EMU, nHeight?: EMU, oFill?: ApiFill, oStroke?: ApiStroke): ApiShape;
 
     /**
+     * Creates the shading which can be applied to text, a paragraph, a table or a table cell.
+     *
+     * @param type - The shading type: **"nil"** - no shading, **"clear"** - solid fill.
+     * @param color - The shading color. Required for the **"clear"** type.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/CreateShd/
+     */
+    CreateShd(type: ShdType, color?: ApiColor): ApiShd;
+
+    /**
      * Creates a new slide.
      *
      * @example
@@ -2079,9 +2088,9 @@ export namespace Slide {
      * Creates a new theme color scheme.
      *
      * @param arrColors - Set of colors which are referred to as a color scheme. The color scheme is responsible for
-     *   defining a list of twelve colors. The array should contain a sequence of colors: 2 dark, 2
-     *   light, 6 primary, a color for a hyperlink and a color for the followed hyperlink. A color may
-     *   also be given as a HEX string ("#1a2b3c" or "#abc", with or without the leading "#").
+     *   defining a list of twelve colors. The array must hold exactly twelve colors in this order:
+     *   accent1, accent2, accent3, accent4, accent5, accent6, dk1, dk2, folHlink, hlink, lt1, lt2. A
+     *   color may also be given as a HEX string ("#1a2b3c" or "#abc", with or without the leading "#").
      * @param sName - Theme color scheme name.
      * @returns returns null if the array does not hold exactly twelve colors this method can read.
      *
@@ -3214,7 +3223,10 @@ export namespace Slide {
      * Creates a theme color.
      *
      * @param name - The theme color name. If the provided name is not supported, the 'tx1' color will be used.
+     * @param tintAndShade - The luminance shift from -1 (the darkest shade) to 1 (the lightest tint). 0 keeps the theme
+     *   color as it is.
      * @default name = "tx1"
+     * @default tintAndShade = 0
      * @returns Instance of ApiColor with 'theme' type.
      *
      * @example
@@ -3237,7 +3249,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/ThemeColor/
      */
-    ThemeColor(name?: SchemeColorId): ApiColor;
+    ThemeColor(name?: SchemeColorId, tintAndShade?: number): ApiColor;
 
     /**
      * Converts twips to points.
@@ -4350,15 +4362,6 @@ export namespace Slide {
     ApplyChartStyle(nStyleId: unknown): boolean;
 
     /**
-     * Creates a text body for the drawing if it does not already exist and returns its full text range.
-     *
-     * @since 10.0.0
-     *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/CreateTextRange/
-     */
-    CreateTextRange(): ApiTextRange | null;
-
-    /**
      * Returns all series from the chart space.
      *
      * @example
@@ -4817,16 +4820,6 @@ export namespace Slide {
     GetSeries(nIdx: number): ApiChartSeries;
 
     /**
-     * Returns an ApiTextRange covering the full text content of the shape, or null if the shape has no
-     * text body (use CreateTextRange to create one).
-     *
-     * @since 10.0.0
-     *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetTextRange/
-     */
-    GetTextRange(): ApiTextRange | null;
-
-    /**
      * Returns the chart title text.
      *
      * @returns The chart title text or null if the chart has no title.
@@ -4881,13 +4874,15 @@ export namespace Slide {
     GetType(): ChartType;
 
     /**
-     * Checks whether the drawing has an associated text body.
+     * Returns a visitor object for traversing the text of the current drawing, including the drawings
+     * nested in a group.
      *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/IsTextRange/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetVisitor/
      */
-    IsTextRange(): boolean;
+    GetVisitor(): ApiPresentationVisitor;
 
     /**
      * Removes the specified series from the current chart.
@@ -5131,7 +5126,7 @@ export namespace Slide {
     /**
      * Specifies font size for labels of the horizontal axis.
      *
-     * @param nFontSize - The text size value measured in points.
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      *
      * @example
      * ```js
@@ -5163,7 +5158,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/SetHorAxisLabelsFontSize/
      */
-    SetHorAxisLabelsFontSize(nFontSize: pt): boolean;
+    SetHorAxisLabelsFontSize(fontSize: hps): boolean;
 
     /**
      * Specifies major tick mark for the horizontal axis.
@@ -5330,7 +5325,7 @@ export namespace Slide {
      * Specifies the chart horizontal axis title.
      *
      * @param sTitle - The title which will be displayed for the horizontal axis of the current chart.
-     * @param nFontSize - The text size value measured in points.
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      * @param bIsBold - Specifies if the horizontal axis title is written in bold font or not.
      *
      * @example
@@ -5364,7 +5359,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/SetHorAxisTitle/
      */
-    SetHorAxisTitle(sTitle: string, nFontSize: pt, bIsBold?: boolean): boolean;
+    SetHorAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean;
 
     /**
      * Sets a hyperlink to the current drawing object (shape or image).
@@ -5445,7 +5440,7 @@ export namespace Slide {
     /**
      * Specifies the legend font size.
      *
-     * @param nFontSize - The text size value measured in points.
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      *
      * @example
      * ```js
@@ -5477,7 +5472,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/SetLegendFontSize/
      */
-    SetLegendFontSize(nFontSize: pt): boolean;
+    SetLegendFontSize(fontSize: hps): boolean;
 
     /**
      * Sets the outline to the chart legend.
@@ -6286,7 +6281,7 @@ export namespace Slide {
      * Specifies the chart title.
      *
      * @param sTitle - The title which will be displayed for the current chart.
-     * @param nFontSize - The text size value measured in points.
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      * @param bIsBold - Specifies if the chart title is written in bold font or not.
      *
      * @example
@@ -6320,7 +6315,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/SetTitle/
      */
-    SetTitle(sTitle: string, nFontSize: pt, bIsBold?: boolean): boolean;
+    SetTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean;
 
     /**
      * Sets the fill to the chart title.
@@ -6435,7 +6430,7 @@ export namespace Slide {
      * Specifies the chart vertical axis title.
      *
      * @param sTitle - The title which will be displayed for the vertical axis of the current chart.
-     * @param nFontSize - The text size value measured in points.
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      * @param bIsBold - Specifies if the vertical axis title is written in bold font or not.
      *
      * @example
@@ -6469,12 +6464,12 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/SetVerAxisTitle/
      */
-    SetVerAxisTitle(sTitle: string, nFontSize: pt, bIsBold?: boolean): boolean;
+    SetVerAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean;
 
     /**
      * Specifies font size for labels of the vertical axis.
      *
-     * @param nFontSize - The text size value measured in points.
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      *
      * @example
      * ```js
@@ -6506,7 +6501,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/SetVertAxisLabelsFontSize/
      */
-    SetVertAxisLabelsFontSize(nFontSize: pt): boolean;
+    SetVertAxisLabelsFontSize(fontSize: hps): boolean;
 
     /**
      * Specifies major tick mark for the vertical axis.
@@ -7031,6 +7026,16 @@ export namespace Slide {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiColor/Methods/GetThemeName/
      */
     GetThemeName(): SchemeColorId | null;
+
+    /**
+     * Returns the luminance shift applied to the color.
+     *
+     * @returns The shift from -1 (the darkest shade) to 1 (the lightest tint), 0 when the color is not shifted.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiColor/Methods/GetTintAndShade/
+     */
+    GetTintAndShade(): number;
 
     /**
      * Returns true if the color is a theme color.
@@ -10843,6 +10848,20 @@ export namespace Slide {
     GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_TableCellSeparator?: string, options_TableRowSeparator?: string, options_ParaSeparator?: string, options_TabSymbol?: string, options_NewLineSeparator?: string): string;
 
     /**
+     * Returns an ApiTextRange object that represents the part of the text contained in the current
+     * document content.
+     *
+     * @param start - Start character position (0-based, inclusive).
+     * @param end - End character position (0-based, exclusive). Defaults to the end of the content.
+     * @default start = 0
+     * @returns returns null if the specified range is empty.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDocumentContent/Methods/GetTextRange/
+     */
+    GetTextRange(start?: number, end?: number): ApiTextRange | null;
+
+    /**
      * Pushes a paragraph or a table to actually add it to the document.
      *
      * @param oElement - The element type which will be pushed to the document.
@@ -11253,6 +11272,20 @@ export namespace Slide {
     GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_TableCellSeparator?: string, options_TableRowSeparator?: string, options_ParaSeparator?: string, options_TabSymbol?: string, options_NewLineSeparator?: string): string;
 
     /**
+     * Returns an ApiTextRange object that represents the part of the text contained in the current
+     * document content.
+     *
+     * @param start - Start character position (0-based, inclusive).
+     * @param end - End character position (0-based, exclusive). Defaults to the end of the content.
+     * @default start = 0
+     * @returns returns null if the specified range is empty.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDocumentContent/Methods/GetTextRange/
+     */
+    GetTextRange(start?: number, end?: number): ApiTextRange | null;
+
+    /**
      * Pushes a paragraph or a table to actually add it to the document.
      *
      * @param oElement - The element type which will be pushed to the document.
@@ -11424,15 +11457,6 @@ export namespace Slide {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/Copy/
      */
     Copy(): ApiDrawing;
-
-    /**
-     * Creates a text body for the drawing if it does not already exist and returns its full text range.
-     *
-     * @since 10.0.0
-     *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/CreateTextRange/
-     */
-    CreateTextRange(): ApiTextRange | null;
 
     /**
      * Deletes the specified drawing object from the parent.
@@ -12085,8 +12109,8 @@ export namespace Slide {
     GetShadow(): ApiShadow | null;
 
     /**
-     * Returns an ApiTextRange covering the full text content of the shape, or null if the shape has no
-     * text body (use CreateTextRange to create one).
+     * Returns an ApiTextRange covering the full text content of the shape.
+     * Creates a text body if the shape does not yet have one.
      *
      * @since 10.0.0
      *
@@ -12103,6 +12127,17 @@ export namespace Slide {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetTitle/
      */
     GetTitle(): string | null;
+
+    /**
+     * Returns a visitor object for traversing the text of the current drawing, including the drawings
+     * nested in a group.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetVisitor/
+     */
+    GetVisitor(): ApiPresentationVisitor;
 
     /**
      * Returns the width of the current drawing.
@@ -12138,9 +12173,9 @@ export namespace Slide {
      *
      * @since 10.0.0
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/IsTextRange/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/HasTextContent/
      */
-    IsTextRange(): boolean;
+    HasTextContent(): boolean;
 
     /**
      * Replaces the placeholder by a drawing on the slide.
@@ -12782,6 +12817,25 @@ export namespace Slide {
     GetClassType(): "fill";
 
     /**
+     * Returns the color of a solid fill.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiFill/Methods/GetColor/
+     */
+    GetColor(): ApiColor;
+
+    /**
+     * Returns the transparency of the fill.
+     *
+     * @returns The transparency value, from 0 (fully opaque) to 1 (fully transparent).
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiFill/Methods/GetTransparent/
+     */
+    GetTransparent(): number;
+
+    /**
      * Gets the fill type.
      *
      * @returns returns "solid", "gradient", "pattern", "blip", "nofill" or null.
@@ -12832,6 +12886,16 @@ export namespace Slide {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiFill/Methods/GetType/
      */
     GetType(): FillType;
+
+    /**
+     * Sets the transparency of the fill.
+     *
+     * @param transparent - The transparency value, from 0 (fully opaque) to 1 (fully transparent).
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiFill/Methods/SetTransparent/
+     */
+    SetTransparent(transparent: number): boolean;
   }
 
   /** Class representing a document form base. */
@@ -13345,15 +13409,6 @@ export namespace Slide {
    */
   export interface ApiGroup extends Omit<ApiDrawing, "GetClassType"> {
     /**
-     * Creates a text body for the drawing if it does not already exist and returns its full text range.
-     *
-     * @since 10.0.0
-     *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/CreateTextRange/
-     */
-    CreateTextRange(): ApiTextRange | null;
-
-    /**
      * Returns a type of the ApiGroup class.
      *
      * @since 8.3.0
@@ -13700,23 +13755,15 @@ export namespace Slide {
     GetPosY(): EMU;
 
     /**
-     * Returns an ApiTextRange covering the full text content of the shape, or null if the shape has no
-     * text body (use CreateTextRange to create one).
+     * Returns a visitor object for traversing the text of the current drawing, including the drawings
+     * nested in a group.
      *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetTextRange/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetVisitor/
      */
-    GetTextRange(): ApiTextRange | null;
-
-    /**
-     * Checks whether the drawing has an associated text body.
-     *
-     * @since 10.0.0
-     *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/IsTextRange/
-     */
-    IsTextRange(): boolean;
+    GetVisitor(): ApiPresentationVisitor;
 
     /**
      * Replaces the placeholder by a drawing on the slide.
@@ -14204,6 +14251,20 @@ export namespace Slide {
     GetScreenTipText(): string;
 
     /**
+     * Returns an ApiTextRange object that represents the part of the text contained in the current
+     * hyperlink.
+     *
+     * @param start - Start character position (0-based, inclusive) relative to the hyperlink.
+     * @param end - End character position (0-based, exclusive). Defaults to the end of the hyperlink.
+     * @default start = 0
+     * @returns returns null if the hyperlink is not attached to the document or the specified range is empty.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiHyperlink/Methods/GetTextRange/
+     */
+    GetTextRange(start?: number, end?: number): ApiTextRange | null;
+
+    /**
      * Sets the hyperlink address.
      *
      * @param sLink - The hyperlink address.
@@ -14293,15 +14354,6 @@ export namespace Slide {
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiImage/
    */
   export interface ApiImage extends Omit<ApiDrawing, "GetClassType"> {
-    /**
-     * Creates a text body for the drawing if it does not already exist and returns its full text range.
-     *
-     * @since 10.0.0
-     *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/CreateTextRange/
-     */
-    CreateTextRange(): ApiTextRange | null;
-
     /**
      * Returns the type of the ApiImage class.
      *
@@ -14643,23 +14695,15 @@ export namespace Slide {
     GetPosY(): EMU;
 
     /**
-     * Returns an ApiTextRange covering the full text content of the shape, or null if the shape has no
-     * text body (use CreateTextRange to create one).
+     * Returns a visitor object for traversing the text of the current drawing, including the drawings
+     * nested in a group.
      *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetTextRange/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetVisitor/
      */
-    GetTextRange(): ApiTextRange | null;
-
-    /**
-     * Checks whether the drawing has an associated text body.
-     *
-     * @since 10.0.0
-     *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/IsTextRange/
-     */
-    IsTextRange(): boolean;
+    GetVisitor(): ApiPresentationVisitor;
 
     /**
      * Replaces the placeholder by a drawing on the slide.
@@ -15497,6 +15541,16 @@ export namespace Slide {
     GetName(): string;
 
     /**
+     * Returns a visitor object for traversing the drawings and text of the current slide layout.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiLayout/Methods/GetVisitor/
+     */
+    GetVisitor(): ApiPresentationVisitor;
+
+    /**
      * Groups an array of drawings in the current layout.
      *
      * @param aDrawings - An array of drawings to group.
@@ -15618,7 +15672,8 @@ export namespace Slide {
      * Searches for the specified text within the current slide layout and returns all found occurrences as
      * text ranges.
      *
-     * @param text - The text to search for.
+     * @param text - The text to search for, or a regular expression to match. When a RegExp is passed, isMatchCase
+     *   and isWholeWords are ignored (control case sensitivity with the "i" flag instead).
      * @param isMatchCase - Case sensitive or not.
      * @param isWholeWords - Whether to search for whole words only.
      * @default isMatchCase = false
@@ -15627,7 +15682,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiLayout/Methods/Search/
      */
-    Search(text: string, isMatchCase?: boolean, isWholeWords?: boolean): ApiTextRange[];
+    Search(text: string | RegExp, isMatchCase?: boolean, isWholeWords?: boolean): ApiTextRange[];
 
     /**
      * Sets the background to the current slide layout.
@@ -16453,6 +16508,17 @@ export namespace Slide {
     GetTheme(): ApiTheme | null;
 
     /**
+     * Returns a visitor object for traversing the drawings and text of the current slide master and, on
+     * request, of its layouts.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiMaster/Methods/GetVisitor/
+     */
+    GetVisitor(): ApiPresentationVisitor;
+
+    /**
      * Groups an array of drawings in the current slide master.
      *
      * @param aDrawings - An array of drawings to group.
@@ -16574,7 +16640,8 @@ export namespace Slide {
      * Searches for the specified text within the current slide master and returns all found occurrences as
      * text ranges.
      *
-     * @param text - The text to search for.
+     * @param text - The text to search for, or a regular expression to match. When a RegExp is passed, isMatchCase
+     *   and isWholeWords are ignored (control case sensitivity with the "i" flag instead).
      * @param isMatchCase - Case sensitive or not.
      * @param isWholeWords - Whether to search for whole words only.
      * @default isMatchCase = false
@@ -16583,7 +16650,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiMaster/Methods/Search/
      */
-    Search(text: string, isMatchCase?: boolean, isWholeWords?: boolean): ApiTextRange[];
+    Search(text: string | RegExp, isMatchCase?: boolean, isWholeWords?: boolean): ApiTextRange[];
 
     /**
      * Sets the background to the current slide master.
@@ -16918,15 +16985,6 @@ export namespace Slide {
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiOleObject/
    */
   export interface ApiOleObject extends Omit<ApiDrawing, "GetClassType"> {
-    /**
-     * Creates a text body for the drawing if it does not already exist and returns its full text range.
-     *
-     * @since 10.0.0
-     *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/CreateTextRange/
-     */
-    CreateTextRange(): ApiTextRange | null;
-
     /**
      * Returns the application ID from the current OLE object.
      *
@@ -17350,23 +17408,15 @@ export namespace Slide {
     GetPosY(): EMU;
 
     /**
-     * Returns an ApiTextRange covering the full text content of the shape, or null if the shape has no
-     * text body (use CreateTextRange to create one).
+     * Returns a visitor object for traversing the text of the current drawing, including the drawings
+     * nested in a group.
      *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetTextRange/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetVisitor/
      */
-    GetTextRange(): ApiTextRange | null;
-
-    /**
-     * Checks whether the drawing has an associated text body.
-     *
-     * @since 10.0.0
-     *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/IsTextRange/
-     */
-    IsTextRange(): boolean;
+    GetVisitor(): ApiPresentationVisitor;
 
     /**
      * Replaces the placeholder by a drawing on the slide.
@@ -19503,6 +19553,21 @@ export namespace Slide {
     GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_NewLineSeparator?: string, options_TabSymbol?: string): string;
 
     /**
+     * Returns an ApiTextRange object that represents the part of the text contained in the current
+     * paragraph.
+     * The paragraph must be attached to the document before calling this method.
+     *
+     * @param start - Start character position (0-based, inclusive) relative to the paragraph.
+     * @param end - End character position (0-based, exclusive). Defaults to the end of the paragraph.
+     * @default start = 0
+     * @returns returns null if the specified range is empty.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParagraph/Methods/GetTextRange/
+     */
+    GetTextRange(start?: number, end?: number): ApiTextRange | null;
+
+    /**
      * Inserts a paragraph at the specified position.
      *
      * @param paragraph - Text or paragraph.
@@ -19926,7 +19991,7 @@ export namespace Slide {
     /**
      * Sets the font size to the characters of the current paragraph.
      *
-     * @param nSize - The text size value measured in half-points (1/144 of an inch).
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
      * @returns this
      *
      * @example
@@ -19952,7 +20017,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParagraph/Methods/SetFontSize/
      */
-    SetFontSize(nSize: hps): ApiParagraph;
+    SetFontSize(fontSize: hps): ApiParagraph;
 
     /**
      * Specifies a highlighting color which is applied as a background to the contents of the current
@@ -22670,6 +22735,17 @@ export namespace Slide {
     GetCurSlideIndex(): number;
 
     /**
+     * Returns the current sentence or a part of the current sentence at the cursor.
+     *
+     * @param part - The part of the sentence to return. If omitted, the whole sentence is returned.
+     * @returns returns an empty string if the cursor is not in the text or some text is selected.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/GetCurrentSentence/
+     */
+    GetCurrentSentence(part?: "before" | "after"): string;
+
+    /**
      * Returns the current slide.
      *
      * @example
@@ -22724,6 +22800,17 @@ export namespace Slide {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/GetCurrentVisibleSlide/
      */
     GetCurrentVisibleSlide(): ApiSlide | null;
+
+    /**
+     * Returns the current word or a part of the current word at the cursor.
+     *
+     * @param part - The part of the word to return. If omitted, the whole word is returned.
+     * @returns returns an empty string if the cursor is not in the text or some text is selected.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/GetCurrentWord/
+     */
+    GetCurrentWord(part?: "before" | "after"): string;
 
     /**
      * Returns the custom properties from the current presentation.
@@ -23134,6 +23221,17 @@ export namespace Slide {
     GetStyle(sStyleName: string): ApiStyle | null;
 
     /**
+     * Returns a visitor object for traversing the slides, layouts, masters, speaker notes, drawings and
+     * text of the presentation.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/GetVisitor/
+     */
+    GetVisitor(): ApiPresentationVisitor;
+
+    /**
      * Returns the presentation width in English measure units.
      *
      * @example
@@ -23248,6 +23346,30 @@ export namespace Slide {
     MoveCursorUp(count?: number, addToSelect?: boolean): boolean;
 
     /**
+     * Moves the cursor to the next table cell.
+     *
+     * @param count - Number of cells to move through.
+     * @default count = 1
+     * @returns returns false if the cursor isn't currently inside a table cell.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/MoveToNextCell/
+     */
+    MoveToNextCell(count?: number): boolean;
+
+    /**
+     * Moves the cursor to the previous table cell.
+     *
+     * @param count - Number of cells to move through.
+     * @default count = 1
+     * @returns returns false if the cursor isn't currently inside a table cell.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/MoveToPrevCell/
+     */
+    MoveToPrevCell(count?: number): boolean;
+
+    /**
      * Removes a slide at the specified position from the presentation.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
@@ -23359,10 +23481,36 @@ export namespace Slide {
     ReplaceCurrentImage(sImageUrl: string, Width: EMU, Height: EMU): void;
 
     /**
+     * Replaces the current sentence or a part of the current sentence at the cursor with the specified
+     * text.
+     *
+     * @param text - The text to replace the current sentence with.
+     * @param part - The part of the sentence to replace. If omitted, the whole sentence is replaced.
+     * @returns returns false if there is no sentence at the cursor or some text is selected.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/ReplaceCurrentSentence/
+     */
+    ReplaceCurrentSentence(text: string, part?: "before" | "after"): boolean;
+
+    /**
+     * Replaces the current word or a part of the current word at the cursor with the specified text.
+     *
+     * @param text - The text to replace the current word with.
+     * @param part - The part of the word to replace. If omitted, the whole word is replaced.
+     * @returns returns false if there is no word at the cursor or some text is selected.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/ReplaceCurrentWord/
+     */
+    ReplaceCurrentWord(text: string, part?: "before" | "after"): boolean;
+
+    /**
      * Searches for the specified text in the presentation and returns all found occurrences as text
      * ranges.
      *
-     * @param text - The text to search for.
+     * @param text - The text to search for, or a regular expression to match. When a RegExp is passed, isMatchCase
+     *   and isWholeWords are ignored (control case sensitivity with the "i" flag instead).
      * @param isMatchCase - Case sensitive or not.
      * @param isWholeWords - Whether to search for whole words only.
      * @default isMatchCase = false
@@ -23371,7 +23519,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/Search/
      */
-    Search(text: string, isMatchCase?: boolean, isWholeWords?: boolean): ApiTextRange[];
+    Search(text: string | RegExp, isMatchCase?: boolean, isWholeWords?: boolean): ApiTextRange[];
 
     /**
      * Finds and replaces the text in the presentation.
@@ -23388,6 +23536,26 @@ export namespace Slide {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/SearchAndReplace/
      */
     SearchAndReplace(properties: object, properties_searchString: string, properties_replaceString: string, properties_matchCase?: boolean, properties_wholeWords?: boolean): boolean;
+
+    /**
+     * Selects the sentence at the cursor. The current text selection, if any, is removed first.
+     *
+     * @returns returns false if there is no sentence at the cursor.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/SelectCurrentSentence/
+     */
+    SelectCurrentSentence(): boolean;
+
+    /**
+     * Selects the word at the cursor. The current text selection, if any, is removed first.
+     *
+     * @returns returns false if there is no word at the cursor.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/SelectCurrentWord/
+     */
+    SelectCurrentWord(): boolean;
 
     /**
      * Specifies the languages which will be used to check spelling and grammar (if requested).
@@ -23572,6 +23740,48 @@ export namespace Slide {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/ToJSON/
      */
     ToJSON(bWriteTableStyles?: boolean): object;
+  }
+
+  /**
+   * Class representing a presentation visitor. It walks slides, layouts, masters, speaker notes,
+   * drawings (including
+   * the drawings nested in groups, table cells and chart titles) and the paragraphs and runs of their
+   * text.
+   * Assign functions to the hooks to be notified; return true from a hook to skip the subtree of that
+   * node.
+   *
+   * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/
+   */
+  export interface ApiPresentationVisitor {
+    /**
+     * Stops the traversal. No further hooks are called after the current one returns.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/Stop/
+     */
+    Stop(): boolean;
+
+    /**
+     * Traverses the object the visitor was created from and calls the assigned hooks for every node.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param options - Traversal options. Passing true is the same as {selection: true}.
+     * @param options_selection - Traverse only the selected drawings or the selected text instead of the whole object.
+     * @param options_notes - Also traverse the speaker notes of the visited slides.
+     * @param options_masters - Also traverse the slide masters (only when the visitor was created from the presentation).
+     * @param options_layouts - Also traverse the slide layouts (only when the visitor was created from the presentation or a
+     *   master).
+     * @default options_selection = false
+     * @default options_notes = false
+     * @default options_masters = false
+     * @default options_layouts = false
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/Traverse/
+     */
+    Traverse(options?: object | boolean, options_selection?: boolean, options_notes?: boolean, options_masters?: boolean, options_layouts?: boolean): boolean;
   }
 
   /**
@@ -24842,6 +25052,20 @@ export namespace Slide {
     GetTextPr(): ApiTextPr;
 
     /**
+     * Returns an ApiTextRange object that represents the part of the text contained in the current run.
+     * The run must be attached to the document before calling this method.
+     *
+     * @param start - Start character position (0-based, inclusive) relative to the run.
+     * @param end - End character position (0-based, exclusive). Defaults to the end of the run.
+     * @default start = 0
+     * @returns returns null if the specified range is empty.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiRun/Methods/GetTextRange/
+     */
+    GetTextRange(start?: number, end?: number): ApiTextRange | null;
+
+    /**
      * Gets the underline property from the current text properties.
      *
      * @since 8.1.0
@@ -25375,6 +25599,17 @@ export namespace Slide {
     SetStrikeout(isStrikeout: boolean): ApiTextPr;
 
     /**
+     * Replaces the whole text of the current run with the specified text, keeping the run properties.
+     *
+     * @param text - The new text of the run, as a string or as an array of character codes.
+     * @returns The current run.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiRun/Methods/SetText/
+     */
+    SetText(text: string | number[]): ApiRun;
+
+    /**
      * Sets the text fill to the current text run.
      *
      * @param oApiFill - The color or pattern used to fill the text color.
@@ -25675,6 +25910,17 @@ export namespace Slide {
     GetSlides(): ApiSlide[];
 
     /**
+     * Returns the selected text as a text range. With the cursor in the text and nothing selected,
+     * the range is empty and starts at the cursor.
+     *
+     * @returns returns null if the selection is not in the text of a shape, a table cell or the speaker notes.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiSelection/Methods/GetTextRange/
+     */
+    GetTextRange(): ApiTextRange | null;
+
+    /**
      * Returns the type of the current selection.
      *
      * @since 8.3.0
@@ -25788,15 +26034,6 @@ export namespace Slide {
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShape/
    */
   export interface ApiShape extends Omit<ApiDrawing, "GetClassType"> {
-    /**
-     * Creates a text body for the drawing if it does not already exist and returns its full text range.
-     *
-     * @since 10.0.0
-     *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/CreateTextRange/
-     */
-    CreateTextRange(): ApiTextRange | null;
-
     /**
      * Returns the type of the ApiShape class.
      *
@@ -26302,16 +26539,6 @@ export namespace Slide {
     GetTextFit(): TextFitType;
 
     /**
-     * Returns an ApiTextRange covering the full text content of the shape, or null if the shape has no
-     * text body (use CreateTextRange to create one).
-     *
-     * @since 10.0.0
-     *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetTextRange/
-     */
-    GetTextRange(): ApiTextRange | null;
-
-    /**
      * Gets the vertical alignment from the shape content where a paragraph or text runs can be inserted.
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShape/Methods/GetVerticalTextAlign/
@@ -26319,13 +26546,15 @@ export namespace Slide {
     GetVerticalTextAlign(): VerticalTextAlign;
 
     /**
-     * Checks whether the drawing has an associated text body.
+     * Returns a visitor object for traversing the text of the current drawing, including the drawings
+     * nested in a group.
      *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/IsTextRange/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetVisitor/
      */
-    IsTextRange(): boolean;
+    GetVisitor(): ApiPresentationVisitor;
 
     /**
      * Replaces the placeholder by a drawing on the slide.
@@ -26718,6 +26947,40 @@ export namespace Slide {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShape/Methods/SetVerticalTextAlign/
      */
     SetVerticalTextAlign(verticalAlign: VerticalTextAlign): boolean;
+  }
+
+  /**
+   * Class representing the shading of text, a paragraph, a table or a table cell.
+   *
+   * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShd/
+   */
+  export interface ApiShd {
+    /**
+     * Returns a type of the ApiShd class.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShd/Methods/GetClassType/
+     */
+    GetClassType(): "shd";
+
+    /**
+     * Returns the shading color.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShd/Methods/GetColor/
+     */
+    GetColor(): ApiColor;
+
+    /**
+     * Returns the shading type.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShd/Methods/GetType/
+     */
+    GetType(): ShdType;
   }
 
   /**
@@ -27695,6 +27958,16 @@ export namespace Slide {
     GetVisible(): boolean;
 
     /**
+     * Returns a visitor object for traversing the drawings, speaker notes and text of the current slide.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiSlide/Methods/GetVisitor/
+     */
+    GetVisitor(): ApiPresentationVisitor;
+
+    /**
      * Returns the slide width in English measure units.
      *
      * @example
@@ -27860,7 +28133,8 @@ export namespace Slide {
      * Searches for the specified text within the current slide and returns all found occurrences as text
      * ranges.
      *
-     * @param text - The text to search for.
+     * @param text - The text to search for, or a regular expression to match. When a RegExp is passed, isMatchCase
+     *   and isWholeWords are ignored (control case sensitivity with the "i" flag instead).
      * @param isMatchCase - Case sensitive or not.
      * @param isWholeWords - Whether to search for whole words only.
      * @default isMatchCase = false
@@ -27869,7 +28143,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiSlide/Methods/Search/
      */
-    Search(text: string, isMatchCase?: boolean, isWholeWords?: boolean): ApiTextRange[];
+    Search(text: string | RegExp, isMatchCase?: boolean, isWholeWords?: boolean): ApiTextRange[];
 
     /**
      * Selects the current slide.
@@ -28279,7 +28553,7 @@ export namespace Slide {
     GetEntryEffect(): EntryEffect;
 
     /**
-     * Returns the transition speed (similar to PowerPoint VBA Speed property).
+     * Returns the transition speed.
      * Maps duration to speed based on OOXML spd attribute logic:
      * - fast: duration <= 500ms
      * - medium: 500ms < duration <= 750ms
@@ -28520,7 +28794,7 @@ export namespace Slide {
     SetEntryEffect(entryEffectName: EntryEffect): boolean;
 
     /**
-     * Sets the transition speed (similar to PowerPoint VBA Speed property).
+     * Sets the transition speed.
      * Converts speed to duration based on standard values:
      * - fast = 500ms
      * - medium = 750ms
@@ -28568,15 +28842,6 @@ export namespace Slide {
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiSmartArt/
    */
   export interface ApiSmartArt extends Omit<ApiDrawing, "GetClassType"> {
-    /**
-     * Creates a text body for the drawing if it does not already exist and returns its full text range.
-     *
-     * @since 10.0.0
-     *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/CreateTextRange/
-     */
-    CreateTextRange(): ApiTextRange | null;
-
     /**
      * Returns a type of the ApiSmartArt class.
      *
@@ -28887,23 +29152,15 @@ export namespace Slide {
     GetPosY(): EMU;
 
     /**
-     * Returns an ApiTextRange covering the full text content of the shape, or null if the shape has no
-     * text body (use CreateTextRange to create one).
+     * Returns a visitor object for traversing the text of the current drawing, including the drawings
+     * nested in a group.
      *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetTextRange/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetVisitor/
      */
-    GetTextRange(): ApiTextRange | null;
-
-    /**
-     * Checks whether the drawing has an associated text body.
-     *
-     * @since 10.0.0
-     *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/IsTextRange/
-     */
-    IsTextRange(): boolean;
+    GetVisitor(): ApiPresentationVisitor;
 
     /**
      * Replaces the placeholder by a drawing on the slide.
@@ -29457,15 +29714,6 @@ export namespace Slide {
     AddRows(oCell: ApiTableCell, nCount: number, isBefore?: boolean): ApiTable | null;
 
     /**
-     * Creates a text body for the drawing if it does not already exist and returns its full text range.
-     *
-     * @since 10.0.0
-     *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/CreateTextRange/
-     */
-    CreateTextRange(): ApiTextRange | null;
-
-    /**
      * Returns a cell by its position.
      *
      * @param rowIndex - The row index in the current table.
@@ -29538,6 +29786,15 @@ export namespace Slide {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/GetColumnWidth/
      */
     GetColumnWidth(columnIndex: number): EMU | null;
+
+    /**
+     * Returns a number of columns in the current table.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/GetColumnsCount/
+     */
+    GetColumnsCount(): number;
 
     /**
      * Returns the hyperlink from the current drawing object (shape or image).
@@ -29909,23 +30166,15 @@ export namespace Slide {
     GetTableTitle(): string;
 
     /**
-     * Returns an ApiTextRange covering the full text content of the shape, or null if the shape has no
-     * text body (use CreateTextRange to create one).
+     * Returns a visitor object for traversing the text of the current drawing, including the drawings
+     * nested in a group.
      *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetTextRange/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetVisitor/
      */
-    GetTextRange(): ApiTextRange | null;
-
-    /**
-     * Checks whether the drawing has an associated text body.
-     *
-     * @since 10.0.0
-     *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/IsTextRange/
-     */
-    IsTextRange(): boolean;
+    GetVisitor(): ApiPresentationVisitor;
 
     /**
      * Merges an array of cells. If merge is successful, it will return merged cell, otherwise "null".
@@ -30312,10 +30561,8 @@ export namespace Slide {
     /**
      * Specifies the shading which shall be applied to the extents of the current table.
      *
-     * @param sType - The shading type applied to the contents of the current table. Can be ShdType or ApiFill.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param shd - The shading created with the Api.CreateShd method.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -30333,7 +30580,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/SetShd/
      */
-    SetShd(sType: ShdType | ApiFill, r: number, g?: number, b?: number): void;
+    SetShd(shd: ApiShd): void;
 
     /**
      * Sets the table size.
@@ -30976,10 +31223,8 @@ export namespace Slide {
     /**
      * Specifies the shading which shall be applied to the extents of the current table cell.
      *
-     * @param sType - The shading type applied to the contents of the current table. Can be ShdType or ApiFill.
-     * @param r - Red color component value.
-     * @param g - Green color component value.
-     * @param b - Blue color component value.
+     * @param shd - The shading created with the Api.CreateShd method.
+     * @since 10.0.0
      *
      * @example
      * ```js
@@ -31002,7 +31247,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/SetShd/
      */
-    SetShd(sType: ShdType | ApiFill, r?: number, g?: number, b?: number): void;
+    SetShd(shd: ApiShd): void;
 
     /**
      * Replaces all content of the current table cell with the specified text,
@@ -31111,12 +31356,12 @@ export namespace Slide {
     /**
      * Specifies the shading which is applied to the extents of the current table.
      *
-     * @param fill - The color or pattern used to fill the current table. If not passed, the shading will be cleared.
+     * @param shd - The shading created with the Api.CreateShd method.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTablePr/Methods/SetShd/
      */
-    SetShd(fill: ApiFill): boolean;
+    SetShd(shd: ApiShd): boolean;
 
     /**
      * Specifies a border which will be displayed on all table cell borders.
@@ -32635,6 +32880,19 @@ export namespace Slide {
    */
   export interface ApiTextRange {
     /**
+     * Adds a hyperlink to the current text range.
+     *
+     * @param link - The link address.
+     * @param screenTipText - The screen tip text.
+     * @param bookmarkName - Name of a bookmark
+     * @returns returns null if the range spans more than one paragraph or params are invalid.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/AddHyperlink/
+     */
+    AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink;
+
+    /**
      * Adds a text to the specified position. The current range is expanded to include the added text.
      *
      * @param text - The text that will be added.
@@ -32665,24 +32923,24 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/ExpandTo/
      */
-    ExpandTo(oRange: ApiTextRange): ApiTextRange | null;
+    ExpandTo(range: ApiTextRange): ApiTextRange | null;
 
     /**
      * Finds the first occurrence of the given text within this range and returns it as a new ApiTextRange.
      * Returns null if the text is not found.
      *
-     * @param sFindWhat - Text to search for.
-     * @param nAfter - 1-based position within this range to start searching from.
-     * @param bMatchCase - Case-sensitive search.
-     * @param bWholeWords - Match whole words only.
-     * @default nAfter = 1
-     * @default bMatchCase = false
-     * @default bWholeWords = false
+     * @param findWhat - Text to search for.
+     * @param after - 1-based position within this range to start searching from.
+     * @param matchCase - Case-sensitive search.
+     * @param wholeWords - Match whole words only.
+     * @default after = 1
+     * @default matchCase = false
+     * @default wholeWords = false
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/Find/
      */
-    Find(sFindWhat: string, nAfter?: number, bMatchCase?: boolean, bWholeWords?: boolean): ApiTextRange | null;
+    Find(findWhat: string, after?: number, matchCase?: boolean, wholeWords?: boolean): ApiTextRange | null;
 
     /**
      * Returns all Paragraph objects within this range.
@@ -32719,20 +32977,20 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/GetParagraph/
      */
-    GetParagraph(nIndex: number): ApiParagraph | null;
+    GetParagraph(index: number): ApiParagraph | null;
 
     /**
      * Returns a new ApiTextRange that represents a sub-range of the current range.
      *
-     * @param nStart - Start offset (0-based) relative to the beginning of this range.
-     * @param nEnd - End offset relative to the beginning of this range. -1 means the end of this range.
-     * @default nStart = 0
-     * @default nEnd = -1
+     * @param start - Start offset (0-based) relative to the beginning of this range.
+     * @param rangeEnd - End offset relative to the beginning of this range. -1 means the end of this range.
+     * @default start = 0
+     * @default rangeEnd = -1
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/GetRange/
      */
-    GetRange(nStart?: number, nEnd?: number): ApiTextRange | null;
+    GetRange(start?: number, rangeEnd?: number): ApiTextRange | null;
 
     /**
      * Returns the start position of the current range.
@@ -32787,34 +33045,34 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/IntersectWith/
      */
-    IntersectWith(oRange: ApiTextRange): ApiTextRange | null;
+    IntersectWith(range: ApiTextRange): ApiTextRange | null;
 
     /**
      * Moves a cursor to the specified position within the current range.
      *
-     * @param nPos - The desired cursor position.
-     * @default nPos = 0
+     * @param pos - The desired cursor position.
+     * @default pos = 0
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/MoveCursorToPos/
      */
-    MoveCursorToPos(nPos?: number): boolean;
+    MoveCursorToPos(pos?: number): boolean;
 
     /**
      * Replaces all occurrences of the specified text within this range.
      *
-     * @param sFindWhat - Text to search for.
-     * @param sReplaceWith - Replacement text.
-     * @param bMatchCase - Case-sensitive search.
-     * @param bWholeWords - Match whole words only.
-     * @default bMatchCase = false
-     * @default bWholeWords = false
+     * @param findWhat - Text to search for.
+     * @param replaceWith - Replacement text.
+     * @param matchCase - Case-sensitive search.
+     * @param wholeWords - Match whole words only.
+     * @default matchCase = false
+     * @default wholeWords = false
      * @returns this
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/Replace/
      */
-    Replace(sFindWhat: string, sReplaceWith: string, bMatchCase?: boolean, bWholeWords?: boolean): ApiTextRange;
+    Replace(findWhat: string, replaceWith: string, matchCase?: boolean, wholeWords?: boolean): ApiTextRange;
 
     /**
      * Selects the text range in the editor.
@@ -32867,12 +33125,12 @@ export namespace Slide {
     /**
      * Sets the end position of the current range.
      *
-     * @param nPos - End position.
+     * @param pos - End position.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetEndPos/
      */
-    SetEndPos(nPos: number): boolean;
+    SetEndPos(pos: number): boolean;
 
     /**
      * Sets the font family for the current TextRange.
@@ -32902,7 +33160,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetHighlight/
      */
-    SetHighlight(sColor: highlightColor): ApiTextRange | null;
+    SetHighlight(colorName: highlightColor): ApiTextRange | null;
 
     /**
      * Sets the italic property to the text character.
@@ -32930,22 +33188,22 @@ export namespace Slide {
     /**
      * Sets the text spacing measured in twentieths of a point.
      *
-     * @param nSpacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch).
+     * @param spacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch).
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetSpacing/
      */
-    SetSpacing(nSpacing: twips): ApiTextRange | null;
+    SetSpacing(spacing: twips): ApiTextRange | null;
 
     /**
      * Sets the start position of the current range.
      *
-     * @param nPos - Start position.
+     * @param pos - Start position.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetStartPos/
      */
-    SetStartPos(nPos: number): boolean;
+    SetStartPos(pos: number): boolean;
 
     /**
      * Specifies that the contents of the current Range are displayed with a single horizontal line through
@@ -32960,23 +33218,23 @@ export namespace Slide {
     /**
      * Replaces all text content with the given string. Use "\r" to separate paragraphs.
      *
-     * @param sText - New text value.
+     * @param text - New text value.
      * @returns this
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetText/
      */
-    SetText(sText: string): ApiTextRange;
+    SetText(text: string): ApiTextRange;
 
     /**
      * Sets the text properties to the current text range.
      *
-     * @param oTextPr - The text properties that will be applied to the current range.
+     * @param textPr - The text properties that will be applied to the current range.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetTextPr/
      */
-    SetTextPr(oTextPr: ApiTextPr): ApiTextRange | null;
+    SetTextPr(textPr: ApiTextPr): ApiTextRange | null;
 
     /**
      * Specifies that the contents of the current Range are displayed along with a line appearing directly
@@ -33006,6 +33264,17 @@ export namespace Slide {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetVertAlign/
      */
     SetVertAlign(type: "baseline" | "subscript" | "superscript"): ApiTextRange | null;
+
+    /**
+     * Converts the text range to HTML.
+     *
+     * @param options - The HTML conversion options.
+     * @default options = {}
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/ToHtml/
+     */
+    ToHtml(options?: ToHtmlOptions): string;
   }
 
   /**
@@ -33370,7 +33639,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeColorScheme/Methods/ChangeColor/
      */
-    ChangeColor(nPos: number, oColor: ApiUniColor | ApiRGBColor): boolean;
+    ChangeColor(nPos: number, oColor: ApiColor | ApiUniColor | ApiRGBColor): boolean;
 
     /**
      * Creates a copy of the current theme color scheme.
@@ -33476,6 +33745,28 @@ export namespace Slide {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeColorScheme/Methods/GetClassType/
      */
     GetClassType(): "themeColorScheme";
+
+    /**
+     * Returns a color of the theme color scheme.
+     *
+     * @param position - The color position in the color scheme, the same as in the ChangeColor method: 0-5 -
+     *   accent1-accent6, 6 - dk1, 7 - dk2, 8 - folHlink, 9 - hlink, 10 - lt1, 11 - lt2.
+     * @returns The RGB color, or null if the position is out of range or the scheme has no color at this
+     *   position.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeColorScheme/Methods/GetColor/
+     */
+    GetColor(position: number): ApiColor;
+
+    /**
+     * Returns the name of the current theme color scheme.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeColorScheme/Methods/GetSchemeName/
+     */
+    GetSchemeName(): string;
 
     /**
      * Sets a name to the current theme color scheme.
@@ -33678,6 +33969,41 @@ export namespace Slide {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFontScheme/Methods/GetClassType/
      */
     GetClassType(): "themeFontScheme";
+
+    /**
+     * Returns the major theme font of the current theme font scheme.
+     *
+     * @param script - The script the font is applied to.
+     * @default script = "latin"
+     * @returns The font name, an empty string if the scheme has no font for this script, or null if the script
+     *   is not supported.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFontScheme/Methods/GetMajorFont/
+     */
+    GetMajorFont(script?: ThemeFontScript): string;
+
+    /**
+     * Returns the minor theme font of the current theme font scheme.
+     *
+     * @param script - The script the font is applied to.
+     * @default script = "latin"
+     * @returns The font name, an empty string if the scheme has no font for this script, or null if the script
+     *   is not supported.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFontScheme/Methods/GetMinorFont/
+     */
+    GetMinorFont(script?: ThemeFontScript): string;
+
+    /**
+     * Returns the name of the current theme font scheme.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFontScheme/Methods/GetSchemeName/
+     */
+    GetSchemeName(): string;
 
     /**
      * Sets the fonts to the current theme font scheme.

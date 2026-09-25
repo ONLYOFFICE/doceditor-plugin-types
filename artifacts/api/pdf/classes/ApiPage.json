@@ -87,7 +87,8 @@
       "returns": {
         "type": "PageSelection"
       },
-      "signature": "GetSelection(): PageSelection"
+      "signature": "GetSelection(): PageSelection",
+      "since": "10.0.0"
     },
     "GetSelectionQuads": {
       "description": "Gets page selection quads",

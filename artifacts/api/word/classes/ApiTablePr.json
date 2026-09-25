@@ -64,38 +64,16 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablePr/Methods/SetShd/",
       "params": [
         {
-          "description": "The shading type applied to the extents of the current table.",
-          "name": "sType",
-          "type": "ShdType"
-        },
-        {
-          "description": "Red color component value.",
-          "name": "r",
-          "type": "number"
-        },
-        {
-          "description": "Green color component value.",
-          "name": "g",
-          "optional": true,
-          "type": "number"
-        },
-        {
-          "description": "Blue color component value.",
-          "name": "b",
-          "optional": true,
-          "type": "number"
-        },
-        {
-          "description": "The true value disables the SetShd method use.",
-          "name": "isAuto",
-          "optional": true,
-          "type": "boolean"
+          "description": "The shading created with the Api.CreateShd method.",
+          "name": "shd",
+          "type": "ApiShd"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetShd(sType: ShdType, r: number, g?: number, b?: number, isAuto?: boolean): boolean"
+      "signature": "SetShd(shd: ApiShd): boolean",
+      "since": "10.0.0"
     },
     "SetStyleColBandSize": {
       "description": "Specifies a number of columns which will comprise each table column band for this table style.",
@@ -133,40 +111,30 @@
       "params": [
         {
           "description": "The border style.",
-          "name": "sType",
+          "name": "type",
           "type": "BorderType"
         },
         {
           "description": "The width of the current border measured in eighths of a point.",
-          "name": "nSize",
+          "name": "size",
           "type": "pt_8"
         },
         {
           "description": "The spacing offset in the table cells measured in points used to place this border.",
-          "name": "nSpace",
+          "name": "space",
           "type": "pt"
         },
         {
-          "description": "Red color component value.",
-          "name": "r",
-          "type": "number"
-        },
-        {
-          "description": "Green color component value.",
-          "name": "g",
-          "type": "number"
-        },
-        {
-          "description": "Blue color component value.",
-          "name": "b",
-          "type": "number"
+          "description": "The border color.",
+          "name": "color",
+          "type": "ApiColor"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetTableBorderAll(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean",
-      "since": "9.0.0"
+      "signature": "SetTableBorderAll(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean",
+      "since": "10.0.0"
     },
     "SetTableBorderBottom": {
       "description": "Sets the border which will be displayed at the bottom of the current table.",
@@ -174,39 +142,30 @@
       "params": [
         {
           "description": "The bottom border style.",
-          "name": "sType",
+          "name": "type",
           "type": "BorderType"
         },
         {
           "description": "The width of the current bottom border measured in eighths of a point.",
-          "name": "nSize",
+          "name": "size",
           "type": "pt_8"
         },
         {
           "description": "The spacing offset in the bottom part of the table measured in points used to place this border.",
-          "name": "nSpace",
+          "name": "space",
           "type": "pt"
         },
         {
-          "description": "Red color component value.",
-          "name": "r",
-          "type": "number"
-        },
-        {
-          "description": "Green color component value.",
-          "name": "g",
-          "type": "number"
-        },
-        {
-          "description": "Blue color component value.",
-          "name": "b",
-          "type": "number"
+          "description": "The border color.",
+          "name": "color",
+          "type": "ApiColor"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetTableBorderBottom(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean"
+      "signature": "SetTableBorderBottom(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean",
+      "since": "10.0.0"
     },
     "SetTableBorderInsideH": {
       "description": "Specifies the border which will be displayed on all horizontal table cell borders which are not on the outmost edge\nof the parent table (all horizontal borders which are not the topmost or bottommost borders).",
@@ -214,39 +173,30 @@
       "params": [
         {
           "description": "The horizontal table cell border style.",
-          "name": "sType",
+          "name": "type",
           "type": "BorderType"
         },
         {
           "description": "The width of the current border measured in eighths of a point.",
-          "name": "nSize",
+          "name": "size",
           "type": "pt_8"
         },
         {
           "description": "The spacing offset in the horizontal table cells of the table measured in points used to place this border.",
-          "name": "nSpace",
+          "name": "space",
           "type": "pt"
         },
         {
-          "description": "Red color component value.",
-          "name": "r",
-          "type": "number"
-        },
-        {
-          "description": "Green color component value.",
-          "name": "g",
-          "type": "number"
-        },
-        {
-          "description": "Blue color component value.",
-          "name": "b",
-          "type": "number"
+          "description": "The border color.",
+          "name": "color",
+          "type": "ApiColor"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetTableBorderInsideH(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean"
+      "signature": "SetTableBorderInsideH(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean",
+      "since": "10.0.0"
     },
     "SetTableBorderInsideV": {
       "description": "Specifies the border which will be displayed on all vertical table cell borders which are not on the outmost edge\nof the parent table (all vertical borders which are not the leftmost or rightmost borders).",
@@ -254,39 +204,30 @@
       "params": [
         {
           "description": "The vertical table cell border style.",
-          "name": "sType",
+          "name": "type",
           "type": "BorderType"
         },
         {
           "description": "The width of the current border measured in eighths of a point.",
-          "name": "nSize",
+          "name": "size",
           "type": "pt_8"
         },
         {
           "description": "The spacing offset in the vertical table cells of the table measured in points used to place this border.",
-          "name": "nSpace",
+          "name": "space",
           "type": "pt"
         },
         {
-          "description": "Red color component value.",
-          "name": "r",
-          "type": "number"
-        },
-        {
-          "description": "Green color component value.",
-          "name": "g",
-          "type": "number"
-        },
-        {
-          "description": "Blue color component value.",
-          "name": "b",
-          "type": "number"
+          "description": "The border color.",
+          "name": "color",
+          "type": "ApiColor"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetTableBorderInsideV(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean"
+      "signature": "SetTableBorderInsideV(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean",
+      "since": "10.0.0"
     },
     "SetTableBorderLeft": {
       "description": "Sets the border which will be displayed on the left of the current table.",
@@ -294,39 +235,30 @@
       "params": [
         {
           "description": "The left border style.",
-          "name": "sType",
+          "name": "type",
           "type": "BorderType"
         },
         {
           "description": "The width of the current left border measured in eighths of a point.",
-          "name": "nSize",
+          "name": "size",
           "type": "pt_8"
         },
         {
           "description": "The spacing offset in the left part of the table measured in points used to place this border.",
-          "name": "nSpace",
+          "name": "space",
           "type": "pt"
         },
         {
-          "description": "Red color component value.",
-          "name": "r",
-          "type": "number"
-        },
-        {
-          "description": "Green color component value.",
-          "name": "g",
-          "type": "number"
-        },
-        {
-          "description": "Blue color component value.",
-          "name": "b",
-          "type": "number"
+          "description": "The border color.",
+          "name": "color",
+          "type": "ApiColor"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetTableBorderLeft(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean"
+      "signature": "SetTableBorderLeft(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean",
+      "since": "10.0.0"
     },
     "SetTableBorderRight": {
       "description": "Sets the border which will be displayed on the right of the current table.",
@@ -334,39 +266,30 @@
       "params": [
         {
           "description": "The right border style.",
-          "name": "sType",
+          "name": "type",
           "type": "BorderType"
         },
         {
           "description": "The width of the current right border measured in eighths of a point.",
-          "name": "nSize",
+          "name": "size",
           "type": "pt_8"
         },
         {
           "description": "The spacing offset in the right part of the table measured in points used to place this border.",
-          "name": "nSpace",
+          "name": "space",
           "type": "pt"
         },
         {
-          "description": "Red color component value.",
-          "name": "r",
-          "type": "number"
-        },
-        {
-          "description": "Green color component value.",
-          "name": "g",
-          "type": "number"
-        },
-        {
-          "description": "Blue color component value.",
-          "name": "b",
-          "type": "number"
+          "description": "The border color.",
+          "name": "color",
+          "type": "ApiColor"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetTableBorderRight(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean"
+      "signature": "SetTableBorderRight(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean",
+      "since": "10.0.0"
     },
     "SetTableBorderTop": {
       "description": "Sets the border which will be displayed at the top of the current table.",
@@ -374,39 +297,30 @@
       "params": [
         {
           "description": "The top border style.",
-          "name": "sType",
+          "name": "type",
           "type": "BorderType"
         },
         {
           "description": "The width of the current top border measured in eighths of a point.",
-          "name": "nSize",
+          "name": "size",
           "type": "pt_8"
         },
         {
           "description": "The spacing offset in the top part of the table measured in points used to place this border.",
-          "name": "nSpace",
+          "name": "space",
           "type": "pt"
         },
         {
-          "description": "Red color component value.",
-          "name": "r",
-          "type": "number"
-        },
-        {
-          "description": "Green color component value.",
-          "name": "g",
-          "type": "number"
-        },
-        {
-          "description": "Blue color component value.",
-          "name": "b",
-          "type": "number"
+          "description": "The border color.",
+          "name": "color",
+          "type": "ApiColor"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetTableBorderTop(sType: BorderType, nSize: pt_8, nSpace: pt, r: number, g: number, b: number): boolean"
+      "signature": "SetTableBorderTop(type: BorderType, size: pt_8, space: pt, color: ApiColor): boolean",
+      "since": "10.0.0"
     },
     "SetTableCellMarginBottom": {
       "description": "Specifies an amount of space which will be left between the bottom extent of the cell contents and the border\nof all table cells within the parent table (or table row).",

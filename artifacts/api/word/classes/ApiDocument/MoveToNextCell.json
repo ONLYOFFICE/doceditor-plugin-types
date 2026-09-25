@@ -1,0 +1,18 @@
+{
+  "description": "Moves the cursor to the next table cell.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/MoveToNextCell/",
+  "params": [
+    {
+      "description": "Number of cells to move through.",
+      "name": "count",
+      "optional": true,
+      "type": "number"
+    }
+  ],
+  "returns": {
+    "description": "returns false if the cursor isn't currently inside a table cell.",
+    "type": "boolean"
+  },
+  "signature": "MoveToNextCell(count?: number): boolean",
+  "since": "10.0.0"
+}

@@ -54,7 +54,7 @@
       "since": "7.4.0"
     },
     "GetSize": {
-      "description": "Returns the font size property of the specified font.",
+      "description": "Returns the font size property of the specified font measured in points.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/GetSize/",
       "params": [],
       "returns": {
@@ -172,7 +172,7 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/SetSize/",
       "params": [
         {
-          "description": "Font size.",
+          "description": "The font size value measured in points.",
           "name": "Size",
           "type": "number"
         }

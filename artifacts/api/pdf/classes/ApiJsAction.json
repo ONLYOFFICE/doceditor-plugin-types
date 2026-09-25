@@ -9,7 +9,8 @@
       "returns": {
         "type": "\"jsAction\""
       },
-      "signature": "GetClassType(): \"jsAction\""
+      "signature": "GetClassType(): \"jsAction\"",
+      "since": "10.0.0"
     },
     "GetScript": {
       "description": "Gets action script",
@@ -18,7 +19,8 @@
       "returns": {
         "type": "string"
       },
-      "signature": "GetScript(): string"
+      "signature": "GetScript(): string",
+      "since": "10.0.0"
     },
     "SetScript": {
       "description": "Sets action script.",
@@ -32,7 +34,8 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetScript(script: string): boolean"
+      "signature": "SetScript(script: string): boolean",
+      "since": "10.0.0"
     }
   }
 }

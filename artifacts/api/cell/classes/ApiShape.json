@@ -61,6 +61,17 @@
       "signature": "GetParentSheet(): ApiWorksheet",
       "since": "8.3.0"
     },
+    "GetPosition": {
+      "description": "Returns the cell anchor of the current drawing; the offsets are limited by the anchor cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetPosition/",
+      "params": [],
+      "returns": {
+        "description": "returns null for an absolutely positioned drawing.",
+        "type": "DrawingCellAnchor | null"
+      },
+      "signature": "GetPosition(): DrawingCellAnchor | null",
+      "since": "10.0.0"
+    },
     "GetVerticalTextAlign": {
       "description": "Gets the vertical alignment from the shape content where a paragraph or text runs can be inserted.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiShape/Methods/GetVerticalTextAlign/",

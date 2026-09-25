@@ -18,12 +18,18 @@
           "description": "field rect",
           "name": "rect",
           "type": "Rect"
+        },
+        {
+          "description": "whether the new widget have the same visual and actions settings as the original",
+          "name": "isCopy",
+          "optional": true,
+          "type": "boolean"
         }
       ],
       "returns": {
         "type": "ApiWidget"
       },
-      "signature": "AddWidget(pageIndex: number, rect: Rect): ApiWidget"
+      "signature": "AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget"
     },
     "Delete": {
       "description": "Removes field from document.",
@@ -204,15 +210,16 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiButtonField/Methods/SetValue/",
       "params": [
         {
-          "description": "The URL of the image to set for the button.",
+          "description": "The URL of the image to set for the button (currently only internet URL or Base64 encoded images are supported)",
           "name": "imageUrl",
+          "optional": true,
           "type": "string"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetValue(imageUrl: string): boolean",
+      "signature": "SetValue(imageUrl?: string): boolean",
       "since": "9.4.0"
     }
   }

@@ -331,33 +331,16 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/Methods/SetShd/",
       "params": [
         {
-          "description": "The shading type or fill to apply.",
-          "name": "shadingType",
-          "type": "ShdType | ApiFill"
-        },
-        {
-          "description": "Red color component value.",
-          "name": "r",
-          "optional": true,
-          "type": "number"
-        },
-        {
-          "description": "Green color component value.",
-          "name": "g",
-          "optional": true,
-          "type": "number"
-        },
-        {
-          "description": "Blue color component value.",
-          "name": "b",
-          "optional": true,
-          "type": "number"
+          "description": "The shading created with the Api.CreateShd method.",
+          "name": "shd",
+          "type": "ApiShd"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetShd(shadingType: ShdType | ApiFill, r?: number, g?: number, b?: number): boolean"
+      "signature": "SetShd(shd: ApiShd): boolean",
+      "since": "10.0.0"
     },
     "SetText": {
       "description": "Replaces all content of the current table cell with the specified text,\npreserving the formatting of the first paragraph.",

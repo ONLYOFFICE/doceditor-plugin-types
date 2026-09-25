@@ -7,15 +7,15 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTablePr/Methods/SetShd/",
       "params": [
         {
-          "description": "The color or pattern used to fill the current table. If not passed, the shading will be cleared.",
-          "name": "fill",
-          "type": "ApiFill"
+          "description": "The shading created with the Api.CreateShd method.",
+          "name": "shd",
+          "type": "ApiShd"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetShd(fill: ApiFill): boolean",
+      "signature": "SetShd(shd: ApiShd): boolean",
       "since": "10.0.0"
     },
     "SetTableBorderAll": {

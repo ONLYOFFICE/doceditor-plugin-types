@@ -126,9 +126,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetShd/",
       "params": [],
       "returns": {
-        "type": "Shd | undefined"
+        "type": "ApiShd | undefined"
       },
-      "signature": "GetShd(): Shd | undefined",
+      "signature": "GetShd(): ApiShd | undefined",
       "since": "8.1.0"
     },
     "GetSmallCaps": {
@@ -383,22 +383,17 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetShd/",
       "params": [
         {
-          "description": "The shading type applied to the contents of the current text run.",
-          "name": "type",
-          "type": "ShdType"
-        },
-        {
-          "description": "The color or pattern used to fill the shading.",
-          "name": "color",
-          "type": "ApiColor"
+          "description": "The shading created with the Api.CreateShd method.",
+          "name": "shd",
+          "type": "ApiShd"
         }
       ],
       "returns": {
         "description": "this text properties.",
         "type": "ApiTextPr"
       },
-      "signature": "SetShd(type: ShdType, color: ApiColor): ApiTextPr",
-      "since": "9.1.0"
+      "signature": "SetShd(shd: ApiShd): ApiTextPr",
+      "since": "10.0.0"
     },
     "SetSmallCaps": {
       "description": "Specifies that all the small letter characters in the text run are formatted for display only as their capital\nletter character equivalents which are two points smaller than the actual font size specified for this text.",

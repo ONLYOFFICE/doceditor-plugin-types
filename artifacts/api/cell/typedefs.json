@@ -276,6 +276,27 @@
     "description": "Any valid drawing element.",
     "type": "ApiShape | ApiImage | ApiOleObject | ApiChart | ApiGroup | ApiSmartArt"
   },
+  "DrawingCellAnchor": {
+    "description": "The cell anchor of a drawing.",
+    "properties": {
+      "colOffset": {
+        "description": "The offset from the fromCol column to the left part of the drawing object.",
+        "type": "EMU"
+      },
+      "fromCol": {
+        "description": "The number of the column where the drawing object begins.",
+        "type": "number"
+      },
+      "fromRow": {
+        "description": "The number of the row where the drawing object begins.",
+        "type": "number"
+      },
+      "rowOffset": {
+        "description": "The offset from the fromRow row to the upper part of the drawing object.",
+        "type": "EMU"
+      }
+    }
+  },
   "DrawingForGroup": {
     "description": "Available drawing element for grouping.",
     "type": "ApiShape | ApiGroup | ApiImage | ApiChart"
@@ -289,7 +310,7 @@
     "type": "number"
   },
   "EntryEffect": {
-    "description": "The available slide transition effects (similar to PowerPoint VBA ppEffect).",
+    "description": "The available slide transition effects.",
     "type": "\"effectAppear\" | \"effectBlindsHorizontal\" | \"effectBlindsVertical\" | \"effectBoxDown\" | \"effectBoxIn\" | \"effectBoxLeft\" | \"effectBoxOut\" | \"effectBoxRight\" | \"effectBoxUp\" | \"effectCheckerboardAcross\" | \"effectCheckerboardDown\" | \"effectCircleOut\" | \"effectCombHorizontal\" | \"effectCombVertical\" | \"effectConveyorLeft\" | \"effectConveyorRight\" | \"effectCoverDown\" | \"effectCoverLeft\" | \"effectCoverLeftDown\" | \"effectCoverLeftUp\" | \"effectCoverRight\" | \"effectCoverRightDown\" | \"effectCoverRightUp\" | \"effectCoverUp\" | \"effectCubeDown\" | \"effectCubeLeft\" | \"effectCubeRight\" | \"effectCubeUp\" | \"effectCut\" | \"effectCutThroughBlack\" | \"effectDiamondOut\" | \"effectDissolve\" | \"effectDoorsHorizontal\" | \"effectDoorsVertical\" | \"effectFade\" | \"effectFadeSmoothly\" | \"effectFerrisWheelLeft\" | \"effectFerrisWheelRight\" | \"effectFlashbulb\" | \"effectFlipDown\" | \"effectFlipLeft\" | \"effectFlipRight\" | \"effectFlipUp\" | \"effectFlyThroughIn\" | \"effectFlyThroughInBounce\" | \"effectFlyThroughOut\" | \"effectFlyThroughOutBounce\" | \"effectGalleryLeft\" | \"effectGalleryRight\" | \"effectGlitterDiamondDown\" | \"effectGlitterDiamondLeft\" | \"effectGlitterDiamondRight\" | \"effectGlitterDiamondUp\" | \"effectGlitterHexagonDown\" | \"effectGlitterHexagonLeft\" | \"effectGlitterHexagonRight\" | \"effectGlitterHexagonUp\" | \"effectHoneycomb\" | \"effectNewsflash\" | \"effectOrbitDown\" | \"effectOrbitLeft\" | \"effectOrbitRight\" | \"effectOrbitUp\" | \"effectPanDown\" | \"effectPanLeft\" | \"effectPanRight\" | \"effectPanUp\" | \"effectPlusOut\" | \"effectPushDown\" | \"effectPushLeft\" | \"effectPushRight\" | \"effectPushUp\" | \"effectRandom\" | \"effectRandomBarsHorizontal\" | \"effectRandomBarsVertical\" | \"effectRevealBlackLeft\" | \"effectRevealBlackRight\" | \"effectRevealSmoothLeft\" | \"effectRevealSmoothRight\" | \"effectRippleCenter\" | \"effectRippleLeftDown\" | \"effectRippleLeftUp\" | \"effectRippleRightDown\" | \"effectRippleRightUp\" | \"effectRotateDown\" | \"effectRotateLeft\" | \"effectRotateRight\" | \"effectRotateUp\" | \"effectShredRectangleIn\" | \"effectShredRectangleOut\" | \"effectShredStripsIn\" | \"effectShredStripsOut\" | \"effectSplitHorizontalIn\" | \"effectSplitHorizontalOut\" | \"effectSplitVerticalIn\" | \"effectSplitVerticalOut\" | \"effectStripsDownLeft\" | \"effectStripsDownRight\" | \"effectStripsLeftDown\" | \"effectStripsLeftUp\" | \"effectStripsRightDown\" | \"effectStripsRightUp\" | \"effectStripsUpLeft\" | \"effectStripsUpRight\" | \"effectSwitchDown\" | \"effectSwitchLeft\" | \"effectSwitchRight\" | \"effectSwitchUp\" | \"effectUncoverDown\" | \"effectUncoverLeft\" | \"effectUncoverLeftDown\" | \"effectUncoverLeftUp\" | \"effectUncoverRight\" | \"effectUncoverRightDown\" | \"effectUncoverRightUp\" | \"effectUncoverUp\" | \"effectVortexDown\" | \"effectVortexLeft\" | \"effectVortexRight\" | \"effectVortexUp\" | \"effectWarpIn\" | \"effectWarpOut\" | \"effectWedge\" | \"effectWheel1Spoke\" | \"effectWheel2Spokes\" | \"effectWheel3Spokes\" | \"effectWheel4Spokes\" | \"effectWheel8Spokes\" | \"effectWheelReverse1Spoke\" | \"effectWindowHorizontal\" | \"effectWindowVertical\" | \"effectWipeDown\" | \"effectWipeLeft\" | \"effectWipeRight\" | \"effectWipeUp\" | \"effectNone\" | \"effectCrawlFromDown\" | \"effectCrawlFromLeft\" | \"effectCrawlFromRight\" | \"effectCrawlFromUp\" | \"effectFlashOnceFast\" | \"effectFlashOnceMedium\" | \"effectFlashOnceSlow\" | \"effectFlyFromBottom\" | \"effectFlyFromBottomLeft\" | \"effectFlyFromBottomRight\" | \"effectFlyFromLeft\" | \"effectFlyFromRight\" | \"effectFlyFromTop\" | \"effectFlyFromTopLeft\" | \"effectFlyFromTopRight\" | \"effectMixed\" | \"effectPeekFromDown\" | \"effectPeekFromLeft\" | \"effectPeekFromRight\" | \"effectPeekFromUp\" | \"effectSpiral\" | \"effectStretchAcross\" | \"effectStretchDown\" | \"effectStretchLeft\" | \"effectStretchRight\" | \"effectStretchUp\" | \"effectSwivel\" | \"effectZoomBottom\" | \"effectZoomCenter\" | \"effectZoomIn\" | \"effectZoomInSlightly\" | \"effectZoomOut\" | \"effectZoomOutSlightly\""
   },
   "ErrorValue": {
@@ -661,7 +682,7 @@
   },
   "SchemeColorId": {
     "description": "The available color scheme identifiers.",
-    "type": "\"accent1\" | \"accent2\" | \"accent3\" | \"accent4\" | \"accent5\" | \"accent6\" | \"bg1\" | \"bg2\" | \"dk1\" | \"dk2\" | \"lt1\" | \"lt2\" | \"tx1\" | \"tx2\""
+    "type": "\"accent1\" | \"accent2\" | \"accent3\" | \"accent4\" | \"accent5\" | \"accent6\" | \"bg1\" | \"bg2\" | \"dk1\" | \"dk2\" | \"folHlink\" | \"hlink\" | \"lt1\" | \"lt2\" | \"tx1\" | \"tx2\""
   },
   "SdtLock": {
     "description": "The lock type of the content control.",
@@ -718,7 +739,7 @@
       "color": {
         "description": "The shadow color (black by default).",
         "optional": true,
-        "type": "ApiUniColor"
+        "type": "ApiColor | ApiUniColor"
       },
       "offsetX": {
         "description": "The horizontal offset of the shadow measured in points (a positive value offsets to the right).",
@@ -750,19 +771,6 @@
   "ShapeType": {
     "description": "This type specifies the preset shape geometry that will be used for a shape.",
     "type": "\"accentBorderCallout1\" | \"accentBorderCallout2\" | \"accentBorderCallout3\" | \"accentCallout1\" | \"accentCallout2\" | \"accentCallout3\" | \"actionButtonBackPrevious\" | \"actionButtonBeginning\" | \"actionButtonBlank\" | \"actionButtonDocument\" | \"actionButtonEnd\" | \"actionButtonForwardNext\" | \"actionButtonHelp\" | \"actionButtonHome\" | \"actionButtonInformation\" | \"actionButtonMovie\" | \"actionButtonReturn\" | \"actionButtonSound\" | \"arc\" | \"bentArrow\" | \"bentConnector2\" | \"bentConnector3\" | \"bentConnector4\" | \"bentConnector5\" | \"bentUpArrow\" | \"bevel\" | \"blockArc\" | \"borderCallout1\" | \"borderCallout2\" | \"borderCallout3\" | \"bracePair\" | \"bracketPair\" | \"callout1\" | \"callout2\" | \"callout3\" | \"can\" | \"chartPlus\" | \"chartStar\" | \"chartX\" | \"chevron\" | \"chord\" | \"circularArrow\" | \"cloud\" | \"cloudCallout\" | \"corner\" | \"cornerTabs\" | \"cube\" | \"curvedConnector2\" | \"curvedConnector3\" | \"curvedConnector4\" | \"curvedConnector5\" | \"curvedDownArrow\" | \"curvedLeftArrow\" | \"curvedRightArrow\" | \"curvedUpArrow\" | \"decagon\" | \"diagStripe\" | \"diamond\" | \"dodecagon\" | \"donut\" | \"doubleWave\" | \"downArrow\" | \"downArrowCallout\" | \"ellipse\" | \"ellipseRibbon\" | \"ellipseRibbon2\" | \"flowChartAlternateProcess\" | \"flowChartCollate\" | \"flowChartConnector\" | \"flowChartDecision\" | \"flowChartDelay\" | \"flowChartDisplay\" | \"flowChartDocument\" | \"flowChartExtract\" | \"flowChartInputOutput\" | \"flowChartInternalStorage\" | \"flowChartMagneticDisk\" | \"flowChartMagneticDrum\" | \"flowChartMagneticTape\" | \"flowChartManualInput\" | \"flowChartManualOperation\" | \"flowChartMerge\" | \"flowChartMultidocument\" | \"flowChartOfflineStorage\" | \"flowChartOffpageConnector\" | \"flowChartOnlineStorage\" | \"flowChartOr\" | \"flowChartPredefinedProcess\" | \"flowChartPreparation\" | \"flowChartProcess\" | \"flowChartPunchedCard\" | \"flowChartPunchedTape\" | \"flowChartSort\" | \"flowChartSummingJunction\" | \"flowChartTerminator\" | \"foldedCorner\" | \"frame\" | \"funnel\" | \"gear6\" | \"gear9\" | \"halfFrame\" | \"heart\" | \"heptagon\" | \"hexagon\" | \"homePlate\" | \"horizontalScroll\" | \"irregularSeal1\" | \"irregularSeal2\" | \"leftArrow\" | \"leftArrowCallout\" | \"leftBrace\" | \"leftBracket\" | \"leftCircularArrow\" | \"leftRightArrow\" | \"leftRightArrowCallout\" | \"leftRightCircularArrow\" | \"leftRightRibbon\" | \"leftRightUpArrow\" | \"leftUpArrow\" | \"lightningBolt\" | \"line\" | \"lineInv\" | \"mathDivide\" | \"mathEqual\" | \"mathMinus\" | \"mathMultiply\" | \"mathNotEqual\" | \"mathPlus\" | \"moon\" | \"nonIsoscelesTrapezoid\" | \"noSmoking\" | \"notchedRightArrow\" | \"octagon\" | \"parallelogram\" | \"pentagon\" | \"pie\" | \"pieWedge\" | \"plaque\" | \"plaqueTabs\" | \"plus\" | \"quadArrow\" | \"quadArrowCallout\" | \"rect\" | \"ribbon\" | \"ribbon2\" | \"rightArrow\" | \"rightArrowCallout\" | \"rightBrace\" | \"rightBracket\" | \"round1Rect\" | \"round2DiagRect\" | \"round2SameRect\" | \"roundRect\" | \"rtTriangle\" | \"smileyFace\" | \"snip1Rect\" | \"snip2DiagRect\" | \"snip2SameRect\" | \"snipRoundRect\" | \"squareTabs\" | \"star10\" | \"star12\" | \"star16\" | \"star24\" | \"star32\" | \"star4\" | \"star5\" | \"star6\" | \"star7\" | \"star8\" | \"straightConnector1\" | \"stripedRightArrow\" | \"sun\" | \"swooshArrow\" | \"teardrop\" | \"trapezoid\" | \"triangle\" | \"upArrowCallout\" | \"upDownArrow\" | \"upDownArrow\" | \"upDownArrowCallout\" | \"uturnArrow\" | \"verticalScroll\" | \"wave\" | \"wedgeEllipseCallout\" | \"wedgeRectCallout\" | \"wedgeRoundRectCallout\""
-  },
-  "Shd": {
-    "description": "The shading information object.",
-    "properties": {
-      "Color": {
-        "description": "The shading color.",
-        "type": "ApiColor"
-      },
-      "Type": {
-        "description": "The shading type: **\"nil\"** - no shading, **\"clear\"** - solid fill.",
-        "type": "ShdType"
-      }
-    }
   },
   "ShdType": {
     "description": "A shade type which can be added to the document element.",
@@ -878,6 +886,10 @@
   "TextTransform": {
     "description": "Text transform type.",
     "type": "\"textArchDown\" | \"textArchDownPour\" | \"textArchUp\" | \"textArchUpPour\" | \"textButton\" | \"textButtonPour\" | \"textCanDown\" | \"textCanUp\" | \"textCascadeDown\" | \"textCascadeUp\" | \"textChevron\" | \"textChevronInverted\" | \"textCircle\" | \"textCirclePour\" | \"textCurveDown\" | \"textCurveUp\" | \"textDeflate\" | \"textDeflateBottom\" | \"textDeflateInflate\" | \"textDeflateInflateDeflate\" | \"textDeflateTop\" | \"textDoubleWave1\" | \"textFadeDown\" | \"textFadeLeft\" | \"textFadeRight\" | \"textFadeUp\" | \"textInflate\" | \"textInflateBottom\" | \"textInflateTop\" | \"textPlain\" | \"textRingInside\" | \"textRingOutside\" | \"textSlantDown\" | \"textSlantUp\" | \"textStop\" | \"textTriangle\" | \"textTriangleInverted\" | \"textWave1\" | \"textWave2\" | \"textWave4\" | \"textNoShape\""
+  },
+  "ThemeFontScript": {
+    "description": "The available scripts of a theme font: **\"latin\"** - the latin text, **\"ea\"** - the east asian text, **\"cs\"** - the complex script text.",
+    "type": "\"latin\" | \"ea\" | \"cs\""
   },
   "TickLabelPosition": {
     "description": "Possible values for the position of chart tick labels (either horizontal or vertical).\n**\"none\"** - does not display the selected tick labels.\n**\"nextTo\"** - sets the position of the selected tick labels next to the main label.\n**\"low\"** - sets the position of the selected tick labels in the part of the chart with lower values.\n**\"high\"** - sets the position of the selected tick labels in the part of the chart with higher values.",
@@ -1032,7 +1044,7 @@
     "type": "\"simple\" | \"online\" | \"classic\" | \"distinctive\" | \"centered\" | \"formal\""
   },
   "TransitionSpeed": {
-    "description": "The available slide transition speed values (similar to PowerPoint VBA ppTransitionSpeed).",
+    "description": "The available slide transition speed values.",
     "type": "\"slow\" | \"medium\" | \"fast\""
   },
   "UserComments": {

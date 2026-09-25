@@ -14,13 +14,13 @@
         {
           "description": "New color of the theme color scheme.",
           "name": "oColor",
-          "type": "ApiUniColor | ApiRGBColor"
+          "type": "ApiColor | ApiUniColor | ApiRGBColor"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "ChangeColor(nPos: number, oColor: ApiUniColor | ApiRGBColor): boolean"
+      "signature": "ChangeColor(nPos: number, oColor: ApiColor | ApiUniColor | ApiRGBColor): boolean"
     },
     "Copy": {
       "description": "Creates a copy of the current theme color scheme.",
@@ -39,6 +39,33 @@
         "type": "\"themeColorScheme\""
       },
       "signature": "GetClassType(): \"themeColorScheme\""
+    },
+    "GetColor": {
+      "description": "Returns a color of the theme color scheme.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeColorScheme/Methods/GetColor/",
+      "params": [
+        {
+          "description": "The color position in the color scheme, the same as in the ChangeColor method:\r0-5 - accent1-accent6, 6 - dk1, 7 - dk2, 8 - folHlink, 9 - hlink, 10 - lt1, 11 - lt2.",
+          "name": "position",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "The RGB color, or null if the position is out of range or the scheme has no color at this position.",
+        "type": "ApiColor"
+      },
+      "signature": "GetColor(position: number): ApiColor",
+      "since": "10.0.0"
+    },
+    "GetSchemeName": {
+      "description": "Returns the name of the current theme color scheme.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeColorScheme/Methods/GetSchemeName/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetSchemeName(): string",
+      "since": "10.0.0"
     },
     "SetSchemeName": {
       "description": "Sets a name to the current theme color scheme.",

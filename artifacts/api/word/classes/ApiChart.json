@@ -335,6 +335,16 @@
       "signature": "GetShadow(): ApiShadow | null",
       "since": "10.0.0"
     },
+    "GetTextRange": {
+      "description": "Returns a range that covers the whole text of the current drawing.\nCreates a text body if the drawing does not yet have one.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetTextRange/",
+      "params": [],
+      "returns": {
+        "type": "ApiRange | null"
+      },
+      "signature": "GetTextRange(): ApiRange | null",
+      "since": "10.0.0"
+    },
     "GetTitle": {
       "description": "Returns the chart title text.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/GetTitle/",
@@ -362,6 +372,16 @@
         "type": "EMU"
       },
       "signature": "GetWidth(): EMU"
+    },
+    "HasTextContent": {
+      "description": "Checks whether the drawing has an associated text body.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/HasTextContent/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "HasTextContent(): boolean",
+      "since": "10.0.0"
     },
     "InsertInContentControl": {
       "description": "Wraps the graphic object with a rich text content control.",
@@ -757,15 +777,15 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/SetHorAxisLabelsFontSize/",
       "params": [
         {
-          "description": "The text size value measured in points.",
-          "name": "nFontSize",
-          "type": "pt"
+          "description": "The text size value measured in half-points (1/144 of an inch).",
+          "name": "fontSize",
+          "type": "hps"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetHorAxisLabelsFontSize(nFontSize: pt): boolean"
+      "signature": "SetHorAxisLabelsFontSize(fontSize: hps): boolean"
     },
     "SetHorAxisMajorTickMark": {
       "description": "Specifies major tick mark for the horizontal axis.",
@@ -837,9 +857,9 @@
           "type": "string"
         },
         {
-          "description": "The text size value measured in points.",
-          "name": "nFontSize",
-          "type": "pt"
+          "description": "The text size value measured in half-points (1/144 of an inch).",
+          "name": "fontSize",
+          "type": "hps"
         },
         {
           "description": "Specifies if the horizontal axis title is written in bold font or not.",
@@ -851,7 +871,7 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetHorAxisTitle(sTitle: string, nFontSize: pt, bIsBold?: boolean): boolean"
+      "signature": "SetHorAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean"
     },
     "SetHorFlip": {
       "description": "Flips the current drawing horizontally.",
@@ -916,15 +936,15 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/SetLegendFontSize/",
       "params": [
         {
-          "description": "The text size value measured in points.",
-          "name": "nFontSize",
-          "type": "pt"
+          "description": "The text size value measured in half-points (1/144 of an inch).",
+          "name": "fontSize",
+          "type": "hps"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetLegendFontSize(nFontSize: pt): boolean"
+      "signature": "SetLegendFontSize(fontSize: hps): boolean"
     },
     "SetLegendOutLine": {
       "description": "Sets the outline to the chart legend.",
@@ -1518,9 +1538,9 @@
           "type": "string"
         },
         {
-          "description": "The text size value measured in points.",
-          "name": "nFontSize",
-          "type": "pt"
+          "description": "The text size value measured in half-points (1/144 of an inch).",
+          "name": "fontSize",
+          "type": "hps"
         },
         {
           "description": "Specifies if the chart title is written in bold font or not.",
@@ -1532,7 +1552,7 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetTitle(sTitle: string, nFontSize: pt, bIsBold?: boolean): boolean"
+      "signature": "SetTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean"
     },
     "SetTitleFill": {
       "description": "Sets the fill to the chart title.",
@@ -1611,9 +1631,9 @@
           "type": "string"
         },
         {
-          "description": "The text size value measured in points.",
-          "name": "nFontSize",
-          "type": "pt"
+          "description": "The text size value measured in half-points (1/144 of an inch).",
+          "name": "fontSize",
+          "type": "hps"
         },
         {
           "description": "Specifies if the vertical axis title is written in bold font or not.",
@@ -1625,7 +1645,7 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetVerAxisTitle(sTitle: string, nFontSize: pt, bIsBold?: boolean): boolean"
+      "signature": "SetVerAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean"
     },
     "SetVerPosition": {
       "description": "Sets the absolute measurement for the vertical positioning of the floating object.",
@@ -1659,15 +1679,15 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/SetVertAxisLabelsFontSize/",
       "params": [
         {
-          "description": "The text size value measured in points.",
-          "name": "nFontSize",
-          "type": "pt"
+          "description": "The text size value measured in half-points (1/144 of an inch).",
+          "name": "fontSize",
+          "type": "hps"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetVertAxisLabelsFontSize(nFontSize: pt): boolean"
+      "signature": "SetVertAxisLabelsFontSize(fontSize: hps): boolean"
     },
     "SetVertAxisMajorTickMark": {
       "description": "Specifies major tick mark for the vertical axis.",

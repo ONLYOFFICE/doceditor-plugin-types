@@ -169,6 +169,16 @@
       },
       "signature": "GetScaleWhen(): ButtonScaleWhen"
     },
+    "GetTextAlign": {
+      "description": "Gets widget text alignment.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetTextAlign/",
+      "params": [],
+      "returns": {
+        "type": "WidgetTextAlign | undefined"
+      },
+      "signature": "GetTextAlign(): WidgetTextAlign | undefined",
+      "since": "10.0.0"
+    },
     "GetTextColor": {
       "description": "Gets widget text color.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetTextColor/",
@@ -183,9 +193,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetTextSize/",
       "params": [],
       "returns": {
-        "type": "pt"
+        "type": "hps"
       },
-      "signature": "GetTextSize(): pt"
+      "signature": "GetTextSize(): hps"
     },
     "IsAutoFit": {
       "description": "Checks if text is autofit.",
@@ -345,7 +355,7 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiButtonWidget/Methods/SetImage/",
       "params": [
         {
-          "description": "The image URL.",
+          "description": "The URL of the image to set for the button widget (currently only internet URL or Base64 encoded images are supported)",
           "name": "imageUrl",
           "optional": true,
           "type": "string"
@@ -458,6 +468,22 @@
       },
       "signature": "SetScaleWhen(scaleWhen: ButtonScaleWhen): boolean"
     },
+    "SetTextAlign": {
+      "description": "Sets widget text alignment.\n<note> Only for text/combobox/listbox fields widgets. </note>",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/SetTextAlign/",
+      "params": [
+        {
+          "description": "The text alignment.",
+          "name": "textAlign",
+          "type": "WidgetTextAlign"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetTextAlign(textAlign: WidgetTextAlign): boolean",
+      "since": "10.0.0"
+    },
     "SetTextColor": {
       "description": "Sets widget text color.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/SetTextColor/",
@@ -478,15 +504,15 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/SetTextSize/",
       "params": [
         {
-          "description": "The font size in points.",
+          "description": "The font size measured in half-points (1/144 of an inch).",
           "name": "size",
-          "type": "pt"
+          "type": "hps"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetTextSize(size: pt): boolean"
+      "signature": "SetTextSize(size: hps): boolean"
     }
   }
 }

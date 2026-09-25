@@ -2,39 +2,39 @@
   "agents": "https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md",
   "editors": {
     "cell": {
-      "classes": 120,
+      "classes": 121,
       "events": 1,
-      "executeMethods": 46,
-      "methods": 1898,
-      "typedefs": 172
+      "executeMethods": 47,
+      "methods": 1961,
+      "typedefs": 173
     },
     "forms": {
-      "classes": 67,
+      "classes": 69,
       "events": 1,
-      "executeMethods": 49,
+      "executeMethods": 50,
       "methods": 379,
-      "typedefs": 114
+      "typedefs": 113
     },
     "pdf": {
-      "classes": 110,
+      "classes": 112,
       "events": 2,
-      "executeMethods": 30,
-      "methods": 1434,
+      "executeMethods": 31,
+      "methods": 1496,
       "typedefs": 145
     },
     "slide": {
-      "classes": 83,
+      "classes": 85,
       "events": 5,
-      "executeMethods": 59,
-      "methods": 1034,
+      "executeMethods": 62,
+      "methods": 1057,
       "typedefs": 109
     },
     "word": {
-      "classes": 71,
+      "classes": 73,
       "events": 19,
-      "executeMethods": 112,
-      "methods": 2085,
-      "typedefs": 104
+      "executeMethods": 113,
+      "methods": 2111,
+      "typedefs": 103
     }
   },
   "howToUse": [

@@ -135,6 +135,16 @@
     },
     "signature": "executeMethod(\"GetPageImage\", [nPage: number, oParams?: { maxSize?: number; annotations?: boolean; fields?: boolean; drawings?: boolean; withInfo?: boolean }], callback?): string | object"
   },
+  "GetRestrictions": {
+    "description": "Returns the restrictions the editor currently applies to the document.",
+    "params": [],
+    "returns": {
+      "description": "The current restrictions.",
+      "type": "EditorRestrictions"
+    },
+    "signature": "executeMethod(\"GetRestrictions\", [], callback?): EditorRestrictions",
+    "since": "10.0.0"
+  },
   "GetSelectedText": {
     "description": "Returns the selected text from the document.",
     "params": [

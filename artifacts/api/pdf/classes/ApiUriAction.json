@@ -9,7 +9,8 @@
       "returns": {
         "type": "\"uriAction\""
       },
-      "signature": "GetClassType(): \"uriAction\""
+      "signature": "GetClassType(): \"uriAction\"",
+      "since": "10.0.0"
     },
     "GetUri": {
       "description": "Gets uri string",
@@ -18,7 +19,8 @@
       "returns": {
         "type": "string"
       },
-      "signature": "GetUri(): string"
+      "signature": "GetUri(): string",
+      "since": "10.0.0"
     },
     "SetUri": {
       "description": "Sets uri to action",
@@ -32,7 +34,8 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetUri(uri: string): boolean"
+      "signature": "SetUri(uri: string): boolean",
+      "since": "10.0.0"
     }
   }
 }

@@ -9,7 +9,8 @@
       "returns": {
         "type": "ApiJsAction"
       },
-      "signature": "GetCalculate(): ApiJsAction"
+      "signature": "GetCalculate(): ApiJsAction",
+      "since": "10.0.0"
     },
     "GetClassType": {
       "description": "Gets class type of this object.",
@@ -18,7 +19,8 @@
       "returns": {
         "type": "\"actionCollection\""
       },
-      "signature": "GetClassType(): \"actionCollection\""
+      "signature": "GetClassType(): \"actionCollection\"",
+      "since": "10.0.0"
     },
     "GetFormat": {
       "description": "Gets Format action.",
@@ -27,7 +29,8 @@
       "returns": {
         "type": "ApiJsAction"
       },
-      "signature": "GetFormat(): ApiJsAction"
+      "signature": "GetFormat(): ApiJsAction",
+      "since": "10.0.0"
     },
     "GetKeystroke": {
       "description": "Gets Keystroke action.",
@@ -36,7 +39,8 @@
       "returns": {
         "type": "ApiJsAction"
       },
-      "signature": "GetKeystroke(): ApiJsAction"
+      "signature": "GetKeystroke(): ApiJsAction",
+      "since": "10.0.0"
     },
     "GetMouseDown": {
       "description": "Gets MouseDown action.",
@@ -45,7 +49,8 @@
       "returns": {
         "type": "ApiBaseAction"
       },
-      "signature": "GetMouseDown(): ApiBaseAction"
+      "signature": "GetMouseDown(): ApiBaseAction",
+      "since": "10.0.0"
     },
     "GetMouseEnter": {
       "description": "Gets MouseEnter action.",
@@ -54,7 +59,8 @@
       "returns": {
         "type": "ApiBaseAction"
       },
-      "signature": "GetMouseEnter(): ApiBaseAction"
+      "signature": "GetMouseEnter(): ApiBaseAction",
+      "since": "10.0.0"
     },
     "GetMouseExit": {
       "description": "Gets MouseExit action.",
@@ -63,7 +69,8 @@
       "returns": {
         "type": "ApiBaseAction"
       },
-      "signature": "GetMouseExit(): ApiBaseAction"
+      "signature": "GetMouseExit(): ApiBaseAction",
+      "since": "10.0.0"
     },
     "GetMouseUp": {
       "description": "Gets MouseUp action.",
@@ -72,7 +79,8 @@
       "returns": {
         "type": "ApiBaseAction"
       },
-      "signature": "GetMouseUp(): ApiBaseAction"
+      "signature": "GetMouseUp(): ApiBaseAction",
+      "since": "10.0.0"
     },
     "GetOnBlur": {
       "description": "Gets OnBlur action.",
@@ -81,7 +89,8 @@
       "returns": {
         "type": "ApiBaseAction"
       },
-      "signature": "GetOnBlur(): ApiBaseAction"
+      "signature": "GetOnBlur(): ApiBaseAction",
+      "since": "10.0.0"
     },
     "GetOnFocus": {
       "description": "Gets OnFocus action.",
@@ -90,7 +99,8 @@
       "returns": {
         "type": "ApiBaseAction"
       },
-      "signature": "GetOnFocus(): ApiBaseAction"
+      "signature": "GetOnFocus(): ApiBaseAction",
+      "since": "10.0.0"
     },
     "GetValidate": {
       "description": "Gets Validate action.",
@@ -99,7 +109,8 @@
       "returns": {
         "type": "ApiJsAction"
       },
-      "signature": "GetValidate(): ApiJsAction"
+      "signature": "GetValidate(): ApiJsAction",
+      "since": "10.0.0"
     },
     "SetCalculate": {
       "description": "Sets the Calculate action.",
@@ -114,7 +125,8 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetCalculate(action: ApiJsAction): boolean"
+      "signature": "SetCalculate(action: ApiJsAction): boolean",
+      "since": "10.0.0"
     },
     "SetFormat": {
       "description": "Sets the Format action.",
@@ -129,7 +141,8 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetFormat(action: ApiJsAction): boolean"
+      "signature": "SetFormat(action: ApiJsAction): boolean",
+      "since": "10.0.0"
     },
     "SetKeystroke": {
       "description": "Sets the Keystroke action.",
@@ -144,7 +157,8 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetKeystroke(action: ApiJsAction): boolean"
+      "signature": "SetKeystroke(action: ApiJsAction): boolean",
+      "since": "10.0.0"
     },
     "SetMouseDown": {
       "description": "Sets the MouseDown action.",
@@ -159,7 +173,8 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetMouseDown(action: ApiBaseAction): boolean"
+      "signature": "SetMouseDown(action: ApiBaseAction): boolean",
+      "since": "10.0.0"
     },
     "SetMouseEnter": {
       "description": "Sets the MouseEnter action.",
@@ -174,7 +189,8 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetMouseEnter(action: ApiBaseAction): boolean"
+      "signature": "SetMouseEnter(action: ApiBaseAction): boolean",
+      "since": "10.0.0"
     },
     "SetMouseExit": {
       "description": "Sets the MouseExit action.",
@@ -189,7 +205,8 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetMouseExit(action: ApiBaseAction): boolean"
+      "signature": "SetMouseExit(action: ApiBaseAction): boolean",
+      "since": "10.0.0"
     },
     "SetMouseUp": {
       "description": "Sets the MouseUp action.",
@@ -204,7 +221,8 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetMouseUp(action: ApiBaseAction): boolean"
+      "signature": "SetMouseUp(action: ApiBaseAction): boolean",
+      "since": "10.0.0"
     },
     "SetOnBlur": {
       "description": "Sets the OnBlur action.",
@@ -219,7 +237,8 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetOnBlur(action: ApiBaseAction): boolean"
+      "signature": "SetOnBlur(action: ApiBaseAction): boolean",
+      "since": "10.0.0"
     },
     "SetOnFocus": {
       "description": "Sets the OnFocus action.",
@@ -234,7 +253,8 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetOnFocus(action: ApiBaseAction): boolean"
+      "signature": "SetOnFocus(action: ApiBaseAction): boolean",
+      "since": "10.0.0"
     },
     "SetValidate": {
       "description": "Sets the Validate action.",
@@ -249,7 +269,8 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetValidate(action: ApiJsAction): boolean"
+      "signature": "SetValidate(action: ApiJsAction): boolean",
+      "since": "10.0.0"
     }
   }
 }

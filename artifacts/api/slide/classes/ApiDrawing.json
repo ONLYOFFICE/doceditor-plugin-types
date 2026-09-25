@@ -11,16 +11,6 @@
       },
       "signature": "Copy(): ApiDrawing"
     },
-    "CreateTextRange": {
-      "description": "Creates a text body for the drawing if it does not already exist and returns its full text range.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/CreateTextRange/",
-      "params": [],
-      "returns": {
-        "type": "ApiTextRange | null"
-      },
-      "signature": "CreateTextRange(): ApiTextRange | null",
-      "since": "10.0.0"
-    },
     "Delete": {
       "description": "Deletes the specified drawing object from the parent.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/Delete/",
@@ -261,7 +251,7 @@
       "since": "10.0.0"
     },
     "GetTextRange": {
-      "description": "Returns an ApiTextRange covering the full text content of the shape, or null if the shape has no text body (use CreateTextRange to create one).",
+      "description": "Returns an ApiTextRange covering the full text content of the shape.\nCreates a text body if the shape does not yet have one.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetTextRange/",
       "params": [],
       "returns": {
@@ -281,6 +271,17 @@
       "signature": "GetTitle(): string | null",
       "since": "10.0.0"
     },
+    "GetVisitor": {
+      "description": "Returns a visitor object for traversing the text of the current drawing, including the drawings nested in a group.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetVisitor/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiPresentationVisitor"
+      },
+      "signature": "GetVisitor(): ApiPresentationVisitor",
+      "since": "10.0.0"
+    },
     "GetWidth": {
       "description": "Returns the width of the current drawing.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetWidth/",
@@ -290,14 +291,14 @@
       },
       "signature": "GetWidth(): EMU"
     },
-    "IsTextRange": {
+    "HasTextContent": {
       "description": "Checks whether the drawing has an associated text body.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/IsTextRange/",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/HasTextContent/",
       "params": [],
       "returns": {
         "type": "boolean"
       },
-      "signature": "IsTextRange(): boolean",
+      "signature": "HasTextContent(): boolean",
       "since": "10.0.0"
     },
     "ReplacePlaceholder": {

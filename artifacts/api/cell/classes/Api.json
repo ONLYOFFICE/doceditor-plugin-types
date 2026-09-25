@@ -206,6 +206,7 @@
       "signature": "CreateBullet(sSymbol: string): ApiBullet"
     },
     "CreateColorByName": {
+      "deprecated": "since 10.0.0 version. Use Api#Color instead.",
       "description": "Creates a color selecting it from one of the available color presets.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateColorByName/",
       "params": [
@@ -221,6 +222,7 @@
       "signature": "CreateColorByName(sPresetColor: PresetColor): ApiColor"
     },
     "CreateColorFromRGB": {
+      "deprecated": "since 10.0.0 version. Use Api#RGB instead.",
       "description": "Creates an RGB color setting the appropriate values for the red, green and blue color components.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateColorFromRGB/",
       "params": [
@@ -504,6 +506,28 @@
         "type": "ApiShadow"
       },
       "signature": "CreateShadow(settings: ShadowSettings): ApiShadow",
+      "since": "10.0.0"
+    },
+    "CreateShd": {
+      "description": "Creates the shading which can be applied to text, a paragraph, a table or a table cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateShd/",
+      "params": [
+        {
+          "description": "The shading type: **\"nil\"** - no shading, **\"clear\"** - solid fill.",
+          "name": "type",
+          "type": "ShdType"
+        },
+        {
+          "description": "The shading color. Required for the **\"clear\"** type.",
+          "name": "color",
+          "optional": true,
+          "type": "ApiColor"
+        }
+      ],
+      "returns": {
+        "type": "ApiShd"
+      },
+      "signature": "CreateShd(type: ShdType, color?: ApiColor): ApiShd",
       "since": "10.0.0"
     },
     "CreateSolidFill": {
@@ -1416,13 +1440,19 @@
           "name": "name",
           "optional": true,
           "type": "SchemeColorId"
+        },
+        {
+          "description": "The luminance shift from -1 (the darkest shade) to 1 (the lightest tint). 0 keeps the theme color as it is.",
+          "name": "tintAndShade",
+          "optional": true,
+          "type": "number"
         }
       ],
       "returns": {
         "description": "Instance of ApiColor with 'theme' type.",
         "type": "ApiColor"
       },
-      "signature": "ThemeColor(name?: SchemeColorId): ApiColor"
+      "signature": "ThemeColor(name?: SchemeColorId, tintAndShade?: number): ApiColor"
     },
     "TwipsToPoints": {
       "description": "Converts twips to points.",

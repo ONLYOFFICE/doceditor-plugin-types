@@ -265,6 +265,16 @@ interface ContextMenuItem {
 type DocumentEditingRestrictions = 'none' | 'comments' | 'forms' | 'readOnly';
 
 /**
+ * The current editing restrictions, a combination of the flags:
+ * **0x00** - no editing restrictions,
+ * **0x01** - allows editing form fields,
+ * **0x02** - allows editing comments and regions delimited by range permissions,
+ * **0x04** - the document is signed and cannot be changed,
+ * **0x80** - does not allow editing.
+ */
+type EditorRestrictions = number;
+
+/**
  * Plugin event ("onDocumentContentReady", "onTargetPositionChanged", onClick", "onInputHelperClear",
  * "onInputHelperInput", etc.).
  */
@@ -1046,6 +1056,13 @@ type FormsMethodArgs = {
    */
   GetOFormRole: [];
   /**
+   * Returns the restrictions the editor currently applies to the document.
+   *
+   * @returns The current restrictions.
+   * @since 10.0.0
+   */
+  GetRestrictions: [];
+  /**
    * Returns the selected content in the specified format.
    *
    * @param prop - The returned content properties.
@@ -1682,6 +1699,7 @@ type FormsMethodReturnMap = {
   GetInstalledPlugins: PluginData[];
   GetMacros: string;
   GetOFormRole: string;
+  GetRestrictions: EditorRestrictions;
   GetSelectedContent: string;
   GetSelectedOleObjects: OLEProperties[];
   GetSelectedText: string;
@@ -1719,7 +1737,7 @@ type FormsMethodReturnMap = {
 type FormsMethodReturn<T extends FormsMethodName> = FormsMethodReturnMap[T];
 
 /**
- * Forms `executeMethod` names that need a paid ONLYOFFICE edition (2 of 49).
+ * Forms `executeMethod` names that need a paid ONLYOFFICE edition (2 of 50).
  * Each one's own `@requires` tag names the edition it needs.
  *
  * Nothing restricts these by default - use this to opt into enforcement, e.g.

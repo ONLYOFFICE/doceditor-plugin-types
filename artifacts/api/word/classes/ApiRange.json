@@ -68,17 +68,17 @@
       "params": [
         {
           "description": "The link address.",
-          "name": "sLink",
+          "name": "link",
           "type": "string"
         },
         {
           "description": "The screen tip text.",
-          "name": "sScreenTipText",
+          "name": "screenTipText",
           "type": "string"
         },
         {
           "description": "name of a bookmark",
-          "name": "sBookmarkName",
+          "name": "bookmarkName",
           "type": "string"
         }
       ],
@@ -86,7 +86,7 @@
         "description": "returns null if range contains more than one paragraph or sLink is invalid.",
         "type": "ApiHyperlink"
       },
-      "signature": "AddHyperlink(sLink: string, sScreenTipText: string, sBookmarkName: string): ApiHyperlink"
+      "signature": "AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink"
     },
     "AddText": {
       "description": "Adds a text to the specified position.",
@@ -446,7 +446,7 @@
       "params": [
         {
           "description": "The text size value measured in half-points (1/144 of an inch).",
-          "name": "FontSize",
+          "name": "fontSize",
           "type": "hps"
         }
       ],
@@ -454,7 +454,7 @@
         "description": "returns null if can't set font size.",
         "type": "ApiRange | null"
       },
-      "signature": "SetFontSize(FontSize: hps): ApiRange | null"
+      "signature": "SetFontSize(fontSize: hps): ApiRange | null"
     },
     "SetHighlight": {
       "description": "Specifies a highlighting color which is applied as a background to the contents of the current Range.",
@@ -509,22 +509,17 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/SetShd/",
       "params": [
         {
-          "description": "The shading type applied to the contents of the current text Range.",
-          "name": "type",
-          "type": "ShdType"
-        },
-        {
-          "description": "The shading color.",
-          "name": "color",
-          "type": "ApiColor"
+          "description": "The shading created with the Api.CreateShd method.",
+          "name": "shd",
+          "type": "ApiShd"
         }
       ],
       "returns": {
         "description": "returns null if can't apply shadow.",
         "type": "ApiRange | null"
       },
-      "signature": "SetShd(type: ShdType, color: ApiColor): ApiRange | null",
-      "since": "9.1.0"
+      "signature": "SetShd(shd: ApiShd): ApiRange | null",
+      "since": "10.0.0"
     },
     "SetSmallCaps": {
       "description": "Specifies that all the lowercase letter characters in the current text Range are formatted for display only as their capital\nletter character equivalents which are two points smaller than the actual font size specified for this text.",

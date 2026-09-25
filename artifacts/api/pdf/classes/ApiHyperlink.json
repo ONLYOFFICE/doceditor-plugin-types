@@ -53,6 +53,30 @@
       },
       "signature": "GetScreenTipText(): string"
     },
+    "GetTextRange": {
+      "description": "Returns an ApiTextRange object that represents the part of the text contained in the current hyperlink.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiHyperlink/Methods/GetTextRange/",
+      "params": [
+        {
+          "description": "Start character position (0-based, inclusive) relative to the hyperlink.",
+          "name": "start",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "End character position (0-based, exclusive). Defaults to the end of the hyperlink.",
+          "name": "end",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "description": "returns null if the hyperlink is not attached to the document or the specified range is empty.",
+        "type": "ApiTextRange | null"
+      },
+      "signature": "GetTextRange(start?: number, end?: number): ApiTextRange | null",
+      "since": "10.0.0"
+    },
     "SetLink": {
       "description": "Sets the hyperlink address.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiHyperlink/Methods/SetLink/",

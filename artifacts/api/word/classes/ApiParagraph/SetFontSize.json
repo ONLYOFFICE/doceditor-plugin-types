@@ -4,7 +4,7 @@
   "params": [
     {
       "description": "The text size value measured in half-points (1/144 of an inch).",
-      "name": "nSize",
+      "name": "fontSize",
       "type": "hps"
     }
   ],
@@ -12,5 +12,5 @@
     "description": "this",
     "type": "ApiParagraph"
   },
-  "signature": "SetFontSize(nSize: hps): ApiParagraph"
+  "signature": "SetFontSize(fontSize: hps): ApiParagraph"
 }

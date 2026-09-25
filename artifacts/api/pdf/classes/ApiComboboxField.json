@@ -51,7 +51,8 @@
       "returns": {
         "type": "string"
       },
-      "signature": "GetFormattedValue(): string"
+      "signature": "GetFormattedValue(): string",
+      "since": "10.0.0"
     },
     "GetOption": {
       "description": "Gets option from list options.",
@@ -84,7 +85,8 @@
       "returns": {
         "type": "string"
       },
-      "signature": "GetPlaceholder(): string"
+      "signature": "GetPlaceholder(): string",
+      "since": "10.0.0"
     },
     "GetRegularExp": {
       "description": "Gets text widget regular validate expression.",
@@ -93,7 +95,8 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "GetRegularExp(): boolean"
+      "signature": "GetRegularExp(): boolean",
+      "since": "10.0.0"
     },
     "GetValueIndexes": {
       "description": "Gets selected value indexes.",
@@ -285,7 +288,8 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetPlaceholder(sPlaceholder: string): boolean"
+      "signature": "SetPlaceholder(sPlaceholder: string): boolean",
+      "since": "10.0.0"
     },
     "SetRegularExp": {
       "description": "Sets regular expression validate string for field.",
