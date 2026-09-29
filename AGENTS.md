@@ -37,20 +37,20 @@ three channels, and confusing them is the most common source of broken plugin co
 ### Consuming these types
 
 - Add the root package plus exactly ONE editor entry point to `tsconfig.json`:
-  `"types": ["@onlyoffice/plugins-types", "@onlyoffice/plugins-types/word"]`
+  `"types": ["@onlyoffice/doceditor-plugin-types", "@onlyoffice/doceditor-plugin-types/word"]`
   (`/word`, `/cell`, `/slide`, `/pdf`). Two editor entry points in one project make the global `Api`
   declarations collide — that is intentional, a plugin's `callCommand` code runs in one editor.
 - Any type from any editor remains importable regardless (`import type { Cell } from
-  "@onlyoffice/plugins-types/cell"`), because each editor's object model lives in its own namespace
+  "@onlyoffice/doceditor-plugin-types/cell"`), because each editor's object model lives in its own namespace
   (`Word`, `Cell`, `Slide`, `Forms`, `Pdf`) and same-named classes don't collide.
-- `import type { Api } from "@onlyoffice/plugins-types"` + `Api<"word">` resolves the entry-point
+- `import type { Api } from "@onlyoffice/doceditor-plugin-types"` + `Api<"word">` resolves the entry-point
   class generically.
 - A plugin's `config.json` can be validated against `schemas/config.schema.json` (add a `$schema`
   field pointing at the raw GitHub URL, or map the project's `config.json` files in the editor).
 
 ### Looking up the API without guessing
 
-- `artifacts/api/` (`https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/artifacts/api/<path>`)
+- `artifacts/api/` (`https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/main/artifacts/api/<path>`)
   — every class/method/typedef/event/executeMethod with signature, markdown description, parameter
   list, return type, `since` version and a verified `docsUrl`. Search this before inventing a method
   name; if a member isn't there, it isn't public API. **Runnable examples are not here** — they are
@@ -93,12 +93,12 @@ three channels, and confusing them is the most common source of broken plugin co
   it trails sdkjs by a few minor versions - so a 404 there means "not documented yet", not "wrong
   member".
 - `artifacts/ambient/` holds five flattened no-import `.d.ts` bundles, one per editor:
-  `onlyoffice-plugins-types.<editor>.ambient.d.ts` for `word`, `cell`, `slide`, `pdf`, `forms`. Each
+  `onlyoffice-doceditor-plugin-types.<editor>.ambient.d.ts` for `word`, `cell`, `slide`, `pdf`, `forms`. Each
   is self-contained (0.54-2.49 MB) - load exactly one, since the five declare the same globals with
   different types. Written for editors that take a single global-scope blob (a Monaco
   `addExtraLib()`), and useful here for a different reason - see below. Not shipped in the npm
   package (those consumers take the modular sources instead) - fetch from git:
-  `https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/artifacts/ambient/<file>`.
+  `https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/main/artifacts/ambient/<file>`.
 
 ### Checking the plugin code you just wrote
 
@@ -108,7 +108,7 @@ which is what a sandbox or a tool call usually has room for:
 
 ```bash
 tsc --noEmit --allowJs --checkJs --target ES2020 --lib es2020,dom \
-    onlyoffice-plugins-types.word.ambient.d.ts plugin.js
+    onlyoffice-doceditor-plugin-types.word.ambient.d.ts plugin.js
 ```
 
 Plugin code is written against globals with no imports, which is exactly the shape a single

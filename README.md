@@ -10,7 +10,7 @@ This package only adds TypeScript types on top of that API.
 ## Installation
 
 ```bash
-npm install @onlyoffice/plugins-types
+npm install @onlyoffice/doceditor-plugin-types
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ Add the root package and the entry point for the editor your plugin supports to 
 ```json
 {
   "compilerOptions": {
-    "types": ["@onlyoffice/plugins-types", "@onlyoffice/plugins-types/word"]
+    "types": ["@onlyoffice/doceditor-plugin-types", "@onlyoffice/doceditor-plugin-types/word"]
   }
 }
 ```
@@ -29,7 +29,7 @@ Add the root package and the entry point for the editor your plugin supports to 
 The editor entry point declares the matching global `Api` type inside `callCommand`; the root
 package intentionally does not declare a cross-editor `Api` intersection, so only include one
 editor's entry point per project. Alternatively, reference it directly in a file:
-`/// <reference types="@onlyoffice/plugins-types/word" />`. A plugin that supports several editors is
+`/// <reference types="@onlyoffice/doceditor-plugin-types/word" />`. A plugin that supports several editors is
 not stuck with one - see [Plugins that support several editors](#plugins-that-support-several-editors).
 
 ```typescript
@@ -59,7 +59,7 @@ Every editor's API is generated into its own TypeScript namespace (`Word`, `Cell
 regardless of which editor's entry point your `tsconfig.json` declares:
 
 ```typescript
-import type { Word } from "@onlyoffice/plugins-types/word";
+import type { Word } from "@onlyoffice/doceditor-plugin-types/word";
 
 window.Asc.plugin.callCommand(function() {
     const wordApi: Word.Api = Api;
@@ -67,7 +67,7 @@ window.Asc.plugin.callCommand(function() {
 });
 ```
 
-`Cell`/`Slide`/`Pdf` follow the same pattern from `@onlyoffice/plugins-types/cell`, `/slide`, `/pdf`.
+`Cell`/`Slide`/`Pdf` follow the same pattern from `@onlyoffice/doceditor-plugin-types/cell`, `/slide`, `/pdf`.
 `Api<T>` (from the root package) also resolves the entry-point class generically, e.g. `Api<"word">`
 is `Word.Api`.
 
@@ -94,7 +94,7 @@ window.Asc.plugin.attachEditorEvent("onParagraphAdd", (data) => {
 
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/schemas/config.schema.json",
+  "$schema": "https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/main/schemas/config.schema.json",
   "name": "My Plugin"
 }
 ```
@@ -117,7 +117,7 @@ in each command body - which is where you already branch on the editor anyway. `
 so the parameter is the same list as `EditorsSupport` in your `config.json`:
 
 ```typescript
-import type { Api as ApiOf, Word, Cell } from "@onlyoffice/plugins-types";
+import type { Api as ApiOf, Word, Cell } from "@onlyoffice/doceditor-plugin-types";
 
 declare global { var Api: ApiOf<"word" | "cell">; }
 
@@ -147,7 +147,7 @@ accepted whichever entry point you include, so a Cell-only name type-checks in a
 ## Modular entry points
 
 The root package remains the compatibility entry point. The same runtime types are also available by
-layer for smaller imports: `@onlyoffice/plugins-types/plugin` (`AscPlugin`, events, buttons),
+layer for smaller imports: `@onlyoffice/doceditor-plugin-types/plugin` (`AscPlugin`, events, buttons),
 `/plugin/events`, `/plugin/buttons`, `/config`, `/services` - type-only re-exports of the same
 declarations the root package uses, so existing root imports remain compatible.
 
@@ -158,16 +158,16 @@ editor's `addExtraLib()`, a browser playground, a sandbox that has no package ma
 repository carries five flattened bundles, one per editor, with no `import`/`export` in them:
 
 ```text
-https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/artifacts/ambient/<file>
+https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/main/artifacts/ambient/<file>
 ```
 
 | `<file>` | size |
 | -------- | ---- |
-| `onlyoffice-plugins-types.word.ambient.d.ts` | 2.49 MB |
-| `onlyoffice-plugins-types.cell.ambient.d.ts` | 2.42 MB |
-| `onlyoffice-plugins-types.slide.ambient.d.ts` | 1.43 MB |
-| `onlyoffice-plugins-types.pdf.ambient.d.ts` | 1.37 MB |
-| `onlyoffice-plugins-types.forms.ambient.d.ts` | 0.54 MB |
+| `onlyoffice-doceditor-plugin-types.word.ambient.d.ts` | 2.49 MB |
+| `onlyoffice-doceditor-plugin-types.cell.ambient.d.ts` | 2.42 MB |
+| `onlyoffice-doceditor-plugin-types.slide.ambient.d.ts` | 1.43 MB |
+| `onlyoffice-doceditor-plugin-types.pdf.ambient.d.ts` | 1.37 MB |
+| `onlyoffice-doceditor-plugin-types.forms.ambient.d.ts` | 0.54 MB |
 
 Each is self-contained - `Asc`, `AscPlugin`, that editor's namespace and its global `Api`. Load
 exactly one: all five declare the same globals with different types.
@@ -187,7 +187,7 @@ sandbox:
 
 ```bash
 tsc --noEmit --allowJs --checkJs --target ES2020 --lib es2020,dom \
-    onlyoffice-plugins-types.word.ambient.d.ts plugin.js
+    onlyoffice-doceditor-plugin-types.word.ambient.d.ts plugin.js
 ```
 
 These bundles are **not** in the npm package - an npm consumer gets the modular sources instead, and
@@ -207,23 +207,23 @@ Docs Server:
 Pick the package version matching the editors you target. Because the version identifies a product
 release rather than the shape of the type surface, it is **not** semver over these declarations: a
 new editor release can rename or retype an API in any version segment, so a type-level breaking
-change can arrive in what looks like a patch. Pin exactly (`"@onlyoffice/plugins-types": "10.0.0"`)
+change can arrive in what looks like a patch. Pin exactly (`"@onlyoffice/doceditor-plugin-types": "10.0.0"`)
 if that matters to you, and read the [changelog](CHANGELOG.md) before moving between editor
 versions. Each release records the exact editor commit it was generated from; that record lives in
-the [repository](https://github.com/ONLYOFFICE/plugins-types), not in the published package.
+the [repository](https://github.com/ONLYOFFICE/doceditor-plugin-types), not in the published package.
 
 ## For AI agents
 
 [AGENTS.md](AGENTS.md) is the guide: the runtime's three channels and what confuses them, how to
 look a member up without guessing, how to check plugin code you wrote against a compiler, and which
 211 members need a paid edition. It ships inside the npm package, so an installed copy has it at
-`node_modules/@onlyoffice/plugins-types/AGENTS.md`.
+`node_modules/@onlyoffice/doceditor-plugin-types/AGENTS.md`.
 
 What it points to for looking a member up lives in this repository rather than the package:
 `artifacts/api/`, the same API surface as JSON - signature, description, `since`, a verified docs
 link, and `requires` where a paid edition is needed - split into a tree so no single read is large.
 Fetch it from
-`https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/artifacts/api/<path>`, starting at
+`https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/main/artifacts/api/<path>`, starting at
 `index.json`, which carries a link back to the guide - as does each editor's index and
 `runtime.json`, so whichever of them you start from says where the instructions are.
 

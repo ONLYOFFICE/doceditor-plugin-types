@@ -46,7 +46,7 @@ const NAME_PREFIX = { word: 'Word', cell: 'Cell', slide: 'Slide', pdf: 'Pdf', fo
 const DEVELOPER_EDITION_REQUIREMENT = developerEditionRequirement('method');
 
 // Supporting typedefs that real code outside this package already imports from the root
-// (`onlyoffice-plugins-api`/`@onlyoffice/plugins-types`) - everything else stays file-local.
+// (`onlyoffice-plugins-api`/`@onlyoffice/doceditor-plugin-types`) - everything else stays file-local.
 // `ContentControl`/`comment`/`TextAnnotation`/`TextAnnotationRange` are also imported by
 // `src/plugin/events.d.ts`, whose `PluginEventMap` reuses these canonical shapes for Word's
 // content-control/comment/annotation event payloads instead of duplicating them by hand.

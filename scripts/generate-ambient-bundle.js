@@ -4,7 +4,7 @@
 // unwrapped into plain top-level declarations instead.
 //
 // Produces one self-contained bundle per editor:
-//   artifacts/ambient/onlyoffice-plugins-types.<editor>.ambient.d.ts
+//   artifacts/ambient/onlyoffice-doceditor-plugin-types.<editor>.ambient.d.ts
 //
 // Each one carries Asc/AscPlugin/events/buttons/config/theme/services, that single editor's
 // namespace and executeMethod types, and - for the four editors that have one - a global `Api`.
@@ -28,9 +28,15 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..');
 const OUT_DIR = path.join(ROOT, 'artifacts', 'ambient');
 
+// A bundle is downloaded on its own and lands in someone else's project, so its file name has to say
+// what it is without the directory around it. Derived from the package name rather than written out,
+// because it had been written out - and a rename left the files carrying the previous one.
+const BUNDLE_PREFIX = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'))
+  .name.replace('@', '').replace('/', '-');
+
 // These bundles are not in the npm package; whoever loads one fetched it by URL and has nothing
 // else of this repository in hand. The same pointer api-index.js puts in every JSON file.
-const AGENTS_GUIDE = 'https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md';
+const AGENTS_GUIDE = 'https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/main/AGENTS.md';
 
 // Flattening to global scope puts every declaration in the same namespace as the DOM lib, where a
 // name we share with it stops being a separate type and becomes a declaration *merge*. That is fine
@@ -498,7 +504,7 @@ function buildEditorBundle(editor, pool) {
     ? `,\n// plus the global \`Api: ${namespace}.Api\`.`
     : `.\n// ${namespace} has no global \`Api\` - its methods are called through Asc.plugin.executeMethod.`;
   const header = `// AUTO-GENERATED - do not edit by hand. Run \`npm run generate-ambient\` to regenerate.
-// Self-contained, non-module ambient bundle of @onlyoffice/plugins-types for the "${editor}" editor,
+// Self-contained, non-module ambient bundle of @onlyoffice/doceditor-plugin-types for the "${editor}" editor,
 // for tools (e.g. a Monaco editor's addExtraLib()) that want one global-scope .d.ts blob instead of
 // an installable, module-based npm package. Declares Asc/AscPlugin and the ${namespace} namespace${apiLine}
 // Load exactly one of the five bundles: they declare the same globals with different types.
@@ -575,7 +581,7 @@ function main() {
 
   for (const editor of Object.keys(EDITOR_NAMESPACES)) {
     const { bundle, pulled } = buildEditorBundle(editor, pool);
-    const fileName = `onlyoffice-plugins-types.${editor}.ambient.d.ts`;
+    const fileName = `${BUNDLE_PREFIX}.${editor}.ambient.d.ts`;
     fs.writeFileSync(path.join(OUT_DIR, fileName), bundle);
     written.add(fileName);
     const extra = pulled.length > 0 ? ` (+${pulled.length} pulled in: ${pulled.join(', ')})` : '';

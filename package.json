@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "@onlyoffice/plugins-types",
+  "name": "@onlyoffice/doceditor-plugin-types",
   "version": "10.0.0",
   "description": "TypeScript type definitions for the ONLYOFFICE Docs plugin API (editor plugins)",
   "types": "index.d.ts",
@@ -75,11 +75,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ONLYOFFICE/plugins-types.git"
+    "url": "git+https://github.com/ONLYOFFICE/doceditor-plugin-types.git"
   },
   "homepage": "https://api.onlyoffice.com/docs/plugins/get-started/overview/",
   "bugs": {
-    "url": "https://github.com/ONLYOFFICE/plugins-types/issues",
+    "url": "https://github.com/ONLYOFFICE/doceditor-plugin-types/issues",
     "email": "support@onlyoffice.com"
   },
   "license": "Apache-2.0",

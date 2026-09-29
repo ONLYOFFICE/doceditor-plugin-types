@@ -1,6 +1,6 @@
 # Contributing
 
-How `@onlyoffice/plugins-types` is put together: what is generated and from what, what each check
+How `@onlyoffice/doceditor-plugin-types` is put together: what is generated and from what, what each check
 guards, how to read the machine-readable index, and where everything lives. For consuming the package
 in a plugin see [README.md](README.md); [AGENTS.md](AGENTS.md) is the condensed version for coding
 agents.
@@ -351,13 +351,13 @@ directly linkable/reviewable, but excluded from the npm package (`package.json`'
 consumers get the modular package instead:
 
 ```text
-artifacts/ambient/onlyoffice-plugins-types.word.ambient.d.ts   # 2.49 MB - Asc/AscPlugin/events/buttons/
+artifacts/ambient/onlyoffice-doceditor-plugin-types.word.ambient.d.ts   # 2.49 MB - Asc/AscPlugin/events/buttons/
                                                           # config/theme/services + namespace Word
                                                           # + a global `Api: Word.Api`
-artifacts/ambient/onlyoffice-plugins-types.cell.ambient.d.ts   # 2.42 MB - ...same, for Cell
-artifacts/ambient/onlyoffice-plugins-types.slide.ambient.d.ts  # 1.43 MB - ...same, for Slide
-artifacts/ambient/onlyoffice-plugins-types.pdf.ambient.d.ts    # 1.37 MB - ...same, for Pdf
-artifacts/ambient/onlyoffice-plugins-types.forms.ambient.d.ts  # 0.54 MB - ...same, for Forms, minus the
+artifacts/ambient/onlyoffice-doceditor-plugin-types.cell.ambient.d.ts   # 2.42 MB - ...same, for Cell
+artifacts/ambient/onlyoffice-doceditor-plugin-types.slide.ambient.d.ts  # 1.43 MB - ...same, for Slide
+artifacts/ambient/onlyoffice-doceditor-plugin-types.pdf.ambient.d.ts    # 1.37 MB - ...same, for Pdf
+artifacts/ambient/onlyoffice-doceditor-plugin-types.forms.ambient.d.ts  # 0.54 MB - ...same, for Forms, minus the
                                                           # global `Api` (Forms has none: its
                                                           # methods go through executeMethod)
 ```
@@ -567,5 +567,5 @@ re-exports them, so it stays a genuine barrel file rather than a second copy of 
 Each of `src/plugin/`, `src/config/`, `src/services/`, and `src/theme/` has its own `index.d.ts` that
 re-exports everything in that directory - that's what the root package's `/plugin`, `/config`,
 `/services` entry points (see [README.md](README.md#modular-entry-points)) resolve to;
-`@onlyoffice/plugins-types/plugin/*` resolves directly to the individual file (e.g. `/plugin/events`
+`@onlyoffice/doceditor-plugin-types/plugin/*` resolves directly to the individual file (e.g. `/plugin/events`
 → `src/plugin/events.d.ts`).

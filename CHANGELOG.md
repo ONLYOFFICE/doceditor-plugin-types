@@ -94,6 +94,20 @@ building on it: everything listed under `9.5.0` ships here, regenerated against 
   that remain are explicit `METHOD_OVERRIDES` entries with their own recorded reasons.
 ### Changed
 
+- Renamed `@onlyoffice/plugins-types` → `@onlyoffice/doceditor-plugin-types`, with the repository
+  following as `ONLYOFFICE/doceditor-plugin-types`. The old name would have been the only first-party
+  package in the `@onlyoffice` scope without a product prefix, in a scope that also carries
+  `docspace-plugin-sdk` - so the unqualified word `plugins` claimed a default across two products
+  that both have plugins. The new name reuses the prefix `doceditor-types` already established and
+  leaves the three of them reading as a set: `doceditor-types` for the embedding API,
+  `doceditor-plugin-types` for the plugin API, `docspace-plugin-sdk` for the other product's.
+  Free to do only because nothing is published yet; after a first publish a rename is a second
+  package and a deprecation.
+
+  The ambient bundles are renamed with it -
+  `onlyoffice-doceditor-plugin-types.<editor>.ambient.d.ts`. Their name had been a literal in the
+  generator, which is how it survived the previous rename and stayed `onlyoffice-plugins-types` while
+  the package was something else; it is now derived from `package.json`'s `name`.
 - Regenerated against sdkjs `v10.0.0.114` (with `sdkjs-ext` at the same tag and `sdkjs-forms` at
   `v10.0.0.100`, its newest - the forms sources have not moved since `v10.0.0.70`). Against the
   `v10.0.0.79` this package was first built from, that adds:
@@ -125,10 +139,10 @@ building on it: everything listed under `9.5.0` ships here, regenerated against 
   fetch it from raw.githubusercontent.com, where it stays tracked in git - while everyone installing
   the package for editor completion carried it for nothing. The package is now 35 files, 0.99 MB
   packed and 8.13 MB unpacked, down from 1201 files, 1.49 MB and 12.83 MB. Consumers who were
-  importing `@onlyoffice/plugins-types/api/<path>` must switch to the raw URL; nothing else moves,
+  importing `@onlyoffice/doceditor-plugin-types/api/<path>` must switch to the raw URL; nothing else moves,
   and the same facts remain in each member's JSDoc for an agent working offline.
 - `artifacts/ambient/` is now five self-contained per-editor bundles -
-  `onlyoffice-plugins-types.{word,cell,slide,pdf,forms}.ambient.d.ts`, 0.54-2.49 MB each - instead of
+  `onlyoffice-doceditor-plugin-types.{word,cell,slide,pdf,forms}.ambient.d.ts`, 0.54-2.49 MB each - instead of
   one 7.98 MB bundle plus four ~10-line `Api` addons. Load exactly one; nothing goes alongside it.
   The old layout made a consumer parse all five editor namespaces to use one: a word consumer loaded
   7.98 MB where it now loads 2.49 MB, and the first completion after `Api.GetDocument().` went from
