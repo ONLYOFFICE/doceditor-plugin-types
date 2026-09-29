@@ -49,7 +49,7 @@
     },
     "SetNames": {
       "description": "Sets names of fields to reset",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiResetFormsAction/Methods/GetNames/",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiResetFormsAction/Methods/SetNames/",
       "params": [
         {
           "name": "names",

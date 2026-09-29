@@ -1748,4 +1748,4 @@ type FormsPaidMethodName = "EndGroupActions" | "StartGroupActions";
 /** Forms `executeMethod` names available in every edition, including Community. */
 type FormsFreeMethodName = Exclude<FormsMethodName, FormsPaidMethodName>;
 
-export type { FormsMethodArgs, FormsMethodName, FormsMethodReturn, FormsPaidMethodName, FormsFreeMethodName };
+export type { FormsMethodArgs, FormsMethodName, FormsMethodReturn, FormsMethodReturnMap, FormsPaidMethodName, FormsFreeMethodName };

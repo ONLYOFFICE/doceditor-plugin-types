@@ -24,12 +24,25 @@ three channels, and confusing them is the most common source of broken plugin co
      this**: returning an `Api.*` object is a compile error, so `return doc` fails and
      `return doc.GetAllParagraphs().map(p => p.GetText())` is what you want.
    - prefer `await callCommandAsync(fn)` over the callback form; `callMethodAsync(name, args)` is
-     the same for `executeMethod`.
+     the same for `executeMethod`. Better still, see `Editor.RunMacro` below - it passes arguments
+     into the body, which is what makes the no-closures rule survivable.
 2. **`executeMethod("Name", [args], callback)`** — editor-provided utility methods (get selected
    text, insert content, show input helpers, ...). Typed per editor: a known method name gives its
    argument tuple and callback result type; an unknown name falls back to a loosely typed overload.
    `GetMacros`/`SetMacros` are the known trap: the wire format is a raw JSON **string** —
    `JSON.parse`/`JSON.stringify` it yourself.
+
+   Since sdkjs `v10.0.0.119` the same methods are also plain functions on a global `Editor`, and that
+   is what new code should use: `await Editor.GetSelectedText()` instead of
+   `executeMethod("GetSelectedText", [], cb)`. Arguments are spread rather than passed as an array; a
+   trailing function is still taken as a callback, and without one the call returns a Promise.
+
+   `Editor.RunMacro(fn, ...args)` is the one member that is not a renamed `executeMethod`. It runs
+   `fn` inside the editor the way `callCommand` does, but **serializes the extra arguments into the
+   body**, so data no longer has to travel through `Asc.scope`, and it wraps the body in
+   `try`/`catch`, so a throw comes back as a rejected Promise instead of a callback that never fires.
+   The serializability rule still applies to the arguments and the return value, and the types
+   enforce it on both.
 3. **Events** — `Asc.plugin.attachEditorEvent("onName", cb)` for editor events (typed per editor via
    `EditorEventArgs`), plus plugin-window-level handlers assigned as properties
    (`Asc.plugin.init`, `.button`, `.onMethodReturn`, ...).

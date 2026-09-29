@@ -3,14 +3,14 @@
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/SetFontFamily/",
   "params": [
     {
-      "description": "The font family or families used for the current paragraph.",
-      "name": "sFontFamily",
-      "type": "string"
+      "description": "The font family or families used for the current paragraph. Pass _null_ to remove the font family.",
+      "name": "fontFamily",
+      "type": "string | null"
     }
   ],
   "returns": {
     "description": "this",
     "type": "ApiParagraph"
   },
-  "signature": "SetFontFamily(sFontFamily: string): ApiParagraph"
+  "signature": "SetFontFamily(fontFamily: string | null): ApiParagraph"
 }

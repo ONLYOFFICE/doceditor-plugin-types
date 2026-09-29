@@ -1,0 +1,48 @@
+{
+  "description": "Class representing the collection of table styles of the workbook.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyles/",
+  "methods": {
+    "Add": {
+      "description": "Adds a new custom table style to the workbook.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyles/Methods/Add/",
+      "params": [
+        {
+          "description": "The name of the new table style. Must be unique among the custom and built-in style names (case-insensitive).",
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "ApiTableStyle"
+      },
+      "signature": "Add(name: string): ApiTableStyle",
+      "since": "10.0.0"
+    },
+    "GetCount": {
+      "description": "Returns the number of table styles in the workbook, built-in and custom.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyles/Methods/GetCount/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetCount(): number",
+      "since": "10.0.0"
+    },
+    "GetItem": {
+      "description": "Returns a table style by its name or by its index. Built-in table, pivot table and slicer styles come first, custom styles last in name order.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyles/Methods/GetItem/",
+      "params": [
+        {
+          "description": "The table style name (case-insensitive; custom styles are searched before built-in ones) or its 1-based index.",
+          "name": "nameOrIndex",
+          "type": "string | number"
+        }
+      ],
+      "returns": {
+        "type": "ApiTableStyle | null"
+      },
+      "signature": "GetItem(nameOrIndex: string | number): ApiTableStyle | null",
+      "since": "10.0.0"
+    }
+  }
+}

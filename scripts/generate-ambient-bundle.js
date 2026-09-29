@@ -60,6 +60,7 @@ const SHARED_FILES = [
   'src/config/plugin-config.d.ts',
   'src/plugin/events.d.ts',
   'src/plugin/buttons.d.ts',
+  'src/plugin/editor.d.ts',
   'src/plugin/plugin.d.ts',
   'src/services/desktop-editor.d.ts',
   'src/services/simple-request.d.ts',

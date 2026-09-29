@@ -202,7 +202,7 @@
     },
     "GetParentPage": {
       "description": "Returns the type of the ApiDrawing class.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetClassType/",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetParentPage/",
       "params": [],
       "returns": {
         "type": "ApiPage"

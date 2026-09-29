@@ -1,0 +1,22 @@
+{
+  "description": "Class representing the collection of formatted parts (header row, stripes, total row, etc.) of a table style.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElements/",
+  "methods": {
+    "GetItem": {
+      "description": "Returns a table style element by its type.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElements/Methods/GetItem/",
+      "params": [
+        {
+          "description": "The table style element type.",
+          "name": "type",
+          "type": "XlTableStyleElementType"
+        }
+      ],
+      "returns": {
+        "type": "ApiTableStyleElement | null"
+      },
+      "signature": "GetItem(type: XlTableStyleElementType): ApiTableStyleElement | null",
+      "since": "10.0.0"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "description": "Specifies the language which will be used to check spelling and grammar (if requested) when processing\nthe contents of the current paragraph.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/SetLanguage/",
+  "params": [
+    {
+      "description": "The possible value for this parameter is a language identifier as defined by\rRFC 4646/BCP 47. Example: \"en-CA\". Pass _null_ to remove the language.",
+      "name": "langId",
+      "type": "string | null"
+    }
+  ],
+  "returns": {
+    "description": "returns null if the language identifier is not supported.",
+    "type": "ApiParagraph | null"
+  },
+  "signature": "SetLanguage(langId: string | null): ApiParagraph | null",
+  "since": "10.0.0"
+}

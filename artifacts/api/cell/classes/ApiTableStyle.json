@@ -1,0 +1,121 @@
+{
+  "description": "Class representing a single custom or built-in table style.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/",
+  "methods": {
+    "Delete": {
+      "description": "Deletes the custom table style. Formatted tables and pivot tables that use it switch to the workbook default styles.\nIf the style is itself a workbook default, that default is reset to TableStyleMedium2 or PivotStyleLight16 first.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/Delete/",
+      "params": [],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "Delete(): void",
+      "since": "10.0.0"
+    },
+    "Duplicate": {
+      "description": "Creates a custom copy of the table style with all its formatting and gallery flags.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/Duplicate/",
+      "params": [
+        {
+          "description": "The name of the copy. Must be unique among the custom and built-in style names (case-insensitive).",
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "ApiTableStyle"
+      },
+      "signature": "Duplicate(name: string): ApiTableStyle",
+      "since": "10.0.0"
+    },
+    "GetBuiltIn": {
+      "description": "Returns whether the table style is a built-in style.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/GetBuiltIn/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetBuiltIn(): boolean",
+      "since": "10.0.0"
+    },
+    "GetName": {
+      "description": "Returns the name of the table style.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/GetName/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetName(): string",
+      "since": "10.0.0"
+    },
+    "GetShowAsAvailablePivotTableStyle": {
+      "description": "Returns whether the table style is shown in the pivot table style gallery.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/GetShowAsAvailablePivotTableStyle/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetShowAsAvailablePivotTableStyle(): boolean",
+      "since": "10.0.0"
+    },
+    "GetShowAsAvailableTableStyle": {
+      "description": "Returns whether the table style is shown in the table style gallery.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/GetShowAsAvailableTableStyle/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetShowAsAvailableTableStyle(): boolean",
+      "since": "10.0.0"
+    },
+    "GetTableStyleElements": {
+      "description": "Returns the collection of formatted parts of the table style, or a single part when its type is passed.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/GetTableStyleElements/",
+      "params": [
+        {
+          "description": "The table style element type to return instead of the whole collection.",
+          "name": "type",
+          "optional": true,
+          "type": "XlTableStyleElementType"
+        }
+      ],
+      "returns": {
+        "type": "ApiTableStyleElements | ApiTableStyleElement | null"
+      },
+      "signature": "GetTableStyleElements(type?: XlTableStyleElementType): ApiTableStyleElements | ApiTableStyleElement | null",
+      "since": "10.0.0"
+    },
+    "SetShowAsAvailablePivotTableStyle": {
+      "description": "Sets whether the table style is shown in the pivot table style gallery.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/SetShowAsAvailablePivotTableStyle/",
+      "params": [
+        {
+          "description": "Specifies whether the style is shown in the pivot table style gallery.",
+          "name": "show",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetShowAsAvailablePivotTableStyle(show: boolean): void",
+      "since": "10.0.0"
+    },
+    "SetShowAsAvailableTableStyle": {
+      "description": "Sets whether the table style is shown in the table style gallery.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/SetShowAsAvailableTableStyle/",
+      "params": [
+        {
+          "description": "Specifies whether the style is shown in the table style gallery.",
+          "name": "show",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetShowAsAvailableTableStyle(show: boolean): void",
+      "since": "10.0.0"
+    }
+  }
+}

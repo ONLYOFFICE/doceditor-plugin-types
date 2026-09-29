@@ -1474,4 +1474,4 @@ type CellPaidMethodName = "EndGroupActions" | "StartGroupActions";
 /** Cell `executeMethod` names available in every edition, including Community. */
 type CellFreeMethodName = Exclude<CellMethodName, CellPaidMethodName>;
 
-export type { CellMethodArgs, CellMethodName, CellMethodReturn, CellPaidMethodName, CellFreeMethodName };
+export type { CellMethodArgs, CellMethodName, CellMethodReturn, CellMethodReturnMap, CellPaidMethodName, CellFreeMethodName };

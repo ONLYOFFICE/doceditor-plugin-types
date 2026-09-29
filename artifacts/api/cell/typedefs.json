@@ -1185,6 +1185,10 @@
     "description": "Specifies the sort orientation: sort by rows (top to bottom) or by columns (left to right).",
     "type": "\"xlTopToBottom\" | \"xlLeftToRight\""
   },
+  "XlTableStyleElementType": {
+    "description": "Table style element type. xlGrandTotalRow is the same element as xlTotalRow, xlGrandTotalColumn is the same element as xlLastColumn.",
+    "type": "\"xlWholeTable\" | \"xlHeaderRow\" | \"xlTotalRow\" | \"xlGrandTotalRow\" | \"xlFirstColumn\" | \"xlLastColumn\" | \"xlGrandTotalColumn\" | \"xlRowStripe1\" | \"xlRowStripe2\" | \"xlColumnStripe1\" | \"xlColumnStripe2\" | \"xlFirstHeaderCell\" | \"xlLastHeaderCell\" | \"xlFirstTotalCell\" | \"xlLastTotalCell\" | \"xlSubtotalColumn1\" | \"xlSubtotalColumn2\" | \"xlSubtotalColumn3\" | \"xlSubtotalRow1\" | \"xlSubtotalRow2\" | \"xlSubtotalRow3\" | \"xlBlankRow\" | \"xlColumnSubheading1\" | \"xlColumnSubheading2\" | \"xlColumnSubheading3\" | \"xlRowSubheading1\" | \"xlRowSubheading2\" | \"xlRowSubheading3\" | \"xlPageFieldLabels\" | \"xlPageFieldValues\""
+  },
   "XlTimePeriods": {
     "description": "The time period for conditional formatting.",
     "type": "\"xlToday\" | \"xlYesterday\" | \"xlTomorrow\" | \"xlLast7Days\" | \"xlLastWeek\" | \"xlThisWeek\" | \"xlNextWeek\" | \"xlLastMonth\" | \"xlThisMonth\" | \"xlNextMonth\""

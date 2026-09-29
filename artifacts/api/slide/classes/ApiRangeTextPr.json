@@ -238,16 +238,16 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetFontSize/",
       "params": [
         {
-          "description": "The text size value measured in half-points (1/144 of an inch).",
-          "name": "nSize",
-          "type": "hps"
+          "description": "The text size value measured in half-points (1/144 of an inch). Pass _null_ to remove the font size.",
+          "name": "size",
+          "type": "hps | null"
         }
       ],
       "returns": {
         "description": "this text properties.",
         "type": "ApiTextPr"
       },
-      "signature": "SetFontSize(nSize: hps): ApiTextPr"
+      "signature": "SetFontSize(size: hps | null): ApiTextPr"
     },
     "SetHighlight": {
       "description": "Specifies a highlighting color which is added to the text properties and applied as a background to the contents of the current run/range/paragraph.",
@@ -317,16 +317,16 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetSpacing/",
       "params": [
         {
-          "description": "The value of the text spacing measured in twentieths of a point (1/1440 of an inch).",
-          "name": "nSpacing",
-          "type": "twips"
+          "description": "The value of the text spacing measured in twentieths of a point (1/1440 of an inch). Pass _null_ to remove the text spacing.",
+          "name": "spacing",
+          "type": "twips | null"
         }
       ],
       "returns": {
         "description": "this text properties.",
         "type": "ApiTextPr"
       },
-      "signature": "SetSpacing(nSpacing: twips): ApiTextPr"
+      "signature": "SetSpacing(spacing: twips | null): ApiTextPr"
     },
     "SetStrikeout": {
       "description": "Specifies that the contents of the run are displayed with a single horizontal line through the center of the line.",
@@ -381,16 +381,16 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetVertAlign/",
       "params": [
         {
-          "description": "The vertical alignment type applied to the text contents.",
-          "name": "sType",
-          "type": "\"baseline\" | \"subscript\" | \"superscript\""
+          "description": "The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical alignment.",
+          "name": "type",
+          "type": "\"baseline\" | \"subscript\" | \"superscript\" | null"
         }
       ],
       "returns": {
         "description": "this text properties.",
         "type": "ApiTextPr"
       },
-      "signature": "SetVertAlign(sType: \"baseline\" | \"subscript\" | \"superscript\"): ApiTextPr"
+      "signature": "SetVertAlign(type: \"baseline\" | \"subscript\" | \"superscript\" | null): ApiTextPr"
     }
   }
 }

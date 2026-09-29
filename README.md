@@ -52,6 +52,31 @@ window.Asc.plugin.executeMethod("GetSelectedText", [], function (text) {
 });
 ```
 
+Since sdkjs `v10.0.0.119` the editor's methods are also plain functions on a global `Editor`, typed
+the same way and usually easier to read - arguments spread, result awaited:
+
+```typescript
+const text = await Editor.GetSelectedText();
+await Editor.PasteHtml(`<b>${text}</b>`);
+
+// A trailing function is still taken as a callback.
+Editor.GetSelectedText((selected) => console.log(selected));
+```
+
+`Editor.RunMacro` is the exception: it is `callCommand`, not a renamed `executeMethod`, and it closes
+that call's two traps. Arguments are serialized into the macro body, so data reaches it as parameters
+instead of through `Asc.scope`, and a throw inside comes back as a rejected Promise:
+
+```typescript
+const lines = await Editor.RunMacro(function (prefix: string) {
+    return Api.GetDocument().GetAllParagraphs().map((p) => prefix + p.GetText());
+}, "> ");
+```
+
+Both the arguments and the return value have to survive the process boundary, and the types say so:
+returning an `Api.*` object, or passing a function as an argument, is a compile error rather than an
+`undefined` discovered at runtime.
+
 ## API Types
 
 Every editor's API is generated into its own TypeScript namespace (`Word`, `Cell`, `Slide`, `Forms`,

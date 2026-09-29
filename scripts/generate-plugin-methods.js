@@ -547,7 +547,7 @@ function generateMethodFile(editor, methods, typedefs) {
   // index.d.ts re-exports all of them with `export type * from`. EXTRA_EXPORTS carves out the
   // handful that real external code already imports from the package root.
   const extraExports = (EXTRA_EXPORTS[editor] || []).filter((name) => typedefs[name]);
-  body += `export type { ${prefix}MethodArgs, ${prefix}MethodName, ${prefix}MethodReturn, ${prefix}PaidMethodName, ${prefix}FreeMethodName${extraExports.length ? `, ${extraExports.join(', ')}` : ''} };\n`;
+  body += `export type { ${prefix}MethodArgs, ${prefix}MethodName, ${prefix}MethodReturn, ${prefix}MethodReturnMap, ${prefix}PaidMethodName, ${prefix}FreeMethodName${extraExports.length ? `, ${extraExports.join(', ')}` : ''} };\n`;
 
   return body;
 }

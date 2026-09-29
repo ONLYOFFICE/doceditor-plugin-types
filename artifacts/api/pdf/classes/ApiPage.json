@@ -53,6 +53,15 @@
       },
       "signature": "GetClassType(): \"page\""
     },
+    "GetHeight": {
+      "description": "Gets page height",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiPage/Methods/GetHeight/",
+      "params": [],
+      "returns": {
+        "type": "pt"
+      },
+      "signature": "GetHeight(): pt"
+    },
     "GetIndex": {
       "description": "Gets page index",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiPage/Methods/GetIndex/",
@@ -120,6 +129,15 @@
       },
       "signature": "GetTextWithQuads(): TextWithQuads[]",
       "since": "9.4.0"
+    },
+    "GetWidth": {
+      "description": "Gets page width",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiPage/Methods/GetWidth/",
+      "params": [],
+      "returns": {
+        "type": "pt"
+      },
+      "signature": "GetWidth(): pt"
     },
     "RecognizeContent": {
       "description": "Recognizes content on the page and returns an array of recognized objects.",

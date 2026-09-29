@@ -2,6 +2,23 @@
   "description": "Class representing the currently active workbook",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorkbook/",
   "methods": {
+    "BreakLink": {
+      "description": "Breaks the link to the specified workbook: the formulas that refer to it are replaced with their current values, and the link is removed from the workbook.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorkbook/Methods/BreakLink/",
+      "params": [
+        {
+          "description": "The path of the linked workbook as returned by the {@link ApiWorkbook#GetLinkSources} method.",
+          "name": "sName",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "description": "Returns false if the workbook has no link with the specified path, or if a defined name refers to that workbook; such a name has to be changed or deleted first.",
+        "type": "boolean"
+      },
+      "signature": "BreakLink(sName: string): boolean",
+      "since": "10.0.0"
+    },
     "Calculate": {
       "description": "Recalculates the cells that need recalculation (changed, added or volatile) across the workbook. Forces the recalc that is otherwise deferred until a macro finishes, so up-to-date formula results can be read within the same macro.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorkbook/Methods/Calculate/",
@@ -69,6 +86,17 @@
       "signature": "GetDrawingsByName(ids: string[]): Drawing[]",
       "since": "9.3.0"
     },
+    "GetLinkSources": {
+      "description": "Returns the paths of the other workbooks registered as external links of the current workbook, including links no formula uses any longer.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorkbook/Methods/GetLinkSources/",
+      "params": [],
+      "returns": {
+        "description": "An empty array if the workbook has no links to other workbooks.",
+        "type": "string[]"
+      },
+      "signature": "GetLinkSources(): string[]",
+      "since": "10.0.0"
+    },
     "GetName": {
       "description": "Returns the name of the workbook.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorkbook/Methods/GetName/",
@@ -88,6 +116,16 @@
       },
       "signature": "GetSheets(): ApiWorksheet[]",
       "since": "9.1.0"
+    },
+    "GetTableStyles": {
+      "description": "Returns the collection of table styles of the workbook.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorkbook/Methods/GetTableStyles/",
+      "params": [],
+      "returns": {
+        "type": "ApiTableStyles"
+      },
+      "signature": "GetTableStyles(): ApiTableStyles",
+      "since": "10.0.0"
     },
     "GetTheme": {
       "description": "Returns the theme of the workbook.",

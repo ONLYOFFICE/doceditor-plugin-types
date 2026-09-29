@@ -3,15 +3,15 @@
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/SetColor/",
   "params": [
     {
-      "description": "The text color.",
+      "description": "The text color. Pass _null_ to remove the text color.",
       "name": "color",
-      "type": "ApiColor"
+      "type": "ApiColor | null"
     }
   ],
   "returns": {
     "description": "this",
     "type": "ApiParagraph"
   },
-  "signature": "SetColor(color: ApiColor): ApiParagraph",
+  "signature": "SetColor(color: ApiColor | null): ApiParagraph",
   "since": "9.1.0"
 }

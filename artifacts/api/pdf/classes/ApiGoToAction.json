@@ -44,7 +44,7 @@
     },
     "GetZoom": {
       "description": "Gets zoom for action",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/GetRect/",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/GetZoom/",
       "params": [],
       "returns": {
         "type": "number"

@@ -146,6 +146,15 @@
       },
       "signature": "GetDisplay(): DisplayType"
     },
+    "GetEndStyle": {
+      "description": "Gets a line end style.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiFreeTextAnnotation/Methods/GetEndStyle/",
+      "params": [],
+      "returns": {
+        "type": "LineEndStyle"
+      },
+      "signature": "GetEndStyle(): LineEndStyle"
+    },
     "GetFillColor": {
       "description": "Gets annotation fill color.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetFillColor/",
@@ -412,6 +421,21 @@
         "type": "boolean"
       },
       "signature": "SetDisplay(display: DisplayType): boolean"
+    },
+    "SetEndStyle": {
+      "description": "Sets a line end style.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiFreeTextAnnotation/Methods/SetEndStyle/",
+      "params": [
+        {
+          "description": "The style of the polyline end endpoint.",
+          "name": "style",
+          "type": "LineEndStyle"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetEndStyle(style: LineEndStyle): boolean"
     },
     "SetFillColor": {
       "description": "Sets annotation fill color.",

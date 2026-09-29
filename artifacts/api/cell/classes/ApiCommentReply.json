@@ -100,14 +100,14 @@
       "params": [
         {
           "description": "The timestamp of the comment reply creation in the current time zone format.",
-          "name": "nTimeStamp",
+          "name": "timeStamp",
           "type": "number | string"
         }
       ],
       "returns": {
         "type": "void"
       },
-      "signature": "SetTime(nTimeStamp: number | string): void",
+      "signature": "SetTime(timeStamp: number | string): void",
       "since": "7.5.0"
     },
     "SetTimeUTC": {
@@ -116,14 +116,14 @@
       "params": [
         {
           "description": "The timestamp of the comment reply creation in UTC format.",
-          "name": "nTimeStamp",
+          "name": "timeStamp",
           "type": "number | string"
         }
       ],
       "returns": {
         "type": "void"
       },
-      "signature": "SetTimeUTC(nTimeStamp: number | string): void",
+      "signature": "SetTimeUTC(timeStamp: number | string): void",
       "since": "7.5.0"
     },
     "SetUserId": {

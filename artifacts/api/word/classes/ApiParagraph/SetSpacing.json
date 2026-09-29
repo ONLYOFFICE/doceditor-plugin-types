@@ -3,14 +3,14 @@
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/SetSpacing/",
   "params": [
     {
-      "description": "The value of the text spacing measured in twentieths of a point (1/1440 of an inch).",
-      "name": "nSpacing",
-      "type": "twips"
+      "description": "The value of the text spacing measured in twentieths of a point (1/1440 of an inch). Pass _null_ to remove the text spacing.",
+      "name": "spacing",
+      "type": "twips | null"
     }
   ],
   "returns": {
     "description": "this",
     "type": "ApiParagraph"
   },
-  "signature": "SetSpacing(nSpacing: twips): ApiParagraph"
+  "signature": "SetSpacing(spacing: twips | null): ApiParagraph"
 }

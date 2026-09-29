@@ -22,18 +22,18 @@
         }
       ],
       "returns": {
-        "type": "ApiRange"
+        "type": "ApiRange | null"
       },
-      "signature": "GetItem(ind: number): ApiRange"
+      "signature": "GetItem(ind: number): ApiRange | null"
     },
     "GetParent": {
       "description": "Returns the parent object for the specified collection.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiAreas/Methods/GetParent/",
       "params": [],
       "returns": {
-        "type": "number"
+        "type": "ApiRange"
       },
-      "signature": "GetParent(): number"
+      "signature": "GetParent(): ApiRange"
     }
   }
 }

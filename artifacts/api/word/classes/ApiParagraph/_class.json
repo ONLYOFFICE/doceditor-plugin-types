@@ -4,6 +4,6 @@
   "extends": [
     "ApiParaPr"
   ],
-  "methodCount": 132,
+  "methodCount": 133,
   "sharded": true
 }

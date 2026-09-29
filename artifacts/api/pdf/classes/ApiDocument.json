@@ -69,11 +69,24 @@
     "ApplyRedact": {
       "description": "Applies added redact.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/ApplyRedact/",
-      "params": [],
+      "params": [
+        {
+          "description": "specifies whether form fields should be included in the redaction.",
+          "name": "includeForms",
+          "optional": true,
+          "type": "boolean"
+        },
+        {
+          "description": "specifies whether annotations should be included in the redaction.",
+          "name": "includeAnnots",
+          "optional": true,
+          "type": "boolean"
+        }
+      ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "ApplyRedact(): boolean"
+      "signature": "ApplyRedact(includeForms?: boolean, includeAnnots?: boolean): boolean"
     },
     "GetAllFields": {
       "description": "Gets list of all fields in document.",

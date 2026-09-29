@@ -239,16 +239,16 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetColor/",
       "params": [
         {
-          "description": "The text color.",
+          "description": "The text color. Pass _null_ to remove the text color.",
           "name": "color",
-          "type": "ApiColor"
+          "type": "ApiColor | null"
         }
       ],
       "returns": {
         "description": "this text properties.",
         "type": "ApiTextPr"
       },
-      "signature": "SetColor(color: ApiColor): ApiTextPr",
+      "signature": "SetColor(color: ApiColor | null): ApiTextPr",
       "since": "9.1.0"
     },
     "SetDoubleStrikeout": {
@@ -288,16 +288,16 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetFontSize/",
       "params": [
         {
-          "description": "The text size value measured in half-points (1/144 of an inch).",
-          "name": "nSize",
-          "type": "hps"
+          "description": "The text size value measured in half-points (1/144 of an inch). Pass _null_ to remove the font size.",
+          "name": "size",
+          "type": "hps | null"
         }
       ],
       "returns": {
         "description": "this text properties.",
         "type": "ApiTextPr"
       },
-      "signature": "SetFontSize(nSize: hps): ApiTextPr"
+      "signature": "SetFontSize(size: hps | null): ApiTextPr"
     },
     "SetHighlight": {
       "description": "Specifies a highlighting color which is added to the text properties and applied as a background to the contents of the current run/range/paragraph.",
@@ -335,16 +335,16 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetLanguage/",
       "params": [
         {
-          "description": "The possible value for this parameter is a language identifier as defined by\rRFC 4646/BCP 47. Example: \"en-CA\".",
-          "name": "sLangId",
-          "type": "string"
+          "description": "The possible value for this parameter is a language identifier as defined by\rRFC 4646/BCP 47. Example: \"en-CA\". Pass _null_ to remove the language.",
+          "name": "langId",
+          "type": "string | null"
         }
       ],
       "returns": {
         "description": "this text properties.",
         "type": "ApiTextPr"
       },
-      "signature": "SetLanguage(sLangId: string): ApiTextPr"
+      "signature": "SetLanguage(langId: string | null): ApiTextPr"
     },
     "SetOutLine": {
       "description": "Sets the text outline to the current text run.",
@@ -367,16 +367,16 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetPosition/",
       "params": [
         {
-          "description": "Specifies a positive (raised text) or negative (lowered text)\rmeasurement in half-points (1/144 of an inch).",
-          "name": "nPosition",
-          "type": "hps"
+          "description": "Specifies a positive (raised text) or negative (lowered text)\rmeasurement in half-points (1/144 of an inch). Pass _null_ to remove the position.",
+          "name": "position",
+          "type": "hps | null"
         }
       ],
       "returns": {
         "description": "this text properties.",
         "type": "ApiTextPr"
       },
-      "signature": "SetPosition(nPosition: hps): ApiTextPr"
+      "signature": "SetPosition(position: hps | null): ApiTextPr"
     },
     "SetShd": {
       "description": "Specifies the shading applied to the contents of the current text run.",
@@ -416,16 +416,16 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetSpacing/",
       "params": [
         {
-          "description": "The value of the text spacing measured in twentieths of a point (1/1440 of an inch).",
-          "name": "nSpacing",
-          "type": "twips"
+          "description": "The value of the text spacing measured in twentieths of a point (1/1440 of an inch). Pass _null_ to remove the text spacing.",
+          "name": "spacing",
+          "type": "twips | null"
         }
       ],
       "returns": {
         "description": "this text properties.",
         "type": "ApiTextPr"
       },
-      "signature": "SetSpacing(nSpacing: twips): ApiTextPr"
+      "signature": "SetSpacing(spacing: twips | null): ApiTextPr"
     },
     "SetStrikeout": {
       "description": "Specifies that the contents of the run are displayed with a single horizontal line through the center of the line.",
@@ -496,16 +496,16 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetVertAlign/",
       "params": [
         {
-          "description": "The vertical alignment type applied to the text contents.",
-          "name": "sType",
-          "type": "\"baseline\" | \"subscript\" | \"superscript\""
+          "description": "The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical alignment.",
+          "name": "type",
+          "type": "\"baseline\" | \"subscript\" | \"superscript\" | null"
         }
       ],
       "returns": {
         "description": "this text properties.",
         "type": "ApiTextPr"
       },
-      "signature": "SetVertAlign(sType: \"baseline\" | \"subscript\" | \"superscript\"): ApiTextPr"
+      "signature": "SetVertAlign(type: \"baseline\" | \"subscript\" | \"superscript\" | null): ApiTextPr"
     },
     "ToJSON": {
       "description": "Converts the ApiTextPr object into the JSON object.",

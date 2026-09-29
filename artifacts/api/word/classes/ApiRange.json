@@ -380,16 +380,16 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/SetColor/",
       "params": [
         {
-          "description": "The text color.",
+          "description": "The text color. Pass _null_ to remove the text color.",
           "name": "color",
-          "type": "ApiColor"
+          "type": "ApiColor | null"
         }
       ],
       "returns": {
         "description": "returns null if can't apply color.",
         "type": "ApiRange | null"
       },
-      "signature": "SetColor(color: ApiColor): ApiRange | null",
+      "signature": "SetColor(color: ApiColor | null): ApiRange | null",
       "since": "9.1.0"
     },
     "SetDoubleStrikeout": {
@@ -429,32 +429,32 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/SetFontFamily/",
       "params": [
         {
-          "description": "The font family or families used for the current text Range.",
-          "name": "sFontFamily",
-          "type": "string"
+          "description": "The font family or families used for the current text Range. Pass _null_ to remove the font family.",
+          "name": "fontFamily",
+          "type": "string | null"
         }
       ],
       "returns": {
         "description": "returns null if can't set font family.",
         "type": "ApiRange | null"
       },
-      "signature": "SetFontFamily(sFontFamily: string): ApiRange | null"
+      "signature": "SetFontFamily(fontFamily: string | null): ApiRange | null"
     },
     "SetFontSize": {
       "description": "Sets the font size to the characters of the current text Range.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/SetFontSize/",
       "params": [
         {
-          "description": "The text size value measured in half-points (1/144 of an inch).",
+          "description": "The text size value measured in half-points (1/144 of an inch). Pass _null_ to remove the font size.",
           "name": "fontSize",
-          "type": "hps"
+          "type": "hps | null"
         }
       ],
       "returns": {
         "description": "returns null if can't set font size.",
         "type": "ApiRange | null"
       },
-      "signature": "SetFontSize(fontSize: hps): ApiRange | null"
+      "signature": "SetFontSize(fontSize: hps | null): ApiRange | null"
     },
     "SetHighlight": {
       "description": "Specifies a highlighting color which is applied as a background to the contents of the current Range.",
@@ -488,21 +488,38 @@
       },
       "signature": "SetItalic(isItalic: boolean): ApiRange | null"
     },
+    "SetLanguage": {
+      "description": "Specifies the language which will be used to check spelling and grammar (if requested) when processing\nthe contents of the current range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/SetLanguage/",
+      "params": [
+        {
+          "description": "The possible value for this parameter is a language identifier as defined by\rRFC 4646/BCP 47. Example: \"en-CA\". Pass _null_ to remove the language.",
+          "name": "langId",
+          "type": "string | null"
+        }
+      ],
+      "returns": {
+        "description": "returns null if the language identifier is not supported or the language can't be set.",
+        "type": "ApiRange | null"
+      },
+      "signature": "SetLanguage(langId: string | null): ApiRange | null",
+      "since": "10.0.0"
+    },
     "SetPosition": {
       "description": "Specifies the amount by which text is raised or lowered for the current Range in relation to the default\nbaseline of the surrounding non-positioned text.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/SetPosition/",
       "params": [
         {
-          "description": "Specifies a positive (raised text) or negative (lowered text)\rmeasurement in half-points (1/144 of an inch).",
-          "name": "nPosition",
-          "type": "hps"
+          "description": "Specifies a positive (raised text) or negative (lowered text)\rmeasurement in half-points (1/144 of an inch). Pass _null_ to remove the position.",
+          "name": "position",
+          "type": "hps | null"
         }
       ],
       "returns": {
         "description": "returns null if can't set position.",
         "type": "ApiRange | null"
       },
-      "signature": "SetPosition(nPosition: hps): ApiRange | null"
+      "signature": "SetPosition(position: hps | null): ApiRange | null"
     },
     "SetShd": {
       "description": "Specifies the shading applied to the contents of the current text Range.",
@@ -542,16 +559,16 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/SetSpacing/",
       "params": [
         {
-          "description": "The value of the text spacing measured in twentieths of a point (1/1440 of an inch).",
-          "name": "nSpacing",
-          "type": "twips"
+          "description": "The value of the text spacing measured in twentieths of a point (1/1440 of an inch). Pass _null_ to remove the text spacing.",
+          "name": "spacing",
+          "type": "twips | null"
         }
       ],
       "returns": {
         "description": "returns null if can't apply spacing.",
         "type": "ApiRange | null"
       },
-      "signature": "SetSpacing(nSpacing: twips): ApiRange | null"
+      "signature": "SetSpacing(spacing: twips | null): ApiRange | null"
     },
     "SetStartPos": {
       "description": "Sets the start position of the current range object.",
@@ -638,16 +655,16 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/SetVertAlign/",
       "params": [
         {
-          "description": "The vertical alignment type applied to the text contents.",
-          "name": "sType",
-          "type": "\"baseline\" | \"subscript\" | \"superscript\""
+          "description": "The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical alignment.",
+          "name": "type",
+          "type": "\"baseline\" | \"subscript\" | \"superscript\" | null"
         }
       ],
       "returns": {
         "description": "returns null if can't apply align.",
         "type": "ApiRange | null"
       },
-      "signature": "SetVertAlign(sType: \"baseline\" | \"subscript\" | \"superscript\"): ApiRange | null"
+      "signature": "SetVertAlign(type: \"baseline\" | \"subscript\" | \"superscript\" | null): ApiRange | null"
     },
     "ToHtml": {
       "description": "Converts the range to HTML.",

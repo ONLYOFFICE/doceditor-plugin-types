@@ -14,6 +14,24 @@ building on it: everything listed under `9.5.0` ships here, regenerated against 
 
 ### Added
 
+- The global `Editor`, which sdkjs added in `v10.0.0.119`. Every `executeMethod` name is a function
+  on it - `await Editor.GetSelectedText()` - with the arguments spread rather than passed as an
+  array, a trailing function still taken as a callback, and a Promise when there is none. Typed per
+  editor from the maps `executeMethod` already uses, and declared in the editor entry points beside
+  `Api`, so the one-editor-per-program rule covers it unchanged.
+
+  `Editor.RunMacro(fn, ...args)` is the member that is not a renamed `executeMethod`: it is
+  `callCommand` with the extra arguments serialized into the macro body, so data reaches it as
+  parameters instead of through `Asc.scope`, and with that body wrapped in `try`/`catch`, so a throw
+  rejects the Promise instead of leaving a callback that never fires. `CommandSerializable` now
+  constrains its arguments as well as its return value.
+
+  Three call signatures per method rather than two: a tuple cannot place a required element after an
+  optional one, so `[...Args, callback]` is inexpressible for a method whose last parameter is
+  optional, and the callback form of `GetSelectedText(prop?)` would have demanded the argument it is
+  allowed to omit. The extra signature covers passing a callback alone. A method called with *some*
+  of its optional arguments and a callback stays out of reach - it fails as no-matching-overload
+  rather than being silently accepted.
 - The files an agent starts from point back at the guide: an `"agents"` field carrying AGENTS.md's
   raw URL on the manifest, each editor index and `runtime.json` - seven files - plus a line in each
   ambient bundle's header. `artifacts/` is not in the npm package, so it is normally reached by URL,

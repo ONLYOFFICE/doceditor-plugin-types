@@ -875,7 +875,8 @@ export namespace Word {
   }
 
   /**
-   * Base class
+   * The main class of the Document API. Use it to get the current document and to create
+   * document elements, such as paragraphs, tables, images, and charts.
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/
    */
@@ -2814,7 +2815,7 @@ export namespace Word {
      *
      * @param px - The number of pixels to convert to EMUs.
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/PixelsToEmu/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/PixelsToEmus/
      */
     PixelsToEmus(px: number): number;
 
@@ -3264,7 +3265,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/attachEvent/
      */
-    attachEvent(eventName: string, callback: (...args: unknown[]) => unknown): boolean;
+    attachEvent(eventName: string, callback: (...args: unknown[]) => unknown): void;
 
     /**
      * Unsubscribes from the specified event.
@@ -3282,7 +3283,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/detachEvent/
      */
-    detachEvent(eventName: string): boolean;
+    detachEvent(eventName: string): void;
   }
 
   /**
@@ -36794,7 +36795,7 @@ export namespace Word {
     /**
      * Sets the text color to the current paragraph.
      *
-     * @param color - The text color.
+     * @param color - The text color. Pass _null_ to remove the text color.
      * @returns this
      * @since 9.1.0
      *
@@ -36818,7 +36819,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/SetColor/
      */
-    SetColor(color: ApiColor): ApiParagraph;
+    SetColor(color: ApiColor | null): ApiParagraph;
 
     /**
      * Specifies that any space before or after this paragraph set using the
@@ -36898,7 +36899,8 @@ export namespace Word {
     /**
      * Sets all 4 font slots with the specified font family.
      *
-     * @param sFontFamily - The font family or families used for the current paragraph.
+     * @param fontFamily - The font family or families used for the current paragraph. Pass _null_ to remove the font
+     *   family.
      * @returns this
      *
      * @example
@@ -36915,12 +36917,13 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/SetFontFamily/
      */
-    SetFontFamily(sFontFamily: string): ApiParagraph;
+    SetFontFamily(fontFamily: string | null): ApiParagraph;
 
     /**
      * Sets the font size to the characters of the current paragraph.
      *
-     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch). Pass _null_ to remove the font
+     *   size.
      * @returns this
      *
      * @example
@@ -36937,7 +36940,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/SetFontSize/
      */
-    SetFontSize(fontSize: hps): ApiParagraph;
+    SetFontSize(fontSize: hps | null): ApiParagraph;
 
     /**
      * Specifies a highlighting color which is applied as a background to the contents of the current
@@ -37232,6 +37235,20 @@ export namespace Word {
     SetKeepNext(isKeepNext: boolean): boolean;
 
     /**
+     * Specifies the language which will be used to check spelling and grammar (if requested) when
+     * processing
+     * the contents of the current paragraph.
+     *
+     * @param langId - The possible value for this parameter is a language identifier as defined by RFC 4646/BCP 47.
+     *   Example: "en-CA". Pass _null_ to remove the language.
+     * @returns returns null if the language identifier is not supported.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/SetLanguage/
+     */
+    SetLanguage(langId: string | null): ApiParagraph | null;
+
+    /**
      * Specifies the border which will be displayed at the left side of the page around the specified
      * paragraph.
      *
@@ -37413,8 +37430,8 @@ export namespace Word {
      * Specifies an amount by which text is raised or lowered for this paragraph in relation to the default
      * baseline of the surrounding non-positioned text.
      *
-     * @param nPosition - Specifies a positive (raised text) or negative (lowered text) measurement in half-points (1/144
-     *   of an inch).
+     * @param position - Specifies a positive (raised text) or negative (lowered text) measurement in half-points (1/144
+     *   of an inch). Pass _null_ to remove the position.
      * @returns this
      *
      * @example
@@ -37434,7 +37451,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/SetPosition/
      */
-    SetPosition(nPosition: hps): ApiParagraph;
+    SetPosition(position: hps | null): ApiParagraph;
 
     /**
      * Specifies the reading order for the current paragraph.
@@ -37584,7 +37601,8 @@ export namespace Word {
     /**
      * Sets the text spacing measured in twentieths of a point.
      *
-     * @param nSpacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch).
+     * @param spacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch). Pass _null_
+     *   to remove the text spacing.
      * @returns this
      *
      * @example
@@ -37601,7 +37619,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/SetSpacing/
      */
-    SetSpacing(nSpacing: twips): ApiParagraph;
+    SetSpacing(spacing: twips | null): ApiParagraph;
 
     /**
      * Sets the spacing after the current paragraph. If the value of the isAfterAuto parameter is true,
@@ -37934,8 +37952,9 @@ export namespace Word {
      * **"superscript"** - the characters in the current paragraph will be aligned above the default text
      * baseline.
      *
-     * @param sType - The vertical alignment type applied to the text contents.
-     * @returns returns null is sType is invalid.
+     * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
+     *   alignment.
+     * @returns returns null is type is invalid.
      *
      * @example
      * ```js
@@ -37955,7 +37974,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/SetVertAlign/
      */
-    SetVertAlign(sType: "baseline" | "subscript" | "superscript"): ApiParagraph | null;
+    SetVertAlign(type: "baseline" | "subscript" | "superscript" | null): ApiParagraph | null;
 
     /**
      * Specifies whether a single line of the current paragraph will be displayed on a separate page from
@@ -41182,7 +41201,7 @@ export namespace Word {
     /**
      * Sets the text color to the current text Range.
      *
-     * @param color - The text color.
+     * @param color - The text color. Pass _null_ to remove the text color.
      * @returns returns null if can't apply color.
      * @since 9.1.0
      *
@@ -41206,7 +41225,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/SetColor/
      */
-    SetColor(color: ApiColor): ApiRange | null;
+    SetColor(color: ApiColor | null): ApiRange | null;
 
     /**
      * Specifies that the contents of the current Range are displayed with two horizontal lines through
@@ -41259,7 +41278,8 @@ export namespace Word {
     /**
      * Sets all 4 font slots with the specified font family.
      *
-     * @param sFontFamily - The font family or families used for the current text Range.
+     * @param fontFamily - The font family or families used for the current text Range. Pass _null_ to remove the font
+     *   family.
      * @returns returns null if can't set font family.
      *
      * @example
@@ -41278,12 +41298,13 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/SetFontFamily/
      */
-    SetFontFamily(sFontFamily: string): ApiRange | null;
+    SetFontFamily(fontFamily: string | null): ApiRange | null;
 
     /**
      * Sets the font size to the characters of the current text Range.
      *
-     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch). Pass _null_ to remove the font
+     *   size.
      * @returns returns null if can't set font size.
      *
      * @example
@@ -41301,7 +41322,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/SetFontSize/
      */
-    SetFontSize(fontSize: hps): ApiRange | null;
+    SetFontSize(fontSize: hps | null): ApiRange | null;
 
     /**
      * Specifies a highlighting color which is applied as a background to the contents of the current
@@ -41351,12 +41372,26 @@ export namespace Word {
     SetItalic(isItalic: boolean): ApiRange | null;
 
     /**
+     * Specifies the language which will be used to check spelling and grammar (if requested) when
+     * processing
+     * the contents of the current range.
+     *
+     * @param langId - The possible value for this parameter is a language identifier as defined by RFC 4646/BCP 47.
+     *   Example: "en-CA". Pass _null_ to remove the language.
+     * @returns returns null if the language identifier is not supported or the language can't be set.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/SetLanguage/
+     */
+    SetLanguage(langId: string | null): ApiRange | null;
+
+    /**
      * Specifies the amount by which text is raised or lowered for the current Range in relation to the
      * default
      * baseline of the surrounding non-positioned text.
      *
-     * @param nPosition - Specifies a positive (raised text) or negative (lowered text) measurement in half-points (1/144
-     *   of an inch).
+     * @param position - Specifies a positive (raised text) or negative (lowered text) measurement in half-points (1/144
+     *   of an inch). Pass _null_ to remove the position.
      * @returns returns null if can't set position.
      *
      * @example
@@ -41375,7 +41410,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/SetPosition/
      */
-    SetPosition(nPosition: hps): ApiRange | null;
+    SetPosition(position: hps | null): ApiRange | null;
 
     /**
      * Specifies the shading applied to the contents of the current text Range.
@@ -41431,7 +41466,8 @@ export namespace Word {
     /**
      * Sets the text spacing measured in twentieths of a point.
      *
-     * @param nSpacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch).
+     * @param spacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch). Pass _null_
+     *   to remove the text spacing.
      * @returns returns null if can't apply spacing.
      *
      * @example
@@ -41449,7 +41485,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/SetSpacing/
      */
-    SetSpacing(nSpacing: twips): ApiRange | null;
+    SetSpacing(spacing: twips | null): ApiRange | null;
 
     /**
      * Sets the start position of the current range object.
@@ -41583,7 +41619,8 @@ export namespace Word {
      * **"superscript"** - the characters in the current text Range will be aligned above the default text
      * baseline.
      *
-     * @param sType - The vertical alignment type applied to the text contents.
+     * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
+     *   alignment.
      * @returns returns null if can't apply align.
      *
      * @example
@@ -41601,7 +41638,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/SetVertAlign/
      */
-    SetVertAlign(sType: "baseline" | "subscript" | "superscript"): ApiRange | null;
+    SetVertAlign(type: "baseline" | "subscript" | "superscript" | null): ApiRange | null;
 
     /**
      * Converts the range to HTML.
@@ -42451,7 +42488,7 @@ export namespace Word {
     /**
      * Sets the text color to the current text run.
      *
-     * @param color - The text color.
+     * @param color - The text color. Pass _null_ to remove the text color.
      * @returns this text properties.
      * @since 9.1.0
      *
@@ -42476,7 +42513,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetColor/
      */
-    SetColor(color: ApiColor): ApiTextPr;
+    SetColor(color: ApiColor | null): ApiTextPr;
 
     /**
      * Specifies that the contents of the run are displayed with two horizontal lines through each
@@ -42528,7 +42565,8 @@ export namespace Word {
     /**
      * Sets the font size to the characters of the current text run.
      *
-     * @param nSize - The text size value measured in half-points (1/144 of an inch).
+     * @param size - The text size value measured in half-points (1/144 of an inch). Pass _null_ to remove the font
+     *   size.
      * @returns this text properties.
      *
      * @example
@@ -42546,7 +42584,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetFontSize/
      */
-    SetFontSize(nSize: hps): ApiTextPr;
+    SetFontSize(size: hps | null): ApiTextPr;
 
     /**
      * Specifies a highlighting color which is added to the text properties and applied as a background to
@@ -42599,8 +42637,8 @@ export namespace Word {
      * processing
      * the contents of the text run.
      *
-     * @param sLangId - The possible value for this parameter is a language identifier as defined by RFC 4646/BCP 47.
-     *   Example: "en-CA".
+     * @param langId - The possible value for this parameter is a language identifier as defined by RFC 4646/BCP 47.
+     *   Example: "en-CA". Pass _null_ to remove the language.
      * @returns this text properties.
      *
      * @example
@@ -42624,7 +42662,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetLanguage/
      */
-    SetLanguage(sLangId: string): ApiTextPr;
+    SetLanguage(langId: string | null): ApiTextPr;
 
     /**
      * Sets the text outline to the current text run.
@@ -42659,8 +42697,8 @@ export namespace Word {
      * Specifies an amount by which text is raised or lowered for this run in relation to the default
      * baseline of the surrounding non-positioned text.
      *
-     * @param nPosition - Specifies a positive (raised text) or negative (lowered text) measurement in half-points (1/144
-     *   of an inch).
+     * @param position - Specifies a positive (raised text) or negative (lowered text) measurement in half-points (1/144
+     *   of an inch). Pass _null_ to remove the position.
      * @returns this text properties.
      *
      * @example
@@ -42692,7 +42730,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetPosition/
      */
-    SetPosition(nPosition: hps): ApiTextPr;
+    SetPosition(position: hps | null): ApiTextPr;
 
     /**
      * Specifies the shading applied to the contents of the current text run.
@@ -42748,7 +42786,8 @@ export namespace Word {
     /**
      * Sets the text spacing measured in twentieths of a point.
      *
-     * @param nSpacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch).
+     * @param spacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch). Pass _null_
+     *   to remove the text spacing.
      * @returns this text properties.
      *
      * @example
@@ -42766,7 +42805,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetSpacing/
      */
-    SetSpacing(nSpacing: twips): ApiTextPr;
+    SetSpacing(spacing: twips | null): ApiTextPr;
 
     /**
      * Specifies that the contents of the run are displayed with a single horizontal line through the
@@ -42892,7 +42931,8 @@ export namespace Word {
      * **"superscript"** - the characters in the current text run will be aligned above the default text
      * baseline.
      *
-     * @param sType - The vertical alignment type applied to the text contents.
+     * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
+     *   alignment.
      * @returns this text properties.
      *
      * @example
@@ -42931,7 +42971,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetVertAlign/
      */
-    SetVertAlign(sType: "baseline" | "subscript" | "superscript"): ApiTextPr;
+    SetVertAlign(type: "baseline" | "subscript" | "superscript" | null): ApiTextPr;
 
     /**
      * Converts the ApiTextPr object into the JSON object.
@@ -44384,7 +44424,7 @@ export namespace Word {
     /**
      * Sets the text color to the current text run.
      *
-     * @param color - The text color.
+     * @param color - The text color. Pass _null_ to remove the text color.
      * @returns this text properties.
      * @since 9.1.0
      *
@@ -44411,7 +44451,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetColor/
      */
-    SetColor(color: ApiColor): ApiTextPr;
+    SetColor(color: ApiColor | null): ApiTextPr;
 
     /**
      * Specifies that the contents of the run are displayed with two horizontal lines through each
@@ -44471,7 +44511,8 @@ export namespace Word {
     /**
      * Sets the font size to the characters of the current text run.
      *
-     * @param nSize - The text size value measured in half-points (1/144 of an inch).
+     * @param size - The text size value measured in half-points (1/144 of an inch). Pass _null_ to remove the font
+     *   size.
      * @returns this text properties.
      *
      * @example
@@ -44493,7 +44534,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetFontSize/
      */
-    SetFontSize(nSize: hps): ApiTextPr;
+    SetFontSize(size: hps | null): ApiTextPr;
 
     /**
      * Specifies a highlighting color which is added to the text properties and applied as a background to
@@ -44554,8 +44595,8 @@ export namespace Word {
      * processing
      * the contents of the text run.
      *
-     * @param sLangId - The possible value for this parameter is a language identifier as defined by RFC 4646/BCP 47.
-     *   Example: "en-CA".
+     * @param langId - The possible value for this parameter is a language identifier as defined by RFC 4646/BCP 47.
+     *   Example: "en-CA". Pass _null_ to remove the language.
      * @returns this text properties.
      *
      * @example
@@ -44577,7 +44618,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetLanguage/
      */
-    SetLanguage(sLangId: string): ApiTextPr;
+    SetLanguage(langId: string | null): ApiTextPr;
 
     /**
      * Sets the text outline to the current text run.
@@ -44612,8 +44653,8 @@ export namespace Word {
      * Specifies an amount by which text is raised or lowered for this run in relation to the default
      * baseline of the surrounding non-positioned text.
      *
-     * @param nPosition - Specifies a positive (raised text) or negative (lowered text) measurement in half-points (1/144
-     *   of an inch).
+     * @param position - Specifies a positive (raised text) or negative (lowered text) measurement in half-points (1/144
+     *   of an inch). Pass _null_ to remove the position.
      * @returns this text properties.
      *
      * @example
@@ -44639,7 +44680,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetPosition/
      */
-    SetPosition(nPosition: hps): ApiTextPr;
+    SetPosition(position: hps | null): ApiTextPr;
 
     /**
      * Specifies the shading applied to the contents of the current text run.
@@ -44703,7 +44744,8 @@ export namespace Word {
     /**
      * Sets the text spacing measured in twentieths of a point.
      *
-     * @param nSpacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch).
+     * @param spacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch). Pass _null_
+     *   to remove the text spacing.
      * @returns this text properties.
      *
      * @example
@@ -44725,7 +44767,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetSpacing/
      */
-    SetSpacing(nSpacing: twips): ApiTextPr;
+    SetSpacing(spacing: twips | null): ApiTextPr;
 
     /**
      * Specifies that the contents of the run are displayed with a single horizontal line through the
@@ -44896,7 +44938,8 @@ export namespace Word {
      * **"superscript"** - the characters in the current text run will be aligned above the default text
      * baseline.
      *
-     * @param sType - The vertical alignment type applied to the text contents.
+     * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
+     *   alignment.
      * @returns this text properties.
      *
      * @example
@@ -44926,7 +44969,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetVertAlign/
      */
-    SetVertAlign(sType: "baseline" | "subscript" | "superscript"): ApiTextPr;
+    SetVertAlign(type: "baseline" | "subscript" | "superscript" | null): ApiTextPr;
 
     /**
      * Converts the ApiRun object into the JSON object.
@@ -59229,7 +59272,7 @@ export namespace Word {
     /**
      * Sets the text color to the current text run.
      *
-     * @param color - The text color.
+     * @param color - The text color. Pass _null_ to remove the text color.
      * @returns this text properties.
      * @since 9.1.0
      *
@@ -59254,7 +59297,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetColor/
      */
-    SetColor(color: ApiColor): ApiTextPr;
+    SetColor(color: ApiColor | null): ApiTextPr;
 
     /**
      * Specifies that the contents of the run are displayed with two horizontal lines through each
@@ -59306,7 +59349,8 @@ export namespace Word {
     /**
      * Sets the font size to the characters of the current text run.
      *
-     * @param nSize - The text size value measured in half-points (1/144 of an inch).
+     * @param size - The text size value measured in half-points (1/144 of an inch). Pass _null_ to remove the font
+     *   size.
      * @returns this text properties.
      *
      * @example
@@ -59324,7 +59368,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetFontSize/
      */
-    SetFontSize(nSize: hps): ApiTextPr;
+    SetFontSize(size: hps | null): ApiTextPr;
 
     /**
      * Specifies a highlighting color which is added to the text properties and applied as a background to
@@ -59377,8 +59421,8 @@ export namespace Word {
      * processing
      * the contents of the text run.
      *
-     * @param sLangId - The possible value for this parameter is a language identifier as defined by RFC 4646/BCP 47.
-     *   Example: "en-CA".
+     * @param langId - The possible value for this parameter is a language identifier as defined by RFC 4646/BCP 47.
+     *   Example: "en-CA". Pass _null_ to remove the language.
      * @returns this text properties.
      *
      * @example
@@ -59402,7 +59446,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetLanguage/
      */
-    SetLanguage(sLangId: string): ApiTextPr;
+    SetLanguage(langId: string | null): ApiTextPr;
 
     /**
      * Sets the text outline to the current text run.
@@ -59437,8 +59481,8 @@ export namespace Word {
      * Specifies an amount by which text is raised or lowered for this run in relation to the default
      * baseline of the surrounding non-positioned text.
      *
-     * @param nPosition - Specifies a positive (raised text) or negative (lowered text) measurement in half-points (1/144
-     *   of an inch).
+     * @param position - Specifies a positive (raised text) or negative (lowered text) measurement in half-points (1/144
+     *   of an inch). Pass _null_ to remove the position.
      * @returns this text properties.
      *
      * @example
@@ -59470,7 +59514,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetPosition/
      */
-    SetPosition(nPosition: hps): ApiTextPr;
+    SetPosition(position: hps | null): ApiTextPr;
 
     /**
      * Specifies the shading applied to the contents of the current text run.
@@ -59526,7 +59570,8 @@ export namespace Word {
     /**
      * Sets the text spacing measured in twentieths of a point.
      *
-     * @param nSpacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch).
+     * @param spacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch). Pass _null_
+     *   to remove the text spacing.
      * @returns this text properties.
      *
      * @example
@@ -59544,7 +59589,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetSpacing/
      */
-    SetSpacing(nSpacing: twips): ApiTextPr;
+    SetSpacing(spacing: twips | null): ApiTextPr;
 
     /**
      * Specifies that the contents of the run are displayed with a single horizontal line through the
@@ -59670,7 +59715,8 @@ export namespace Word {
      * **"superscript"** - the characters in the current text run will be aligned above the default text
      * baseline.
      *
-     * @param sType - The vertical alignment type applied to the text contents.
+     * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
+     *   alignment.
      * @returns this text properties.
      *
      * @example
@@ -59709,7 +59755,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetVertAlign/
      */
-    SetVertAlign(sType: "baseline" | "subscript" | "superscript"): ApiTextPr;
+    SetVertAlign(type: "baseline" | "subscript" | "superscript" | null): ApiTextPr;
 
     /**
      * Converts the ApiTextPr object into the JSON object.

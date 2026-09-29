@@ -712,11 +712,11 @@
       "since": "8.2.0"
     },
     "SetStyleName": {
-      "description": "Sets the pivot table style name.",
+      "description": "Sets the pivot table style name.\nBuilt-in pivot table style names: PivotStyleLight1-28, PivotStyleMedium1-28, PivotStyleDark1-28.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetStyleName/",
       "params": [
         {
-          "description": "The pivot table style name.",
+          "description": "The name of a built-in pivot table style (for example, \"PivotStyleMedium9\"), or a custom style defined in the workbook.",
           "name": "name",
           "type": "string"
         }

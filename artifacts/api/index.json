@@ -1,12 +1,12 @@
 {
-  "agents": "https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md",
+  "agents": "https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/main/AGENTS.md",
   "editors": {
     "cell": {
-      "classes": 121,
+      "classes": 125,
       "events": 1,
       "executeMethods": 47,
-      "methods": 1961,
-      "typedefs": 173
+      "methods": 1987,
+      "typedefs": 174
     },
     "forms": {
       "classes": 69,
@@ -19,21 +19,21 @@
       "classes": 112,
       "events": 2,
       "executeMethods": 31,
-      "methods": 1496,
+      "methods": 1504,
       "typedefs": 145
     },
     "slide": {
       "classes": 85,
       "events": 5,
       "executeMethods": 62,
-      "methods": 1057,
+      "methods": 1059,
       "typedefs": 109
     },
     "word": {
       "classes": 73,
       "events": 19,
       "executeMethods": 113,
-      "methods": 2111,
+      "methods": 2113,
       "typedefs": 103
     }
   },
@@ -43,8 +43,8 @@
     "executeMethod names live in <editor>/executeMethods.json; the plugin runtime (Asc.plugin, config.json) in runtime.json.",
     "Do not concatenate the tree - it is deliberately split so no single read is large.",
     "Runnable examples are not here - they are in each member's JSDoc in the .d.ts. `requires` marks a member absent from Community Edition builds.",
-    "Read https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md before working from this tree: it is what the \"agents\" field on this file, each editor index and runtime.json points at."
+    "Read https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/main/AGENTS.md before working from this tree: it is what the \"agents\" field on this file, each editor index and runtime.json points at."
   ],
-  "package": "@onlyoffice/plugins-types",
+  "package": "@onlyoffice/doceditor-plugin-types",
   "version": "10.0.0"
 }

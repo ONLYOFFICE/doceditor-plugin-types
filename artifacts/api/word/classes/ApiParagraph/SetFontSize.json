@@ -3,14 +3,14 @@
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/SetFontSize/",
   "params": [
     {
-      "description": "The text size value measured in half-points (1/144 of an inch).",
+      "description": "The text size value measured in half-points (1/144 of an inch). Pass _null_ to remove the font size.",
       "name": "fontSize",
-      "type": "hps"
+      "type": "hps | null"
     }
   ],
   "returns": {
     "description": "this",
     "type": "ApiParagraph"
   },
-  "signature": "SetFontSize(fontSize: hps): ApiParagraph"
+  "signature": "SetFontSize(fontSize: hps | null): ApiParagraph"
 }

@@ -1,0 +1,114 @@
+{
+  "description": "Class representing a single formatted part of a table style.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElement/",
+  "methods": {
+    "Clear": {
+      "description": "Removes all the explicit formatting from the table style element, keeping its stripe size.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElement/Methods/Clear/",
+      "params": [],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "Clear(): void",
+      "since": "10.0.0"
+    },
+    "GetFillColor": {
+      "description": "Returns the background color of the table style element. Returns 'No Fill' when no fill is set.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElement/Methods/GetFillColor/",
+      "params": [],
+      "returns": {
+        "type": "ApiColor | 'No Fill'"
+      },
+      "signature": "GetFillColor(): ApiColor | 'No Fill'",
+      "since": "10.0.0"
+    },
+    "GetFont": {
+      "description": "Returns the font of the table style element. Its Size, Name, Subscript and Superscript cannot be set.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElement/Methods/GetFont/",
+      "params": [],
+      "returns": {
+        "type": "ApiFont"
+      },
+      "signature": "GetFont(): ApiFont",
+      "since": "10.0.0"
+    },
+    "GetHasFormat": {
+      "description": "Returns whether the table style element carries any explicit formatting.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElement/Methods/GetHasFormat/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetHasFormat(): boolean",
+      "since": "10.0.0"
+    },
+    "GetStripeSize": {
+      "description": "Returns the number of rows or columns in one stripe of the table style element.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElement/Methods/GetStripeSize/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetStripeSize(): number",
+      "since": "10.0.0"
+    },
+    "SetBorders": {
+      "description": "Sets the border style for the table style element. Only the Left, Top, Bottom, Right, InsideHorizontal and InsideVertical positions are supported.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElement/Methods/SetBorders/",
+      "params": [
+        {
+          "description": "Specifies the cell border position.",
+          "name": "bordersIndex",
+          "type": "BordersIndex"
+        },
+        {
+          "description": "Specifies the line style used to form the cell border.",
+          "name": "lineStyle",
+          "type": "LineStyle"
+        },
+        {
+          "description": "The color object which specifies the color to be set to the cell border.",
+          "name": "color",
+          "type": "ApiColor"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetBorders(bordersIndex: BordersIndex, lineStyle: LineStyle, color: ApiColor): void",
+      "since": "10.0.0"
+    },
+    "SetFillColor": {
+      "description": "Sets the background color of the table style element. Pass null or 'No Fill' to remove the fill.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElement/Methods/SetFillColor/",
+      "params": [
+        {
+          "description": "The fill color, or null / 'No Fill' to remove the fill.",
+          "name": "color",
+          "type": "ApiColor | 'No Fill' | null"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetFillColor(color: ApiColor | 'No Fill' | null): void",
+      "since": "10.0.0"
+    },
+    "SetStripeSize": {
+      "description": "Sets the number of rows or columns in one stripe of the table style element. It affects the row and column stripe elements.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElement/Methods/SetStripeSize/",
+      "params": [
+        {
+          "description": "An integer from 1 to 9.",
+          "name": "size",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetStripeSize(size: number): void",
+      "since": "10.0.0"
+    }
+  }
+}

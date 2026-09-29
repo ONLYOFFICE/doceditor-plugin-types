@@ -1112,4 +1112,4 @@ type PdfPaidMethodName = never;
 /** Pdf `executeMethod` names available in every edition, including Community. */
 type PdfFreeMethodName = Exclude<PdfMethodName, PdfPaidMethodName>;
 
-export type { PdfMethodArgs, PdfMethodName, PdfMethodReturn, PdfPaidMethodName, PdfFreeMethodName };
+export type { PdfMethodArgs, PdfMethodName, PdfMethodReturn, PdfMethodReturnMap, PdfPaidMethodName, PdfFreeMethodName };

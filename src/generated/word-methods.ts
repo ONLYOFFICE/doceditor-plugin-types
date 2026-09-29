@@ -2875,4 +2875,4 @@ type WordPaidMethodName = "AnnotateParagraph" | "EndGroupActions" | "MoveCursorT
 /** Word `executeMethod` names available in every edition, including Community. */
 type WordFreeMethodName = Exclude<WordMethodName, WordPaidMethodName>;
 
-export type { WordMethodArgs, WordMethodName, WordMethodReturn, WordPaidMethodName, WordFreeMethodName, ContentControlProperties, AddinFieldData, ContentControl, comment, TextAnnotation, TextAnnotationRange, ContextMenuItem, ToolbarMenuMainItem, ToolbarMenuTab, ToolbarMenuItem, ToolbarMenuItemType };
+export type { WordMethodArgs, WordMethodName, WordMethodReturn, WordMethodReturnMap, WordPaidMethodName, WordFreeMethodName, ContentControlProperties, AddinFieldData, ContentControl, comment, TextAnnotation, TextAnnotationRange, ContextMenuItem, ToolbarMenuMainItem, ToolbarMenuTab, ToolbarMenuItem, ToolbarMenuItemType };

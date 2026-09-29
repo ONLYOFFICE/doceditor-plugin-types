@@ -1084,7 +1084,12 @@ export namespace Pdf {
    */
   export type BulletType = "None" | "ArabicPeriod" | "ArabicParenR" | "RomanUcPeriod" | "RomanLcPeriod" | "AlphaLcParenR" | "AlphaLcPeriod" | "AlphaUcParenR" | "AlphaUcPeriod";
 
-  /** @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/ */
+  /**
+   * The main class of the PDF API. Use it to get the current document and to create page
+   * content, such as paragraphs, tables, images, annotations, and form fields.
+   *
+   * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/
+   */
   export interface Api {
     /**
      * Converts centimeters to points.
@@ -1622,11 +1627,12 @@ export namespace Pdf {
      *
      * @param isHidde - to hide - true, to show - false
      * @param names - field names
+     * @default names = []
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateHideShowFormsAction/
      */
-    CreateHideShowFormsAction(isHidde: boolean, names: string[]): ApiHideShowFormsAction;
+    CreateHideShowFormsAction(isHidde: boolean, names?: string[]): ApiHideShowFormsAction;
 
     /**
      * Creates highlight annotation.
@@ -2180,11 +2186,12 @@ export namespace Pdf {
      *
      * @param isAllExcept - will all fields be reset except the fields whose names are specified
      * @param names - field names
+     * @default names = []
      * @since 10.0.0
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateHideShowFormsAction/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateResetFormsAction/
      */
-    CreateResetFormsAction(isAllExcept: boolean, names: string[]): ApiHideShowFormsAction;
+    CreateResetFormsAction(isAllExcept: boolean, names?: string[]): ApiHideShowFormsAction;
 
     /**
      * Creates the empty rich paragraph properties.
@@ -3039,7 +3046,7 @@ export namespace Pdf {
      *
      * @param px - The number of pixels to convert to EMUs.
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/PixelsToEmu/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/PixelsToEmus/
      */
     PixelsToEmus(px: number): number;
 
@@ -3430,6 +3437,25 @@ export namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/TwipsToPoints/
      */
     TwipsToPoints(twips: number): number;
+
+    /**
+     * Subscribes to the specified event and calls the callback function when the event fires.
+     *
+     * @param eventName - The event name.
+     * @param callback - Function to be called when the event fires.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/attachEvent/
+     */
+    attachEvent(eventName: string, callback: (...args: unknown[]) => unknown): void;
+
+    /**
+     * Unsubscribes from the specified event.
+     *
+     * @param eventName - The event name.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/detachEvent/
+     */
+    detachEvent(eventName: string): void;
   }
 
   /**
@@ -3659,7 +3685,7 @@ export namespace Pdf {
      * @returns returns next action
      * @since 10.0.0
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetNext/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAction/Methods/SetNext/
      */
     SetNext(action: ApiBaseAction): ApiBaseAction;
   }
@@ -8607,7 +8633,7 @@ export namespace Pdf {
      * paragraph.AddText("Class Type = " + sType);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetClassType/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetParentPage/
      */
     GetParentPage(): ApiPage;
 
@@ -13634,6 +13660,11 @@ export namespace Pdf {
     /**
      * Applies added redact.
      *
+     * @param includeForms - specifies whether form fields should be included in the redaction.
+     * @param includeAnnots - specifies whether annotations should be included in the redaction.
+     * @default includeForms = true
+     * @default includeAnnots = true
+     *
      * @example
      * ```js
      * // Can I remove information so it cannot be recovered in a PDF?
@@ -13650,7 +13681,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/ApplyRedact/
      */
-    ApplyRedact(): boolean;
+    ApplyRedact(includeForms?: boolean, includeAnnots?: boolean): boolean;
 
     /**
      * Gets list of all fields in document.
@@ -14795,7 +14826,7 @@ export namespace Pdf {
      * paragraph.AddText("Class Type = " + sType);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetClassType/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetParentPage/
      */
     GetParentPage(): ApiPage;
 
@@ -15750,6 +15781,13 @@ export namespace Pdf {
     GetDisplay(): DisplayType;
 
     /**
+     * Gets a line end style.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiFreeTextAnnotation/Methods/GetEndStyle/
+     */
+    GetEndStyle(): LineEndStyle;
+
+    /**
      * Gets annotation fill color.
      *
      * @example
@@ -16229,6 +16267,15 @@ export namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetDisplay/
      */
     SetDisplay(display: DisplayType): boolean;
+
+    /**
+     * Sets a line end style.
+     *
+     * @param style - The style of the polyline end endpoint.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiFreeTextAnnotation/Methods/SetEndStyle/
+     */
+    SetEndStyle(style: LineEndStyle): boolean;
 
     /**
      * Sets annotation fill color.
@@ -16954,7 +17001,7 @@ export namespace Pdf {
      *
      * @since 10.0.0
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/GetRect/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/GetZoom/
      */
     GetZoom(): number;
 
@@ -17087,7 +17134,7 @@ export namespace Pdf {
      * paragraph.AddText("Class Type = " + sType);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetClassType/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetParentPage/
      */
     GetParentPage(): ApiPage;
 
@@ -17302,7 +17349,7 @@ export namespace Pdf {
      *
      * @since 10.0.0
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiHideShowFormsAction/Methods/GetNames/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiHideShowFormsAction/Methods/SetNames/
      */
     SetNames(names: string[]): boolean;
   }
@@ -17728,7 +17775,7 @@ export namespace Pdf {
      * paragraph.AddText("Class Type = " + sType);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetClassType/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetParentPage/
      */
     GetParentPage(): ApiPage;
 
@@ -20341,7 +20388,7 @@ export namespace Pdf {
     /**
      * Returns the type of the ApiDrawing class.
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetClassType/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetParentPage/
      */
     GetParentPage(): ApiPage;
 
@@ -20542,6 +20589,13 @@ export namespace Pdf {
     GetClassType(): "page";
 
     /**
+     * Gets page height
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiPage/Methods/GetHeight/
+     */
+    GetHeight(): pt;
+
+    /**
      * Gets page index
      *
      * @example
@@ -20650,6 +20704,13 @@ export namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiPage/Methods/GetTextWithQuads/
      */
     GetTextWithQuads(): TextWithQuads[];
+
+    /**
+     * Gets page width
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiPage/Methods/GetWidth/
+     */
+    GetWidth(): pt;
 
     /**
      * Recognizes content on the page and returns an array of recognized objects.
@@ -22913,7 +22974,8 @@ export namespace Pdf {
     /**
      * Sets all 4 font slots with the specified font family.
      *
-     * @param sFontFamily - The font family or families used for the current paragraph.
+     * @param fontFamily - The font family or families used for the current paragraph. Pass _null_ to remove the font
+     *   family.
      * @returns this
      *
      * @example
@@ -22938,12 +23000,13 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiParagraph/Methods/SetFontFamily/
      */
-    SetFontFamily(sFontFamily: string): ApiParagraph;
+    SetFontFamily(fontFamily: string | null): ApiParagraph;
 
     /**
      * Sets the font size to the characters of the current paragraph.
      *
-     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch). Pass _null_ to remove the font
+     *   size.
      * @returns this
      *
      * @example
@@ -22968,7 +23031,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiParagraph/Methods/SetFontSize/
      */
-    SetFontSize(fontSize: hps): ApiParagraph;
+    SetFontSize(fontSize: hps | null): ApiParagraph;
 
     /**
      * Specifies a highlighting color which is applied as a background to the contents of the current
@@ -23182,6 +23245,20 @@ export namespace Pdf {
     SetJc(sJc: "left" | "right" | "both" | "center"): boolean;
 
     /**
+     * Specifies the language which will be used to check spelling and grammar (if requested) when
+     * processing
+     * the contents of the current paragraph.
+     *
+     * @param langId - The possible value for this parameter is a language identifier as defined by RFC 4646/BCP 47.
+     *   Example: "en-CA". Pass _null_ to remove the language.
+     * @returns returns null if the language identifier is not supported.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiParagraph/Methods/SetLanguage/
+     */
+    SetLanguage(langId: string | null): ApiParagraph | null;
+
+    /**
      * Sets the outline level for the specified properties.
      *
      * @param lvl - The outline level. Possible values: 1-9. The 1 value means the basic outline level. To set no
@@ -23254,7 +23331,8 @@ export namespace Pdf {
     /**
      * Sets the text spacing measured in twentieths of a point.
      *
-     * @param nSpacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch).
+     * @param spacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch). Pass _null_
+     *   to remove the text spacing.
      * @returns this
      *
      * @example
@@ -23279,7 +23357,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiParagraph/Methods/SetSpacing/
      */
-    SetSpacing(nSpacing: twips): ApiParagraph;
+    SetSpacing(spacing: twips | null): ApiParagraph;
 
     /**
      * Sets the spacing after the current paragraph. If the value of the isAfterAuto parameter is true,
@@ -27070,12 +27148,13 @@ export namespace Pdf {
     /**
      * Sets the font size to the characters of the current text run.
      *
-     * @param nSize - The text size value measured in half-points (1/144 of an inch).
+     * @param size - The text size value measured in half-points (1/144 of an inch). Pass _null_ to remove the font
+     *   size.
      * @returns this text properties.
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/SetFontSize/
      */
-    SetFontSize(nSize: hps): ApiTextPr;
+    SetFontSize(size: hps | null): ApiTextPr;
 
     /**
      * Specifies a highlighting color which is added to the text properties and applied as a background to
@@ -27124,12 +27203,13 @@ export namespace Pdf {
     /**
      * Sets the text spacing measured in twentieths of a point.
      *
-     * @param nSpacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch).
+     * @param spacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch). Pass _null_
+     *   to remove the text spacing.
      * @returns this text properties.
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/SetSpacing/
      */
-    SetSpacing(nSpacing: twips): ApiTextPr;
+    SetSpacing(spacing: twips | null): ApiTextPr;
 
     /**
      * Specifies that the contents of the run are displayed with a single horizontal line through the
@@ -27174,12 +27254,13 @@ export namespace Pdf {
      * **"superscript"** - the characters in the current text run will be aligned above the default text
      * baseline.
      *
-     * @param sType - The vertical alignment type applied to the text contents.
+     * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
+     *   alignment.
      * @returns this text properties.
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/SetVertAlign/
      */
-    SetVertAlign(sType: "baseline" | "subscript" | "superscript"): ApiTextPr;
+    SetVertAlign(type: "baseline" | "subscript" | "superscript" | null): ApiTextPr;
   }
 
   /**
@@ -27299,7 +27380,7 @@ export namespace Pdf {
      *
      * @since 10.0.0
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiResetFormsAction/Methods/GetNames/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiResetFormsAction/Methods/SetNames/
      */
     SetNames(names: string[]): boolean;
   }
@@ -29276,7 +29357,8 @@ export namespace Pdf {
     /**
      * Sets the font size to the characters of the current text run.
      *
-     * @param nSize - The text size value measured in half-points (1/144 of an inch).
+     * @param size - The text size value measured in half-points (1/144 of an inch). Pass _null_ to remove the font
+     *   size.
      * @returns this text properties.
      *
      * @example
@@ -29308,7 +29390,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/SetFontSize/
      */
-    SetFontSize(nSize: hps): ApiTextPr;
+    SetFontSize(size: hps | null): ApiTextPr;
 
     /**
      * Specifies a highlighting color which is added to the text properties and applied as a background to
@@ -29461,7 +29543,8 @@ export namespace Pdf {
     /**
      * Sets the text spacing measured in twentieths of a point.
      *
-     * @param nSpacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch).
+     * @param spacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch). Pass _null_
+     *   to remove the text spacing.
      * @returns this text properties.
      *
      * @example
@@ -29493,7 +29576,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/SetSpacing/
      */
-    SetSpacing(nSpacing: twips): ApiTextPr;
+    SetSpacing(spacing: twips | null): ApiTextPr;
 
     /**
      * Specifies that the contents of the run are displayed with a single horizontal line through the
@@ -29666,7 +29749,8 @@ export namespace Pdf {
      * **"superscript"** - the characters in the current text run will be aligned above the default text
      * baseline.
      *
-     * @param sType - The vertical alignment type applied to the text contents.
+     * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
+     *   alignment.
      * @returns this text properties.
      *
      * @example
@@ -29709,7 +29793,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/SetVertAlign/
      */
-    SetVertAlign(sType: "baseline" | "subscript" | "superscript"): ApiTextPr;
+    SetVertAlign(type: "baseline" | "subscript" | "superscript" | null): ApiTextPr;
   }
 
   /**
@@ -29982,7 +30066,7 @@ export namespace Pdf {
      * paragraph.AddText("Class Type = " + sType);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetClassType/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetParentPage/
      */
     GetParentPage(): ApiPage;
 
@@ -30458,7 +30542,7 @@ export namespace Pdf {
      * paragraph.AddText("Class Type = " + sType);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetClassType/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetParentPage/
      */
     GetParentPage(): ApiPage;
 
@@ -32965,7 +33049,7 @@ export namespace Pdf {
      * paragraph.AddText("Class Type = " + sType);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetClassType/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetParentPage/
      */
     GetParentPage(): ApiPage;
 
@@ -36739,7 +36823,8 @@ export namespace Pdf {
     /**
      * Sets the font size to the characters of the current text run.
      *
-     * @param nSize - The text size value measured in half-points (1/144 of an inch).
+     * @param size - The text size value measured in half-points (1/144 of an inch). Pass _null_ to remove the font
+     *   size.
      * @returns this text properties.
      *
      * @example
@@ -36769,7 +36854,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/SetFontSize/
      */
-    SetFontSize(nSize: hps): ApiTextPr;
+    SetFontSize(size: hps | null): ApiTextPr;
 
     /**
      * Specifies a highlighting color which is added to the text properties and applied as a background to
@@ -36923,7 +37008,8 @@ export namespace Pdf {
     /**
      * Sets the text spacing measured in twentieths of a point.
      *
-     * @param nSpacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch).
+     * @param spacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch). Pass _null_
+     *   to remove the text spacing.
      * @returns this text properties.
      *
      * @example
@@ -36954,7 +37040,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/SetSpacing/
      */
-    SetSpacing(nSpacing: twips): ApiTextPr;
+    SetSpacing(spacing: twips | null): ApiTextPr;
 
     /**
      * Specifies that the contents of the run are displayed with a single horizontal line through the
@@ -37078,7 +37164,8 @@ export namespace Pdf {
      * **"superscript"** - the characters in the current text run will be aligned above the default text
      * baseline.
      *
-     * @param sType - The vertical alignment type applied to the text contents.
+     * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
+     *   alignment.
      * @returns this text properties.
      *
      * @example
@@ -37109,7 +37196,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/SetVertAlign/
      */
-    SetVertAlign(sType: "baseline" | "subscript" | "superscript"): ApiTextPr;
+    SetVertAlign(type: "baseline" | "subscript" | "superscript" | null): ApiTextPr;
   }
 
   /**
@@ -37325,41 +37412,45 @@ export namespace Pdf {
     /**
      * Sets bold formatting for the contents of the current text range.
      *
+     * @param isBold - Pass _null_ to remove the bold formatting.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetBold/
      */
-    SetBold(isBold: boolean): ApiTextRange;
+    SetBold(isBold: boolean | null): ApiTextRange;
 
     /**
      * Specifies that any lowercase characters in the current text Range are formatted for display only as
      * their capital letter character equivalents.
      *
-     * @param isCaps - Specifies if the Range contents are displayed capitalized or not.
+     * @param isCaps - Specifies if the Range contents are displayed capitalized or not. Pass _null_ to remove the
+     *   capitalization.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetCaps/
      */
-    SetCaps(isCaps: boolean): ApiTextRange;
+    SetCaps(isCaps: boolean | null): ApiTextRange;
 
     /**
      * Sets the text color of the current range.
      *
+     * @param color - Pass _null_ to remove the text color.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetColor/
      */
-    SetColor(color: ApiColor): ApiTextRange;
+    SetColor(color: ApiColor | null): ApiTextRange;
 
     /**
      * Specifies that the contents of the current Range are displayed with two horizontal lines through
      * each character displayed on the line.
      *
+     * @param isDoubleStrikeout - Pass _null_ to remove the double strikeout.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetDoubleStrikeout/
      */
-    SetDoubleStrikeout(isDoubleStrikeout: boolean): ApiTextRange;
+    SetDoubleStrikeout(isDoubleStrikeout: boolean | null): ApiTextRange;
 
     /**
      * Sets the end position of the current range.
@@ -37374,22 +37465,24 @@ export namespace Pdf {
     /**
      * Sets the font family for the current TextRange.
      *
-     * @param fontFamily - The font family or families used for the current text Range.
+     * @param fontFamily - The font family or families used for the current text Range. Pass _null_ to remove the font
+     *   family.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetFontFamily/
      */
-    SetFontFamily(fontFamily: string): ApiTextRange | null;
+    SetFontFamily(fontFamily: string | null): ApiTextRange | null;
 
     /**
      * Sets the font size of the characters in the current text Range.
      *
-     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch). Pass _null_ to remove the font
+     *   size.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetFontSize/
      */
-    SetFontSize(fontSize: hps): ApiTextRange | null;
+    SetFontSize(fontSize: hps | null): ApiTextRange | null;
 
     /**
      * Specifies a highlighting color which is applied as a background to the contents of the current
@@ -37404,11 +37497,26 @@ export namespace Pdf {
     /**
      * Sets the italic property to the text character.
      *
+     * @param isItalic - Pass _null_ to remove the italic formatting.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetItalic/
      */
-    SetItalic(isItalic: boolean): ApiTextRange;
+    SetItalic(isItalic: boolean | null): ApiTextRange;
+
+    /**
+     * Specifies the language which will be used to check spelling and grammar (if requested) when
+     * processing
+     * the contents of the current text range.
+     *
+     * @param langId - The possible value for this parameter is a language identifier as defined by RFC 4646/BCP 47.
+     *   Example: "en-CA". Pass _null_ to remove the language.
+     * @returns returns null if the language identifier is not supported.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetLanguage/
+     */
+    SetLanguage(langId: string | null): ApiTextRange | null;
 
     /**
      * Specifies that all the lowercase letter characters in the current text Range are formatted for
@@ -37417,22 +37525,23 @@ export namespace Pdf {
      * this text.
      *
      * @param isSmallCaps - Specifies if the contents of the current Range are displayed capitalized two points smaller or
-     *   not.
+     *   not. Pass _null_ to remove the small capitals.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetSmallCaps/
      */
-    SetSmallCaps(isSmallCaps: boolean): ApiTextRange;
+    SetSmallCaps(isSmallCaps: boolean | null): ApiTextRange;
 
     /**
      * Sets the text spacing measured in twentieths of a point.
      *
-     * @param spacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch).
+     * @param spacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch). Pass _null_
+     *   to remove the text spacing.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetSpacing/
      */
-    SetSpacing(spacing: twips): ApiTextRange | null;
+    SetSpacing(spacing: twips | null): ApiTextRange | null;
 
     /**
      * Sets the start position of the current range.
@@ -37448,11 +37557,12 @@ export namespace Pdf {
      * Specifies that the contents of the current Range are displayed with a single horizontal line through
      * the range center.
      *
+     * @param isStrikeout - Pass _null_ to remove the strikeout.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetStrikeout/
      */
-    SetStrikeout(isStrikeout: boolean): ApiTextRange;
+    SetStrikeout(isStrikeout: boolean | null): ApiTextRange;
 
     /**
      * Replaces all text content with the given string. Use "\r" to separate paragraphs.
@@ -37480,12 +37590,13 @@ export namespace Pdf {
      * below the character
      * (less than all the spacing above and below the characters on the line).
      *
-     * @param isUnderline - Specifies if the contents of the current Range are displayed underlined or not.
+     * @param isUnderline - Specifies if the contents of the current Range are displayed underlined or not. Pass _null_ to
+     *   remove the underline.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetUnderline/
      */
-    SetUnderline(isUnderline: boolean): ApiTextRange;
+    SetUnderline(isUnderline: boolean | null): ApiTextRange;
 
     /**
      * Specifies the alignment which will be applied to the Range contents in relation to the default
@@ -37497,12 +37608,13 @@ export namespace Pdf {
      * **"superscript"** - the characters in the current text Range will be aligned above the default text
      * baseline.
      *
-     * @param type - The vertical alignment type applied to the text contents.
+     * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
+     *   alignment.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetVertAlign/
      */
-    SetVertAlign(type: "baseline" | "subscript" | "superscript"): ApiTextRange | null;
+    SetVertAlign(type: "baseline" | "subscript" | "superscript" | null): ApiTextRange | null;
 
     /**
      * Converts the text range to HTML.
@@ -37660,7 +37772,7 @@ export namespace Pdf {
      *
      * @since 10.0.0
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiUriAction/Methods/GetRect/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiUriAction/Methods/GetUri/
      */
     GetUri(): string;
 
@@ -37669,7 +37781,7 @@ export namespace Pdf {
      *
      * @since 10.0.0
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiUriAction/Methods/GetRect/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiUriAction/Methods/SetUri/
      */
     SetUri(uri: string): boolean;
   }

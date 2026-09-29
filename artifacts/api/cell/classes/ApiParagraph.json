@@ -475,16 +475,16 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/SetColor/",
       "params": [
         {
-          "description": "The text color.",
+          "description": "The text color. Pass _null_ to remove the text color.",
           "name": "color",
-          "type": "ApiColor"
+          "type": "ApiColor | null"
         }
       ],
       "returns": {
         "description": "this",
         "type": "ApiParagraph"
       },
-      "signature": "SetColor(color: ApiColor): ApiParagraph",
+      "signature": "SetColor(color: ApiColor | null): ApiParagraph",
       "since": "9.1.0"
     },
     "SetDoubleStrikeout": {
@@ -508,32 +508,32 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/SetFontFamily/",
       "params": [
         {
-          "description": "The font family or families used for the current paragraph.",
-          "name": "sFontFamily",
-          "type": "string"
+          "description": "The font family or families used for the current paragraph. Pass _null_ to remove the font family.",
+          "name": "fontFamily",
+          "type": "string | null"
         }
       ],
       "returns": {
         "description": "this",
         "type": "ApiParagraph"
       },
-      "signature": "SetFontFamily(sFontFamily: string): ApiParagraph"
+      "signature": "SetFontFamily(fontFamily: string | null): ApiParagraph"
     },
     "SetFontSize": {
       "description": "Sets the font size to the characters of the current paragraph.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/SetFontSize/",
       "params": [
         {
-          "description": "The text size value measured in half-points (1/144 of an inch).",
+          "description": "The text size value measured in half-points (1/144 of an inch). Pass _null_ to remove the font size.",
           "name": "fontSize",
-          "type": "hps"
+          "type": "hps | null"
         }
       ],
       "returns": {
         "description": "this",
         "type": "ApiParagraph"
       },
-      "signature": "SetFontSize(fontSize: hps): ApiParagraph"
+      "signature": "SetFontSize(fontSize: hps | null): ApiParagraph"
     },
     "SetIndFirstLine": {
       "description": "Sets the paragraph first line indentation.",
@@ -611,6 +611,23 @@
       },
       "signature": "SetJc(sJc: \"left\" | \"right\" | \"both\" | \"center\"): boolean"
     },
+    "SetLanguage": {
+      "description": "Specifies the language which will be used to check spelling and grammar (if requested) when processing\nthe contents of the current paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/SetLanguage/",
+      "params": [
+        {
+          "description": "The possible value for this parameter is a language identifier as defined by\rRFC 4646/BCP 47. Example: \"en-CA\". Pass _null_ to remove the language.",
+          "name": "langId",
+          "type": "string | null"
+        }
+      ],
+      "returns": {
+        "description": "returns null if the language identifier is not supported.",
+        "type": "ApiParagraph | null"
+      },
+      "signature": "SetLanguage(langId: string | null): ApiParagraph | null",
+      "since": "10.0.0"
+    },
     "SetOutlineLvl": {
       "description": "Sets the outline level for the specified properties.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParaPr/Methods/SetOutlineLvl/",
@@ -649,16 +666,16 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/SetSpacing/",
       "params": [
         {
-          "description": "The value of the text spacing measured in twentieths of a point (1/1440 of an inch).",
-          "name": "nSpacing",
-          "type": "twips"
+          "description": "The value of the text spacing measured in twentieths of a point (1/1440 of an inch). Pass _null_ to remove the text spacing.",
+          "name": "spacing",
+          "type": "twips | null"
         }
       ],
       "returns": {
         "description": "this",
         "type": "ApiParagraph"
       },
-      "signature": "SetSpacing(nSpacing: twips): ApiParagraph"
+      "signature": "SetSpacing(spacing: twips | null): ApiParagraph"
     },
     "SetSpacingAfter": {
       "description": "Sets the spacing after the current paragraph. If the value of the isAfterAuto parameter is true, then \nany value of the nAfter is ignored. If isAfterAuto parameter is not specified, then it \nwill be interpreted as false.",

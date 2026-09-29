@@ -515,7 +515,8 @@ onlyoffice-types/
 │   │   ├── plugin.d.ts     # Asc, AscPlugin, PluginWindow, PluginScope, PluginInfo (the hub module)
 │   │   ├── events.d.ts     # PluginEventMap and plugin-window-level event types
 │   │   ├── buttons.d.ts    # Buttons, ButtonBase and its Toolbar/ContextMenu/... subtypes
-│   │   └── index.d.ts      # re-exports the three files above - the /plugin entry point
+│   │   ├── editor.d.ts     # shapes of the global Editor: method proxy + RunMacro
+│   │   └── index.d.ts      # re-exports the files above - the /plugin entry point
 │   └── services/
 │       ├── desktop-editor.d.ts  # AscDesktopEditor
 │       ├── simple-request.d.ts  # AscSimpleRequest

@@ -50,7 +50,7 @@
     },
     "SetNames": {
       "description": "Sets names of fields to hide",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiHideShowFormsAction/Methods/GetNames/",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiHideShowFormsAction/Methods/SetNames/",
       "params": [
         {
           "name": "names",

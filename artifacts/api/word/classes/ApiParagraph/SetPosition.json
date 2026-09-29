@@ -3,14 +3,14 @@
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/SetPosition/",
   "params": [
     {
-      "description": "Specifies a positive (raised text) or negative (lowered text)\rmeasurement in half-points (1/144 of an inch).",
-      "name": "nPosition",
-      "type": "hps"
+      "description": "Specifies a positive (raised text) or negative (lowered text)\rmeasurement in half-points (1/144 of an inch). Pass _null_ to remove the position.",
+      "name": "position",
+      "type": "hps | null"
     }
   ],
   "returns": {
     "description": "this",
     "type": "ApiParagraph"
   },
-  "signature": "SetPosition(nPosition: hps): ApiParagraph"
+  "signature": "SetPosition(position: hps | null): ApiParagraph"
 }

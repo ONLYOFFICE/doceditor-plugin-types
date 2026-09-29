@@ -631,7 +631,7 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetDefName/",
       "params": [
         {
-          "description": "The worksheet name.",
+          "description": "The defined name.",
           "name": "defName",
           "type": "string"
         }
@@ -1136,7 +1136,7 @@
       "signature": "SetLeftMargin(nPoints: number): boolean"
     },
     "SetName": {
-      "description": "Sets a name to the current active sheet.",
+      "description": "Sets a name to the current sheet.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetName/",
       "params": [
         {

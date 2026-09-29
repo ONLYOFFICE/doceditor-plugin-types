@@ -1036,6 +1036,12 @@ export namespace Cell {
   /** Specifies the sort orientation: sort by rows (top to bottom) or by columns (left to right). */
   export type XlSortOrientation = "xlTopToBottom" | "xlLeftToRight";
 
+  /**
+   * Table style element type. xlGrandTotalRow is the same element as xlTotalRow, xlGrandTotalColumn is
+   * the same element as xlLastColumn.
+   */
+  export type XlTableStyleElementType = "xlWholeTable" | "xlHeaderRow" | "xlTotalRow" | "xlGrandTotalRow" | "xlFirstColumn" | "xlLastColumn" | "xlGrandTotalColumn" | "xlRowStripe1" | "xlRowStripe2" | "xlColumnStripe1" | "xlColumnStripe2" | "xlFirstHeaderCell" | "xlLastHeaderCell" | "xlFirstTotalCell" | "xlLastTotalCell" | "xlSubtotalColumn1" | "xlSubtotalColumn2" | "xlSubtotalColumn3" | "xlSubtotalRow1" | "xlSubtotalRow2" | "xlSubtotalRow3" | "xlBlankRow" | "xlColumnSubheading1" | "xlColumnSubheading2" | "xlColumnSubheading3" | "xlRowSubheading1" | "xlRowSubheading2" | "xlRowSubheading3" | "xlPageFieldLabels" | "xlPageFieldValues";
+
   /** The time period for conditional formatting. */
   export type XlTimePeriods = "xlToday" | "xlYesterday" | "xlTomorrow" | "xlLast7Days" | "xlLastWeek" | "xlThisWeek" | "xlNextWeek" | "xlLastMonth" | "xlThisMonth" | "xlNextMonth";
 
@@ -1180,13 +1186,15 @@ export namespace Cell {
   export type PTCondition = unknown;
 
   /**
-   * Base class.
+   * The main class of the Spreadsheet API. Use it to get the active workbook, worksheets,
+   * ranges, and the current selection, and to add worksheets, defined names, and custom
+   * functions.
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/
    */
   export interface Api {
     /**
-     * Returns an array of ApiComment objects.
+     * Adds a comment to the current workbook.
      *
      * @param sText - The comment text.
      * @param sAuthor - The author's name (optional).
@@ -3064,7 +3072,7 @@ export namespace Cell {
      *
      * @param px - The number of pixels to convert to EMUs.
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/PixelsToEmu/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/PixelsToEmus/
      */
     PixelsToEmus(px: number): number;
 
@@ -5044,7 +5052,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiAreas/Methods/GetItem/
      */
-    GetItem(ind: number): ApiRange;
+    GetItem(ind: number): ApiRange | null;
 
     /**
      * Returns the parent object for the specified collection.
@@ -5074,7 +5082,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiAreas/Methods/GetParent/
      */
-    GetParent(): number;
+    GetParent(): ApiRange;
   }
 
   /**
@@ -9720,7 +9728,7 @@ export namespace Cell {
     /**
      * Sets the timestamp of the comment creation in the current time zone format.
      *
-     * @param nTimeStamp - The timestamp of the comment creation in the current time zone format.
+     * @param timeStamp - The timestamp of the comment creation in the current time zone format.
      * @since 7.5.0
      *
      * @example
@@ -9740,12 +9748,12 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiComment/Methods/SetTime/
      */
-    SetTime(nTimeStamp: number | string): void;
+    SetTime(timeStamp: number | string): void;
 
     /**
      * Sets the timestamp of the comment creation in UTC format.
      *
-     * @param nTimeStamp - The timestamp of the comment creation in UTC format.
+     * @param timeStamp - The timestamp of the comment creation in UTC format.
      * @since 7.5.0
      *
      * @example
@@ -9765,7 +9773,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiComment/Methods/SetTimeUTC/
      */
-    SetTimeUTC(nTimeStamp: number | string): void;
+    SetTimeUTC(timeStamp: number | string): void;
 
     /**
      * Sets the user ID to the comment author.
@@ -10006,7 +10014,7 @@ export namespace Cell {
     /**
      * Sets the timestamp of the comment reply creation in the current time zone format.
      *
-     * @param nTimeStamp - The timestamp of the comment reply creation in the current time zone format.
+     * @param timeStamp - The timestamp of the comment reply creation in the current time zone format.
      * @since 7.5.0
      *
      * @example
@@ -10028,12 +10036,12 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiCommentReply/Methods/SetTime/
      */
-    SetTime(nTimeStamp: number | string): void;
+    SetTime(timeStamp: number | string): void;
 
     /**
      * Sets the timestamp of the comment reply creation in UTC format.
      *
-     * @param nTimeStamp - The timestamp of the comment reply creation in UTC format.
+     * @param timeStamp - The timestamp of the comment reply creation in UTC format.
      * @since 7.5.0
      *
      * @example
@@ -10055,7 +10063,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiCommentReply/Methods/SetTimeUTC/
      */
-    SetTimeUTC(nTimeStamp: number | string): void;
+    SetTimeUTC(timeStamp: number | string): void;
 
     /**
      * Sets the user ID to the comment reply author.
@@ -26006,13 +26014,13 @@ export namespace Cell {
     /**
      * Sets the text color to the current paragraph.
      *
-     * @param color - The text color.
+     * @param color - The text color. Pass _null_ to remove the text color.
      * @returns this
      * @since 9.1.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/SetColor/
      */
-    SetColor(color: ApiColor): ApiParagraph;
+    SetColor(color: ApiColor | null): ApiParagraph;
 
     /**
      * Specifies that the contents of this paragraph are displayed with two horizontal lines through each
@@ -26054,7 +26062,8 @@ export namespace Cell {
     /**
      * Sets all 4 font slots with the specified font family.
      *
-     * @param sFontFamily - The font family or families used for the current paragraph.
+     * @param fontFamily - The font family or families used for the current paragraph. Pass _null_ to remove the font
+     *   family.
      * @returns this
      *
      * @example
@@ -26085,12 +26094,13 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/SetFontFamily/
      */
-    SetFontFamily(sFontFamily: string): ApiParagraph;
+    SetFontFamily(fontFamily: string | null): ApiParagraph;
 
     /**
      * Sets the font size to the characters of the current paragraph.
      *
-     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch). Pass _null_ to remove the font
+     *   size.
      * @returns this
      *
      * @example
@@ -26121,7 +26131,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/SetFontSize/
      */
-    SetFontSize(fontSize: hps): ApiParagraph;
+    SetFontSize(fontSize: hps | null): ApiParagraph;
 
     /**
      * Sets the paragraph first line indentation.
@@ -26277,6 +26287,20 @@ export namespace Cell {
     SetJc(sJc: "left" | "right" | "both" | "center"): boolean;
 
     /**
+     * Specifies the language which will be used to check spelling and grammar (if requested) when
+     * processing
+     * the contents of the current paragraph.
+     *
+     * @param langId - The possible value for this parameter is a language identifier as defined by RFC 4646/BCP 47.
+     *   Example: "en-CA". Pass _null_ to remove the language.
+     * @returns returns null if the language identifier is not supported.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/SetLanguage/
+     */
+    SetLanguage(langId: string | null): ApiParagraph | null;
+
+    /**
      * Sets the outline level for the specified properties.
      *
      * @param lvl - The outline level. Possible values: 1-9. The 1 value means the basic outline level. To set no
@@ -26354,7 +26378,8 @@ export namespace Cell {
     /**
      * Sets the text spacing measured in twentieths of a point.
      *
-     * @param nSpacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch).
+     * @param spacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch). Pass _null_
+     *   to remove the text spacing.
      * @returns this
      *
      * @example
@@ -26385,7 +26410,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/SetSpacing/
      */
-    SetSpacing(nSpacing: twips): ApiParagraph;
+    SetSpacing(spacing: twips | null): ApiParagraph;
 
     /**
      * Sets the spacing after the current paragraph. If the value of the isAfterAuto parameter is true,
@@ -36930,8 +36955,10 @@ export namespace Cell {
 
     /**
      * Sets the pivot table style name.
+     * Built-in pivot table style names: PivotStyleLight1-28, PivotStyleMedium1-28, PivotStyleDark1-28.
      *
-     * @param name - The pivot table style name.
+     * @param name - The name of a built-in pivot table style (for example, "PivotStyleMedium9"), or a custom style
+     *   defined in the workbook.
      * @since 8.2.0
      *
      * @example
@@ -40156,12 +40183,13 @@ export namespace Cell {
     /**
      * Sets the font size to the characters of the current text run.
      *
-     * @param nSize - The text size value measured in half-points (1/144 of an inch).
+     * @param size - The text size value measured in half-points (1/144 of an inch). Pass _null_ to remove the font
+     *   size.
      * @returns this text properties.
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/SetFontSize/
      */
-    SetFontSize(nSize: hps): ApiTextPr;
+    SetFontSize(size: hps | null): ApiTextPr;
 
     /**
      * Sets the italic property to the text character.
@@ -40200,12 +40228,13 @@ export namespace Cell {
     /**
      * Sets the text spacing measured in twentieths of a point.
      *
-     * @param nSpacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch).
+     * @param spacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch). Pass _null_
+     *   to remove the text spacing.
      * @returns this text properties.
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/SetSpacing/
      */
-    SetSpacing(nSpacing: twips): ApiTextPr;
+    SetSpacing(spacing: twips | null): ApiTextPr;
 
     /**
      * Specifies that the contents of the run are displayed with a single horizontal line through the
@@ -40250,12 +40279,13 @@ export namespace Cell {
      * **"superscript"** - the characters in the current text run will be aligned above the default text
      * baseline.
      *
-     * @param sType - The vertical alignment type applied to the text contents.
+     * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
+     *   alignment.
      * @returns this text properties.
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/SetVertAlign/
      */
-    SetVertAlign(sType: "baseline" | "subscript" | "superscript"): ApiTextPr;
+    SetVertAlign(type: "baseline" | "subscript" | "superscript" | null): ApiTextPr;
   }
 
   /**
@@ -41179,7 +41209,8 @@ export namespace Cell {
     /**
      * Sets the font size to the characters of the current text run.
      *
-     * @param nSize - The text size value measured in half-points (1/144 of an inch).
+     * @param size - The text size value measured in half-points (1/144 of an inch). Pass _null_ to remove the font
+     *   size.
      * @returns this text properties.
      *
      * @example
@@ -41205,7 +41236,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/SetFontSize/
      */
-    SetFontSize(nSize: hps): ApiTextPr;
+    SetFontSize(size: hps | null): ApiTextPr;
 
     /**
      * Sets the italic property to the text character.
@@ -41308,7 +41339,8 @@ export namespace Cell {
     /**
      * Sets the text spacing measured in twentieths of a point.
      *
-     * @param nSpacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch).
+     * @param spacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch). Pass _null_
+     *   to remove the text spacing.
      * @returns this text properties.
      *
      * @example
@@ -41334,7 +41366,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/SetSpacing/
      */
-    SetSpacing(nSpacing: twips): ApiTextPr;
+    SetSpacing(spacing: twips | null): ApiTextPr;
 
     /**
      * Specifies that the contents of the run are displayed with a single horizontal line through the
@@ -41484,7 +41516,8 @@ export namespace Cell {
      * **"superscript"** - the characters in the current text run will be aligned above the default text
      * baseline.
      *
-     * @param sType - The vertical alignment type applied to the text contents.
+     * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
+     *   alignment.
      * @returns this text properties.
      *
      * @example
@@ -41518,7 +41551,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/SetVertAlign/
      */
-    SetVertAlign(sType: "baseline" | "subscript" | "superscript"): ApiTextPr;
+    SetVertAlign(type: "baseline" | "subscript" | "superscript" | null): ApiTextPr;
   }
 
   /**
@@ -43171,11 +43204,252 @@ export namespace Cell {
   }
 
   /**
+   * Class representing a single custom or built-in table style.
+   *
+   * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/
+   */
+  export interface ApiTableStyle {
+    /**
+     * Deletes the custom table style. Formatted tables and pivot tables that use it switch to the workbook
+     * default styles.
+     * If the style is itself a workbook default, that default is reset to TableStyleMedium2 or
+     * PivotStyleLight16 first.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/Delete/
+     */
+    Delete(): void;
+
+    /**
+     * Creates a custom copy of the table style with all its formatting and gallery flags.
+     *
+     * @param name - The name of the copy. Must be unique among the custom and built-in style names
+     *   (case-insensitive).
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/Duplicate/
+     */
+    Duplicate(name: string): ApiTableStyle;
+
+    /**
+     * Returns whether the table style is a built-in style.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/GetBuiltIn/
+     */
+    GetBuiltIn(): boolean;
+
+    /**
+     * Returns the name of the table style.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/GetName/
+     */
+    GetName(): string;
+
+    /**
+     * Returns whether the table style is shown in the pivot table style gallery.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/GetShowAsAvailablePivotTableStyle/
+     */
+    GetShowAsAvailablePivotTableStyle(): boolean;
+
+    /**
+     * Returns whether the table style is shown in the table style gallery.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/GetShowAsAvailableTableStyle/
+     */
+    GetShowAsAvailableTableStyle(): boolean;
+
+    /**
+     * Returns the collection of formatted parts of the table style, or a single part when its type is
+     * passed.
+     *
+     * @param type - The table style element type to return instead of the whole collection.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/GetTableStyleElements/
+     */
+    GetTableStyleElements(type?: XlTableStyleElementType): ApiTableStyleElements | ApiTableStyleElement | null;
+
+    /**
+     * Sets whether the table style is shown in the pivot table style gallery.
+     *
+     * @param show - Specifies whether the style is shown in the pivot table style gallery.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/SetShowAsAvailablePivotTableStyle/
+     */
+    SetShowAsAvailablePivotTableStyle(show: boolean): void;
+
+    /**
+     * Sets whether the table style is shown in the table style gallery.
+     *
+     * @param show - Specifies whether the style is shown in the table style gallery.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/SetShowAsAvailableTableStyle/
+     */
+    SetShowAsAvailableTableStyle(show: boolean): void;
+  }
+
+  /**
+   * Class representing a single formatted part of a table style.
+   *
+   * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElement/
+   */
+  export interface ApiTableStyleElement {
+    /**
+     * Removes all the explicit formatting from the table style element, keeping its stripe size.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElement/Methods/Clear/
+     */
+    Clear(): void;
+
+    /**
+     * Returns the background color of the table style element. Returns 'No Fill' when no fill is set.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElement/Methods/GetFillColor/
+     */
+    GetFillColor(): ApiColor | 'No Fill';
+
+    /**
+     * Returns the font of the table style element. Its Size, Name, Subscript and Superscript cannot be
+     * set.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElement/Methods/GetFont/
+     */
+    GetFont(): ApiFont;
+
+    /**
+     * Returns whether the table style element carries any explicit formatting.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElement/Methods/GetHasFormat/
+     */
+    GetHasFormat(): boolean;
+
+    /**
+     * Returns the number of rows or columns in one stripe of the table style element.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElement/Methods/GetStripeSize/
+     */
+    GetStripeSize(): number;
+
+    /**
+     * Sets the border style for the table style element. Only the Left, Top, Bottom, Right,
+     * InsideHorizontal and InsideVertical positions are supported.
+     *
+     * @param bordersIndex - Specifies the cell border position.
+     * @param lineStyle - Specifies the line style used to form the cell border.
+     * @param color - The color object which specifies the color to be set to the cell border.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElement/Methods/SetBorders/
+     */
+    SetBorders(bordersIndex: BordersIndex, lineStyle: LineStyle, color: ApiColor): void;
+
+    /**
+     * Sets the background color of the table style element. Pass null or 'No Fill' to remove the fill.
+     *
+     * @param color - The fill color, or null / 'No Fill' to remove the fill.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElement/Methods/SetFillColor/
+     */
+    SetFillColor(color: ApiColor | 'No Fill' | null): void;
+
+    /**
+     * Sets the number of rows or columns in one stripe of the table style element. It affects the row and
+     * column stripe elements.
+     *
+     * @param size - An integer from 1 to 9.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElement/Methods/SetStripeSize/
+     */
+    SetStripeSize(size: number): void;
+  }
+
+  /**
+   * Class representing the collection of formatted parts (header row, stripes, total row, etc.) of a
+   * table style.
+   *
+   * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElements/
+   */
+  export interface ApiTableStyleElements {
+    /**
+     * Returns a table style element by its type.
+     *
+     * @param type - The table style element type.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElements/Methods/GetItem/
+     */
+    GetItem(type: XlTableStyleElementType): ApiTableStyleElement | null;
+  }
+
+  /**
    * Class representing a set of formatting properties which shall be conditionally applied to the parts
    * of a table
    * which match the requirement specified on the `Type`.
    */
   export interface ApiTableStylePr {
+  }
+
+  /**
+   * Class representing the collection of table styles of the workbook.
+   *
+   * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyles/
+   */
+  export interface ApiTableStyles {
+    /**
+     * Adds a new custom table style to the workbook.
+     *
+     * @param name - The name of the new table style. Must be unique among the custom and built-in style names
+     *   (case-insensitive).
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyles/Methods/Add/
+     */
+    Add(name: string): ApiTableStyle;
+
+    /**
+     * Returns the number of table styles in the workbook, built-in and custom.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyles/Methods/GetCount/
+     */
+    GetCount(): number;
+
+    /**
+     * Returns a table style by its name or by its index. Built-in table, pivot table and slicer styles
+     * come first, custom styles last in name order.
+     *
+     * @param nameOrIndex - The table style name (case-insensitive; custom styles are searched before built-in ones) or its
+     *   1-based index.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyles/Methods/GetItem/
+     */
+    GetItem(nameOrIndex: string | number): ApiTableStyle | null;
   }
 
   /**
@@ -43829,7 +44103,8 @@ export namespace Cell {
     /**
      * Sets the font size to the characters of the current text run.
      *
-     * @param nSize - The text size value measured in half-points (1/144 of an inch).
+     * @param size - The text size value measured in half-points (1/144 of an inch). Pass _null_ to remove the font
+     *   size.
      * @returns this text properties.
      *
      * @example
@@ -43854,7 +44129,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/SetFontSize/
      */
-    SetFontSize(nSize: hps): ApiTextPr;
+    SetFontSize(size: hps | null): ApiTextPr;
 
     /**
      * Sets the italic property to the text character.
@@ -43957,7 +44232,8 @@ export namespace Cell {
     /**
      * Sets the text spacing measured in twentieths of a point.
      *
-     * @param nSpacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch).
+     * @param spacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch). Pass _null_
+     *   to remove the text spacing.
      * @returns this text properties.
      *
      * @example
@@ -43983,7 +44259,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/SetSpacing/
      */
-    SetSpacing(nSpacing: twips): ApiTextPr;
+    SetSpacing(spacing: twips | null): ApiTextPr;
 
     /**
      * Specifies that the contents of the run are displayed with a single horizontal line through the
@@ -44092,7 +44368,8 @@ export namespace Cell {
      * **"superscript"** - the characters in the current text run will be aligned above the default text
      * baseline.
      *
-     * @param sType - The vertical alignment type applied to the text contents.
+     * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
+     *   alignment.
      * @returns this text properties.
      *
      * @example
@@ -44117,7 +44394,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/SetVertAlign/
      */
-    SetVertAlign(sType: "baseline" | "subscript" | "superscript"): ApiTextPr;
+    SetVertAlign(type: "baseline" | "subscript" | "superscript" | null): ApiTextPr;
   }
 
   /**
@@ -44333,41 +44610,45 @@ export namespace Cell {
     /**
      * Sets bold formatting for the contents of the current text range.
      *
+     * @param isBold - Pass _null_ to remove the bold formatting.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetBold/
      */
-    SetBold(isBold: boolean): ApiTextRange;
+    SetBold(isBold: boolean | null): ApiTextRange;
 
     /**
      * Specifies that any lowercase characters in the current text Range are formatted for display only as
      * their capital letter character equivalents.
      *
-     * @param isCaps - Specifies if the Range contents are displayed capitalized or not.
+     * @param isCaps - Specifies if the Range contents are displayed capitalized or not. Pass _null_ to remove the
+     *   capitalization.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetCaps/
      */
-    SetCaps(isCaps: boolean): ApiTextRange;
+    SetCaps(isCaps: boolean | null): ApiTextRange;
 
     /**
      * Sets the text color of the current range.
      *
+     * @param color - Pass _null_ to remove the text color.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetColor/
      */
-    SetColor(color: ApiColor): ApiTextRange;
+    SetColor(color: ApiColor | null): ApiTextRange;
 
     /**
      * Specifies that the contents of the current Range are displayed with two horizontal lines through
      * each character displayed on the line.
      *
+     * @param isDoubleStrikeout - Pass _null_ to remove the double strikeout.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetDoubleStrikeout/
      */
-    SetDoubleStrikeout(isDoubleStrikeout: boolean): ApiTextRange;
+    SetDoubleStrikeout(isDoubleStrikeout: boolean | null): ApiTextRange;
 
     /**
      * Sets the end position of the current range.
@@ -44382,22 +44663,24 @@ export namespace Cell {
     /**
      * Sets the font family for the current TextRange.
      *
-     * @param fontFamily - The font family or families used for the current text Range.
+     * @param fontFamily - The font family or families used for the current text Range. Pass _null_ to remove the font
+     *   family.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetFontFamily/
      */
-    SetFontFamily(fontFamily: string): ApiTextRange | null;
+    SetFontFamily(fontFamily: string | null): ApiTextRange | null;
 
     /**
      * Sets the font size of the characters in the current text Range.
      *
-     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch). Pass _null_ to remove the font
+     *   size.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetFontSize/
      */
-    SetFontSize(fontSize: hps): ApiTextRange | null;
+    SetFontSize(fontSize: hps | null): ApiTextRange | null;
 
     /**
      * Specifies a highlighting color which is applied as a background to the contents of the current
@@ -44412,11 +44695,26 @@ export namespace Cell {
     /**
      * Sets the italic property to the text character.
      *
+     * @param isItalic - Pass _null_ to remove the italic formatting.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetItalic/
      */
-    SetItalic(isItalic: boolean): ApiTextRange;
+    SetItalic(isItalic: boolean | null): ApiTextRange;
+
+    /**
+     * Specifies the language which will be used to check spelling and grammar (if requested) when
+     * processing
+     * the contents of the current text range.
+     *
+     * @param langId - The possible value for this parameter is a language identifier as defined by RFC 4646/BCP 47.
+     *   Example: "en-CA". Pass _null_ to remove the language.
+     * @returns returns null if the language identifier is not supported.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetLanguage/
+     */
+    SetLanguage(langId: string | null): ApiTextRange | null;
 
     /**
      * Specifies that all the lowercase letter characters in the current text Range are formatted for
@@ -44425,22 +44723,23 @@ export namespace Cell {
      * this text.
      *
      * @param isSmallCaps - Specifies if the contents of the current Range are displayed capitalized two points smaller or
-     *   not.
+     *   not. Pass _null_ to remove the small capitals.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetSmallCaps/
      */
-    SetSmallCaps(isSmallCaps: boolean): ApiTextRange;
+    SetSmallCaps(isSmallCaps: boolean | null): ApiTextRange;
 
     /**
      * Sets the text spacing measured in twentieths of a point.
      *
-     * @param spacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch).
+     * @param spacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch). Pass _null_
+     *   to remove the text spacing.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetSpacing/
      */
-    SetSpacing(spacing: twips): ApiTextRange | null;
+    SetSpacing(spacing: twips | null): ApiTextRange | null;
 
     /**
      * Sets the start position of the current range.
@@ -44456,11 +44755,12 @@ export namespace Cell {
      * Specifies that the contents of the current Range are displayed with a single horizontal line through
      * the range center.
      *
+     * @param isStrikeout - Pass _null_ to remove the strikeout.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetStrikeout/
      */
-    SetStrikeout(isStrikeout: boolean): ApiTextRange;
+    SetStrikeout(isStrikeout: boolean | null): ApiTextRange;
 
     /**
      * Replaces all text content with the given string. Use "\r" to separate paragraphs.
@@ -44488,12 +44788,13 @@ export namespace Cell {
      * below the character
      * (less than all the spacing above and below the characters on the line).
      *
-     * @param isUnderline - Specifies if the contents of the current Range are displayed underlined or not.
+     * @param isUnderline - Specifies if the contents of the current Range are displayed underlined or not. Pass _null_ to
+     *   remove the underline.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetUnderline/
      */
-    SetUnderline(isUnderline: boolean): ApiTextRange;
+    SetUnderline(isUnderline: boolean | null): ApiTextRange;
 
     /**
      * Specifies the alignment which will be applied to the Range contents in relation to the default
@@ -44505,12 +44806,13 @@ export namespace Cell {
      * **"superscript"** - the characters in the current text Range will be aligned above the default text
      * baseline.
      *
-     * @param type - The vertical alignment type applied to the text contents.
+     * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
+     *   alignment.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetVertAlign/
      */
-    SetVertAlign(type: "baseline" | "subscript" | "superscript"): ApiTextRange | null;
+    SetVertAlign(type: "baseline" | "subscript" | "superscript" | null): ApiTextRange | null;
 
     /**
      * Converts the text range to HTML.
@@ -47832,6 +48134,19 @@ export namespace Cell {
    */
   export interface ApiWorkbook {
     /**
+     * Breaks the link to the specified workbook: the formulas that refer to it are replaced with their
+     * current values, and the link is removed from the workbook.
+     *
+     * @param sName - The path of the linked workbook as returned by the {@link ApiWorkbook#GetLinkSources} method.
+     * @returns Returns false if the workbook has no link with the specified path, or if a defined name refers
+     *   to that workbook; such a name has to be changed or deleted first.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorkbook/Methods/BreakLink/
+     */
+    BreakLink(sName: string): boolean;
+
+    /**
      * Recalculates the cells that need recalculation (changed, added or volatile) across the workbook.
      * Forces the recalc that is otherwise deferred until a macro finishes, so up-to-date formula results
      * can be read within the same macro.
@@ -48016,6 +48331,17 @@ export namespace Cell {
     GetDrawingsByName(ids: string[]): Drawing[];
 
     /**
+     * Returns the paths of the other workbooks registered as external links of the current workbook,
+     * including links no formula uses any longer.
+     *
+     * @returns An empty array if the workbook has no links to other workbooks.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorkbook/Methods/GetLinkSources/
+     */
+    GetLinkSources(): string[];
+
+    /**
      * Returns the name of the workbook.
      *
      * @since 9.1.0
@@ -48073,6 +48399,15 @@ export namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorkbook/Methods/GetSheets/
      */
     GetSheets(): ApiWorksheet[];
+
+    /**
+     * Returns the collection of table styles of the workbook.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorkbook/Methods/GetTableStyles/
+     */
+    GetTableStyles(): ApiTableStyles;
 
     /**
      * Returns the theme of the workbook.
@@ -48881,7 +49216,7 @@ export namespace Cell {
     /**
      * Returns the ApiName object by the worksheet name.
      *
-     * @param defName - The worksheet name.
+     * @param defName - The defined name.
      * @returns returns null if definition name doesn't exist.
      *
      * @example
@@ -49672,7 +50007,7 @@ export namespace Cell {
     SetLeftMargin(nPoints: number): boolean;
 
     /**
-     * Sets a name to the current active sheet.
+     * Sets a name to the current sheet.
      *
      * @param sName - The name which will be displayed for the current sheet at the sheet tab.
      *

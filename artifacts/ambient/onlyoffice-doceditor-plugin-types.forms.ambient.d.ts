@@ -1,5 +1,5 @@
 // AUTO-GENERATED - do not edit by hand. Run `npm run generate-ambient` to regenerate.
-// Self-contained, non-module ambient bundle of @onlyoffice/plugins-types for the "forms" editor,
+// Self-contained, non-module ambient bundle of @onlyoffice/doceditor-plugin-types for the "forms" editor,
 // for tools (e.g. a Monaco editor's addExtraLib()) that want one global-scope .d.ts blob instead of
 // an installable, module-based npm package. Declares Asc/AscPlugin and the Forms namespace.
 // Forms has no global `Api` - its methods are called through Asc.plugin.executeMethod.
@@ -8,7 +8,7 @@
 // to hand-edit.
 //
 // Reached by URL rather than through the npm package, so: the guide for working with these types is
-// https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md
+// https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/main/AGENTS.md
 
 // ---- typedefs used by the shared sources, declared in another editor's ----
 interface TextAnnotation {
@@ -14072,6 +14072,77 @@ interface WindowHeaderFrameOptions {
     isLabel?: boolean;
     isTitle?: boolean;
 }
+
+// ---- src/plugin/editor.d.ts ----
+// The global `Editor` object: `Editor.GetSelectedText()` where `Asc.plugin.executeMethod` was.
+//
+// It is a Proxy installed by `startPluginApi()` (sdkjs `common/plugins/plugin_base_api.js`), and it
+// has two kinds of member. Every name except `RunMacro` is forwarded to `executeMethod` with the
+// arguments spread rather than passed as an array; `RunMacro` is its own thing, over `callCommand`.
+// Both take a trailing callback or return a Promise. The Proxy answers `undefined` for `then`, which
+// is what lets `await Editor.Something()` work - without that exclusion `await` would treat `Editor`
+// itself as a thenable and hang.
+//
+// The declarations here are the shapes; each editor entry point (`src/editors/<editor>.d.ts`)
+// declares the global itself with that editor's own method maps, the same way it declares `Api`.
+// Two entry points in one program therefore collide on `Editor` exactly as they do on `Api`, and for
+// the same reason: a plugin runs in one editor.
+
+/**
+ * One forwarded method: `Editor.Name(...args)`.
+ *
+ * The callback form is declared as returning `void` even though the runtime returns `executeMethod`'s
+ * own `true`/`false`. That boolean reports whether the call went out now or was queued behind another
+ * one in flight - an internal detail of the single-method-at-a-time protocol, not an answer about the
+ * method. `Asc.plugin.executeMethod` declares `void` for the same reason.
+ *
+ * Three signatures rather than two, because a tuple cannot put a required element after an optional
+ * one: `[...Args, callback]` is not expressible when `Args` itself ends in an optional parameter, and
+ * for a method like `GetSelectedText(prop?)` the callback form would otherwise demand the argument it
+ * is allowed to omit. The second signature covers passing only a callback. What stays out of reach is
+ * a method with several optional parameters called with some of them *and* a callback - rare enough
+ * to leave; it is reported as no-matching-overload rather than silently accepted.
+ */
+type EditorMethod<Args extends unknown[], Result> = {
+    (...args: Args): Promise<Result>;
+    (callback: (result: Result) => void): void;
+    (...args: [...Args, (result: Result) => void]): void;
+};
+
+/** Every `executeMethod` name of one editor, as a callable property. */
+type EditorMethods<ArgsMap, ReturnMap> = {
+    [K in keyof ArgsMap]: ArgsMap[K] extends unknown[]
+        ? EditorMethod<ArgsMap[K], K extends keyof ReturnMap ? ReturnMap[K] : unknown>
+        : never;
+};
+
+/**
+ * `Editor.RunMacro(fn, ...args)` - `callCommand` with two long-standing traps closed.
+ *
+ * The arguments are `JSON.stringify`d into the macro source and applied to `fn` inside the editor,
+ * so data reaches the body as parameters instead of through `Asc.scope`. They must therefore survive
+ * JSON, which is what `CommandSerializable` states: a function anywhere in an argument is a compile
+ * error rather than an `undefined` that only shows up at runtime.
+ *
+ * The body is also wrapped in `try`/`catch` by the runtime, and the Promise form rejects with an
+ * `Error` carrying the original message. `callCommand` has no such path - a throw there is lost and
+ * the callback simply never fires - so this is the form to reach for when the macro can fail.
+ */
+interface EditorRunMacro {
+    <Result, Args extends unknown[]>(
+        macro: (...args: Args) => Result & CommandSerializable<Result>,
+        ...args: Args & CommandSerializable<Args>
+    ): Promise<Result>;
+    <Result, Args extends unknown[]>(
+        macro: (...args: Args) => Result & CommandSerializable<Result>,
+        ...argsAndCallback: [...(Args & CommandSerializable<Args>), (result: Result) => void]
+    ): void;
+}
+
+/** The global `Editor` of one editor: its `executeMethod` names, plus `RunMacro`. */
+type EditorGlobal<ArgsMap, ReturnMap> = EditorMethods<ArgsMap, ReturnMap> & {
+    RunMacro: EditorRunMacro;
+};
 
 // ---- src/plugin/plugin.d.ts ----
 // The plugin runtime itself: Asc (the window.Asc entry point), AscPlugin (window.Asc.plugin),

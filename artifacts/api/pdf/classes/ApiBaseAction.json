@@ -14,7 +14,7 @@
     },
     "SetNext": {
       "description": "Sets next action.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetNext/",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAction/Methods/SetNext/",
       "params": [
         {
           "name": "action",

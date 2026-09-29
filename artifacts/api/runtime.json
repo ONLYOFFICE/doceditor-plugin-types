@@ -1,5 +1,5 @@
 {
-  "agents": "https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md",
+  "agents": "https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/main/AGENTS.md",
   "config": {
     "ButtonConfig": {
       "kind": "interface",

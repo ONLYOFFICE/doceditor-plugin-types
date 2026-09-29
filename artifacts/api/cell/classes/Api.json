@@ -1,9 +1,9 @@
 {
-  "description": "Base class.",
+  "description": "The main class of the Spreadsheet API. Use it to get the active workbook, worksheets,\nranges, and the current selection, and to add worksheets, defined names, and custom\nfunctions.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/",
   "methods": {
     "AddComment": {
-      "description": "Returns an array of ApiComment objects.",
+      "description": "Adds a comment to the current workbook.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/AddComment/",
       "params": [
         {
@@ -1076,7 +1076,7 @@
     },
     "PixelsToEmus": {
       "description": "Converts pixels to EMUs (English Metric Units).",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/PixelsToEmu/",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/PixelsToEmus/",
       "params": [
         {
           "description": "The number of pixels to convert to EMUs.",

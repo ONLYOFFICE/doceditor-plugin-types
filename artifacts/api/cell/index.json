@@ -1,5 +1,5 @@
 {
-  "agents": "https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md",
+  "agents": "https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/main/AGENTS.md",
   "classes": {
     "Api": {
       "AddComment": "AddComment(sText: string, sAuthor?: string): ApiComment | null",
@@ -138,8 +138,8 @@
     "ApiAnimationSequence": {},
     "ApiAreas": {
       "GetCount": "GetCount(): number",
-      "GetItem": "GetItem(ind: number): ApiRange",
-      "GetParent": "GetParent(): number"
+      "GetItem": "GetItem(ind: number): ApiRange | null",
+      "GetParent": "GetParent(): ApiRange"
     },
     "ApiAutoFilter": {
       "ApplyFilter": "ApplyFilter(): void",
@@ -299,8 +299,8 @@
       "SetAuthorName": "SetAuthorName(sAuthorName: string): void",
       "SetSolved": "SetSolved(bSolved: boolean): void",
       "SetText": "SetText(text: string): void",
-      "SetTime": "SetTime(nTimeStamp: number | string): void",
-      "SetTimeUTC": "SetTimeUTC(nTimeStamp: number | string): void",
+      "SetTime": "SetTime(timeStamp: number | string): void",
+      "SetTimeUTC": "SetTimeUTC(timeStamp: number | string): void",
       "SetUserId": "SetUserId(sUserId: string): void"
     },
     "ApiCommentReply": {
@@ -312,8 +312,8 @@
       "GetUserId": "GetUserId(): string",
       "SetAuthorName": "SetAuthorName(sAuthorName: string): void",
       "SetText": "SetText(sText: string): void",
-      "SetTime": "SetTime(nTimeStamp: number | string): void",
-      "SetTimeUTC": "SetTimeUTC(nTimeStamp: number | string): void",
+      "SetTime": "SetTime(timeStamp: number | string): void",
+      "SetTimeUTC": "SetTimeUTC(timeStamp: number | string): void",
       "SetUserId": "SetUserId(sUserId: string): void"
     },
     "ApiComplexForm": {},
@@ -955,18 +955,19 @@
       "SetBold": "SetBold(isBold: boolean): ApiParagraph",
       "SetBullet": "SetBullet(oBullet: ApiBullet): void",
       "SetCaps": "SetCaps(isCaps: boolean): ApiParagraph",
-      "SetColor": "SetColor(color: ApiColor): ApiParagraph",
+      "SetColor": "SetColor(color: ApiColor | null): ApiParagraph",
       "SetDoubleStrikeout": "SetDoubleStrikeout(isDoubleStrikeout: boolean): ApiParagraph",
-      "SetFontFamily": "SetFontFamily(sFontFamily: string): ApiParagraph",
-      "SetFontSize": "SetFontSize(fontSize: hps): ApiParagraph",
+      "SetFontFamily": "SetFontFamily(fontFamily: string | null): ApiParagraph",
+      "SetFontSize": "SetFontSize(fontSize: hps | null): ApiParagraph",
       "SetIndFirstLine": "SetIndFirstLine(nValue: twips): boolean",
       "SetIndLeft": "SetIndLeft(nValue: twips): boolean",
       "SetIndRight": "SetIndRight(nValue: twips): boolean",
       "SetItalic": "SetItalic(isItalic: boolean): ApiParagraph",
       "SetJc": "SetJc(sJc: \"left\" | \"right\" | \"both\" | \"center\"): boolean",
+      "SetLanguage": "SetLanguage(langId: string | null): ApiParagraph | null",
       "SetOutlineLvl": "SetOutlineLvl(lvl?: number | null): boolean",
       "SetSmallCaps": "SetSmallCaps(isSmallCaps: boolean): ApiParagraph",
-      "SetSpacing": "SetSpacing(nSpacing: twips): ApiParagraph",
+      "SetSpacing": "SetSpacing(spacing: twips | null): ApiParagraph",
       "SetSpacingAfter": "SetSpacingAfter(nAfter: twips, isAfterAuto?: boolean): boolean",
       "SetSpacingBefore": "SetSpacingBefore(nBefore: twips, isBeforeAuto?: boolean): boolean",
       "SetSpacingLine": "SetSpacingLine(nLine: twips | line240, sLineRule: \"auto\" | \"atLeast\" | \"exact\"): boolean",
@@ -1336,15 +1337,15 @@
       "SetDoubleStrikeout": "SetDoubleStrikeout(isDoubleStrikeout: boolean): ApiTextPr",
       "SetFill": "SetFill(oApiFill: ApiFill): ApiTextPr",
       "SetFontFamily": "SetFontFamily(sFontFamily: string): ApiTextPr",
-      "SetFontSize": "SetFontSize(nSize: hps): ApiTextPr",
+      "SetFontSize": "SetFontSize(size: hps | null): ApiTextPr",
       "SetItalic": "SetItalic(isItalic: boolean): ApiTextPr",
       "SetOutLine": "SetOutLine(oStroke: ApiStroke): ApiTextPr",
       "SetSmallCaps": "SetSmallCaps(isSmallCaps: boolean): ApiTextPr",
-      "SetSpacing": "SetSpacing(nSpacing: twips): ApiTextPr",
+      "SetSpacing": "SetSpacing(spacing: twips | null): ApiTextPr",
       "SetStrikeout": "SetStrikeout(isStrikeout: boolean): ApiTextPr",
       "SetTextFill": "SetTextFill(oApiFill: ApiFill): ApiTextPr",
       "SetUnderline": "SetUnderline(isUnderline: boolean): ApiTextPr",
-      "SetVertAlign": "SetVertAlign(sType: \"baseline\" | \"subscript\" | \"superscript\"): ApiTextPr"
+      "SetVertAlign": "SetVertAlign(type: \"baseline\" | \"subscript\" | \"superscript\" | null): ApiTextPr"
     },
     "ApiRun": {
       "AddLineBreak": "AddLineBreak(): boolean",
@@ -1376,17 +1377,17 @@
       "SetDoubleStrikeout": "SetDoubleStrikeout(isDoubleStrikeout: boolean): ApiTextPr",
       "SetFill": "SetFill(oApiFill: ApiFill): ApiTextPr",
       "SetFontFamily": "SetFontFamily(sFontFamily: string): ApiTextPr",
-      "SetFontSize": "SetFontSize(nSize: hps): ApiTextPr",
+      "SetFontSize": "SetFontSize(size: hps | null): ApiTextPr",
       "SetItalic": "SetItalic(isItalic: boolean): ApiTextPr",
       "SetOutLine": "SetOutLine(oStroke: ApiStroke): ApiTextPr",
       "SetSmallCaps": "SetSmallCaps(isSmallCaps: boolean): ApiTextPr",
-      "SetSpacing": "SetSpacing(nSpacing: twips): ApiTextPr",
+      "SetSpacing": "SetSpacing(spacing: twips | null): ApiTextPr",
       "SetStrikeout": "SetStrikeout(isStrikeout: boolean): ApiTextPr",
       "SetText": "SetText(text: string | number[]): ApiRun",
       "SetTextFill": "SetTextFill(oApiFill: ApiFill): ApiTextPr",
       "SetTextPr": "SetTextPr(oTextPr: ApiTextPr): ApiTextPr",
       "SetUnderline": "SetUnderline(isUnderline: boolean): ApiTextPr",
-      "SetVertAlign": "SetVertAlign(sType: \"baseline\" | \"subscript\" | \"superscript\"): ApiTextPr"
+      "SetVertAlign": "SetVertAlign(type: \"baseline\" | \"subscript\" | \"superscript\" | null): ApiTextPr"
     },
     "ApiSchemeColor": {
       "GetClassType": "GetClassType(): \"schemeColor\""
@@ -1479,7 +1480,36 @@
     "ApiTablePr": {},
     "ApiTableRow": {},
     "ApiTableRowPr": {},
+    "ApiTableStyle": {
+      "Delete": "Delete(): void",
+      "Duplicate": "Duplicate(name: string): ApiTableStyle",
+      "GetBuiltIn": "GetBuiltIn(): boolean",
+      "GetName": "GetName(): string",
+      "GetShowAsAvailablePivotTableStyle": "GetShowAsAvailablePivotTableStyle(): boolean",
+      "GetShowAsAvailableTableStyle": "GetShowAsAvailableTableStyle(): boolean",
+      "GetTableStyleElements": "GetTableStyleElements(type?: XlTableStyleElementType): ApiTableStyleElements | ApiTableStyleElement | null",
+      "SetShowAsAvailablePivotTableStyle": "SetShowAsAvailablePivotTableStyle(show: boolean): void",
+      "SetShowAsAvailableTableStyle": "SetShowAsAvailableTableStyle(show: boolean): void"
+    },
+    "ApiTableStyleElement": {
+      "Clear": "Clear(): void",
+      "GetFillColor": "GetFillColor(): ApiColor | 'No Fill'",
+      "GetFont": "GetFont(): ApiFont",
+      "GetHasFormat": "GetHasFormat(): boolean",
+      "GetStripeSize": "GetStripeSize(): number",
+      "SetBorders": "SetBorders(bordersIndex: BordersIndex, lineStyle: LineStyle, color: ApiColor): void",
+      "SetFillColor": "SetFillColor(color: ApiColor | 'No Fill' | null): void",
+      "SetStripeSize": "SetStripeSize(size: number): void"
+    },
+    "ApiTableStyleElements": {
+      "GetItem": "GetItem(type: XlTableStyleElementType): ApiTableStyleElement | null"
+    },
     "ApiTableStylePr": {},
+    "ApiTableStyles": {
+      "Add": "Add(name: string): ApiTableStyle",
+      "GetCount": "GetCount(): number",
+      "GetItem": "GetItem(nameOrIndex: string | number): ApiTableStyle | null"
+    },
     "ApiTextForm": {},
     "ApiTextPr": {
       "GetBold": "GetBold(): boolean",
@@ -1501,15 +1531,15 @@
       "SetDoubleStrikeout": "SetDoubleStrikeout(isDoubleStrikeout: boolean): ApiTextPr",
       "SetFill": "SetFill(oApiFill: ApiFill): ApiTextPr",
       "SetFontFamily": "SetFontFamily(sFontFamily: string): ApiTextPr",
-      "SetFontSize": "SetFontSize(nSize: hps): ApiTextPr",
+      "SetFontSize": "SetFontSize(size: hps | null): ApiTextPr",
       "SetItalic": "SetItalic(isItalic: boolean): ApiTextPr",
       "SetOutLine": "SetOutLine(oStroke: ApiStroke): ApiTextPr",
       "SetSmallCaps": "SetSmallCaps(isSmallCaps: boolean): ApiTextPr",
-      "SetSpacing": "SetSpacing(nSpacing: twips): ApiTextPr",
+      "SetSpacing": "SetSpacing(spacing: twips | null): ApiTextPr",
       "SetStrikeout": "SetStrikeout(isStrikeout: boolean): ApiTextPr",
       "SetTextFill": "SetTextFill(oApiFill: ApiFill): ApiTextPr",
       "SetUnderline": "SetUnderline(isUnderline: boolean): ApiTextPr",
-      "SetVertAlign": "SetVertAlign(sType: \"baseline\" | \"subscript\" | \"superscript\"): ApiTextPr"
+      "SetVertAlign": "SetVertAlign(type: \"baseline\" | \"subscript\" | \"superscript\" | null): ApiTextPr"
     },
     "ApiTextRange": {
       "AddHyperlink": "AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink",
@@ -1529,23 +1559,24 @@
       "MoveCursorToPos": "MoveCursorToPos(pos?: number): boolean",
       "Replace": "Replace(findWhat: string, replaceWith: string, matchCase?: boolean, wholeWords?: boolean): ApiTextRange",
       "Select": "Select(): boolean",
-      "SetBold": "SetBold(isBold: boolean): ApiTextRange",
-      "SetCaps": "SetCaps(isCaps: boolean): ApiTextRange",
-      "SetColor": "SetColor(color: ApiColor): ApiTextRange",
-      "SetDoubleStrikeout": "SetDoubleStrikeout(isDoubleStrikeout: boolean): ApiTextRange",
+      "SetBold": "SetBold(isBold: boolean | null): ApiTextRange",
+      "SetCaps": "SetCaps(isCaps: boolean | null): ApiTextRange",
+      "SetColor": "SetColor(color: ApiColor | null): ApiTextRange",
+      "SetDoubleStrikeout": "SetDoubleStrikeout(isDoubleStrikeout: boolean | null): ApiTextRange",
       "SetEndPos": "SetEndPos(pos: number): boolean",
-      "SetFontFamily": "SetFontFamily(fontFamily: string): ApiTextRange | null",
-      "SetFontSize": "SetFontSize(fontSize: hps): ApiTextRange | null",
+      "SetFontFamily": "SetFontFamily(fontFamily: string | null): ApiTextRange | null",
+      "SetFontSize": "SetFontSize(fontSize: hps | null): ApiTextRange | null",
       "SetHighlight": "SetHighlight(colorName: highlightColor): ApiTextRange | null",
-      "SetItalic": "SetItalic(isItalic: boolean): ApiTextRange",
-      "SetSmallCaps": "SetSmallCaps(isSmallCaps: boolean): ApiTextRange",
-      "SetSpacing": "SetSpacing(spacing: twips): ApiTextRange | null",
+      "SetItalic": "SetItalic(isItalic: boolean | null): ApiTextRange",
+      "SetLanguage": "SetLanguage(langId: string | null): ApiTextRange | null",
+      "SetSmallCaps": "SetSmallCaps(isSmallCaps: boolean | null): ApiTextRange",
+      "SetSpacing": "SetSpacing(spacing: twips | null): ApiTextRange | null",
       "SetStartPos": "SetStartPos(pos: number): boolean",
-      "SetStrikeout": "SetStrikeout(isStrikeout: boolean): ApiTextRange",
+      "SetStrikeout": "SetStrikeout(isStrikeout: boolean | null): ApiTextRange",
       "SetText": "SetText(text: string): ApiTextRange",
       "SetTextPr": "SetTextPr(textPr: ApiTextPr): ApiTextRange | null",
-      "SetUnderline": "SetUnderline(isUnderline: boolean): ApiTextRange",
-      "SetVertAlign": "SetVertAlign(type: \"baseline\" | \"subscript\" | \"superscript\"): ApiTextRange | null",
+      "SetUnderline": "SetUnderline(isUnderline: boolean | null): ApiTextRange",
+      "SetVertAlign": "SetVertAlign(type: \"baseline\" | \"subscript\" | \"superscript\" | null): ApiTextRange | null",
       "ToHtml": "ToHtml(options?: ToHtmlOptions): string"
     },
     "ApiTheme": {
@@ -1663,14 +1694,17 @@
     },
     "ApiWatermarkSettings": {},
     "ApiWorkbook": {
+      "BreakLink": "BreakLink(sName: string): boolean",
       "Calculate": "Calculate(): boolean",
       "GetActiveChart": "GetActiveChart(): ApiChart | null",
       "GetActiveSheet": "GetActiveSheet(): ApiWorksheet",
       "GetAllPivotTables": "GetAllPivotTables(): ApiPivotTable[]",
       "GetCustomProperties": "GetCustomProperties(): ApiCustomProperties",
       "GetDrawingsByName": "GetDrawingsByName(ids: string[]): Drawing[]",
+      "GetLinkSources": "GetLinkSources(): string[]",
       "GetName": "GetName(): string",
       "GetSheets": "GetSheets(): ApiWorksheet[]",
+      "GetTableStyles": "GetTableStyles(): ApiTableStyles",
       "GetTheme": "GetTheme(): ApiTheme",
       "Redraw": "Redraw(): boolean",
       "Save": "Save(): void"
@@ -2478,6 +2512,7 @@
     "XlSortMethod",
     "XlSortOn",
     "XlSortOrientation",
+    "XlTableStyleElementType",
     "XlTimePeriods",
     "XlTopBottom",
     "XlTotalsCalculation",

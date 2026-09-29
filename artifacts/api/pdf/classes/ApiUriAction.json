@@ -14,7 +14,7 @@
     },
     "GetUri": {
       "description": "Gets uri string",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiUriAction/Methods/GetRect/",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiUriAction/Methods/GetUri/",
       "params": [],
       "returns": {
         "type": "string"
@@ -24,7 +24,7 @@
     },
     "SetUri": {
       "description": "Sets uri to action",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiUriAction/Methods/GetRect/",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiUriAction/Methods/SetUri/",
       "params": [
         {
           "name": "uri",

@@ -1697,4 +1697,4 @@ type SlidePaidMethodName = "AnnotateParagraph" | "ApplyTheme" | "EndGroupActions
 /** Slide `executeMethod` names available in every edition, including Community. */
 type SlideFreeMethodName = Exclude<SlideMethodName, SlidePaidMethodName>;
 
-export type { SlideMethodArgs, SlideMethodName, SlideMethodReturn, SlidePaidMethodName, SlideFreeMethodName };
+export type { SlideMethodArgs, SlideMethodName, SlideMethodReturn, SlideMethodReturnMap, SlidePaidMethodName, SlideFreeMethodName };

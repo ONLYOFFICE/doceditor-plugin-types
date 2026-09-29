@@ -1,4 +1,5 @@
 {
+  "description": "The main class of the Presentation API. Use it to get the current presentation and to\ncreate slides and slide elements, such as shapes, images, tables, and charts.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/",
   "methods": {
     "CentimetersToPoints": {
@@ -1138,7 +1139,7 @@
     },
     "PixelsToEmus": {
       "description": "Converts pixels to EMUs (English Metric Units).",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/PixelsToEmu/",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/PixelsToEmus/",
       "params": [
         {
           "description": "The number of pixels to convert to EMUs.",

@@ -1,5 +1,5 @@
 // AUTO-GENERATED - do not edit by hand. Run `npm run generate-ambient` to regenerate.
-// Self-contained, non-module ambient bundle of @onlyoffice/plugins-types for the "slide" editor,
+// Self-contained, non-module ambient bundle of @onlyoffice/doceditor-plugin-types for the "slide" editor,
 // for tools (e.g. a Monaco editor's addExtraLib()) that want one global-scope .d.ts blob instead of
 // an installable, module-based npm package. Declares Asc/AscPlugin and the Slide namespace,
 // plus the global `Api: Slide.Api`.
@@ -8,7 +8,7 @@
 // to hand-edit.
 //
 // Reached by URL rather than through the npm package, so: the guide for working with these types is
-// https://raw.githubusercontent.com/ONLYOFFICE/plugins-types/main/AGENTS.md
+// https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/main/AGENTS.md
 
 // ---- typedefs used by the shared sources, declared in another editor's ----
 interface ContentControl {
@@ -882,7 +882,12 @@ declare namespace Slide {
   /** Twentieths of a point (equivalent to 1/1440th of an inch). */
   export type twips = number;
 
-  /** @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/ */
+  /**
+   * The main class of the Presentation API. Use it to get the current presentation and to
+   * create slides and slide elements, such as shapes, images, tables, and charts.
+   *
+   * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/
+   */
   export interface Api {
     /**
      * Converts centimeters to points.
@@ -2887,7 +2892,7 @@ declare namespace Slide {
      *
      * @param px - The number of pixels to convert to EMUs.
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/PixelsToEmu/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/PixelsToEmus/
      */
     PixelsToEmus(px: number): number;
 
@@ -20009,13 +20014,13 @@ declare namespace Slide {
     /**
      * Sets the text color to the current paragraph.
      *
-     * @param color - The text color.
+     * @param color - The text color. Pass _null_ to remove the text color.
      * @returns this
      * @since 9.1.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParagraph/Methods/SetColor/
      */
-    SetColor(color: ApiColor): ApiParagraph;
+    SetColor(color: ApiColor | null): ApiParagraph;
 
     /**
      * Specifies that the contents of this paragraph are displayed with two horizontal lines through each
@@ -20052,7 +20057,8 @@ declare namespace Slide {
     /**
      * Sets all 4 font slots with the specified font family.
      *
-     * @param sFontFamily - The font family or families used for the current paragraph.
+     * @param fontFamily - The font family or families used for the current paragraph. Pass _null_ to remove the font
+     *   family.
      * @returns this
      *
      * @example
@@ -20078,12 +20084,13 @@ declare namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParagraph/Methods/SetFontFamily/
      */
-    SetFontFamily(sFontFamily: string): ApiParagraph;
+    SetFontFamily(fontFamily: string | null): ApiParagraph;
 
     /**
      * Sets the font size to the characters of the current paragraph.
      *
-     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch). Pass _null_ to remove the font
+     *   size.
      * @returns this
      *
      * @example
@@ -20109,7 +20116,7 @@ declare namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParagraph/Methods/SetFontSize/
      */
-    SetFontSize(fontSize: hps): ApiParagraph;
+    SetFontSize(fontSize: hps | null): ApiParagraph;
 
     /**
      * Specifies a highlighting color which is applied as a background to the contents of the current
@@ -20329,6 +20336,20 @@ declare namespace Slide {
     SetJc(sJc: "left" | "right" | "both" | "center"): boolean;
 
     /**
+     * Specifies the language which will be used to check spelling and grammar (if requested) when
+     * processing
+     * the contents of the current paragraph.
+     *
+     * @param langId - The possible value for this parameter is a language identifier as defined by RFC 4646/BCP 47.
+     *   Example: "en-CA". Pass _null_ to remove the language.
+     * @returns returns null if the language identifier is not supported.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParagraph/Methods/SetLanguage/
+     */
+    SetLanguage(langId: string | null): ApiParagraph | null;
+
+    /**
      * Sets the outline level for the specified properties.
      *
      * @param lvl - The outline level. Possible values: 1-9. The 1 value means the basic outline level. To set no
@@ -20403,7 +20424,8 @@ declare namespace Slide {
     /**
      * Sets the text spacing measured in twentieths of a point.
      *
-     * @param nSpacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch).
+     * @param spacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch). Pass _null_
+     *   to remove the text spacing.
      * @returns this
      *
      * @example
@@ -20429,7 +20451,7 @@ declare namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParagraph/Methods/SetSpacing/
      */
-    SetSpacing(nSpacing: twips): ApiParagraph;
+    SetSpacing(spacing: twips | null): ApiParagraph;
 
     /**
      * Sets the spacing after the current paragraph. If the value of the isAfterAuto parameter is true,
@@ -24157,12 +24179,13 @@ declare namespace Slide {
     /**
      * Sets the font size to the characters of the current text run.
      *
-     * @param nSize - The text size value measured in half-points (1/144 of an inch).
+     * @param size - The text size value measured in half-points (1/144 of an inch). Pass _null_ to remove the font
+     *   size.
      * @returns this text properties.
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetFontSize/
      */
-    SetFontSize(nSize: hps): ApiTextPr;
+    SetFontSize(size: hps | null): ApiTextPr;
 
     /**
      * Specifies a highlighting color which is added to the text properties and applied as a background to
@@ -24211,12 +24234,13 @@ declare namespace Slide {
     /**
      * Sets the text spacing measured in twentieths of a point.
      *
-     * @param nSpacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch).
+     * @param spacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch). Pass _null_
+     *   to remove the text spacing.
      * @returns this text properties.
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetSpacing/
      */
-    SetSpacing(nSpacing: twips): ApiTextPr;
+    SetSpacing(spacing: twips | null): ApiTextPr;
 
     /**
      * Specifies that the contents of the run are displayed with a single horizontal line through the
@@ -24261,12 +24285,13 @@ declare namespace Slide {
      * **"superscript"** - the characters in the current text run will be aligned above the default text
      * baseline.
      *
-     * @param sType - The vertical alignment type applied to the text contents.
+     * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
+     *   alignment.
      * @returns this text properties.
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetVertAlign/
      */
-    SetVertAlign(sType: "baseline" | "subscript" | "superscript"): ApiTextPr;
+    SetVertAlign(type: "baseline" | "subscript" | "superscript" | null): ApiTextPr;
   }
 
   /**
@@ -25426,7 +25451,8 @@ declare namespace Slide {
     /**
      * Sets the font size to the characters of the current text run.
      *
-     * @param nSize - The text size value measured in half-points (1/144 of an inch).
+     * @param size - The text size value measured in half-points (1/144 of an inch). Pass _null_ to remove the font
+     *   size.
      * @returns this text properties.
      *
      * @example
@@ -25459,7 +25485,7 @@ declare namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetFontSize/
      */
-    SetFontSize(nSize: hps): ApiTextPr;
+    SetFontSize(size: hps | null): ApiTextPr;
 
     /**
      * Specifies a highlighting color which is added to the text properties and applied as a background to
@@ -25616,7 +25642,8 @@ declare namespace Slide {
     /**
      * Sets the text spacing measured in twentieths of a point.
      *
-     * @param nSpacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch).
+     * @param spacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch). Pass _null_
+     *   to remove the text spacing.
      * @returns this text properties.
      *
      * @example
@@ -25649,7 +25676,7 @@ declare namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetSpacing/
      */
-    SetSpacing(nSpacing: twips): ApiTextPr;
+    SetSpacing(spacing: twips | null): ApiTextPr;
 
     /**
      * Specifies that the contents of the run are displayed with a single horizontal line through the
@@ -25826,7 +25853,8 @@ declare namespace Slide {
      * **"superscript"** - the characters in the current text run will be aligned above the default text
      * baseline.
      *
-     * @param sType - The vertical alignment type applied to the text contents.
+     * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
+     *   alignment.
      * @returns this text properties.
      *
      * @example
@@ -25870,7 +25898,7 @@ declare namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetVertAlign/
      */
-    SetVertAlign(sType: "baseline" | "subscript" | "superscript"): ApiTextPr;
+    SetVertAlign(type: "baseline" | "subscript" | "superscript" | null): ApiTextPr;
   }
 
   /**
@@ -32582,7 +32610,8 @@ declare namespace Slide {
     /**
      * Sets the font size to the characters of the current text run.
      *
-     * @param nSize - The text size value measured in half-points (1/144 of an inch).
+     * @param size - The text size value measured in half-points (1/144 of an inch). Pass _null_ to remove the font
+     *   size.
      * @returns this text properties.
      *
      * @example
@@ -32613,7 +32642,7 @@ declare namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetFontSize/
      */
-    SetFontSize(nSize: hps): ApiTextPr;
+    SetFontSize(size: hps | null): ApiTextPr;
 
     /**
      * Specifies a highlighting color which is added to the text properties and applied as a background to
@@ -32771,7 +32800,8 @@ declare namespace Slide {
     /**
      * Sets the text spacing measured in twentieths of a point.
      *
-     * @param nSpacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch).
+     * @param spacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch). Pass _null_
+     *   to remove the text spacing.
      * @returns this text properties.
      *
      * @example
@@ -32803,7 +32833,7 @@ declare namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetSpacing/
      */
-    SetSpacing(nSpacing: twips): ApiTextPr;
+    SetSpacing(spacing: twips | null): ApiTextPr;
 
     /**
      * Specifies that the contents of the run are displayed with a single horizontal line through the
@@ -32930,7 +32960,8 @@ declare namespace Slide {
      * **"superscript"** - the characters in the current text run will be aligned above the default text
      * baseline.
      *
-     * @param sType - The vertical alignment type applied to the text contents.
+     * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
+     *   alignment.
      * @returns this text properties.
      *
      * @example
@@ -32962,7 +32993,7 @@ declare namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetVertAlign/
      */
-    SetVertAlign(sType: "baseline" | "subscript" | "superscript"): ApiTextPr;
+    SetVertAlign(type: "baseline" | "subscript" | "superscript" | null): ApiTextPr;
   }
 
   /**
@@ -33178,41 +33209,45 @@ declare namespace Slide {
     /**
      * Sets bold formatting for the contents of the current text range.
      *
+     * @param isBold - Pass _null_ to remove the bold formatting.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetBold/
      */
-    SetBold(isBold: boolean): ApiTextRange;
+    SetBold(isBold: boolean | null): ApiTextRange;
 
     /**
      * Specifies that any lowercase characters in the current text Range are formatted for display only as
      * their capital letter character equivalents.
      *
-     * @param isCaps - Specifies if the Range contents are displayed capitalized or not.
+     * @param isCaps - Specifies if the Range contents are displayed capitalized or not. Pass _null_ to remove the
+     *   capitalization.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetCaps/
      */
-    SetCaps(isCaps: boolean): ApiTextRange;
+    SetCaps(isCaps: boolean | null): ApiTextRange;
 
     /**
      * Sets the text color of the current range.
      *
+     * @param color - Pass _null_ to remove the text color.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetColor/
      */
-    SetColor(color: ApiColor): ApiTextRange;
+    SetColor(color: ApiColor | null): ApiTextRange;
 
     /**
      * Specifies that the contents of the current Range are displayed with two horizontal lines through
      * each character displayed on the line.
      *
+     * @param isDoubleStrikeout - Pass _null_ to remove the double strikeout.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetDoubleStrikeout/
      */
-    SetDoubleStrikeout(isDoubleStrikeout: boolean): ApiTextRange;
+    SetDoubleStrikeout(isDoubleStrikeout: boolean | null): ApiTextRange;
 
     /**
      * Sets the end position of the current range.
@@ -33227,22 +33262,24 @@ declare namespace Slide {
     /**
      * Sets the font family for the current TextRange.
      *
-     * @param fontFamily - The font family or families used for the current text Range.
+     * @param fontFamily - The font family or families used for the current text Range. Pass _null_ to remove the font
+     *   family.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetFontFamily/
      */
-    SetFontFamily(fontFamily: string): ApiTextRange | null;
+    SetFontFamily(fontFamily: string | null): ApiTextRange | null;
 
     /**
      * Sets the font size of the characters in the current text Range.
      *
-     * @param fontSize - The text size value measured in half-points (1/144 of an inch).
+     * @param fontSize - The text size value measured in half-points (1/144 of an inch). Pass _null_ to remove the font
+     *   size.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetFontSize/
      */
-    SetFontSize(fontSize: hps): ApiTextRange | null;
+    SetFontSize(fontSize: hps | null): ApiTextRange | null;
 
     /**
      * Specifies a highlighting color which is applied as a background to the contents of the current
@@ -33257,11 +33294,26 @@ declare namespace Slide {
     /**
      * Sets the italic property to the text character.
      *
+     * @param isItalic - Pass _null_ to remove the italic formatting.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetItalic/
      */
-    SetItalic(isItalic: boolean): ApiTextRange;
+    SetItalic(isItalic: boolean | null): ApiTextRange;
+
+    /**
+     * Specifies the language which will be used to check spelling and grammar (if requested) when
+     * processing
+     * the contents of the current text range.
+     *
+     * @param langId - The possible value for this parameter is a language identifier as defined by RFC 4646/BCP 47.
+     *   Example: "en-CA". Pass _null_ to remove the language.
+     * @returns returns null if the language identifier is not supported.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetLanguage/
+     */
+    SetLanguage(langId: string | null): ApiTextRange | null;
 
     /**
      * Specifies that all the lowercase letter characters in the current text Range are formatted for
@@ -33270,22 +33322,23 @@ declare namespace Slide {
      * this text.
      *
      * @param isSmallCaps - Specifies if the contents of the current Range are displayed capitalized two points smaller or
-     *   not.
+     *   not. Pass _null_ to remove the small capitals.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetSmallCaps/
      */
-    SetSmallCaps(isSmallCaps: boolean): ApiTextRange;
+    SetSmallCaps(isSmallCaps: boolean | null): ApiTextRange;
 
     /**
      * Sets the text spacing measured in twentieths of a point.
      *
-     * @param spacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch).
+     * @param spacing - The value of the text spacing measured in twentieths of a point (1/1440 of an inch). Pass _null_
+     *   to remove the text spacing.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetSpacing/
      */
-    SetSpacing(spacing: twips): ApiTextRange | null;
+    SetSpacing(spacing: twips | null): ApiTextRange | null;
 
     /**
      * Sets the start position of the current range.
@@ -33301,11 +33354,12 @@ declare namespace Slide {
      * Specifies that the contents of the current Range are displayed with a single horizontal line through
      * the range center.
      *
+     * @param isStrikeout - Pass _null_ to remove the strikeout.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetStrikeout/
      */
-    SetStrikeout(isStrikeout: boolean): ApiTextRange;
+    SetStrikeout(isStrikeout: boolean | null): ApiTextRange;
 
     /**
      * Replaces all text content with the given string. Use "\r" to separate paragraphs.
@@ -33333,12 +33387,13 @@ declare namespace Slide {
      * below the character
      * (less than all the spacing above and below the characters on the line).
      *
-     * @param isUnderline - Specifies if the contents of the current Range are displayed underlined or not.
+     * @param isUnderline - Specifies if the contents of the current Range are displayed underlined or not. Pass _null_ to
+     *   remove the underline.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetUnderline/
      */
-    SetUnderline(isUnderline: boolean): ApiTextRange;
+    SetUnderline(isUnderline: boolean | null): ApiTextRange;
 
     /**
      * Specifies the alignment which will be applied to the Range contents in relation to the default
@@ -33350,12 +33405,13 @@ declare namespace Slide {
      * **"superscript"** - the characters in the current text Range will be aligned above the default text
      * baseline.
      *
-     * @param type - The vertical alignment type applied to the text contents.
+     * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
+     *   alignment.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetVertAlign/
      */
-    SetVertAlign(type: "baseline" | "subscript" | "superscript"): ApiTextRange | null;
+    SetVertAlign(type: "baseline" | "subscript" | "superscript" | null): ApiTextRange | null;
 
     /**
      * Converts the text range to HTML.
@@ -37508,6 +37564,77 @@ interface WindowHeaderFrameOptions {
     isTitle?: boolean;
 }
 
+// ---- src/plugin/editor.d.ts ----
+// The global `Editor` object: `Editor.GetSelectedText()` where `Asc.plugin.executeMethod` was.
+//
+// It is a Proxy installed by `startPluginApi()` (sdkjs `common/plugins/plugin_base_api.js`), and it
+// has two kinds of member. Every name except `RunMacro` is forwarded to `executeMethod` with the
+// arguments spread rather than passed as an array; `RunMacro` is its own thing, over `callCommand`.
+// Both take a trailing callback or return a Promise. The Proxy answers `undefined` for `then`, which
+// is what lets `await Editor.Something()` work - without that exclusion `await` would treat `Editor`
+// itself as a thenable and hang.
+//
+// The declarations here are the shapes; each editor entry point (`src/editors/<editor>.d.ts`)
+// declares the global itself with that editor's own method maps, the same way it declares `Api`.
+// Two entry points in one program therefore collide on `Editor` exactly as they do on `Api`, and for
+// the same reason: a plugin runs in one editor.
+
+/**
+ * One forwarded method: `Editor.Name(...args)`.
+ *
+ * The callback form is declared as returning `void` even though the runtime returns `executeMethod`'s
+ * own `true`/`false`. That boolean reports whether the call went out now or was queued behind another
+ * one in flight - an internal detail of the single-method-at-a-time protocol, not an answer about the
+ * method. `Asc.plugin.executeMethod` declares `void` for the same reason.
+ *
+ * Three signatures rather than two, because a tuple cannot put a required element after an optional
+ * one: `[...Args, callback]` is not expressible when `Args` itself ends in an optional parameter, and
+ * for a method like `GetSelectedText(prop?)` the callback form would otherwise demand the argument it
+ * is allowed to omit. The second signature covers passing only a callback. What stays out of reach is
+ * a method with several optional parameters called with some of them *and* a callback - rare enough
+ * to leave; it is reported as no-matching-overload rather than silently accepted.
+ */
+type EditorMethod<Args extends unknown[], Result> = {
+    (...args: Args): Promise<Result>;
+    (callback: (result: Result) => void): void;
+    (...args: [...Args, (result: Result) => void]): void;
+};
+
+/** Every `executeMethod` name of one editor, as a callable property. */
+type EditorMethods<ArgsMap, ReturnMap> = {
+    [K in keyof ArgsMap]: ArgsMap[K] extends unknown[]
+        ? EditorMethod<ArgsMap[K], K extends keyof ReturnMap ? ReturnMap[K] : unknown>
+        : never;
+};
+
+/**
+ * `Editor.RunMacro(fn, ...args)` - `callCommand` with two long-standing traps closed.
+ *
+ * The arguments are `JSON.stringify`d into the macro source and applied to `fn` inside the editor,
+ * so data reaches the body as parameters instead of through `Asc.scope`. They must therefore survive
+ * JSON, which is what `CommandSerializable` states: a function anywhere in an argument is a compile
+ * error rather than an `undefined` that only shows up at runtime.
+ *
+ * The body is also wrapped in `try`/`catch` by the runtime, and the Promise form rejects with an
+ * `Error` carrying the original message. `callCommand` has no such path - a throw there is lost and
+ * the callback simply never fires - so this is the form to reach for when the macro can fail.
+ */
+interface EditorRunMacro {
+    <Result, Args extends unknown[]>(
+        macro: (...args: Args) => Result & CommandSerializable<Result>,
+        ...args: Args & CommandSerializable<Args>
+    ): Promise<Result>;
+    <Result, Args extends unknown[]>(
+        macro: (...args: Args) => Result & CommandSerializable<Result>,
+        ...argsAndCallback: [...(Args & CommandSerializable<Args>), (result: Result) => void]
+    ): void;
+}
+
+/** The global `Editor` of one editor: its `executeMethod` names, plus `RunMacro`. */
+type EditorGlobal<ArgsMap, ReturnMap> = EditorMethods<ArgsMap, ReturnMap> & {
+    RunMacro: EditorRunMacro;
+};
+
 // ---- src/plugin/plugin.d.ts ----
 // The plugin runtime itself: Asc (the window.Asc entry point), AscPlugin (window.Asc.plugin),
 // PluginWindow, PluginScope, and PluginInfo. This is the hub module - it cross-imports the
@@ -37842,6 +37969,8 @@ declare var AscSimpleRequest: AscSimpleRequest | undefined;
 // ---- global Api ----
 interface Window {
     Api: Slide.Api;
+    Editor: EditorGlobal<SlideMethodArgs, SlideMethodReturnMap>;
 }
 
 declare var Api: Slide.Api;
+declare var Editor: EditorGlobal<SlideMethodArgs, SlideMethodReturnMap>;
