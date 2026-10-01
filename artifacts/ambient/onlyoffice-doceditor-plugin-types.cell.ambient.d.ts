@@ -63454,21 +63454,25 @@ type MenuType = 'left' | 'right';
 interface PluginConfig {
     $schema?: string;
     baseUrl?: string;
-    description?: string;
-    discussion?: string;
+    /**
+     * Places the plugin in its own group in the **Plugins** tab, separated from the rest. Omitted,
+     * the plugin joins the last group. Read as `item.group.name` / `item.group.rank`.
+     */
+    group?: {
+        name: string;
+        /** Position of the group in the tab, an integer from 1. */
+        rank: number;
+    };
     guid: string;
     /** A help/support link for the plugin. */
     help?: string;
     /** On desktop editors, serves the plugin through the `onlyoffice://` custom scheme instead of `file://`, so it gets a real origin with working CORS and a secure context. */
     onlyofficeScheme?: boolean;
-    /** Version of the config.json format itself, distinct from the plugin's own `version`. */
-    manifestVersion?: string;
     minVersion?: string;
     name: string;
     nameLocale?: Record<string, string>;
     /** The plugin author who proposed the plugin for publication. */
     offered?: string;
-    url?: string;
     variations: VariationConfig[];
     /**
      * The plugin's own version, e.g. `"1.0"`. Optional per the reference, and genuinely omitted by
@@ -63522,7 +63526,16 @@ interface VariationConfig {
     isInsideMode?: boolean;
     isModal?: boolean;
     /** Whether the variation's content needs sequential numbering (used by some panel plugins). */
-    isNeedNumbering?: boolean;
+    /**
+     * Whether the created panel starts expanded (`true`, the default) or collapsed (`false`).
+     *
+     * Panel variations only - `type` of `"panel"` or `"panelRight"`. The side-menu button and the
+     * panel are created either way; `false` only skips expanding it on render, leaving the user to
+     * open it from the button. Read as `isActivated !== false`, so omitting it and setting it to
+     * `true` are the same - only `false` does anything.
+     * @since 8.3.0
+     */
+    isActivated?: boolean;
     isSystem?: boolean;
     isTargeted?: boolean;
     isUpdateOleOnResize?: boolean;

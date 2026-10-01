@@ -90,13 +90,10 @@
           "optional": true,
           "signature": "baseUrl?: string;"
         },
-        "description": {
+        "group": {
+          "description": "Places the plugin in its own group in the **Plugins** tab, separated from the rest. Omitted,\nthe plugin joins the last group. Read as `item.group.name` / `item.group.rank`.",
           "optional": true,
-          "signature": "description?: string;"
-        },
-        "discussion": {
-          "optional": true,
-          "signature": "discussion?: string;"
+          "signature": "group?: { name: string; rank: number; };"
         },
         "guid": {
           "signature": "guid: string;"
@@ -105,11 +102,6 @@
           "description": "A help/support link for the plugin.",
           "optional": true,
           "signature": "help?: string;"
-        },
-        "manifestVersion": {
-          "description": "Version of the config.json format itself, distinct from the plugin's own `version`.",
-          "optional": true,
-          "signature": "manifestVersion?: string;"
         },
         "minVersion": {
           "optional": true,
@@ -131,10 +123,6 @@
           "description": "On desktop editors, serves the plugin through the `onlyoffice://` custom scheme instead of `file://`, so it gets a real origin with working CORS and a secure context.",
           "optional": true,
           "signature": "onlyofficeScheme?: boolean;"
-        },
-        "url": {
-          "optional": true,
-          "signature": "url?: string;"
         },
         "variations": {
           "signature": "variations: VariationConfig[];"
@@ -230,6 +218,12 @@
           "optional": true,
           "signature": "initOnSelectionChanged?: boolean;"
         },
+        "isActivated": {
+          "description": "Whether the created panel starts expanded (`true`, the default) or collapsed (`false`).\n\nPanel variations only - `type` of `\"panel\"` or `\"panelRight\"`. The side-menu button and the\npanel are created either way; `false` only skips expanding it on render, leaving the user to\nopen it from the button. Read as `isActivated !== false`, so omitting it and setting it to\n`true` are the same - only `false` does anything.",
+          "optional": true,
+          "signature": "isActivated?: boolean;",
+          "since": "8.3.0"
+        },
         "isCanDocked": {
           "optional": true,
           "signature": "isCanDocked?: boolean;"
@@ -249,11 +243,6 @@
         "isModal": {
           "optional": true,
           "signature": "isModal?: boolean;"
-        },
-        "isNeedNumbering": {
-          "description": "Whether the variation's content needs sequential numbering (used by some panel plugins).",
-          "optional": true,
-          "signature": "isNeedNumbering?: boolean;"
         },
         "isSystem": {
           "optional": true,

@@ -114,8 +114,11 @@ window.Asc.plugin.attachEditorEvent("onParagraphAdd", (data) => {
 
 ## config.json Schema
 
-`schemas/config.schema.json` validates a plugin's `config.json` (generated from this package's own
-`PluginConfig`/`VariationConfig`/`ButtonConfig` types, so it can't drift). Point your editor at it:
+`schemas/config.schema.json` validates a plugin's `config.json`. Its shape is generated from this
+package's own `PluginConfig`/`VariationConfig`/`ButtonConfig` types, so the two cannot drift apart.
+It is deliberately stricter than the types in two places, because a config.json that is merely
+accepted at runtime is not necessarily one worth publishing: `offered` is required, and exactly one
+variation must carry `store`. Point your editor at it:
 
 ```json
 {
@@ -190,7 +193,7 @@ https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/master/artif
 | -------- | ---- |
 | `onlyoffice-doceditor-plugin-types.word.ambient.d.ts` | 2.50 MB |
 | `onlyoffice-doceditor-plugin-types.cell.ambient.d.ts` | 2.48 MB |
-| `onlyoffice-doceditor-plugin-types.slide.ambient.d.ts` | 1.45 MB |
+| `onlyoffice-doceditor-plugin-types.slide.ambient.d.ts` | 1.46 MB |
 | `onlyoffice-doceditor-plugin-types.pdf.ambient.d.ts` | 1.41 MB |
 | `onlyoffice-doceditor-plugin-types.forms.ambient.d.ts` | 0.55 MB |
 

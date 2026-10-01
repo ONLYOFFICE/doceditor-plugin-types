@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
   "type": "object",
   "properties": {
     "$schema": {
@@ -8,11 +8,23 @@
     "baseUrl": {
       "type": "string"
     },
-    "description": {
-      "type": "string"
-    },
-    "discussion": {
-      "type": "string"
+    "group": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "rank": {
+          "type": "number",
+          "description": "Position of the group in the tab, an integer from 1."
+        }
+      },
+      "required": [
+        "name",
+        "rank"
+      ],
+      "additionalProperties": false,
+      "description": "Places the plugin in its own group in the **Plugins** tab, separated from the rest. Omitted, the plugin joins the last group. Read as `item.group.name` / `item.group.rank`."
     },
     "guid": {
       "type": "string"
@@ -24,10 +36,6 @@
     "onlyofficeScheme": {
       "type": "boolean",
       "description": "On desktop editors, serves the plugin through the `onlyoffice://` custom scheme instead of `file://`, so it gets a real origin with working CORS and a secure context."
-    },
-    "manifestVersion": {
-      "type": "string",
-      "description": "Version of the config.json format itself, distinct from the plugin's own `version`."
     },
     "minVersion": {
       "type": "string"
@@ -42,14 +50,18 @@
       "type": "string",
       "description": "The plugin author who proposed the plugin for publication."
     },
-    "url": {
-      "type": "string"
-    },
     "variations": {
       "type": "array",
       "items": {
         "$ref": "#/definitions/VariationConfig"
-      }
+      },
+      "contains": {
+        "required": [
+          "store"
+        ]
+      },
+      "minContains": 1,
+      "maxContains": 1
     },
     "version": {
       "type": "string",
@@ -58,8 +70,11 @@
   },
   "required": [
     "guid",
+    "minVersion",
     "name",
-    "variations"
+    "offered",
+    "variations",
+    "version"
   ],
   "additionalProperties": false,
   "definitions": {
@@ -165,9 +180,9 @@
         "isModal": {
           "type": "boolean"
         },
-        "isNeedNumbering": {
+        "isActivated": {
           "type": "boolean",
-          "description": "Whether the variation's content needs sequential numbering (used by some panel plugins)."
+          "description": "Whether the created panel starts expanded (`true`, the default) or collapsed (`false`).\n\nPanel variations only - `type` of `\"panel\"` or `\"panelRight\"`. The side-menu button and the panel are created either way; `false` only skips expanding it on render, leaving the user to open it from the button. Read as `isActivated !== false`, so omitting it and setting it to `true` are the same - only `false` does anything."
         },
         "isSystem": {
           "type": "boolean"
@@ -383,7 +398,12 @@
           }
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "required": [
+        "background",
+        "icons",
+        "screenshots"
+      ]
     },
     "VariationType": {
       "type": "string",
