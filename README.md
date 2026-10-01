@@ -258,8 +258,12 @@ one file, one `tsc` command, no install.
 ## Contributing / how the types are generated
 
 Almost nothing here is written by hand - the editor types are generated from the ONLYOFFICE editor
-sources. [CONTRIBUTING.md](CONTRIBUTING.md) covers what is generated and from what, what each check
-guards, how to read the machine-readable index, and the project layout.
+sources.
+[CONTRIBUTING.md](https://github.com/ONLYOFFICE/doceditor-plugin-types/blob/master/CONTRIBUTING.md)
+covers what is generated and from what, what each check guards, how to read the machine-readable
+index, and the project layout. It lives in the repository rather than the package, so the link is
+absolute - the other three (`CHANGELOG.md`, `AGENTS.md`, `LICENSE`) ship beside this file and stay
+relative.
 
 ## License
 
