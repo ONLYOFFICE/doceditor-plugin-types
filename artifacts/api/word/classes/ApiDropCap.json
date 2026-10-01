@@ -83,15 +83,16 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDropCap/Methods/SetFontFamily/",
       "params": [
         {
-          "description": "The font family name used for the drop cap letter.",
+          "description": "The font family name used for the drop cap letter. Pass _null_ or omit it to remove the font family.",
           "name": "fontFamily",
-          "type": "string"
+          "optional": true,
+          "type": "string | null"
         }
       ],
       "returns": {
         "type": "ApiDropCap"
       },
-      "signature": "SetFontFamily(fontFamily: string): ApiDropCap",
+      "signature": "SetFontFamily(fontFamily?: string | null): ApiDropCap",
       "since": "10.0.0"
     },
     "SetLinesToDrop": {

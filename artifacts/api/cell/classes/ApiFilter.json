@@ -23,7 +23,7 @@
       "signature": "GetCriteria2(): string | null"
     },
     "GetOn": {
-      "description": "Indicates whether any filter is applied on this column.\n\nThe property is true when at least one of the following underlying\nstructures is present for the column:\n- Filters\n- CustomFiltersObj\n- DynamicFilter\n- ColorFilter\n- Top10",
+      "description": "Indicates whether any filter is applied on this column.\n\nThe property is true when at least one of the following underlying\nstructures is present for the column:\n\n- Filters\n- CustomFiltersObj\n- DynamicFilter\n- ColorFilter\n- Top10",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFilter/Methods/GetOn/",
       "params": [],
       "returns": {

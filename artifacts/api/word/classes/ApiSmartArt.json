@@ -463,7 +463,7 @@
       "signature": "SetDistances(nLeft: EMU, nTop: EMU, nRight: EMU, nBottom: EMU): boolean"
     },
     "SetDrawingPrFromDrawing": {
-      "description": "Sets the properties from another drawing to the current drawing.\nThe following properties will be copied: horizontal and vertical alignment, distance between the edges of the current drawing object and any subsequent text, wrapping style, drawing name, title and description.",
+      "description": "Sets the properties from another drawing to the current drawing.\n\nThe following properties will be copied: horizontal and vertical alignment, distance between the edges of the current drawing object and any subsequent text, wrapping style, drawing name, title and description.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetDrawingPrFromDrawing/",
       "params": [
         {
@@ -614,7 +614,7 @@
       "signature": "SetLockValue(sType: DrawingLockType, bValue: boolean): boolean"
     },
     "SetName": {
-      "description": "Sets the name of the current drawing.\nIf another drawing with the same name already exists, that drawing's name will be reset to a default auto-generated name.\nOLE objects do not support a custom name, so for them this method always returns false.",
+      "description": "Sets the name of the current drawing.\n\nIf another drawing with the same name already exists, that drawing's name will be reset to a default auto-generated name.\nOLE objects do not support a custom name, so for them this method always returns false.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetName/",
       "params": [
         {
@@ -828,7 +828,7 @@
       "signature": "SetVertFlip(bFlip: boolean): boolean"
     },
     "SetWrappingStyle": {
-      "description": "Sets the wrapping type of the current object (image, shape, chart). One of the following wrapping style types can be set:\n**\"inline\"** - the object is considered to be a part of the text, like a character, so when the text moves, the object moves as well. In this case the positioning options are inaccessible.\nIf one of the following styles is selected, the object can be moved independently of the text and positioned on the page exactly:\n**\"square\"** - the text wraps the rectangular box that bounds the object.\n**\"tight\"** - the text wraps the actual object edges.\n**\"through\"** - the text wraps around the object edges and fills in the open white space within the object.\n**\"topAndBottom\"** - the text is only above and below the object.\n**\"behind\"** - the text overlaps the object.\n**\"inFront\"** - the object overlaps the text.",
+      "description": "Sets the wrapping type of the current object (image, shape, chart).\n\nOne of the following wrapping style types can be set:\n\n- **\"inline\"** - the object is considered to be a part of the text, like a character, so when the text moves, the object moves as well. In this case the positioning options are inaccessible.\n\nIf one of the following styles is selected, the object can be moved independently of the text and positioned on the page exactly:\n\n- **\"square\"** - the text wraps the rectangular box that bounds the object.\n- **\"tight\"** - the text wraps the actual object edges.\n- **\"through\"** - the text wraps around the object edges and fills in the open white space within the object.\n- **\"topAndBottom\"** - the text is only above and below the object.\n- **\"behind\"** - the text overlaps the object.\n- **\"inFront\"** - the object overlaps the text.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetWrappingStyle/",
       "params": [
         {

@@ -171,13 +171,13 @@
         {
           "description": "The rotation angle in degrees. Must be a multiple of 90.",
           "name": "angle",
-          "type": "number"
+          "type": "Degree"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetRotation(angle: number): boolean"
+      "signature": "SetRotation(angle: Degree): boolean"
     },
     "SetSelection": {
       "description": "Sets page selection.",

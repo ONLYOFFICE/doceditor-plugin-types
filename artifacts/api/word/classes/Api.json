@@ -62,7 +62,7 @@
       "signature": "CentimetersToPoints(cm: number): number"
     },
     "Color": {
-      "description": "Creates an ApiColor from a universal input. The method recognizes several call signatures and either delegates to a narrower factory or constructs an ApiColor directly.\n**Numeric components**: \"Api.Color(r, g, b)\" or \"Api.Color(r, g, b, a)\" creates an RGB or RGBA color from byte components (0-255).\n**Packed integer**: \"Api.Color(0xRRGGBB)\" creates an RGB color from a 24-bit integer.\n**Full HEX string**: \"Api.Color('#RRGGBB')\" or \"Api.Color('RRGGBB')\" creates a HEX color; the leading \"#\" is optional.\n**Short HEX string**: \"Api.Color('#RGB')\" expands each digit by duplication, so \"#F0A\" becomes \"#FF00AA\".\n**Theme color name**: \"Api.Color('accent1')\" creates a theme color; any value of SchemeColorId is accepted.\n**Preset color name**: \"Api.Color('aliceBlue')\" resolves any value of PresetColor to its RGB equivalent.\n**Auto color**: \"Api.Color('auto')\" creates an auto color.\nFor a single string argument, the resolution priority is: \"auto\", a string starting with \"#\", a theme name, a preset name, a bare 6-digit HEX. Theme and preset palettes do not overlap. A 3-digit shorthand is accepted only with the leading \"#\".\nUnsupported inputs (objects, arrays, an existing ApiColor, unknown strings, no arguments) return a black color (#000000).",
+      "description": "Creates an ApiColor from a universal input.\n\nThe method recognizes several call signatures and either delegates to a narrower factory or constructs an ApiColor directly.\n\n- **Numeric components**: \"Api.Color(r, g, b)\" or \"Api.Color(r, g, b, a)\" creates an RGB or RGBA color from byte components (0-255).\n- **Packed integer**: \"Api.Color(0xRRGGBB)\" creates an RGB color from a 24-bit integer.\n- **Full HEX string**: \"Api.Color('#RRGGBB')\" or \"Api.Color('RRGGBB')\" creates a HEX color; the leading \"#\" is optional.\n- **Short HEX string**: \"Api.Color('#RGB')\" expands each digit by duplication, so \"#F0A\" becomes \"#FF00AA\".\n- **Theme color name**: \"Api.Color('accent1')\" creates a theme color; any value of SchemeColorId is accepted.\n- **Preset color name**: \"Api.Color('aliceBlue')\" resolves any value of PresetColor to its RGB equivalent.\n- **Auto color**: \"Api.Color('auto')\" creates an auto color.\n\nFor a single string argument, the resolution priority is: \"auto\", a string starting with \"#\", a theme name, a preset name, a bare 6-digit HEX. Theme and preset palettes do not overlap. A 3-digit shorthand is accepted only with the leading \"#\".\n\nUnsupported inputs (objects, arrays, an existing ApiColor, unknown strings, no arguments) return a black color (#000000).",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/Color/",
       "params": [
         {
@@ -95,7 +95,7 @@
       "signature": "Color(r: number | string | number | SchemeColorId | PresetColor, g?: number, b?: number, a?: number): ApiColor"
     },
     "CompareDocuments": {
-      "description": "Compares the current document with another document opened via builderJS.OpenTmpFile. Tracked changes between the two documents are produced in the current document.",
+      "description": "Compares the current document with another document opened via builderJS.OpenTmpFile.\n\nTracked changes between the two documents are produced in the current document.",
       "params": [
         {
           "description": "The second document, returned by builderJS.OpenTmpFile.",
@@ -184,7 +184,7 @@
       "signature": "CreateBlockLvlSdt(): ApiBlockLvlSdt"
     },
     "CreateChart": {
-      "description": "Creates a chart with the parameters specified.\n**Note:**\nValues of _styleIndex_ outside **1 - 48** are interpreted as a chart style id from the _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs Enterprise](https://www.onlyoffice.com/docs-enterprise-prices?from=api) and [ONLYOFFICE Docs Developer](https://www.onlyoffice.com/developer-edition-prices?from=api).\n",
+      "description": "Creates a chart with the parameters specified.\n\n**Note:**\nValues of _styleIndex_ outside **1 - 48** are interpreted as a chart style id from the _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs Enterprise](https://www.onlyoffice.com/docs-enterprise-prices?from=api) and [ONLYOFFICE Docs Developer](https://www.onlyoffice.com/developer-edition-prices?from=api).\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/CreateChart/",
       "params": [
         {
@@ -680,7 +680,7 @@
       "signature": "CreateRadialGradientFill(gradientStops: number[]): ApiFill"
     },
     "CreateRange": {
-      "description": "Creates an element range.\nIf you do not specify the start and end positions, the range will be taken from the entire element.",
+      "description": "Creates an element range.\n\nIf you do not specify the start and end positions, the range will be taken from the entire element.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/CreateRange/",
       "params": [
         {
@@ -1161,7 +1161,7 @@
       "signature": "MailMerge(startIndex?: number, endIndex?: number): boolean"
     },
     "MergeDocuments": {
-      "description": "Merges the current document with another document opened via builderJS.OpenTmpFile. Its contents are merged into the current document.",
+      "description": "Merges the current document with another document opened via builderJS.OpenTmpFile.\n\nIts contents are merged into the current document.",
       "params": [
         {
           "description": "The second document, returned by builderJS.OpenTmpFile.",
@@ -1181,7 +1181,7 @@
       "signature": "MergeDocuments(file: object, comparisonPr?: ComparisonPr): void"
     },
     "MillimetersToEmus": {
-      "description": "Converts millimeters to English Metric Units (EMUs).\nThe result is an integer value.",
+      "description": "Converts millimeters to English Metric Units (EMUs).\n\nThe result is an integer value.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/MillimetersToEmus/",
       "params": [
         {

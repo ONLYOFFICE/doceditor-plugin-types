@@ -438,13 +438,13 @@
         {
           "description": "New drawing rotation angle.",
           "name": "rotAngle",
-          "type": "number"
+          "type": "Degree"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetRotation(rotAngle: number): boolean"
+      "signature": "SetRotation(rotAngle: Degree): boolean"
     },
     "SetShadow": {
       "description": "Sets the shadow to the current graphic object.",

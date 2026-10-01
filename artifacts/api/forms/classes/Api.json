@@ -1,5 +1,5 @@
 {
-  "description": "Base class",
+  "description": "The main class of the Form API. Use it to create forms: text fields, combo boxes,\ncheckboxes and radio buttons, date fields, picture forms, signature forms, and complex\nfields.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/Api/",
   "methods": {
     "ConvertDocument": {

@@ -355,7 +355,7 @@
       "signature": "SetLockValue(sType: DrawingLockType, bValue: boolean): boolean"
     },
     "SetName": {
-      "description": "Sets the name of the current drawing.\nIf another drawing with the same name already exists, that drawing's name will be reset to a default auto-generated name.\nOLE objects do not support a custom name, so for them this method always returns false.",
+      "description": "Sets the name of the current drawing.\n\nIf another drawing with the same name already exists, that drawing's name will be reset to a default auto-generated name.\nOLE objects do not support a custom name, so for them this method always returns false.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/SetName/",
       "params": [
         {
@@ -389,7 +389,7 @@
       "since": "9.3.0"
     },
     "SetPosition": {
-      "description": "Changes the position for the drawing object.\n<note>Please note that the horizontal and vertical offsets are calculated within the limits of\nthe specified column and row cells only. If this value exceeds the cell width or height, another vertical/horizontal position will be set.</note>",
+      "description": "Changes the position for the drawing object.\n\n**Note:**\nThe horizontal and vertical offsets are calculated within the limits of\nthe specified column and row cells only. If this value exceeds the cell width or height, another vertical/horizontal position will be set.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/SetPosition/",
       "params": [
         {

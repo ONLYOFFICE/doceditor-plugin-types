@@ -283,7 +283,7 @@
       "since": "10.0.0"
     },
     "MergeCells": {
-      "description": "Merges an array of cells. If merge is successful, it will return merged cell, otherwise \"null\".\n**Warning**: The number of cells in any row and the number of rows in the current table may be changed.",
+      "description": "Merges an array of cells.\n\nIf merge is successful, it will return merged cell, otherwise \"null\".\n\n**Warning:**\nThe number of cells in any row and the number of rows in the current table may be changed.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/MergeCells/",
       "params": [
         {

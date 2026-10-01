@@ -1,5 +1,5 @@
 {
-  "description": "Returns the document statistics represented as an object with the following parameters:\n**PageCount** - number of pages;\n**WordsCount** - number of words;\n**ParagraphCount** - number of paragraphs;\n**SymbolsCount** - number of symbols;\n**SymbolsWSCount** - number of symbols with spaces.",
+  "description": "Returns the document statistics represented as an object with the following parameters:\n\n- **PageCount** - number of pages;\n- **WordsCount** - number of words;\n- **ParagraphCount** - number of paragraphs;\n- **SymbolsCount** - number of symbols;\n- **SymbolsWSCount** - number of symbols with spaces.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetStatistics/",
   "params": [],
   "returns": {

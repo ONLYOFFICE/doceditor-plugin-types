@@ -60,7 +60,7 @@
       "signature": "GetAllWidgets(): ApiWidget[]"
     },
     "GetCharLimit": {
-      "description": "Gets the text field character limit.\n<note> Char limit 0 means field doesn't have char limit",
+      "description": "Gets the text field character limit.\n\n**Note:**\nIf the character limit is 0, the field has no character limit.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/GetCharLimit/",
       "params": [],
       "returns": {
@@ -202,7 +202,7 @@
       "signature": "IsScrollLongText(): boolean"
     },
     "SetCharLimit": {
-      "description": "Sets the text field character limit.\n<note> Character limit 0 means the field doesn't have a character limit.",
+      "description": "Sets the text field character limit.\n\n**Note:**\nIf the character limit is 0, the field has no character limit.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/SetCharLimit/",
       "params": [
         {
@@ -217,7 +217,7 @@
       "signature": "SetCharLimit(charLimit: number): boolean"
     },
     "SetComb": {
-      "description": "Sets whether the text field uses comb formatting.\n<note>The character limit must be greater than 0.</note>",
+      "description": "Sets whether the text field uses comb formatting.\n\n**Note:**\nThe character limit must be greater than 0.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/SetComb/",
       "params": [
         {
@@ -485,7 +485,7 @@
       "since": "9.4.0"
     },
     "SetValidateRange": {
-      "description": "Sets validate range for field.\n<note> Can only be applied to fields with a percentage or number format. </note>",
+      "description": "Sets validate range for field.\n\n**Note:**\nCan only be applied to fields with a percentage or number format.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/SetValidateRange/",
       "params": [
         {

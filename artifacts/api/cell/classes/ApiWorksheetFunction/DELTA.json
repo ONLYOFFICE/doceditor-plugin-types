@@ -1,5 +1,5 @@
 {
-  "description": "Tests whether two numbers are equal. The function returns 1 if the numbers are equal and 0 otherwise.",
+  "description": "Tests whether two numbers are equal.\n\nThe function returns 1 if the numbers are equal and 0 otherwise.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/DELTA/",
   "params": [
     {

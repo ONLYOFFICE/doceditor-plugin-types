@@ -63,7 +63,7 @@
       "signature": "GetSortOn(): XlSortOn"
     },
     "GetSortOnValue": {
-      "description": "Returns the value (color or null) by which this sort field is sorted.\nFor color-based sorts returns the fill/font color; otherwise returns null.",
+      "description": "Returns the value (color or null) by which this sort field is sorted.\n\nFor color-based sorts returns the fill/font color; otherwise returns null.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSortField/Methods/GetSortOnValue/",
       "params": [],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",

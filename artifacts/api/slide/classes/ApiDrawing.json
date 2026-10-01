@@ -385,7 +385,7 @@
       "since": "9.3.0"
     },
     "SetHyperlink": {
-      "description": "Sets a hyperlink to the current drawing object (shape or image).\nPass null to remove the hyperlink.",
+      "description": "Sets a hyperlink to the current drawing object (shape or image).\n\nPass null to remove the hyperlink.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/SetHyperlink/",
       "params": [
         {
@@ -438,7 +438,7 @@
       "signature": "SetLockValue(sType: DrawingLockType, bValue: boolean): boolean"
     },
     "SetName": {
-      "description": "Sets the name of the current drawing.\nIf another drawing with the same name already exists, that drawing's name will be reset to a default auto-generated name.\nOLE objects do not support a custom name, so for them this method always returns false.",
+      "description": "Sets the name of the current drawing.\n\nIf another drawing with the same name already exists, that drawing's name will be reset to a default auto-generated name.\nOLE objects do not support a custom name, so for them this method always returns false.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/SetName/",
       "params": [
         {

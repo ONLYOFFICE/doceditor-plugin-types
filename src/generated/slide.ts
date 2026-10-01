@@ -19,10 +19,11 @@ export namespace Slide {
 
   /**
    * The type of a fill which uses an image as a background.
-   * **"tile"** - if the image is smaller than the shape which is filled, the image will be tiled all
+   *
+   * - **"tile"** - if the image is smaller than the shape which is filled, the image will be tiled all
    * over the created shape surface.
-   * **"stretch"** - if the image is smaller than the shape which is filled, the image will be stretched
-   * to fit the created shape surface.
+   * - **"stretch"** - if the image is smaller than the shape which is filled, the image will be
+   * stretched to fit the created shape surface.
    */
   export type BlipFillType = "tile" | "stretch";
 
@@ -52,21 +53,23 @@ export namespace Slide {
 
   /**
    * Possible values for the caption numbering format.
-   * **"ALPHABETIC"** - upper letter.
-   * **"alphabetic"** - lower letter.
-   * **"Roman"** - upper Roman.
-   * **"roman"** - lower Roman.
-   * **"Arabic"** - arabic.
+   *
+   * - **"ALPHABETIC"** - upper letter.
+   * - **"alphabetic"** - lower letter.
+   * - **"Roman"** - upper Roman.
+   * - **"roman"** - lower Roman.
+   * - **"Arabic"** - arabic.
    */
   export type CaptionNumberingFormat = "ALPHABETIC" | "alphabetic" | "Roman" | "roman" | "Arabic";
 
   /**
    * Possible values for the caption separator.
-   * **"hyphen"** - the "-" punctuation mark.
-   * **"period"** - the "." punctuation mark.
-   * **"colon"** - the ":" punctuation mark.
-   * **"longDash"** - the "—" punctuation mark.
-   * **"dash"** - the "-" punctuation mark.
+   *
+   * - **"hyphen"** - the "-" punctuation mark.
+   * - **"period"** - the "." punctuation mark.
+   * - **"colon"** - the ":" punctuation mark.
+   * - **"longDash"** - the "—" punctuation mark.
+   * - **"dash"** - the "-" punctuation mark.
    */
   export type CaptionSep = "hyphen" | "period" | "colon" | "longDash" | "dash";
 
@@ -259,12 +262,14 @@ export namespace Slide {
 
   /**
    * Form type.
+   *
    * The available form types.
    */
   export type FormType = "textForm" | "comboBoxForm" | "dropDownForm" | "checkBoxForm" | "radioButtonForm" | "pictureForm" | "complexForm" | "dateForm" | "signatureForm";
 
   /**
    * The coordinate value for the geometry paths.
+   *
    * Can be a guide name from "gdLst", a numeric value, or a string representation of a number.
    */
   export type GeometryCoordinate = string | number;
@@ -274,10 +279,11 @@ export namespace Slide {
 
   /**
    * Header and footer types which can be applied to the document sections.
-   * **"default"** - a header or footer which can be applied to any default page.
-   * **"title"** - a header or footer which is applied to the title page.
-   * **"even"** - a header or footer which can be applied to even pages to distinguish them from the odd
-   * ones (which will be considered default).
+   *
+   * - **"default"** - a header or footer which can be applied to any default page.
+   * - **"title"** - a header or footer which is applied to the title page.
+   * - **"even"** - a header or footer which can be applied to even pages to distinguish them from the
+   * odd ones (which will be considered default).
    */
   export type HdrFtrType = "default" | "title" | "even";
 
@@ -374,16 +380,18 @@ export namespace Slide {
   /**
    * The section break type which defines how the contents of the current section are placed relative to
    * the previous section.
+   *
    * WordprocessingML supports five distinct types of section breaks:
-   * **Next page** ("nextPage") - starts a new section on the next page (the default value).
-   * **Odd** ("oddPage") - starts a new section on the next odd-numbered page.
-   * **Even** ("evenPage") - starts a new section on the next even-numbered page.
-   * **Continuous** ("continuous") - starts a new section in the next paragraph.
+   *
+   * - **Next page** ("nextPage") - starts a new section on the next page (the default value).
+   * - **Odd** ("oddPage") - starts a new section on the next odd-numbered page.
+   * - **Even** ("evenPage") - starts a new section on the next even-numbered page.
+   * - **Continuous** ("continuous") - starts a new section in the next paragraph.
    * This means that continuous section breaks might not specify certain page-level section properties,
    * since they shall be inherited from the following section.
    * However, these breaks can specify other section properties, such as line numbering and
    * footnote/endnote settings.
-   * **Column** ("nextColumn") - starts a new section in the next column on the page.
+   * - **Column** ("nextColumn") - starts a new section in the next column on the page.
    */
   export type SectionBreakType = "nextPage" | "oddPage" | "evenPage" | "continuous" | "nextColumn";
 
@@ -470,35 +478,37 @@ export namespace Slide {
   /**
    * This simple type specifies possible values for the table sections to which the current conditional
    * formatting properties will be applied when this selected table style is used.
-   * **"topLeftCell"** - specifies that the table formatting is applied to the top left cell.
-   * **"topRightCell"** - specifies that the table formatting is applied to the top right cell.
-   * **"bottomLeftCell"** - specifies that the table formatting is applied to the bottom left cell.
-   * **"bottomRightCell"** - specifies that the table formatting is applied to the bottom right cell.
-   * **"firstRow"** - specifies that the table formatting is applied to the first row.
-   * **"lastRow"** - specifies that the table formatting is applied to the last row.
-   * **"firstColumn"** - specifies that the table formatting is applied to the first column. Any
+   *
+   * - **"topLeftCell"** - specifies that the table formatting is applied to the top left cell.
+   * - **"topRightCell"** - specifies that the table formatting is applied to the top right cell.
+   * - **"bottomLeftCell"** - specifies that the table formatting is applied to the bottom left cell.
+   * - **"bottomRightCell"** - specifies that the table formatting is applied to the bottom right cell.
+   * - **"firstRow"** - specifies that the table formatting is applied to the first row.
+   * - **"lastRow"** - specifies that the table formatting is applied to the last row.
+   * - **"firstColumn"** - specifies that the table formatting is applied to the first column. Any
    * subsequent row which is in *table header* ({@link ApiTableRowPr#SetTableHeader}) will also use this
    * conditional format.
-   * **"lastColumn"** - specifies that the table formatting is applied to the last column.
-   * **"bandedColumn"** - specifies that the table formatting is applied to odd numbered groupings of
+   * - **"lastColumn"** - specifies that the table formatting is applied to the last column.
+   * - **"bandedColumn"** - specifies that the table formatting is applied to odd numbered groupings of
    * rows.
-   * **"bandedColumnEven"** - specifies that the table formatting is applied to even numbered groupings
+   * - **"bandedColumnEven"** - specifies that the table formatting is applied to even numbered groupings
    * of rows.
-   * **"bandedRow"** - specifies that the table formatting is applied to odd numbered groupings of
+   * - **"bandedRow"** - specifies that the table formatting is applied to odd numbered groupings of
    * columns.
-   * **"bandedRowEven"** - specifies that the table formatting is applied to even numbered groupings of
+   * - **"bandedRowEven"** - specifies that the table formatting is applied to even numbered groupings of
    * columns.
-   * **"wholeTable"** - specifies that the conditional formatting is applied to the whole table.
+   * - **"wholeTable"** - specifies that the conditional formatting is applied to the whole table.
    */
   export type TableStyleOverrideType = "topLeftCell" | "topRightCell" | "bottomLeftCell" | "bottomRightCell" | "firstRow" | "lastRow" | "firstColumn" | "lastColumn" | "bandedColumn" | "bandedColumnEven" | "bandedRow" | "bandedRowEven" | "wholeTable";
 
   /**
    * The possible values for the units of the width property are defined by a specific table or table
    * cell width property.
-   * **"auto"** - sets the table or table cell width to auto width.
-   * **"twips"** - sets the table or table cell width to be measured in twentieths of a point.
-   * **"nul"** - sets the table or table cell width to be of a zero value.
-   * **"percent"** - sets the table or table cell width to be measured in percent to the parent
+   *
+   * - **"auto"** - sets the table or table cell width to auto width.
+   * - **"twips"** - sets the table or table cell width to be measured in twentieths of a point.
+   * - **"nul"** - sets the table or table cell width to be of a zero value.
+   * - **"percent"** - sets the table or table cell width to be measured in percent to the parent
    * container.
    */
   export type TableWidth = "auto" | "twips" | "nul" | "percent";
@@ -529,10 +539,12 @@ export namespace Slide {
 
   /**
    * Possible values for the position of chart tick labels (either horizontal or vertical).
-   * **"none"** - not display the selected tick labels.
-   * **"nextTo"** - set the position of the selected tick labels next to the main label.
-   * **"low"** - set the position of the selected tick labels in the part of the chart with lower values.
-   * **"high"** - set the position of the selected tick labels in the part of the chart with higher
+   *
+   * - **"none"** - not display the selected tick labels.
+   * - **"nextTo"** - set the position of the selected tick labels next to the main label.
+   * - **"low"** - set the position of the selected tick labels in the part of the chart with lower
+   * values.
+   * - **"high"** - set the position of the selected tick labels in the part of the chart with higher
    * values.
    */
   export type TickLabelPosition = "none" | "nextTo" | "low" | "high";
@@ -576,17 +588,18 @@ export namespace Slide {
     OutlineLvls?: number;
 
     /**
-     * Style levels (for example, [{Name: "Heading 1", Lvl: 2}, {Name: "Heading 2", Lvl: 3}]).
-     * <note>If StylesLvls.length > 0, then the OutlineLvls property will be ignored.</note>
+     * Style levels (for example, [{Name: "Heading 1", Lvl: 2}, {Name: "Heading 2", Lvl: 3}]). If
+     * _StylesLvls.length_ is greater than 0, the _OutlineLvls_ property is ignored.
      */
     StylesLvls: TocStyleLvl[];
   }
 
   /**
    * Possible values for the table of contents leader:
-   * **"dot"** - "......."
-   * **"dash"** - "-------"
-   * **"underline"** - "_______"
+   *
+   * - **"dot"** - "......."
+   * - **"dash"** - "-------"
+   * - **"underline"** - "_______"
    */
   export type TocLeader = "dot" | "dash" | "underline" | "none";
 
@@ -697,13 +710,14 @@ export namespace Slide {
 
   /**
    * Available values of the "bookmark" reference type:
-   * **"text"** - the entire bookmark text;
-   * **"pageNum"** - the bookmark page number;
-   * **"paraNum"** - the bookmark paragraph number;
-   * **"noCtxParaNum"** - the abbreviated paragraph number (the specific item only, e.g. instead of
+   *
+   * - **"text"** - the entire bookmark text;
+   * - **"pageNum"** - the bookmark page number;
+   * - **"paraNum"** - the bookmark paragraph number;
+   * - **"noCtxParaNum"** - the abbreviated paragraph number (the specific item only, e.g. instead of
    * "4.1.1" you refer to "1" only);
-   * **"fullCtxParaNum** - the full paragraph number, e.g. "4.1.1";
-   * **"aboveBelow"** - the words "above" or "below" depending on the item position.
+   * - **"fullCtxParaNum** - the full paragraph number, e.g. "4.1.1";
+   * - **"aboveBelow"** - the words "above" or "below" depending on the item position.
    */
   export type bookmarkRefTo = "text" | "pageNum" | "paraNum" | "noCtxParaNum" | "fullCtxParaNum" | "aboveBelow";
 
@@ -712,44 +726,49 @@ export namespace Slide {
 
   /**
    * Available values of the "equation"/"figure"/"table" reference type:
-   * **"entireCaption"**- the entire caption text;
-   * **"labelNumber"** - the label and object number only, e.g. "Table 1.1";
-   * **"captionText"** - the caption text only;
-   * **"pageNum"** - the page number containing the referenced object;
-   * **"aboveBelow"** - the words "above" or "below" depending on the item position.
+   *
+   * - **"entireCaption"**- the entire caption text;
+   * - **"labelNumber"** - the label and object number only, e.g. "Table 1.1";
+   * - **"captionText"** - the caption text only;
+   * - **"pageNum"** - the page number containing the referenced object;
+   * - **"aboveBelow"** - the words "above" or "below" depending on the item position.
    */
   export type captionRefTo = "entireCaption" | "labelNumber" | "captionText" | "pageNum" | "aboveBelow";
 
   /**
    * Available values of the "endnote" reference type:
-   * **"endnoteNum"** - the endnote number;
-   * **"pageNum"** - the endnote page number;
-   * **"aboveBelow"** - the words "above" or "below" depending on the item position;
-   * **"formEndnoteNum"** - the form number formatted as an endnote. The numbering of the actual endnotes
-   * is not affected.
+   *
+   * - **"endnoteNum"** - the endnote number;
+   * - **"pageNum"** - the endnote page number;
+   * - **"aboveBelow"** - the words "above" or "below" depending on the item position;
+   * - **"formEndnoteNum"** - the form number formatted as an endnote. The numbering of the actual
+   * endnotes is not affected.
    */
   export type endnoteRefTo = "endnoteNum" | "pageNum" | "aboveBelow" | "formEndnoteNum";
 
   /**
    * Available values of the "footnote" reference type:
-   * **"footnoteNum"** - the footnote number;
-   * **"pageNum"** - the page number of the footnote;
-   * **"aboveBelow"** - the words "above" or "below" depending on the position of the item;
-   * **"formFootnoteNum"** - the form number formatted as a footnote. The numbering of the actual
+   *
+   * - **"footnoteNum"** - the footnote number;
+   * - **"pageNum"** - the page number of the footnote;
+   * - **"aboveBelow"** - the words "above" or "below" depending on the position of the item;
+   * - **"formFootnoteNum"** - the form number formatted as a footnote. The numbering of the actual
    * footnotes is not affected.
    */
   export type footnoteRefTo = "footnoteNum" | "pageNum" | "aboveBelow" | "formFootnoteNum";
 
   /**
    * Available values of the "heading" reference type:
-   * **"text"** - the entire heading text;
-   * **"pageNum"** - the heading page number;
-   * **"headingNum"** - the heading sequence number;
-   * **"noCtxHeadingNum"** - the abbreviated heading number. Make sure the cursor pointer is in the
+   *
+   * - **"text"** - the entire heading text;
+   * - **"pageNum"** - the heading page number;
+   * - **"headingNum"** - the heading sequence number;
+   * - **"noCtxHeadingNum"** - the abbreviated heading number. Make sure the cursor pointer is in the
    * section you are referencing to, e.g. you are in section 4 and you wish to refer to heading 4.B, so
    * instead of "4.B" you receive "B" only;
-   * **"fullCtxHeadingNum"** - the full heading number even if the cursor pointer is in the same section;
-   * **"aboveBelow"** - the words "above" or "below" depending on the item position.
+   * - **"fullCtxHeadingNum"** - the full heading number even if the cursor pointer is in the same
+   * section;
+   * - **"aboveBelow"** - the words "above" or "below" depending on the item position.
    */
   export type headingRefTo = "text" | "pageNum" | "headingNum" | "noCtxHeadingNum" | "fullCtxHeadingNum" | "aboveBelow";
 
@@ -767,14 +786,15 @@ export namespace Slide {
 
   /**
    * Available values of the "numbered" reference type:
-   * **"pageNum"** - the numbered item page number;
-   * **"paraNum"** - the numbered item paragraph number;
-   * **"noCtxParaNum"** - the abbreviated paragraph number (the specific item only, e.g. instead of
+   *
+   * - **"pageNum"** - the numbered item page number;
+   * - **"paraNum"** - the numbered item paragraph number;
+   * - **"noCtxParaNum"** - the abbreviated paragraph number (the specific item only, e.g. instead of
    * "4.1.1" you refer to "1" only);
-   * **"fullCtxParaNum"** - the full paragraph number, e.g. "4.1.1";
-   * **"text"** - the paragraph text value, e.g. if you have "4.1.1. Terms and Conditions", you refer to
-   * "Terms and Conditions" only;
-   * **"aboveBelow"** - the words "above" or "below" depending on the item position.
+   * - **"fullCtxParaNum"** - the full paragraph number, e.g. "4.1.1";
+   * - **"text"** - the paragraph text value, e.g. if you have "4.1.1. Terms and Conditions", you refer
+   * to "Terms and Conditions" only;
+   * - **"aboveBelow"** - the words "above" or "below" depending on the item position.
    */
   export type numberedRefTo = "pageNum" | "paraNum" | "noCtxParaNum" | "fullCtxParaNum" | "text" | "aboveBelow";
 
@@ -829,23 +849,28 @@ export namespace Slide {
     CentimetersToPoints(cm: number): number;
 
     /**
-     * Creates an ApiColor from a universal input. The method recognizes several call signatures and either
-     * delegates to a narrower factory or constructs an ApiColor directly.
-     * **Numeric components**: "Api.Color(r, g, b)" or "Api.Color(r, g, b, a)" creates an RGB or RGBA color
-     * from byte components (0-255).
-     * **Packed integer**: "Api.Color(0xRRGGBB)" creates an RGB color from a 24-bit integer.
-     * **Full HEX string**: "Api.Color('#RRGGBB')" or "Api.Color('RRGGBB')" creates a HEX color; the
+     * Creates an ApiColor from a universal input.
+     *
+     * The method recognizes several call signatures and either delegates to a narrower factory or
+     * constructs an ApiColor directly.
+     *
+     * - **Numeric components**: "Api.Color(r, g, b)" or "Api.Color(r, g, b, a)" creates an RGB or RGBA
+     * color from byte components (0-255).
+     * - **Packed integer**: "Api.Color(0xRRGGBB)" creates an RGB color from a 24-bit integer.
+     * - **Full HEX string**: "Api.Color('#RRGGBB')" or "Api.Color('RRGGBB')" creates a HEX color; the
      * leading "#" is optional.
-     * **Short HEX string**: "Api.Color('#RGB')" expands each digit by duplication, so "#F0A" becomes
+     * - **Short HEX string**: "Api.Color('#RGB')" expands each digit by duplication, so "#F0A" becomes
      * "#FF00AA".
-     * **Theme color name**: "Api.Color('accent1')" creates a theme color; any value of SchemeColorId is
+     * - **Theme color name**: "Api.Color('accent1')" creates a theme color; any value of SchemeColorId is
      * accepted.
-     * **Preset color name**: "Api.Color('aliceBlue')" resolves any value of PresetColor to its RGB
+     * - **Preset color name**: "Api.Color('aliceBlue')" resolves any value of PresetColor to its RGB
      * equivalent.
-     * **Auto color**: "Api.Color('auto')" creates an auto color.
+     * - **Auto color**: "Api.Color('auto')" creates an auto color.
+     *
      * For a single string argument, the resolution priority is: "auto", a string starting with "#", a
      * theme name, a preset name, a bare 6-digit HEX. Theme and preset palettes do not overlap. A 3-digit
      * shorthand is accepted only with the leading "#".
+     *
      * Unsupported inputs (objects, arrays, an existing ApiColor, unknown strings, no arguments) return a
      * black color (#000000).
      *
@@ -947,6 +972,7 @@ export namespace Slide {
 
     /**
      * Creates a chart with the parameters specified.
+     *
      * **Note:**
      * Values of _nStyleIndex_ outside **1 - 48** are interpreted as a chart style id from the
      * _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs
@@ -964,7 +990,7 @@ export namespace Slide {
      * @param nStyleIndex - The chart color style index (can be **1 - 48**, as described in OOXML specification).
      * @param aNumFormats - Numeric formats which will be applied to the series (can be custom formats). The default numeric
      *   format is "General".
-     * @default sType = "bar"
+     * @default sType = "ColumnClustered"
      * @returns returns null if the chart type is not supported.
      *
      * @example
@@ -1956,6 +1982,7 @@ export namespace Slide {
 
     /**
      * Creates a table.
+     *
      * **Breaking Change:**
      * Starting from version 9.4.0, the parameter order has been changed from `Api.CreateTable(cols, rows)`
      * to `Api.CreateTable(rows, cols)`.
@@ -2671,6 +2698,7 @@ export namespace Slide {
 
     /**
      * Converts millimeters to English Metric Units (EMUs).
+     *
      * The result is an integer value.
      *
      * @param mm - The value in millimeters.
@@ -5368,6 +5396,7 @@ export namespace Slide {
 
     /**
      * Sets a hyperlink to the current drawing object (shape or image).
+     *
      * Pass null to remove the hyperlink.
      *
      * @param hyperlink - The hyperlink object to be set to the drawing, or null to remove the hyperlink.
@@ -6110,6 +6139,9 @@ export namespace Slide {
 
     /**
      * Sets the fill to the specified chart series.
+     * **Note:**
+     * The fill is not applied to 2D line and scatter series. Use the SetSeriesOutLine method to change
+     * their line and the SetMarkerFill method to change their markers.
      *
      * @param oFill - The fill type used to fill the series.
      * @param nSeries - The index of the chart series.
@@ -6627,7 +6659,9 @@ export namespace Slide {
     SetVertAxisTickLabelPosition(sTickLabelPosition: TickLabelPosition): boolean;
 
     /**
-     * Sets the x-axis values to all chart series. It is used with the scatter charts only.
+     * Sets the x-axis values to all chart series.
+     *
+     * It is used with the scatter charts only.
      *
      * @param aValues - The array of the data which will be set to the x-axis data points.
      *
@@ -6672,7 +6706,11 @@ export namespace Slide {
    */
   export interface ApiChartSeries {
     /**
-     * Tries to change the series type. Returns true if successful.
+     * Tries to change the series type.
+     *
+     * Returns true if successful.
+     *
+     * Throws: Error if the chart type is not supported.
      *
      * @param sType - Chart type.
      *
@@ -9401,6 +9439,7 @@ export namespace Slide {
 
     /**
      * Deletes an attribute from the custom XML node.
+     *
      * If the attribute exists, it will be removed.
      *
      * @param name - The name of the attribute to delete.
@@ -9440,6 +9479,7 @@ export namespace Slide {
 
     /**
      * Retrieves the attribute value from the custom XML node.
+     *
      * If the attribute doesn't exist, it returns `false`.
      *
      * @param name - The name of the attribute to retrieve.
@@ -9731,6 +9771,7 @@ export namespace Slide {
 
     /**
      * Returns the inner text of the current node and its child nodes.
+     *
      * For example: `<text>123<one>4</one></text>` returns `"1234"`.
      *
      * @returns The combined text content of the node and its descendants.
@@ -9841,6 +9882,7 @@ export namespace Slide {
 
     /**
      * Sets an attribute for the custom XML node.
+     *
      * If the attribute already exists, it will not be modified.
      *
      * @param name - The name of the attribute to set.
@@ -9997,6 +10039,7 @@ export namespace Slide {
 
     /**
      * Updates the value of an existing attribute in the custom XML node.
+     *
      * If the attribute doesn't exist, the update will not occur.
      *
      * @param name - The name of the attribute to update.
@@ -10878,9 +10921,10 @@ export namespace Slide {
 
     /**
      * Removes all the elements from the current document or from the current document element.
-     * <note>When all elements are removed, a new empty paragraph is automatically created. If you want to
-     * add
-     * content to this paragraph, use the {@link ApiDocumentContent#GetElement} method.</note>
+     *
+     * **Note:**
+     * When all elements are removed, a new empty paragraph is automatically created. If you want to add
+     * content to this paragraph, use the {@link ApiDocumentContent#GetElement} method.
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDocumentContent/Methods/RemoveAllElements/
      */
@@ -11325,9 +11369,10 @@ export namespace Slide {
 
     /**
      * Removes all the elements from the current document or from the current document element.
-     * <note>When all elements are removed, a new empty paragraph is automatically created. If you want to
-     * add
-     * content to this paragraph, use the {@link ApiDocumentContent#GetElement} method.</note>
+     *
+     * **Note:**
+     * When all elements are removed, a new empty paragraph is automatically created. If you want to add
+     * content to this paragraph, use the {@link ApiDocumentContent#GetElement} method.
      *
      * @example
      * ```js
@@ -12337,6 +12382,7 @@ export namespace Slide {
 
     /**
      * Sets a hyperlink to the current drawing object (shape or image).
+     *
      * Pass null to remove the hyperlink.
      *
      * @param hyperlink - The hyperlink object to be set to the drawing, or null to remove the hyperlink.
@@ -12423,6 +12469,7 @@ export namespace Slide {
 
     /**
      * Sets the name of the current drawing.
+     *
      * If another drawing with the same name already exists, that drawing's name will be reset to a default
      * auto-generated name.
      * OLE objects do not support a custom name, so for them this method always returns false.
@@ -13808,6 +13855,7 @@ export namespace Slide {
 
     /**
      * Sets a hyperlink to the current drawing object (shape or image).
+     *
      * Pass null to remove the hyperlink.
      *
      * @param hyperlink - The hyperlink object to be set to the drawing, or null to remove the hyperlink.
@@ -14748,6 +14796,7 @@ export namespace Slide {
 
     /**
      * Sets a hyperlink to the current drawing object (shape or image).
+     *
      * Pass null to remove the hyperlink.
      *
      * @param hyperlink - The hyperlink object to be set to the drawing, or null to remove the hyperlink.
@@ -15000,6 +15049,7 @@ export namespace Slide {
 
     /**
      * Creates a copy of the specified slide layout object.
+     *
      * Copies without master slide.
      *
      * @returns returns new ApiLayout object that represents the copy of slide layout. Returns null if slide
@@ -15943,7 +15993,9 @@ export namespace Slide {
 
     /**
      * Deletes the specified object from the parent if it exists.
-     * Note: Master can't be deleted if it's the last one in the presentation.
+     *
+     * **Note:**
+     * Master can't be deleted if it's the last one in the presentation.
      *
      * @returns return false if master doesn't exist or is not in the presentation or couldn't be deleted (e.g.
      *   the last master).
@@ -16684,6 +16736,7 @@ export namespace Slide {
 
     /**
      * Sets a theme to the slide master.
+     *
      * Sets a copy of the theme object.
      *
      * @param oTheme - Presentation theme.
@@ -17522,6 +17575,7 @@ export namespace Slide {
 
     /**
      * Sets a hyperlink to the current drawing object (shape or image).
+     *
      * Pass null to remove the hyperlink.
      *
      * @param hyperlink - The hyperlink object to be set to the drawing, or null to remove the hyperlink.
@@ -18361,8 +18415,9 @@ export namespace Slide {
     SetOutlineLvl(lvl?: number | null): boolean;
 
     /**
-     * Sets the spacing after the current paragraph. If the value of the isAfterAuto parameter is true,
-     * then
+     * Sets the spacing after the current paragraph.
+     *
+     * If the value of the isAfterAuto parameter is true, then
      * any value of the nAfter is ignored. If isAfterAuto parameter is not specified, then it
      * will be interpreted as false.
      *
@@ -18407,8 +18462,9 @@ export namespace Slide {
     SetSpacingAfter(nAfter: twips, isAfterAuto?: boolean): boolean;
 
     /**
-     * Sets the spacing before the current paragraph. If the value of the isBeforeAuto parameter is true,
-     * then
+     * Sets the spacing before the current paragraph.
+     *
+     * If the value of the isBeforeAuto parameter is true, then
      * any value of the nBefore is ignored. If isBeforeAuto parameter is not specified, then
      * it will be interpreted as false.
      *
@@ -18454,7 +18510,9 @@ export namespace Slide {
     SetSpacingBefore(nBefore: twips, isBeforeAuto?: boolean): boolean;
 
     /**
-     * Sets the paragraph line spacing. If the value of the sLineRule parameter is either
+     * Sets the paragraph line spacing.
+     *
+     * If the value of the sLineRule parameter is either
      * "atLeast" or "exact", then the value of nLine will be interpreted as twentieths of a point. If
      * the value of the sLineRule parameter is "auto", then the value of the
      * nLine parameter will be interpreted as 240ths of a line.
@@ -18499,7 +18557,9 @@ export namespace Slide {
     /**
      * Specifies a sequence of custom tab stops which will be used for any tab characters in the current
      * paragraph.
-     * **Warning**: The lengths of aPos array and aVal array **MUST BE** equal to each other.
+     *
+     * **Warning:**
+     * The lengths of the aPos and aVal arrays must be equal to each other.
      *
      * @param aPos - An array of the positions of custom tab stops with respect to the current page margins measured
      *   in twentieths of a point (1/1440 of an inch).
@@ -18696,7 +18756,9 @@ export namespace Slide {
     AddText(text: string | number[], widths?: number[]): ApiRun;
 
     /**
-     * Creates a paragraph copy. Ingnore comments, footnote references, complex fields.
+     * Creates a paragraph copy.
+     *
+     * Ignores comments, footnote references, complex fields.
      *
      * @example
      * ```js
@@ -19698,9 +19760,11 @@ export namespace Slide {
 
     /**
      * Removes all the elements from the current paragraph.
-     * <note>When all the elements are removed from the paragraph, a new empty run is automatically
-     * created. If you want to add
-     * content to this run, use the {@link ApiParagraph#GetElement} method.</note>
+     *
+     * **Note:**
+     * When all the elements are removed from the paragraph, a new empty run is automatically created. If
+     * you want to add
+     * content to this run, use the {@link ApiParagraph#GetElement} method.
      *
      * @example
      * ```js
@@ -19733,10 +19797,12 @@ export namespace Slide {
 
     /**
      * Removes an element using the position specified.
-     * <note>If the element you remove is the last paragraph element (i.e. all the elements are removed
-     * from the paragraph),
+     *
+     * **Note:**
+     * If the element you remove is the last paragraph element (i.e. all the elements are removed from the
+     * paragraph),
      * a new empty run is automatically created. If you want to add
-     * content to this run, use the {@link ApiParagraph#GetElement} method.</note>
+     * content to this run, use the {@link ApiParagraph#GetElement} method.
      *
      * @param nPos - The element position which we want to remove from the paragraph.
      *
@@ -19965,8 +20031,8 @@ export namespace Slide {
     /**
      * Sets all 4 font slots with the specified font family.
      *
-     * @param fontFamily - The font family or families used for the current paragraph. Pass _null_ to remove the font
-     *   family.
+     * @param fontFamily - The font family or families used for the current paragraph. Pass _null_ or omit it to remove the
+     *   font family.
      * @returns this
      *
      * @example
@@ -19992,7 +20058,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParagraph/Methods/SetFontFamily/
      */
-    SetFontFamily(fontFamily: string | null): ApiParagraph;
+    SetFontFamily(fontFamily?: string | null): ApiParagraph;
 
     /**
      * Sets the font size to the characters of the current paragraph.
@@ -20362,8 +20428,9 @@ export namespace Slide {
     SetSpacing(spacing: twips | null): ApiParagraph;
 
     /**
-     * Sets the spacing after the current paragraph. If the value of the isAfterAuto parameter is true,
-     * then
+     * Sets the spacing after the current paragraph.
+     *
+     * If the value of the isAfterAuto parameter is true, then
      * any value of the nAfter is ignored. If isAfterAuto parameter is not specified, then it
      * will be interpreted as false.
      *
@@ -20408,8 +20475,9 @@ export namespace Slide {
     SetSpacingAfter(nAfter: twips, isAfterAuto?: boolean): boolean;
 
     /**
-     * Sets the spacing before the current paragraph. If the value of the isBeforeAuto parameter is true,
-     * then
+     * Sets the spacing before the current paragraph.
+     *
+     * If the value of the isBeforeAuto parameter is true, then
      * any value of the nBefore is ignored. If isBeforeAuto parameter is not specified, then
      * it will be interpreted as false.
      *
@@ -20455,7 +20523,9 @@ export namespace Slide {
     SetSpacingBefore(nBefore: twips, isBeforeAuto?: boolean): boolean;
 
     /**
-     * Sets the paragraph line spacing. If the value of the sLineRule parameter is either
+     * Sets the paragraph line spacing.
+     *
+     * If the value of the sLineRule parameter is either
      * "atLeast" or "exact", then the value of nLine will be interpreted as twentieths of a point. If
      * the value of the sLineRule parameter is "auto", then the value of the
      * nLine parameter will be interpreted as 240ths of a line.
@@ -20532,7 +20602,9 @@ export namespace Slide {
     /**
      * Specifies a sequence of custom tab stops which will be used for any tab characters in the current
      * paragraph.
-     * **Warning**: The lengths of aPos array and aVal array **MUST BE** equal to each other.
+     *
+     * **Warning:**
+     * The lengths of the aPos and aVal arrays must be equal to each other.
      *
      * @param aPos - An array of the positions of custom tab stops with respect to the current page margins measured
      *   in twentieths of a point (1/1440 of an inch).
@@ -22651,6 +22723,7 @@ export namespace Slide {
 
     /**
      * Returns the core properties interface for the current presentation.
+     *
      * This method is used to view or modify standard metadata such as title, author, and keywords.
      *
      * @since 9.0.0
@@ -22880,6 +22953,7 @@ export namespace Slide {
 
     /**
      * Retrieves the custom XML manager associated with the presentation.
+     *
      * This manager allows manipulation and access to custom XML parts within the presentation.
      *
      * @returns Returns an instance of ApiCustomXmlParts if the custom XML manager exists, otherwise returns
@@ -22919,17 +22993,18 @@ export namespace Slide {
 
     /**
      * Returns the document information:
-     * **Application** - the application the document has been created with.
-     * **CreatedRaw** - the date and time when the file was created.
-     * **Created** - the parsed date and time when the file was created.
-     * **LastModifiedRaw** - the date and time when the file was last modified.
-     * **LastModified** - the parsed date and time when the file was last modified.
-     * **LastModifiedBy** - the name of the user who has made the latest change to the document.
-     * **Authors** - the persons who has created the file.
-     * **Title** - this property allows you to simplify your documents classification.
-     * **Tags** - this property allows you to simplify your documents classification.
-     * **Subject** - this property allows you to simplify your documents classification.
-     * **Comment** - this property allows you to simplify your documents classification.
+     *
+     * - **Application** - the application the document has been created with.
+     * - **CreatedRaw** - the date and time when the file was created.
+     * - **Created** - the parsed date and time when the file was created.
+     * - **LastModifiedRaw** - the date and time when the file was last modified.
+     * - **LastModified** - the parsed date and time when the file was last modified.
+     * - **LastModifiedBy** - the name of the user who has made the latest change to the document.
+     * - **Authors** - the persons who has created the file.
+     * - **Title** - this property allows you to simplify your documents classification.
+     * - **Tags** - this property allows you to simplify your documents classification.
+     * - **Subject** - this property allows you to simplify your documents classification.
+     * - **Comment** - this property allows you to simplify your documents classification.
      *
      * @example
      * ```js
@@ -23430,6 +23505,7 @@ export namespace Slide {
 
     /**
      * Removes a range of slides from the presentation.
+     *
      * Deletes all the slides from the presentation if no parameters are specified.
      *
      * @param nStart - The starting position for the deletion range.
@@ -23505,10 +23581,12 @@ export namespace Slide {
     /**
      * Replaces the current sentence or a part of the current sentence at the cursor with the specified
      * text.
+     * If there is no sentence at the cursor, for example, in an empty paragraph, the specified text is
+     * inserted at the cursor position.
      *
      * @param text - The text to replace the current sentence with.
      * @param part - The part of the sentence to replace. If omitted, the whole sentence is replaced.
-     * @returns returns false if there is no sentence at the cursor or some text is selected.
+     * @returns returns false if the cursor is not in the text or some text is selected.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/ReplaceCurrentSentence/
@@ -23942,6 +24020,7 @@ export namespace Slide {
 
     /**
      * Returns the font family from the current text properties.
+     *
      * The method automatically calculates the font from the theme if the font was set via the theme.
      *
      * @since 8.1.0
@@ -24077,12 +24156,13 @@ export namespace Slide {
     /**
      * Sets all 4 font slots with the specified font family.
      *
-     * @param sFontFamily - The font family or families used for the current text run.
+     * @param sFontFamily - The font family or families used for the current text run. Pass _null_ or omit it to remove the
+     *   font family.
      * @returns this text properties.
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetFontFamily/
      */
-    SetFontFamily(sFontFamily: string): ApiTextPr;
+    SetFontFamily(sFontFamily?: string | null): ApiTextPr;
 
     /**
      * Sets the font size to the characters of the current text run.
@@ -24186,11 +24266,12 @@ export namespace Slide {
     /**
      * Specifies the alignment which will be applied to the contents of the run in relation to the default
      * appearance of the run text:
-     * **"baseline"** - the characters in the current text run will be aligned by the default text
+     *
+     * - **"baseline"** - the characters in the current text run will be aligned by the default text
      * baseline.
-     * **"subscript"** - the characters in the current text run will be aligned below the default text
+     * - **"subscript"** - the characters in the current text run will be aligned below the default text
      * baseline.
-     * **"superscript"** - the characters in the current text run will be aligned above the default text
+     * - **"superscript"** - the characters in the current text run will be aligned above the default text
      * baseline.
      *
      * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
@@ -24621,6 +24702,7 @@ export namespace Slide {
 
     /**
      * Returns the font family from the current text properties.
+     *
      * The method automatically calculates the font from the theme if the font was set via the theme.
      *
      * @since 8.1.0
@@ -25321,7 +25403,8 @@ export namespace Slide {
     /**
      * Sets all 4 font slots with the specified font family.
      *
-     * @param sFontFamily - The font family or families used for the current text run.
+     * @param sFontFamily - The font family or families used for the current text run. Pass _null_ or omit it to remove the
+     *   font family.
      * @returns this text properties.
      *
      * @example
@@ -25354,7 +25437,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetFontFamily/
      */
-    SetFontFamily(sFontFamily: string): ApiTextPr;
+    SetFontFamily(sFontFamily?: string | null): ApiTextPr;
 
     /**
      * Sets the font size to the characters of the current text run.
@@ -25754,11 +25837,12 @@ export namespace Slide {
     /**
      * Specifies the alignment which will be applied to the contents of the run in relation to the default
      * appearance of the run text:
-     * **"baseline"** - the characters in the current text run will be aligned by the default text
+     *
+     * - **"baseline"** - the characters in the current text run will be aligned by the default text
      * baseline.
-     * **"subscript"** - the characters in the current text run will be aligned below the default text
+     * - **"subscript"** - the characters in the current text run will be aligned below the default text
      * baseline.
-     * **"superscript"** - the characters in the current text run will be aligned above the default text
+     * - **"superscript"** - the characters in the current text run will be aligned above the default text
      * baseline.
      *
      * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
@@ -26691,6 +26775,7 @@ export namespace Slide {
 
     /**
      * Sets a hyperlink to the current drawing object (shape or image).
+     *
      * Pass null to remove the hyperlink.
      *
      * @param hyperlink - The hyperlink object to be set to the drawing, or null to remove the hyperlink.
@@ -27155,6 +27240,7 @@ export namespace Slide {
 
     /**
      * Applies the specified layout to the current slide.
+     *
      * The layout must be in slide master.
      *
      * @param oLayout - Layout to be applied.
@@ -28582,7 +28668,9 @@ export namespace Slide {
 
     /**
      * Returns the transition speed.
+     *
      * Maps duration to speed based on OOXML spd attribute logic:
+     *
      * - fast: duration <= 500ms
      * - medium: 500ms < duration <= 750ms
      * - slow: duration > 750ms
@@ -28823,7 +28911,9 @@ export namespace Slide {
 
     /**
      * Sets the transition speed.
+     *
      * Converts speed to duration based on standard values:
+     *
      * - fast = 500ms
      * - medium = 750ms
      * - slow = 1000ms
@@ -29228,6 +29318,7 @@ export namespace Slide {
 
     /**
      * Sets a hyperlink to the current drawing object (shape or image).
+     *
      * Pass null to remove the hyperlink.
      *
      * @param hyperlink - The hyperlink object to be set to the drawing, or null to remove the hyperlink.
@@ -30205,9 +30296,12 @@ export namespace Slide {
     GetVisitor(): ApiPresentationVisitor;
 
     /**
-     * Merges an array of cells. If merge is successful, it will return merged cell, otherwise "null".
-     * **Warning**: The number of cells in any row and the number of rows in the current table may be
-     * changed.
+     * Merges an array of cells.
+     *
+     * If merge is successful, it will return merged cell, otherwise "null".
+     *
+     * **Warning:**
+     * The number of cells in any row and the number of rows in the current table may be changed.
      *
      * @param aCells - The array of cells.
      *
@@ -30414,6 +30508,7 @@ export namespace Slide {
 
     /**
      * Sets a hyperlink to the current drawing object (shape or image).
+     *
      * Pass null to remove the hyperlink.
      *
      * @param hyperlink - The hyperlink object to be set to the drawing, or null to remove the hyperlink.
@@ -31912,6 +32007,7 @@ export namespace Slide {
 
     /**
      * Returns the font family from the current text properties.
+     *
      * The method automatically calculates the font from the theme if the font was set via the theme.
      *
      * @since 8.1.0
@@ -32481,7 +32577,8 @@ export namespace Slide {
     /**
      * Sets all 4 font slots with the specified font family.
      *
-     * @param sFontFamily - The font family or families used for the current text run.
+     * @param sFontFamily - The font family or families used for the current text run. Pass _null_ or omit it to remove the
+     *   font family.
      * @returns this text properties.
      *
      * @example
@@ -32513,7 +32610,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetFontFamily/
      */
-    SetFontFamily(sFontFamily: string): ApiTextPr;
+    SetFontFamily(sFontFamily?: string | null): ApiTextPr;
 
     /**
      * Sets the font size to the characters of the current text run.
@@ -32861,11 +32958,12 @@ export namespace Slide {
     /**
      * Specifies the alignment which will be applied to the contents of the run in relation to the default
      * appearance of the run text:
-     * **"baseline"** - the characters in the current text run will be aligned by the default text
+     *
+     * - **"baseline"** - the characters in the current text run will be aligned by the default text
      * baseline.
-     * **"subscript"** - the characters in the current text run will be aligned below the default text
+     * - **"subscript"** - the characters in the current text run will be aligned below the default text
      * baseline.
-     * **"superscript"** - the characters in the current text run will be aligned above the default text
+     * - **"superscript"** - the characters in the current text run will be aligned above the default text
      * baseline.
      *
      * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
@@ -32913,15 +33011,21 @@ export namespace Slide {
     /**
      * Adds a hyperlink to the current text range.
      *
-     * @param link - The link address.
+     * @param link - The link address. Accepts an external URL (http, https, mailto, ftp) or an internal link. In the
+     *   presentation editor, the internal link is one of the slide actions:
+     *   "ppaction://hlinkshowjump?jump=firstslide", "ppaction://hlinkshowjump?jump=lastslide",
+     *   "ppaction://hlinkshowjump?jump=nextslide", "ppaction://hlinkshowjump?jump=previousslide",
+     *   "ppaction://hlinksldjumpslide{N}" (N is the zero-based slide index),
+     *   "ppaction://hlinkfile?file={path}" (opens an external file). In the spreadsheet editor, the
+     *   internal link is "#" followed by a cell range or a defined name, for example, "#Sheet1!A1" or
+     *   "#MyName".
      * @param screenTipText - The screen tip text.
-     * @param bookmarkName - Name of a bookmark
-     * @returns returns null if the range spans more than one paragraph or params are invalid.
+     * @returns returns null if the range spans more than one paragraph or the link is invalid.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/AddHyperlink/
      */
-    AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink;
+    AddHyperlink(link: string, screenTipText: string): ApiHyperlink;
 
     /**
      * Adds a text to the specified position. The current range is expanded to include the added text.
@@ -33170,13 +33274,13 @@ export namespace Slide {
     /**
      * Sets the font family for the current TextRange.
      *
-     * @param fontFamily - The font family or families used for the current text Range. Pass _null_ to remove the font
-     *   family.
+     * @param fontFamily - The font family or families used for the current text Range. Pass _null_ or omit it to remove
+     *   the font family.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetFontFamily/
      */
-    SetFontFamily(fontFamily: string | null): ApiTextRange | null;
+    SetFontFamily(fontFamily?: string | null): ApiTextRange | null;
 
     /**
      * Sets the font size of the characters in the current text Range.

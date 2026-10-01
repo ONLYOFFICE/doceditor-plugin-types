@@ -251,7 +251,7 @@
       "signature": "SetBorderColor(color: ApiColor): boolean"
     },
     "SetBorderEffectIntensity": {
-      "description": "Sets annotation border effect intensity.\n<note> Can be applied to circle, square, freeText and polygon annotations </note>",
+      "description": "Sets annotation border effect intensity.\n\n**Note:**\nCan be applied to circle, square, freeText and polygon annotations.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetBorderEffectIntensity/",
       "params": [
         {
@@ -266,7 +266,7 @@
       "signature": "SetBorderEffectIntensity(value: number): boolean"
     },
     "SetBorderEffectStyle": {
-      "description": "Sets annotation border effect style.\n<note> Can be applied to circle, square, freeText and polygon annotations </note>",
+      "description": "Sets annotation border effect style.\n\n**Note:**\nCan be applied to circle, square, freeText and polygon annotations.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetBorderEffectStyle/",
       "params": [
         {
@@ -341,7 +341,7 @@
       "signature": "SetCreationDate(timeStamp: number): boolean"
     },
     "SetDashPattern": {
-      "description": "Sets annotation dash pattern.\n<note> The border style property must be set to \"dashed\". </note>",
+      "description": "Sets annotation dash pattern.\n\n**Note:**\nThe border style property must be set to \"dashed\".\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetDashPattern/",
       "params": [
         {
@@ -377,13 +377,14 @@
         {
           "description": "color to set fill (omit the argument to set no fill)",
           "name": "color",
+          "optional": true,
           "type": "ApiColor"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetFillColor(color: ApiColor): boolean"
+      "signature": "SetFillColor(color?: ApiColor): boolean"
     },
     "SetIconType": {
       "description": "Sets icon type for this annotation.",

@@ -167,7 +167,7 @@
       "signature": "End(direction: Direction): ApiRange"
     },
     "FillDown": {
-      "description": "Copies the contents and formatting of the top row of the range into the remaining rows.\nIf the range has only one row, the method succeeds but makes no changes.",
+      "description": "Copies the contents and formatting of the top row of the range into the remaining rows.\n\nIf the range has only one row, the method succeeds but makes no changes.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/FillDown/",
       "params": [],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
@@ -179,7 +179,7 @@
       "since": "9.4.0"
     },
     "FillLeft": {
-      "description": "Copies the contents and formatting of the rightmost column of the range into the remaining columns.\nIf the range has only one column, the method succeeds but makes no changes.",
+      "description": "Copies the contents and formatting of the rightmost column of the range into the remaining columns.\n\nIf the range has only one column, the method succeeds but makes no changes.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/FillLeft/",
       "params": [],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
@@ -191,7 +191,7 @@
       "since": "9.4.0"
     },
     "FillRight": {
-      "description": "Copies the contents and formatting of the leftmost column of the range into the remaining columns.\nIf the range has only one column, the method succeeds but makes no changes.",
+      "description": "Copies the contents and formatting of the leftmost column of the range into the remaining columns.\n\nIf the range has only one column, the method succeeds but makes no changes.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/FillRight/",
       "params": [],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
@@ -203,7 +203,7 @@
       "since": "9.4.0"
     },
     "FillUp": {
-      "description": "Copies the contents and formatting of the bottom row of the range into the remaining rows.\nIf the range has only one row, the method succeeds but makes no changes.",
+      "description": "Copies the contents and formatting of the bottom row of the range into the remaining rows.\n\nIf the range has only one row, the method succeeds but makes no changes.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/FillUp/",
       "params": [],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
@@ -231,7 +231,7 @@
       "signature": "Find(oSearchData: SearchData): ApiRange | null"
     },
     "FindNext": {
-      "description": "Continues a search that was begun with the {@link ApiRange#Find} method. Finds the next cell that matches those same conditions and returns the ApiRange object that represents that cell. This does not affect the selection or the active cell.",
+      "description": "Continues a search that was begun with the {@link ApiRange#Find} method. Finds the next cell that matches those same conditions and returns the ApiRange object that represents that cell.\n\nThis does not affect the selection or the active cell.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/FindNext/",
       "params": [
         {
@@ -247,7 +247,7 @@
       "signature": "FindNext(After: ApiRange): ApiRange | null"
     },
     "FindPrevious": {
-      "description": "Continues a search that was begun with the {@link ApiRange#Find} method. Finds the previous cell that matches those same conditions and returns the ApiRange object that represents that cell. This does not affect the selection or the active cell.",
+      "description": "Continues a search that was begun with the {@link ApiRange#Find} method. Finds the previous cell that matches those same conditions and returns the ApiRange object that represents that cell.\n\nThis does not affect the selection or the active cell.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/FindPrevious/",
       "params": [
         {
@@ -355,7 +355,7 @@
       "since": "9.1.0"
     },
     "GetCharacters": {
-      "description": "Returns the ApiCharacters object that represents a range of characters within the object text. Use the ApiCharacters object to format characters within a text string.",
+      "description": "Returns the ApiCharacters object that represents a range of characters within the object text.\n\nUse the ApiCharacters object to format characters within a text string.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetCharacters/",
       "params": [
         {
@@ -489,7 +489,7 @@
       "since": "9.1.0"
     },
     "GetFillColor": {
-      "description": "Returns the background color for the current cell range. Returns 'No Fill' when the color of the background in the cell / cell range is null.",
+      "description": "Returns the background color for the current cell range.\n\nReturns 'No Fill' when the color of the background in the cell / cell range is null.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetFillColor/",
       "params": [],
       "returns": {
@@ -513,7 +513,7 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetFormula/",
       "params": [],
       "returns": {
-        "description": "return Value2 property (value without format) if formula doesn't exist.",
+        "description": "return Value2 property (value without format) if formula doesn't exist; a range of several cells returns an array of them by rows, as GetValue2 does.",
         "type": "string | string[][]"
       },
       "signature": "GetFormula(): string | string[][]"
@@ -529,7 +529,7 @@
       "since": "9.0.0"
     },
     "GetHidden": {
-      "description": "Returns the value hiding property. The specified range must span an entire column or row.",
+      "description": "Returns the value hiding property.\n\nThe specified range must span an entire column or row.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetHidden/",
       "params": [],
       "returns": {
@@ -577,7 +577,7 @@
       "since": "8.2.0"
     },
     "GetRange": {
-      "description": "Returns a Range object that represents a cell or a range of cells.\nWhen applied to a Range object, the property is relative to that Range object.",
+      "description": "Returns a Range object that represents a cell or a range of cells.\n\nWhen applied to a Range object, the property is relative to that Range object.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetRange/",
       "params": [
         {
@@ -619,7 +619,7 @@
       "signature": "GetRowHeight(): pt"
     },
     "GetRows": {
-      "description": "Returns a Range object that represents the rows in the specified range. If the specified row is outside the Range object, a new Range will be returned that represents the cells between the columns of the original range in the specified row.",
+      "description": "Returns a Range object that represents the rows in the specified range.\n\nIf the specified row is outside the Range object, a new Range will be returned that represents the cells between the columns of the original range in the specified row.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetRows/",
       "params": [
         {
@@ -653,7 +653,7 @@
       "signature": "GetText(): string | string[][]"
     },
     "GetValidation": {
-      "description": "Returns the data validation object associated with this range. If no validation object exists yet, it will be created.",
+      "description": "Returns the data validation object associated with this range.\n\nIf no validation object exists yet, it will be created.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetValidation/",
       "params": [],
       "returns": {
@@ -680,7 +680,7 @@
       "signature": "GetValue2(): string | string[][]"
     },
     "GetWorksheet": {
-      "description": "Returns the Worksheet object that represents the worksheet containing the specified range. It will be available in the read-only mode.",
+      "description": "Returns the Worksheet object that represents the worksheet containing the specified range.\n\nIt will be available in the read-only mode.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetWorksheet/",
       "params": [],
       "returns": {
@@ -817,6 +817,30 @@
       },
       "signature": "PasteSpecial(sPasteType?: PasteType, sPasteSpecialOperation?: PasteSpecialOperation, bSkipBlanks?: boolean, bTranspose?: boolean): boolean",
       "since": "8.1.0"
+    },
+    "RemoveDuplicates": {
+      "description": "Removes the rows with duplicate values from the range, as the Remove Duplicates command does.\nA range inside a table stands for the whole table, and the autofilter range or one cell of it stands for the filtered range.\nRows are duplicates when the displayed values of the compared columns are equal, case-insensitively; the first of them is kept.\nThe other rows of the range move up in place of the removed ones; the cells outside the range stay in place.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/RemoveDuplicates/",
+      "params": [
+        {
+          "description": "The 1-based indexes of the columns to compare, counted from the first column of the range, or of the table or the autofilter that the range stands for. If omitted, all the columns are compared.",
+          "name": "aColumns",
+          "optional": true,
+          "type": "number | number[]"
+        },
+        {
+          "description": "Specifies whether the first row is a header row, which is kept and not compared, or \"xlGuess\" to detect it as the command does. The value may be in any case and without \"xl\", e.g. \"yes\"; other values throw an error. The header row of a table or an autofilter is always kept.",
+          "name": "sHeader",
+          "optional": true,
+          "type": "XlYesNoGuess"
+        }
+      ],
+      "returns": {
+        "description": "The number of removed rows, or null if the rows cannot be removed: the range has one row only, has merged cells of different sizes, crosses a table, an array formula or a pivot table, or other users are editing the document.",
+        "type": "number | null"
+      },
+      "signature": "RemoveDuplicates(aColumns?: number | number[], sHeader?: XlYesNoGuess): number | null",
+      "since": "10.0.0"
     },
     "Replace": {
       "description": "Replaces specific information to another one in a range.",
@@ -982,7 +1006,7 @@
       "signature": "SetBorders(bordersIndex: BordersIndex, lineStyle: LineStyle, oColor: ApiColor): boolean"
     },
     "SetColumnWidth": {
-      "description": "Sets the width of all the columns in the current range.\nOne unit of column width is equal to the width of one character in the Normal style.\nFor proportional fonts, the width of the character 0 (zero) is used.",
+      "description": "Sets the width of all the columns in the current range.\n\nOne unit of column width is equal to the width of one character in the Normal style.\nFor proportional fonts, the width of the character 0 (zero) is used.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetColumnWidth/",
       "params": [
         {
@@ -997,7 +1021,7 @@
       "signature": "SetColumnWidth(nWidth: number): void"
     },
     "SetFillColor": {
-      "description": "Sets the background color to the current cell range with the previously created color object.\nSets 'No Fill' when the previously created color object is 'No Fill' or null.",
+      "description": "Sets the background color to the current cell range with the previously created color object.\n\nSets 'No Fill' when the previously created color object is 'No Fill' or null.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetFillColor/",
       "params": [
         {
@@ -1095,7 +1119,7 @@
       "since": "9.0.0"
     },
     "SetHidden": {
-      "description": "Sets the value hiding property. The specified range must span an entire column or row.",
+      "description": "Sets the value hiding property.\n\nThe specified range must span an entire column or row.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetHidden/",
       "params": [
         {
@@ -1302,7 +1326,7 @@
         }
       ],
       "returns": {
-        "description": "returns false if such a range does not exist.",
+        "description": "returns false if such a range does not exist or a formula was not accepted (the cell keeps its content).",
         "type": "boolean"
       },
       "signature": "SetValue(data: string | boolean | number | (string | boolean | number)[] | (string | boolean | number)[][]): boolean"

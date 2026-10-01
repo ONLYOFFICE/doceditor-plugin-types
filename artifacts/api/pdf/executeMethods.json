@@ -362,7 +362,7 @@
     "signature": "executeMethod(\"SetMacros\", [data: string], callback?): unknown"
   },
   "SetPluginsOptions": {
-    "description": "Configures plugins from an external source. The settings can be set for all plugins or for a specific plugin.\nFor example, this method can be used to pass an authorization token to the plugin. This method can be used only with the connector class.",
+    "description": "Configures plugins from an external source.\n\nThe settings can be set for all plugins or for a specific plugin. For example, this method can be used to pass an authorization token to the plugin.\n\n**Note:**\nThis method can be used only with the {@link https://api.onlyoffice.com/docs/docs-api/usage-api/automation-api/connector-class connector class}.\n",
     "params": [
       {
         "description": "Plugin options.",

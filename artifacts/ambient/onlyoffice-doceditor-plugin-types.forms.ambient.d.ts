@@ -51,10 +51,11 @@ declare namespace Forms {
 
   /**
    * The type of a fill which uses an image as a background.
-   * **"tile"** - if the image is smaller than the shape which is filled, the image will be tiled all
+   *
+   * - **"tile"** - if the image is smaller than the shape which is filled, the image will be tiled all
    * over the created shape surface.
-   * **"stretch"** - if the image is smaller than the shape which is filled, the image will be stretched
-   * to fit the created shape surface.
+   * - **"stretch"** - if the image is smaller than the shape which is filled, the image will be
+   * stretched to fit the created shape surface.
    */
   export type BlipFillType = "tile" | "stretch";
 
@@ -75,8 +76,9 @@ declare namespace Forms {
 
   /**
    * A border type which will be added to the document element.
-   * **"none"** - no border will be added to the created element or the selected element side.
-   * **"single"** - a single border will be added to the created element or the selected element side.
+   *
+   * - **"none"** - no border will be added to the created element or the selected element side.
+   * - **"single"** - a single border will be added to the created element or the selected element side.
    */
   export type BorderType = "none" | "single";
 
@@ -85,21 +87,23 @@ declare namespace Forms {
 
   /**
    * Possible values for the caption numbering format.
-   * **"ALPHABETIC"** - upper letter.
-   * **"alphabetic"** - lower letter.
-   * **"Roman"** - upper Roman.
-   * **"roman"** - lower Roman.
-   * **"Arabic"** - arabic.
+   *
+   * - **"ALPHABETIC"** - upper letter.
+   * - **"alphabetic"** - lower letter.
+   * - **"Roman"** - upper Roman.
+   * - **"roman"** - lower Roman.
+   * - **"Arabic"** - arabic.
    */
   export type CaptionNumberingFormat = "ALPHABETIC" | "alphabetic" | "Roman" | "roman" | "Arabic";
 
   /**
    * Possible values for the caption separator.
-   * **"hyphen"** - the "-" punctuation mark.
-   * **"period"** - the "." punctuation mark.
-   * **"colon"** - the ":" punctuation mark.
-   * **"longDash"** - the "—" punctuation mark.
-   * **"dash"** - the "-" punctuation mark.
+   *
+   * - **"hyphen"** - the "-" punctuation mark.
+   * - **"period"** - the "." punctuation mark.
+   * - **"colon"** - the ":" punctuation mark.
+   * - **"longDash"** - the "—" punctuation mark.
+   * - **"dash"** - the "-" punctuation mark.
    */
   export type CaptionSep = "hyphen" | "period" | "colon" | "longDash" | "dash";
 
@@ -370,12 +374,14 @@ declare namespace Forms {
 
   /**
    * Form type.
+   *
    * The available form types.
    */
   export type FormType = "textForm" | "comboBoxForm" | "dropDownForm" | "checkBoxForm" | "radioButtonForm" | "pictureForm" | "complexForm" | "dateForm" | "signatureForm";
 
   /**
    * The coordinate value for the geometry paths.
+   *
    * Can be a guide name from "gdLst", a numeric value, or a string representation of a number.
    */
   export type GeometryCoordinate = string | number;
@@ -385,10 +391,11 @@ declare namespace Forms {
 
   /**
    * Header and footer types which can be applied to the document sections.
-   * **"default"** - a header or footer which can be applied to any default page.
-   * **"title"** - a header or footer which is applied to the title page.
-   * **"even"** - a header or footer which can be applied to even pages to distinguish them from the odd
-   * ones (which will be considered default).
+   *
+   * - **"default"** - a header or footer which can be applied to any default page.
+   * - **"title"** - a header or footer which is applied to the title page.
+   * - **"even"** - a header or footer which can be applied to even pages to distinguish them from the
+   * odd ones (which will be considered default).
    */
   export type HdrFtrType = "default" | "title" | "even";
 
@@ -516,16 +523,18 @@ declare namespace Forms {
   /**
    * The section break type which defines how the contents of the current section are placed relative to
    * the previous section.
+   *
    * WordprocessingML supports five distinct types of section breaks:
-   * **Next page** ("nextPage") - starts a new section on the next page (the default value).
-   * **Odd** ("oddPage") - starts a new section on the next odd-numbered page.
-   * **Even** ("evenPage") - starts a new section on the next even-numbered page.
-   * **Continuous** ("continuous") - starts a new section in the next paragraph.
+   *
+   * - **Next page** ("nextPage") - starts a new section on the next page (the default value).
+   * - **Odd** ("oddPage") - starts a new section on the next odd-numbered page.
+   * - **Even** ("evenPage") - starts a new section on the next even-numbered page.
+   * - **Continuous** ("continuous") - starts a new section in the next paragraph.
    * This means that continuous section breaks might not specify certain page-level section properties,
    * since they shall be inherited from the following section.
    * However, these breaks can specify other section properties, such as line numbering and
    * footnote/endnote settings.
-   * **Column** ("nextColumn") - starts a new section in the next column on the page.
+   * - **Column** ("nextColumn") - starts a new section in the next column on the page.
    */
   export type SectionBreakType = "nextPage" | "oddPage" | "evenPage" | "continuous" | "nextColumn";
 
@@ -609,35 +618,37 @@ declare namespace Forms {
   /**
    * This simple type specifies possible values for the table sections to which the current conditional
    * formatting properties will be applied when this selected table style is used.
-   * **"topLeftCell"** - specifies that the table formatting is applied to the top left cell.
-   * **"topRightCell"** - specifies that the table formatting is applied to the top right cell.
-   * **"bottomLeftCell"** - specifies that the table formatting is applied to the bottom left cell.
-   * **"bottomRightCell"** - specifies that the table formatting is applied to the bottom right cell.
-   * **"firstRow"** - specifies that the table formatting is applied to the first row.
-   * **"lastRow"** - specifies that the table formatting is applied to the last row.
-   * **"firstColumn"** - specifies that the table formatting is applied to the first column. Any
+   *
+   * - **"topLeftCell"** - specifies that the table formatting is applied to the top left cell.
+   * - **"topRightCell"** - specifies that the table formatting is applied to the top right cell.
+   * - **"bottomLeftCell"** - specifies that the table formatting is applied to the bottom left cell.
+   * - **"bottomRightCell"** - specifies that the table formatting is applied to the bottom right cell.
+   * - **"firstRow"** - specifies that the table formatting is applied to the first row.
+   * - **"lastRow"** - specifies that the table formatting is applied to the last row.
+   * - **"firstColumn"** - specifies that the table formatting is applied to the first column. Any
    * subsequent row which is in *table header* ({@link ApiTableRowPr#SetTableHeader}) will also use this
    * conditional format.
-   * **"lastColumn"** - specifies that the table formatting is applied to the last column.
-   * **"bandedColumn"** - specifies that the table formatting is applied to odd numbered groupings of
+   * - **"lastColumn"** - specifies that the table formatting is applied to the last column.
+   * - **"bandedColumn"** - specifies that the table formatting is applied to odd numbered groupings of
    * rows.
-   * **"bandedColumnEven"** - specifies that the table formatting is applied to even numbered groupings
+   * - **"bandedColumnEven"** - specifies that the table formatting is applied to even numbered groupings
    * of rows.
-   * **"bandedRow"** - specifies that the table formatting is applied to odd numbered groupings of
+   * - **"bandedRow"** - specifies that the table formatting is applied to odd numbered groupings of
    * columns.
-   * **"bandedRowEven"** - specifies that the table formatting is applied to even numbered groupings of
+   * - **"bandedRowEven"** - specifies that the table formatting is applied to even numbered groupings of
    * columns.
-   * **"wholeTable"** - specifies that the conditional formatting is applied to the whole table.
+   * - **"wholeTable"** - specifies that the conditional formatting is applied to the whole table.
    */
   export type TableStyleOverrideType = "topLeftCell" | "topRightCell" | "bottomLeftCell" | "bottomRightCell" | "firstRow" | "lastRow" | "firstColumn" | "lastColumn" | "bandedColumn" | "bandedColumnEven" | "bandedRow" | "bandedRowEven" | "wholeTable";
 
   /**
    * The possible values for the units of the width property are defined by a specific table or table
    * cell width property.
-   * **"auto"** - sets the table or table cell width to auto width.
-   * **"twips"** - sets the table or table cell width to be measured in twentieths of a point.
-   * **"nul"** - sets the table or table cell width to be of a zero value.
-   * **"percent"** - sets the table or table cell width to be measured in percent to the parent
+   *
+   * - **"auto"** - sets the table or table cell width to auto width.
+   * - **"twips"** - sets the table or table cell width to be measured in twentieths of a point.
+   * - **"nul"** - sets the table or table cell width to be of a zero value.
+   * - **"percent"** - sets the table or table cell width to be measured in percent to the parent
    * container.
    */
   export type TableWidth = "auto" | "twips" | "nul" | "percent";
@@ -692,11 +703,12 @@ declare namespace Forms {
 
   /**
    * Possible values for the position of chart tick labels (either horizontal or vertical).
-   * **"none"** - not display the selected tick labels.
-   * **"nextTo"** - sets the position of the selected tick labels next to the main label.
-   * **"low"** - sets the position of the selected tick labels in the part of the chart with lower
+   *
+   * - **"none"** - not display the selected tick labels.
+   * - **"nextTo"** - sets the position of the selected tick labels next to the main label.
+   * - **"low"** - sets the position of the selected tick labels in the part of the chart with lower
    * values.
-   * **"high"** - sets the position of the selected tick labels in the part of the chart with higher
+   * - **"high"** - sets the position of the selected tick labels in the part of the chart with higher
    * values.
    */
   export type TickLabelPosition = "none" | "nextTo" | "low" | "high";
@@ -740,17 +752,18 @@ declare namespace Forms {
     OutlineLvls?: number;
 
     /**
-     * Style levels (for example, [{Name: "Heading 1", Lvl: 2}, {Name: "Heading 2", Lvl: 3}]).
-     * <note>If StylesLvls.length > 0, then the OutlineLvls property will be ignored.</note>
+     * Style levels (for example, [{Name: "Heading 1", Lvl: 2}, {Name: "Heading 2", Lvl: 3}]). If
+     * _StylesLvls.length_ is greater than 0, the _OutlineLvls_ property is ignored.
      */
     StylesLvls: TocStyleLvl[];
   }
 
   /**
    * Possible values for the table of contents leader:
-   * **"dot"** - "......."
-   * **"dash"** - "-------"
-   * **"underline"** - "_______"
+   *
+   * - **"dot"** - "......."
+   * - **"dash"** - "-------"
+   * - **"underline"** - "_______"
    */
   export type TocLeader = "dot" | "dash" | "underline" | "none";
 
@@ -858,13 +871,14 @@ declare namespace Forms {
 
   /**
    * Available values of the "bookmark" reference type:
-   * **"text"** - the entire bookmark text;
-   * **"pageNum"** - the bookmark page number;
-   * **"paraNum"** - the bookmark paragraph number;
-   * **"noCtxParaNum"** - the abbreviated paragraph number (the specific item only, e.g. instead of
+   *
+   * - **"text"** - the entire bookmark text;
+   * - **"pageNum"** - the bookmark page number;
+   * - **"paraNum"** - the bookmark paragraph number;
+   * - **"noCtxParaNum"** - the abbreviated paragraph number (the specific item only, e.g. instead of
    * "4.1.1" you refer to "1" only);
-   * **"fullCtxParaNum** - the full paragraph number, e.g. "4.1.1";
-   * **"aboveBelow"** - the words "above" or "below" depending on the item position.
+   * - **"fullCtxParaNum** - the full paragraph number, e.g. "4.1.1";
+   * - **"aboveBelow"** - the words "above" or "below" depending on the item position.
    */
   export type bookmarkRefTo = "text" | "pageNum" | "paraNum" | "noCtxParaNum" | "fullCtxParaNum" | "aboveBelow";
 
@@ -873,44 +887,49 @@ declare namespace Forms {
 
   /**
    * Available values of the "equation"/"figure"/"table" reference type:
-   * **"entireCaption"**- the entire caption text;
-   * **"labelNumber"** - the label and object number only, e.g. "Table 1.1";
-   * **"captionText"** - the caption text only;
-   * **"pageNum"** - the page number containing the referenced object;
-   * **"aboveBelow"** - the words "above" or "below" depending on the item position.
+   *
+   * - **"entireCaption"**- the entire caption text;
+   * - **"labelNumber"** - the label and object number only, e.g. "Table 1.1";
+   * - **"captionText"** - the caption text only;
+   * - **"pageNum"** - the page number containing the referenced object;
+   * - **"aboveBelow"** - the words "above" or "below" depending on the item position.
    */
   export type captionRefTo = "entireCaption" | "labelNumber" | "captionText" | "pageNum" | "aboveBelow";
 
   /**
    * Available values of the "endnote" reference type:
-   * **"endnoteNum"** - the endnote number;
-   * **"pageNum"** - the endnote page number;
-   * **"aboveBelow"** - the words "above" or "below" depending on the item position;
-   * **"formEndnoteNum"** - the form number formatted as an endnote. The numbering of the actual endnotes
-   * is not affected.
+   *
+   * - **"endnoteNum"** - the endnote number;
+   * - **"pageNum"** - the endnote page number;
+   * - **"aboveBelow"** - the words "above" or "below" depending on the item position;
+   * - **"formEndnoteNum"** - the form number formatted as an endnote. The numbering of the actual
+   * endnotes is not affected.
    */
   export type endnoteRefTo = "endnoteNum" | "pageNum" | "aboveBelow" | "formEndnoteNum";
 
   /**
    * Available values of the "footnote" reference type:
-   * **"footnoteNum"** - the footnote number;
-   * **"pageNum"** - the page number of the footnote;
-   * **"aboveBelow"** - the words "above" or "below" depending on the position of the item;
-   * **"formFootnoteNum"** - the form number formatted as a footnote. The numbering of the actual
+   *
+   * - **"footnoteNum"** - the footnote number;
+   * - **"pageNum"** - the page number of the footnote;
+   * - **"aboveBelow"** - the words "above" or "below" depending on the position of the item;
+   * - **"formFootnoteNum"** - the form number formatted as a footnote. The numbering of the actual
    * footnotes is not affected.
    */
   export type footnoteRefTo = "footnoteNum" | "pageNum" | "aboveBelow" | "formFootnoteNum";
 
   /**
    * Available values of the "heading" reference type:
-   * **"text"** - the entire heading text;
-   * **"pageNum"** - the heading page number;
-   * **"headingNum"** - the heading sequence number;
-   * **"noCtxHeadingNum"** - the abbreviated heading number. Make sure the cursor pointer is in the
+   *
+   * - **"text"** - the entire heading text;
+   * - **"pageNum"** - the heading page number;
+   * - **"headingNum"** - the heading sequence number;
+   * - **"noCtxHeadingNum"** - the abbreviated heading number. Make sure the cursor pointer is in the
    * section you are referencing to, e.g. you are in section 4 and you wish to refer to heading 4.B, so
    * instead of "4.B" you receive "B" only;
-   * **"fullCtxHeadingNum"** - the full heading number even if the cursor pointer is in the same section;
-   * **"aboveBelow"** - the words "above" or "below" depending on the item position.
+   * - **"fullCtxHeadingNum"** - the full heading number even if the cursor pointer is in the same
+   * section;
+   * - **"aboveBelow"** - the words "above" or "below" depending on the item position.
    */
   export type headingRefTo = "text" | "pageNum" | "headingNum" | "noCtxHeadingNum" | "fullCtxHeadingNum" | "aboveBelow";
 
@@ -928,14 +947,15 @@ declare namespace Forms {
 
   /**
    * Available values of the "numbered" reference type:
-   * **"pageNum"** - the numbered item page number;
-   * **"paraNum"** - the numbered item paragraph number;
-   * **"noCtxParaNum"** - the abbreviated paragraph number (the specific item only, e.g. instead of
+   *
+   * - **"pageNum"** - the numbered item page number;
+   * - **"paraNum"** - the numbered item paragraph number;
+   * - **"noCtxParaNum"** - the abbreviated paragraph number (the specific item only, e.g. instead of
    * "4.1.1" you refer to "1" only);
-   * **"fullCtxParaNum"** - the full paragraph number, e.g. "4.1.1";
-   * **"text"** - the paragraph text value, e.g. if you have "4.1.1. Terms and Conditions", you refer to
-   * "Terms and Conditions" only;
-   * **"aboveBelow"** - the words "above" or "below" depending on the item position.
+   * - **"fullCtxParaNum"** - the full paragraph number, e.g. "4.1.1";
+   * - **"text"** - the paragraph text value, e.g. if you have "4.1.1. Terms and Conditions", you refer
+   * to "Terms and Conditions" only;
+   * - **"aboveBelow"** - the words "above" or "below" depending on the item position.
    */
   export type numberedRefTo = "pageNum" | "paraNum" | "noCtxParaNum" | "fullCtxParaNum" | "text" | "aboveBelow";
 
@@ -952,7 +972,9 @@ declare namespace Forms {
   export type twips = number;
 
   /**
-   * Base class
+   * The main class of the Form API. Use it to create forms: text fields, combo boxes,
+   * checkboxes and radio buttons, date fields, picture forms, signature forms, and complex
+   * fields.
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/Api/
    */
@@ -1325,7 +1347,9 @@ declare namespace Forms {
     Copy(): ApiForm;
 
     /**
-     * Removes a form and its content. If keepContent is true, the content is not deleted.
+     * Removes a form and its content.
+     *
+     * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
      * @returns returns false if form wasn't added to the document.
@@ -1540,6 +1564,7 @@ declare namespace Forms {
 
     /**
      * Returns the choice name of the currently selected radio button in the group.
+     *
      * Returns an empty string if the current form is not a radio button or nothing is selected.
      *
      * @since 9.4.0
@@ -1837,6 +1862,7 @@ declare namespace Forms {
 
     /**
      * Returns the text properties from the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @example
@@ -1915,6 +1941,7 @@ declare namespace Forms {
     /**
      * Returns a shape in which the form is placed to control the position and size of the fixed size form
      * frame.
+     *
      * The null value will be returned for the inline forms.
      *
      * @returns returns the shape in which the form is placed.
@@ -2358,6 +2385,7 @@ declare namespace Forms {
 
     /**
      * Sets the placeholder text to the current form.
+     *
      * *Can't be set to checkbox or radio button.*
      *
      * @param sText - The text that will be set to the current form.
@@ -2521,6 +2549,7 @@ declare namespace Forms {
 
     /**
      * Sets the text properties to the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @param textPr - The text properties that will be set to the current form.
@@ -2626,6 +2655,7 @@ declare namespace Forms {
 
     /**
      * Converts the current form to an inline form.
+     *
      * *Picture form can't be converted to an inline form, it's always a fixed size object.*
      *
      * @example
@@ -2715,7 +2745,9 @@ declare namespace Forms {
     Copy(): ApiForm;
 
     /**
-     * Removes a form and its content. If keepContent is true, the content is not deleted.
+     * Removes a form and its content.
+     *
+     * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
      * @returns returns false if form wasn't added to the document.
@@ -3086,6 +3118,7 @@ declare namespace Forms {
 
     /**
      * Returns the text properties from the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @example
@@ -3164,6 +3197,7 @@ declare namespace Forms {
     /**
      * Returns a shape in which the form is placed to control the position and size of the fixed size form
      * frame.
+     *
      * The null value will be returned for the inline forms.
      *
      * @returns returns the shape in which the form is placed.
@@ -3189,8 +3223,9 @@ declare namespace Forms {
     GetWrapperShape(): ApiShape;
 
     /**
-     * Checks if the combo box text can be edited. If it is not editable, then this form is a drop-down
-     * list.
+     * Checks if the combo box text can be edited.
+     *
+     * If it is not editable, then this form is a drop-down list.
      *
      * @example
      * ```js
@@ -3462,6 +3497,7 @@ declare namespace Forms {
 
     /**
      * Sets the placeholder text to the current form.
+     *
      * *Can't be set to checkbox or radio button.*
      *
      * @param sText - The text that will be set to the current form.
@@ -3593,6 +3629,7 @@ declare namespace Forms {
 
     /**
      * Sets the text to the current combo box.
+     *
      * *Available only for editable combo box forms.*
      *
      * @param sText - The combo box text.
@@ -3616,6 +3653,7 @@ declare namespace Forms {
 
     /**
      * Sets the text properties to the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @param textPr - The text properties that will be set to the current form.
@@ -3667,7 +3705,9 @@ declare namespace Forms {
     SetTipText(sText: string): boolean;
 
     /**
-     * Sets the value of the combo box form. Selects a list item if the value matches one,
+     * Sets the value of the combo box form.
+     *
+     * Selects a list item if the value matches one,
      * otherwise sets it as free text (only for editable combo boxes).
      *
      * @param value - The value to set.
@@ -3722,6 +3762,7 @@ declare namespace Forms {
 
     /**
      * Converts the current form to an inline form.
+     *
      * *Picture form can't be converted to an inline form, it's always a fixed size object.*
      *
      * @example
@@ -3864,7 +3905,9 @@ declare namespace Forms {
     Copy(): ApiForm;
 
     /**
-     * Removes a form and its content. If keepContent is true, the content is not deleted.
+     * Removes a form and its content.
+     *
+     * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
      * @returns returns false if form wasn't added to the document.
@@ -4235,6 +4278,7 @@ declare namespace Forms {
 
     /**
      * Returns the text properties from the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @example
@@ -4315,6 +4359,7 @@ declare namespace Forms {
     /**
      * Returns a shape in which the form is placed to control the position and size of the fixed size form
      * frame.
+     *
      * The null value will be returned for the inline forms.
      *
      * @returns returns the shape in which the form is placed.
@@ -4545,6 +4590,7 @@ declare namespace Forms {
 
     /**
      * Sets the placeholder text to the current form.
+     *
      * *Can't be set to checkbox or radio button.*
      *
      * @param sText - The text that will be set to the current form.
@@ -4676,6 +4722,7 @@ declare namespace Forms {
 
     /**
      * Sets the text properties to the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @param textPr - The text properties that will be set to the current form.
@@ -4780,6 +4827,7 @@ declare namespace Forms {
 
     /**
      * Converts the current form to an inline form.
+     *
      * *Picture form can't be converted to an inline form, it's always a fixed size object.*
      *
      * @example
@@ -4904,7 +4952,9 @@ declare namespace Forms {
     Copy(): ApiForm;
 
     /**
-     * Removes a form and its content. If keepContent is true, the content is not deleted.
+     * Removes a form and its content.
+     *
+     * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
      * @returns returns false if form wasn't added to the document.
@@ -5325,6 +5375,7 @@ declare namespace Forms {
 
     /**
      * Returns the text properties from the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @example
@@ -5429,6 +5480,7 @@ declare namespace Forms {
     /**
      * Returns a shape in which the form is placed to control the position and size of the fixed size form
      * frame.
+     *
      * The null value will be returned for the inline forms.
      *
      * @returns returns the shape in which the form is placed.
@@ -5741,6 +5793,7 @@ declare namespace Forms {
 
     /**
      * Sets the placeholder text to the current form.
+     *
      * *Can't be set to checkbox or radio button.*
      *
      * @param sText - The text that will be set to the current form.
@@ -5872,6 +5925,7 @@ declare namespace Forms {
 
     /**
      * Sets the text properties to the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @param textPr - The text properties that will be set to the current form.
@@ -6003,6 +6057,7 @@ declare namespace Forms {
 
     /**
      * Converts the current form to an inline form.
+     *
      * *Picture form can't be converted to an inline form, it's always a fixed size object.*
      *
      * @example
@@ -6166,8 +6221,9 @@ declare namespace Forms {
     GetFormRoles(): ApiFormRoles;
 
     /**
-     * Returns the form value for the specified key. For a group of radio buttons returns Choice, i.e. the
-     * name of the selected item.
+     * Returns the form value for the specified key.
+     *
+     * For a group of radio buttons returns Choice, i.e. the name of the selected item.
      *
      * @param key - The form key.
      * @returns Returns true/false for checkboxes and string for other form types. Returns null if there is no
@@ -6309,6 +6365,7 @@ declare namespace Forms {
 
     /**
      * Returns the data from all forms present in the current document.
+     *
      * If a form was created and not assigned to any part of the document, it won't appear in this list.
      *
      * @since 8.0.0
@@ -6559,7 +6616,9 @@ declare namespace Forms {
     Copy(): ApiForm;
 
     /**
-     * Removes a form and its content. If keepContent is true, the content is not deleted.
+     * Removes a form and its content.
+     *
+     * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
      * @returns returns false if form wasn't added to the document.
@@ -6899,6 +6958,7 @@ declare namespace Forms {
 
     /**
      * Returns the text properties from the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @example
@@ -6976,6 +7036,7 @@ declare namespace Forms {
     /**
      * Returns a shape in which the form is placed to control the position and size of the fixed size form
      * frame.
+     *
      * The null value will be returned for the inline forms.
      *
      * @returns returns the shape in which the form is placed.
@@ -7206,6 +7267,7 @@ declare namespace Forms {
 
     /**
      * Sets the placeholder text to the current form.
+     *
      * *Can't be set to checkbox or radio button.*
      *
      * @param sText - The text that will be set to the current form.
@@ -7337,6 +7399,7 @@ declare namespace Forms {
 
     /**
      * Sets the text properties to the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @param textPr - The text properties that will be set to the current form.
@@ -7441,6 +7504,7 @@ declare namespace Forms {
 
     /**
      * Converts the current form to an inline form.
+     *
      * *Picture form can't be converted to an inline form, it's always a fixed size object.*
      *
      * @example
@@ -7856,7 +7920,9 @@ declare namespace Forms {
     Copy(): ApiForm;
 
     /**
-     * Removes a form and its content. If keepContent is true, the content is not deleted.
+     * Removes a form and its content.
+     *
+     * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
      * @returns returns false if form wasn't added to the document.
@@ -8279,6 +8345,7 @@ declare namespace Forms {
 
     /**
      * Returns the text properties from the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @example
@@ -8355,6 +8422,7 @@ declare namespace Forms {
     /**
      * Returns a shape in which the form is placed to control the position and size of the fixed size form
      * frame.
+     *
      * The null value will be returned for the inline forms.
      *
      * @returns returns the shape in which the form is placed.
@@ -8686,9 +8754,10 @@ declare namespace Forms {
 
     /**
      * Sets the picture position inside the current form:
-     * **0** - the picture is placed on the left/top;
-     * **50** - the picture is placed in the center;
-     * **100** - the picture is placed on the right/bottom.
+     *
+     * - **0** - the picture is placed on the left/top;
+     * - **50** - the picture is placed in the center;
+     * - **100** - the picture is placed on the right/bottom.
      *
      * @param nShiftX - Horizontal position measured in percent.
      * @param nShiftY - Vertical position measured in percent.
@@ -8723,6 +8792,7 @@ declare namespace Forms {
 
     /**
      * Sets the placeholder text to the current form.
+     *
      * *Can't be set to checkbox or radio button.*
      *
      * @param sText - The text that will be set to the current form.
@@ -8909,6 +8979,7 @@ declare namespace Forms {
 
     /**
      * Sets the text properties to the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @param textPr - The text properties that will be set to the current form.
@@ -9013,6 +9084,7 @@ declare namespace Forms {
 
     /**
      * Converts the current form to an inline form.
+     *
      * *Picture form can't be converted to an inline form, it's always a fixed size object.*
      *
      * @example
@@ -9140,7 +9212,9 @@ declare namespace Forms {
     Copy(): ApiForm;
 
     /**
-     * Removes a form and its content. If keepContent is true, the content is not deleted.
+     * Removes a form and its content.
+     *
+     * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
      * @returns returns false if form wasn't added to the document.
@@ -9482,6 +9556,7 @@ declare namespace Forms {
 
     /**
      * Returns the text properties from the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @example
@@ -9559,6 +9634,7 @@ declare namespace Forms {
     /**
      * Returns a shape in which the form is placed to control the position and size of the fixed size form
      * frame.
+     *
      * The null value will be returned for the inline forms.
      *
      * @returns returns the shape in which the form is placed.
@@ -9789,6 +9865,7 @@ declare namespace Forms {
 
     /**
      * Sets the placeholder text to the current form.
+     *
      * *Can't be set to checkbox or radio button.*
      *
      * @param sText - The text that will be set to the current form.
@@ -9920,6 +9997,7 @@ declare namespace Forms {
 
     /**
      * Sets the text properties to the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @param textPr - The text properties that will be set to the current form.
@@ -10024,6 +10102,7 @@ declare namespace Forms {
 
     /**
      * Converts the current form to an inline form.
+     *
      * *Picture form can't be converted to an inline form, it's always a fixed size object.*
      *
      * @example
@@ -10153,7 +10232,9 @@ declare namespace Forms {
     Copy(): ApiForm;
 
     /**
-     * Removes a form and its content. If keepContent is true, the content is not deleted.
+     * Removes a form and its content.
+     *
+     * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
      * @returns returns false if form wasn't added to the document.
@@ -10566,6 +10647,7 @@ declare namespace Forms {
 
     /**
      * Returns the text properties from the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @example
@@ -10643,6 +10725,7 @@ declare namespace Forms {
     /**
      * Returns a shape in which the form is placed to control the position and size of the fixed size form
      * frame.
+     *
      * The null value will be returned for the inline forms.
      *
      * @returns returns the shape in which the form is placed.
@@ -10843,8 +10926,9 @@ declare namespace Forms {
     MoveCursorOutside(isAfter?: boolean): boolean;
 
     /**
-     * Sets the allowed symbols for the current text field. Only the specified characters will be accepted
-     * as input.
+     * Sets the allowed symbols for the current text field.
+     *
+     * Only the specified characters will be accepted as input.
      *
      * @param symbols - A string of allowed characters.
      *
@@ -10996,6 +11080,7 @@ declare namespace Forms {
 
     /**
      * Specifies if the text field should be a comb of characters with the same cell width.
+     *
      * The maximum number of characters must be set to a positive value.
      *
      * @param bComb - Defines if the text field is a comb of characters (true) or not (false).
@@ -11128,6 +11213,7 @@ declare namespace Forms {
 
     /**
      * Sets the placeholder text to the current form.
+     *
      * *Can't be set to checkbox or radio button.*
      *
      * @param sText - The text that will be set to the current form.
@@ -11281,6 +11367,7 @@ declare namespace Forms {
 
     /**
      * Sets the text properties to the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @param textPr - The text properties that will be set to the current form.
@@ -11385,6 +11472,7 @@ declare namespace Forms {
 
     /**
      * Converts the current form to an inline form.
+     *
      * *Picture form can't be converted to an inline form, it's always a fixed size object.*
      *
      * @example
@@ -11598,10 +11686,11 @@ interface ContentControlListElement {
 
 /**
  * A value that defines if it is possible to delete and/or edit the content control or not:
- * **0** - only deleting
- * **1** - disable deleting or editing
- * **2** - only editing
- * **3** - full access
+ *
+ * - **0** - only deleting
+ * - **1** - disable deleting or editing
+ * - **2** - only editing
+ * - **3** - full access
  */
 type ContentControlLock = 0 | 1 | 2 | 3;
 
@@ -11673,10 +11762,11 @@ interface ContentControlPropertiesAndContent {
 
 /**
  * A numeric value that specifies the content control type:
- * **1** - block content control
- * **2** - inline content control
- * **3** - row content control
- * **4** - cell content control
+ *
+ * - **1** - block content control
+ * - **2** - inline content control
+ * - **3** - row content control
+ * - **4** - cell content control
  */
 type ContentControlType = 1 | 2 | 3 | 4;
 
@@ -11706,10 +11796,11 @@ interface ContextMenuItem {
 
 /**
  * The document editing restrictions:
- * **none** - no editing restrictions,
- * **comments** - allows editing comments,
- * **forms** - allows editing form fields,
- * **readOnly** - does not allow editing.
+ *
+ * - **none** - no editing restrictions,
+ * - **comments** - allows editing comments,
+ * - **forms** - allows editing form fields,
+ * - **readOnly** - does not allow editing.
  */
 type DocumentEditingRestrictions = 'none' | 'comments' | 'forms' | 'readOnly';
 
@@ -11982,9 +12073,10 @@ type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorder
 
 /**
  * Specifies if the whole text or only its part will be returned or replaced:
- * **entirely** - replaces/returns the whole text,
- * **beforeCursor** - replaces/returns only the part of the text before the cursor,
- * **afterCursor** - replaces/returns only the part of the text after the cursor.
+ *
+ * - **entirely** - replaces/returns the whole text,
+ * - **beforeCursor** - replaces/returns only the part of the text before the cursor,
+ * - **afterCursor** - replaces/returns only the part of the text after the cursor.
  */
 type TextPartType = "entirely" | "beforeCursor" | "afterCursor";
 
@@ -12120,10 +12212,11 @@ interface comment {
 
 /**
  * The editors which the plugin is available for:
- * **word** - text document editor,
- * **cell** - spreadsheet editor,
- * **slide** - presentation editor,
- * **pdf** - pdf editor.
+ *
+ * - **word** - text document editor,
+ * - **cell** - spreadsheet editor,
+ * - **slide** - presentation editor,
+ * - **pdf** - pdf editor.
  */
 type editorType = "word" | "cell" | "slide" | "pdf";
 
@@ -12135,13 +12228,14 @@ interface fillForms {
 
 /**
  * The data type selected in the editor and sent to the plugin:
- * **text** - the text data,
- * **html** - HTML formatted code,
- * **ole** - OLE object data,
- * **desktop** - the desktop editor data,
- * **desktop-external** - the main page data of the desktop app (system messages),
- * **none** - no data will be send to the plugin from the editor,
- * **sign** - the sign for the keychain plugin.
+ *
+ * - **text** - the text data,
+ * - **html** - HTML formatted code,
+ * - **ole** - OLE object data,
+ * - **desktop** - the desktop editor data,
+ * - **desktop-external** - the main page data of the desktop app (system messages),
+ * - **none** - no data will be send to the plugin from the editor,
+ * - **sign** - the sign for the keychain plugin.
  */
 type initDataType = "text" | "html" | "ole" | "desktop" | "desktop-external" | "none" | "sign";
 
@@ -12422,8 +12516,9 @@ type FormsMethodArgs = {
    */
   GetFormsByTag: [tag: string];
   /**
-   * Returns the image data from the first of the selected drawings. If there are no drawings selected,
-   * the method returns a white rectangle.
+   * Returns the image data from the first of the selected drawings.
+   *
+   * If there are no drawings selected, the method returns a white rectangle.
    *
    * @returns The AscImageData object containig the information about the base64 encoded png image.
    * @since 7.2.0
@@ -12852,6 +12947,7 @@ type FormsMethodArgs = {
   PasteText: [text: string];
   /**
    * Replaces the first selected drawing with the image specified in the parameters.
+   *
    * If there are no drawings selected, the method inserts the image at the current position.
    *
    * @param oImageData - The information about the base64 encoded *png* image.
@@ -12945,10 +13041,14 @@ type FormsMethodArgs = {
    */
   SetMacros: [data: string];
   /**
-   * Configures plugins from an external source. The settings can be set for all plugins or for a
-   * specific plugin.
-   * For example, this method can be used to pass an authorization token to the plugin. This method can
-   * be used only with the connector class.
+   * Configures plugins from an external source.
+   *
+   * The settings can be set for all plugins or for a specific plugin. For example, this method can be
+   * used to pass an authorization token to the plugin.
+   *
+   * **Note:**
+   * This method can be used only with the
+   * {@link https://api.onlyoffice.com/docs/docs-api/usage-api/automation-api/connector-class connector class}.
    *
    * @param options - Plugin options.
    * @since 8.1.1

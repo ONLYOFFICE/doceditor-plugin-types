@@ -1,5 +1,5 @@
 {
-  "description": "Looks up a value either from a one-row or one-column range. Provided for backwards compatibility.",
+  "description": "Looks up a value either from a one-row or one-column range.\n\nProvided for backwards compatibility.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/LOOKUP/",
   "params": [
     {

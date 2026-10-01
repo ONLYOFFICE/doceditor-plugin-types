@@ -27,10 +27,11 @@ declare namespace Word {
 
   /**
    * The type of a fill which uses an image as a background.
-   * **"tile"** - if the image is smaller than the shape which is filled, the image will be tiled all
+   *
+   * - **"tile"** - if the image is smaller than the shape which is filled, the image will be tiled all
    * over the created shape surface.
-   * **"stretch"** - if the image is smaller than the shape which is filled, the image will be stretched
-   * to fit the created shape surface.
+   * - **"stretch"** - if the image is smaller than the shape which is filled, the image will be
+   * stretched to fit the created shape surface.
    */
   export type BlipFillType = "tile" | "stretch";
 
@@ -51,8 +52,9 @@ declare namespace Word {
 
   /**
    * A border type which will be added to the document element.
-   * **"none"** - no border will be added to the created element or the selected element side.
-   * **"single"** - a single border will be added to the created element or the selected element side.
+   *
+   * - **"none"** - no border will be added to the created element or the selected element side.
+   * - **"single"** - a single border will be added to the created element or the selected element side.
    */
   export type BorderType = "none" | "single";
 
@@ -61,21 +63,23 @@ declare namespace Word {
 
   /**
    * Possible values for the caption numbering format.
-   * **"ALPHABETIC"** - upper letter.
-   * **"alphabetic"** - lower letter.
-   * **"Roman"** - upper Roman.
-   * **"roman"** - lower Roman.
-   * **"Arabic"** - arabic.
+   *
+   * - **"ALPHABETIC"** - upper letter.
+   * - **"alphabetic"** - lower letter.
+   * - **"Roman"** - upper Roman.
+   * - **"roman"** - lower Roman.
+   * - **"Arabic"** - arabic.
    */
   export type CaptionNumberingFormat = "ALPHABETIC" | "alphabetic" | "Roman" | "roman" | "Arabic";
 
   /**
    * Possible values for the caption separator.
-   * **"hyphen"** - the "-" punctuation mark.
-   * **"period"** - the "." punctuation mark.
-   * **"colon"** - the ":" punctuation mark.
-   * **"longDash"** - the "—" punctuation mark.
-   * **"dash"** - the "-" punctuation mark.
+   *
+   * - **"hyphen"** - the "-" punctuation mark.
+   * - **"period"** - the "." punctuation mark.
+   * - **"colon"** - the ":" punctuation mark.
+   * - **"longDash"** - the "—" punctuation mark.
+   * - **"dash"** - the "-" punctuation mark.
    */
   export type CaptionSep = "hyphen" | "period" | "colon" | "longDash" | "dash";
 
@@ -262,11 +266,13 @@ declare namespace Word {
 
   /**
    * Defines the access restrictions for a content control.
+   *
    * Possible values:
-   * **0** - only deleting,
-   * **1** - disable deleting or editing,
-   * **2** - only editing,
-   * **3** - full access.
+   *
+   * - **0** - only deleting,
+   * - **1** - disable deleting or editing,
+   * - **2** - only editing,
+   * - **3** - full access.
    */
   export type ContentControlLock = 0 | 1 | 2 | 3;
 
@@ -341,12 +347,14 @@ declare namespace Word {
 
   /**
    * Form type.
+   *
    * The available form types.
    */
   export type FormType = "textForm" | "comboBoxForm" | "dropDownForm" | "checkBoxForm" | "radioButtonForm" | "pictureForm" | "complexForm" | "dateForm" | "signatureForm";
 
   /**
    * The coordinate value for the geometry paths.
+   *
    * Can be a guide name from "gdLst", a numeric value, or a string representation of a number.
    */
   export type GeometryCoordinate = string | number;
@@ -356,10 +364,11 @@ declare namespace Word {
 
   /**
    * Header and footer types which can be applied to the document sections.
-   * **"default"** - a header or footer which can be applied to any default page.
-   * **"title"** - a header or footer which is applied to the title page.
-   * **"even"** - a header or footer which can be applied to even pages to distinguish them from the odd
-   * ones (which will be considered default).
+   *
+   * - **"default"** - a header or footer which can be applied to any default page.
+   * - **"title"** - a header or footer which is applied to the title page.
+   * - **"even"** - a header or footer which can be applied to even pages to distinguish them from the
+   * odd ones (which will be considered default).
    */
   export type HdrFtrType = "default" | "title" | "even";
 
@@ -450,16 +459,18 @@ declare namespace Word {
   /**
    * The section break type which defines how the contents of the current section are placed relative to
    * the previous section.
+   *
    * WordprocessingML supports five distinct types of section breaks:
-   * **Next page** ("nextPage") - starts a new section on the next page (the default value).
-   * **Odd** ("oddPage") - starts a new section on the next odd-numbered page.
-   * **Even** ("evenPage") - starts a new section on the next even-numbered page.
-   * **Continuous** ("continuous") - starts a new section in the next paragraph.
+   *
+   * - **Next page** ("nextPage") - starts a new section on the next page (the default value).
+   * - **Odd** ("oddPage") - starts a new section on the next odd-numbered page.
+   * - **Even** ("evenPage") - starts a new section on the next even-numbered page.
+   * - **Continuous** ("continuous") - starts a new section in the next paragraph.
    * This means that continuous section breaks might not specify certain page-level section properties,
    * since they shall be inherited from the following section.
    * However, these breaks can specify other section properties, such as line numbering and
    * footnote/endnote settings.
-   * **Column** ("nextColumn") - starts a new section in the next column on the page.
+   * - **Column** ("nextColumn") - starts a new section in the next column on the page.
    */
   export type SectionBreakType = "nextPage" | "oddPage" | "evenPage" | "continuous" | "nextColumn";
 
@@ -543,35 +554,37 @@ declare namespace Word {
   /**
    * This simple type specifies possible values for the table sections to which the current conditional
    * formatting properties will be applied when this selected table style is used.
-   * **"topLeftCell"** - specifies that the table formatting is applied to the top left cell.
-   * **"topRightCell"** - specifies that the table formatting is applied to the top right cell.
-   * **"bottomLeftCell"** - specifies that the table formatting is applied to the bottom left cell.
-   * **"bottomRightCell"** - specifies that the table formatting is applied to the bottom right cell.
-   * **"firstRow"** - specifies that the table formatting is applied to the first row.
-   * **"lastRow"** - specifies that the table formatting is applied to the last row.
-   * **"firstColumn"** - specifies that the table formatting is applied to the first column. Any
+   *
+   * - **"topLeftCell"** - specifies that the table formatting is applied to the top left cell.
+   * - **"topRightCell"** - specifies that the table formatting is applied to the top right cell.
+   * - **"bottomLeftCell"** - specifies that the table formatting is applied to the bottom left cell.
+   * - **"bottomRightCell"** - specifies that the table formatting is applied to the bottom right cell.
+   * - **"firstRow"** - specifies that the table formatting is applied to the first row.
+   * - **"lastRow"** - specifies that the table formatting is applied to the last row.
+   * - **"firstColumn"** - specifies that the table formatting is applied to the first column. Any
    * subsequent row which is in *table header* ({@link ApiTableRowPr#SetTableHeader}) will also use this
    * conditional format.
-   * **"lastColumn"** - specifies that the table formatting is applied to the last column.
-   * **"bandedColumn"** - specifies that the table formatting is applied to odd numbered groupings of
+   * - **"lastColumn"** - specifies that the table formatting is applied to the last column.
+   * - **"bandedColumn"** - specifies that the table formatting is applied to odd numbered groupings of
    * rows.
-   * **"bandedColumnEven"** - specifies that the table formatting is applied to even numbered groupings
+   * - **"bandedColumnEven"** - specifies that the table formatting is applied to even numbered groupings
    * of rows.
-   * **"bandedRow"** - specifies that the table formatting is applied to odd numbered groupings of
+   * - **"bandedRow"** - specifies that the table formatting is applied to odd numbered groupings of
    * columns.
-   * **"bandedRowEven"** - specifies that the table formatting is applied to even numbered groupings of
+   * - **"bandedRowEven"** - specifies that the table formatting is applied to even numbered groupings of
    * columns.
-   * **"wholeTable"** - specifies that the conditional formatting is applied to the whole table.
+   * - **"wholeTable"** - specifies that the conditional formatting is applied to the whole table.
    */
   export type TableStyleOverrideType = "topLeftCell" | "topRightCell" | "bottomLeftCell" | "bottomRightCell" | "firstRow" | "lastRow" | "firstColumn" | "lastColumn" | "bandedColumn" | "bandedColumnEven" | "bandedRow" | "bandedRowEven" | "wholeTable";
 
   /**
    * The possible values for the units of the width property are defined by a specific table or table
    * cell width property.
-   * **"auto"** - sets the table or table cell width to auto width.
-   * **"twips"** - sets the table or table cell width to be measured in twentieths of a point.
-   * **"nul"** - sets the table or table cell width to be of a zero value.
-   * **"percent"** - sets the table or table cell width to be measured in percent to the parent
+   *
+   * - **"auto"** - sets the table or table cell width to auto width.
+   * - **"twips"** - sets the table or table cell width to be measured in twentieths of a point.
+   * - **"nul"** - sets the table or table cell width to be of a zero value.
+   * - **"percent"** - sets the table or table cell width to be measured in percent to the parent
    * container.
    */
   export type TableWidth = "auto" | "twips" | "nul" | "percent";
@@ -593,11 +606,12 @@ declare namespace Word {
 
   /**
    * Possible values for the position of chart tick labels (either horizontal or vertical).
-   * **"none"** - not display the selected tick labels.
-   * **"nextTo"** - sets the position of the selected tick labels next to the main label.
-   * **"low"** - sets the position of the selected tick labels in the part of the chart with lower
+   *
+   * - **"none"** - not display the selected tick labels.
+   * - **"nextTo"** - sets the position of the selected tick labels next to the main label.
+   * - **"low"** - sets the position of the selected tick labels in the part of the chart with lower
    * values.
-   * **"high"** - sets the position of the selected tick labels in the part of the chart with higher
+   * - **"high"** - sets the position of the selected tick labels in the part of the chart with higher
    * values.
    */
   export type TickLabelPosition = "none" | "nextTo" | "low" | "high";
@@ -641,17 +655,18 @@ declare namespace Word {
     OutlineLvls?: number;
 
     /**
-     * Style levels (for example, [{Name: "Heading 1", Lvl: 2}, {Name: "Heading 2", Lvl: 3}]).
-     * <note>If StylesLvls.length > 0, then the OutlineLvls property will be ignored.</note>
+     * Style levels (for example, [{Name: "Heading 1", Lvl: 2}, {Name: "Heading 2", Lvl: 3}]). If
+     * _StylesLvls.length_ is greater than 0, the _OutlineLvls_ property is ignored.
      */
     StylesLvls: TocStyleLvl[];
   }
 
   /**
    * Possible values for the table of contents leader:
-   * **"dot"** - "......."
-   * **"dash"** - "-------"
-   * **"underline"** - "_______"
+   *
+   * - **"dot"** - "......."
+   * - **"dash"** - "-------"
+   * - **"underline"** - "_______"
    */
   export type TocLeader = "dot" | "dash" | "underline" | "none";
 
@@ -759,13 +774,14 @@ declare namespace Word {
 
   /**
    * Available values of the "bookmark" reference type:
-   * **"text"** - the entire bookmark text;
-   * **"pageNum"** - the bookmark page number;
-   * **"paraNum"** - the bookmark paragraph number;
-   * **"noCtxParaNum"** - the abbreviated paragraph number (the specific item only, e.g. instead of
+   *
+   * - **"text"** - the entire bookmark text;
+   * - **"pageNum"** - the bookmark page number;
+   * - **"paraNum"** - the bookmark paragraph number;
+   * - **"noCtxParaNum"** - the abbreviated paragraph number (the specific item only, e.g. instead of
    * "4.1.1" you refer to "1" only);
-   * **"fullCtxParaNum** - the full paragraph number, e.g. "4.1.1";
-   * **"aboveBelow"** - the words "above" or "below" depending on the item position.
+   * - **"fullCtxParaNum** - the full paragraph number, e.g. "4.1.1";
+   * - **"aboveBelow"** - the words "above" or "below" depending on the item position.
    */
   export type bookmarkRefTo = "text" | "pageNum" | "paraNum" | "noCtxParaNum" | "fullCtxParaNum" | "aboveBelow";
 
@@ -774,11 +790,12 @@ declare namespace Word {
 
   /**
    * Available values of the "equation"/"figure"/"table" reference type:
-   * **"entireCaption"**- the entire caption text;
-   * **"labelNumber"** - the label and object number only, e.g. "Table 1.1";
-   * **"captionText"** - the caption text only;
-   * **"pageNum"** - the page number containing the referenced object;
-   * **"aboveBelow"** - the words "above" or "below" depending on the item position.
+   *
+   * - **"entireCaption"**- the entire caption text;
+   * - **"labelNumber"** - the label and object number only, e.g. "Table 1.1";
+   * - **"captionText"** - the caption text only;
+   * - **"pageNum"** - the page number containing the referenced object;
+   * - **"aboveBelow"** - the words "above" or "below" depending on the item position.
    */
   export type captionRefTo = "entireCaption" | "labelNumber" | "captionText" | "pageNum" | "aboveBelow";
 
@@ -793,34 +810,38 @@ declare namespace Word {
 
   /**
    * Available values of the "endnote" reference type:
-   * **"endnoteNum"** - the endnote number;
-   * **"pageNum"** - the endnote page number;
-   * **"aboveBelow"** - the words "above" or "below" depending on the item position;
-   * **"formEndnoteNum"** - the form number formatted as an endnote. The numbering of the actual endnotes
-   * is not affected.
+   *
+   * - **"endnoteNum"** - the endnote number;
+   * - **"pageNum"** - the endnote page number;
+   * - **"aboveBelow"** - the words "above" or "below" depending on the item position;
+   * - **"formEndnoteNum"** - the form number formatted as an endnote. The numbering of the actual
+   * endnotes is not affected.
    */
   export type endnoteRefTo = "endnoteNum" | "pageNum" | "aboveBelow" | "formEndnoteNum";
 
   /**
    * Available values of the "footnote" reference type:
-   * **"footnoteNum"** - the footnote number;
-   * **"pageNum"** - the page number of the footnote;
-   * **"aboveBelow"** - the words "above" or "below" depending on the position of the item;
-   * **"formFootnoteNum"** - the form number formatted as a footnote. The numbering of the actual
+   *
+   * - **"footnoteNum"** - the footnote number;
+   * - **"pageNum"** - the page number of the footnote;
+   * - **"aboveBelow"** - the words "above" or "below" depending on the position of the item;
+   * - **"formFootnoteNum"** - the form number formatted as a footnote. The numbering of the actual
    * footnotes is not affected.
    */
   export type footnoteRefTo = "footnoteNum" | "pageNum" | "aboveBelow" | "formFootnoteNum";
 
   /**
    * Available values of the "heading" reference type:
-   * **"text"** - the entire heading text;
-   * **"pageNum"** - the heading page number;
-   * **"headingNum"** - the heading sequence number;
-   * **"noCtxHeadingNum"** - the abbreviated heading number. Make sure the cursor pointer is in the
+   *
+   * - **"text"** - the entire heading text;
+   * - **"pageNum"** - the heading page number;
+   * - **"headingNum"** - the heading sequence number;
+   * - **"noCtxHeadingNum"** - the abbreviated heading number. Make sure the cursor pointer is in the
    * section you are referencing to, e.g. you are in section 4 and you wish to refer to heading 4.B, so
    * instead of "4.B" you receive "B" only;
-   * **"fullCtxHeadingNum"** - the full heading number even if the cursor pointer is in the same section;
-   * **"aboveBelow"** - the words "above" or "below" depending on the item position.
+   * - **"fullCtxHeadingNum"** - the full heading number even if the cursor pointer is in the same
+   * section;
+   * - **"aboveBelow"** - the words "above" or "below" depending on the item position.
    */
   export type headingRefTo = "text" | "pageNum" | "headingNum" | "noCtxHeadingNum" | "fullCtxHeadingNum" | "aboveBelow";
 
@@ -838,14 +859,15 @@ declare namespace Word {
 
   /**
    * Available values of the "numbered" reference type:
-   * **"pageNum"** - the numbered item page number;
-   * **"paraNum"** - the numbered item paragraph number;
-   * **"noCtxParaNum"** - the abbreviated paragraph number (the specific item only, e.g. instead of
+   *
+   * - **"pageNum"** - the numbered item page number;
+   * - **"paraNum"** - the numbered item paragraph number;
+   * - **"noCtxParaNum"** - the abbreviated paragraph number (the specific item only, e.g. instead of
    * "4.1.1" you refer to "1" only);
-   * **"fullCtxParaNum"** - the full paragraph number, e.g. "4.1.1";
-   * **"text"** - the paragraph text value, e.g. if you have "4.1.1. Terms and Conditions", you refer to
-   * "Terms and Conditions" only;
-   * **"aboveBelow"** - the words "above" or "below" depending on the item position.
+   * - **"fullCtxParaNum"** - the full paragraph number, e.g. "4.1.1";
+   * - **"text"** - the paragraph text value, e.g. if you have "4.1.1. Terms and Conditions", you refer
+   * to "Terms and Conditions" only;
+   * - **"aboveBelow"** - the words "above" or "below" depending on the item position.
    */
   export type numberedRefTo = "pageNum" | "paraNum" | "noCtxParaNum" | "fullCtxParaNum" | "text" | "aboveBelow";
 
@@ -968,23 +990,28 @@ declare namespace Word {
     CentimetersToPoints(cm: number): number;
 
     /**
-     * Creates an ApiColor from a universal input. The method recognizes several call signatures and either
-     * delegates to a narrower factory or constructs an ApiColor directly.
-     * **Numeric components**: "Api.Color(r, g, b)" or "Api.Color(r, g, b, a)" creates an RGB or RGBA color
-     * from byte components (0-255).
-     * **Packed integer**: "Api.Color(0xRRGGBB)" creates an RGB color from a 24-bit integer.
-     * **Full HEX string**: "Api.Color('#RRGGBB')" or "Api.Color('RRGGBB')" creates a HEX color; the
+     * Creates an ApiColor from a universal input.
+     *
+     * The method recognizes several call signatures and either delegates to a narrower factory or
+     * constructs an ApiColor directly.
+     *
+     * - **Numeric components**: "Api.Color(r, g, b)" or "Api.Color(r, g, b, a)" creates an RGB or RGBA
+     * color from byte components (0-255).
+     * - **Packed integer**: "Api.Color(0xRRGGBB)" creates an RGB color from a 24-bit integer.
+     * - **Full HEX string**: "Api.Color('#RRGGBB')" or "Api.Color('RRGGBB')" creates a HEX color; the
      * leading "#" is optional.
-     * **Short HEX string**: "Api.Color('#RGB')" expands each digit by duplication, so "#F0A" becomes
+     * - **Short HEX string**: "Api.Color('#RGB')" expands each digit by duplication, so "#F0A" becomes
      * "#FF00AA".
-     * **Theme color name**: "Api.Color('accent1')" creates a theme color; any value of SchemeColorId is
+     * - **Theme color name**: "Api.Color('accent1')" creates a theme color; any value of SchemeColorId is
      * accepted.
-     * **Preset color name**: "Api.Color('aliceBlue')" resolves any value of PresetColor to its RGB
+     * - **Preset color name**: "Api.Color('aliceBlue')" resolves any value of PresetColor to its RGB
      * equivalent.
-     * **Auto color**: "Api.Color('auto')" creates an auto color.
+     * - **Auto color**: "Api.Color('auto')" creates an auto color.
+     *
      * For a single string argument, the resolution priority is: "auto", a string starting with "#", a
      * theme name, a preset name, a bare 6-digit HEX. Theme and preset palettes do not overlap. A 3-digit
      * shorthand is accepted only with the leading "#".
+     *
      * Unsupported inputs (objects, arrays, an existing ApiColor, unknown strings, no arguments) return a
      * black color (#000000).
      *
@@ -1036,8 +1063,9 @@ declare namespace Word {
     Color(r: number | string | number | SchemeColorId | PresetColor, g?: number, b?: number, a?: number): ApiColor;
 
     /**
-     * Compares the current document with another document opened via builderJS.OpenTmpFile. Tracked
-     * changes between the two documents are produced in the current document.
+     * Compares the current document with another document opened via builderJS.OpenTmpFile.
+     *
+     * Tracked changes between the two documents are produced in the current document.
      *
      * @param file - The second document, returned by builderJS.OpenTmpFile.
      * @param comparisonPr - The document comparison properties.
@@ -1147,6 +1175,7 @@ declare namespace Word {
 
     /**
      * Creates a chart with the parameters specified.
+     *
      * **Note:**
      * Values of _styleIndex_ outside **1 - 48** are interpreted as a chart style id from the
      * _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs
@@ -1164,7 +1193,7 @@ declare namespace Word {
      * @param styleIndex - The chart color style index (can be 1 - 48, as described in OOXML specification).
      * @param numFormats - Numeric formats which will be applied to the series (can be custom formats). The default numeric
      *   format is "General".
-     * @default chartType = "bar"
+     * @default chartType = "ColumnClustered"
      * @returns returns null if the chart type is not supported.
      *
      * @example
@@ -1919,6 +1948,7 @@ declare namespace Word {
 
     /**
      * Creates an element range.
+     *
      * If you do not specify the start and end positions, the range will be taken from the entire element.
      *
      * @param element - The element from which the range will be taken.
@@ -2717,8 +2747,9 @@ declare namespace Word {
     MailMerge(startIndex?: number, endIndex?: number): boolean;
 
     /**
-     * Merges the current document with another document opened via builderJS.OpenTmpFile. Its contents are
-     * merged into the current document.
+     * Merges the current document with another document opened via builderJS.OpenTmpFile.
+     *
+     * Its contents are merged into the current document.
      *
      * @param file - The second document, returned by builderJS.OpenTmpFile.
      * @param comparisonPr - The document merge properties.
@@ -2728,6 +2759,7 @@ declare namespace Word {
 
     /**
      * Converts millimeters to English Metric Units (EMUs).
+     *
      * The result is an integer value.
      *
      * @param mm - The value in millimeters.
@@ -3308,10 +3340,11 @@ declare namespace Word {
   export interface ApiBlockLvlSdt {
     /**
      * Adds a caption paragraph after (or before) the current content control.
-     * <note>Please note that the current content control must be in the document (not in the
-     * footer/header).
+     *
+     * **Note:**
+     * The current content control must be in the document (not in the footer/header).
      * And if the current content control is placed in a shape, then a caption is added after (or before)
-     * the parent shape.</note>
+     * the parent shape.
      *
      * @param additionalText - The additional text.
      * @param label - The caption label.
@@ -3319,8 +3352,8 @@ declare namespace Word {
      * @param numFormat - The possible caption numbering format.
      * @param isBefore - Specifies whether to insert the caption before the current content control (true) or after
      *   (false) (after/before the shape if it is placed in the shape).
-     * @param headingLvl - The heading level (used if you want to specify the chapter number). <note>If you want to specify
-     *   "Heading 1", then nHeadingLvl === 0 and etc.</note>
+     * @param headingLvl - The heading level (used if you want to specify the chapter number). The value is zero-based: 0
+     *   is "Heading 1", 1 is "Heading 2", and so on.
      * @param captionSep - The caption separator (used if you want to specify the chapter number).
      * @default label = "Table"
      * @default excludeLabel = false
@@ -3353,7 +3386,9 @@ declare namespace Word {
 
     /**
      * Adds a comment to the current block content control.
-     * <note>Please note that the current block content control must be in the document.</note>
+     *
+     * **Note:**
+     * The current block content control must be in the document.
      *
      * @param text - The comment text.
      * @param author - The author's name.
@@ -3425,7 +3460,9 @@ declare namespace Word {
     AddText(text: string): boolean;
 
     /**
-     * Creates a copy of a block content control. Ignores comments, footnote references, complex fields.
+     * Creates a copy of a block content control.
+     *
+     * Ignores comments, footnote references, complex fields.
      *
      * @since 8.3.0
      *
@@ -3448,7 +3485,9 @@ declare namespace Word {
     Copy(): ApiBlockLvlSdt;
 
     /**
-     * Removes a content control and its content. If keepContent is true, the content is not deleted.
+     * Removes a content control and its content.
+     *
+     * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
      * @returns returns false if content control haven't parent.
@@ -3578,8 +3617,10 @@ declare namespace Word {
 
     /**
      * Returns a collection of tables on a given absolute page.
-     * <note>This method can be a little bit slow, because it runs the document calculation
-     * process to arrange tables on the specified page.</note>
+     *
+     * **Note:**
+     * This method can be a little bit slow, because it runs the document calculation
+     * process to arrange tables on the specified page.
      *
      * @param page - Page number. If it is not specified, an empty array will be returned.
      *
@@ -4075,6 +4116,7 @@ declare namespace Word {
 
     /**
      * Checks whether the content control is a picture control.
+     *
      * This method verifies if the content control is specifically a picture control.
      *
      * @returns Returns `true` if the content control is a picture, otherwise `false`.
@@ -4204,8 +4246,9 @@ declare namespace Word {
     ReplaceByElement(oElement: DocumentElement): boolean;
 
     /**
-     * Searches for a scope of a content control object. The search results are a collection of ApiRange
-     * objects.
+     * Searches for a scope of a content control object.
+     *
+     * The search results are a collection of ApiRange objects.
      *
      * @param text - Search string, or a regular expression to match. When a RegExp is passed, the isMatchCase
      *   parameter is ignored (control case sensitivity with the "i" flag instead).
@@ -4436,10 +4479,11 @@ declare namespace Word {
 
     /**
      * Sets the lock to the current block text content control:
-     * **"unlocked"** - content can be edited and the container can be deleted.
-     * **"contentLocked"** - content cannot be edited.
-     * **"sdtContentLocked"** - content cannot be edited and the container cannot be deleted.
-     * **"sdtLocked"** - the container cannot be deleted.
+     *
+     * - **"unlocked"** - content can be edited and the container can be deleted.
+     * - **"contentLocked"** - content cannot be edited.
+     * - **"sdtContentLocked"** - content cannot be edited and the container cannot be deleted.
+     * - **"sdtLocked"** - the container cannot be deleted.
      *
      * @param lockType - The type of the lock applied to the block text content control.
      *
@@ -4465,6 +4509,7 @@ declare namespace Word {
 
     /**
      * Sets the content (image) for the picture content control.
+     *
      * This method updates the picture inside a content control by setting an image from a provided URL.
      * The URL should be an internet link to the image.
      *
@@ -6154,6 +6199,7 @@ declare namespace Word {
 
     /**
      * Sets the properties from another drawing to the current drawing.
+     *
      * The following properties will be copied: horizontal and vertical alignment, distance between the
      * edges of the current drawing object and any subsequent text, wrapping style, drawing name, title and
      * description.
@@ -6966,6 +7012,7 @@ declare namespace Word {
 
     /**
      * Sets the name of the current drawing.
+     *
      * If another drawing with the same name already exists, that drawing's name will be reset to a default
      * auto-generated name.
      * OLE objects do not support a custom name, so for them this method always returns false.
@@ -7301,6 +7348,9 @@ declare namespace Word {
 
     /**
      * Sets the fill to the specified chart series.
+     * **Note:**
+     * The fill is not applied to 2D line and scatter series. Use the SetSeriesOutLine method to change
+     * their line and the SetMarkerFill method to change their markers.
      *
      * @param oFill - The fill type used to fill the series.
      * @param nSeries - The index of the chart series.
@@ -7913,19 +7963,23 @@ declare namespace Word {
     SetVertFlip(bFlip: boolean): boolean;
 
     /**
-     * Sets the wrapping type of the current object (image, shape, chart). One of the following wrapping
-     * style types can be set:
-     * **"inline"** - the object is considered to be a part of the text, like a character, so when the text
-     * moves, the object moves as well. In this case the positioning options are inaccessible.
+     * Sets the wrapping type of the current object (image, shape, chart).
+     *
+     * One of the following wrapping style types can be set:
+     *
+     * - **"inline"** - the object is considered to be a part of the text, like a character, so when the
+     * text moves, the object moves as well. In this case the positioning options are inaccessible.
+     *
      * If one of the following styles is selected, the object can be moved independently of the text and
      * positioned on the page exactly:
-     * **"square"** - the text wraps the rectangular box that bounds the object.
-     * **"tight"** - the text wraps the actual object edges.
-     * **"through"** - the text wraps around the object edges and fills in the open white space within the
-     * object.
-     * **"topAndBottom"** - the text is only above and below the object.
-     * **"behind"** - the text overlaps the object.
-     * **"inFront"** - the object overlaps the text.
+     *
+     * - **"square"** - the text wraps the rectangular box that bounds the object.
+     * - **"tight"** - the text wraps the actual object edges.
+     * - **"through"** - the text wraps around the object edges and fills in the open white space within
+     * the object.
+     * - **"topAndBottom"** - the text is only above and below the object.
+     * - **"behind"** - the text overlaps the object.
+     * - **"inFront"** - the object overlaps the text.
      *
      * @param sType - The wrapping style type available for the object.
      *
@@ -7955,7 +8009,9 @@ declare namespace Word {
     SetWrappingStyle(sType: "inline" | "square" | "tight" | "through" | "topAndBottom" | "behind" | "inFront"): boolean;
 
     /**
-     * Sets the x-axis values to all chart series. It is used with the scatter charts only.
+     * Sets the x-axis values to all chart series.
+     *
+     * It is used with the scatter charts only.
      *
      * @param aValues - The array of the data which will be set to the x-axis data points.
      *
@@ -8067,7 +8123,11 @@ declare namespace Word {
    */
   export interface ApiChartSeries {
     /**
-     * Tries to change the series type. Returns true if successful.
+     * Tries to change the series type.
+     *
+     * Returns true if successful.
+     *
+     * Throws: Error if the chart type is not supported.
      *
      * @param sType - Chart type.
      *
@@ -8243,7 +8303,9 @@ declare namespace Word {
     Copy(): ApiForm;
 
     /**
-     * Removes a form and its content. If keepContent is true, the content is not deleted.
+     * Removes a form and its content.
+     *
+     * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
      * @returns returns false if form wasn't added to the document.
@@ -8458,6 +8520,7 @@ declare namespace Word {
 
     /**
      * Returns the choice name of the currently selected radio button in the group.
+     *
      * Returns an empty string if the current form is not a radio button or nothing is selected.
      *
      * @since 9.4.0
@@ -8755,6 +8818,7 @@ declare namespace Word {
 
     /**
      * Returns the text properties from the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @example
@@ -8833,6 +8897,7 @@ declare namespace Word {
     /**
      * Returns a shape in which the form is placed to control the position and size of the fixed size form
      * frame.
+     *
      * The null value will be returned for the inline forms.
      *
      * @returns returns the shape in which the form is placed.
@@ -9276,6 +9341,7 @@ declare namespace Word {
 
     /**
      * Sets the placeholder text to the current form.
+     *
      * *Can't be set to checkbox or radio button.*
      *
      * @param sText - The text that will be set to the current form.
@@ -9439,6 +9505,7 @@ declare namespace Word {
 
     /**
      * Sets the text properties to the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @param textPr - The text properties that will be set to the current form.
@@ -9544,6 +9611,7 @@ declare namespace Word {
 
     /**
      * Converts the current form to an inline form.
+     *
      * *Picture form can't be converted to an inline form, it's always a fixed size object.*
      *
      * @example
@@ -9941,7 +10009,9 @@ declare namespace Word {
     Copy(): ApiForm;
 
     /**
-     * Removes a form and its content. If keepContent is true, the content is not deleted.
+     * Removes a form and its content.
+     *
+     * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
      * @returns returns false if form wasn't added to the document.
@@ -10312,6 +10382,7 @@ declare namespace Word {
 
     /**
      * Returns the text properties from the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @example
@@ -10390,6 +10461,7 @@ declare namespace Word {
     /**
      * Returns a shape in which the form is placed to control the position and size of the fixed size form
      * frame.
+     *
      * The null value will be returned for the inline forms.
      *
      * @returns returns the shape in which the form is placed.
@@ -10415,8 +10487,9 @@ declare namespace Word {
     GetWrapperShape(): ApiShape;
 
     /**
-     * Checks if the combo box text can be edited. If it is not editable, then this form is a drop-down
-     * list.
+     * Checks if the combo box text can be edited.
+     *
+     * If it is not editable, then this form is a drop-down list.
      *
      * @example
      * ```js
@@ -10688,6 +10761,7 @@ declare namespace Word {
 
     /**
      * Sets the placeholder text to the current form.
+     *
      * *Can't be set to checkbox or radio button.*
      *
      * @param sText - The text that will be set to the current form.
@@ -10819,6 +10893,7 @@ declare namespace Word {
 
     /**
      * Sets the text to the current combo box.
+     *
      * *Available only for editable combo box forms.*
      *
      * @param sText - The combo box text.
@@ -10842,6 +10917,7 @@ declare namespace Word {
 
     /**
      * Sets the text properties to the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @param textPr - The text properties that will be set to the current form.
@@ -10893,7 +10969,9 @@ declare namespace Word {
     SetTipText(sText: string): boolean;
 
     /**
-     * Sets the value of the combo box form. Selects a list item if the value matches one,
+     * Sets the value of the combo box form.
+     *
+     * Selects a list item if the value matches one,
      * otherwise sets it as free text (only for editable combo boxes).
      *
      * @param value - The value to set.
@@ -10948,6 +11026,7 @@ declare namespace Word {
 
     /**
      * Converts the current form to an inline form.
+     *
      * *Picture form can't be converted to an inline form, it's always a fixed size object.*
      *
      * @example
@@ -11087,7 +11166,9 @@ declare namespace Word {
     GetClassType(): "comment";
 
     /**
-     * Returns the current comment ID. If the comment doesn't have an ID, null is returned.
+     * Returns the current comment ID.
+     *
+     * If the comment doesn't have an ID, null is returned.
      *
      * @example
      * ```js
@@ -11808,7 +11889,9 @@ declare namespace Word {
     Copy(): ApiForm;
 
     /**
-     * Removes a form and its content. If keepContent is true, the content is not deleted.
+     * Removes a form and its content.
+     *
+     * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
      * @returns returns false if form wasn't added to the document.
@@ -12179,6 +12262,7 @@ declare namespace Word {
 
     /**
      * Returns the text properties from the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @example
@@ -12259,6 +12343,7 @@ declare namespace Word {
     /**
      * Returns a shape in which the form is placed to control the position and size of the fixed size form
      * frame.
+     *
      * The null value will be returned for the inline forms.
      *
      * @returns returns the shape in which the form is placed.
@@ -12489,6 +12574,7 @@ declare namespace Word {
 
     /**
      * Sets the placeholder text to the current form.
+     *
      * *Can't be set to checkbox or radio button.*
      *
      * @param sText - The text that will be set to the current form.
@@ -12620,6 +12706,7 @@ declare namespace Word {
 
     /**
      * Sets the text properties to the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @param textPr - The text properties that will be set to the current form.
@@ -12724,6 +12811,7 @@ declare namespace Word {
 
     /**
      * Converts the current form to an inline form.
+     *
      * *Picture form can't be converted to an inline form, it's always a fixed size object.*
      *
      * @example
@@ -14187,6 +14275,7 @@ declare namespace Word {
 
     /**
      * Deletes an attribute from the custom XML node.
+     *
      * If the attribute exists, it will be removed.
      *
      * @param name - The name of the attribute to delete.
@@ -14226,6 +14315,7 @@ declare namespace Word {
 
     /**
      * Retrieves the attribute value from the custom XML node.
+     *
      * If the attribute doesn't exist, it returns `false`.
      *
      * @param name - The name of the attribute to retrieve.
@@ -14481,6 +14571,7 @@ declare namespace Word {
 
     /**
      * Returns the inner text of the current node and its child nodes.
+     *
      * For example: `<text>123<one>4</one></text>` returns `"1234"`.
      *
      * @returns The combined text content of the node and its descendants.
@@ -14578,6 +14669,7 @@ declare namespace Word {
 
     /**
      * Sets an attribute for the custom XML node.
+     *
      * If the attribute already exists, it will not be modified.
      *
      * @param name - The name of the attribute to set.
@@ -14735,6 +14827,7 @@ declare namespace Word {
 
     /**
      * Updates the value of an existing attribute in the custom XML node.
+     *
      * If the attribute doesn't exist, the update will not occur.
      *
      * @param name - The name of the attribute to update.
@@ -15344,7 +15437,9 @@ declare namespace Word {
     Copy(): ApiForm;
 
     /**
-     * Removes a form and its content. If keepContent is true, the content is not deleted.
+     * Removes a form and its content.
+     *
+     * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
      * @returns returns false if form wasn't added to the document.
@@ -15765,6 +15860,7 @@ declare namespace Word {
 
     /**
      * Returns the text properties from the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @example
@@ -15869,6 +15965,7 @@ declare namespace Word {
     /**
      * Returns a shape in which the form is placed to control the position and size of the fixed size form
      * frame.
+     *
      * The null value will be returned for the inline forms.
      *
      * @returns returns the shape in which the form is placed.
@@ -16181,6 +16278,7 @@ declare namespace Word {
 
     /**
      * Sets the placeholder text to the current form.
+     *
      * *Can't be set to checkbox or radio button.*
      *
      * @param sText - The text that will be set to the current form.
@@ -16312,6 +16410,7 @@ declare namespace Word {
 
     /**
      * Sets the text properties to the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @param textPr - The text properties that will be set to the current form.
@@ -16443,6 +16542,7 @@ declare namespace Word {
 
     /**
      * Converts the current form to an inline form.
+     *
      * *Picture form can't be converted to an inline form, it's always a fixed size object.*
      *
      * @example
@@ -16602,8 +16702,10 @@ declare namespace Word {
 
     /**
      * Adds a drawing to the specified page.
-     * <note>This method can be a little bit slow, because it runs the document calculation
-     * process to arrange tables on the specified page.</note>
+     *
+     * **Note:**
+     * This method can be a little bit slow, because it runs the document calculation
+     * process to arrange tables on the specified page.
      *
      * @param oDrawing - A drawing to add to the page.
      * @param nPage - The page index.
@@ -16844,8 +16946,9 @@ declare namespace Word {
     /**
      * Adds a table of figures to the current document.
      *
-     * @param oTofPr - Table of figures properties. <note>Please note that the table of figures properties will be
-     *   filled with the default properties if they are undefined.</note>
+     * @param oTofPr - Table of figures properties. **Note:**
+     *   Please note that the table of figures properties will be filled with the default properties if
+     *   they are undefined.
      * @param oRange - The range that the table of figures replaces. If omitted, the table of figures is inserted at
      *   the current position.
      * @default oTofPr = {}
@@ -16996,8 +17099,9 @@ declare namespace Word {
     CreateParagraph(): ApiParagraph;
 
     /**
-     * Creates a new document section which ends at the specified paragraph. Allows to set local parameters
-     * to the current
+     * Creates a new document section which ends at the specified paragraph.
+     *
+     * Allows to set local parameters to the current
      * section - page size, footer, header, columns, etc.
      *
      * @param oParagraph - The paragraph after which a new document section will be inserted. Paragraph must be in a
@@ -17033,8 +17137,9 @@ declare namespace Word {
     CreateSection(oParagraph: ApiParagraph): ApiSection | null;
 
     /**
-     * Creates a new style with the specified type and name. If a style with the specified name already
-     * exists, it will be returned without creating a new one.
+     * Creates a new style with the specified type and name.
+     *
+     * If a style with the specified name already exists, it will be returned without creating a new one.
      *
      * @param styleName - The name of the style which will be created.
      * @param type - The document element which the style will be applied to.
@@ -17595,8 +17700,10 @@ declare namespace Word {
 
     /**
      * Returns a collection of tables on a given absolute page.
-     * <note>This method can be a little bit slow, because it runs the document calculation
-     * process to arrange tables on the specified page.</note>
+     *
+     * **Note:**
+     * This method can be a little bit slow, because it runs the document calculation
+     * process to arrange tables on the specified page.
      *
      * @param nPage - The page index.
      *
@@ -17911,6 +18018,7 @@ declare namespace Word {
 
     /**
      * Retrieves the core properties interface for the current document.
+     *
      * This method is used to view or modify standard metadata such as title, author, and keywords.
      *
      * @returns The core document properties object.
@@ -18250,6 +18358,7 @@ declare namespace Word {
 
     /**
      * Retrieves the custom XML manager associated with the document.
+     *
      * This manager allows manipulation and access to custom XML parts within the document.
      *
      * @returns Returns an instance of ApiCustomXmlParts if the custom XML manager exists, otherwise returns
@@ -18353,18 +18462,20 @@ declare namespace Word {
 
     /**
      * Returns the document information:
-     * **Application** - the application the document was created with.
-     * **CreatedRaw** - the date and time when the file was created.
-     * **Created** - the parsed date and time when the file was created.
-     * **LastModifiedRaw** - the date and time when the file was last modified.
-     * **LastModified** - the parsed date and time when the file was last modified.
-     * **LastModifiedBy** - the name of the user who made the latest change to the document.
-     * **Authors** - the persons who created the file.
-     * **Title** - the document title (this property allows you to simplify your documents classification).
-     * **Tags** - the document tags (this property allows you to simplify your documents classification).
-     * **Subject** - the document subject (this property allows you to simplify your documents
+     *
+     * - **Application** - the application the document was created with.
+     * - **CreatedRaw** - the date and time when the file was created.
+     * - **Created** - the parsed date and time when the file was created.
+     * - **LastModifiedRaw** - the date and time when the file was last modified.
+     * - **LastModified** - the parsed date and time when the file was last modified.
+     * - **LastModifiedBy** - the name of the user who made the latest change to the document.
+     * - **Authors** - the persons who created the file.
+     * - **Title** - the document title (this property allows you to simplify your documents
      * classification).
-     * **Comment** - the comment to the document (this property allows you to simplify your documents
+     * - **Tags** - the document tags (this property allows you to simplify your documents classification).
+     * - **Subject** - the document subject (this property allows you to simplify your documents
+     * classification).
+     * - **Comment** - the comment to the document (this property allows you to simplify your documents
      * classification).
      *
      * @since 8.1.0
@@ -18656,8 +18767,9 @@ declare namespace Word {
     GetFormKeysByRole(role: string): string[];
 
     /**
-     * Returns the form value for the specified key. For a group of radio buttons returns Choice, i.e. the
-     * name of the selected item.
+     * Returns the form value for the specified key.
+     *
+     * For a group of radio buttons returns Choice, i.e. the name of the selected item.
      *
      * @param key - The form key.
      * @returns Returns true/false for checkboxes and string for other form types. Returns null if there is no
@@ -18799,6 +18911,7 @@ declare namespace Word {
 
     /**
      * Returns the data from all forms present in the current document.
+     *
      * If a form was created and not assigned to any part of the document, it won't appear in this list.
      *
      * @since 8.0.0
@@ -18887,8 +19000,10 @@ declare namespace Word {
 
     /**
      * Returns a number of pages in the current document.
-     * <note>This method can be slow for large documents because it runs the document calculation
-     * process before the full recalculation.</note>
+     *
+     * **Note:**
+     * This method can be slow for large documents because it runs the document calculation
+     * process before the full recalculation.
      *
      * @example
      * ```js
@@ -19105,11 +19220,12 @@ declare namespace Word {
 
     /**
      * Returns the document statistics represented as an object with the following parameters:
-     * **PageCount** - number of pages;
-     * **WordsCount** - number of words;
-     * **ParagraphCount** - number of paragraphs;
-     * **SymbolsCount** - number of symbols;
-     * **SymbolsWSCount** - number of symbols with spaces.
+     *
+     * - **PageCount** - number of pages;
+     * - **WordsCount** - number of words;
+     * - **ParagraphCount** - number of paragraphs;
+     * - **SymbolsCount** - number of symbols;
+     * - **SymbolsWSCount** - number of symbols with spaces.
      *
      * @example
      * ```js
@@ -19770,8 +19886,9 @@ declare namespace Word {
     MoveCursorToMainDocument(): boolean;
 
     /**
-     * Moves the cursor to the reference of this footnote/endnote in the main document. If this document
-     * content is not a footnote/endnote, does nothing.
+     * Moves the cursor to the reference of this footnote/endnote in the main document.
+     *
+     * If this document content is not a footnote/endnote, does nothing.
      *
      * @param isBefore - Specifies whether to place the cursor before (_true_) or after (_false_) the note reference.
      * @returns Returns _true_ if the cursor was moved to the reference successfully.
@@ -19783,6 +19900,7 @@ declare namespace Word {
 
     /**
      * Moves a cursor to a specified position of the current document.
+     *
      * If there is any selection in the document, it will be removed.
      *
      * @param nPos - The desired cursor position.
@@ -19958,9 +20076,10 @@ declare namespace Word {
 
     /**
      * Removes all the elements from the current document or from the current document element.
-     * <note>When all elements are removed, a new empty paragraph is automatically created. If you want to
-     * add
-     * content to this paragraph, use the {@link ApiDocumentContent#GetElement} method.</note>
+     *
+     * **Note:**
+     * When all elements are removed, a new empty paragraph is automatically created. If you want to add
+     * content to this paragraph, use the {@link ApiDocumentContent#GetElement} method.
      *
      * @example
      * ```js
@@ -20213,7 +20332,9 @@ declare namespace Word {
     ReplaceDrawing(oOldDrawing: ApiDrawing, oNewDrawing: ApiDrawing, bSaveOldDrawingPr?: boolean): boolean;
 
     /**
-     * Searches for a scope of a document object. The search results are a collection of ApiRange objects.
+     * Searches for a scope of a document object.
+     *
+     * The search results are a collection of ApiRange objects.
      *
      * @param sText - Search string, or a regular expression to match. When a RegExp is passed, the isMatchCase
      *   parameter is ignored (control case sensitivity with the "i" flag instead).
@@ -20301,8 +20422,9 @@ declare namespace Word {
     SelectCurrentWord(): object;
 
     /**
-     * Select the reference to this footnote/endnote. If this document content is not a footnote/endnote,
-     * do nothing.
+     * Selects the reference to this footnote/endnote.
+     *
+     * If this document content is not a footnote/endnote, do nothing.
      *
      * @returns Returns true if the reference was selected successfully.
      * @since 9.3.0
@@ -21646,8 +21768,9 @@ declare namespace Word {
     IsFootnote(): boolean;
 
     /**
-     * Moves the cursor to the reference of this footnote/endnote in the main document. If this document
-     * content is not a footnote/endnote, does nothing.
+     * Moves the cursor to the reference of this footnote/endnote in the main document.
+     *
+     * If this document content is not a footnote/endnote, does nothing.
      *
      * @param isBefore - Specifies whether to place the cursor before (_true_) or after (_false_) the note reference.
      * @returns Returns _true_ if the cursor was moved to the reference successfully.
@@ -21689,9 +21812,10 @@ declare namespace Word {
 
     /**
      * Removes all the elements from the current document or from the current document element.
-     * <note>When all elements are removed, a new empty paragraph is automatically created. If you want to
-     * add
-     * content to this paragraph, use the {@link ApiDocumentContent#GetElement} method.</note>
+     *
+     * **Note:**
+     * When all elements are removed, a new empty paragraph is automatically created. If you want to add
+     * content to this paragraph, use the {@link ApiDocumentContent#GetElement} method.
      *
      * @example
      * ```js
@@ -21754,8 +21878,9 @@ declare namespace Word {
     RemoveElement(nPos: number): boolean;
 
     /**
-     * Select the reference to this footnote/endnote. If this document content is not a footnote/endnote,
-     * do nothing.
+     * Selects the reference to this footnote/endnote.
+     *
+     * If this document content is not a footnote/endnote, do nothing.
      *
      * @returns Returns true if the reference was selected successfully.
      * @since 9.3.0
@@ -22709,6 +22834,7 @@ declare namespace Word {
 
     /**
      * Sets the properties from another drawing to the current drawing.
+     *
      * The following properties will be copied: horizontal and vertical alignment, distance between the
      * edges of the current drawing object and any subsequent text, wrapping style, drawing name, title and
      * description.
@@ -22990,6 +23116,7 @@ declare namespace Word {
 
     /**
      * Sets the name of the current drawing.
+     *
      * If another drawing with the same name already exists, that drawing's name will be reset to a default
      * auto-generated name.
      * OLE objects do not support a custom name, so for them this method always returns false.
@@ -23326,19 +23453,23 @@ declare namespace Word {
     SetVertFlip(bFlip: boolean): boolean;
 
     /**
-     * Sets the wrapping type of the current object (image, shape, chart). One of the following wrapping
-     * style types can be set:
-     * **"inline"** - the object is considered to be a part of the text, like a character, so when the text
-     * moves, the object moves as well. In this case the positioning options are inaccessible.
+     * Sets the wrapping type of the current object (image, shape, chart).
+     *
+     * One of the following wrapping style types can be set:
+     *
+     * - **"inline"** - the object is considered to be a part of the text, like a character, so when the
+     * text moves, the object moves as well. In this case the positioning options are inaccessible.
+     *
      * If one of the following styles is selected, the object can be moved independently of the text and
      * positioned on the page exactly:
-     * **"square"** - the text wraps the rectangular box that bounds the object.
-     * **"tight"** - the text wraps the actual object edges.
-     * **"through"** - the text wraps around the object edges and fills in the open white space within the
-     * object.
-     * **"topAndBottom"** - the text is only above and below the object.
-     * **"behind"** - the text overlaps the object.
-     * **"inFront"** - the object overlaps the text.
+     *
+     * - **"square"** - the text wraps the rectangular box that bounds the object.
+     * - **"tight"** - the text wraps the actual object edges.
+     * - **"through"** - the text wraps around the object edges and fills in the open white space within
+     * the object.
+     * - **"topAndBottom"** - the text is only above and below the object.
+     * - **"behind"** - the text overlaps the object.
+     * - **"inFront"** - the object overlaps the text.
      *
      * @param sType - The wrapping style type available for the object.
      *
@@ -23520,12 +23651,13 @@ declare namespace Word {
     /**
      * Sets the font family of the drop cap letter.
      *
-     * @param fontFamily - The font family name used for the drop cap letter.
+     * @param fontFamily - The font family name used for the drop cap letter. Pass _null_ or omit it to remove the font
+     *   family.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDropCap/Methods/SetFontFamily/
      */
-    SetFontFamily(fontFamily: string): ApiDropCap;
+    SetFontFamily(fontFamily?: string | null): ApiDropCap;
 
     /**
      * Sets the number of lines that the drop cap occupies. The drop cap letter is resized accordingly.
@@ -23736,7 +23868,9 @@ declare namespace Word {
     Copy(): ApiForm;
 
     /**
-     * Removes a form and its content. If keepContent is true, the content is not deleted.
+     * Removes a form and its content.
+     *
+     * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
      * @returns returns false if form wasn't added to the document.
@@ -24076,6 +24210,7 @@ declare namespace Word {
 
     /**
      * Returns the text properties from the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @example
@@ -24153,6 +24288,7 @@ declare namespace Word {
     /**
      * Returns a shape in which the form is placed to control the position and size of the fixed size form
      * frame.
+     *
      * The null value will be returned for the inline forms.
      *
      * @returns returns the shape in which the form is placed.
@@ -24383,6 +24519,7 @@ declare namespace Word {
 
     /**
      * Sets the placeholder text to the current form.
+     *
      * *Can't be set to checkbox or radio button.*
      *
      * @param sText - The text that will be set to the current form.
@@ -24514,6 +24651,7 @@ declare namespace Word {
 
     /**
      * Sets the text properties to the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @param textPr - The text properties that will be set to the current form.
@@ -24618,6 +24756,7 @@ declare namespace Word {
 
     /**
      * Converts the current form to an inline form.
+     *
      * *Picture form can't be converted to an inline form, it's always a fixed size object.*
      *
      * @example
@@ -26028,6 +26167,7 @@ declare namespace Word {
 
     /**
      * Sets the properties from another drawing to the current drawing.
+     *
      * The following properties will be copied: horizontal and vertical alignment, distance between the
      * edges of the current drawing object and any subsequent text, wrapping style, drawing name, title and
      * description.
@@ -26309,6 +26449,7 @@ declare namespace Word {
 
     /**
      * Sets the name of the current drawing.
+     *
      * If another drawing with the same name already exists, that drawing's name will be reset to a default
      * auto-generated name.
      * OLE objects do not support a custom name, so for them this method always returns false.
@@ -26645,19 +26786,23 @@ declare namespace Word {
     SetVertFlip(bFlip: boolean): boolean;
 
     /**
-     * Sets the wrapping type of the current object (image, shape, chart). One of the following wrapping
-     * style types can be set:
-     * **"inline"** - the object is considered to be a part of the text, like a character, so when the text
-     * moves, the object moves as well. In this case the positioning options are inaccessible.
+     * Sets the wrapping type of the current object (image, shape, chart).
+     *
+     * One of the following wrapping style types can be set:
+     *
+     * - **"inline"** - the object is considered to be a part of the text, like a character, so when the
+     * text moves, the object moves as well. In this case the positioning options are inaccessible.
+     *
      * If one of the following styles is selected, the object can be moved independently of the text and
      * positioned on the page exactly:
-     * **"square"** - the text wraps the rectangular box that bounds the object.
-     * **"tight"** - the text wraps the actual object edges.
-     * **"through"** - the text wraps around the object edges and fills in the open white space within the
-     * object.
-     * **"topAndBottom"** - the text is only above and below the object.
-     * **"behind"** - the text overlaps the object.
-     * **"inFront"** - the object overlaps the text.
+     *
+     * - **"square"** - the text wraps the rectangular box that bounds the object.
+     * - **"tight"** - the text wraps the actual object edges.
+     * - **"through"** - the text wraps around the object edges and fills in the open white space within
+     * the object.
+     * - **"topAndBottom"** - the text is only above and below the object.
+     * - **"behind"** - the text overlaps the object.
+     * - **"inFront"** - the object overlaps the text.
      *
      * @param sType - The wrapping style type available for the object.
      *
@@ -28062,6 +28207,7 @@ declare namespace Word {
 
     /**
      * Sets the properties from another drawing to the current drawing.
+     *
      * The following properties will be copied: horizontal and vertical alignment, distance between the
      * edges of the current drawing object and any subsequent text, wrapping style, drawing name, title and
      * description.
@@ -28343,6 +28489,7 @@ declare namespace Word {
 
     /**
      * Sets the name of the current drawing.
+     *
      * If another drawing with the same name already exists, that drawing's name will be reset to a default
      * auto-generated name.
      * OLE objects do not support a custom name, so for them this method always returns false.
@@ -28679,19 +28826,23 @@ declare namespace Word {
     SetVertFlip(bFlip: boolean): boolean;
 
     /**
-     * Sets the wrapping type of the current object (image, shape, chart). One of the following wrapping
-     * style types can be set:
-     * **"inline"** - the object is considered to be a part of the text, like a character, so when the text
-     * moves, the object moves as well. In this case the positioning options are inaccessible.
+     * Sets the wrapping type of the current object (image, shape, chart).
+     *
+     * One of the following wrapping style types can be set:
+     *
+     * - **"inline"** - the object is considered to be a part of the text, like a character, so when the
+     * text moves, the object moves as well. In this case the positioning options are inaccessible.
+     *
      * If one of the following styles is selected, the object can be moved independently of the text and
      * positioned on the page exactly:
-     * **"square"** - the text wraps the rectangular box that bounds the object.
-     * **"tight"** - the text wraps the actual object edges.
-     * **"through"** - the text wraps around the object edges and fills in the open white space within the
-     * object.
-     * **"topAndBottom"** - the text is only above and below the object.
-     * **"behind"** - the text overlaps the object.
-     * **"inFront"** - the object overlaps the text.
+     *
+     * - **"square"** - the text wraps the rectangular box that bounds the object.
+     * - **"tight"** - the text wraps the actual object edges.
+     * - **"through"** - the text wraps around the object edges and fills in the open white space within
+     * the object.
+     * - **"topAndBottom"** - the text is only above and below the object.
+     * - **"behind"** - the text overlaps the object.
+     * - **"inFront"** - the object overlaps the text.
      *
      * @param sType - The wrapping style type available for the object.
      *
@@ -28801,7 +28952,9 @@ declare namespace Word {
   export interface ApiInlineLvlSdt {
     /**
      * Adds a comment to the current inline content control.
-     * <note>Please note that this inline content control must be in the document.</note>
+     *
+     * **Note:**
+     * This inline content control must be in the document.
      *
      * @param sText - The comment text.
      * @param sAuthor - The author's name.
@@ -28907,7 +29060,9 @@ declare namespace Word {
     AddText(text: string): ApiRun;
 
     /**
-     * Creates a copy of an inline content control. Ignores comments, footnote references, complex fields.
+     * Creates a copy of an inline content control.
+     *
+     * Ignores comments, footnote references, complex fields.
      *
      * @example
      * ```js
@@ -28930,7 +29085,9 @@ declare namespace Word {
     Copy(): ApiInlineLvlSdt;
 
     /**
-     * Removes a content control and its content. If keepContent is true, the content is not deleted.
+     * Removes a content control and its content.
+     *
+     * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
      * @returns returns false if control haven't parent paragraph.
@@ -29292,7 +29449,9 @@ declare namespace Word {
     GetElementIndex(element: ParagraphContent): number;
 
     /**
-     * Returns a number of elements in the current inline text content control. The text content
+     * Returns a number of elements in the current inline text content control.
+     *
+     * The text content
      * control is created with one text run present in it by default, so even without any
      * element added this method will return the value of '1'.
      *
@@ -29801,6 +29960,7 @@ declare namespace Word {
 
     /**
      * Checks whether the content control is a picture control.
+     *
      * This method verifies if the content control is specifically a picture control.
      *
      * @returns Returns `true` if the content control is a picture, otherwise `false`.
@@ -30111,6 +30271,7 @@ declare namespace Word {
 
     /**
      * Sets the checkbox value for the content control.
+     *
      * This method updates the checkbox state of the content control to either checked or unchecked.
      *
      * @param isChecked - The state to set for the checkbox. `true` for checked, `false` for unchecked.
@@ -30217,6 +30378,7 @@ declare namespace Word {
 
     /**
      * Sets the date format for the datepicker content control.
+     *
      * This method allows setting the format in which the date should be displayed in the datepicker
      * content control.
      * The format string should be specified using common date format patterns (e.g., "mm.dd.yyyy").
@@ -30304,10 +30466,11 @@ declare namespace Word {
 
     /**
      * Sets the lock to the current inline text content control:
-     * **"unlocked"** - content can be edited and the container can be deleted.
-     * **"contentLocked"** - content cannot be edited.
-     * **"sdtContentLocked"** - content cannot be edited and the container cannot be deleted.
-     * **"sdtLocked"** - the container cannot be deleted.
+     *
+     * - **"unlocked"** - content can be edited and the container can be deleted.
+     * - **"contentLocked"** - content cannot be edited.
+     * - **"sdtContentLocked"** - content cannot be edited and the container cannot be deleted.
+     * - **"sdtLocked"** - the container cannot be deleted.
      *
      * @param lockType - The lock type applied to the inline text content control.
      *
@@ -30337,6 +30500,7 @@ declare namespace Word {
 
     /**
      * Sets the content (image) for the picture content control.
+     *
      * This method updates the picture inside a content control by setting an image from a provided URL.
      * The URL should be an internet link to the image.
      *
@@ -30363,6 +30527,7 @@ declare namespace Word {
 
     /**
      * Sets the size for the picture in a content control.
+     *
      * This method adjusts the width and height of the image if the content control is a picture.
      *
      * @param width - The desired image width .
@@ -30388,6 +30553,7 @@ declare namespace Word {
 
     /**
      * Sets the placeholder text to the current inline content control.
+     *
      * *Can't be set to checkbox or radio button*
      *
      * @param sText - The text that will be set to the current inline content control.
@@ -30823,8 +30989,10 @@ declare namespace Word {
     /**
      * Returns the text properties which will be applied to the text in the current numbering level itself,
      * not to the text in the subsequent paragraph.
-     * <note>To change the text style of the paragraph, a style must be applied to it using the
-     * {@link ApiRun#SetStyle} method.</note>
+     *
+     * **Note:**
+     * To change the text style of the paragraph, a style must be applied to it using the
+     * {@link ApiRun#SetStyle} method.
      *
      * @example
      * ```js
@@ -30937,7 +31105,9 @@ declare namespace Word {
 
     /**
      * Specifies a one-based index which determines when a numbering level should restart to its starting
-     * value. A numbering level restarts when an instance of the specified numbering level which is higher
+     * value.
+     *
+     * A numbering level restarts when an instance of the specified numbering level which is higher
      * (earlier than this level) is used in the given document contents. By default this value is true.
      *
      * @param isRestart - The true value means that a numbering level will be restarted to its starting value.
@@ -30984,7 +31154,9 @@ declare namespace Word {
 
     /**
      * Specifies the starting value for the numbering used by the parent numbering level within a given
-     * numbering level definition. By default this value is 1.
+     * numbering level definition.
+     *
+     * By default this value is 1.
      *
      * @param nStart - The starting value for the numbering used by the parent numbering level.
      *
@@ -31014,7 +31186,9 @@ declare namespace Word {
 
     /**
      * Specifies the content which will be added between the given numbering level text and the text of
-     * every numbered paragraph which references that numbering level. By default this value is "tab".
+     * every numbered paragraph which references that numbering level.
+     *
+     * By default this value is "tab".
      *
      * @param sType - The content added between the numbering level text and the text in the numbered paragraph.
      *
@@ -32047,6 +32221,7 @@ declare namespace Word {
 
     /**
      * Sets the properties from another drawing to the current drawing.
+     *
      * The following properties will be copied: horizontal and vertical alignment, distance between the
      * edges of the current drawing object and any subsequent text, wrapping style, drawing name, title and
      * description.
@@ -32328,6 +32503,7 @@ declare namespace Word {
 
     /**
      * Sets the name of the current drawing.
+     *
      * If another drawing with the same name already exists, that drawing's name will be reset to a default
      * auto-generated name.
      * OLE objects do not support a custom name, so for them this method always returns false.
@@ -32664,19 +32840,23 @@ declare namespace Word {
     SetVertFlip(bFlip: boolean): boolean;
 
     /**
-     * Sets the wrapping type of the current object (image, shape, chart). One of the following wrapping
-     * style types can be set:
-     * **"inline"** - the object is considered to be a part of the text, like a character, so when the text
-     * moves, the object moves as well. In this case the positioning options are inaccessible.
+     * Sets the wrapping type of the current object (image, shape, chart).
+     *
+     * One of the following wrapping style types can be set:
+     *
+     * - **"inline"** - the object is considered to be a part of the text, like a character, so when the
+     * text moves, the object moves as well. In this case the positioning options are inaccessible.
+     *
      * If one of the following styles is selected, the object can be moved independently of the text and
      * positioned on the page exactly:
-     * **"square"** - the text wraps the rectangular box that bounds the object.
-     * **"tight"** - the text wraps the actual object edges.
-     * **"through"** - the text wraps around the object edges and fills in the open white space within the
-     * object.
-     * **"topAndBottom"** - the text is only above and below the object.
-     * **"behind"** - the text overlaps the object.
-     * **"inFront"** - the object overlaps the text.
+     *
+     * - **"square"** - the text wraps the rectangular box that bounds the object.
+     * - **"tight"** - the text wraps the actual object edges.
+     * - **"through"** - the text wraps around the object edges and fills in the open white space within
+     * the object.
+     * - **"topAndBottom"** - the text is only above and below the object.
+     * - **"behind"** - the text overlaps the object.
+     * - **"inFront"** - the object overlaps the text.
      *
      * @param sType - The wrapping style type available for the object.
      *
@@ -33514,9 +33694,10 @@ declare namespace Word {
     /**
      * Specifies the border which will be displayed below a set of paragraphs which have the same paragraph
      * border settings.
-     * <note>The paragraphs of the same style going one by one are considered as a single block, so the
-     * border is added
-     * to the whole block rather than to every paragraph in this block.</note>
+     * **Note:**
+     * The paragraphs of the same style going one by one are considered as a single block, so the border is
+     * added
+     * to the whole block rather than to every paragraph in this block.
      *
      * @param type - The border style.
      * @param size - The width of the current bottom border measured in eighths of a point.
@@ -34020,8 +34201,9 @@ declare namespace Word {
     SetShd(shd: ApiShd): boolean;
 
     /**
-     * Sets the spacing after the current paragraph. If the value of the isAfterAuto parameter is true,
-     * then
+     * Sets the spacing after the current paragraph.
+     *
+     * If the value of the isAfterAuto parameter is true, then
      * any value of the nAfter is ignored. If isAfterAuto parameter is not specified, then it
      * will be interpreted as false.
      *
@@ -34055,8 +34237,9 @@ declare namespace Word {
     SetSpacingAfter(nAfter: twips, isAfterAuto?: boolean): boolean;
 
     /**
-     * Sets the spacing before the current paragraph. If the value of the isBeforeAuto parameter is true,
-     * then
+     * Sets the spacing before the current paragraph.
+     *
+     * If the value of the isBeforeAuto parameter is true, then
      * any value of the nBefore is ignored. If isBeforeAuto parameter is not specified, then
      * it will be interpreted as false.
      *
@@ -34090,7 +34273,9 @@ declare namespace Word {
     SetSpacingBefore(nBefore: twips, isBeforeAuto?: boolean): boolean;
 
     /**
-     * Sets the paragraph line spacing. If the value of the sLineRule parameter is either
+     * Sets the paragraph line spacing.
+     *
+     * If the value of the sLineRule parameter is either
      * "atLeast" or "exact", then the value of nLine will be interpreted as twentieths of a point. If
      * the value of the sLineRule parameter is "auto", then the value of the
      * nLine parameter will be interpreted as 240ths of a line.
@@ -34149,9 +34334,10 @@ declare namespace Word {
 
     /**
      * The paragraph style base method.
-     * <note>This method is not used by itself, as it only forms the basis for the
-     * {@link ApiParagraph#SetStyle} method which sets the selected or created style for the
-     * paragraph.</note>
+     *
+     * **Note:**
+     * This method is not used by itself, as it only forms the basis for the {@link ApiParagraph#SetStyle}
+     * method which sets the selected or created style for the paragraph.
      *
      * @param style - The style of the paragraph to be set, or the name of an existing style, or _undefined_/_null_ to
      *   remove the style.
@@ -34179,7 +34365,9 @@ declare namespace Word {
     /**
      * Specifies a sequence of custom tab stops which will be used for any tab characters in the current
      * paragraph.
-     * **Warning**: The lengths of aPos array and aVal array **MUST BE** equal to each other.
+     *
+     * **Warning:**
+     * The lengths of the aPos and aVal arrays must be equal to each other.
      *
      * @param aPos - An array of the positions of custom tab stops with respect to the current page margins measured
      *   in twentieths of a point (1/1440 of an inch).
@@ -34218,8 +34406,9 @@ declare namespace Word {
     /**
      * Specifies the border which will be displayed above a set of paragraphs which have the same set of
      * paragraph border settings.
-     * <note>The paragraphs of the same style going one by one are considered as a single block, so the
-     * border is added to the whole block rather than to every paragraph in this block.</note>
+     * **Note:**
+     * The paragraphs of the same style going one by one are considered as a single block, so the border is
+     * added to the whole block rather than to every paragraph in this block.
      *
      * @param type - The border style.
      * @param size - The width of the current top border measured in eighths of a point.
@@ -34321,7 +34510,9 @@ declare namespace Word {
   export interface ApiParagraph extends Omit<ApiParaPr, "GetClassType" | "ToJSON"> {
     /**
      * Adds a bookmark cross-reference to the current paragraph.
-     * <note>Please note that this paragraph must be in the document.</note>
+     *
+     * **Note:**
+     * This paragraph must be in the document.
      *
      * @param sRefTo - The text or numeric value of a bookmark reference you want to insert.
      * @param sBookmarkName - The name of the bookmark to be referred to (must be in the document).
@@ -34357,9 +34548,11 @@ declare namespace Word {
 
     /**
      * Adds a caption paragraph after (or before) the current paragraph.
-     * <note>Please note that the current paragraph must be in the document (not in the footer/header).
+     *
+     * **Note:**
+     * The current paragraph must be in the document (not in the footer/header).
      * And if the current paragraph is placed in a shape, then a caption is added after (or before) the
-     * parent shape.</note>
+     * parent shape.
      *
      * @param sAdditional - The additional text.
      * @param sLabel - The caption label.
@@ -34367,8 +34560,8 @@ declare namespace Word {
      * @param sNumberingFormat - The possible caption numbering format.
      * @param bBefore - Specifies whether to insert the caption before the current paragraph (true) or after (false)
      *   (after/before the shape if it is placed in the shape).
-     * @param nHeadingLvl - The heading level (used if you want to specify the chapter number). <note>If you want to specify
-     *   "Heading 1", then nHeadingLvl === 0 and etc.</note>
+     * @param nHeadingLvl - The heading level (used if you want to specify the chapter number). The value is zero-based: 0
+     *   is "Heading 1", 1 is "Heading 2", and so on.
      * @param sCaptionSep - The caption separator (used if you want to specify the chapter number).
      * @default sLabel = "Table"
      * @default bExludeLabel = false
@@ -34400,7 +34593,9 @@ declare namespace Word {
 
     /**
      * Adds a caption cross-reference to the current paragraph.
-     * <note>Please note that this paragraph must be in the document.</note>
+     *
+     * **Note:**
+     * This paragraph must be in the document.
      *
      * @param sCaption - The caption label ("Equation", "Figure", "Table", or another caption label).
      * @param sRefType - The text or numeric value of a caption reference you want to insert.
@@ -34463,7 +34658,9 @@ declare namespace Word {
 
     /**
      * Adds a comment to the current paragraph.
-     * <note>Please note that this paragraph must be in the document.</note>
+     *
+     * **Note:**
+     * This paragraph must be in the document.
      *
      * @param sText - The comment text.
      * @param sAuthor - The author's name.
@@ -34549,7 +34746,9 @@ declare namespace Word {
 
     /**
      * Adds an endnote cross-reference to the current paragraph.
-     * <note>Please note that this paragraph must be in the document.</note>
+     *
+     * **Note:**
+     * This paragraph must be in the document.
      *
      * @param sRefType - The text or numeric value of an endnote reference you want to insert.
      * @param oParaTo - The first paragraph from an endnote to be referred to (must be in the document).
@@ -34583,7 +34782,9 @@ declare namespace Word {
 
     /**
      * Adds a footnote cross-reference to the current paragraph.
-     * <note>Please note that this paragraph must be in the document.</note>
+     *
+     * **Note:**
+     * This paragraph must be in the document.
      *
      * @param sRefType - The text or numeric value of a footnote reference you want to insert.
      * @param oParaTo - The first paragraph from a footnote to be referred to (must be in the document).
@@ -34617,7 +34818,9 @@ declare namespace Word {
 
     /**
      * Adds a heading cross-reference to the current paragraph.
-     * <note>Please note that this paragraph must be in the document.</note>
+     *
+     * **Note:**
+     * This paragraph must be in the document.
      *
      * @param sRefType - The text or numeric value of a heading reference you want to insert.
      * @param oParaTo - The heading paragraph to be referred to (must be in the document).
@@ -34723,7 +34926,9 @@ declare namespace Word {
 
     /**
      * Adds a numbered cross-reference to the current paragraph.
-     * <note>Please note that this paragraph must be in the document.</note>
+     *
+     * **Note:**
+     * This paragraph must be in the document.
      *
      * @param sRefType - The text or numeric value of a numbered reference you want to insert.
      * @param oParaTo - The numbered paragraph to be referred to (must be in the document).
@@ -34904,7 +35109,9 @@ declare namespace Word {
     AddText(text: string | number[], widths?: number[]): ApiRun;
 
     /**
-     * Creates a paragraph copy. Ingnore comments, footnote references, complex fields.
+     * Creates a paragraph copy.
+     *
+     * Ignores comments, footnote references, complex fields.
      *
      * @example
      * ```js
@@ -35819,8 +36026,9 @@ declare namespace Word {
     GetParaPr(): ApiParaPr;
 
     /**
-     * Returns the text properties of the paragraph mark which is used to mark the paragraph end. The mark
-     * can also acquire
+     * Returns the text properties of the paragraph mark which is used to mark the paragraph end.
+     *
+     * The mark can also acquire
      * common text properties like bold, italic, underline, etc.
      *
      * @example
@@ -36003,6 +36211,7 @@ declare namespace Word {
     /**
      * Returns a Range object that represents the part of the document contained in the specified
      * paragraph.
+     *
      * The paragraph must be attached to the document before calling this method.
      *
      * @param Start - Start position index in the current element.
@@ -36550,9 +36759,11 @@ declare namespace Word {
 
     /**
      * Removes all the elements from the current paragraph.
-     * <note>When all the elements are removed from the paragraph, a new empty run is automatically
-     * created. If you want to add
-     * content to this run, use the {@link ApiParagraph#GetElement} method.</note>
+     *
+     * **Note:**
+     * When all the elements are removed from the paragraph, a new empty run is automatically created. If
+     * you want to add
+     * content to this run, use the {@link ApiParagraph#GetElement} method.
      *
      * @example
      * ```js
@@ -36577,10 +36788,12 @@ declare namespace Word {
 
     /**
      * Removes an element using the position specified.
-     * <note>If the element you remove is the last paragraph element (i.e. all the elements are removed
-     * from the paragraph),
+     *
+     * **Note:**
+     * If the element you remove is the last paragraph element (i.e. all the elements are removed from the
+     * paragraph),
      * a new empty run is automatically created. If you want to add
-     * content to this run, use the {@link ApiParagraph#GetElement} method.</note>
+     * content to this run, use the {@link ApiParagraph#GetElement} method.
      *
      * @param nPos - The element position which we want to remove from the paragraph.
      *
@@ -36641,7 +36854,9 @@ declare namespace Word {
     ReplaceByElement(oElement: DocumentElement): boolean;
 
     /**
-     * Searches for a scope of a paragraph object. The search results are a collection of ApiRange objects.
+     * Searches for a scope of a paragraph object.
+     *
+     * The search results are a collection of ApiRange objects.
      *
      * @param sText - Search string, or a regular expression to match. When a RegExp is passed, the isMatchCase
      *   parameter is ignored (control case sensitivity with the "i" flag instead).
@@ -36753,9 +36968,10 @@ declare namespace Word {
     /**
      * Specifies the border which will be displayed below a set of paragraphs which have the same paragraph
      * border settings.
-     * <note>The paragraphs of the same style going one by one are considered as a single block, so the
-     * border is added
-     * to the whole block rather than to every paragraph in this block.</note>
+     * **Note:**
+     * The paragraphs of the same style going one by one are considered as a single block, so the border is
+     * added
+     * to the whole block rather than to every paragraph in this block.
      *
      * @param type - The border style.
      * @param size - The width of the current bottom border measured in eighths of a point.
@@ -36913,8 +37129,8 @@ declare namespace Word {
     /**
      * Sets all 4 font slots with the specified font family.
      *
-     * @param fontFamily - The font family or families used for the current paragraph. Pass _null_ to remove the font
-     *   family.
+     * @param fontFamily - The font family or families used for the current paragraph. Pass _null_ or omit it to remove the
+     *   font family.
      * @returns this
      *
      * @example
@@ -36931,7 +37147,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/SetFontFamily/
      */
-    SetFontFamily(fontFamily: string | null): ApiParagraph;
+    SetFontFamily(fontFamily?: string | null): ApiParagraph;
 
     /**
      * Sets the font size to the characters of the current paragraph.
@@ -37469,10 +37685,12 @@ declare namespace Word {
 
     /**
      * Specifies the reading order for the current paragraph.
+     *
      * Possible values are:
-     * **null** - use the standart direction parameter;
-     * **"ltr"** - left-to-right text direction;
-     * **"rtl"** - right-to-left text direction.
+     *
+     * - **null** - use the standart direction parameter;
+     * - **"ltr"** - left-to-right text direction;
+     * - **"rtl"** - right-to-left text direction.
      *
      * @param readingOrder - The reading order.
      * @returns Returns the current paragraph itself (ApiParagraph).
@@ -37636,8 +37854,9 @@ declare namespace Word {
     SetSpacing(spacing: twips | null): ApiParagraph;
 
     /**
-     * Sets the spacing after the current paragraph. If the value of the isAfterAuto parameter is true,
-     * then
+     * Sets the spacing after the current paragraph.
+     *
+     * If the value of the isAfterAuto parameter is true, then
      * any value of the nAfter is ignored. If isAfterAuto parameter is not specified, then it
      * will be interpreted as false.
      *
@@ -37671,8 +37890,9 @@ declare namespace Word {
     SetSpacingAfter(nAfter: twips, isAfterAuto?: boolean): boolean;
 
     /**
-     * Sets the spacing before the current paragraph. If the value of the isBeforeAuto parameter is true,
-     * then
+     * Sets the spacing before the current paragraph.
+     *
+     * If the value of the isBeforeAuto parameter is true, then
      * any value of the nBefore is ignored. If isBeforeAuto parameter is not specified, then
      * it will be interpreted as false.
      *
@@ -37706,7 +37926,9 @@ declare namespace Word {
     SetSpacingBefore(nBefore: twips, isBeforeAuto?: boolean): boolean;
 
     /**
-     * Sets the paragraph line spacing. If the value of the sLineRule parameter is either
+     * Sets the paragraph line spacing.
+     *
+     * If the value of the sLineRule parameter is either
      * "atLeast" or "exact", then the value of nLine will be interpreted as twentieths of a point. If
      * the value of the sLineRule parameter is "auto", then the value of the
      * nLine parameter will be interpreted as 240ths of a line.
@@ -37788,9 +38010,10 @@ declare namespace Word {
 
     /**
      * The paragraph style base method.
-     * <note>This method is not used by itself, as it only forms the basis for the
-     * {@link ApiParagraph#SetStyle} method which sets the selected or created style for the
-     * paragraph.</note>
+     *
+     * **Note:**
+     * This method is not used by itself, as it only forms the basis for the {@link ApiParagraph#SetStyle}
+     * method which sets the selected or created style for the paragraph.
      *
      * @param style - The style of the paragraph to be set, or the name of an existing style, or _undefined_/_null_ to
      *   remove the style.
@@ -37818,7 +38041,9 @@ declare namespace Word {
     /**
      * Specifies a sequence of custom tab stops which will be used for any tab characters in the current
      * paragraph.
-     * **Warning**: The lengths of aPos array and aVal array **MUST BE** equal to each other.
+     *
+     * **Warning:**
+     * The lengths of the aPos and aVal arrays must be equal to each other.
      *
      * @param aPos - An array of the positions of custom tab stops with respect to the current page margins measured
      *   in twentieths of a point (1/1440 of an inch).
@@ -37903,8 +38128,9 @@ declare namespace Word {
     /**
      * Specifies the border which will be displayed above a set of paragraphs which have the same set of
      * paragraph border settings.
-     * <note>The paragraphs of the same style going one by one are considered as a single block, so the
-     * border is added to the whole block rather than to every paragraph in this block.</note>
+     * **Note:**
+     * The paragraphs of the same style going one by one are considered as a single block, so the border is
+     * added to the whole block rather than to every paragraph in this block.
      *
      * @param type - The border style.
      * @param size - The width of the current top border measured in eighths of a point.
@@ -37959,11 +38185,12 @@ declare namespace Word {
     /**
      * Specifies the alignment which will be applied to the contents of this paragraph in relation to the
      * default appearance of the paragraph text:
-     * **"baseline"** - the characters in the current paragraph will be aligned by the default text
+     *
+     * - **"baseline"** - the characters in the current paragraph will be aligned by the default text
      * baseline.
-     * **"subscript"** - the characters in the current paragraph will be aligned below the default text
+     * - **"subscript"** - the characters in the current paragraph will be aligned below the default text
      * baseline.
-     * **"superscript"** - the characters in the current paragraph will be aligned above the default text
+     * - **"superscript"** - the characters in the current paragraph will be aligned above the default text
      * baseline.
      *
      * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
@@ -39205,7 +39432,9 @@ declare namespace Word {
     Copy(): ApiForm;
 
     /**
-     * Removes a form and its content. If keepContent is true, the content is not deleted.
+     * Removes a form and its content.
+     *
+     * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
      * @returns returns false if form wasn't added to the document.
@@ -39628,6 +39857,7 @@ declare namespace Word {
 
     /**
      * Returns the text properties from the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @example
@@ -39704,6 +39934,7 @@ declare namespace Word {
     /**
      * Returns a shape in which the form is placed to control the position and size of the fixed size form
      * frame.
+     *
      * The null value will be returned for the inline forms.
      *
      * @returns returns the shape in which the form is placed.
@@ -40035,9 +40266,10 @@ declare namespace Word {
 
     /**
      * Sets the picture position inside the current form:
-     * **0** - the picture is placed on the left/top;
-     * **50** - the picture is placed in the center;
-     * **100** - the picture is placed on the right/bottom.
+     *
+     * - **0** - the picture is placed on the left/top;
+     * - **50** - the picture is placed in the center;
+     * - **100** - the picture is placed on the right/bottom.
      *
      * @param nShiftX - Horizontal position measured in percent.
      * @param nShiftY - Vertical position measured in percent.
@@ -40072,6 +40304,7 @@ declare namespace Word {
 
     /**
      * Sets the placeholder text to the current form.
+     *
      * *Can't be set to checkbox or radio button.*
      *
      * @param sText - The text that will be set to the current form.
@@ -40258,6 +40491,7 @@ declare namespace Word {
 
     /**
      * Sets the text properties to the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @param textPr - The text properties that will be set to the current form.
@@ -40362,6 +40596,7 @@ declare namespace Word {
 
     /**
      * Converts the current form to an inline form.
+     *
      * *Picture form can't be converted to an inline form, it's always a fixed size object.*
      *
      * @example
@@ -40656,7 +40891,9 @@ declare namespace Word {
 
     /**
      * Adds a field to the specified range by the field instruction code.
-     * <note> This method removes text within a range. </note>
+     *
+     * **Note:**
+     * This method removes text within a range.
      *
      * @param sCode - The field instruction code.
      * @since 9.0.0
@@ -40756,7 +40993,9 @@ declare namespace Word {
 
     /**
      * Returns a new range that goes beyond the specified range in any direction and spans a different
-     * range. The current range has not changed.
+     * range.
+     *
+     * The current range has not changed.
      *
      * @param oRange - The range that will be expanded.
      * @returns returns null if the specified range can't be expanded.
@@ -41087,8 +41326,9 @@ declare namespace Word {
     GetTextPr(): ApiTextPr;
 
     /**
-     * Returns a new range as the intersection of the current range with another range. The current range
-     * has not changed.
+     * Returns a new range as the intersection of the current range with another range.
+     *
+     * The current range has not changed.
      *
      * @param oRange - The range that will be intersected with the current range.
      * @returns returns null if can't intersect.
@@ -41116,6 +41356,7 @@ declare namespace Word {
 
     /**
      * Moves a cursor to a specified position of the current range object.
+     *
      * If there is any selection in the document, it will be removed.
      *
      * @param nPos - The desired cursor position.
@@ -41292,8 +41533,8 @@ declare namespace Word {
     /**
      * Sets all 4 font slots with the specified font family.
      *
-     * @param fontFamily - The font family or families used for the current text Range. Pass _null_ to remove the font
-     *   family.
+     * @param fontFamily - The font family or families used for the current text Range. Pass _null_ or omit it to remove
+     *   the font family.
      * @returns returns null if can't set font family.
      *
      * @example
@@ -41312,7 +41553,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/SetFontFamily/
      */
-    SetFontFamily(fontFamily: string | null): ApiRange | null;
+    SetFontFamily(fontFamily?: string | null): ApiRange | null;
 
     /**
      * Sets the font size to the characters of the current text Range.
@@ -41626,12 +41867,13 @@ declare namespace Word {
     /**
      * Specifies the alignment which will be applied to the Range contents in relation to the default
      * appearance of the Range text:
-     * **"baseline"** - the characters in the current text Range will be aligned by the default text
+     *
+     * - **"baseline"** - the characters in the current text Range will be aligned by the default text
      * baseline.
-     * **"subscript"** - the characters in the current text Range will be aligned below the default text
+     * - **"subscript"** - the characters in the current text Range will be aligned below the default text
      * baseline.
-     * **"superscript"** - the characters in the current text Range will be aligned above the default text
-     * baseline.
+     * - **"superscript"** - the characters in the current text Range will be aligned above the default
+     * text baseline.
      *
      * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
      *   alignment.
@@ -41890,6 +42132,7 @@ declare namespace Word {
 
     /**
      * Returns the font family from the current text properties.
+     *
      * The method automatically calculates the font from the theme if the font was set via the theme.
      *
      * @since 8.1.0
@@ -42556,7 +42799,8 @@ declare namespace Word {
     /**
      * Sets all 4 font slots with the specified font family.
      *
-     * @param sFontFamily - The font family or families used for the current text run.
+     * @param sFontFamily - The font family or families used for the current text run. Pass _null_ or omit it to remove the
+     *   font family.
      * @returns this text properties.
      *
      * @example
@@ -42574,7 +42818,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetFontFamily/
      */
-    SetFontFamily(sFontFamily: string): ApiTextPr;
+    SetFontFamily(sFontFamily?: string | null): ApiTextPr;
 
     /**
      * Sets the font size to the characters of the current text run.
@@ -42847,9 +43091,11 @@ declare namespace Word {
 
     /**
      * The text style base method.
-     * <note>This method is not used by itself, as it only forms the basis for the {@link ApiRun#SetStyle}
-     * method which sets
-     * the selected or created style to the text.</note>
+     *
+     * **Note:**
+     * This method is not used by itself, as it only forms the basis for the {@link ApiRun#SetStyle} method
+     * which sets
+     * the selected or created style to the text.
      *
      * @param style - The style which must be applied to the text character, or the name of an existing style, or
      *   _undefined_/_null_ to remove the style.
@@ -42938,11 +43184,12 @@ declare namespace Word {
     /**
      * Specifies the alignment which will be applied to the contents of the run in relation to the default
      * appearance of the run text:
-     * **"baseline"** - the characters in the current text run will be aligned by the default text
+     *
+     * - **"baseline"** - the characters in the current text run will be aligned by the default text
      * baseline.
-     * **"subscript"** - the characters in the current text run will be aligned below the default text
+     * - **"subscript"** - the characters in the current text run will be aligned below the default text
      * baseline.
-     * **"superscript"** - the characters in the current text run will be aligned above the default text
+     * - **"superscript"** - the characters in the current text run will be aligned above the default text
      * baseline.
      *
      * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
@@ -43047,7 +43294,9 @@ declare namespace Word {
 
     /**
      * Adds a comment to the current run.
-     * <note>Please note that this run must be in the document.</note>
+     *
+     * **Note:**
+     * This run must be in the document.
      *
      * @param sText - The comment text.
      * @param sAuthor - The author's name.
@@ -43481,6 +43730,7 @@ declare namespace Word {
 
     /**
      * Returns the font family from the current text properties.
+     *
      * The method automatically calculates the font from the theme if the font was set via the theme.
      *
      * @since 8.1.0
@@ -43915,6 +44165,7 @@ declare namespace Word {
 
     /**
      * Returns a Range object that represents the part of the document contained in the specified run.
+     *
      * The run must be attached to the document before calling this method.
      *
      * @param Start - Start position index in the current element.
@@ -44307,6 +44558,7 @@ declare namespace Word {
 
     /**
      * Moves a cursor to a specified position of the current text run.
+     *
      * If the current run is not assigned to any document part, then **false** is returned. Otherwise, this
      * method returns **true**.
      * If there is any selection in the document, it will be removed.
@@ -44498,7 +44750,8 @@ declare namespace Word {
     /**
      * Sets all 4 font slots with the specified font family.
      *
-     * @param sFontFamily - The font family or families used for the current text run.
+     * @param sFontFamily - The font family or families used for the current text run. Pass _null_ or omit it to remove the
+     *   font family.
      * @returns this text properties.
      *
      * @example
@@ -44520,7 +44773,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetFontFamily/
      */
-    SetFontFamily(sFontFamily: string): ApiTextPr;
+    SetFontFamily(sFontFamily?: string | null): ApiTextPr;
 
     /**
      * Sets the font size to the characters of the current text run.
@@ -44813,9 +45066,11 @@ declare namespace Word {
 
     /**
      * The text style base method.
-     * <note>This method is not used by itself, as it only forms the basis for the {@link ApiRun#SetStyle}
-     * method which sets
-     * the selected or created style to the text.</note>
+     *
+     * **Note:**
+     * This method is not used by itself, as it only forms the basis for the {@link ApiRun#SetStyle} method
+     * which sets
+     * the selected or created style to the text.
      *
      * @param style - The style which must be applied to the text character, or the name of an existing style, or
      *   _undefined_/_null_ to remove the style.
@@ -44945,11 +45200,12 @@ declare namespace Word {
     /**
      * Specifies the alignment which will be applied to the contents of the run in relation to the default
      * appearance of the run text:
-     * **"baseline"** - the characters in the current text run will be aligned by the default text
+     *
+     * - **"baseline"** - the characters in the current text run will be aligned by the default text
      * baseline.
-     * **"subscript"** - the characters in the current text run will be aligned below the default text
+     * - **"subscript"** - the characters in the current text run will be aligned below the default text
      * baseline.
-     * **"superscript"** - the characters in the current text run will be aligned above the default text
+     * - **"superscript"** - the characters in the current text run will be aligned above the default text
      * baseline.
      *
      * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
@@ -45620,8 +45876,9 @@ declare namespace Word {
     GetType(): SectionBreakType;
 
     /**
-     * Removes the footer of the specified type from the current section. After removal, the footer will be
-     * inherited from
+     * Removes the footer of the specified type from the current section.
+     *
+     * After removal, the footer will be inherited from
      * the previous section, or if this is the first section in the document, no footer of the specified
      * type will be presented.
      *
@@ -45659,8 +45916,9 @@ declare namespace Word {
     RemoveFooter(sType: HdrFtrType): boolean;
 
     /**
-     * Removes the header of the specified type from the current section. After removal, the header will be
-     * inherited from
+     * Removes the header of the specified type from the current section.
+     *
+     * After removal, the header will be inherited from
      * the previous section, or if this is the first section in the document, no header of the specified
      * type will be presented.
      *
@@ -45784,8 +46042,9 @@ declare namespace Word {
     SetHeaderDistance(nDistance: twips): boolean;
 
     /**
-     * Specifies the page margins for all the pages in this section. Alias for
-     * {@link ApiSection#SetPageMargins}.
+     * Specifies the page margins for all the pages in this section.
+     *
+     * Alias for {@link ApiSection#SetPageMargins}.
      *
      * @param left - The left margin width measured in twentieths of a point (1/1440 of an inch).
      * @param top - The top margin height measured in twentieths of a point (1/1440 of an inch).
@@ -45798,8 +46057,9 @@ declare namespace Word {
     SetMargins(left: twips, top: twips, right: twips, bottom: twips): boolean;
 
     /**
-     * Specifies that all the columns in the current section have the different widths. Number of columns
-     * is equal
+     * Specifies that all the columns in the current section have the different widths.
+     *
+     * Number of columns is equal
      * to the length of the aWidth array. The length of the aSpaces array MUST BE equal to (aWidth.length -
      * 1).
      *
@@ -45961,7 +46221,9 @@ declare namespace Word {
     SetTitlePage(isTitlePage: boolean): boolean;
 
     /**
-     * Specifies a type of the current section. The section type defines how the contents of the current
+     * Specifies a type of the current section.
+     *
+     * The section type defines how the contents of the current
      * section are placed relative to the previous section.
      *
      * @param sType - The section break type.
@@ -47061,6 +47323,7 @@ declare namespace Word {
 
     /**
      * Sets the properties from another drawing to the current drawing.
+     *
      * The following properties will be copied: horizontal and vertical alignment, distance between the
      * edges of the current drawing object and any subsequent text, wrapping style, drawing name, title and
      * description.
@@ -47438,6 +47701,7 @@ declare namespace Word {
 
     /**
      * Sets the name of the current drawing.
+     *
      * If another drawing with the same name already exists, that drawing's name will be reset to a default
      * auto-generated name.
      * OLE objects do not support a custom name, so for them this method always returns false.
@@ -47834,19 +48098,23 @@ declare namespace Word {
     SetVerticalTextAlign(verticalAlign: VerticalTextAlign): boolean;
 
     /**
-     * Sets the wrapping type of the current object (image, shape, chart). One of the following wrapping
-     * style types can be set:
-     * **"inline"** - the object is considered to be a part of the text, like a character, so when the text
-     * moves, the object moves as well. In this case the positioning options are inaccessible.
+     * Sets the wrapping type of the current object (image, shape, chart).
+     *
+     * One of the following wrapping style types can be set:
+     *
+     * - **"inline"** - the object is considered to be a part of the text, like a character, so when the
+     * text moves, the object moves as well. In this case the positioning options are inaccessible.
+     *
      * If one of the following styles is selected, the object can be moved independently of the text and
      * positioned on the page exactly:
-     * **"square"** - the text wraps the rectangular box that bounds the object.
-     * **"tight"** - the text wraps the actual object edges.
-     * **"through"** - the text wraps around the object edges and fills in the open white space within the
-     * object.
-     * **"topAndBottom"** - the text is only above and below the object.
-     * **"behind"** - the text overlaps the object.
-     * **"inFront"** - the object overlaps the text.
+     *
+     * - **"square"** - the text wraps the rectangular box that bounds the object.
+     * - **"tight"** - the text wraps the actual object edges.
+     * - **"through"** - the text wraps around the object edges and fills in the open white space within
+     * the object.
+     * - **"topAndBottom"** - the text is only above and below the object.
+     * - **"behind"** - the text overlaps the object.
+     * - **"inFront"** - the object overlaps the text.
      *
      * @param sType - The wrapping style type available for the object.
      *
@@ -48035,7 +48303,9 @@ declare namespace Word {
     Copy(): ApiForm;
 
     /**
-     * Removes a form and its content. If keepContent is true, the content is not deleted.
+     * Removes a form and its content.
+     *
+     * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
      * @returns returns false if form wasn't added to the document.
@@ -48377,6 +48647,7 @@ declare namespace Word {
 
     /**
      * Returns the text properties from the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @example
@@ -48454,6 +48725,7 @@ declare namespace Word {
     /**
      * Returns a shape in which the form is placed to control the position and size of the fixed size form
      * frame.
+     *
      * The null value will be returned for the inline forms.
      *
      * @returns returns the shape in which the form is placed.
@@ -48684,6 +48956,7 @@ declare namespace Word {
 
     /**
      * Sets the placeholder text to the current form.
+     *
      * *Can't be set to checkbox or radio button.*
      *
      * @param sText - The text that will be set to the current form.
@@ -48815,6 +49088,7 @@ declare namespace Word {
 
     /**
      * Sets the text properties to the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @param textPr - The text properties that will be set to the current form.
@@ -48919,6 +49193,7 @@ declare namespace Word {
 
     /**
      * Converts the current form to an inline form.
+     *
      * *Picture form can't be converted to an inline form, it's always a fixed size object.*
      *
      * @example
@@ -49789,6 +50064,7 @@ declare namespace Word {
 
     /**
      * Sets the properties from another drawing to the current drawing.
+     *
      * The following properties will be copied: horizontal and vertical alignment, distance between the
      * edges of the current drawing object and any subsequent text, wrapping style, drawing name, title and
      * description.
@@ -50070,6 +50346,7 @@ declare namespace Word {
 
     /**
      * Sets the name of the current drawing.
+     *
      * If another drawing with the same name already exists, that drawing's name will be reset to a default
      * auto-generated name.
      * OLE objects do not support a custom name, so for them this method always returns false.
@@ -50406,19 +50683,23 @@ declare namespace Word {
     SetVertFlip(bFlip: boolean): boolean;
 
     /**
-     * Sets the wrapping type of the current object (image, shape, chart). One of the following wrapping
-     * style types can be set:
-     * **"inline"** - the object is considered to be a part of the text, like a character, so when the text
-     * moves, the object moves as well. In this case the positioning options are inaccessible.
+     * Sets the wrapping type of the current object (image, shape, chart).
+     *
+     * One of the following wrapping style types can be set:
+     *
+     * - **"inline"** - the object is considered to be a part of the text, like a character, so when the
+     * text moves, the object moves as well. In this case the positioning options are inaccessible.
+     *
      * If one of the following styles is selected, the object can be moved independently of the text and
      * positioned on the page exactly:
-     * **"square"** - the text wraps the rectangular box that bounds the object.
-     * **"tight"** - the text wraps the actual object edges.
-     * **"through"** - the text wraps around the object edges and fills in the open white space within the
-     * object.
-     * **"topAndBottom"** - the text is only above and below the object.
-     * **"behind"** - the text overlaps the object.
-     * **"inFront"** - the object overlaps the text.
+     *
+     * - **"square"** - the text wraps the rectangular box that bounds the object.
+     * - **"tight"** - the text wraps the actual object edges.
+     * - **"through"** - the text wraps around the object edges and fills in the open white space within
+     * the object.
+     * - **"topAndBottom"** - the text is only above and below the object.
+     * - **"behind"** - the text overlaps the object.
+     * - **"inFront"** - the object overlaps the text.
      *
      * @param sType - The wrapping style type available for the object.
      *
@@ -51283,9 +51564,11 @@ declare namespace Word {
   export interface ApiTable extends Omit<ApiTablePr, "GetClassType" | "ToJSON"> {
     /**
      * Adds a caption paragraph after (or before) the current table.
-     * <note>Please note that the current table must be in the document (not in the footer/header).
+     *
+     * **Note:**
+     * The current table must be in the document (not in the footer/header).
      * And if the current table is placed in a shape, then a caption is added after (or before) the parent
-     * shape.</note>
+     * shape.
      *
      * @param sAdditional - The additional text.
      * @param sLabel - The caption label.
@@ -51293,8 +51576,8 @@ declare namespace Word {
      * @param sNumberingFormat - The possible caption numbering format.
      * @param bBefore - Specifies whether to insert the caption before the current table (true) or after (false)
      *   (after/before the shape if it is placed in the shape).
-     * @param nHeadingLvl - The heading level (used if you want to specify the chapter number). <note>If you want to specify
-     *   "Heading 1", then nHeadingLvl === 0 and etc.</note>
+     * @param nHeadingLvl - The heading level (used if you want to specify the chapter number). The value is zero-based: 0
+     *   is "Heading 1", 1 is "Heading 2", and so on.
      * @param sCaptionSep - The caption separator (used if you want to specify the chapter number).
      * @default sLabel = "Table"
      * @default bExludeLabel = false
@@ -51391,7 +51674,9 @@ declare namespace Word {
 
     /**
      * Adds a comment to all contents of the current table.
-     * <note>Please note that this table must be in the document.</note>
+     *
+     * **Note:**
+     * This table must be in the document.
      *
      * @param sText - The comment text.
      * @param sAuthor - The author's name.
@@ -52074,10 +52359,13 @@ declare namespace Word {
     InsertInContentControl(nType: number): ApiTable | ApiBlockLvlSdt;
 
     /**
-     * Merges an array of cells. If the merge is done successfully, it will return the resulting merged
-     * cell, otherwise the result will be "null".
-     * <note>The number of cells in any row and the number of rows in the current table may be
-     * changed.</note>
+     * Merges an array of cells.
+     *
+     * If the merge is done successfully, it will return the resulting merged cell, otherwise the result
+     * will be "null".
+     *
+     * **Warning:**
+     * The number of cells in any row and the number of rows in the current table may be changed.
      *
      * @param aCells - The array of cells to be merged.
      *
@@ -52187,7 +52475,9 @@ declare namespace Word {
     ReplaceByElement(oElement: DocumentElement): boolean;
 
     /**
-     * Searches for a scope of a table object. The search results are a collection of ApiRange objects.
+     * Searches for a scope of a table object.
+     *
+     * The search results are a collection of ApiRange objects.
      *
      * @param sText - Search string, or a regular expression to match. When a RegExp is passed, the isMatchCase
      *   parameter is ignored (control case sensitivity with the "i" flag instead).
@@ -52392,6 +52682,7 @@ declare namespace Word {
 
     /**
      * Sets the table paddings.
+     *
      * If table is inline, then only left padding is applied.
      *
      * @param nLeft - Left padding.
@@ -53143,10 +53434,12 @@ declare namespace Word {
 
     /**
      * Sets the preferred width to the current table.
-     * <note>Tables are created with the {@link ApiTable#SetWidth} method properties set by default, which
-     * always override the {@link ApiTablePr#SetWidth} method properties. That is why there is no use to
-     * try and apply {@link ApiTablePr#SetWidth}. We recommend you to use the {@link ApiTablePr#SetWidth}
-     * method instead.</note>
+     *
+     * **Note:**
+     * Tables are created with the {@link ApiTable#SetWidth} method properties set by default, which always
+     * override the {@link ApiTablePr#SetWidth} method properties. That is why there is no use to try and
+     * apply {@link ApiTablePr#SetWidth}. We recommend you to use the {@link ApiTablePr#SetWidth} method
+     * instead.
      *
      * @param sType - Type of the width value from one of the available width values types.
      * @param nValue - The table width value measured in positive integers.
@@ -53782,8 +54075,9 @@ declare namespace Word {
     RemoveRow(): boolean;
 
     /**
-     * Searches for a scope of a table cell object. The search results are a collection of ApiRange
-     * objects.
+     * Searches for a scope of a table cell object.
+     *
+     * The search results are a collection of ApiRange objects.
      *
      * @param sText - Search string, or a regular expression to match. When a RegExp is passed, the isMatchCase
      *   parameter is ignored (control case sensitivity with the "i" flag instead).
@@ -54166,6 +54460,7 @@ declare namespace Word {
 
     /**
      * Specifies how the current table cell is laid out when the parent table is displayed in a document.
+     *
      * This setting
      * only affects the behavior of the cell when the {@link ApiTablePr#SetTableLayout} table layout for
      * this table is set to use the `"autofit"` algorithm.
@@ -54747,6 +55042,7 @@ declare namespace Word {
 
     /**
      * Specifies how the current table cell is laid out when the parent table is displayed in a document.
+     *
      * This setting
      * only affects the behavior of the cell when the {@link ApiTablePr#SetTableLayout} table layout for
      * this table is set to use the `"autofit"` algorithm.
@@ -55913,10 +56209,12 @@ declare namespace Word {
 
     /**
      * Sets the preferred width to the current table.
-     * <note>Tables are created with the {@link ApiTable#SetWidth} method properties set by default, which
-     * always override the {@link ApiTablePr#SetWidth} method properties. That is why there is no use to
-     * try and apply {@link ApiTablePr#SetWidth}. We recommend you to use the {@link ApiTablePr#SetWidth}
-     * method instead.</note>
+     *
+     * **Note:**
+     * Tables are created with the {@link ApiTable#SetWidth} method properties set by default, which always
+     * override the {@link ApiTablePr#SetWidth} method properties. That is why there is no use to try and
+     * apply {@link ApiTablePr#SetWidth}. We recommend you to use the {@link ApiTablePr#SetWidth} method
+     * instead.
      *
      * @param sType - Type of the width value from one of the available width values types.
      * @param nValue - The table width value measured in positive integers.
@@ -56308,7 +56606,9 @@ declare namespace Word {
     Remove(): boolean;
 
     /**
-     * Searches for a scope of a table row object. The search results are a collection of ApiRange objects.
+     * Searches for a scope of a table row object.
+     *
+     * The search results are a collection of ApiRange objects.
      *
      * @param sText - Search string, or a regular expression to match. When a RegExp is passed, the isMatchCase
      *   parameter is ignored (control case sensitivity with the "i" flag instead).
@@ -57225,7 +57525,9 @@ declare namespace Word {
     Copy(): ApiForm;
 
     /**
-     * Removes a form and its content. If keepContent is true, the content is not deleted.
+     * Removes a form and its content.
+     *
+     * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
      * @returns returns false if form wasn't added to the document.
@@ -57638,6 +57940,7 @@ declare namespace Word {
 
     /**
      * Returns the text properties from the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @example
@@ -57715,6 +58018,7 @@ declare namespace Word {
     /**
      * Returns a shape in which the form is placed to control the position and size of the fixed size form
      * frame.
+     *
      * The null value will be returned for the inline forms.
      *
      * @returns returns the shape in which the form is placed.
@@ -57915,8 +58219,9 @@ declare namespace Word {
     MoveCursorOutside(isAfter?: boolean): boolean;
 
     /**
-     * Sets the allowed symbols for the current text field. Only the specified characters will be accepted
-     * as input.
+     * Sets the allowed symbols for the current text field.
+     *
+     * Only the specified characters will be accepted as input.
      *
      * @param symbols - A string of allowed characters.
      *
@@ -58068,6 +58373,7 @@ declare namespace Word {
 
     /**
      * Specifies if the text field should be a comb of characters with the same cell width.
+     *
      * The maximum number of characters must be set to a positive value.
      *
      * @param bComb - Defines if the text field is a comb of characters (true) or not (false).
@@ -58200,6 +58506,7 @@ declare namespace Word {
 
     /**
      * Sets the placeholder text to the current form.
+     *
      * *Can't be set to checkbox or radio button.*
      *
      * @param sText - The text that will be set to the current form.
@@ -58353,6 +58660,7 @@ declare namespace Word {
 
     /**
      * Sets the text properties to the current form.
+     *
      * *Used if possible for this type of form*
      *
      * @param textPr - The text properties that will be set to the current form.
@@ -58457,6 +58765,7 @@ declare namespace Word {
 
     /**
      * Converts the current form to an inline form.
+     *
      * *Picture form can't be converted to an inline form, it's always a fixed size object.*
      *
      * @example
@@ -58674,6 +58983,7 @@ declare namespace Word {
 
     /**
      * Returns the font family from the current text properties.
+     *
      * The method automatically calculates the font from the theme if the font was set via the theme.
      *
      * @since 8.1.0
@@ -59340,7 +59650,8 @@ declare namespace Word {
     /**
      * Sets all 4 font slots with the specified font family.
      *
-     * @param sFontFamily - The font family or families used for the current text run.
+     * @param sFontFamily - The font family or families used for the current text run. Pass _null_ or omit it to remove the
+     *   font family.
      * @returns this text properties.
      *
      * @example
@@ -59358,7 +59669,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetFontFamily/
      */
-    SetFontFamily(sFontFamily: string): ApiTextPr;
+    SetFontFamily(sFontFamily?: string | null): ApiTextPr;
 
     /**
      * Sets the font size to the characters of the current text run.
@@ -59631,9 +59942,11 @@ declare namespace Word {
 
     /**
      * The text style base method.
-     * <note>This method is not used by itself, as it only forms the basis for the {@link ApiRun#SetStyle}
-     * method which sets
-     * the selected or created style to the text.</note>
+     *
+     * **Note:**
+     * This method is not used by itself, as it only forms the basis for the {@link ApiRun#SetStyle} method
+     * which sets
+     * the selected or created style to the text.
      *
      * @param style - The style which must be applied to the text character, or the name of an existing style, or
      *   _undefined_/_null_ to remove the style.
@@ -59722,11 +60035,12 @@ declare namespace Word {
     /**
      * Specifies the alignment which will be applied to the contents of the run in relation to the default
      * appearance of the run text:
-     * **"baseline"** - the characters in the current text run will be aligned by the default text
+     *
+     * - **"baseline"** - the characters in the current text run will be aligned by the default text
      * baseline.
-     * **"subscript"** - the characters in the current text run will be aligned below the default text
+     * - **"subscript"** - the characters in the current text run will be aligned below the default text
      * baseline.
-     * **"superscript"** - the characters in the current text run will be aligned above the default text
+     * - **"superscript"** - the characters in the current text run will be aligned above the default text
      * baseline.
      *
      * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
@@ -60618,10 +60932,11 @@ interface ContentControlListElement {
 
 /**
  * A value that defines if it is possible to delete and/or edit the content control or not:
- * **0** - only deleting
- * **1** - disable deleting or editing
- * **2** - only editing
- * **3** - full access
+ *
+ * - **0** - only deleting
+ * - **1** - disable deleting or editing
+ * - **2** - only editing
+ * - **3** - full access
  */
 type ContentControlLock = 0 | 1 | 2 | 3;
 
@@ -60693,10 +61008,11 @@ interface ContentControlPropertiesAndContent {
 
 /**
  * A numeric value that specifies the content control type:
- * **1** - block content control
- * **2** - inline content control
- * **3** - row content control
- * **4** - cell content control
+ *
+ * - **1** - block content control
+ * - **2** - inline content control
+ * - **3** - row content control
+ * - **4** - cell content control
  */
 type ContentControlType = 1 | 2 | 3 | 4;
 
@@ -60726,10 +61042,11 @@ interface ContextMenuItem {
 
 /**
  * The document editing restrictions:
- * **none** - no editing restrictions,
- * **comments** - allows editing comments,
- * **forms** - allows editing form fields,
- * **readOnly** - does not allow editing.
+ *
+ * - **none** - no editing restrictions,
+ * - **comments** - allows editing comments,
+ * - **forms** - allows editing form fields,
+ * - **readOnly** - does not allow editing.
  */
 type DocumentEditingRestrictions = 'none' | 'comments' | 'forms' | 'readOnly';
 
@@ -61029,9 +61346,10 @@ interface TextAnnotationRange {
 
 /**
  * Specifies if the whole text or only its part will be returned or replaced:
- * **entirely** - replaces/returns the whole text,
- * **beforeCursor** - replaces/returns only the part of the text before the cursor,
- * **afterCursor** - replaces/returns only the part of the text after the cursor.
+ *
+ * - **entirely** - replaces/returns the whole text,
+ * - **beforeCursor** - replaces/returns only the part of the text before the cursor,
+ * - **afterCursor** - replaces/returns only the part of the text after the cursor.
  */
 type TextPartType = "entirely" | "beforeCursor" | "afterCursor";
 
@@ -61167,10 +61485,11 @@ interface comment {
 
 /**
  * The editors which the plugin is available for:
- * **word** - text document editor,
- * **cell** - spreadsheet editor,
- * **slide** - presentation editor,
- * **pdf** - pdf editor.
+ *
+ * - **word** - text document editor,
+ * - **cell** - spreadsheet editor,
+ * - **slide** - presentation editor,
+ * - **pdf** - pdf editor.
  */
 type editorType = "word" | "cell" | "slide" | "pdf";
 
@@ -61182,13 +61501,14 @@ interface fillForms {
 
 /**
  * The data type selected in the editor and sent to the plugin:
- * **text** - the text data,
- * **html** - HTML formatted code,
- * **ole** - OLE object data,
- * **desktop** - the desktop editor data,
- * **desktop-external** - the main page data of the desktop app (system messages),
- * **none** - no data will be send to the plugin from the editor,
- * **sign** - the sign for the keychain plugin.
+ *
+ * - **text** - the text data,
+ * - **html** - HTML formatted code,
+ * - **ole** - OLE object data,
+ * - **desktop** - the desktop editor data,
+ * - **desktop-external** - the main page data of the desktop app (system messages),
+ * - **none** - no data will be send to the plugin from the editor,
+ * - **sign** - the sign for the keychain plugin.
  */
 type initDataType = "text" | "html" | "ole" | "desktop" | "desktop-external" | "none" | "sign";
 
@@ -61738,7 +62058,8 @@ type WordMethodArgs = {
   GetAllForms: [];
   /**
    * Returns all OLE object data for objects which can be opened by the specified plugin.
-   * If *sPluginId* is not defined, this method returns all OLE objects contained in the currrent
+   *
+   * If *sPluginId* is not defined, this method returns all OLE objects contained in the current
    * document.
    *
    * @param sPluginId - Plugin identifier. It must be of the *asc.{UUID}* type.
@@ -61979,8 +62300,9 @@ type WordMethodArgs = {
    */
   GetFormsByTag: [tag: string];
   /**
-   * Returns the image data from the first of the selected drawings. If there are no drawings selected,
-   * the method returns a white rectangle.
+   * Returns the image data from the first of the selected drawings.
+   *
+   * If there are no drawings selected, the method returns a white rectangle.
    *
    * @returns The AscImageData object containig the information about the base64 encoded png image.
    * @since 7.2.0
@@ -62265,7 +62587,9 @@ type WordMethodArgs = {
    */
   InputText: [text: string, textReplace: string];
   /**
-   * Inserts the content control containing data. The data is specified by the JS code for
+   * Inserts the content control containing data.
+   *
+   * The data is specified by the JS code for
    * {@link https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ Document Builder}, or by a
    * link to the shared document.
    *
@@ -62426,6 +62750,7 @@ type WordMethodArgs = {
   /**
    * Moves a cursor to the end of the current editing area (document body, footer/header, footnote, or
    * autoshape).
+   *
    * This method is similar to pressing the **Ctrl + End** keyboard shortcut.
    *
    * @param isMoveToMainContent - This flag ignores the current position and always moves a cursor to the end of the document
@@ -62453,6 +62778,7 @@ type WordMethodArgs = {
   /**
    * Moves a cursor to the beginning of the current editing area (document body, footer/header, footnote,
    * or autoshape).
+   *
    * This method is similar to pressing the **Ctrl + Home** keyboard shortcut.
    *
    * @param isMoveToMainContent - This flag ignores the current position and always moves a cursor to the beginning of the
@@ -62566,6 +62892,7 @@ type WordMethodArgs = {
   PasteText: [text: string];
   /**
    * Replaces the first selected drawing with the image specified in the parameters.
+   *
    * If there are no drawings selected, the method inserts the image at the current position.
    *
    * @param oImageData - The information about the base64 encoded *png* image.
@@ -62658,8 +62985,9 @@ type WordMethodArgs = {
    */
   RemoveComments: [arrIds: string[]];
   /**
-   * Removes the currently selected content control retaining all its contents. The content control where
-   * the mouse cursor is currently positioned will be removed.
+   * Removes the currently selected content control retaining all its contents.
+   *
+   * The content control where the mouse cursor is currently positioned will be removed.
    *
    * @param InternalId - A unique internal identifier of the content control.
    * @returns An object which contains the following values: Parent - content control parent, Pos - content
@@ -62968,6 +63296,7 @@ type WordMethodArgs = {
   SetMacros: [data: string];
   /**
    * Replaces all content of the specified paragraph with the content parsed from the given HTML string.
+   *
    * If the HTML contains multiple block-level elements, their inline content is merged into the target
    * paragraph.
    *
@@ -62983,10 +63312,14 @@ type WordMethodArgs = {
    */
   SetParagraphHtml: [html: string, paraId?: number];
   /**
-   * Configures plugins from an external source. The settings can be set for all plugins or for a
-   * specific plugin.
-   * For example, this method can be used to pass an authorization token to the plugin. This method can
-   * be used only with the connector class.
+   * Configures plugins from an external source.
+   *
+   * The settings can be set for all plugins or for a specific plugin. For example, this method can be
+   * used to pass an authorization token to the plugin.
+   *
+   * **Note:**
+   * This method can be used only with the
+   * {@link https://api.onlyoffice.com/docs/docs-api/usage-api/automation-api/connector-class connector class}.
    *
    * @param options - Plugin options.
    * @since 8.1.1

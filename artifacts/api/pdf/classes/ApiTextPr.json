@@ -52,7 +52,7 @@
       "since": "8.1.0"
     },
     "GetFontFamily": {
-      "description": "Returns the font family from the current text properties.\nThe method automatically calculates the font from the theme if the font was set via the theme.",
+      "description": "Returns the font family from the current text properties.\n\nThe method automatically calculates the font from the theme if the font was set via the theme.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetFontFamily/",
       "params": [],
       "returns": {
@@ -220,16 +220,17 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/SetFontFamily/",
       "params": [
         {
-          "description": "The font family or families used for the current text run.",
+          "description": "The font family or families used for the current text run. Pass _null_ or omit it to remove the font family.",
           "name": "sFontFamily",
-          "type": "string"
+          "optional": true,
+          "type": "string | null"
         }
       ],
       "returns": {
         "description": "this text properties.",
         "type": "ApiTextPr"
       },
-      "signature": "SetFontFamily(sFontFamily: string): ApiTextPr"
+      "signature": "SetFontFamily(sFontFamily?: string | null): ApiTextPr"
     },
     "SetFontSize": {
       "description": "Sets the font size to the characters of the current text run.",
@@ -375,7 +376,7 @@
       "signature": "SetUnderline(isUnderline: boolean): ApiTextPr"
     },
     "SetVertAlign": {
-      "description": "Specifies the alignment which will be applied to the contents of the run in relation to the default appearance of the run text:\n**\"baseline\"** - the characters in the current text run will be aligned by the default text baseline.\n**\"subscript\"** - the characters in the current text run will be aligned below the default text baseline.\n**\"superscript\"** - the characters in the current text run will be aligned above the default text baseline.",
+      "description": "Specifies the alignment which will be applied to the contents of the run in relation to the default appearance of the run text:\n\n- **\"baseline\"** - the characters in the current text run will be aligned by the default text baseline.\n- **\"subscript\"** - the characters in the current text run will be aligned below the default text baseline.\n- **\"superscript\"** - the characters in the current text run will be aligned above the default text baseline.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/SetVertAlign/",
       "params": [
         {

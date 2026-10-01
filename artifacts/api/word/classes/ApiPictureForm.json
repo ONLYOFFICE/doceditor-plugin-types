@@ -24,7 +24,7 @@
       "signature": "Copy(): ApiForm"
     },
     "Delete": {
-      "description": "Removes a form and its content. If keepContent is true, the content is not deleted.",
+      "description": "Removes a form and its content.\n\nIf keepContent is true, the content is not deleted.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/Delete/",
       "params": [
         {
@@ -199,7 +199,7 @@
       "signature": "GetText(): string"
     },
     "GetTextPr": {
-      "description": "Returns the text properties from the current form.\n*Used if possible for this type of form*",
+      "description": "Returns the text properties from the current form.\n\n*Used if possible for this type of form*",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetTextPr/",
       "params": [],
       "returns": {
@@ -227,7 +227,7 @@
       "since": "9.4.0"
     },
     "GetWrapperShape": {
-      "description": "Returns a shape in which the form is placed to control the position and size of the fixed size form frame.\nThe null value will be returned for the inline forms.",
+      "description": "Returns a shape in which the form is placed to control the position and size of the fixed size form frame.\n\nThe null value will be returned for the inline forms.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetWrapperShape/",
       "params": [],
       "returns": {
@@ -397,7 +397,7 @@
       "signature": "SetLockAspectRatio(isLock?: boolean): boolean"
     },
     "SetPicturePosition": {
-      "description": "Sets the picture position inside the current form:\n**0** - the picture is placed on the left/top;\n**50** - the picture is placed in the center;\n**100** - the picture is placed on the right/bottom.",
+      "description": "Sets the picture position inside the current form:\n\n- **0** - the picture is placed on the left/top;\n- **50** - the picture is placed in the center;\n- **100** - the picture is placed on the right/bottom.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiPictureForm/Methods/SetPicturePosition/",
       "params": [
         {
@@ -417,7 +417,7 @@
       "signature": "SetPicturePosition(nShiftX: percentage, nShiftY: percentage): boolean"
     },
     "SetPlaceholderText": {
-      "description": "Sets the placeholder text to the current form.\n*Can't be set to checkbox or radio button.*",
+      "description": "Sets the placeholder text to the current form.\n\n*Can't be set to checkbox or radio button.*",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/SetPlaceholderText/",
       "params": [
         {
@@ -510,7 +510,7 @@
       "since": "9.0.0"
     },
     "SetTextPr": {
-      "description": "Sets the text properties to the current form.\n*Used if possible for this type of form*",
+      "description": "Sets the text properties to the current form.\n\n*Used if possible for this type of form*",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/SetTextPr/",
       "params": [
         {
@@ -582,7 +582,7 @@
       "signature": "ToFixed(width: twips, height: twips, keepPosition?: boolean): boolean"
     },
     "ToInline": {
-      "description": "Converts the current form to an inline form.\n*Picture form can't be converted to an inline form, it's always a fixed size object.*",
+      "description": "Converts the current form to an inline form.\n\n*Picture form can't be converted to an inline form, it's always a fixed size object.*",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/ToInline/",
       "params": [],
       "returns": {

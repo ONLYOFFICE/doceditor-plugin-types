@@ -436,10 +436,11 @@ interface comment {
 
 /**
  * The editors which the plugin is available for:
- * **word** - text document editor,
- * **cell** - spreadsheet editor,
- * **slide** - presentation editor,
- * **pdf** - pdf editor.
+ *
+ * - **word** - text document editor,
+ * - **cell** - spreadsheet editor,
+ * - **slide** - presentation editor,
+ * - **pdf** - pdf editor.
  */
 type editorType = "word" | "cell" | "slide" | "pdf";
 
@@ -451,13 +452,14 @@ interface fillForms {
 
 /**
  * The data type selected in the editor and sent to the plugin:
- * **text** - the text data,
- * **html** - HTML formatted code,
- * **ole** - OLE object data,
- * **desktop** - the desktop editor data,
- * **desktop-external** - the main page data of the desktop app (system messages),
- * **none** - no data will be send to the plugin from the editor,
- * **sign** - the sign for the keychain plugin.
+ *
+ * - **text** - the text data,
+ * - **html** - HTML formatted code,
+ * - **ole** - OLE object data,
+ * - **desktop** - the desktop editor data,
+ * - **desktop-external** - the main page data of the desktop app (system messages),
+ * - **none** - no data will be send to the plugin from the editor,
+ * - **sign** - the sign for the keychain plugin.
  */
 type initDataType = "text" | "html" | "ole" | "desktop" | "desktop-external" | "none" | "sign";
 
@@ -712,8 +714,9 @@ type CellMethodArgs = {
    */
   GetFontList: [];
   /**
-   * Returns the image data from the first of the selected drawings. If there are no drawings selected,
-   * the method returns a white rectangle.
+   * Returns the image data from the first of the selected drawings.
+   *
+   * If there are no drawings selected, the method returns a white rectangle.
    *
    * @returns The ImageData object containig the information about the base64 encoded png image.
    * @since 7.2.0
@@ -1083,6 +1086,7 @@ type CellMethodArgs = {
   PasteText: [text: string];
   /**
    * Replaces the first selected drawing with the image specified in the parameters.
+   *
    * If there are no drawings selected, the method inserts the image at the current position.
    *
    * @param oImageData - The information about the base64 encoded *png* image.
@@ -1225,10 +1229,14 @@ type CellMethodArgs = {
    */
   SetMacros: [data: string];
   /**
-   * Configures plugins from an external source. The settings can be set for all plugins or for a
-   * specific plugin.
-   * For example, this method can be used to pass an authorization token to the plugin. This method can
-   * be used only with the connector class.
+   * Configures plugins from an external source.
+   *
+   * The settings can be set for all plugins or for a specific plugin. For example, this method can be
+   * used to pass an authorization token to the plugin.
+   *
+   * **Note:**
+   * This method can be used only with the
+   * {@link https://api.onlyoffice.com/docs/docs-api/usage-api/automation-api/connector-class connector class}.
    *
    * @param options - Plugin options.
    * @since 8.1.1

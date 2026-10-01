@@ -24,7 +24,7 @@
       "signature": "Copy(): ApiForm"
     },
     "Delete": {
-      "description": "Removes a form and its content. If keepContent is true, the content is not deleted.",
+      "description": "Removes a form and its content.\n\nIf keepContent is true, the content is not deleted.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/Delete/",
       "params": [
         {
@@ -180,7 +180,7 @@
       "signature": "GetText(): string"
     },
     "GetTextPr": {
-      "description": "Returns the text properties from the current form.\n*Used if possible for this type of form*",
+      "description": "Returns the text properties from the current form.\n\n*Used if possible for this type of form*",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetTextPr/",
       "params": [],
       "returns": {
@@ -208,7 +208,7 @@
       "since": "9.4.0"
     },
     "GetWrapperShape": {
-      "description": "Returns a shape in which the form is placed to control the position and size of the fixed size form frame.\nThe null value will be returned for the inline forms.",
+      "description": "Returns a shape in which the form is placed to control the position and size of the fixed size form frame.\n\nThe null value will be returned for the inline forms.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetWrapperShape/",
       "params": [],
       "returns": {
@@ -218,7 +218,7 @@
       "signature": "GetWrapperShape(): ApiShape"
     },
     "IsEditable": {
-      "description": "Checks if the combo box text can be edited. If it is not editable, then this form is a drop-down list.",
+      "description": "Checks if the combo box text can be edited.\n\nIf it is not editable, then this form is a drop-down list.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComboBoxForm/Methods/IsEditable/",
       "params": [],
       "returns": {
@@ -368,7 +368,7 @@
       "since": "9.3.0"
     },
     "SetPlaceholderText": {
-      "description": "Sets the placeholder text to the current form.\n*Can't be set to checkbox or radio button.*",
+      "description": "Sets the placeholder text to the current form.\n\n*Can't be set to checkbox or radio button.*",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/SetPlaceholderText/",
       "params": [
         {
@@ -430,7 +430,7 @@
       "since": "9.0.0"
     },
     "SetText": {
-      "description": "Sets the text to the current combo box.\n*Available only for editable combo box forms.*",
+      "description": "Sets the text to the current combo box.\n\n*Available only for editable combo box forms.*",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComboBoxForm/Methods/SetText/",
       "params": [
         {
@@ -445,7 +445,7 @@
       "signature": "SetText(sText: string): boolean"
     },
     "SetTextPr": {
-      "description": "Sets the text properties to the current form.\n*Used if possible for this type of form*",
+      "description": "Sets the text properties to the current form.\n\n*Used if possible for this type of form*",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/SetTextPr/",
       "params": [
         {
@@ -475,7 +475,7 @@
       "signature": "SetTipText(sText: string): boolean"
     },
     "SetValue": {
-      "description": "Sets the value of the combo box form. Selects a list item if the value matches one,\notherwise sets it as free text (only for editable combo boxes).",
+      "description": "Sets the value of the combo box form.\n\nSelects a list item if the value matches one,\notherwise sets it as free text (only for editable combo boxes).",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComboBoxForm/Methods/SetValue/",
       "params": [
         {
@@ -517,7 +517,7 @@
       "signature": "ToFixed(width: twips, height: twips, keepPosition?: boolean): boolean"
     },
     "ToInline": {
-      "description": "Converts the current form to an inline form.\n*Picture form can't be converted to an inline form, it's always a fixed size object.*",
+      "description": "Converts the current form to an inline form.\n\n*Picture form can't be converted to an inline form, it's always a fixed size object.*",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/ToInline/",
       "params": [],
       "returns": {

@@ -1,5 +1,5 @@
 {
-  "description": "Returns the k-th smallest value in a data set. For example, the fifth smallest number.",
+  "description": "Returns the k-th smallest value in a data set.\n\nFor example, the fifth smallest number.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/SMALL/",
   "params": [
     {

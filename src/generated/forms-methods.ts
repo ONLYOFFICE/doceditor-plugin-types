@@ -149,10 +149,11 @@ interface ContentControlListElement {
 
 /**
  * A value that defines if it is possible to delete and/or edit the content control or not:
- * **0** - only deleting
- * **1** - disable deleting or editing
- * **2** - only editing
- * **3** - full access
+ *
+ * - **0** - only deleting
+ * - **1** - disable deleting or editing
+ * - **2** - only editing
+ * - **3** - full access
  */
 type ContentControlLock = 0 | 1 | 2 | 3;
 
@@ -224,10 +225,11 @@ interface ContentControlPropertiesAndContent {
 
 /**
  * A numeric value that specifies the content control type:
- * **1** - block content control
- * **2** - inline content control
- * **3** - row content control
- * **4** - cell content control
+ *
+ * - **1** - block content control
+ * - **2** - inline content control
+ * - **3** - row content control
+ * - **4** - cell content control
  */
 type ContentControlType = 1 | 2 | 3 | 4;
 
@@ -257,10 +259,11 @@ interface ContextMenuItem {
 
 /**
  * The document editing restrictions:
- * **none** - no editing restrictions,
- * **comments** - allows editing comments,
- * **forms** - allows editing form fields,
- * **readOnly** - does not allow editing.
+ *
+ * - **none** - no editing restrictions,
+ * - **comments** - allows editing comments,
+ * - **forms** - allows editing form fields,
+ * - **readOnly** - does not allow editing.
  */
 type DocumentEditingRestrictions = 'none' | 'comments' | 'forms' | 'readOnly';
 
@@ -533,9 +536,10 @@ type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorder
 
 /**
  * Specifies if the whole text or only its part will be returned or replaced:
- * **entirely** - replaces/returns the whole text,
- * **beforeCursor** - replaces/returns only the part of the text before the cursor,
- * **afterCursor** - replaces/returns only the part of the text after the cursor.
+ *
+ * - **entirely** - replaces/returns the whole text,
+ * - **beforeCursor** - replaces/returns only the part of the text before the cursor,
+ * - **afterCursor** - replaces/returns only the part of the text after the cursor.
  */
 type TextPartType = "entirely" | "beforeCursor" | "afterCursor";
 
@@ -671,10 +675,11 @@ interface comment {
 
 /**
  * The editors which the plugin is available for:
- * **word** - text document editor,
- * **cell** - spreadsheet editor,
- * **slide** - presentation editor,
- * **pdf** - pdf editor.
+ *
+ * - **word** - text document editor,
+ * - **cell** - spreadsheet editor,
+ * - **slide** - presentation editor,
+ * - **pdf** - pdf editor.
  */
 type editorType = "word" | "cell" | "slide" | "pdf";
 
@@ -686,13 +691,14 @@ interface fillForms {
 
 /**
  * The data type selected in the editor and sent to the plugin:
- * **text** - the text data,
- * **html** - HTML formatted code,
- * **ole** - OLE object data,
- * **desktop** - the desktop editor data,
- * **desktop-external** - the main page data of the desktop app (system messages),
- * **none** - no data will be send to the plugin from the editor,
- * **sign** - the sign for the keychain plugin.
+ *
+ * - **text** - the text data,
+ * - **html** - HTML formatted code,
+ * - **ole** - OLE object data,
+ * - **desktop** - the desktop editor data,
+ * - **desktop-external** - the main page data of the desktop app (system messages),
+ * - **none** - no data will be send to the plugin from the editor,
+ * - **sign** - the sign for the keychain plugin.
  */
 type initDataType = "text" | "html" | "ole" | "desktop" | "desktop-external" | "none" | "sign";
 
@@ -973,8 +979,9 @@ type FormsMethodArgs = {
    */
   GetFormsByTag: [tag: string];
   /**
-   * Returns the image data from the first of the selected drawings. If there are no drawings selected,
-   * the method returns a white rectangle.
+   * Returns the image data from the first of the selected drawings.
+   *
+   * If there are no drawings selected, the method returns a white rectangle.
    *
    * @returns The ImageData object containig the information about the base64 encoded png image.
    * @since 7.2.0
@@ -1403,6 +1410,7 @@ type FormsMethodArgs = {
   PasteText: [text: string];
   /**
    * Replaces the first selected drawing with the image specified in the parameters.
+   *
    * If there are no drawings selected, the method inserts the image at the current position.
    *
    * @param oImageData - The information about the base64 encoded *png* image.
@@ -1496,10 +1504,14 @@ type FormsMethodArgs = {
    */
   SetMacros: [data: string];
   /**
-   * Configures plugins from an external source. The settings can be set for all plugins or for a
-   * specific plugin.
-   * For example, this method can be used to pass an authorization token to the plugin. This method can
-   * be used only with the connector class.
+   * Configures plugins from an external source.
+   *
+   * The settings can be set for all plugins or for a specific plugin. For example, this method can be
+   * used to pass an authorization token to the plugin.
+   *
+   * **Note:**
+   * This method can be used only with the
+   * {@link https://api.onlyoffice.com/docs/docs-api/usage-api/automation-api/connector-class connector class}.
    *
    * @param options - Plugin options.
    * @since 8.1.1

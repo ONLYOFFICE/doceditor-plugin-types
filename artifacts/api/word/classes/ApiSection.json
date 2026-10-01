@@ -194,7 +194,7 @@
       "since": "8.2.0"
     },
     "RemoveFooter": {
-      "description": "Removes the footer of the specified type from the current section. After removal, the footer will be inherited from \nthe previous section, or if this is the first section in the document, no footer of the specified type will be presented.",
+      "description": "Removes the footer of the specified type from the current section.\n\nAfter removal, the footer will be inherited from\nthe previous section, or if this is the first section in the document, no footer of the specified type will be presented.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiSection/Methods/RemoveFooter/",
       "params": [
         {
@@ -209,7 +209,7 @@
       "signature": "RemoveFooter(sType: HdrFtrType): boolean"
     },
     "RemoveHeader": {
-      "description": "Removes the header of the specified type from the current section. After removal, the header will be inherited from\nthe previous section, or if this is the first section in the document, no header of the specified type will be presented.",
+      "description": "Removes the header of the specified type from the current section.\n\nAfter removal, the header will be inherited from\nthe previous section, or if this is the first section in the document, no header of the specified type will be presented.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiSection/Methods/RemoveHeader/",
       "params": [
         {
@@ -274,7 +274,7 @@
       "signature": "SetHeaderDistance(nDistance: twips): boolean"
     },
     "SetMargins": {
-      "description": "Specifies the page margins for all the pages in this section. Alias for {@link ApiSection#SetPageMargins}.",
+      "description": "Specifies the page margins for all the pages in this section.\n\nAlias for {@link ApiSection#SetPageMargins}.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiSection/Methods/SetMargins/",
       "params": [
         {
@@ -305,7 +305,7 @@
       "since": "9.4.0"
     },
     "SetNotEqualColumns": {
-      "description": "Specifies that all the columns in the current section have the different widths. Number of columns is equal \nto the length of the aWidth array. The length of the aSpaces array MUST BE equal to (aWidth.length - 1).",
+      "description": "Specifies that all the columns in the current section have the different widths.\n\nNumber of columns is equal\nto the length of the aWidth array. The length of the aSpaces array MUST BE equal to (aWidth.length - 1).",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiSection/Methods/SetNotEqualColumns/",
       "params": [
         {
@@ -412,7 +412,7 @@
       "signature": "SetTitlePage(isTitlePage: boolean): boolean"
     },
     "SetType": {
-      "description": "Specifies a type of the current section. The section type defines how the contents of the current \nsection are placed relative to the previous section.",
+      "description": "Specifies a type of the current section.\n\nThe section type defines how the contents of the current\nsection are placed relative to the previous section.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiSection/Methods/SetType/",
       "params": [
         {

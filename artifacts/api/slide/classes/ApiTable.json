@@ -342,7 +342,7 @@
       "since": "10.0.0"
     },
     "MergeCells": {
-      "description": "Merges an array of cells. If merge is successful, it will return merged cell, otherwise \"null\".\n**Warning**: The number of cells in any row and the number of rows in the current table may be changed.",
+      "description": "Merges an array of cells.\n\nIf merge is successful, it will return merged cell, otherwise \"null\".\n\n**Warning:**\nThe number of cells in any row and the number of rows in the current table may be changed.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/MergeCells/",
       "params": [
         {
@@ -473,7 +473,7 @@
       "since": "10.0.0"
     },
     "SetHyperlink": {
-      "description": "Sets a hyperlink to the current drawing object (shape or image).\nPass null to remove the hyperlink.",
+      "description": "Sets a hyperlink to the current drawing object (shape or image).\n\nPass null to remove the hyperlink.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/SetHyperlink/",
       "params": [
         {

@@ -73,7 +73,7 @@
       "signature": "AddObject(oDrawing: ApiDrawing): boolean"
     },
     "ApplyLayout": {
-      "description": "Applies the specified layout to the current slide.\nThe layout must be in slide master.",
+      "description": "Applies the specified layout to the current slide.\n\nThe layout must be in slide master.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiSlide/Methods/ApplyLayout/",
       "params": [
         {

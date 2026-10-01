@@ -3,7 +3,7 @@
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFreezePanes/",
   "methods": {
     "FreezeAt": {
-      "description": "Sets the frozen cells in the active worksheet view. The range provided corresponds to the cells that will be frozen in the top- and left-most pane.",
+      "description": "Sets the frozen cells in the active worksheet view.\n\nThe range provided corresponds to the cells that will be frozen in the top- and left-most pane.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFreezePanes/Methods/FreezeAt/",
       "params": [
         {

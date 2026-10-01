@@ -276,7 +276,7 @@
       "signature": "SetPercentageFormat(decimalPlaces: number, separatorStyle: NumberSepStyle): boolean"
     },
     "SetPlaceholder": {
-      "description": "Sets text field placeholder.\n<note>Makes combobox editable</note>",
+      "description": "Sets text field placeholder.\n**Note:**\nMakes combobox editable",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiComboboxField/Methods/SetPlaceholder/",
       "params": [
         {
@@ -337,7 +337,7 @@
       "signature": "SetTimeFormat(format: TimeFormat): boolean"
     },
     "SetValidateRange": {
-      "description": "Sets validate range for field.\n<note> Can only be applied to fields with a percentage or number format. </note>",
+      "description": "Sets validate range for field.\n\n**Note:**\nCan only be applied to fields with a percentage or number format.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiComboboxField/Methods/SetValidateRange/",
       "params": [
         {

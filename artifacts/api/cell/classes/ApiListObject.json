@@ -3,7 +3,7 @@
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/",
   "methods": {
     "AddListColumn": {
-      "description": "Adds a new column to the table at the specified 1-based position.\nIf no position is provided, the column is appended at the end.",
+      "description": "Adds a new column to the table at the specified 1-based position.\n\nIf no position is provided, the column is appended at the end.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/AddListColumn/",
       "params": [
         {
@@ -20,7 +20,7 @@
       "signature": "AddListColumn(nPosition?: number): ApiListColumn | null"
     },
     "AddListRow": {
-      "description": "Adds a new data row to the table at the specified 1-based position.\nIf no position is provided, the row is appended at the end.",
+      "description": "Adds a new data row to the table at the specified 1-based position.\n\nIf no position is provided, the row is appended at the end.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/AddListRow/",
       "params": [
         {
@@ -73,7 +73,7 @@
       "signature": "GetAlternativeText(): string"
     },
     "GetAutoFilter": {
-      "description": "Returns the ApiAutoFilter object representing the autofilter applied to the table.\nReturns null if the table has no autofilter.",
+      "description": "Returns the ApiAutoFilter object representing the autofilter applied to the table.\n\nReturns null if the table has no autofilter.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetAutoFilter/",
       "params": [],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
@@ -93,7 +93,7 @@
       "signature": "GetComment(): string"
     },
     "GetDataBodyRange": {
-      "description": "Returns the range of the data rows in the table, excluding the header row and totals row.\nReturns null if the table has no data rows.",
+      "description": "Returns the range of the data rows in the table, excluding the header row and totals row.\n\nReturns null if the table has no data rows.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetDataBodyRange/",
       "params": [],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
@@ -113,7 +113,7 @@
       "signature": "GetDisplayName(): string"
     },
     "GetHeaderRowRange": {
-      "description": "Returns the range of the header row of the table.\nReturns null if the table has no header row.",
+      "description": "Returns the range of the header row of the table.\n\nReturns null if the table has no header row.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetHeaderRowRange/",
       "params": [],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
@@ -173,7 +173,7 @@
       "signature": "GetRange(): ApiRange | null"
     },
     "GetShowAutoFilter": {
-      "description": "Returns whether the AutoFilter dropdown buttons are displayed on the header row of the table.\nReturns true by default for a new table.",
+      "description": "Returns whether the AutoFilter dropdown buttons are displayed on the header row of the table.\n\nReturns true by default for a new table.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetShowAutoFilter/",
       "params": [],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
@@ -183,7 +183,7 @@
       "signature": "GetShowAutoFilter(): boolean"
     },
     "GetShowAutoFilterDropDown": {
-      "description": "Returns whether the AutoFilter dropdown arrows are displayed on the header row of the table.\nReturns true by default for a new table.",
+      "description": "Returns whether the AutoFilter dropdown arrows are displayed on the header row of the table.\n\nReturns true by default for a new table.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetShowAutoFilterDropDown/",
       "params": [],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
@@ -263,7 +263,7 @@
       "signature": "GetSort(): ApiSort"
     },
     "GetSourceType": {
-      "description": "Returns the source type of the table. Always returns \"xlSrcRange\" for range-based tables.",
+      "description": "Returns the source type of the table.\n\nAlways returns \"xlSrcRange\" for range-based tables.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetSourceType/",
       "params": [],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
@@ -293,7 +293,7 @@
       "signature": "GetTableStyle(): string"
     },
     "GetTotalsRowRange": {
-      "description": "Returns the range of the totals row of the table.\nReturns null if the table has no totals row.",
+      "description": "Returns the range of the totals row of the table.\n\nReturns null if the table has no totals row.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/GetTotalsRowRange/",
       "params": [],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
@@ -303,7 +303,7 @@
       "signature": "GetTotalsRowRange(): ApiRange | null"
     },
     "Resize": {
-      "description": "Resizes the ListObject to a new range. Cells are not inserted or moved.",
+      "description": "Resizes the ListObject to a new range.\n\nCells are not inserted or moved.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/Resize/",
       "params": [
         {
@@ -368,7 +368,7 @@
       "signature": "SetDisplayName(sDisplayName: string): boolean"
     },
     "SetName": {
-      "description": "Sets the name of the table. Equivalent to SetDisplayName.",
+      "description": "Sets the name of the table.\n\nEquivalent to SetDisplayName.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/SetName/",
       "params": [
         {
@@ -385,7 +385,7 @@
       "signature": "SetName(name: string): boolean"
     },
     "SetShowAutoFilter": {
-      "description": "Sets whether the AutoFilter is present on the table.\nSetting to false removes the AutoFilter entirely; setting to true creates it if not present.",
+      "description": "Sets whether the AutoFilter is present on the table.\n\nSetting to false removes the AutoFilter entirely; setting to true creates it if not present.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/SetShowAutoFilter/",
       "params": [
         {
@@ -401,7 +401,7 @@
       "signature": "SetShowAutoFilter(show: boolean): void"
     },
     "SetShowAutoFilterDropDown": {
-      "description": "Sets whether the AutoFilter dropdown arrows are displayed on the header row of the table.\nDoes not remove the AutoFilter itself, only hides or shows the dropdown buttons.",
+      "description": "Sets whether the AutoFilter dropdown arrows are displayed on the header row of the table.\n\nDoes not remove the AutoFilter itself, only hides or shows the dropdown buttons.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/SetShowAutoFilterDropDown/",
       "params": [
         {
@@ -529,11 +529,11 @@
       "signature": "SetSummary(summary: string): void"
     },
     "SetTableStyle": {
-      "description": "Sets the table style by name.",
+      "description": "Sets the table style by name.\nBuilt-in table style names: TableStyleLight1-21, TableStyleMedium1-28, TableStyleDark1-11.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/SetTableStyle/",
       "params": [
         {
-          "description": "The name of the table style to apply.",
+          "description": "The name of a built-in table style (for example, \"TableStyleMedium9\"), or a custom style defined in the workbook.",
           "name": "styleName",
           "type": "string"
         }
@@ -545,7 +545,7 @@
       "signature": "SetTableStyle(styleName: string): void"
     },
     "Unlist": {
-      "description": "Removes the list functionality from the ListObject and converts it to a regular data range.\nCell data, formatting, and formulas remain on the sheet.",
+      "description": "Removes the list functionality from the ListObject and converts it to a regular data range.\n\nCell data, formatting, and formulas remain on the sheet.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/Unlist/",
       "params": [],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",

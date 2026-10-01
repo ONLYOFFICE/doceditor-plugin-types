@@ -3,7 +3,7 @@
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/",
   "methods": {
     "AddChart": {
-      "description": "Creates a chart of the specified type from the selected data range of the current sheet.\n<note>Please note that the horizontal and vertical offsets are calculated within the limits of the specified column and\nrow cells only. If this value exceeds the cell width or height, another vertical/horizontal position will be set.</note>\n**Note:**\nValues of _nStyleIndex_ outside **1 - 48** are interpreted as a chart style id from the _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs Enterprise](https://www.onlyoffice.com/docs-enterprise-prices?from=api) and [ONLYOFFICE Docs Developer](https://www.onlyoffice.com/developer-edition-prices?from=api).\n",
+      "description": "Creates a chart of the specified type from the selected data range of the current sheet.\n\n**Note:**\nThe horizontal and vertical offsets are calculated within the limits of the specified column and\nrow cells only. If this value exceeds the cell width or height, another vertical/horizontal position will be set.\n\n\n**Note:**\nValues of _nStyleIndex_ outside **1 - 48** are interpreted as a chart style id from the _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs Enterprise](https://www.onlyoffice.com/docs-enterprise-prices?from=api) and [ONLYOFFICE Docs Developer](https://www.onlyoffice.com/developer-edition-prices?from=api).\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/AddChart/",
       "params": [
         {
@@ -174,7 +174,7 @@
       "signature": "AddImage(sImageSrc: string, nWidth: EMU, nHeight: EMU, nFromCol: number, nColOffset: EMU, nFromRow: number, nRowOffset: EMU): ApiImage | null"
     },
     "AddListObject": {
-      "description": "Adds a formatted table to the worksheet and returns the ApiListObject object.",
+      "description": "Adds a formatted table to the worksheet and returns the ApiListObject object.\nBuilt-in table style names: TableStyleLight1-21, TableStyleMedium1-28, TableStyleDark1-11.",
       "params": [
         {
           "description": "The source type for the table. Currently only **\"xlSrcRange\"** is supported.",
@@ -207,7 +207,7 @@
           "type": "string"
         },
         {
-          "description": "The table style name.",
+          "description": "The name of a built-in table style (for example, \"TableStyleMedium9\"), or a custom style defined in the workbook.",
           "name": "sTableStyleName",
           "optional": true,
           "type": "string"
@@ -300,7 +300,7 @@
       "since": "8.1.0"
     },
     "AddShape": {
-      "description": "Adds a shape to the current sheet with the parameters specified.\n<note>Please note that the horizontal and vertical offsets are\ncalculated within the limits of the specified column and row cells\nonly. If this value exceeds the cell width or height, another vertical/horizontal position will be set.</note>",
+      "description": "Adds a shape to the current sheet with the parameters specified.\n\n**Note:**\nThe horizontal and vertical offsets are\ncalculated within the limits of the specified column and row cells\nonly. If this value exceeds the cell width or height, another vertical/horizontal position will be set.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/AddShape/",
       "params": [
         {
@@ -456,7 +456,7 @@
       "signature": "Delete(): boolean"
     },
     "FormatAsTable": {
-      "description": "Formats the selected range of cells from the current sheet as a table (with the first row formatted as a header).\n<note>As the first row is always formatted as a table header, you need to select at least two rows for the table to be formed correctly.</note>",
+      "description": "Formats the selected range of cells from the current sheet as a table (with the first row formatted as a header).\n\n**Note:**\nAs the first row is always formatted as a table header, you need to select at least two rows for the table to be formed correctly.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/FormatAsTable/",
       "params": [
         {
@@ -616,7 +616,7 @@
       "signature": "GetComments(): ApiComment[]"
     },
     "GetCustomXmlParts": {
-      "description": "Retrieves the custom XML manager associated with the current sheet.\nThis manager allows manipulation and access to custom XML parts within the current sheet.",
+      "description": "Retrieves the custom XML manager associated with the current sheet.\n\nThis manager allows manipulation and access to custom XML parts within the current sheet.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetCustomXmlParts/",
       "params": [],
       "returns": {
@@ -780,7 +780,7 @@
       "since": "8.1.0"
     },
     "GetRange": {
-      "description": "Returns an object that represents the selected range of the current sheet. Can be a single cell - **A1**, or cells\nfrom a single row - **A1:E1**, or cells from a single column - **A1:A10**, or cells from several rows and columns - **A1:E10**.",
+      "description": "Returns an object that represents the selected range of the current sheet.\n\nCan be a single cell - **A1**, or cells\nfrom a single row - **A1:E1**, or cells from a single column - **A1:A10**, or cells from several rows and columns - **A1:E10**.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetRange/",
       "params": [
         {
@@ -904,7 +904,7 @@
       "signature": "GetVisible(): boolean"
     },
     "GroupDrawings": {
-      "description": "Groups an array of drawings in the current sheet.\n<note>This method is not supported in the document builder and works only in the editor.</note>",
+      "description": "Groups an array of drawings in the current sheet.\n**Note:**\nThis method is not supported in the document builder and works only in the editor.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GroupDrawings/",
       "params": [
         {
@@ -1022,7 +1022,7 @@
       "signature": "SetBottomMargin(nPoints: number): boolean"
     },
     "SetColumnWidth": {
-      "description": "Sets the width of the specified column.\nOne unit of column width is equal to the width of one character in the Normal style.\nFor proportional fonts, the width of the character 0 (zero) is used.",
+      "description": "Sets the width of the specified column.\n\nOne unit of column width is equal to the width of one character in the Normal style.\nFor proportional fonts, the width of the character 0 (zero) is used.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetColumnWidth/",
       "params": [
         {
@@ -1086,12 +1086,12 @@
       "params": [
         {
           "description": "The range where the hyperlink will be added to.",
-          "name": "sRange",
+          "name": "range",
           "type": "string"
         },
         {
           "description": "The link address.",
-          "name": "sAddress",
+          "name": "address",
           "type": "string"
         },
         {
@@ -1102,13 +1102,13 @@
         },
         {
           "description": "The screen tip text.",
-          "name": "sScreenTip",
+          "name": "screenTip",
           "optional": true,
           "type": "string"
         },
         {
           "description": "The link text that will be displayed on the sheet.",
-          "name": "sTextToDisplay",
+          "name": "textToDisplay",
           "optional": true,
           "type": "string"
         }
@@ -1117,7 +1117,7 @@
         "description": "returns true if the hyperlink was set successfully.",
         "type": "boolean"
       },
-      "signature": "SetHyperlink(sRange: string, sAddress: string, subAddress?: string, sScreenTip?: string, sTextToDisplay?: string): boolean"
+      "signature": "SetHyperlink(range: string, address: string, subAddress?: string, screenTip?: string, textToDisplay?: string): boolean"
     },
     "SetLeftMargin": {
       "description": "Sets the left margin of the sheet.",
@@ -1215,7 +1215,7 @@
       "signature": "SetRightMargin(nPoints: number): boolean"
     },
     "SetRowHeight": {
-      "description": "Sets the height of the specified row measured in points.\nA point is 1/72 inch.",
+      "description": "Sets the height of the specified row measured in points.\n\nA point is 1/72 inch.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetRowHeight/",
       "params": [
         {

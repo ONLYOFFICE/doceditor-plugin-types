@@ -25,7 +25,7 @@
       "since": "7.5.0"
     },
     "AddCustomFunction": {
-      "description": "Creates a new custom function.\nThe description of the function parameters and result is specified using JSDoc. The *@customfunction* tag is required in JSDoc.\nParameters and results can be specified as the *number / string / boolean / any / number[][] / string[][] / boolean[][] / any[][]* types.\nParameters can be required or optional. A user can also set a default value.\nThe passed function can be asynchronous (async function or function returning a Promise).\nInside the passed function, you can access the current cell address where the calculation is performed using *this.address*.\nYou can also access the addresses of function arguments using *this.args[0].address*, *this.args[1].address*, etc.\nThis method is not used in ONLYOFFICE Document Builder. Use AddCustomFunctionLibrary instead.",
+      "description": "Creates a new custom function.\n\nThe description of the function parameters and result is specified using JSDoc. The *@customfunction* tag is required in JSDoc.\nParameters and results can be specified as the *number / string / boolean / any / number[][] / string[][] / boolean[][] / any[][]* types.\nParameters can be required or optional. A user can also set a default value.\nThe passed function can be asynchronous (async function or function returning a Promise).\nInside the passed function, you can access the current cell address where the calculation is performed using *this.address*.\nYou can also access the addresses of function arguments using *this.args[0].address*, *this.args[1].address*, etc.\nThis method is not used in ONLYOFFICE Document Builder. Use AddCustomFunctionLibrary instead.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/AddCustomFunction/",
       "params": [
         {
@@ -40,7 +40,7 @@
       "signature": "AddCustomFunction(fCustom: (...args: unknown[]) => unknown): void"
     },
     "AddCustomFunctionLibrary": {
-      "description": "Registers a new custom functions library (see the **SetCustomFunctions** plugin method).\nThe description of the function parameters and result is specified using JSDoc. The *@customfunction* tag is required in JSDoc.\nParameters and results can be specified as the *number / string / boolean / any / number[][] / string[][] / boolean[][] / any[][]* types.\nParameters can be required or optional. A user can also set a default value.",
+      "description": "Registers a new custom functions library (see the **SetCustomFunctions** plugin method).\n\nThe description of the function parameters and result is specified using JSDoc. The *@customfunction* tag is required in JSDoc.\nParameters and results can be specified as the *number / string / boolean / any / number[][] / string[][] / boolean[][] / any[][]* types.\nParameters can be required or optional. A user can also set a default value.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/AddCustomFunctionLibrary/",
       "params": [
         {
@@ -88,7 +88,7 @@
       "signature": "AddDefName(sName: string, sRef: string, isHidden?: boolean): boolean"
     },
     "AddSheet": {
-      "description": "Creates a new worksheet. The new worksheet becomes the active sheet.",
+      "description": "Creates a new worksheet.\n\nThe new worksheet becomes the active sheet.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/AddSheet/",
       "params": [
         {
@@ -138,7 +138,7 @@
       "signature": "ClearCustomFunctions(): boolean"
     },
     "Color": {
-      "description": "Creates an ApiColor from a universal input. The method recognizes several call signatures and either delegates to a narrower factory or constructs an ApiColor directly.\n**Numeric components**: \"Api.Color(r, g, b)\" or \"Api.Color(r, g, b, a)\" creates an RGB or RGBA color from byte components (0-255).\n**Packed integer**: \"Api.Color(0xRRGGBB)\" creates an RGB color from a 24-bit integer.\n**Full HEX string**: \"Api.Color('#RRGGBB')\" or \"Api.Color('RRGGBB')\" creates a HEX color; the leading \"#\" is optional.\n**Short HEX string**: \"Api.Color('#RGB')\" expands each digit by duplication, so \"#F0A\" becomes \"#FF00AA\".\n**Theme color name**: \"Api.Color('accent1')\" creates a theme color; any value of SchemeColorId is accepted.\n**Preset color name**: \"Api.Color('aliceBlue')\" resolves any value of PresetColor to its RGB equivalent.\n**Auto color**: \"Api.Color('auto')\" creates an auto color.\nFor a single string argument, the resolution priority is: \"auto\", a string starting with \"#\", a theme name, a preset name, a bare 6-digit HEX. Theme and preset palettes do not overlap. A 3-digit shorthand is accepted only with the leading \"#\".\nUnsupported inputs (objects, arrays, an existing ApiColor, unknown strings, no arguments) return a black color (#000000).",
+      "description": "Creates an ApiColor from a universal input.\n\nThe method recognizes several call signatures and either delegates to a narrower factory or constructs an ApiColor directly.\n\n- **Numeric components**: \"Api.Color(r, g, b)\" or \"Api.Color(r, g, b, a)\" creates an RGB or RGBA color from byte components (0-255).\n- **Packed integer**: \"Api.Color(0xRRGGBB)\" creates an RGB color from a 24-bit integer.\n- **Full HEX string**: \"Api.Color('#RRGGBB')\" or \"Api.Color('RRGGBB')\" creates a HEX color; the leading \"#\" is optional.\n- **Short HEX string**: \"Api.Color('#RGB')\" expands each digit by duplication, so \"#F0A\" becomes \"#FF00AA\".\n- **Theme color name**: \"Api.Color('accent1')\" creates a theme color; any value of SchemeColorId is accepted.\n- **Preset color name**: \"Api.Color('aliceBlue')\" resolves any value of PresetColor to its RGB equivalent.\n- **Auto color**: \"Api.Color('auto')\" creates an auto color.\n\nFor a single string argument, the resolution priority is: \"auto\", a string starting with \"#\", a theme name, a preset name, a bare 6-digit HEX. Theme and preset palettes do not overlap. A 3-digit shorthand is accepted only with the leading \"#\".\n\nUnsupported inputs (objects, arrays, an existing ApiColor, unknown strings, no arguments) return a black color (#000000).",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/Color/",
       "params": [
         {
@@ -696,7 +696,7 @@
       "signature": "GetComments(): ApiComment[]"
     },
     "GetCore": {
-      "description": "Returns the core properties interface for the workbook.\nThis method is used to view or modify standard metadata such as title, author, and keywords.",
+      "description": "Returns the core properties interface for the workbook.\n\nThis method is used to view or modify standard metadata such as title, author, and keywords.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetCore/",
       "params": [],
       "returns": {
@@ -742,7 +742,7 @@
       "signature": "GetDefNames(): ApiName[]"
     },
     "GetDocumentInfo": {
-      "description": "Returns the document information:\n**Application** - the application the document has been created with.\n**CreatedRaw** - the date and time when the file was created.\n**Created** - the parsed date and time when the file was created.\n**LastModifiedRaw** - the date and time when the file was last modified.\n**LastModified** - the parsed date and time when the file was last modified.\n**LastModifiedBy** - the name of the user who has made the latest change to the document.\n**Authors** - the persons who has created the file.\n**Title** - this property allows you to simplify your documents classification.\n**Tags** - this property allows you to simplify your documents classification.\n**Subject** - this property allows you to simplify your documents classification.\n**Comment** - this property allows you to simplify your documents classification.",
+      "description": "Returns the document information:\n\n- **Application** - the application the document has been created with.\n- **CreatedRaw** - the date and time when the file was created.\n- **Created** - the parsed date and time when the file was created.\n- **LastModifiedRaw** - the date and time when the file was last modified.\n- **LastModified** - the parsed date and time when the file was last modified.\n- **LastModifiedBy** - the name of the user who has made the latest change to the document.\n- **Authors** - the persons who has created the file.\n- **Title** - this property allows you to simplify your documents classification.\n- **Tags** - this property allows you to simplify your documents classification.\n- **Subject** - this property allows you to simplify your documents classification.\n- **Comment** - this property allows you to simplify your documents classification.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetDocumentInfo/",
       "params": [],
       "returns": {
@@ -973,7 +973,7 @@
       "since": "8.2.0"
     },
     "Intersect": {
-      "description": "Returns the ApiRange object that represents the rectangular intersection of two or more ranges.\nIf one or more ranges from a different worksheet are specified, an error will be returned.",
+      "description": "Returns the ApiRange object that represents the rectangular intersection of two or more ranges.\n\nIf one or more ranges from a different worksheet are specified, an error will be returned.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/Intersect/",
       "params": [
         {
@@ -1014,7 +1014,7 @@
       "signature": "LinesToPoints(lines: number): number"
     },
     "MillimetersToEmus": {
-      "description": "Converts millimeters to English Metric Units (EMUs).\nThe result is an integer value.",
+      "description": "Converts millimeters to English Metric Units (EMUs).\n\nThe result is an integer value.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/MillimetersToEmus/",
       "params": [
         {

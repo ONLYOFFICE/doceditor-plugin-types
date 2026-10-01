@@ -1,5 +1,5 @@
 {
-  "description": "Returns the annual yield for a discounted security. For example, a Treasury bill.",
+  "description": "Returns the annual yield for a discounted security.\n\nFor example, a Treasury bill.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/YIELDDISC/",
   "params": [
     {

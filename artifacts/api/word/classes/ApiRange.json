@@ -47,7 +47,7 @@
       "signature": "AddComment(sText: string, sAuthor?: string, sUserId?: string): ApiComment"
     },
     "AddField": {
-      "description": "Adds a field to the specified range by the field instruction code.\n<note> This method removes text within a range. </note>",
+      "description": "Adds a field to the specified range by the field instruction code.\n\n**Note:**\nThis method removes text within a range.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/AddField/",
       "params": [
         {
@@ -121,7 +121,7 @@
       "signature": "Delete(): boolean"
     },
     "ExpandTo": {
-      "description": "Returns a new range that goes beyond the specified range in any direction and spans a different range. The current range has not changed.",
+      "description": "Returns a new range that goes beyond the specified range in any direction and spans a different range.\n\nThe current range has not changed.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/ExpandTo/",
       "params": [
         {
@@ -302,7 +302,7 @@
       "since": "8.2.0"
     },
     "IntersectWith": {
-      "description": "Returns a new range as the intersection of the current range with another range. The current range has not changed.",
+      "description": "Returns a new range as the intersection of the current range with another range.\n\nThe current range has not changed.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/IntersectWith/",
       "params": [
         {
@@ -318,7 +318,7 @@
       "signature": "IntersectWith(oRange: ApiRange): ApiRange | null"
     },
     "MoveCursorToPos": {
-      "description": "Moves a cursor to a specified position of the current range object.\nIf there is any selection in the document, it will be removed.",
+      "description": "Moves a cursor to a specified position of the current range object.\n\nIf there is any selection in the document, it will be removed.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/MoveCursorToPos/",
       "params": [
         {
@@ -429,8 +429,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/SetFontFamily/",
       "params": [
         {
-          "description": "The font family or families used for the current text Range. Pass _null_ to remove the font family.",
+          "description": "The font family or families used for the current text Range. Pass _null_ or omit it to remove the font family.",
           "name": "fontFamily",
+          "optional": true,
           "type": "string | null"
         }
       ],
@@ -438,7 +439,7 @@
         "description": "returns null if can't set font family.",
         "type": "ApiRange | null"
       },
-      "signature": "SetFontFamily(fontFamily: string | null): ApiRange | null"
+      "signature": "SetFontFamily(fontFamily?: string | null): ApiRange | null"
     },
     "SetFontSize": {
       "description": "Sets the font size to the characters of the current text Range.",
@@ -651,7 +652,7 @@
       "signature": "SetUnderline(isUnderline: boolean): ApiRange | null"
     },
     "SetVertAlign": {
-      "description": "Specifies the alignment which will be applied to the Range contents in relation to the default appearance of the Range text:\n**\"baseline\"** - the characters in the current text Range will be aligned by the default text baseline.\n**\"subscript\"** - the characters in the current text Range will be aligned below the default text baseline.\n**\"superscript\"** - the characters in the current text Range will be aligned above the default text baseline.",
+      "description": "Specifies the alignment which will be applied to the Range contents in relation to the default appearance of the Range text:\n\n- **\"baseline\"** - the characters in the current text Range will be aligned by the default text baseline.\n- **\"subscript\"** - the characters in the current text Range will be aligned below the default text baseline.\n- **\"superscript\"** - the characters in the current text Range will be aligned above the default text baseline.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/SetVertAlign/",
       "params": [
         {

@@ -404,7 +404,7 @@
     "signature": "executeMethod(\"GetAllForms\", [], callback?): ContentControl[]"
   },
   "GetAllOleObjects": {
-    "description": "Returns all OLE object data for objects which can be opened by the specified plugin.\nIf *sPluginId* is not defined, this method returns all OLE objects contained in the currrent document.",
+    "description": "Returns all OLE object data for objects which can be opened by the specified plugin.\n\nIf *sPluginId* is not defined, this method returns all OLE objects contained in the current document.",
     "params": [
       {
         "description": "Plugin identifier. It must be of the *asc.{UUID}* type.",
@@ -584,7 +584,7 @@
     "signature": "executeMethod(\"GetFormsByTag\", [tag: string], callback?): ContentControl[]"
   },
   "GetImageDataFromSelection": {
-    "description": "Returns the image data from the first of the selected drawings. If there are no drawings selected, the method returns a white rectangle.",
+    "description": "Returns the image data from the first of the selected drawings.\n\nIf there are no drawings selected, the method returns a white rectangle.",
     "params": [],
     "returns": {
       "description": "The ImageData object containig the information about the base64 encoded png image.",
@@ -729,7 +729,7 @@
     "signature": "executeMethod(\"InputText\", [text: string, textReplace: string], callback?): unknown"
   },
   "InsertAndReplaceContentControls": {
-    "description": "Inserts the content control containing data. The data is specified by the JS code for {@link https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ Document Builder}, or by a link to the shared document.",
+    "description": "Inserts the content control containing data.\n\nThe data is specified by the JS code for {@link https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ Document Builder}, or by a link to the shared document.",
     "params": [
       {
         "description": "An array of properties and contents of the content control.",
@@ -936,7 +936,7 @@
     "signature": "executeMethod(\"MoveCursorToContentControl\", [id: string, isBegin?: boolean], callback?): unknown"
   },
   "MoveCursorToEnd": {
-    "description": "Moves a cursor to the end of the current editing area (document body, footer/header, footnote, or autoshape).\nThis method is similar to pressing the **Ctrl + End** keyboard shortcut.",
+    "description": "Moves a cursor to the end of the current editing area (document body, footer/header, footnote, or autoshape).\n\nThis method is similar to pressing the **Ctrl + End** keyboard shortcut.",
     "params": [
       {
         "description": "This flag ignores the current position and always moves a cursor to the end of the document body.",
@@ -972,7 +972,7 @@
     "since": "9.4.0"
   },
   "MoveCursorToStart": {
-    "description": "Moves a cursor to the beginning of the current editing area (document body, footer/header, footnote, or autoshape).\nThis method is similar to pressing the **Ctrl + Home** keyboard shortcut.",
+    "description": "Moves a cursor to the beginning of the current editing area (document body, footer/header, footnote, or autoshape).\n\nThis method is similar to pressing the **Ctrl + Home** keyboard shortcut.",
     "params": [
       {
         "description": "This flag ignores the current position and always moves a cursor to the beginning of the document body.",
@@ -1098,7 +1098,7 @@
     "signature": "executeMethod(\"PasteText\", [text: string], callback?): unknown"
   },
   "PutImageDataToSelection": {
-    "description": "Replaces the first selected drawing with the image specified in the parameters.\nIf there are no drawings selected, the method inserts the image at the current position.",
+    "description": "Replaces the first selected drawing with the image specified in the parameters.\n\nIf there are no drawings selected, the method inserts the image at the current position.",
     "params": [
       {
         "description": "The information about the base64 encoded *png* image.",
@@ -1183,7 +1183,7 @@
     "signature": "executeMethod(\"RemoveComments\", [arrIds: string[]], callback?): unknown"
   },
   "RemoveContentControl": {
-    "description": "Removes the currently selected content control retaining all its contents. The content control where the mouse cursor is currently positioned will be removed.",
+    "description": "Removes the currently selected content control retaining all its contents.\n\nThe content control where the mouse cursor is currently positioned will be removed.",
     "params": [
       {
         "description": "A unique internal identifier of the content control.",
@@ -1535,7 +1535,7 @@
     "signature": "executeMethod(\"SetMacros\", [data: string], callback?): unknown"
   },
   "SetParagraphHtml": {
-    "description": "Replaces all content of the specified paragraph with the content parsed from the given HTML string.\nIf the HTML contains multiple block-level elements, their inline content is merged into the target paragraph.",
+    "description": "Replaces all content of the specified paragraph with the content parsed from the given HTML string.\n\nIf the HTML contains multiple block-level elements, their inline content is merged into the target paragraph.",
     "params": [
       {
         "description": "The HTML string to parse and apply.",
@@ -1557,7 +1557,7 @@
     "since": "9.4.0"
   },
   "SetPluginsOptions": {
-    "description": "Configures plugins from an external source. The settings can be set for all plugins or for a specific plugin.\nFor example, this method can be used to pass an authorization token to the plugin. This method can be used only with the connector class.",
+    "description": "Configures plugins from an external source.\n\nThe settings can be set for all plugins or for a specific plugin. For example, this method can be used to pass an authorization token to the plugin.\n\n**Note:**\nThis method can be used only with the {@link https://api.onlyoffice.com/docs/docs-api/usage-api/automation-api/connector-class connector class}.\n",
     "params": [
       {
         "description": "Plugin options.",

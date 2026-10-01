@@ -7,7 +7,7 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/AddHyperlink/",
       "params": [
         {
-          "description": "The link address.",
+          "description": "The link address. Accepts an external URL (http, https, mailto, ftp) or an internal link. In the presentation editor, the internal link is one of the slide actions: \"ppaction://hlinkshowjump?jump=firstslide\", \"ppaction://hlinkshowjump?jump=lastslide\", \"ppaction://hlinkshowjump?jump=nextslide\", \"ppaction://hlinkshowjump?jump=previousslide\", \"ppaction://hlinksldjumpslide{N}\" (N is the zero-based slide index), \"ppaction://hlinkfile?file={path}\" (opens an external file). In the spreadsheet editor, the internal link is \"#\" followed by a cell range or a defined name, for example, \"#Sheet1!A1\" or \"#MyName\".",
           "name": "link",
           "type": "string"
         },
@@ -15,18 +15,13 @@
           "description": "The screen tip text.",
           "name": "screenTipText",
           "type": "string"
-        },
-        {
-          "description": "Name of a bookmark",
-          "name": "bookmarkName",
-          "type": "string"
         }
       ],
       "returns": {
-        "description": "returns null if the range spans more than one paragraph or params are invalid.",
+        "description": "returns null if the range spans more than one paragraph or the link is invalid.",
         "type": "ApiHyperlink"
       },
-      "signature": "AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink",
+      "signature": "AddHyperlink(link: string, screenTipText: string): ApiHyperlink",
       "since": "10.0.0"
     },
     "AddText": {
@@ -414,15 +409,16 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetFontFamily/",
       "params": [
         {
-          "description": "The font family or families used for the current text Range. Pass _null_ to remove the font family.",
+          "description": "The font family or families used for the current text Range. Pass _null_ or omit it to remove the font family.",
           "name": "fontFamily",
+          "optional": true,
           "type": "string | null"
         }
       ],
       "returns": {
         "type": "ApiTextRange | null"
       },
-      "signature": "SetFontFamily(fontFamily: string | null): ApiTextRange | null",
+      "signature": "SetFontFamily(fontFamily?: string | null): ApiTextRange | null",
       "since": "10.0.0"
     },
     "SetFontSize": {

@@ -1,5 +1,5 @@
 {
-  "description": "Moves a cursor to a specified position of the current document.\nIf there is any selection in the document, it will be removed.",
+  "description": "Moves a cursor to a specified position of the current document.\n\nIf there is any selection in the document, it will be removed.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/MoveCursorToPos/",
   "params": [
     {

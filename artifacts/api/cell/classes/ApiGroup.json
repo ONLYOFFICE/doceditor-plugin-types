@@ -36,7 +36,7 @@
       "since": "10.0.0"
     },
     "Ungroup": {
-      "description": "Ungroups the current group of drawings.\n<note>This method is not supported in the document builder and works only in the editor.</note>",
+      "description": "Ungroups the current group of drawings.\n**Note:**\nThis method is not supported in the document builder and works only in the editor.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiGroup/Methods/Ungroup/",
       "params": [],
       "returns": {

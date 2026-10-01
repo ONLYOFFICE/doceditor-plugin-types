@@ -230,7 +230,7 @@
       "signature": "GetClassType(): \"presentation\""
     },
     "GetCore": {
-      "description": "Returns the core properties interface for the current presentation.\nThis method is used to view or modify standard metadata such as title, author, and keywords.",
+      "description": "Returns the core properties interface for the current presentation.\n\nThis method is used to view or modify standard metadata such as title, author, and keywords.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/GetCore/",
       "params": [],
       "returns": {
@@ -315,7 +315,7 @@
       "since": "9.0.0"
     },
     "GetCustomXmlParts": {
-      "description": "Retrieves the custom XML manager associated with the presentation.\nThis manager allows manipulation and access to custom XML parts within the presentation.",
+      "description": "Retrieves the custom XML manager associated with the presentation.\n\nThis manager allows manipulation and access to custom XML parts within the presentation.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/GetCustomXmlParts/",
       "params": [],
       "returns": {
@@ -326,7 +326,7 @@
       "since": "9.1.0"
     },
     "GetDocumentInfo": {
-      "description": "Returns the document information:\n**Application** - the application the document has been created with.\n**CreatedRaw** - the date and time when the file was created.\n**Created** - the parsed date and time when the file was created.\n**LastModifiedRaw** - the date and time when the file was last modified.\n**LastModified** - the parsed date and time when the file was last modified.\n**LastModifiedBy** - the name of the user who has made the latest change to the document.\n**Authors** - the persons who has created the file.\n**Title** - this property allows you to simplify your documents classification.\n**Tags** - this property allows you to simplify your documents classification.\n**Subject** - this property allows you to simplify your documents classification.\n**Comment** - this property allows you to simplify your documents classification.",
+      "description": "Returns the document information:\n\n- **Application** - the application the document has been created with.\n- **CreatedRaw** - the date and time when the file was created.\n- **Created** - the parsed date and time when the file was created.\n- **LastModifiedRaw** - the date and time when the file was last modified.\n- **LastModified** - the parsed date and time when the file was last modified.\n- **LastModifiedBy** - the name of the user who has made the latest change to the document.\n- **Authors** - the persons who has created the file.\n- **Title** - this property allows you to simplify your documents classification.\n- **Tags** - this property allows you to simplify your documents classification.\n- **Subject** - this property allows you to simplify your documents classification.\n- **Comment** - this property allows you to simplify your documents classification.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/GetDocumentInfo/",
       "params": [],
       "returns": {
@@ -676,7 +676,7 @@
       "since": "9.4.0"
     },
     "RemoveSlides": {
-      "description": "Removes a range of slides from the presentation.\nDeletes all the slides from the presentation if no parameters are specified.",
+      "description": "Removes a range of slides from the presentation.\n\nDeletes all the slides from the presentation if no parameters are specified.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/RemoveSlides/",
       "params": [
         {
@@ -723,7 +723,7 @@
       "signature": "ReplaceCurrentImage(sImageUrl: string, Width: EMU, Height: EMU): void"
     },
     "ReplaceCurrentSentence": {
-      "description": "Replaces the current sentence or a part of the current sentence at the cursor with the specified text.",
+      "description": "Replaces the current sentence or a part of the current sentence at the cursor with the specified text.\nIf there is no sentence at the cursor, for example, in an empty paragraph, the specified text is inserted at the cursor position.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/ReplaceCurrentSentence/",
       "params": [
         {
@@ -739,7 +739,7 @@
         }
       ],
       "returns": {
-        "description": "returns false if there is no sentence at the cursor or some text is selected.",
+        "description": "returns false if the cursor is not in the text or some text is selected.",
         "type": "boolean"
       },
       "signature": "ReplaceCurrentSentence(text: string, part?: \"before\" | \"after\"): boolean",

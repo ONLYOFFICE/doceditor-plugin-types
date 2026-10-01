@@ -1,5 +1,5 @@
 {
-  "description": "Returns a collection of tables on a given absolute page.\n<note>This method can be a little bit slow, because it runs the document calculation\nprocess to arrange tables on the specified page.</note>",
+  "description": "Returns a collection of tables on a given absolute page.\n\n**Note:**\nThis method can be a little bit slow, because it runs the document calculation\nprocess to arrange tables on the specified page.\n",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetAllTablesOnPage/",
   "params": [
     {

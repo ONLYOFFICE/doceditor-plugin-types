@@ -3,7 +3,7 @@
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChartSeries/",
   "methods": {
     "ChangeChartType": {
-      "description": "Tries to change the series type. Returns true if successful.",
+      "description": "Tries to change the series type.\n\nReturns true if successful.\n\nThrows: Error if the chart type is not supported.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChartSeries/Methods/ChangeChartType/",
       "params": [
         {

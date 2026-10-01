@@ -1,5 +1,5 @@
 {
-  "description": "Calculates standard deviation based on the entire population, including logical values and text.\nText and the **false** logical value have the value 0; the **true** logical value has the value 1.",
+  "description": "Calculates standard deviation based on the entire population, including logical values and text.\n\nText and the **false** logical value have the value 0; the **true** logical value has the value 1.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/STDEVPA/",
   "params": [
     {

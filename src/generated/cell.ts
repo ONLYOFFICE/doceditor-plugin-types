@@ -5,13 +5,14 @@ export namespace Cell {
   /**
    * A numeric value that specifies which function should be used to aggregate identical time values in
    * the timeline data range.
-   * **1** (or omitted) - AVERAGE.
-   * **2** - COUNT.
-   * **3** - COUNTA.
-   * **4** - MAX.
-   * **5** - MEDIAN.
-   * **6** - MIN.
-   * **7** - SUM.
+   *
+   * - **1** (or omitted) - AVERAGE.
+   * - **2** - COUNT.
+   * - **3** - COUNTA.
+   * - **4** - MAX.
+   * - **5** - MEDIAN.
+   * - **6** - MIN.
+   * - **7** - SUM.
    */
   export type Aggregation = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 
@@ -35,10 +36,11 @@ export namespace Cell {
 
   /**
    * The type of a fill which uses an image as a background.
-   * **"tile"** - if the image is smaller than the shape which is filled, the image will be tiled all
+   *
+   * - **"tile"** - if the image is smaller than the shape which is filled, the image will be tiled all
    * over the created shape surface.
-   * **"stretch"** - if the image is smaller than the shape which is filled, the image will be stretched
-   * to fit the created shape surface.
+   * - **"stretch"** - if the image is smaller than the shape which is filled, the image will be
+   * stretched to fit the created shape surface.
    */
   export type BlipFillType = "tile" | "stretch";
 
@@ -71,21 +73,23 @@ export namespace Cell {
 
   /**
    * Possible values for the caption numbering format.
-   * **"ALPHABETIC"** - upper letter.
-   * **"alphabetic"** - lower letter.
-   * **"Roman"** - upper Roman.
-   * **"roman"** - lower Roman.
-   * **"Arabic"** - arabic.
+   *
+   * - **"ALPHABETIC"** - upper letter.
+   * - **"alphabetic"** - lower letter.
+   * - **"Roman"** - upper Roman.
+   * - **"roman"** - lower Roman.
+   * - **"Arabic"** - arabic.
    */
   export type CaptionNumberingFormat = "ALPHABETIC" | "alphabetic" | "Roman" | "roman" | "Arabic";
 
   /**
    * Possible values for the caption separator.
-   * **"hyphen"** - the "-" punctuation mark.
-   * **"period"** - the "." punctuation mark.
-   * **"colon"** - the ":" punctuation mark.
-   * **"longDash"** - the "—" punctuation mark.
-   * **"dash"** - the "-" punctuation mark.
+   *
+   * - **"hyphen"** - the "-" punctuation mark.
+   * - **"period"** - the "." punctuation mark.
+   * - **"colon"** - the ":" punctuation mark.
+   * - **"longDash"** - the "—" punctuation mark.
+   * - **"dash"** - the "-" punctuation mark.
    */
   export type CaptionSep = "hyphen" | "period" | "colon" | "longDash" | "dash";
 
@@ -260,15 +264,16 @@ export namespace Cell {
 
   /**
    * The error value.
-   * * **"#NULL!"** - 1
-   * * **"#DIV/0!"** - 2
-   * * **"#VALUE!"** - 3
-   * * **"#REF!"** - 4
-   * * **"#NAME?"** - 5
-   * * **"#NUM!"** - 6
-   * * **"#N/A"** - 7
-   * * **"#GETTING_DATA"** - 8
-   * * **"Other"** - "#N/A"
+   *
+   * - **"#NULL!"** - 1
+   * - **"#DIV/0!"** - 2
+   * - **"#VALUE!"** - 3
+   * - **"#REF!"** - 4
+   * - **"#NAME?"** - 5
+   * - **"#NUM!"** - 6
+   * - **"#N/A"** - 7
+   * - **"#GETTING_DATA"** - 8
+   * - **"Other"** - "#N/A"
    */
   export type ErrorValue = "#NULL!" | "#DIV/0!" | "#VALUE!" | "#REF!" | "#NAME?" | "#NUM!" | "#N/A" | "#GETTING_DATA";
 
@@ -319,6 +324,7 @@ export namespace Cell {
 
   /**
    * Form type.
+   *
    * The available form types.
    */
   export type FormType = "textForm" | "comboBoxForm" | "dropDownForm" | "checkBoxForm" | "radioButtonForm" | "pictureForm" | "complexForm" | "dateForm" | "signatureForm";
@@ -328,6 +334,7 @@ export namespace Cell {
 
   /**
    * The coordinate value for the geometry paths.
+   *
    * Can be a guide name from "gdLst", a numeric value, or a string representation of a number.
    */
   export type GeometryCoordinate = string | number;
@@ -337,10 +344,11 @@ export namespace Cell {
 
   /**
    * Header and footer types which can be applied to the document sections.
-   * **"default"** - a header or footer which can be applied to any default page.
-   * **"title"** - a header or footer which is applied to the title page.
-   * **"even"** - a header or footer which can be applied to even pages to distinguish them from the odd
-   * ones (which will be considered default).
+   *
+   * - **"default"** - a header or footer which can be applied to any default page.
+   * - **"title"** - a header or footer which is applied to the title page.
+   * - **"even"** - a header or footer which can be applied to even pages to distinguish them from the
+   * odd ones (which will be considered default).
    */
   export type HdrFtrType = "default" | "title" | "even";
 
@@ -361,11 +369,12 @@ export namespace Cell {
 
   /**
    * The match type.
-   * * **-1** - The values must be sorted in descending order. If the exact match is not found, the
+   *
+   * - **-1** - The values must be sorted in descending order. If the exact match is not found, the
    * function will return the smallest value that is greater than the searched value.
-   * * **0** - The values can be sorted in any order. If the exact match is not found, the function will
+   * - **0** - The values can be sorted in any order. If the exact match is not found, the function will
    * return the *#N/A* error.
-   * * **1** (or omitted) - The values must be sorted in ascending order. If the exact match is not
+   * - **1** (or omitted) - The values must be sorted in ascending order. If the exact match is not
    * found, the function will return the largest value that is less than the searched value.
    */
   export type MatchType = "-1" | "0" | "1";
@@ -621,16 +630,18 @@ export namespace Cell {
   /**
    * The section break type which defines how the contents of the current section are placed relative to
    * the previous section.
+   *
    * WordprocessingML supports five distinct types of section breaks:
-   * **Next page** ("nextPage") - starts a new section on the next page (the default value).
-   * **Odd** ("oddPage") - starts a new section on the next odd-numbered page.
-   * **Even** ("evenPage") - starts a new section on the next even-numbered page.
-   * **Continuous** ("continuous") - starts a new section in the next paragraph.
+   *
+   * - **Next page** ("nextPage") - starts a new section on the next page (the default value).
+   * - **Odd** ("oddPage") - starts a new section on the next odd-numbered page.
+   * - **Even** ("evenPage") - starts a new section on the next even-numbered page.
+   * - **Continuous** ("continuous") - starts a new section in the next paragraph.
    * This means that continuous section breaks might not specify certain page-level section properties,
    * since they shall be inherited from the following section.
    * However, these breaks can specify other section properties, such as line numbering and
    * footnote/endnote settings.
-   * **Column** ("nextColumn") - starts a new section in the next column on the page.
+   * - **Column** ("nextColumn") - starts a new section in the next column on the page.
    */
   export type SectionBreakType = "nextPage" | "oddPage" | "evenPage" | "continuous" | "nextColumn";
 
@@ -687,16 +698,17 @@ export namespace Cell {
 
   /**
    * A numeric value between 1 and 8 that specifies which statistic will be returned.
-   * **1** - Alpha parameter of ETS algorithm - the base value parameter.
-   * **2** - Beta parameter of ETS algorithm - the trend value parameter.
-   * **3** - Gamma parameter of ETS algorithm - the seasonality value parameter.
-   * **4** - MASE (mean absolute scaled error) metric - a measure of the accuracy of forecasts.
-   * **5** - SMAPE (symmetric mean absolute percentage error) metric - a measure of the accuracy based on
-   * percentage errors.
-   * **6** - MAE (mean absolute error) metric - a measure of the accuracy of forecasts.
-   * **7** - RMSE (root mean squared error) metric - a measure of the differences between predicted and
+   *
+   * - **1** - Alpha parameter of ETS algorithm - the base value parameter.
+   * - **2** - Beta parameter of ETS algorithm - the trend value parameter.
+   * - **3** - Gamma parameter of ETS algorithm - the seasonality value parameter.
+   * - **4** - MASE (mean absolute scaled error) metric - a measure of the accuracy of forecasts.
+   * - **5** - SMAPE (symmetric mean absolute percentage error) metric - a measure of the accuracy based
+   * on percentage errors.
+   * - **6** - MAE (mean absolute error) metric - a measure of the accuracy of forecasts.
+   * - **7** - RMSE (root mean squared error) metric - a measure of the differences between predicted and
    * observed values.
-   * **8** - Step size detected in the timeline.
+   * - **8** - Step size detected in the timeline.
    */
   export type StatisticType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
@@ -741,35 +753,37 @@ export namespace Cell {
   /**
    * This simple type specifies possible values for the table sections to which the current conditional
    * formatting properties will be applied when this selected table style is used.
-   * **"topLeftCell"** - specifies that the table formatting is applied to the top left cell.
-   * **"topRightCell"** - specifies that the table formatting is applied to the top right cell.
-   * **"bottomLeftCell"** - specifies that the table formatting is applied to the bottom left cell.
-   * **"bottomRightCell"** - specifies that the table formatting is applied to the bottom right cell.
-   * **"firstRow"** - specifies that the table formatting is applied to the first row.
-   * **"lastRow"** - specifies that the table formatting is applied to the last row.
-   * **"firstColumn"** - specifies that the table formatting is applied to the first column. Any
+   *
+   * - **"topLeftCell"** - specifies that the table formatting is applied to the top left cell.
+   * - **"topRightCell"** - specifies that the table formatting is applied to the top right cell.
+   * - **"bottomLeftCell"** - specifies that the table formatting is applied to the bottom left cell.
+   * - **"bottomRightCell"** - specifies that the table formatting is applied to the bottom right cell.
+   * - **"firstRow"** - specifies that the table formatting is applied to the first row.
+   * - **"lastRow"** - specifies that the table formatting is applied to the last row.
+   * - **"firstColumn"** - specifies that the table formatting is applied to the first column. Any
    * subsequent row which is in *table header* ({@link ApiTableRowPr#SetTableHeader}) will also use this
    * conditional format.
-   * **"lastColumn"** - specifies that the table formatting is applied to the last column.
-   * **"bandedColumn"** - specifies that the table formatting is applied to odd numbered groupings of
+   * - **"lastColumn"** - specifies that the table formatting is applied to the last column.
+   * - **"bandedColumn"** - specifies that the table formatting is applied to odd numbered groupings of
    * rows.
-   * **"bandedColumnEven"** - specifies that the table formatting is applied to even numbered groupings
+   * - **"bandedColumnEven"** - specifies that the table formatting is applied to even numbered groupings
    * of rows.
-   * **"bandedRow"** - specifies that the table formatting is applied to odd numbered groupings of
+   * - **"bandedRow"** - specifies that the table formatting is applied to odd numbered groupings of
    * columns.
-   * **"bandedRowEven"** - specifies that the table formatting is applied to even numbered groupings of
+   * - **"bandedRowEven"** - specifies that the table formatting is applied to even numbered groupings of
    * columns.
-   * **"wholeTable"** - specifies that the conditional formatting is applied to the whole table.
+   * - **"wholeTable"** - specifies that the conditional formatting is applied to the whole table.
    */
   export type TableStyleOverrideType = "topLeftCell" | "topRightCell" | "bottomLeftCell" | "bottomRightCell" | "firstRow" | "lastRow" | "firstColumn" | "lastColumn" | "bandedColumn" | "bandedColumnEven" | "bandedRow" | "bandedRowEven" | "wholeTable";
 
   /**
    * The possible values for the units of the width property are defined by a specific table or table
    * cell width property.
-   * **"auto"** - sets the table or table cell width to auto width.
-   * **"twips"** - sets the table or table cell width to be measured in twentieths of a point.
-   * **"nul"** - sets the table or table cell width to be of a zero value.
-   * **"percent"** - sets the table or table cell width to be measured in percent to the parent
+   *
+   * - **"auto"** - sets the table or table cell width to auto width.
+   * - **"twips"** - sets the table or table cell width to be measured in twentieths of a point.
+   * - **"nul"** - sets the table or table cell width to be of a zero value.
+   * - **"percent"** - sets the table or table cell width to be measured in percent to the parent
    * container.
    */
   export type TableWidth = "auto" | "twips" | "nul" | "percent";
@@ -800,11 +814,12 @@ export namespace Cell {
 
   /**
    * Possible values for the position of chart tick labels (either horizontal or vertical).
-   * **"none"** - does not display the selected tick labels.
-   * **"nextTo"** - sets the position of the selected tick labels next to the main label.
-   * **"low"** - sets the position of the selected tick labels in the part of the chart with lower
+   *
+   * - **"none"** - does not display the selected tick labels.
+   * - **"nextTo"** - sets the position of the selected tick labels next to the main label.
+   * - **"low"** - sets the position of the selected tick labels in the part of the chart with lower
    * values.
-   * **"high"** - sets the position of the selected tick labels in the part of the chart with higher
+   * - **"high"** - sets the position of the selected tick labels in the part of the chart with higher
    * values.
    */
   export type TickLabelPosition = "none" | "nextTo" | "low" | "high";
@@ -848,17 +863,18 @@ export namespace Cell {
     OutlineLvls?: number;
 
     /**
-     * Style levels (for example, [{Name: "Heading 1", Lvl: 2}, {Name: "Heading 2", Lvl: 3}]).
-     * <note>If StylesLvls.length > 0, then the OutlineLvls property will be ignored.</note>
+     * Style levels (for example, [{Name: "Heading 1", Lvl: 2}, {Name: "Heading 2", Lvl: 3}]). If
+     * _StylesLvls.length_ is greater than 0, the _OutlineLvls_ property is ignored.
      */
     StylesLvls: TocStyleLvl[];
   }
 
   /**
    * Possible values for the table of contents leader:
-   * **"dot"** - "......."
-   * **"dash"** - "-------"
-   * **"underline"** - "_______"
+   *
+   * - **"dot"** - "......."
+   * - **"dash"** - "-------"
+   * - **"underline"** - "_______"
    */
   export type TocLeader = "dot" | "dash" | "underline" | "none";
 
@@ -1002,6 +1018,7 @@ export namespace Cell {
 
   /**
    * Specifies the data source for the ListObject.
+   *
    * Only **"xlSrcRange"** is currently supported.
    */
   export type XlListObjectSourceType = "xlSrcRange" | "xlSrcExternal" | "xlSrcQuery" | "xlSrcModel";
@@ -1054,8 +1071,11 @@ export namespace Cell {
   /** Underline type. */
   export type XlUnderlineStyle = "xlUnderlineStyleDouble" | "xlUnderlineStyleDoubleAccounting" | "xlUnderlineStyleNone" | "xlUnderlineStyleSingle" | "xlUnderlineStyleSingleAccounting";
 
-  /** Specifies whether the first row of the source range contains column headers. */
-  export type XlYesNoGuess = "xlYes" | "xlNo" | "xlGuess";
+  /**
+   * Specifies whether the first row of the range contains the header information or it is detected
+   * automatically.
+   */
+  export type XlYesNoGuess = "xlNo" | "xlYes" | "xlGuess";
 
   /**
    * This element specifies the information which shall be used to establish a mapping to an XML element
@@ -1074,13 +1094,14 @@ export namespace Cell {
 
   /**
    * Available values of the "bookmark" reference type:
-   * **"text"** - the entire bookmark text;
-   * **"pageNum"** - the bookmark page number;
-   * **"paraNum"** - the bookmark paragraph number;
-   * **"noCtxParaNum"** - the abbreviated paragraph number (the specific item only, e.g. instead of
+   *
+   * - **"text"** - the entire bookmark text;
+   * - **"pageNum"** - the bookmark page number;
+   * - **"paraNum"** - the bookmark paragraph number;
+   * - **"noCtxParaNum"** - the abbreviated paragraph number (the specific item only, e.g. instead of
    * "4.1.1" you refer to "1" only);
-   * **"fullCtxParaNum** - the full paragraph number, e.g. "4.1.1";
-   * **"aboveBelow"** - the words "above" or "below" depending on the item position.
+   * - **"fullCtxParaNum** - the full paragraph number, e.g. "4.1.1";
+   * - **"aboveBelow"** - the words "above" or "below" depending on the item position.
    */
   export type bookmarkRefTo = "text" | "pageNum" | "paraNum" | "noCtxParaNum" | "fullCtxParaNum" | "aboveBelow";
 
@@ -1089,44 +1110,49 @@ export namespace Cell {
 
   /**
    * Available values of the "equation"/"figure"/"table" reference type:
-   * **"entireCaption"**- the entire caption text;
-   * **"labelNumber"** - the label and object number only, e.g. "Table 1.1";
-   * **"captionText"** - the caption text only;
-   * **"pageNum"** - the page number containing the referenced object;
-   * **"aboveBelow"** - the words "above" or "below" depending on the item position.
+   *
+   * - **"entireCaption"**- the entire caption text;
+   * - **"labelNumber"** - the label and object number only, e.g. "Table 1.1";
+   * - **"captionText"** - the caption text only;
+   * - **"pageNum"** - the page number containing the referenced object;
+   * - **"aboveBelow"** - the words "above" or "below" depending on the item position.
    */
   export type captionRefTo = "entireCaption" | "labelNumber" | "captionText" | "pageNum" | "aboveBelow";
 
   /**
    * Available values of the "endnote" reference type:
-   * **"endnoteNum"** - the endnote number;
-   * **"pageNum"** - the endnote page number;
-   * **"aboveBelow"** - the words "above" or "below" depending on the item position;
-   * **"formEndnoteNum"** - the form number formatted as an endnote. The numbering of the actual endnotes
-   * is not affected.
+   *
+   * - **"endnoteNum"** - the endnote number;
+   * - **"pageNum"** - the endnote page number;
+   * - **"aboveBelow"** - the words "above" or "below" depending on the item position;
+   * - **"formEndnoteNum"** - the form number formatted as an endnote. The numbering of the actual
+   * endnotes is not affected.
    */
   export type endnoteRefTo = "endnoteNum" | "pageNum" | "aboveBelow" | "formEndnoteNum";
 
   /**
    * Available values of the "footnote" reference type:
-   * **"footnoteNum"** - the footnote number;
-   * **"pageNum"** - the page number of the footnote;
-   * **"aboveBelow"** - the words "above" or "below" depending on the position of the item;
-   * **"formFootnoteNum"** - the form number formatted as a footnote. The numbering of the actual
+   *
+   * - **"footnoteNum"** - the footnote number;
+   * - **"pageNum"** - the page number of the footnote;
+   * - **"aboveBelow"** - the words "above" or "below" depending on the position of the item;
+   * - **"formFootnoteNum"** - the form number formatted as a footnote. The numbering of the actual
    * footnotes is not affected.
    */
   export type footnoteRefTo = "footnoteNum" | "pageNum" | "aboveBelow" | "formFootnoteNum";
 
   /**
    * Available values of the "heading" reference type:
-   * **"text"** - the entire heading text;
-   * **"pageNum"** - the heading page number;
-   * **"headingNum"** - the heading sequence number;
-   * **"noCtxHeadingNum"** - the abbreviated heading number. Make sure the cursor pointer is in the
+   *
+   * - **"text"** - the entire heading text;
+   * - **"pageNum"** - the heading page number;
+   * - **"headingNum"** - the heading sequence number;
+   * - **"noCtxHeadingNum"** - the abbreviated heading number. Make sure the cursor pointer is in the
    * section you are referencing to, e.g. you are in section 4 and you wish to refer to heading 4.B, so
    * instead of "4.B" you receive "B" only;
-   * **"fullCtxHeadingNum"** - the full heading number even if the cursor pointer is in the same section;
-   * **"aboveBelow"** - the words "above" or "below" depending on the item position.
+   * - **"fullCtxHeadingNum"** - the full heading number even if the cursor pointer is in the same
+   * section;
+   * - **"aboveBelow"** - the words "above" or "below" depending on the item position.
    */
   export type headingRefTo = "text" | "pageNum" | "headingNum" | "noCtxHeadingNum" | "fullCtxHeadingNum" | "aboveBelow";
 
@@ -1144,14 +1170,15 @@ export namespace Cell {
 
   /**
    * Available values of the "numbered" reference type:
-   * **"pageNum"** - the numbered item page number;
-   * **"paraNum"** - the numbered item paragraph number;
-   * **"noCtxParaNum"** - the abbreviated paragraph number (the specific item only, e.g. instead of
+   *
+   * - **"pageNum"** - the numbered item page number;
+   * - **"paraNum"** - the numbered item paragraph number;
+   * - **"noCtxParaNum"** - the abbreviated paragraph number (the specific item only, e.g. instead of
    * "4.1.1" you refer to "1" only);
-   * **"fullCtxParaNum"** - the full paragraph number, e.g. "4.1.1";
-   * **"text"** - the paragraph text value, e.g. if you have "4.1.1. Terms and Conditions", you refer to
-   * "Terms and Conditions" only;
-   * **"aboveBelow"** - the words "above" or "below" depending on the item position.
+   * - **"fullCtxParaNum"** - the full paragraph number, e.g. "4.1.1";
+   * - **"text"** - the paragraph text value, e.g. if you have "4.1.1. Terms and Conditions", you refer
+   * to "Terms and Conditions" only;
+   * - **"aboveBelow"** - the words "above" or "below" depending on the item position.
    */
   export type numberedRefTo = "pageNum" | "paraNum" | "noCtxParaNum" | "fullCtxParaNum" | "text" | "aboveBelow";
 
@@ -1220,6 +1247,7 @@ export namespace Cell {
 
     /**
      * Creates a new custom function.
+     *
      * The description of the function parameters and result is specified using JSDoc. The
      * *@customfunction* tag is required in JSDoc.
      * Parameters and results can be specified as the *number / string / boolean / any / number[][] /
@@ -1261,6 +1289,7 @@ export namespace Cell {
 
     /**
      * Registers a new custom functions library (see the **SetCustomFunctions** plugin method).
+     *
      * The description of the function parameters and result is specified using JSDoc. The
      * *@customfunction* tag is required in JSDoc.
      * Parameters and results can be specified as the *number / string / boolean / any / number[][] /
@@ -1325,7 +1354,9 @@ export namespace Cell {
     AddDefName(sName: string, sRef: string, isHidden?: boolean): boolean;
 
     /**
-     * Creates a new worksheet. The new worksheet becomes the active sheet.
+     * Creates a new worksheet.
+     *
+     * The new worksheet becomes the active sheet.
      *
      * @param sName - The name of a new worksheet.
      *
@@ -1410,23 +1441,28 @@ export namespace Cell {
     ClearCustomFunctions(): boolean;
 
     /**
-     * Creates an ApiColor from a universal input. The method recognizes several call signatures and either
-     * delegates to a narrower factory or constructs an ApiColor directly.
-     * **Numeric components**: "Api.Color(r, g, b)" or "Api.Color(r, g, b, a)" creates an RGB or RGBA color
-     * from byte components (0-255).
-     * **Packed integer**: "Api.Color(0xRRGGBB)" creates an RGB color from a 24-bit integer.
-     * **Full HEX string**: "Api.Color('#RRGGBB')" or "Api.Color('RRGGBB')" creates a HEX color; the
+     * Creates an ApiColor from a universal input.
+     *
+     * The method recognizes several call signatures and either delegates to a narrower factory or
+     * constructs an ApiColor directly.
+     *
+     * - **Numeric components**: "Api.Color(r, g, b)" or "Api.Color(r, g, b, a)" creates an RGB or RGBA
+     * color from byte components (0-255).
+     * - **Packed integer**: "Api.Color(0xRRGGBB)" creates an RGB color from a 24-bit integer.
+     * - **Full HEX string**: "Api.Color('#RRGGBB')" or "Api.Color('RRGGBB')" creates a HEX color; the
      * leading "#" is optional.
-     * **Short HEX string**: "Api.Color('#RGB')" expands each digit by duplication, so "#F0A" becomes
+     * - **Short HEX string**: "Api.Color('#RGB')" expands each digit by duplication, so "#F0A" becomes
      * "#FF00AA".
-     * **Theme color name**: "Api.Color('accent1')" creates a theme color; any value of SchemeColorId is
+     * - **Theme color name**: "Api.Color('accent1')" creates a theme color; any value of SchemeColorId is
      * accepted.
-     * **Preset color name**: "Api.Color('aliceBlue')" resolves any value of PresetColor to its RGB
+     * - **Preset color name**: "Api.Color('aliceBlue')" resolves any value of PresetColor to its RGB
      * equivalent.
-     * **Auto color**: "Api.Color('auto')" creates an auto color.
+     * - **Auto color**: "Api.Color('auto')" creates an auto color.
+     *
      * For a single string argument, the resolution priority is: "auto", a string starting with "#", a
      * theme name, a preset name, a bare 6-digit HEX. Theme and preset palettes do not overlap. A 3-digit
      * shorthand is accepted only with the leading "#".
+     *
      * Unsupported inputs (objects, arrays, an existing ApiColor, unknown strings, no arguments) return a
      * black color (#000000).
      *
@@ -2350,6 +2386,7 @@ export namespace Cell {
 
     /**
      * Returns the core properties interface for the workbook.
+     *
      * This method is used to view or modify standard metadata such as title, author, and keywords.
      *
      * @since 9.0.0
@@ -2526,17 +2563,18 @@ export namespace Cell {
 
     /**
      * Returns the document information:
-     * **Application** - the application the document has been created with.
-     * **CreatedRaw** - the date and time when the file was created.
-     * **Created** - the parsed date and time when the file was created.
-     * **LastModifiedRaw** - the date and time when the file was last modified.
-     * **LastModified** - the parsed date and time when the file was last modified.
-     * **LastModifiedBy** - the name of the user who has made the latest change to the document.
-     * **Authors** - the persons who has created the file.
-     * **Title** - this property allows you to simplify your documents classification.
-     * **Tags** - this property allows you to simplify your documents classification.
-     * **Subject** - this property allows you to simplify your documents classification.
-     * **Comment** - this property allows you to simplify your documents classification.
+     *
+     * - **Application** - the application the document has been created with.
+     * - **CreatedRaw** - the date and time when the file was created.
+     * - **Created** - the parsed date and time when the file was created.
+     * - **LastModifiedRaw** - the date and time when the file was last modified.
+     * - **LastModified** - the parsed date and time when the file was last modified.
+     * - **LastModifiedBy** - the name of the user who has made the latest change to the document.
+     * - **Authors** - the persons who has created the file.
+     * - **Title** - this property allows you to simplify your documents classification.
+     * - **Tags** - this property allows you to simplify your documents classification.
+     * - **Subject** - this property allows you to simplify your documents classification.
+     * - **Comment** - this property allows you to simplify your documents classification.
      *
      * @example
      * ```js
@@ -2927,6 +2965,7 @@ export namespace Cell {
 
     /**
      * Returns the ApiRange object that represents the rectangular intersection of two or more ranges.
+     *
      * If one or more ranges from a different worksheet are specified, an error will be returned.
      *
      * @param Range1 - One of the intersecting ranges. At least two Range objects must be specified.
@@ -2975,6 +3014,7 @@ export namespace Cell {
 
     /**
      * Converts millimeters to English Metric Units (EMUs).
+     *
      * The result is an integer value.
      *
      * @param mm - The value in millimeters.
@@ -3837,8 +3877,9 @@ export namespace Cell {
     GetDateOperator(): XlTimePeriods | null;
 
     /**
-     * Returns the background color for the format condition. Returns 'No Fill' when the background color
-     * of the format condition is null.
+     * Returns the background color for the format condition.
+     *
+     * Returns 'No Fill' when the background color of the format condition is null.
      *
      * @returns The background color applied by the format condition, or 'No Fill' if none is set.
      * @since 9.1.0
@@ -4599,6 +4640,7 @@ export namespace Cell {
 
     /**
      * Sets the background color to the format condition with the previously created color object.
+     *
      * Sets 'No Fill' when previously created color object is null.
      *
      * @param oColor - The color object that specifies the background color for the format condition.
@@ -6891,8 +6933,9 @@ export namespace Cell {
     SetSeriaValues(sRange: string, nSeria: number): boolean;
 
     /**
-     * Sets the x-axis values from the specified range to the specified series. It is used with the scatter
-     * charts only.
+     * Sets the x-axis values from the specified range to the specified series.
+     *
+     * It is used with the scatter charts only.
      *
      * @param sRange - A range of cells from the sheet with series x-axis values. For example: "'sheet 1'!$A$2:$A$5" -
      *   must be a single cell, row or column, "A1:A5" - must be a single cell, row or column, "Example
@@ -6939,6 +6982,9 @@ export namespace Cell {
 
     /**
      * Sets the fill to the specified chart series.
+     * **Note:**
+     * The fill is not applied to 2D line and scatter series. Use the SetSeriesOutLine method to change
+     * their line and the SetMarkerFill method to change their markers.
      *
      * @param oFill - The fill type used to fill the series.
      * @param nSeries - The index of the chart series.
@@ -7457,7 +7503,11 @@ export namespace Cell {
    */
   export interface ApiChartSeries {
     /**
-     * Tries to change the series type. Returns true if successful.
+     * Tries to change the series type.
+     *
+     * Returns true if successful.
+     *
+     * Throws: Error if the chart type is not supported.
      *
      * @param sType - Chart type.
      *
@@ -7970,8 +8020,9 @@ export namespace Cell {
     GetDateOperator(): XlTimePeriods | null;
 
     /**
-     * Returns the background color for the format condition. Returns 'No Fill' when the background color
-     * of the format condition is null.
+     * Returns the background color for the format condition.
+     *
+     * Returns 'No Fill' when the background color of the format condition is null.
      *
      * @returns The background color applied by the format condition, or 'No Fill' if none is set.
      * @since 9.1.0
@@ -8654,6 +8705,7 @@ export namespace Cell {
 
     /**
      * Sets the background color to the format condition with the previously created color object.
+     *
      * Sets 'No Fill' when previously created color object is null.
      *
      * @param oColor - The color object that specifies the background color for the format condition.
@@ -11392,6 +11444,7 @@ export namespace Cell {
 
     /**
      * Deletes an attribute from the custom XML node.
+     *
      * If the attribute exists, it will be removed.
      *
      * @param name - The name of the attribute to delete.
@@ -11428,6 +11481,7 @@ export namespace Cell {
 
     /**
      * Retrieves the attribute value from the custom XML node.
+     *
      * If the attribute doesn't exist, it returns `false`.
      *
      * @param name - The name of the attribute to retrieve.
@@ -11645,6 +11699,7 @@ export namespace Cell {
 
     /**
      * Returns the inner text of the current node and its child nodes.
+     *
      * For example: `<text>123<one>4</one></text>` returns `"1234"`.
      *
      * @returns The combined text content of the node and its descendants.
@@ -11719,6 +11774,7 @@ export namespace Cell {
 
     /**
      * Sets an attribute for the custom XML node.
+     *
      * If the attribute already exists, it will not be modified.
      *
      * @param name - The name of the attribute to set.
@@ -11844,6 +11900,7 @@ export namespace Cell {
 
     /**
      * Updates the value of an existing attribute in the custom XML node.
+     *
      * If the attribute doesn't exist, the update will not occur.
      *
      * @param name - The name of the attribute to update.
@@ -12711,8 +12768,9 @@ export namespace Cell {
     GetDirection(): XlReadingOrder;
 
     /**
-     * Returns the background color for the format condition. Returns 'No Fill' when the background color
-     * of the format condition is null.
+     * Returns the background color for the format condition.
+     *
+     * Returns 'No Fill' when the background color of the format condition is null.
      *
      * @returns The background color applied by the format condition, or 'No Fill' if none is set.
      * @since 9.1.0
@@ -13993,6 +14051,7 @@ export namespace Cell {
 
     /**
      * Sets the background color to the format condition with the previously created color object.
+     *
      * Sets 'No Fill' when previously created color object is null.
      *
      * @param oColor - The color object that specifies the background color for the format condition.
@@ -14842,9 +14901,10 @@ export namespace Cell {
 
     /**
      * Removes all the elements from the current document or from the current document element.
-     * <note>When all elements are removed, a new empty paragraph is automatically created. If you want to
-     * add
-     * content to this paragraph, use the {@link ApiDocumentContent#GetElement} method.</note>
+     *
+     * **Note:**
+     * When all elements are removed, a new empty paragraph is automatically created. If you want to add
+     * content to this paragraph, use the {@link ApiDocumentContent#GetElement} method.
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDocumentContent/Methods/RemoveAllElements/
      */
@@ -15256,9 +15316,10 @@ export namespace Cell {
 
     /**
      * Removes all the elements from the current document or from the current document element.
-     * <note>When all elements are removed, a new empty paragraph is automatically created. If you want to
-     * add
-     * content to this paragraph, use the {@link ApiDocumentContent#GetElement} method.</note>
+     *
+     * **Note:**
+     * When all elements are removed, a new empty paragraph is automatically created. If you want to add
+     * content to this paragraph, use the {@link ApiDocumentContent#GetElement} method.
      *
      * @example
      * ```js
@@ -15908,6 +15969,7 @@ export namespace Cell {
 
     /**
      * Sets the name of the current drawing.
+     *
      * If another drawing with the same name already exists, that drawing's name will be reset to a default
      * auto-generated name.
      * OLE objects do not support a custom name, so for them this method always returns false.
@@ -15973,9 +16035,11 @@ export namespace Cell {
 
     /**
      * Changes the position for the drawing object.
-     * <note>Please note that the horizontal and vertical offsets are calculated within the limits of
+     *
+     * **Note:**
+     * The horizontal and vertical offsets are calculated within the limits of
      * the specified column and row cells only. If this value exceeds the cell width or height, another
-     * vertical/horizontal position will be set.</note>
+     * vertical/horizontal position will be set.
      *
      * @param nFromCol - The number of the column where the beginning of the drawing object will be placed.
      * @param nColOffset - The offset from the nFromCol column to the left part of the drawing object measured in English
@@ -16310,6 +16374,7 @@ export namespace Cell {
      *
      * The property is true when at least one of the following underlying
      * structures is present for the column:
+     *
      * - Filters
      * - CustomFiltersObj
      * - DynamicFilter
@@ -16708,7 +16773,9 @@ export namespace Cell {
 
     /**
      * Sets the bold property to the specified font.
-     * <note>This method will work only with the text format of the cell.</note>
+     *
+     * **Note:**
+     * This method will work only with the text format of the cell.
      *
      * @param isBold - Specifies that the text characters are displayed bold.
      * @since 7.4.0
@@ -16733,7 +16800,9 @@ export namespace Cell {
 
     /**
      * Sets the font color property to the specified font.
-     * <note>This method will work only with the text format of the cell.</note>
+     *
+     * **Note:**
+     * This method will work only with the text format of the cell.
      *
      * @param Color - Font color.
      * @since 7.4.0
@@ -16759,7 +16828,9 @@ export namespace Cell {
 
     /**
      * Sets the italic property to the specified font.
-     * <note>This method will work only with the text format of the cell.</note>
+     *
+     * **Note:**
+     * This method will work only with the text format of the cell.
      *
      * @param isItalic - Specifies that the text characters are displayed italic.
      * @since 7.4.0
@@ -16784,7 +16855,9 @@ export namespace Cell {
 
     /**
      * Sets the font name property to the specified font.
-     * <note>This method will work only with the text format of the cell.</note>
+     *
+     * **Note:**
+     * This method will work only with the text format of the cell.
      *
      * @param FontName - Font name.
      * @since 7.4.0
@@ -16811,7 +16884,9 @@ export namespace Cell {
 
     /**
      * Sets the font size property to the specified font.
-     * <note>This method will work only with the text format of the cell.</note>
+     *
+     * **Note:**
+     * This method will work only with the text format of the cell.
      *
      * @param Size - The font size value measured in points.
      * @since 7.4.0
@@ -16836,7 +16911,9 @@ export namespace Cell {
 
     /**
      * Sets the strikethrough property to the specified font.
-     * <note>This method will work only with the text format of the cell.</note>
+     *
+     * **Note:**
+     * This method will work only with the text format of the cell.
      *
      * @param isStrikethrough - Specifies that the text characters are displayed strikethrough.
      * @since 7.4.0
@@ -16861,7 +16938,9 @@ export namespace Cell {
 
     /**
      * Sets the subscript property to the specified font.
-     * <note>This method will work only with the text format of the cell.</note>
+     *
+     * **Note:**
+     * This method will work only with the text format of the cell.
      *
      * @param isSubscript - Specifies that the text characters are displayed subscript.
      * @since 7.4.0
@@ -16886,7 +16965,9 @@ export namespace Cell {
 
     /**
      * Sets the superscript property to the specified font.
-     * <note>This method will work only with the text format of the cell.</note>
+     *
+     * **Note:**
+     * This method will work only with the text format of the cell.
      *
      * @param isSuperscript - Specifies that the text characters are displayed superscript.
      * @since 7.4.0
@@ -16911,7 +16992,9 @@ export namespace Cell {
 
     /**
      * Sets an underline of the type specified in the request to the current font.
-     * <note>This method will work only with the text format of the cell.</note>
+     *
+     * **Note:**
+     * This method will work only with the text format of the cell.
      *
      * @param Underline - Underline type.
      * @since 7.4.0
@@ -17063,8 +17146,9 @@ export namespace Cell {
     GetDateOperator(): XlTimePeriods | null;
 
     /**
-     * Returns the background color for the format condition. Returns 'No Fill' when the background color
-     * of the format condition is null.
+     * Returns the background color for the format condition.
+     *
+     * Returns 'No Fill' when the background color of the format condition is null.
      *
      * @returns The background color applied by the format condition, or 'No Fill' if none is set.
      * @since 9.1.0
@@ -17749,6 +17833,7 @@ export namespace Cell {
 
     /**
      * Sets the background color to the format condition with the previously created color object.
+     *
      * Sets 'No Fill' when previously created color object is null.
      *
      * @param oColor - The color object that specifies the background color for the format condition.
@@ -18512,8 +18597,9 @@ export namespace Cell {
    */
   export interface ApiFreezePanes {
     /**
-     * Sets the frozen cells in the active worksheet view. The range provided corresponds to the cells that
-     * will be frozen in the top- and left-most pane.
+     * Sets the frozen cells in the active worksheet view.
+     *
+     * The range provided corresponds to the cells that will be frozen in the top- and left-most pane.
      *
      * @param frozenRange - A range that represents the cells to be frozen.
      * @since 8.0.0
@@ -19135,7 +19221,8 @@ export namespace Cell {
 
     /**
      * Ungroups the current group of drawings.
-     * <note>This method is not supported in the document builder and works only in the editor.</note>
+     * **Note:**
+     * This method is not supported in the document builder and works only in the editor.
      *
      * @returns The array of the ungrouped objects, or null if the group is not in the document, cannot be
      *   ungrouped, or when called in the document builder.
@@ -19972,8 +20059,9 @@ export namespace Cell {
     GetDateOperator(): XlTimePeriods | null;
 
     /**
-     * Returns the background color for the format condition. Returns 'No Fill' when the background color
-     * of the format condition is null.
+     * Returns the background color for the format condition.
+     *
+     * Returns 'No Fill' when the background color of the format condition is null.
      *
      * @returns The background color applied by the format condition, or 'No Fill' if none is set.
      * @since 9.1.0
@@ -20858,6 +20946,7 @@ export namespace Cell {
 
     /**
      * Sets the background color to the format condition with the previously created color object.
+     *
      * Sets 'No Fill' when previously created color object is null.
      *
      * @param oColor - The color object that specifies the background color for the format condition.
@@ -21616,6 +21705,7 @@ export namespace Cell {
 
     /**
      * Returns the range of the totals row cell for the column.
+     *
      * Returns null if the table has no totals row.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
@@ -21753,6 +21843,7 @@ export namespace Cell {
   export interface ApiListObject {
     /**
      * Adds a new column to the table at the specified 1-based position.
+     *
      * If no position is provided, the column is appended at the end.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
@@ -21786,6 +21877,7 @@ export namespace Cell {
 
     /**
      * Adds a new data row to the table at the specified 1-based position.
+     *
      * If no position is provided, the row is appended at the end.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
@@ -21906,6 +21998,7 @@ export namespace Cell {
 
     /**
      * Returns the ApiAutoFilter object representing the autofilter applied to the table.
+     *
      * Returns null if the table has no autofilter.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
@@ -21965,6 +22058,7 @@ export namespace Cell {
 
     /**
      * Returns the range of the data rows in the table, excluding the header row and totals row.
+     *
      * Returns null if the table has no data rows.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
@@ -22023,6 +22117,7 @@ export namespace Cell {
 
     /**
      * Returns the range of the header row of the table.
+     *
      * Returns null if the table has no header row.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
@@ -22199,6 +22294,7 @@ export namespace Cell {
 
     /**
      * Returns whether the AutoFilter dropdown buttons are displayed on the header row of the table.
+     *
      * Returns true by default for a new table.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
@@ -22228,6 +22324,7 @@ export namespace Cell {
 
     /**
      * Returns whether the AutoFilter dropdown arrows are displayed on the header row of the table.
+     *
      * Returns true by default for a new table.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
@@ -22453,7 +22550,9 @@ export namespace Cell {
     GetSort(): ApiSort;
 
     /**
-     * Returns the source type of the table. Always returns "xlSrcRange" for range-based tables.
+     * Returns the source type of the table.
+     *
+     * Always returns "xlSrcRange" for range-based tables.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      *
@@ -22539,6 +22638,7 @@ export namespace Cell {
 
     /**
      * Returns the range of the totals row of the table.
+     *
      * Returns null if the table has no totals row.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
@@ -22569,7 +22669,9 @@ export namespace Cell {
     GetTotalsRowRange(): ApiRange | null;
 
     /**
-     * Resizes the ListObject to a new range. Cells are not inserted or moved.
+     * Resizes the ListObject to a new range.
+     *
+     * Cells are not inserted or moved.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @param Range - The new range for the table as an ApiRange object or address string, e.g. **"A1:D10"**.
@@ -22691,7 +22793,9 @@ export namespace Cell {
     SetDisplayName(sDisplayName: string): boolean;
 
     /**
-     * Sets the name of the table. Equivalent to SetDisplayName.
+     * Sets the name of the table.
+     *
+     * Equivalent to SetDisplayName.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @param name - The new name for the table.
@@ -22723,6 +22827,7 @@ export namespace Cell {
 
     /**
      * Sets whether the AutoFilter is present on the table.
+     *
      * Setting to false removes the AutoFilter entirely; setting to true creates it if not present.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
@@ -22754,6 +22859,7 @@ export namespace Cell {
 
     /**
      * Sets whether the AutoFilter dropdown arrows are displayed on the header row of the table.
+     *
      * Does not remove the AutoFilter itself, only hides or shows the dropdown buttons.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
@@ -22995,9 +23101,11 @@ export namespace Cell {
 
     /**
      * Sets the table style by name.
+     * Built-in table style names: TableStyleLight1-21, TableStyleMedium1-28, TableStyleDark1-11.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
-     * @param styleName - The name of the table style to apply.
+     * @param styleName - The name of a built-in table style (for example, "TableStyleMedium9"), or a custom style defined
+     *   in the workbook.
      *
      * @example
      * ```js
@@ -23025,6 +23133,7 @@ export namespace Cell {
 
     /**
      * Removes the list functionality from the ListObject and converts it to a regular data range.
+     *
      * Cell data, formatting, and formulas remain on the sheet.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
@@ -24772,8 +24881,9 @@ export namespace Cell {
     SetOutlineLvl(lvl?: number | null): boolean;
 
     /**
-     * Sets the spacing after the current paragraph. If the value of the isAfterAuto parameter is true,
-     * then
+     * Sets the spacing after the current paragraph.
+     *
+     * If the value of the isAfterAuto parameter is true, then
      * any value of the nAfter is ignored. If isAfterAuto parameter is not specified, then it
      * will be interpreted as false.
      *
@@ -24809,8 +24919,9 @@ export namespace Cell {
     SetSpacingAfter(nAfter: twips, isAfterAuto?: boolean): boolean;
 
     /**
-     * Sets the spacing before the current paragraph. If the value of the isBeforeAuto parameter is true,
-     * then
+     * Sets the spacing before the current paragraph.
+     *
+     * If the value of the isBeforeAuto parameter is true, then
      * any value of the nBefore is ignored. If isBeforeAuto parameter is not specified, then
      * it will be interpreted as false.
      *
@@ -24846,7 +24957,9 @@ export namespace Cell {
     SetSpacingBefore(nBefore: twips, isBeforeAuto?: boolean): boolean;
 
     /**
-     * Sets the paragraph line spacing. If the value of the sLineRule parameter is either
+     * Sets the paragraph line spacing.
+     *
+     * If the value of the sLineRule parameter is either
      * "atLeast" or "exact", then the value of nLine will be interpreted as twentieths of a point. If
      * the value of the sLineRule parameter is "auto", then the value of the
      * nLine parameter will be interpreted as 240ths of a line.
@@ -24882,7 +24995,9 @@ export namespace Cell {
     /**
      * Specifies a sequence of custom tab stops which will be used for any tab characters in the current
      * paragraph.
-     * **Warning**: The lengths of aPos array and aVal array **MUST BE** equal to each other.
+     *
+     * **Warning:**
+     * The lengths of the aPos and aVal arrays must be equal to each other.
      *
      * @param aPos - An array of the positions of custom tab stops with respect to the current page margins measured
      *   in twentieths of a point (1/1440 of an inch).
@@ -25040,7 +25155,9 @@ export namespace Cell {
     AddText(text: string | number[], widths?: number[]): ApiRun;
 
     /**
-     * Creates a paragraph copy. Ingnore comments, footnote references, complex fields.
+     * Creates a paragraph copy.
+     *
+     * Ignores comments, footnote references, complex fields.
      *
      * @example
      * ```js
@@ -25835,9 +25952,11 @@ export namespace Cell {
 
     /**
      * Removes all the elements from the current paragraph.
-     * <note>When all the elements are removed from the paragraph, a new empty run is automatically
-     * created. If you want to add
-     * content to this run, use the {@link ApiParagraph#GetElement} method.</note>
+     *
+     * **Note:**
+     * When all the elements are removed from the paragraph, a new empty run is automatically created. If
+     * you want to add
+     * content to this run, use the {@link ApiParagraph#GetElement} method.
      *
      * @example
      * ```js
@@ -25866,10 +25985,12 @@ export namespace Cell {
 
     /**
      * Removes an element using the position specified.
-     * <note>If the element you remove is the last paragraph element (i.e. all the elements are removed
-     * from the paragraph),
+     *
+     * **Note:**
+     * If the element you remove is the last paragraph element (i.e. all the elements are removed from the
+     * paragraph),
      * a new empty run is automatically created. If you want to add
-     * content to this run, use the {@link ApiParagraph#GetElement} method.</note>
+     * content to this run, use the {@link ApiParagraph#GetElement} method.
      *
      * @param nPos - The element position which we want to remove from the paragraph.
      *
@@ -26062,8 +26183,8 @@ export namespace Cell {
     /**
      * Sets all 4 font slots with the specified font family.
      *
-     * @param fontFamily - The font family or families used for the current paragraph. Pass _null_ to remove the font
-     *   family.
+     * @param fontFamily - The font family or families used for the current paragraph. Pass _null_ or omit it to remove the
+     *   font family.
      * @returns this
      *
      * @example
@@ -26094,7 +26215,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/SetFontFamily/
      */
-    SetFontFamily(fontFamily: string | null): ApiParagraph;
+    SetFontFamily(fontFamily?: string | null): ApiParagraph;
 
     /**
      * Sets the font size to the characters of the current paragraph.
@@ -26413,8 +26534,9 @@ export namespace Cell {
     SetSpacing(spacing: twips | null): ApiParagraph;
 
     /**
-     * Sets the spacing after the current paragraph. If the value of the isAfterAuto parameter is true,
-     * then
+     * Sets the spacing after the current paragraph.
+     *
+     * If the value of the isAfterAuto parameter is true, then
      * any value of the nAfter is ignored. If isAfterAuto parameter is not specified, then it
      * will be interpreted as false.
      *
@@ -26450,8 +26572,9 @@ export namespace Cell {
     SetSpacingAfter(nAfter: twips, isAfterAuto?: boolean): boolean;
 
     /**
-     * Sets the spacing before the current paragraph. If the value of the isBeforeAuto parameter is true,
-     * then
+     * Sets the spacing before the current paragraph.
+     *
+     * If the value of the isBeforeAuto parameter is true, then
      * any value of the nBefore is ignored. If isBeforeAuto parameter is not specified, then
      * it will be interpreted as false.
      *
@@ -26487,7 +26610,9 @@ export namespace Cell {
     SetSpacingBefore(nBefore: twips, isBeforeAuto?: boolean): boolean;
 
     /**
-     * Sets the paragraph line spacing. If the value of the sLineRule parameter is either
+     * Sets the paragraph line spacing.
+     *
+     * If the value of the sLineRule parameter is either
      * "atLeast" or "exact", then the value of nLine will be interpreted as twentieths of a point. If
      * the value of the sLineRule parameter is "auto", then the value of the
      * nLine parameter will be interpreted as 240ths of a line.
@@ -26560,7 +26685,9 @@ export namespace Cell {
     /**
      * Specifies a sequence of custom tab stops which will be used for any tab characters in the current
      * paragraph.
-     * **Warning**: The lengths of aPos array and aVal array **MUST BE** equal to each other.
+     *
+     * **Warning:**
+     * The lengths of the aPos and aVal arrays must be equal to each other.
      *
      * @param aPos - An array of the positions of custom tab stops with respect to the current page margins measured
      *   in twentieths of a point (1/1440 of an inch).
@@ -29585,6 +29712,33 @@ export namespace Cell {
     GetValue(): string;
 
     /**
+     * Groups the dates of the pivot table field by periods or its numbers by intervals, as VBA Range.Group
+     * does for a cell of the field.
+     * The field must be in the rows or columns; grouping again replaces the previous grouping of the
+     * field.
+     * For dates, the field shows the shortest period, and a new field is added next to it for every longer
+     * one.
+     *
+     * @param start - The first value to group, or true for the first value of the field. A date is a Date object or
+     *   its serial number.
+     * @param end - The last value to group, or true for the last value of the field.
+     * @param by - The size of each group of numbers, or the number of days in each group when the dates are
+     *   grouped by days alone. If omitted, the size of the number groups is chosen automatically and
+     *   each day is a group.
+     * @param periods - Seven values which specify whether the dates are grouped by seconds, minutes, hours, days,
+     *   months, quarters and years. If omitted, the dates are grouped by months. The numbers ignore it.
+     * @default start = true
+     * @default end = true
+     * @returns Returns true if the field is grouped, or false if it is not in the rows or columns, has values
+     *   that are neither dates nor numbers, the pivot table has no source records, the grouped report
+     *   would cover other cells, or other users are editing the document.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotField/Methods/Group/
+     */
+    Group(start?: boolean | number | Date, end?: boolean | number | Date, by?: number, periods?: boolean[]): boolean;
+
+    /**
      * Moves the current pivot field inside the category.
      *
      * @param type - The direction to move the pivot table field, or the pivot field orientation type.
@@ -32536,6 +32690,33 @@ export namespace Cell {
     GetValue(): string;
 
     /**
+     * Groups the dates of the pivot table field by periods or its numbers by intervals, as VBA Range.Group
+     * does for a cell of the field.
+     * The field must be in the rows or columns; grouping again replaces the previous grouping of the
+     * field.
+     * For dates, the field shows the shortest period, and a new field is added next to it for every longer
+     * one.
+     *
+     * @param start - The first value to group, or true for the first value of the field. A date is a Date object or
+     *   its serial number.
+     * @param end - The last value to group, or true for the last value of the field.
+     * @param by - The size of each group of numbers, or the number of days in each group when the dates are
+     *   grouped by days alone. If omitted, the size of the number groups is chosen automatically and
+     *   each day is a group.
+     * @param periods - Seven values which specify whether the dates are grouped by seconds, minutes, hours, days,
+     *   months, quarters and years. If omitted, the dates are grouped by months. The numbers ignore it.
+     * @default start = true
+     * @default end = true
+     * @returns Returns true if the field is grouped, or false if it is not in the rows or columns, has values
+     *   that are neither dates nor numbers, the pivot table has no source records, the grouped report
+     *   would cover other cells, or other users are editing the document.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotField/Methods/Group/
+     */
+    Group(start?: boolean | number | Date, end?: boolean | number | Date, by?: number, periods?: boolean[]): boolean;
+
+    /**
      * Moves the current pivot field inside the category.
      *
      * @param type - The direction to move the pivot table field, or the pivot field orientation type.
@@ -33707,8 +33888,9 @@ export namespace Cell {
    */
   export interface ApiPivotFilters {
     /**
-     * Adds a new filter to the pivot field. This method is VBA-compatible and follows the PivotFilters.Add
-     * signature from Excel VBA.
+     * Adds a new filter to the pivot field.
+     *
+     * This method is VBA-compatible and follows the PivotFilters.Add signature from Excel VBA.
      * Supports all major filter types including label filters, value filters, top/bottom filters, and date
      * filters.
      *
@@ -34263,7 +34445,9 @@ export namespace Cell {
 
     /**
      * Sets the visibility of the pivot item.
-     * <note> At least one item must remain visible when hiding others. </note>
+     *
+     * **Note:**
+     * At least one item must remain visible when hiding others.
      *
      * @param visible - Specifies whether the pivot item is visible.
      * @since 9.1.0
@@ -38001,6 +38185,7 @@ export namespace Cell {
 
     /**
      * Copies the contents and formatting of the top row of the range into the remaining rows.
+     *
      * If the range has only one row, the method succeeds but makes no changes.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
@@ -38029,6 +38214,7 @@ export namespace Cell {
 
     /**
      * Copies the contents and formatting of the rightmost column of the range into the remaining columns.
+     *
      * If the range has only one column, the method succeeds but makes no changes.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
@@ -38057,6 +38243,7 @@ export namespace Cell {
 
     /**
      * Copies the contents and formatting of the leftmost column of the range into the remaining columns.
+     *
      * If the range has only one column, the method succeeds but makes no changes.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
@@ -38085,6 +38272,7 @@ export namespace Cell {
 
     /**
      * Copies the contents and formatting of the bottom row of the range into the remaining rows.
+     *
      * If the range has only one row, the method succeeds but makes no changes.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
@@ -38159,8 +38347,9 @@ export namespace Cell {
 
     /**
      * Continues a search that was begun with the {@link ApiRange#Find} method. Finds the next cell that
-     * matches those same conditions and returns the ApiRange object that represents that cell. This does
-     * not affect the selection or the active cell.
+     * matches those same conditions and returns the ApiRange object that represents that cell.
+     *
+     * This does not affect the selection or the active cell.
      *
      * @param After - The cell after which the search will start. If this argument is not specified, the search starts
      *   from the last cell found.
@@ -38201,8 +38390,9 @@ export namespace Cell {
 
     /**
      * Continues a search that was begun with the {@link ApiRange#Find} method. Finds the previous cell
-     * that matches those same conditions and returns the ApiRange object that represents that cell. This
-     * does not affect the selection or the active cell.
+     * that matches those same conditions and returns the ApiRange object that represents that cell.
+     *
+     * This does not affect the selection or the active cell.
      *
      * @param Before - The cell before which the search will start. If this argument is not specified, the search
      *   starts from the last cell found.
@@ -38368,8 +38558,9 @@ export namespace Cell {
     GetCellsCount(): number;
 
     /**
-     * Returns the ApiCharacters object that represents a range of characters within the object text. Use
-     * the ApiCharacters object to format characters within a text string.
+     * Returns the ApiCharacters object that represents a range of characters within the object text.
+     *
+     * Use the ApiCharacters object to format characters within a text string.
      *
      * @param Start - The first character to be returned. If this argument is either 1 or omitted, this property
      *   returns a range of characters starting with the first character.
@@ -38645,8 +38836,9 @@ export namespace Cell {
     GetEntireRow(): ApiRange | null;
 
     /**
-     * Returns the background color for the current cell range. Returns 'No Fill' when the color of the
-     * background in the cell / cell range is null.
+     * Returns the background color for the current cell range.
+     *
+     * Returns 'No Fill' when the color of the background in the cell / cell range is null.
      *
      * @returns return 'No Fill' when the color to the background in the cell / cell range is null.
      *
@@ -38700,7 +38892,8 @@ export namespace Cell {
     /**
      * Returns a formula of the specified range.
      *
-     * @returns return Value2 property (value without format) if formula doesn't exist.
+     * @returns return Value2 property (value without format) if formula doesn't exist; a range of several cells
+     *   returns an array of them by rows, as GetValue2 does.
      *
      * @example
      * ```js
@@ -38750,7 +38943,9 @@ export namespace Cell {
     GetFormulaArray(): string | null;
 
     /**
-     * Returns the value hiding property. The specified range must span an entire column or row.
+     * Returns the value hiding property.
+     *
+     * The specified range must span an entire column or row.
      *
      * @returns returns true if the values in the range specified are hidden.
      *
@@ -38878,6 +39073,7 @@ export namespace Cell {
 
     /**
      * Returns a Range object that represents a cell or a range of cells.
+     *
      * When applied to a Range object, the property is relative to that Range object.
      *
      * @param cell1 - The first cell address (e.g., "A1" or "A1:B2").
@@ -38954,9 +39150,10 @@ export namespace Cell {
     GetRowHeight(): pt;
 
     /**
-     * Returns a Range object that represents the rows in the specified range. If the specified row is
-     * outside the Range object, a new Range will be returned that represents the cells between the columns
-     * of the original range in the specified row.
+     * Returns a Range object that represents the rows in the specified range.
+     *
+     * If the specified row is outside the Range object, a new Range will be returned that represents the
+     * cells between the columns of the original range in the specified row.
      *
      * @param nRow - The row number (starts counting from 1, the 0 value returns an error).
      *
@@ -39022,8 +39219,9 @@ export namespace Cell {
     GetText(): string | string[][];
 
     /**
-     * Returns the data validation object associated with this range. If no validation object exists yet,
-     * it will be created.
+     * Returns the data validation object associated with this range.
+     *
+     * If no validation object exists yet, it will be created.
      *
      * @example
      * ```js
@@ -39090,8 +39288,9 @@ export namespace Cell {
     GetValue2(): string | string[][];
 
     /**
-     * Returns the Worksheet object that represents the worksheet containing the specified range. It will
-     * be available in the read-only mode.
+     * Returns the Worksheet object that represents the worksheet containing the specified range.
+     *
+     * It will be available in the read-only mode.
      *
      * @example
      * ```js
@@ -39268,6 +39467,30 @@ export namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/PasteSpecial/
      */
     PasteSpecial(sPasteType?: PasteType, sPasteSpecialOperation?: PasteSpecialOperation, bSkipBlanks?: boolean, bTranspose?: boolean): boolean;
+
+    /**
+     * Removes the rows with duplicate values from the range, as the Remove Duplicates command does.
+     * A range inside a table stands for the whole table, and the autofilter range or one cell of it stands
+     * for the filtered range.
+     * Rows are duplicates when the displayed values of the compared columns are equal, case-insensitively;
+     * the first of them is kept.
+     * The other rows of the range move up in place of the removed ones; the cells outside the range stay
+     * in place.
+     *
+     * @param aColumns - The 1-based indexes of the columns to compare, counted from the first column of the range, or of
+     *   the table or the autofilter that the range stands for. If omitted, all the columns are compared.
+     * @param sHeader - Specifies whether the first row is a header row, which is kept and not compared, or "xlGuess" to
+     *   detect it as the command does. The value may be in any case and without "xl", e.g. "yes"; other
+     *   values throw an error. The header row of a table or an autofilter is always kept.
+     * @default sHeader = "xlNo"
+     * @returns The number of removed rows, or null if the rows cannot be removed: the range has one row only,
+     *   has merged cells of different sizes, crosses a table, an array formula or a pivot table, or
+     *   other users are editing the document.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/RemoveDuplicates/
+     */
+    RemoveDuplicates(aColumns?: number | number[], sHeader?: XlYesNoGuess): number | null;
 
     /**
      * Replaces specific information to another one in a range.
@@ -39491,6 +39714,7 @@ export namespace Cell {
 
     /**
      * Sets the width of all the columns in the current range.
+     *
      * One unit of column width is equal to the width of one character in the Normal style.
      * For proportional fonts, the width of the character 0 (zero) is used.
      *
@@ -39512,6 +39736,7 @@ export namespace Cell {
 
     /**
      * Sets the background color to the current cell range with the previously created color object.
+     *
      * Sets 'No Fill' when the previously created color object is 'No Fill' or null.
      *
      * @param color - The color object which specifies the color to be set to the background in the cell / cell range.
@@ -39649,7 +39874,9 @@ export namespace Cell {
     SetFormulaArray(data: string | boolean | number): boolean;
 
     /**
-     * Sets the value hiding property. The specified range must span an entire column or row.
+     * Sets the value hiding property.
+     *
+     * The specified range must span an entire column or row.
      *
      * @param isHidden - Specifies if the values in the current range are hidden or not.
      * @returns returns true if the hidden property was set successfully.
@@ -39937,7 +40164,8 @@ export namespace Cell {
      * Sets a value to the current cell or cell range.
      *
      * @param data - The general value for the cell or cell range.
-     * @returns returns false if such a range does not exist.
+     * @returns returns false if such a range does not exist or a formula was not accepted (the cell keeps its
+     *   content).
      *
      * @example
      * ```js
@@ -40047,6 +40275,7 @@ export namespace Cell {
 
     /**
      * Returns the font family from the current text properties.
+     *
      * The method automatically calculates the font from the theme if the font was set via the theme.
      *
      * @since 8.1.0
@@ -40173,12 +40402,13 @@ export namespace Cell {
     /**
      * Sets all 4 font slots with the specified font family.
      *
-     * @param sFontFamily - The font family or families used for the current text run.
+     * @param sFontFamily - The font family or families used for the current text run. Pass _null_ or omit it to remove the
+     *   font family.
      * @returns this text properties.
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/SetFontFamily/
      */
-    SetFontFamily(sFontFamily: string): ApiTextPr;
+    SetFontFamily(sFontFamily?: string | null): ApiTextPr;
 
     /**
      * Sets the font size to the characters of the current text run.
@@ -40272,11 +40502,12 @@ export namespace Cell {
     /**
      * Specifies the alignment which will be applied to the contents of the run in relation to the default
      * appearance of the run text:
-     * **"baseline"** - the characters in the current text run will be aligned by the default text
+     *
+     * - **"baseline"** - the characters in the current text run will be aligned by the default text
      * baseline.
-     * **"subscript"** - the characters in the current text run will be aligned below the default text
+     * - **"subscript"** - the characters in the current text run will be aligned below the default text
      * baseline.
-     * **"superscript"** - the characters in the current text run will be aligned above the default text
+     * - **"superscript"** - the characters in the current text run will be aligned above the default text
      * baseline.
      *
      * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
@@ -40631,6 +40862,7 @@ export namespace Cell {
 
     /**
      * Returns the font family from the current text properties.
+     *
      * The method automatically calculates the font from the theme if the font was set via the theme.
      *
      * @since 8.1.0
@@ -41178,7 +41410,8 @@ export namespace Cell {
     /**
      * Sets all 4 font slots with the specified font family.
      *
-     * @param sFontFamily - The font family or families used for the current text run.
+     * @param sFontFamily - The font family or families used for the current text run. Pass _null_ or omit it to remove the
+     *   font family.
      * @returns this text properties.
      *
      * @example
@@ -41204,7 +41437,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/SetFontFamily/
      */
-    SetFontFamily(sFontFamily: string): ApiTextPr;
+    SetFontFamily(sFontFamily?: string | null): ApiTextPr;
 
     /**
      * Sets the font size to the characters of the current text run.
@@ -41509,11 +41742,12 @@ export namespace Cell {
     /**
      * Specifies the alignment which will be applied to the contents of the run in relation to the default
      * appearance of the run text:
-     * **"baseline"** - the characters in the current text run will be aligned by the default text
+     *
+     * - **"baseline"** - the characters in the current text run will be aligned by the default text
      * baseline.
-     * **"subscript"** - the characters in the current text run will be aligned below the default text
+     * - **"subscript"** - the characters in the current text run will be aligned below the default text
      * baseline.
-     * **"superscript"** - the characters in the current text run will be aligned above the default text
+     * - **"superscript"** - the characters in the current text run will be aligned above the default text
      * baseline.
      *
      * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
@@ -42061,7 +42295,9 @@ export namespace Cell {
     Apply(): void;
 
     /**
-     * Returns the header setting. Always "xlYes" for a ListObject.
+     * Returns the header setting.
+     *
+     * Always "xlYes" for a ListObject.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      *
@@ -42543,6 +42779,7 @@ export namespace Cell {
 
     /**
      * Returns the value (color or null) by which this sort field is sorted.
+     *
      * For color-based sorts returns the fill/font color; otherwise returns null.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
@@ -43634,6 +43871,7 @@ export namespace Cell {
 
     /**
      * Returns the font family from the current text properties.
+     *
      * The method automatically calculates the font from the theme if the font was set via the theme.
      *
      * @since 8.1.0
@@ -44072,7 +44310,8 @@ export namespace Cell {
     /**
      * Sets all 4 font slots with the specified font family.
      *
-     * @param sFontFamily - The font family or families used for the current text run.
+     * @param sFontFamily - The font family or families used for the current text run. Pass _null_ or omit it to remove the
+     *   font family.
      * @returns this text properties.
      *
      * @example
@@ -44098,7 +44337,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/SetFontFamily/
      */
-    SetFontFamily(sFontFamily: string): ApiTextPr;
+    SetFontFamily(sFontFamily?: string | null): ApiTextPr;
 
     /**
      * Sets the font size to the characters of the current text run.
@@ -44361,11 +44600,12 @@ export namespace Cell {
     /**
      * Specifies the alignment which will be applied to the contents of the run in relation to the default
      * appearance of the run text:
-     * **"baseline"** - the characters in the current text run will be aligned by the default text
+     *
+     * - **"baseline"** - the characters in the current text run will be aligned by the default text
      * baseline.
-     * **"subscript"** - the characters in the current text run will be aligned below the default text
+     * - **"subscript"** - the characters in the current text run will be aligned below the default text
      * baseline.
-     * **"superscript"** - the characters in the current text run will be aligned above the default text
+     * - **"superscript"** - the characters in the current text run will be aligned above the default text
      * baseline.
      *
      * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
@@ -44406,15 +44646,21 @@ export namespace Cell {
     /**
      * Adds a hyperlink to the current text range.
      *
-     * @param link - The link address.
+     * @param link - The link address. Accepts an external URL (http, https, mailto, ftp) or an internal link. In the
+     *   presentation editor, the internal link is one of the slide actions:
+     *   "ppaction://hlinkshowjump?jump=firstslide", "ppaction://hlinkshowjump?jump=lastslide",
+     *   "ppaction://hlinkshowjump?jump=nextslide", "ppaction://hlinkshowjump?jump=previousslide",
+     *   "ppaction://hlinksldjumpslide{N}" (N is the zero-based slide index),
+     *   "ppaction://hlinkfile?file={path}" (opens an external file). In the spreadsheet editor, the
+     *   internal link is "#" followed by a cell range or a defined name, for example, "#Sheet1!A1" or
+     *   "#MyName".
      * @param screenTipText - The screen tip text.
-     * @param bookmarkName - Name of a bookmark
-     * @returns returns null if the range spans more than one paragraph or params are invalid.
+     * @returns returns null if the range spans more than one paragraph or the link is invalid.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/AddHyperlink/
      */
-    AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink;
+    AddHyperlink(link: string, screenTipText: string): ApiHyperlink;
 
     /**
      * Adds a text to the specified position. The current range is expanded to include the added text.
@@ -44663,13 +44909,13 @@ export namespace Cell {
     /**
      * Sets the font family for the current TextRange.
      *
-     * @param fontFamily - The font family or families used for the current text Range. Pass _null_ to remove the font
-     *   family.
+     * @param fontFamily - The font family or families used for the current text Range. Pass _null_ or omit it to remove
+     *   the font family.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetFontFamily/
      */
-    SetFontFamily(fontFamily: string | null): ApiTextRange | null;
+    SetFontFamily(fontFamily?: string | null): ApiTextRange | null;
 
     /**
      * Sets the font size of the characters in the current text Range.
@@ -45020,8 +45266,9 @@ export namespace Cell {
     GetDateOperator(): XlTimePeriods | null;
 
     /**
-     * Returns the background color for the format condition. Returns 'No Fill' when the background color
-     * of the format condition is null.
+     * Returns the background color for the format condition.
+     *
+     * Returns 'No Fill' when the background color of the format condition is null.
      *
      * @returns The background color applied by the format condition, or 'No Fill' if none is set.
      * @since 9.1.0
@@ -45812,6 +46059,7 @@ export namespace Cell {
 
     /**
      * Sets the background color to the format condition with the previously created color object.
+     *
      * Sets 'No Fill' when previously created color object is null.
      *
      * @param oColor - The color object that specifies the background color for the format condition.
@@ -46457,8 +46705,9 @@ export namespace Cell {
     GetDupeUnique(): XlDuplicateValues;
 
     /**
-     * Returns the background color for the format condition. Returns 'No Fill' when the background color
-     * of the format condition is null.
+     * Returns the background color for the format condition.
+     *
+     * Returns 'No Fill' when the background color of the format condition is null.
      *
      * @returns The background color applied by the format condition, or 'No Fill' if none is set.
      * @since 9.1.0
@@ -47178,6 +47427,7 @@ export namespace Cell {
 
     /**
      * Sets the background color to the format condition with the previously created color object.
+     *
      * Sets 'No Fill' when previously created color object is null.
      *
      * @param oColor - The color object that specifies the background color for the format condition.
@@ -48486,10 +48736,12 @@ export namespace Cell {
   export interface ApiWorksheet {
     /**
      * Creates a chart of the specified type from the selected data range of the current sheet.
-     * <note>Please note that the horizontal and vertical offsets are calculated within the limits of the
-     * specified column and
+     *
+     * **Note:**
+     * The horizontal and vertical offsets are calculated within the limits of the specified column and
      * row cells only. If this value exceeds the cell width or height, another vertical/horizontal position
-     * will be set.</note>
+     * will be set.
+     *
      * **Note:**
      * Values of _nStyleIndex_ outside **1 - 48** are interpreted as a chart style id from the
      * _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs
@@ -48632,6 +48884,7 @@ export namespace Cell {
 
     /**
      * Adds a formatted table to the worksheet and returns the ApiListObject object.
+     * Built-in table style names: TableStyleLight1-21, TableStyleMedium1-28, TableStyleDark1-11.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @param sSourceType - The source type for the table. Currently only **"xlSrcRange"** is supported.
@@ -48640,7 +48893,8 @@ export namespace Cell {
      * @param bLinkSource - Not supported.
      * @param sHasHeaders - Specifies whether the source range has column labels.
      * @param sDestination - Not supported.
-     * @param sTableStyleName - The table style name.
+     * @param sTableStyleName - The name of a built-in table style (for example, "TableStyleMedium9"), or a custom style defined
+     *   in the workbook.
      * @default sSourceType = "xlSrcRange"
      * @default bLinkSource = false
      * @default sHasHeaders = "xlGuess"
@@ -48709,10 +48963,12 @@ export namespace Cell {
 
     /**
      * Adds a shape to the current sheet with the parameters specified.
-     * <note>Please note that the horizontal and vertical offsets are
+     *
+     * **Note:**
+     * The horizontal and vertical offsets are
      * calculated within the limits of the specified column and row cells
      * only. If this value exceeds the cell width or height, another vertical/horizontal position will be
-     * set.</note>
+     * set.
      *
      * @param sType - The shape type which specifies the preset shape geometry.
      * @param nWidth - The shape width in English measure units.
@@ -48824,8 +49080,10 @@ export namespace Cell {
     /**
      * Formats the selected range of cells from the current sheet as a table (with the first row formatted
      * as a header).
-     * <note>As the first row is always formatted as a table header, you need to select at least two rows
-     * for the table to be formed correctly.</note>
+     *
+     * **Note:**
+     * As the first row is always formatted as a table header, you need to select at least two rows for the
+     * table to be formed correctly.
      *
      * @param sRange - The range of cells from the current sheet which will be formatted as a table.
      * @returns returns true if the range was formatted as a table successfully.
@@ -49188,6 +49446,7 @@ export namespace Cell {
 
     /**
      * Retrieves the custom XML manager associated with the current sheet.
+     *
      * This manager allows manipulation and access to custom XML parts within the current sheet.
      *
      * @returns Returns an instance of ApiCustomXmlParts if the custom XML manager exists, otherwise returns
@@ -49485,8 +49744,9 @@ export namespace Cell {
     GetProtectedRange(sTitle: string): ApiProtectedRange | null;
 
     /**
-     * Returns an object that represents the selected range of the current sheet. Can be a single cell -
-     * **A1**, or cells
+     * Returns an object that represents the selected range of the current sheet.
+     *
+     * Can be a single cell - **A1**, or cells
      * from a single row - **A1:E1**, or cells from a single column - **A1:A10**, or cells from several
      * rows and columns - **A1:E10**.
      *
@@ -49721,7 +49981,8 @@ export namespace Cell {
 
     /**
      * Groups an array of drawings in the current sheet.
-     * <note>This method is not supported in the document builder and works only in the editor.</note>
+     * **Note:**
+     * This method is not supported in the document builder and works only in the editor.
      *
      * @param aDrawings - An array of drawings to group.
      * @returns Returns null if the drawings cannot be grouped or when called in the document builder.
@@ -49891,6 +50152,7 @@ export namespace Cell {
 
     /**
      * Sets the width of the specified column.
+     *
      * One unit of column width is equal to the width of one character in the Normal style.
      * For proportional fonts, the width of the character 0 (zero) is used.
      *
@@ -49962,11 +50224,11 @@ export namespace Cell {
     /**
      * Adds a hyperlink to the specified range.
      *
-     * @param sRange - The range where the hyperlink will be added to.
-     * @param sAddress - The link address.
+     * @param range - The range where the hyperlink will be added to.
+     * @param address - The link address.
      * @param subAddress - The link subaddress to insert internal sheet hyperlinks.
-     * @param sScreenTip - The screen tip text.
-     * @param sTextToDisplay - The link text that will be displayed on the sheet.
+     * @param screenTip - The screen tip text.
+     * @param textToDisplay - The link text that will be displayed on the sheet.
      * @returns returns true if the hyperlink was set successfully.
      *
      * @example
@@ -49982,7 +50244,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetHyperlink/
      */
-    SetHyperlink(sRange: string, sAddress: string, subAddress?: string, sScreenTip?: string, sTextToDisplay?: string): boolean;
+    SetHyperlink(range: string, address: string, subAddress?: string, screenTip?: string, textToDisplay?: string): boolean;
 
     /**
      * Sets the left margin of the sheet.
@@ -50118,6 +50380,7 @@ export namespace Cell {
 
     /**
      * Sets the height of the specified row measured in points.
+     *
      * A point is 1/72 inch.
      *
      * @param nRow - The number of the row to set the height to.
@@ -50265,8 +50528,9 @@ export namespace Cell {
     ACCRINTM(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number, arg3: ApiRange | ApiName | number, arg4: ApiRange | ApiName | number, arg5?: ApiRange | ApiName | number): number;
 
     /**
-     * Returns the arccosine of a number, in radians in the range from 0 to Pi. The arccosine is the angle
-     * whose cosine is a number specified in the parameters.
+     * Returns the arccosine of a number, in radians in the range from 0 to Pi.
+     *
+     * The arccosine is the angle whose cosine is a number specified in the parameters.
      *
      * @param arg1 - The angle cosine. It must be from -1 to 1.
      *
@@ -51262,7 +51526,7 @@ export namespace Cell {
 
     /**
      * Returns a number that is rounded up to the nearest integer or to the nearest multiple of
-     * significance. The number is always rounded up regardless of its sing.
+     * significance. The number is always rounded up regardless of its sign.
      *
      * @param arg1 - The value to round up.
      * @param arg2 - The multiple of significance to round up to. If it is omitted, the default value of 1 is used.
@@ -52683,8 +52947,9 @@ export namespace Cell {
     DEGREES(arg1: ApiRange | ApiName | number): number;
 
     /**
-     * Tests whether two numbers are equal. The function returns 1 if the numbers are equal and 0
-     * otherwise.
+     * Tests whether two numbers are equal.
+     *
+     * The function returns 1 if the numbers are equal and 0 otherwise.
      *
      * @param arg1 - The first number.
      * @param arg2 - The second number.
@@ -53484,8 +53749,9 @@ export namespace Cell {
     EXACT(arg1: ApiRange | ApiName | string, arg2: ApiRange | ApiName | string): boolean;
 
     /**
-     * Returns the **e** constant raised to the power of a given number. The **e** constant is equal to
-     * **2.71828182845904**, the base of the natural logarithm.
+     * Returns the **e** constant raised to the power of a given number.
+     *
+     * The **e** constant is equal to **2.71828182845904**, the base of the natural logarithm.
      *
      * @param arg1 - The exponent applied to the base **e**.
      *
@@ -54449,8 +54715,10 @@ export namespace Cell {
     GEOMEAN(args: ApiRange | number[] | ApiName): number;
 
     /**
-     * Tests whether a number is greater than a threshold value. The function returns 1 if the number is
-     * greater than or equal to the threshold value and 0 otherwise.
+     * Tests whether a number is greater than a threshold value.
+     *
+     * The function returns 1 if the number is greater than or equal to the threshold value and 0
+     * otherwise.
      *
      * @param arg1 - The value to test against step.
      * @param arg2 - The threshold value.
@@ -55727,7 +55995,8 @@ export namespace Cell {
     /**
      * Returns a number that is rounded up to the nearest integer or to the nearest multiple of
      * significance regardless of the sign of the number.
-     * The number is always rounded up regardless of its sing.
+     *
+     * The number is always rounded up regardless of its sign.
      *
      * @param arg1 - The numeric value to round up.
      * @param arg2 - The multiple of significance to round up to. If it is omitted, the default value of 1 is used.
@@ -55840,7 +56109,9 @@ export namespace Cell {
     KURT(args: ApiRange | number[] | ApiName): number;
 
     /**
-     * Returns the k-th largest value in a data set. For example, the fifth largest number.
+     * Returns the k-th largest value in a data set.
+     *
+     * For example, the fifth largest number.
      *
      * @param arg1 - The array or range of data for which the k-th largest value will be determined.
      * @param arg2 - The position (from the largest) in the array or cell range of data to return.
@@ -56286,7 +56557,9 @@ export namespace Cell {
     LOGNORM_INV(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number, arg3: ApiRange | ApiName | number): number;
 
     /**
-     * Looks up a value either from a one-row or one-column range. Provided for backwards compatibility.
+     * Looks up a value either from a one-row or one-column range.
+     *
+     * Provided for backwards compatibility.
      *
      * @param arg1 - A value that is searched for in the first vector. It can be a number, text, a logical value, or
      *   a name or reference to a value.
@@ -57480,8 +57753,9 @@ export namespace Cell {
     ODDLYIELD(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number, arg3: ApiRange | ApiName | number, arg5: ApiRange | ApiName | number, arg6: ApiRange | ApiName | number, arg6_2: ApiRange | ApiName | number, arg8: ApiRange | ApiName | number, arg9?: ApiRange | ApiName | number): number;
 
     /**
-     * Checks whether any of the arguments are **true**. Returns **false** only if all arguments are
-     * **false**.
+     * Checks whether any of the arguments are **true**.
+     *
+     * Returns **false** only if all arguments are **false**.
      *
      * @param args - A condition to check.
      *
@@ -58473,8 +58747,9 @@ export namespace Cell {
     RANK_EQ(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number[], arg3?: ApiRange | ApiName | boolean): number;
 
     /**
-     * Returns the interest rate per period for a loan or an investment. For example, use 6%/4 for
-     * quarterly payments at 6% APR.
+     * Returns the interest rate per period for a loan or an investment.
+     *
+     * For example, use 6%/4 for quarterly payments at 6% APR.
      *
      * @param arg1 - The total number of payment periods for the loan or investment.
      * @param arg2 - The payment made each period and cannot change over the life of the loan or investment.
@@ -58575,8 +58850,9 @@ export namespace Cell {
     REPLACEB(arg1: ApiRange | ApiName | string, arg2: ApiRange | ApiName | number, arg3: ApiRange | ApiName | number, arg4: ApiRange | ApiName | string): string;
 
     /**
-     * Repeats text a given number of times. Use this function to fill a cell with a number of instances of
-     * a text string.
+     * Repeats text a given number of times.
+     *
+     * Use this function to fill a cell with a number of instances of a text string.
      *
      * @param arg1 - The text that will be repeated.
      * @param arg2 - A positive number specifying the number of times to repeat text.
@@ -59121,7 +59397,9 @@ export namespace Cell {
     SLN(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number, arg3: ApiRange | ApiName | number): number;
 
     /**
-     * Returns the k-th smallest value in a data set. For example, the fifth smallest number.
+     * Returns the k-th smallest value in a data set.
+     *
+     * For example, the fifth smallest number.
      *
      * @param arg1 - An array or range of numerical data for which the k-th smallest value will be determined.
      * @param arg2 - The position (from the smallest) in the range of the value to return.
@@ -59265,8 +59543,9 @@ export namespace Cell {
     STDEV(args: number[] | number | ApiName | ApiRange): number;
 
     /**
-     * Estimates standard deviation based on a sample, including logical values and text. Text and the
-     * **false** logical value have the value 0; the **true** logical value has the value 1.
+     * Estimates standard deviation based on a sample, including logical values and text.
+     *
+     * Text and the **false** logical value have the value 0; the **true** logical value has the value 1.
      *
      * @param args - Up to 255 values for which the standard deviation will be calculated. The first argument is
      *   required, subsequent arguments are optional. Arguments can be numbers, logical values, text
@@ -59349,6 +59628,7 @@ export namespace Cell {
 
     /**
      * Calculates standard deviation based on the entire population, including logical values and text.
+     *
      * Text and the **false** logical value have the value 0; the **true** logical value has the value 1.
      *
      * @param args - Up to 255 values for which the standard deviation will be calculated. The first argument is
@@ -59845,7 +60125,9 @@ export namespace Cell {
 
     /**
      * Converts a text time to a serial number for a time, a number from 0 (12:00:00 AM) to 0.999988426
-     * (11:59:59 PM). Format the number with a time format after entering the formula.
+     * (11:59:59 PM).
+     *
+     * Format the number with a time format after entering the formula.
      *
      * @param arg1 - A text string that represents a time in one of the time formats (date information in the string
      *   is ignored).
@@ -60311,8 +60593,9 @@ export namespace Cell {
     VAR(args: number | ApiName | ApiRange | number[]): number;
 
     /**
-     * Estimates variance based on a sample, including logical values and text. Text and the **false**
-     * logical value have the value 0; the **true** logical value has the value 1.
+     * Estimates variance based on a sample, including logical values and text.
+     *
+     * Text and the **false** logical value have the value 0; the **true** logical value has the value 1.
      *
      * @param args - Up to 255 values for which the variance will be calculated. The first argument is required,
      *   subsequent arguments are optional. Arguments can be numbers, logical values or text
@@ -60376,8 +60659,9 @@ export namespace Cell {
     VARP(args: number | ApiName | ApiRange | number[]): number;
 
     /**
-     * Calculates variance based on the entire population, including logical values and text. Text and the
-     * **false** logical value have the value 0; the **true** logical value has the value 1.
+     * Calculates variance based on the entire population, including logical values and text.
+     *
+     * Text and the **false** logical value have the value 0; the **true** logical value has the value 1.
      *
      * @param args - Up to 255 values for which the variance will be calculated. The first argument is required,
      *   subsequent arguments are optional. Arguments can be numbers, logical values or text
@@ -60497,7 +60781,9 @@ export namespace Cell {
 
     /**
      * Looks for a value in the leftmost column of a table and then returns a value in the same row from
-     * the specified column. By default, the table must be sorted in an ascending order.
+     * the specified column.
+     *
+     * By default, the table must be sorted in an ascending order.
      *
      * @param arg1 - The value to be found in the first column of the table. It can be a value, a reference, or a
      *   text string.
@@ -60773,8 +61059,10 @@ export namespace Cell {
     XNPV(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName, arg3: ApiRange | ApiName): number;
 
     /**
-     * Returns the logical **Exclusive Or** value of all arguments. The function returns **true** when the
-     * number of **true** inputs is odd and **false** when the number of **true** inputs is even.
+     * Returns the logical **Exclusive Or** value of all arguments.
+     *
+     * The function returns **true** when the number of **true** inputs is odd and **false** when the
+     * number of **true** inputs is even.
      *
      * @param args - The conditions to check.
      *
@@ -60874,7 +61162,9 @@ export namespace Cell {
     YIELD(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number, arg3: ApiRange | ApiName | number, arg4: ApiRange | ApiName | number, arg5: ApiRange | ApiName | number, arg6: ApiRange | ApiName | number, arg7?: ApiRange | ApiName | number): number;
 
     /**
-     * Returns the annual yield for a discounted security. For example, a Treasury bill.
+     * Returns the annual yield for a discounted security.
+     *
+     * For example, a Treasury bill.
      *
      * @param arg1 - The settlement date of the Treasury bill, expressed as a serial date number.
      * @param arg2 - The maturity date of the Treasury bill, expressed as a serial date number.

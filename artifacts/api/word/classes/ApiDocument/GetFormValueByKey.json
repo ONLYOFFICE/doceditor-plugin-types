@@ -1,5 +1,5 @@
 {
-  "description": "Returns the form value for the specified key. For a group of radio buttons returns Choice, i.e. the name of the selected item.",
+  "description": "Returns the form value for the specified key.\n\nFor a group of radio buttons returns Choice, i.e. the name of the selected item.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetFormValueByKey/",
   "params": [
     {

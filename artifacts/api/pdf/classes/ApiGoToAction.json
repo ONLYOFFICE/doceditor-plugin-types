@@ -23,7 +23,7 @@
       "since": "10.0.0"
     },
     "GetRect": {
-      "description": "Gets goto destination rect\n<note> For all goto types except \"fitR\" used only x1, y1 coordinates </note>",
+      "description": "Gets goto destination rect\n**Note:**\nFor all goto types except \"fitR\" used only x1, y1 coordinates",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/GetRect/",
       "params": [],
       "returns": {
@@ -68,7 +68,7 @@
       "since": "10.0.0"
     },
     "SetRect": {
-      "description": "Sets goto destination rect\n<note> For all goto types except \"fitR\" used only x1, y1 coordinates </note>",
+      "description": "Sets goto destination rect\n**Note:**\nFor all goto types except \"fitR\" used only x1, y1 coordinates",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/SetRect/",
       "params": [
         {

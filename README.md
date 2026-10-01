@@ -1,4 +1,4 @@
-# ONLYOFFICE Plugin API Types
+# ONLYOFFICE Document Editor Plugin API Types
 
 TypeScript type definitions for plugins that run inside the ONLYOFFICE Docs editors - the ones that
 talk to a document through `window.Asc.plugin`.

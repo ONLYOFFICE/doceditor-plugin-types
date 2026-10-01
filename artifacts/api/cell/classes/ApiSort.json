@@ -13,7 +13,7 @@
       "signature": "Apply(): void"
     },
     "GetHeader": {
-      "description": "Returns the header setting. Always \"xlYes\" for a ListObject.",
+      "description": "Returns the header setting.\n\nAlways \"xlYes\" for a ListObject.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSort/Methods/GetHeader/",
       "params": [],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",

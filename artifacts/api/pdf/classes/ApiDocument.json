@@ -394,7 +394,7 @@
       "signature": "Push(oElement: DocumentElement): boolean"
     },
     "RemoveAllElements": {
-      "description": "Removes all the elements from the current document or from the current document element.\n<note>When all elements are removed, a new empty paragraph is automatically created. If you want to add\ncontent to this paragraph, use the {@link ApiDocumentContent#GetElement} method.</note>",
+      "description": "Removes all the elements from the current document or from the current document element.\n\n**Note:**\nWhen all elements are removed, a new empty paragraph is automatically created. If you want to add\ncontent to this paragraph, use the {@link ApiDocumentContent#GetElement} method.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/RemoveAllElements/",
       "params": [],
       "returns": {
@@ -418,11 +418,11 @@
       "signature": "RemoveElement(nPos: number): boolean"
     },
     "RemovePage": {
-      "description": "Removes page by index from document\n<note> You can't delete last page </note>",
+      "description": "Removes a page from the document by its index.\n\n**Note:**\nIf the document has only one page, it cannot be removed, and the method returns **false**.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/RemovePage/",
       "params": [
         {
-          "description": "page index",
+          "description": "The index of the page to remove.",
           "name": "index",
           "type": "number"
         }

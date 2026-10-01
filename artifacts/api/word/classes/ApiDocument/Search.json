@@ -1,5 +1,5 @@
 {
-  "description": "Searches for a scope of a document object. The search results are a collection of ApiRange objects.",
+  "description": "Searches for a scope of a document object.\n\nThe search results are a collection of ApiRange objects.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/Search/",
   "params": [
     {

@@ -1,5 +1,5 @@
 {
-  "description": "Sets the spacing before the current paragraph. If the value of the isBeforeAuto parameter is true, then \nany value of the nBefore is ignored. If isBeforeAuto parameter is not specified, then \nit will be interpreted as false.",
+  "description": "Sets the spacing before the current paragraph.\n\nIf the value of the isBeforeAuto parameter is true, then\nany value of the nBefore is ignored. If isBeforeAuto parameter is not specified, then \nit will be interpreted as false.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetSpacingBefore/",
   "params": [
     {

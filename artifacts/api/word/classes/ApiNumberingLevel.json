@@ -39,7 +39,7 @@
       "signature": "GetParaPr(): ApiParaPr"
     },
     "GetTextPr": {
-      "description": "Returns the text properties which will be applied to the text in the current numbering level itself, not to the text in the subsequent paragraph.\n<note>To change the text style of the paragraph, a style must be applied to it using the {@link ApiRun#SetStyle} method.</note>",
+      "description": "Returns the text properties which will be applied to the text in the current numbering level itself, not to the text in the subsequent paragraph.\n\n**Note:**\nTo change the text style of the paragraph, a style must be applied to it using the {@link ApiRun#SetStyle} method.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiNumberingLevel/Methods/GetTextPr/",
       "params": [],
       "returns": {
@@ -89,7 +89,7 @@
       "signature": "SetCustomType(sType: \"none\" | \"bullet\" | \"decimal\" | \"lowerRoman\" | \"upperRoman\" | \"lowerLetter\" | \"upperLetter\" | \"decimalZero\", sTextFormatString: string, sAlign: \"left\" | \"right\" | \"center\"): boolean"
     },
     "SetRestart": {
-      "description": "Specifies a one-based index which determines when a numbering level should restart to its starting value. A numbering level restarts when an instance of the specified numbering level which is higher (earlier than this level) is used in the given document contents. By default this value is true.",
+      "description": "Specifies a one-based index which determines when a numbering level should restart to its starting value.\n\nA numbering level restarts when an instance of the specified numbering level which is higher (earlier than this level) is used in the given document contents. By default this value is true.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiNumberingLevel/Methods/SetRestart/",
       "params": [
         {
@@ -104,7 +104,7 @@
       "signature": "SetRestart(isRestart: boolean): boolean"
     },
     "SetStart": {
-      "description": "Specifies the starting value for the numbering used by the parent numbering level within a given numbering level definition. By default this value is 1.",
+      "description": "Specifies the starting value for the numbering used by the parent numbering level within a given numbering level definition.\n\nBy default this value is 1.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiNumberingLevel/Methods/SetStart/",
       "params": [
         {
@@ -119,7 +119,7 @@
       "signature": "SetStart(nStart: number): boolean"
     },
     "SetSuff": {
-      "description": "Specifies the content which will be added between the given numbering level text and the text of every numbered paragraph which references that numbering level. By default this value is \"tab\".",
+      "description": "Specifies the content which will be added between the given numbering level text and the text of every numbered paragraph which references that numbering level.\n\nBy default this value is \"tab\".",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiNumberingLevel/Methods/SetSuff/",
       "params": [
         {

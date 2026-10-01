@@ -64,7 +64,7 @@
       "signature": "GetRange(): ApiRange | null"
     },
     "GetTotal": {
-      "description": "Returns the range of the totals row cell for the column.\nReturns null if the table has no totals row.",
+      "description": "Returns the range of the totals row cell for the column.\n\nReturns null if the table has no totals row.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListColumn/Methods/GetTotal/",
       "params": [],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",

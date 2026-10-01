@@ -1,5 +1,5 @@
 {
-  "description": "Checks whether any of the arguments are **true**. Returns **false** only if all arguments are **false**.",
+  "description": "Checks whether any of the arguments are **true**.\n\nReturns **false** only if all arguments are **false**.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/OR/",
   "params": [
     {

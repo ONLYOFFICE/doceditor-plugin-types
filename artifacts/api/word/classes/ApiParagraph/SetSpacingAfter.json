@@ -1,5 +1,5 @@
 {
-  "description": "Sets the spacing after the current paragraph. If the value of the isAfterAuto parameter is true, then \nany value of the nAfter is ignored. If isAfterAuto parameter is not specified, then it \nwill be interpreted as false.",
+  "description": "Sets the spacing after the current paragraph.\n\nIf the value of the isAfterAuto parameter is true, then\nany value of the nAfter is ignored. If isAfterAuto parameter is not specified, then it \nwill be interpreted as false.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetSpacingAfter/",
   "params": [
     {

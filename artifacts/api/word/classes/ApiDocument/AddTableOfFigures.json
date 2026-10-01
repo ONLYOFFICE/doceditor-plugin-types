@@ -3,7 +3,7 @@
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/AddTableOfFigures/",
   "params": [
     {
-      "description": "Table of figures properties.\r<note>Please note that the table of figures properties will be filled with the default properties if they are undefined.</note>",
+      "description": "Table of figures properties.\r**Note:**\nPlease note that the table of figures properties will be filled with the default properties if they are undefined.",
       "name": "oTofPr",
       "optional": true,
       "type": "TofPr"

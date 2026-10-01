@@ -25,10 +25,11 @@ export namespace Pdf {
 
   /**
    * The type of a fill which uses an image as a background.
-   * **"tile"** - if the image is smaller than the shape which is filled, the image will be tiled all
+   *
+   * - **"tile"** - if the image is smaller than the shape which is filled, the image will be tiled all
    * over the created shape surface.
-   * **"stretch"** - if the image is smaller than the shape which is filled, the image will be stretched
-   * to fit the created shape surface.
+   * - **"stretch"** - if the image is smaller than the shape which is filled, the image will be
+   * stretched to fit the created shape surface.
    */
   export type BlipFillType = "tile" | "stretch";
 
@@ -49,8 +50,9 @@ export namespace Pdf {
 
   /**
    * A border type which will be added to the document element.
-   * **"none"** - no border will be added to the created element or the selected element side.
-   * **"single"** - a single border will be added to the created element or the selected element side.
+   *
+   * - **"none"** - no border will be added to the created element or the selected element side.
+   * - **"single"** - a single border will be added to the created element or the selected element side.
    */
   export type BorderType = "none" | "single";
 
@@ -74,21 +76,23 @@ export namespace Pdf {
 
   /**
    * Possible values for the caption numbering format.
-   * **"ALPHABETIC"** - upper letter.
-   * **"alphabetic"** - lower letter.
-   * **"Roman"** - upper Roman.
-   * **"roman"** - lower Roman.
-   * **"Arabic"** - arabic.
+   *
+   * - **"ALPHABETIC"** - upper letter.
+   * - **"alphabetic"** - lower letter.
+   * - **"Roman"** - upper Roman.
+   * - **"roman"** - lower Roman.
+   * - **"Arabic"** - arabic.
    */
   export type CaptionNumberingFormat = "ALPHABETIC" | "alphabetic" | "Roman" | "roman" | "Arabic";
 
   /**
    * Possible values for the caption separator.
-   * **"hyphen"** - the "-" punctuation mark.
-   * **"period"** - the "." punctuation mark.
-   * **"colon"** - the ":" punctuation mark.
-   * **"longDash"** - the "—" punctuation mark.
-   * **"dash"** - the "-" punctuation mark.
+   *
+   * - **"hyphen"** - the "-" punctuation mark.
+   * - **"period"** - the "." punctuation mark.
+   * - **"colon"** - the ":" punctuation mark.
+   * - **"longDash"** - the "—" punctuation mark.
+   * - **"dash"** - the "-" punctuation mark.
    */
   export type CaptionSep = "hyphen" | "period" | "colon" | "longDash" | "dash";
 
@@ -224,6 +228,7 @@ export namespace Pdf {
 
   /**
    * Degree defines an angle in degrees.
+   *
    * Can be any finite number (positive or negative).
    */
   export type Degree = number;
@@ -306,6 +311,7 @@ export namespace Pdf {
 
   /**
    * Form type.
+   *
    * The available form types.
    */
   export type FormType = "textForm" | "comboBoxForm" | "dropDownForm" | "checkBoxForm" | "radioButtonForm" | "pictureForm" | "complexForm" | "dateForm" | "signatureForm";
@@ -327,6 +333,7 @@ export namespace Pdf {
 
   /**
    * The coordinate value for the geometry paths.
+   *
    * Can be a guide name from "gdLst", a numeric value, or a string representation of a number.
    */
   export type GeometryCoordinate = string | number;
@@ -349,10 +356,11 @@ export namespace Pdf {
 
   /**
    * Header and footer types which can be applied to the document sections.
-   * **"default"** - a header or footer which can be applied to any default page.
-   * **"title"** - a header or footer which is applied to the title page.
-   * **"even"** - a header or footer which can be applied to even pages to distinguish them from the odd
-   * ones (which will be considered default).
+   *
+   * - **"default"** - a header or footer which can be applied to any default page.
+   * - **"title"** - a header or footer which is applied to the title page.
+   * - **"even"** - a header or footer which can be applied to even pages to distinguish them from the
+   * odd ones (which will be considered default).
    */
   export type HdrFtrType = "default" | "title" | "even";
 
@@ -398,6 +406,7 @@ export namespace Pdf {
 
   /**
    * NumberSepStyle — defines number formatting style:
+   *
    * - "us" — 1,234.56 (English style)
    * - "plain" — 1234.56 (No separators)
    * - "euro" — 1.234,56 (European style)
@@ -476,6 +485,7 @@ export namespace Pdf {
 
   /**
    * Quadrilateral represented as a flat tuple of vertices.
+   *
    * Vertices order is fixed:
    * · left-top → right-top → left-bottom → right-bottom
    *
@@ -518,8 +528,9 @@ export namespace Pdf {
    * Axis-aligned rectangle represented as a tuple.
    *
    * Invariants:
-   * - rect[0] < rect[2] (x1 < x2)
-   * - rect[1] < rect[3] (y1 < y2)
+   *
+   * - `rect[0] < rect[2]` (x1 < x2)
+   * - `rect[1] < rect[3]` (y1 < y2)
    */
   export interface Rect {
     /** x1 (left) */
@@ -537,13 +548,15 @@ export namespace Pdf {
 
   /**
    * Axis-aligned rectangle difference represented as a tuple.
+   *
    * Describes coordinate-wise deltas between two rectangles (B - A).
    *
    * Invariants:
-   * - diff[0] = x1B - x1A
-   * - diff[1] = y1B - y1A
-   * - diff[2] = x2B - x2A
-   * - diff[3] = y2B - y2A
+   *
+   * - `diff[0] = x1B - x1A`
+   * - `diff[1] = y1B - y1A`
+   * - `diff[2] = x2B - x2A`
+   * - `diff[3] = y2B - y2A`
    */
   export interface RectDiff {
     /** dx1 (left delta) */
@@ -625,16 +638,18 @@ export namespace Pdf {
   /**
    * The section break type which defines how the contents of the current section are placed relative to
    * the previous section.
+   *
    * WordprocessingML supports five distinct types of section breaks:
-   * **Next page** ("nextPage") - starts a new section on the next page (the default value).
-   * **Odd** ("oddPage") - starts a new section on the next odd-numbered page.
-   * **Even** ("evenPage") - starts a new section on the next even-numbered page.
-   * **Continuous** ("continuous") - starts a new section in the next paragraph.
+   *
+   * - **Next page** ("nextPage") - starts a new section on the next page (the default value).
+   * - **Odd** ("oddPage") - starts a new section on the next odd-numbered page.
+   * - **Even** ("evenPage") - starts a new section on the next even-numbered page.
+   * - **Continuous** ("continuous") - starts a new section in the next paragraph.
    * This means that continuous section breaks might not specify certain page-level section properties,
    * since they shall be inherited from the following section.
    * However, these breaks can specify other section properties, such as line numbering and
    * footnote/endnote settings.
-   * **Column** ("nextColumn") - starts a new section in the next column on the page.
+   * - **Column** ("nextColumn") - starts a new section in the next column on the page.
    */
   export type SectionBreakType = "nextPage" | "oddPage" | "evenPage" | "continuous" | "nextColumn";
 
@@ -721,35 +736,37 @@ export namespace Pdf {
   /**
    * This simple type specifies possible values for the table sections to which the current conditional
    * formatting properties will be applied when this selected table style is used.
-   * **"topLeftCell"** - specifies that the table formatting is applied to the top left cell.
-   * **"topRightCell"** - specifies that the table formatting is applied to the top right cell.
-   * **"bottomLeftCell"** - specifies that the table formatting is applied to the bottom left cell.
-   * **"bottomRightCell"** - specifies that the table formatting is applied to the bottom right cell.
-   * **"firstRow"** - specifies that the table formatting is applied to the first row.
-   * **"lastRow"** - specifies that the table formatting is applied to the last row.
-   * **"firstColumn"** - specifies that the table formatting is applied to the first column. Any
+   *
+   * - **"topLeftCell"** - specifies that the table formatting is applied to the top left cell.
+   * - **"topRightCell"** - specifies that the table formatting is applied to the top right cell.
+   * - **"bottomLeftCell"** - specifies that the table formatting is applied to the bottom left cell.
+   * - **"bottomRightCell"** - specifies that the table formatting is applied to the bottom right cell.
+   * - **"firstRow"** - specifies that the table formatting is applied to the first row.
+   * - **"lastRow"** - specifies that the table formatting is applied to the last row.
+   * - **"firstColumn"** - specifies that the table formatting is applied to the first column. Any
    * subsequent row which is in *table header* ({@link ApiTableRowPr#SetTableHeader}) will also use this
    * conditional format.
-   * **"lastColumn"** - specifies that the table formatting is applied to the last column.
-   * **"bandedColumn"** - specifies that the table formatting is applied to odd numbered groupings of
+   * - **"lastColumn"** - specifies that the table formatting is applied to the last column.
+   * - **"bandedColumn"** - specifies that the table formatting is applied to odd numbered groupings of
    * rows.
-   * **"bandedColumnEven"** - specifies that the table formatting is applied to even numbered groupings
+   * - **"bandedColumnEven"** - specifies that the table formatting is applied to even numbered groupings
    * of rows.
-   * **"bandedRow"** - specifies that the table formatting is applied to odd numbered groupings of
+   * - **"bandedRow"** - specifies that the table formatting is applied to odd numbered groupings of
    * columns.
-   * **"bandedRowEven"** - specifies that the table formatting is applied to even numbered groupings of
+   * - **"bandedRowEven"** - specifies that the table formatting is applied to even numbered groupings of
    * columns.
-   * **"wholeTable"** - specifies that the conditional formatting is applied to the whole table.
+   * - **"wholeTable"** - specifies that the conditional formatting is applied to the whole table.
    */
   export type TableStyleOverrideType = "topLeftCell" | "topRightCell" | "bottomLeftCell" | "bottomRightCell" | "firstRow" | "lastRow" | "firstColumn" | "lastColumn" | "bandedColumn" | "bandedColumnEven" | "bandedRow" | "bandedRowEven" | "wholeTable";
 
   /**
    * The possible values for the units of the width property are defined by a specific table or table
    * cell width property.
-   * **"auto"** - sets the table or table cell width to auto width.
-   * **"twips"** - sets the table or table cell width to be measured in twentieths of a point.
-   * **"nul"** - sets the table or table cell width to be of a zero value.
-   * **"percent"** - sets the table or table cell width to be measured in percent to the parent
+   *
+   * - **"auto"** - sets the table or table cell width to auto width.
+   * - **"twips"** - sets the table or table cell width to be measured in twentieths of a point.
+   * - **"nul"** - sets the table or table cell width to be of a zero value.
+   * - **"percent"** - sets the table or table cell width to be measured in percent to the parent
    * container.
    */
   export type TableWidth = "auto" | "twips" | "nul" | "percent";
@@ -789,11 +806,12 @@ export namespace Pdf {
 
   /**
    * Possible values for the position of chart tick labels (either horizontal or vertical).
-   * **"none"** - not display the selected tick labels.
-   * **"nextTo"** - sets the position of the selected tick labels next to the main label.
-   * **"low"** - sets the position of the selected tick labels in the part of the chart with lower
+   *
+   * - **"none"** - not display the selected tick labels.
+   * - **"nextTo"** - sets the position of the selected tick labels next to the main label.
+   * - **"low"** - sets the position of the selected tick labels in the part of the chart with lower
    * values.
-   * **"high"** - sets the position of the selected tick labels in the part of the chart with higher
+   * - **"high"** - sets the position of the selected tick labels in the part of the chart with higher
    * values.
    */
   export type TickLabelPosition = "none" | "nextTo" | "low" | "high";
@@ -803,6 +821,7 @@ export namespace Pdf {
 
   /**
    * Time format options:
+   *
    * - "HH:MM" — 24-hour format, hours and minutes (e.g., "14:30")
    * - "h:MM tt" — 12-hour format with AM/PM, hours and minutes (e.g., "2:30 PM")
    * - "HH:MM:ss" — 24-hour format, hours, minutes, and seconds (e.g., "14:30:15")
@@ -846,17 +865,18 @@ export namespace Pdf {
     OutlineLvls?: number;
 
     /**
-     * Style levels (for example, [{Name: "Heading 1", Lvl: 2}, {Name: "Heading 2", Lvl: 3}]).
-     * <note>If StylesLvls.length > 0, then the OutlineLvls property will be ignored.</note>
+     * Style levels (for example, [{Name: "Heading 1", Lvl: 2}, {Name: "Heading 2", Lvl: 3}]). If
+     * _StylesLvls.length_ is greater than 0, the _OutlineLvls_ property is ignored.
      */
     StylesLvls: TocStyleLvl[];
   }
 
   /**
    * Possible values for the table of contents leader:
-   * **"dot"** - "......."
-   * **"dash"** - "-------"
-   * **"underline"** - "_______"
+   *
+   * - **"dot"** - "......."
+   * - **"dash"** - "-------"
+   * - **"underline"** - "_______"
    */
   export type TocLeader = "dot" | "dash" | "underline" | "none";
 
@@ -973,13 +993,14 @@ export namespace Pdf {
 
   /**
    * Available values of the "bookmark" reference type:
-   * **"text"** - the entire bookmark text;
-   * **"pageNum"** - the bookmark page number;
-   * **"paraNum"** - the bookmark paragraph number;
-   * **"noCtxParaNum"** - the abbreviated paragraph number (the specific item only, e.g. instead of
+   *
+   * - **"text"** - the entire bookmark text;
+   * - **"pageNum"** - the bookmark page number;
+   * - **"paraNum"** - the bookmark paragraph number;
+   * - **"noCtxParaNum"** - the abbreviated paragraph number (the specific item only, e.g. instead of
    * "4.1.1" you refer to "1" only);
-   * **"fullCtxParaNum** - the full paragraph number, e.g. "4.1.1";
-   * **"aboveBelow"** - the words "above" or "below" depending on the item position.
+   * - **"fullCtxParaNum** - the full paragraph number, e.g. "4.1.1";
+   * - **"aboveBelow"** - the words "above" or "below" depending on the item position.
    */
   export type bookmarkRefTo = "text" | "pageNum" | "paraNum" | "noCtxParaNum" | "fullCtxParaNum" | "aboveBelow";
 
@@ -988,44 +1009,49 @@ export namespace Pdf {
 
   /**
    * Available values of the "equation"/"figure"/"table" reference type:
-   * **"entireCaption"**- the entire caption text;
-   * **"labelNumber"** - the label and object number only, e.g. "Table 1.1";
-   * **"captionText"** - the caption text only;
-   * **"pageNum"** - the page number containing the referenced object;
-   * **"aboveBelow"** - the words "above" or "below" depending on the item position.
+   *
+   * - **"entireCaption"**- the entire caption text;
+   * - **"labelNumber"** - the label and object number only, e.g. "Table 1.1";
+   * - **"captionText"** - the caption text only;
+   * - **"pageNum"** - the page number containing the referenced object;
+   * - **"aboveBelow"** - the words "above" or "below" depending on the item position.
    */
   export type captionRefTo = "entireCaption" | "labelNumber" | "captionText" | "pageNum" | "aboveBelow";
 
   /**
    * Available values of the "endnote" reference type:
-   * **"endnoteNum"** - the endnote number;
-   * **"pageNum"** - the endnote page number;
-   * **"aboveBelow"** - the words "above" or "below" depending on the item position;
-   * **"formEndnoteNum"** - the form number formatted as an endnote. The numbering of the actual endnotes
-   * is not affected.
+   *
+   * - **"endnoteNum"** - the endnote number;
+   * - **"pageNum"** - the endnote page number;
+   * - **"aboveBelow"** - the words "above" or "below" depending on the item position;
+   * - **"formEndnoteNum"** - the form number formatted as an endnote. The numbering of the actual
+   * endnotes is not affected.
    */
   export type endnoteRefTo = "endnoteNum" | "pageNum" | "aboveBelow" | "formEndnoteNum";
 
   /**
    * Available values of the "footnote" reference type:
-   * **"footnoteNum"** - the footnote number;
-   * **"pageNum"** - the page number of the footnote;
-   * **"aboveBelow"** - the words "above" or "below" depending on the position of the item;
-   * **"formFootnoteNum"** - the form number formatted as a footnote. The numbering of the actual
+   *
+   * - **"footnoteNum"** - the footnote number;
+   * - **"pageNum"** - the page number of the footnote;
+   * - **"aboveBelow"** - the words "above" or "below" depending on the position of the item;
+   * - **"formFootnoteNum"** - the form number formatted as a footnote. The numbering of the actual
    * footnotes is not affected.
    */
   export type footnoteRefTo = "footnoteNum" | "pageNum" | "aboveBelow" | "formFootnoteNum";
 
   /**
    * Available values of the "heading" reference type:
-   * **"text"** - the entire heading text;
-   * **"pageNum"** - the heading page number;
-   * **"headingNum"** - the heading sequence number;
-   * **"noCtxHeadingNum"** - the abbreviated heading number. Make sure the cursor pointer is in the
+   *
+   * - **"text"** - the entire heading text;
+   * - **"pageNum"** - the heading page number;
+   * - **"headingNum"** - the heading sequence number;
+   * - **"noCtxHeadingNum"** - the abbreviated heading number. Make sure the cursor pointer is in the
    * section you are referencing to, e.g. you are in section 4 and you wish to refer to heading 4.B, so
    * instead of "4.B" you receive "B" only;
-   * **"fullCtxHeadingNum"** - the full heading number even if the cursor pointer is in the same section;
-   * **"aboveBelow"** - the words "above" or "below" depending on the item position.
+   * - **"fullCtxHeadingNum"** - the full heading number even if the cursor pointer is in the same
+   * section;
+   * - **"aboveBelow"** - the words "above" or "below" depending on the item position.
    */
   export type headingRefTo = "text" | "pageNum" | "headingNum" | "noCtxHeadingNum" | "fullCtxHeadingNum" | "aboveBelow";
 
@@ -1043,14 +1069,15 @@ export namespace Pdf {
 
   /**
    * Available values of the "numbered" reference type:
-   * **"pageNum"** - the numbered item page number;
-   * **"paraNum"** - the numbered item paragraph number;
-   * **"noCtxParaNum"** - the abbreviated paragraph number (the specific item only, e.g. instead of
+   *
+   * - **"pageNum"** - the numbered item page number;
+   * - **"paraNum"** - the numbered item paragraph number;
+   * - **"noCtxParaNum"** - the abbreviated paragraph number (the specific item only, e.g. instead of
    * "4.1.1" you refer to "1" only);
-   * **"fullCtxParaNum"** - the full paragraph number, e.g. "4.1.1";
-   * **"text"** - the paragraph text value, e.g. if you have "4.1.1. Terms and Conditions", you refer to
-   * "Terms and Conditions" only;
-   * **"aboveBelow"** - the words "above" or "below" depending on the item position.
+   * - **"fullCtxParaNum"** - the full paragraph number, e.g. "4.1.1";
+   * - **"text"** - the paragraph text value, e.g. if you have "4.1.1. Terms and Conditions", you refer
+   * to "Terms and Conditions" only;
+   * - **"aboveBelow"** - the words "above" or "below" depending on the item position.
    */
   export type numberedRefTo = "pageNum" | "paraNum" | "noCtxParaNum" | "fullCtxParaNum" | "text" | "aboveBelow";
 
@@ -1122,23 +1149,28 @@ export namespace Pdf {
     CentimetersToPoints(cm: number): number;
 
     /**
-     * Creates an ApiColor from a universal input. The method recognizes several call signatures and either
-     * delegates to a narrower factory or constructs an ApiColor directly.
-     * **Numeric components**: "Api.Color(r, g, b)" or "Api.Color(r, g, b, a)" creates an RGB or RGBA color
-     * from byte components (0-255).
-     * **Packed integer**: "Api.Color(0xRRGGBB)" creates an RGB color from a 24-bit integer.
-     * **Full HEX string**: "Api.Color('#RRGGBB')" or "Api.Color('RRGGBB')" creates a HEX color; the
+     * Creates an ApiColor from a universal input.
+     *
+     * The method recognizes several call signatures and either delegates to a narrower factory or
+     * constructs an ApiColor directly.
+     *
+     * - **Numeric components**: "Api.Color(r, g, b)" or "Api.Color(r, g, b, a)" creates an RGB or RGBA
+     * color from byte components (0-255).
+     * - **Packed integer**: "Api.Color(0xRRGGBB)" creates an RGB color from a 24-bit integer.
+     * - **Full HEX string**: "Api.Color('#RRGGBB')" or "Api.Color('RRGGBB')" creates a HEX color; the
      * leading "#" is optional.
-     * **Short HEX string**: "Api.Color('#RGB')" expands each digit by duplication, so "#F0A" becomes
+     * - **Short HEX string**: "Api.Color('#RGB')" expands each digit by duplication, so "#F0A" becomes
      * "#FF00AA".
-     * **Theme color name**: "Api.Color('accent1')" creates a theme color; any value of SchemeColorId is
+     * - **Theme color name**: "Api.Color('accent1')" creates a theme color; any value of SchemeColorId is
      * accepted.
-     * **Preset color name**: "Api.Color('aliceBlue')" resolves any value of PresetColor to its RGB
+     * - **Preset color name**: "Api.Color('aliceBlue')" resolves any value of PresetColor to its RGB
      * equivalent.
-     * **Auto color**: "Api.Color('auto')" creates an auto color.
+     * - **Auto color**: "Api.Color('auto')" creates an auto color.
+     *
      * For a single string argument, the resolution priority is: "auto", a string starting with "#", a
      * theme name, a preset name, a bare 6-digit HEX. Theme and preset palettes do not overlap. A 3-digit
      * shorthand is accepted only with the leading "#".
+     *
      * Unsupported inputs (objects, arrays, an existing ApiColor, unknown strings, no arguments) return a
      * black color (#000000).
      *
@@ -1268,6 +1300,7 @@ export namespace Pdf {
 
     /**
      * Creates a chart with the parameters specified.
+     *
      * **Note:**
      * Values of _nStyleIndex_ outside **1 - 48** are interpreted as a chart style id from the
      * _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs
@@ -1285,7 +1318,7 @@ export namespace Pdf {
      * @param styleIndex - The chart color style index (can be **1 - 48**, as described in OOXML specification).
      * @param numFormats - Numeric formats which will be applied to the series (can be custom formats). The default numeric
      *   format is "General".
-     * @default chartType = "bar"
+     * @default chartType = "ColumnClustered"
      * @returns returns null if the chart type is not supported.
      *
      * @example
@@ -1705,6 +1738,20 @@ export namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateImageField/
      */
     CreateImageField(rect: Rect): ApiButtonField;
+
+    /**
+     * Creates stamp annotation from an image.
+     *
+     * @param rect - annotation rect
+     * @param imageSrc - The image source where the image should be taken from (currently, only internet URL or Base64
+     *   encoded images are supported).
+     * @param author - name of the author
+     * @param creationDate - creation date (timeStamp)
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateImageStampAnnot/
+     */
+    CreateImageStampAnnot(rect: Rect, imageSrc: string, author?: string, creationDate?: number): ApiStampAnnotation;
 
     /**
      * Creates ink annotation.
@@ -2921,6 +2968,7 @@ export namespace Pdf {
 
     /**
      * Converts millimeters to English Metric Units (EMUs).
+     *
      * The result is an integer value.
      *
      * @param mm - The value in millimeters.
@@ -4181,7 +4229,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation border effect intensity.
-     * <note> Can be applied to circle, square, freeText and polygon annotations </note>
+     *
+     * **Note:**
+     * Can be applied to circle, square, freeText and polygon annotations.
      *
      * @param value - The border effect intensity. Must be greater than or equal to 0.
      *
@@ -4205,7 +4255,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation border effect style.
-     * <note> Can be applied to circle, square, freeText and polygon annotations </note>
+     *
+     * **Note:**
+     * Can be applied to circle, square, freeText and polygon annotations.
      *
      * @param style - The border effect style: **"none"** or **"cloud"**.
      *
@@ -4318,7 +4370,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation dash pattern.
-     * <note> The border style property must be set to "dashed". </note>
+     *
+     * **Note:**
+     * The border style property must be set to "dashed".
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
@@ -4384,7 +4438,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetFillColor/
      */
-    SetFillColor(color: ApiColor): boolean;
+    SetFillColor(color?: ApiColor): boolean;
 
     /**
      * Sets annotation last modification date.
@@ -5960,7 +6014,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation border effect intensity.
-     * <note> Can be applied to circle, square, freeText and polygon annotations </note>
+     *
+     * **Note:**
+     * Can be applied to circle, square, freeText and polygon annotations.
      *
      * @param value - The border effect intensity. Must be greater than or equal to 0.
      *
@@ -5984,7 +6040,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation border effect style.
-     * <note> Can be applied to circle, square, freeText and polygon annotations </note>
+     *
+     * **Note:**
+     * Can be applied to circle, square, freeText and polygon annotations.
      *
      * @param style - The border effect style: **"none"** or **"cloud"**.
      *
@@ -6097,7 +6155,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation dash pattern.
-     * <note> The border style property must be set to "dashed". </note>
+     *
+     * **Note:**
+     * The border style property must be set to "dashed".
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
@@ -6163,7 +6223,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetFillColor/
      */
-    SetFillColor(color: ApiColor): boolean;
+    SetFillColor(color?: ApiColor): boolean;
 
     /**
      * Sets annotation last modification date.
@@ -6610,7 +6670,9 @@ export namespace Pdf {
 
     /**
      * Gets widget text size.
-     * <note> Text size === 0 means autofit </note>
+     *
+     * **Note:**
+     * Text size === 0 means autofit.
      *
      * @example
      * ```js
@@ -6857,7 +6919,8 @@ export namespace Pdf {
 
     /**
      * Sets widget text alignment.
-     * <note> Only for text/combobox/listbox fields widgets. </note>
+     * **Note:**
+     * Only for text/combobox/listbox fields widgets.
      *
      * @param textAlign - The text alignment.
      * @since 10.0.0
@@ -6897,7 +6960,9 @@ export namespace Pdf {
 
     /**
      * Sets widget text size.
-     * <note> Text size === 0 means autofit </note>
+     *
+     * **Note:**
+     * Text size === 0 means autofit.
      *
      * @param size - The font size measured in half-points (1/144 of an inch).
      *
@@ -7790,7 +7855,9 @@ export namespace Pdf {
 
     /**
      * Gets widget text size.
-     * <note> Text size === 0 means autofit </note>
+     *
+     * **Note:**
+     * Text size === 0 means autofit.
      *
      * @example
      * ```js
@@ -8301,7 +8368,8 @@ export namespace Pdf {
 
     /**
      * Sets widget text alignment.
-     * <note> Only for text/combobox/listbox fields widgets. </note>
+     * **Note:**
+     * Only for text/combobox/listbox fields widgets.
      *
      * @param textAlign - The text alignment.
      * @since 10.0.0
@@ -8341,7 +8409,9 @@ export namespace Pdf {
 
     /**
      * Sets widget text size.
-     * <note> Text size === 0 means autofit </note>
+     *
+     * **Note:**
+     * Text size === 0 means autofit.
      *
      * @param size - The font size measured in half-points (1/144 of an inch).
      *
@@ -9857,6 +9927,9 @@ export namespace Pdf {
 
     /**
      * Sets the fill to the specified chart series.
+     * **Note:**
+     * The fill is not applied to 2D line and scatter series. Use the SetSeriesOutLine method to change
+     * their line and the SetMarkerFill method to change their markers.
      *
      * @param oFill - The fill type used to fill the series.
      * @param nSeries - The index of the chart series.
@@ -10360,7 +10433,9 @@ export namespace Pdf {
     SetVertAxisTickLabelPosition(sTickLabelPosition: TickLabelPosition): boolean;
 
     /**
-     * Sets the x-axis values to all chart series. It is used with the scatter charts only.
+     * Sets the x-axis values to all chart series.
+     *
+     * It is used with the scatter charts only.
      *
      * @param aValues - The array of the data which will be set to the x-axis data points.
      *
@@ -10404,7 +10479,11 @@ export namespace Pdf {
    */
   export interface ApiChartSeries {
     /**
-     * Tries to change the series type. Returns true if successful.
+     * Tries to change the series type.
+     *
+     * Returns true if successful.
+     *
+     * Throws: Error if the chart type is not supported.
      *
      * @param sType - Chart type.
      *
@@ -11296,7 +11375,9 @@ export namespace Pdf {
 
     /**
      * Gets widget text size.
-     * <note> Text size === 0 means autofit </note>
+     *
+     * **Note:**
+     * Text size === 0 means autofit.
      *
      * @example
      * ```js
@@ -11697,7 +11778,8 @@ export namespace Pdf {
 
     /**
      * Sets widget text alignment.
-     * <note> Only for text/combobox/listbox fields widgets. </note>
+     * **Note:**
+     * Only for text/combobox/listbox fields widgets.
      *
      * @param textAlign - The text alignment.
      * @since 10.0.0
@@ -11737,7 +11819,9 @@ export namespace Pdf {
 
     /**
      * Sets widget text size.
-     * <note> Text size === 0 means autofit </note>
+     *
+     * **Note:**
+     * Text size === 0 means autofit.
      *
      * @param size - The font size measured in half-points (1/144 of an inch).
      *
@@ -12302,7 +12386,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation border effect intensity.
-     * <note> Can be applied to circle, square, freeText and polygon annotations </note>
+     *
+     * **Note:**
+     * Can be applied to circle, square, freeText and polygon annotations.
      *
      * @param value - The border effect intensity. Must be greater than or equal to 0.
      *
@@ -12326,7 +12412,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation border effect style.
-     * <note> Can be applied to circle, square, freeText and polygon annotations </note>
+     *
+     * **Note:**
+     * Can be applied to circle, square, freeText and polygon annotations.
      *
      * @param style - The border effect style: **"none"** or **"cloud"**.
      *
@@ -12439,7 +12527,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation dash pattern.
-     * <note> The border style property must be set to "dashed". </note>
+     *
+     * **Note:**
+     * The border style property must be set to "dashed".
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
@@ -12505,7 +12595,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetFillColor/
      */
-    SetFillColor(color: ApiColor): boolean;
+    SetFillColor(color?: ApiColor): boolean;
 
     /**
      * Sets annotation last modification date.
@@ -13406,7 +13496,8 @@ export namespace Pdf {
 
     /**
      * Sets text field placeholder.
-     * <note>Makes combobox editable</note>
+     * **Note:**
+     * Makes combobox editable
      *
      * @param sPlaceholder - field placeholder
      * @since 10.0.0
@@ -13489,7 +13580,9 @@ export namespace Pdf {
 
     /**
      * Sets validate range for field.
-     * <note> Can only be applied to fields with a percentage or number format. </note>
+     *
+     * **Note:**
+     * Can only be applied to fields with a percentage or number format.
      *
      * @param greaterThan - If true, enables minimum value validation using `greaterThanValue`.
      * @param greaterThanValue - The minimum allowed value.
@@ -13963,9 +14056,10 @@ export namespace Pdf {
 
     /**
      * Removes all the elements from the current document or from the current document element.
-     * <note>When all elements are removed, a new empty paragraph is automatically created. If you want to
-     * add
-     * content to this paragraph, use the {@link ApiDocumentContent#GetElement} method.</note>
+     *
+     * **Note:**
+     * When all elements are removed, a new empty paragraph is automatically created. If you want to add
+     * content to this paragraph, use the {@link ApiDocumentContent#GetElement} method.
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/RemoveAllElements/
      */
@@ -13981,10 +14075,12 @@ export namespace Pdf {
     RemoveElement(nPos: number): boolean;
 
     /**
-     * Removes page by index from document
-     * <note> You can't delete last page </note>
+     * Removes a page from the document by its index.
      *
-     * @param index - page index
+     * **Note:**
+     * If the document has only one page, it cannot be removed, and the method returns **false**.
+     *
+     * @param index - The index of the page to remove.
      *
      * @example
      * ```js
@@ -14470,9 +14566,10 @@ export namespace Pdf {
 
     /**
      * Removes all the elements from the current document or from the current document element.
-     * <note>When all elements are removed, a new empty paragraph is automatically created. If you want to
-     * add
-     * content to this paragraph, use the {@link ApiDocumentContent#GetElement} method.</note>
+     *
+     * **Note:**
+     * When all elements are removed, a new empty paragraph is automatically created. If you want to add
+     * content to this paragraph, use the {@link ApiDocumentContent#GetElement} method.
      *
      * @example
      * ```js
@@ -15245,7 +15342,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/SetRotation/
      */
-    SetRotation(rotAngle: number): boolean;
+    SetRotation(rotAngle: Degree): boolean;
 
     /**
      * Sets the shadow to the current graphic object.
@@ -16059,7 +16156,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation border effect intensity.
-     * <note> Can be applied to circle, square, freeText and polygon annotations </note>
+     *
+     * **Note:**
+     * Can be applied to circle, square, freeText and polygon annotations.
      *
      * @param value - The border effect intensity. Must be greater than or equal to 0.
      *
@@ -16083,7 +16182,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation border effect style.
-     * <note> Can be applied to circle, square, freeText and polygon annotations </note>
+     *
+     * **Note:**
+     * Can be applied to circle, square, freeText and polygon annotations.
      *
      * @param style - The border effect style: **"none"** or **"cloud"**.
      *
@@ -16222,7 +16323,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation dash pattern.
-     * <note> The border style property must be set to "dashed". </note>
+     *
+     * **Note:**
+     * The border style property must be set to "dashed".
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
@@ -16297,7 +16400,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetFillColor/
      */
-    SetFillColor(color: ApiColor): boolean;
+    SetFillColor(color?: ApiColor): boolean;
 
     /**
      * Sets intent type for this annotation.
@@ -16979,7 +17082,8 @@ export namespace Pdf {
 
     /**
      * Gets goto destination rect
-     * <note> For all goto types except "fitR" used only x1, y1 coordinates </note>
+     * **Note:**
+     * For all goto types except "fitR" used only x1, y1 coordinates
      *
      * @since 10.0.0
      *
@@ -17016,7 +17120,8 @@ export namespace Pdf {
 
     /**
      * Sets goto destination rect
-     * <note> For all goto types except "fitR" used only x1, y1 coordinates </note>
+     * **Note:**
+     * For all goto types except "fitR" used only x1, y1 coordinates
      *
      * @since 10.0.0
      *
@@ -18477,7 +18582,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation border effect intensity.
-     * <note> Can be applied to circle, square, freeText and polygon annotations </note>
+     *
+     * **Note:**
+     * Can be applied to circle, square, freeText and polygon annotations.
      *
      * @param value - The border effect intensity. Must be greater than or equal to 0.
      *
@@ -18501,7 +18608,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation border effect style.
-     * <note> Can be applied to circle, square, freeText and polygon annotations </note>
+     *
+     * **Note:**
+     * Can be applied to circle, square, freeText and polygon annotations.
      *
      * @param style - The border effect style: **"none"** or **"cloud"**.
      *
@@ -18614,7 +18723,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation dash pattern.
-     * <note> The border style property must be set to "dashed". </note>
+     *
+     * **Note:**
+     * The border style property must be set to "dashed".
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
@@ -18680,7 +18791,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetFillColor/
      */
-    SetFillColor(color: ApiColor): boolean;
+    SetFillColor(color?: ApiColor): boolean;
 
     /**
      * Sets annotation last modification date.
@@ -19475,7 +19586,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation border effect intensity.
-     * <note> Can be applied to circle, square, freeText and polygon annotations </note>
+     *
+     * **Note:**
+     * Can be applied to circle, square, freeText and polygon annotations.
      *
      * @param value - The border effect intensity. Must be greater than or equal to 0.
      *
@@ -19499,7 +19612,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation border effect style.
-     * <note> Can be applied to circle, square, freeText and polygon annotations </note>
+     *
+     * **Note:**
+     * Can be applied to circle, square, freeText and polygon annotations.
      *
      * @param style - The border effect style: **"none"** or **"cloud"**.
      *
@@ -19612,7 +19727,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation dash pattern.
-     * <note> The border style property must be set to "dashed". </note>
+     *
+     * **Note:**
+     * The border style property must be set to "dashed".
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
@@ -19725,7 +19842,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetFillColor/
      */
-    SetFillColor(color: ApiColor): boolean;
+    SetFillColor(color?: ApiColor): boolean;
 
     /**
      * Sets annotation last modification date.
@@ -20774,7 +20891,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiPage/Methods/SetRotation/
      */
-    SetRotation(angle: number): boolean;
+    SetRotation(angle: Degree): boolean;
 
     /**
      * Sets page selection.
@@ -21448,8 +21565,9 @@ export namespace Pdf {
     SetOutlineLvl(lvl?: number | null): boolean;
 
     /**
-     * Sets the spacing after the current paragraph. If the value of the isAfterAuto parameter is true,
-     * then
+     * Sets the spacing after the current paragraph.
+     *
+     * If the value of the isAfterAuto parameter is true, then
      * any value of the nAfter is ignored. If isAfterAuto parameter is not specified, then it
      * will be interpreted as false.
      *
@@ -21493,8 +21611,9 @@ export namespace Pdf {
     SetSpacingAfter(nAfter: twips, isAfterAuto?: boolean): boolean;
 
     /**
-     * Sets the spacing before the current paragraph. If the value of the isBeforeAuto parameter is true,
-     * then
+     * Sets the spacing before the current paragraph.
+     *
+     * If the value of the isBeforeAuto parameter is true, then
      * any value of the nBefore is ignored. If isBeforeAuto parameter is not specified, then
      * it will be interpreted as false.
      *
@@ -21539,7 +21658,9 @@ export namespace Pdf {
     SetSpacingBefore(nBefore: twips, isBeforeAuto?: boolean): boolean;
 
     /**
-     * Sets the paragraph line spacing. If the value of the sLineRule parameter is either
+     * Sets the paragraph line spacing.
+     *
+     * If the value of the sLineRule parameter is either
      * "atLeast" or "exact", then the value of nLine will be interpreted as twentieths of a point. If
      * the value of the sLineRule parameter is "auto", then the value of the
      * nLine parameter will be interpreted as 240ths of a line.
@@ -21583,7 +21704,9 @@ export namespace Pdf {
     /**
      * Specifies a sequence of custom tab stops which will be used for any tab characters in the current
      * paragraph.
-     * **Warning**: The lengths of aPos array and aVal array **MUST BE** equal to each other.
+     *
+     * **Warning:**
+     * The lengths of the aPos and aVal arrays must be equal to each other.
      *
      * @param aPos - An array of the positions of custom tab stops with respect to the current page margins measured
      *   in twentieths of a point (1/1440 of an inch).
@@ -21775,7 +21898,9 @@ export namespace Pdf {
     AddText(text: string | number[], widths?: number[]): ApiRun;
 
     /**
-     * Creates a paragraph copy. Ingnore comments, footnote references, complex fields.
+     * Creates a paragraph copy.
+     *
+     * Ignores comments, footnote references, complex fields.
      *
      * @example
      * ```js
@@ -22725,9 +22850,11 @@ export namespace Pdf {
 
     /**
      * Removes all the elements from the current paragraph.
-     * <note>When all the elements are removed from the paragraph, a new empty run is automatically
-     * created. If you want to add
-     * content to this run, use the {@link ApiParagraph#GetElement} method.</note>
+     *
+     * **Note:**
+     * When all the elements are removed from the paragraph, a new empty run is automatically created. If
+     * you want to add
+     * content to this run, use the {@link ApiParagraph#GetElement} method.
      *
      * @example
      * ```js
@@ -22759,10 +22886,12 @@ export namespace Pdf {
 
     /**
      * Removes an element using the position specified.
-     * <note>If the element you remove is the last paragraph element (i.e. all the elements are removed
-     * from the paragraph),
+     *
+     * **Note:**
+     * If the element you remove is the last paragraph element (i.e. all the elements are removed from the
+     * paragraph),
      * a new empty run is automatically created. If you want to add
-     * content to this run, use the {@link ApiParagraph#GetElement} method.</note>
+     * content to this run, use the {@link ApiParagraph#GetElement} method.
      *
      * @param nPos - The element position which we want to remove from the paragraph.
      *
@@ -22974,8 +23103,8 @@ export namespace Pdf {
     /**
      * Sets all 4 font slots with the specified font family.
      *
-     * @param fontFamily - The font family or families used for the current paragraph. Pass _null_ to remove the font
-     *   family.
+     * @param fontFamily - The font family or families used for the current paragraph. Pass _null_ or omit it to remove the
+     *   font family.
      * @returns this
      *
      * @example
@@ -23000,7 +23129,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiParagraph/Methods/SetFontFamily/
      */
-    SetFontFamily(fontFamily: string | null): ApiParagraph;
+    SetFontFamily(fontFamily?: string | null): ApiParagraph;
 
     /**
      * Sets the font size to the characters of the current paragraph.
@@ -23360,8 +23489,9 @@ export namespace Pdf {
     SetSpacing(spacing: twips | null): ApiParagraph;
 
     /**
-     * Sets the spacing after the current paragraph. If the value of the isAfterAuto parameter is true,
-     * then
+     * Sets the spacing after the current paragraph.
+     *
+     * If the value of the isAfterAuto parameter is true, then
      * any value of the nAfter is ignored. If isAfterAuto parameter is not specified, then it
      * will be interpreted as false.
      *
@@ -23405,8 +23535,9 @@ export namespace Pdf {
     SetSpacingAfter(nAfter: twips, isAfterAuto?: boolean): boolean;
 
     /**
-     * Sets the spacing before the current paragraph. If the value of the isBeforeAuto parameter is true,
-     * then
+     * Sets the spacing before the current paragraph.
+     *
+     * If the value of the isBeforeAuto parameter is true, then
      * any value of the nBefore is ignored. If isBeforeAuto parameter is not specified, then
      * it will be interpreted as false.
      *
@@ -23451,7 +23582,9 @@ export namespace Pdf {
     SetSpacingBefore(nBefore: twips, isBeforeAuto?: boolean): boolean;
 
     /**
-     * Sets the paragraph line spacing. If the value of the sLineRule parameter is either
+     * Sets the paragraph line spacing.
+     *
+     * If the value of the sLineRule parameter is either
      * "atLeast" or "exact", then the value of nLine will be interpreted as twentieths of a point. If
      * the value of the sLineRule parameter is "auto", then the value of the
      * nLine parameter will be interpreted as 240ths of a line.
@@ -23526,7 +23659,9 @@ export namespace Pdf {
     /**
      * Specifies a sequence of custom tab stops which will be used for any tab characters in the current
      * paragraph.
-     * **Warning**: The lengths of aPos array and aVal array **MUST BE** equal to each other.
+     *
+     * **Warning:**
+     * The lengths of the aPos and aVal arrays must be equal to each other.
      *
      * @param aPos - An array of the positions of custom tab stops with respect to the current page margins measured
      *   in twentieths of a point (1/1440 of an inch).
@@ -25402,7 +25537,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation border effect intensity.
-     * <note> Can be applied to circle, square, freeText and polygon annotations </note>
+     *
+     * **Note:**
+     * Can be applied to circle, square, freeText and polygon annotations.
      *
      * @param value - The border effect intensity. Must be greater than or equal to 0.
      *
@@ -25426,7 +25563,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation border effect style.
-     * <note> Can be applied to circle, square, freeText and polygon annotations </note>
+     *
+     * **Note:**
+     * Can be applied to circle, square, freeText and polygon annotations.
      *
      * @param style - The border effect style: **"none"** or **"cloud"**.
      *
@@ -25539,7 +25678,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation dash pattern.
-     * <note> The border style property must be set to "dashed". </note>
+     *
+     * **Note:**
+     * The border style property must be set to "dashed".
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
@@ -25630,7 +25771,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetFillColor/
      */
-    SetFillColor(color: ApiColor): boolean;
+    SetFillColor(color?: ApiColor): boolean;
 
     /**
      * Sets annotation last modification date.
@@ -26352,7 +26493,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation border effect intensity.
-     * <note> Can be applied to circle, square, freeText and polygon annotations </note>
+     *
+     * **Note:**
+     * Can be applied to circle, square, freeText and polygon annotations.
      *
      * @param value - The border effect intensity. Must be greater than or equal to 0.
      *
@@ -26376,7 +26519,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation border effect style.
-     * <note> Can be applied to circle, square, freeText and polygon annotations </note>
+     *
+     * **Note:**
+     * Can be applied to circle, square, freeText and polygon annotations.
      *
      * @param style - The border effect style: **"none"** or **"cloud"**.
      *
@@ -26489,7 +26634,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation dash pattern.
-     * <note> The border style property must be set to "dashed". </note>
+     *
+     * **Note:**
+     * The border style property must be set to "dashed".
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
@@ -26555,7 +26702,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetFillColor/
      */
-    SetFillColor(color: ApiColor): boolean;
+    SetFillColor(color?: ApiColor): boolean;
 
     /**
      * Sets annotation last modification date.
@@ -27003,6 +27150,7 @@ export namespace Pdf {
 
     /**
      * Returns the font family from the current text properties.
+     *
      * The method automatically calculates the font from the theme if the font was set via the theme.
      *
      * @since 8.1.0
@@ -27138,12 +27286,13 @@ export namespace Pdf {
     /**
      * Sets all 4 font slots with the specified font family.
      *
-     * @param sFontFamily - The font family or families used for the current text run.
+     * @param sFontFamily - The font family or families used for the current text run. Pass _null_ or omit it to remove the
+     *   font family.
      * @returns this text properties.
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/SetFontFamily/
      */
-    SetFontFamily(sFontFamily: string): ApiTextPr;
+    SetFontFamily(sFontFamily?: string | null): ApiTextPr;
 
     /**
      * Sets the font size to the characters of the current text run.
@@ -27247,11 +27396,12 @@ export namespace Pdf {
     /**
      * Specifies the alignment which will be applied to the contents of the run in relation to the default
      * appearance of the run text:
-     * **"baseline"** - the characters in the current text run will be aligned by the default text
+     *
+     * - **"baseline"** - the characters in the current text run will be aligned by the default text
      * baseline.
-     * **"subscript"** - the characters in the current text run will be aligned below the default text
+     * - **"subscript"** - the characters in the current text run will be aligned below the default text
      * baseline.
-     * **"superscript"** - the characters in the current text run will be aligned above the default text
+     * - **"superscript"** - the characters in the current text run will be aligned above the default text
      * baseline.
      *
      * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
@@ -27985,10 +28135,12 @@ export namespace Pdf {
 
     /**
      * Specifies the reading order for the current paragraph.
+     *
      * Possible values are:
-     * **null** - use the standart direction parameter;
-     * **"ltr"** - left-to-right text direction;
-     * **"rtl"** - right-to-left text direction.
+     *
+     * - **null** - use the standart direction parameter;
+     * - **"ltr"** - left-to-right text direction;
+     * - **"rtl"** - right-to-left text direction.
      *
      * @param readingOrder - The reading order.
      * @returns Returns the current paragraph itself (ApiRichParagraph).
@@ -28637,6 +28789,7 @@ export namespace Pdf {
 
     /**
      * Returns the font family from the current text properties.
+     *
      * The method automatically calculates the font from the theme if the font was set via the theme.
      *
      * @since 8.1.0
@@ -29320,7 +29473,8 @@ export namespace Pdf {
     /**
      * Sets all 4 font slots with the specified font family.
      *
-     * @param sFontFamily - The font family or families used for the current text run.
+     * @param sFontFamily - The font family or families used for the current text run. Pass _null_ or omit it to remove the
+     *   font family.
      * @returns this text properties.
      *
      * @example
@@ -29352,7 +29506,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/SetFontFamily/
      */
-    SetFontFamily(sFontFamily: string): ApiTextPr;
+    SetFontFamily(sFontFamily?: string | null): ApiTextPr;
 
     /**
      * Sets the font size to the characters of the current text run.
@@ -29742,11 +29896,12 @@ export namespace Pdf {
     /**
      * Specifies the alignment which will be applied to the contents of the run in relation to the default
      * appearance of the run text:
-     * **"baseline"** - the characters in the current text run will be aligned by the default text
+     *
+     * - **"baseline"** - the characters in the current text run will be aligned by the default text
      * baseline.
-     * **"subscript"** - the characters in the current text run will be aligned below the default text
+     * - **"subscript"** - the characters in the current text run will be aligned below the default text
      * baseline.
-     * **"superscript"** - the characters in the current text run will be aligned above the default text
+     * - **"superscript"** - the characters in the current text run will be aligned above the default text
      * baseline.
      *
      * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
@@ -31244,7 +31399,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation border effect intensity.
-     * <note> Can be applied to circle, square, freeText and polygon annotations </note>
+     *
+     * **Note:**
+     * Can be applied to circle, square, freeText and polygon annotations.
      *
      * @param value - The border effect intensity. Must be greater than or equal to 0.
      *
@@ -31268,7 +31425,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation border effect style.
-     * <note> Can be applied to circle, square, freeText and polygon annotations </note>
+     *
+     * **Note:**
+     * Can be applied to circle, square, freeText and polygon annotations.
      *
      * @param style - The border effect style: **"none"** or **"cloud"**.
      *
@@ -31381,7 +31540,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation dash pattern.
-     * <note> The border style property must be set to "dashed". </note>
+     *
+     * **Note:**
+     * The border style property must be set to "dashed".
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
@@ -31447,7 +31608,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetFillColor/
      */
-    SetFillColor(color: ApiColor): boolean;
+    SetFillColor(color?: ApiColor): boolean;
 
     /**
      * Sets annotation last modification date.
@@ -32183,7 +32344,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation border effect intensity.
-     * <note> Can be applied to circle, square, freeText and polygon annotations </note>
+     *
+     * **Note:**
+     * Can be applied to circle, square, freeText and polygon annotations.
      *
      * @param value - The border effect intensity. Must be greater than or equal to 0.
      *
@@ -32207,7 +32370,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation border effect style.
-     * <note> Can be applied to circle, square, freeText and polygon annotations </note>
+     *
+     * **Note:**
+     * Can be applied to circle, square, freeText and polygon annotations.
      *
      * @param style - The border effect style: **"none"** or **"cloud"**.
      *
@@ -32320,7 +32485,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation dash pattern.
-     * <note> The border style property must be set to "dashed". </note>
+     *
+     * **Note:**
+     * The border style property must be set to "dashed".
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
@@ -32386,7 +32553,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetFillColor/
      */
-    SetFillColor(color: ApiColor): boolean;
+    SetFillColor(color?: ApiColor): boolean;
 
     /**
      * Sets annotation last modification date.
@@ -32504,7 +32671,7 @@ export namespace Pdf {
     /**
      * Sets stamp size scale.
      *
-     * @param scale - size scale
+     * @param scale - The size scale.
      *
      * @example
      * ```js
@@ -33180,9 +33347,12 @@ export namespace Pdf {
     GetTableTitle(): string;
 
     /**
-     * Merges an array of cells. If merge is successful, it will return merged cell, otherwise "null".
-     * **Warning**: The number of cells in any row and the number of rows in the current table may be
-     * changed.
+     * Merges an array of cells.
+     *
+     * If merge is successful, it will return merged cell, otherwise "null".
+     *
+     * **Warning:**
+     * The number of cells in any row and the number of rows in the current table may be changed.
      *
      * @param cells - The cells to merge.
      *
@@ -34832,7 +35002,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation border effect intensity.
-     * <note> Can be applied to circle, square, freeText and polygon annotations </note>
+     *
+     * **Note:**
+     * Can be applied to circle, square, freeText and polygon annotations.
      *
      * @param value - The border effect intensity. Must be greater than or equal to 0.
      *
@@ -34856,7 +35028,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation border effect style.
-     * <note> Can be applied to circle, square, freeText and polygon annotations </note>
+     *
+     * **Note:**
+     * Can be applied to circle, square, freeText and polygon annotations.
      *
      * @param style - The border effect style: **"none"** or **"cloud"**.
      *
@@ -34969,7 +35143,9 @@ export namespace Pdf {
 
     /**
      * Sets annotation dash pattern.
-     * <note> The border style property must be set to "dashed". </note>
+     *
+     * **Note:**
+     * The border style property must be set to "dashed".
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
@@ -35035,7 +35211,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetFillColor/
      */
-    SetFillColor(color: ApiColor): boolean;
+    SetFillColor(color?: ApiColor): boolean;
 
     /**
      * Sets icon type for this annotation.
@@ -35308,7 +35484,9 @@ export namespace Pdf {
 
     /**
      * Gets the text field character limit.
-     * <note> Char limit 0 means field doesn't have char limit
+     *
+     * **Note:**
+     * If the character limit is 0, the field has no character limit.
      *
      * @example
      * ```js
@@ -35577,7 +35755,9 @@ export namespace Pdf {
 
     /**
      * Sets the text field character limit.
-     * <note> Character limit 0 means the field doesn't have a character limit.
+     *
+     * **Note:**
+     * If the character limit is 0, the field has no character limit.
      *
      * @param charLimit - The maximum number of characters allowed in the field.
      *
@@ -35602,7 +35782,9 @@ export namespace Pdf {
 
     /**
      * Sets whether the text field uses comb formatting.
-     * <note>The character limit must be greater than 0.</note>
+     *
+     * **Note:**
+     * The character limit must be greater than 0.
      *
      * @param comb - Specifies whether comb formatting is enabled.
      *
@@ -35967,7 +36149,9 @@ export namespace Pdf {
 
     /**
      * Sets validate range for field.
-     * <note> Can only be applied to fields with a percentage or number format. </note>
+     *
+     * **Note:**
+     * Can only be applied to fields with a percentage or number format.
      *
      * @param greaterThan - If true, enables minimum value validation using `greaterThanValue`.
      * @param greaterThanValue - The minimum allowed value.
@@ -36232,6 +36416,7 @@ export namespace Pdf {
 
     /**
      * Returns the font family from the current text properties.
+     *
      * The method automatically calculates the font from the theme if the font was set via the theme.
      *
      * @since 8.1.0
@@ -36787,7 +36972,8 @@ export namespace Pdf {
     /**
      * Sets all 4 font slots with the specified font family.
      *
-     * @param sFontFamily - The font family or families used for the current text run.
+     * @param sFontFamily - The font family or families used for the current text run. Pass _null_ or omit it to remove the
+     *   font family.
      * @returns this text properties.
      *
      * @example
@@ -36818,7 +37004,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/SetFontFamily/
      */
-    SetFontFamily(sFontFamily: string): ApiTextPr;
+    SetFontFamily(sFontFamily?: string | null): ApiTextPr;
 
     /**
      * Sets the font size to the characters of the current text run.
@@ -37157,11 +37343,12 @@ export namespace Pdf {
     /**
      * Specifies the alignment which will be applied to the contents of the run in relation to the default
      * appearance of the run text:
-     * **"baseline"** - the characters in the current text run will be aligned by the default text
+     *
+     * - **"baseline"** - the characters in the current text run will be aligned by the default text
      * baseline.
-     * **"subscript"** - the characters in the current text run will be aligned below the default text
+     * - **"subscript"** - the characters in the current text run will be aligned below the default text
      * baseline.
-     * **"superscript"** - the characters in the current text run will be aligned above the default text
+     * - **"superscript"** - the characters in the current text run will be aligned above the default text
      * baseline.
      *
      * @param type - The vertical alignment type applied to the text contents. Pass _null_ to remove the vertical
@@ -37208,15 +37395,21 @@ export namespace Pdf {
     /**
      * Adds a hyperlink to the current text range.
      *
-     * @param link - The link address.
+     * @param link - The link address. Accepts an external URL (http, https, mailto, ftp) or an internal link. In the
+     *   presentation editor, the internal link is one of the slide actions:
+     *   "ppaction://hlinkshowjump?jump=firstslide", "ppaction://hlinkshowjump?jump=lastslide",
+     *   "ppaction://hlinkshowjump?jump=nextslide", "ppaction://hlinkshowjump?jump=previousslide",
+     *   "ppaction://hlinksldjumpslide{N}" (N is the zero-based slide index),
+     *   "ppaction://hlinkfile?file={path}" (opens an external file). In the spreadsheet editor, the
+     *   internal link is "#" followed by a cell range or a defined name, for example, "#Sheet1!A1" or
+     *   "#MyName".
      * @param screenTipText - The screen tip text.
-     * @param bookmarkName - Name of a bookmark
-     * @returns returns null if the range spans more than one paragraph or params are invalid.
+     * @returns returns null if the range spans more than one paragraph or the link is invalid.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/AddHyperlink/
      */
-    AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink;
+    AddHyperlink(link: string, screenTipText: string): ApiHyperlink;
 
     /**
      * Adds a text to the specified position. The current range is expanded to include the added text.
@@ -37465,13 +37658,13 @@ export namespace Pdf {
     /**
      * Sets the font family for the current TextRange.
      *
-     * @param fontFamily - The font family or families used for the current text Range. Pass _null_ to remove the font
-     *   family.
+     * @param fontFamily - The font family or families used for the current text Range. Pass _null_ or omit it to remove
+     *   the font family.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetFontFamily/
      */
-    SetFontFamily(fontFamily: string | null): ApiTextRange | null;
+    SetFontFamily(fontFamily?: string | null): ApiTextRange | null;
 
     /**
      * Sets the font size of the characters in the current text Range.

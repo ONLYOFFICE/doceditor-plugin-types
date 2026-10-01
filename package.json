@@ -1,8 +1,38 @@
 {
-  "$schema": "https://json.schemastore.org/package.json",
   "name": "@onlyoffice/doceditor-plugin-types",
   "version": "10.0.0",
-  "description": "TypeScript type definitions for the ONLYOFFICE Docs plugin API (editor plugins)",
+  "description": "TypeScript type definitions for the ONLYOFFICE Document Editor plugin API",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ONLYOFFICE/doceditor-plugin-types/issues",
+    "email": "support@onlyoffice.com"
+  },
+  "homepage": "https://api.onlyoffice.com/docs/plugins/get-started/overview/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ONLYOFFICE/doceditor-plugin-types.git"
+  },
+  "author": {
+    "name": "Ascensio System SIA",
+    "email": "integration@onlyoffice.com",
+    "url": "https://www.onlyoffice.com"
+  },
+  "maintainers": [
+    {
+      "name": "Ascensio System SIA",
+      "email": "integration@onlyoffice.com",
+      "url": "https://www.onlyoffice.com"
+    }
+  ],
+  "keywords": [
+    "onlyoffice",
+    "onlyoffice-docs",
+    "document-server",
+    "plugin",
+    "plugins-api",
+    "typescript",
+    "types"
+  ],
   "types": "index.d.ts",
   "exports": {
     ".": {
@@ -72,37 +102,6 @@
     "CHANGELOG.md",
     "AGENTS.md",
     "!src/generated/generation-manifest.json"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ONLYOFFICE/doceditor-plugin-types.git"
-  },
-  "homepage": "https://api.onlyoffice.com/docs/plugins/get-started/overview/",
-  "bugs": {
-    "url": "https://github.com/ONLYOFFICE/doceditor-plugin-types/issues",
-    "email": "support@onlyoffice.com"
-  },
-  "license": "Apache-2.0",
-  "author": {
-    "name": "Ascensio System SIA",
-    "email": "integration@onlyoffice.com",
-    "url": "https://www.onlyoffice.com"
-  },
-  "maintainers": [
-    {
-      "name": "Ascensio System SIA",
-      "email": "integration@onlyoffice.com",
-      "url": "https://www.onlyoffice.com"
-    }
-  ],
-  "keywords": [
-    "onlyoffice",
-    "onlyoffice-docs",
-    "document-server",
-    "plugin",
-    "plugins-api",
-    "typescript",
-    "types"
   ],
   "publishConfig": {
     "access": "public"

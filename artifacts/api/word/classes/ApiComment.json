@@ -64,7 +64,7 @@
       "signature": "GetClassType(): \"comment\""
     },
     "GetId": {
-      "description": "Returns the current comment ID. If the comment doesn't have an ID, null is returned.",
+      "description": "Returns the current comment ID.\n\nIf the comment doesn't have an ID, null is returned.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/GetId/",
       "params": [],
       "returns": {

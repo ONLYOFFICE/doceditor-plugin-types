@@ -272,7 +272,7 @@
       "signature": "RemoveRow(): boolean"
     },
     "Search": {
-      "description": "Searches for a scope of a table cell object. The search results are a collection of ApiRange objects.",
+      "description": "Searches for a scope of a table cell object.\n\nThe search results are a collection of ApiRange objects.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/Search/",
       "params": [
         {
@@ -535,7 +535,7 @@
       "since": "9.1.0"
     },
     "SetNoWrap": {
-      "description": "Specifies how the current table cell is laid out when the parent table is displayed in a document. This setting\nonly affects the behavior of the cell when the {@link ApiTablePr#SetTableLayout} table layout for this table is set to use the `\"autofit\"` algorithm.",
+      "description": "Specifies how the current table cell is laid out when the parent table is displayed in a document.\n\nThis setting\nonly affects the behavior of the cell when the {@link ApiTablePr#SetTableLayout} table layout for this table is set to use the `\"autofit\"` algorithm.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetNoWrap/",
       "params": [
         {

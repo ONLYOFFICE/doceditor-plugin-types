@@ -1,5 +1,5 @@
 {
-  "description": "Repeats text a given number of times. Use this function to fill a cell with a number of instances of a text string.",
+  "description": "Repeats text a given number of times.\n\nUse this function to fill a cell with a number of instances of a text string.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/REPT/",
   "params": [
     {

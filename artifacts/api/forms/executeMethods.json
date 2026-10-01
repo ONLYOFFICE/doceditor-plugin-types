@@ -208,7 +208,7 @@
     "signature": "executeMethod(\"GetFormsByTag\", [tag: string], callback?): ContentControl[]"
   },
   "GetImageDataFromSelection": {
-    "description": "Returns the image data from the first of the selected drawings. If there are no drawings selected, the method returns a white rectangle.",
+    "description": "Returns the image data from the first of the selected drawings.\n\nIf there are no drawings selected, the method returns a white rectangle.",
     "params": [],
     "returns": {
       "description": "The ImageData object containig the information about the base64 encoded png image.",
@@ -523,7 +523,7 @@
     "signature": "executeMethod(\"PasteText\", [text: string], callback?): unknown"
   },
   "PutImageDataToSelection": {
-    "description": "Replaces the first selected drawing with the image specified in the parameters.\nIf there are no drawings selected, the method inserts the image at the current position.",
+    "description": "Replaces the first selected drawing with the image specified in the parameters.\n\nIf there are no drawings selected, the method inserts the image at the current position.",
     "params": [
       {
         "description": "The information about the base64 encoded *png* image.",
@@ -620,7 +620,7 @@
     "signature": "executeMethod(\"SetMacros\", [data: string], callback?): unknown"
   },
   "SetPluginsOptions": {
-    "description": "Configures plugins from an external source. The settings can be set for all plugins or for a specific plugin.\nFor example, this method can be used to pass an authorization token to the plugin. This method can be used only with the connector class.",
+    "description": "Configures plugins from an external source.\n\nThe settings can be set for all plugins or for a specific plugin. For example, this method can be used to pass an authorization token to the plugin.\n\n**Note:**\nThis method can be used only with the {@link https://api.onlyoffice.com/docs/docs-api/usage-api/automation-api/connector-class connector class}.\n",
     "params": [
       {
         "description": "Plugin options.",

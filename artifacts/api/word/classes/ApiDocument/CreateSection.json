@@ -1,5 +1,5 @@
 {
-  "description": "Creates a new document section which ends at the specified paragraph. Allows to set local parameters to the current\nsection - page size, footer, header, columns, etc.",
+  "description": "Creates a new document section which ends at the specified paragraph.\n\nAllows to set local parameters to the current\nsection - page size, footer, header, columns, etc.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/CreateSection/",
   "params": [
     {

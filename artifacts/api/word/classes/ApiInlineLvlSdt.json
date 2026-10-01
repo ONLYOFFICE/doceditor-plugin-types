@@ -3,7 +3,7 @@
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/",
   "methods": {
     "AddComment": {
-      "description": "Adds a comment to the current inline content control.\n<note>Please note that this inline content control must be in the document.</note>",
+      "description": "Adds a comment to the current inline content control.\n\n**Note:**\nThis inline content control must be in the document.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/AddComment/",
       "params": [
         {
@@ -97,7 +97,7 @@
       "signature": "AddText(text: string): ApiRun"
     },
     "Copy": {
-      "description": "Creates a copy of an inline content control. Ignores comments, footnote references, complex fields.",
+      "description": "Creates a copy of an inline content control.\n\nIgnores comments, footnote references, complex fields.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/Copy/",
       "params": [],
       "returns": {
@@ -106,7 +106,7 @@
       "signature": "Copy(): ApiInlineLvlSdt"
     },
     "Delete": {
-      "description": "Removes a content control and its content. If keepContent is true, the content is not deleted.",
+      "description": "Removes a content control and its content.\n\nIf keepContent is true, the content is not deleted.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/Delete/",
       "params": [
         {
@@ -256,7 +256,7 @@
       "since": "10.0.0"
     },
     "GetElementsCount": {
-      "description": "Returns a number of elements in the current inline text content control. The text content \ncontrol is created with one text run present in it by default, so even without any \nelement added this method will return the value of '1'.",
+      "description": "Returns a number of elements in the current inline text content control.\n\nThe text content\ncontrol is created with one text run present in it by default, so even without any \nelement added this method will return the value of '1'.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/GetElementsCount/",
       "params": [],
       "returns": {
@@ -466,7 +466,7 @@
       "signature": "IsForm(): boolean"
     },
     "IsPicture": {
-      "description": "Checks whether the content control is a picture control.\nThis method verifies if the content control is specifically a picture control.",
+      "description": "Checks whether the content control is a picture control.\n\nThis method verifies if the content control is specifically a picture control.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/IsPicture/",
       "params": [],
       "returns": {
@@ -644,7 +644,7 @@
       "since": "9.1.0"
     },
     "SetCheckBoxChecked": {
-      "description": "Sets the checkbox value for the content control.\nThis method updates the checkbox state of the content control to either checked or unchecked.",
+      "description": "Sets the checkbox value for the content control.\n\nThis method updates the checkbox state of the content control to either checked or unchecked.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/SetCheckBoxChecked/",
       "params": [
         {
@@ -710,7 +710,7 @@
       "since": "9.0.0"
     },
     "SetDateFormat": {
-      "description": "Sets the date format for the datepicker content control.\nThis method allows setting the format in which the date should be displayed in the datepicker content control.\nThe format string should be specified using common date format patterns (e.g., \"mm.dd.yyyy\").",
+      "description": "Sets the date format for the datepicker content control.\n\nThis method allows setting the format in which the date should be displayed in the datepicker content control.\nThe format string should be specified using common date format patterns (e.g., \"mm.dd.yyyy\").",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/SetDateFormat/",
       "params": [
         {
@@ -758,7 +758,7 @@
       "signature": "SetLabel(label: number): boolean"
     },
     "SetLock": {
-      "description": "Sets the lock to the current inline text content control:\n**\"unlocked\"** - content can be edited and the container can be deleted.\n**\"contentLocked\"** - content cannot be edited.\n**\"sdtContentLocked\"** - content cannot be edited and the container cannot be deleted.\n**\"sdtLocked\"** - the container cannot be deleted.",
+      "description": "Sets the lock to the current inline text content control:\n\n- **\"unlocked\"** - content can be edited and the container can be deleted.\n- **\"contentLocked\"** - content cannot be edited.\n- **\"sdtContentLocked\"** - content cannot be edited and the container cannot be deleted.\n- **\"sdtLocked\"** - the container cannot be deleted.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/SetLock/",
       "params": [
         {
@@ -773,7 +773,7 @@
       "signature": "SetLock(lockType: \"unlocked\" | \"contentLocked\" | \"sdtContentLocked\" | \"sdtLocked\"): boolean"
     },
     "SetPicture": {
-      "description": "Sets the content (image) for the picture content control.\nThis method updates the picture inside a content control by setting an image from a provided URL.\nThe URL should be an internet link to the image.",
+      "description": "Sets the content (image) for the picture content control.\n\nThis method updates the picture inside a content control by setting an image from a provided URL.\nThe URL should be an internet link to the image.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/SetPicture/",
       "params": [
         {
@@ -790,7 +790,7 @@
       "since": "9.0.0"
     },
     "SetPictureSize": {
-      "description": "Sets the size for the picture in a content control.\nThis method adjusts the width and height of the image if the content control is a picture.",
+      "description": "Sets the size for the picture in a content control.\n\nThis method adjusts the width and height of the image if the content control is a picture.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/SetPictureSize/",
       "params": [
         {
@@ -812,7 +812,7 @@
       "since": "9.0.0"
     },
     "SetPlaceholderText": {
-      "description": "Sets the placeholder text to the current inline content control.\n*Can't be set to checkbox or radio button*",
+      "description": "Sets the placeholder text to the current inline content control.\n\n*Can't be set to checkbox or radio button*",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/SetPlaceholderText/",
       "params": [
         {

@@ -1,5 +1,5 @@
 {
-  "description": "Returns the **e** constant raised to the power of a given number. The **e** constant is equal to **2.71828182845904**, the base of the natural logarithm.",
+  "description": "Returns the **e** constant raised to the power of a given number.\n\nThe **e** constant is equal to **2.71828182845904**, the base of the natural logarithm.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/EXP/",
   "params": [
     {

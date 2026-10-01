@@ -1,5 +1,5 @@
 {
-  "description": "Returns the data from all forms present in the current document.\nIf a form was created and not assigned to any part of the document, it won't appear in this list.",
+  "description": "Returns the data from all forms present in the current document.\n\nIf a form was created and not assigned to any part of the document, it won't appear in this list.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetFormsData/",
   "params": [],
   "returns": {

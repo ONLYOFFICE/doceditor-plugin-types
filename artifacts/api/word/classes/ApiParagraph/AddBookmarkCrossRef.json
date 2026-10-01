@@ -1,5 +1,5 @@
 {
-  "description": "Adds a bookmark cross-reference to the current paragraph.\n<note>Please note that this paragraph must be in the document.</note>",
+  "description": "Adds a bookmark cross-reference to the current paragraph.\n\n**Note:**\nThis paragraph must be in the document.\n",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/AddBookmarkCrossRef/",
   "params": [
     {

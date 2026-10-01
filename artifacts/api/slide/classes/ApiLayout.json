@@ -29,7 +29,7 @@
       "signature": "ClearBackground(): boolean"
     },
     "Copy": {
-      "description": "Creates a copy of the specified slide layout object.\nCopies without master slide.",
+      "description": "Creates a copy of the specified slide layout object.\n\nCopies without master slide.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiLayout/Methods/Copy/",
       "params": [],
       "returns": {

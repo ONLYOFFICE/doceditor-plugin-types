@@ -54,7 +54,7 @@
       "since": "9.1.0"
     },
     "SetVisible": {
-      "description": "Sets the visibility of the pivot item.\n<note> At least one item must remain visible when hiding others. </note>",
+      "description": "Sets the visibility of the pivot item.\n\n**Note:**\nAt least one item must remain visible when hiding others.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotItem/Methods/SetVisible/",
       "params": [
         {

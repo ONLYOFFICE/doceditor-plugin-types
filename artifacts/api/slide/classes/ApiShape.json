@@ -225,7 +225,7 @@
       "since": "9.1.0"
     },
     "SetHyperlink": {
-      "description": "Sets a hyperlink to the current drawing object (shape or image).\nPass null to remove the hyperlink.",
+      "description": "Sets a hyperlink to the current drawing object (shape or image).\n\nPass null to remove the hyperlink.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/SetHyperlink/",
       "params": [
         {

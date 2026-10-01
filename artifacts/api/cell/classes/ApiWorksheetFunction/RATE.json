@@ -1,5 +1,5 @@
 {
-  "description": "Returns the interest rate per period for a loan or an investment. For example, use 6%/4 for quarterly payments at 6% APR.",
+  "description": "Returns the interest rate per period for a loan or an investment.\n\nFor example, use 6%/4 for quarterly payments at 6% APR.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/RATE/",
   "params": [
     {

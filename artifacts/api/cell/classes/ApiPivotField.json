@@ -339,6 +339,42 @@
       "signature": "GetValue(): string",
       "since": "8.2.0"
     },
+    "Group": {
+      "description": "Groups the dates of the pivot table field by periods or its numbers by intervals, as VBA Range.Group does for a cell of the field.\nThe field must be in the rows or columns; grouping again replaces the previous grouping of the field.\nFor dates, the field shows the shortest period, and a new field is added next to it for every longer one.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotField/Methods/Group/",
+      "params": [
+        {
+          "description": "The first value to group, or true for the first value of the field. A date is a Date object or its serial number.",
+          "name": "start",
+          "optional": true,
+          "type": "boolean | number | Date"
+        },
+        {
+          "description": "The last value to group, or true for the last value of the field.",
+          "name": "end",
+          "optional": true,
+          "type": "boolean | number | Date"
+        },
+        {
+          "description": "The size of each group of numbers, or the number of days in each group when the dates are grouped by days alone. If omitted, the size of the number groups is chosen automatically and each day is a group.",
+          "name": "by",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "Seven values which specify whether the dates are grouped by seconds, minutes, hours, days, months, quarters and years. If omitted, the dates are grouped by months. The numbers ignore it.",
+          "name": "periods",
+          "optional": true,
+          "type": "boolean[]"
+        }
+      ],
+      "returns": {
+        "description": "Returns true if the field is grouped, or false if it is not in the rows or columns, has values that are neither dates nor numbers, the pivot table has no source records, the grouped report would cover other cells, or other users are editing the document.",
+        "type": "boolean"
+      },
+      "signature": "Group(start?: boolean | number | Date, end?: boolean | number | Date, by?: number, periods?: boolean[]): boolean",
+      "since": "10.0.0"
+    },
     "Move": {
       "description": "Moves the current pivot field inside the category.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotField/Methods/Move/",

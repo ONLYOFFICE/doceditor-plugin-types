@@ -68,7 +68,7 @@
       "since": "9.3.0"
     },
     "GetSpeed": {
-      "description": "Returns the transition speed.\nMaps duration to speed based on OOXML spd attribute logic:\n- fast: duration <= 500ms\n- medium: 500ms < duration <= 750ms\n- slow: duration > 750ms",
+      "description": "Returns the transition speed.\n\nMaps duration to speed based on OOXML spd attribute logic:\n\n- fast: duration <= 500ms\n- medium: 500ms < duration <= 750ms\n- slow: duration > 750ms",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiSlideShowTransition/Methods/GetSpeed/",
       "params": [],
       "returns": {
@@ -164,7 +164,7 @@
       "since": "9.3.0"
     },
     "SetSpeed": {
-      "description": "Sets the transition speed.\nConverts speed to duration based on standard values:\n- fast = 500ms\n- medium = 750ms\n- slow = 1000ms",
+      "description": "Sets the transition speed.\n\nConverts speed to duration based on standard values:\n\n- fast = 500ms\n- medium = 750ms\n- slow = 1000ms",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiSlideShowTransition/Methods/SetSpeed/",
       "params": [
         {

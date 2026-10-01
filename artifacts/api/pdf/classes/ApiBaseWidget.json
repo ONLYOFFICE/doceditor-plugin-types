@@ -136,7 +136,7 @@
       "signature": "GetTextColor(): ApiColor"
     },
     "GetTextSize": {
-      "description": "Gets widget text size.\n<note> Text size === 0 means autofit </note>",
+      "description": "Gets widget text size.\n\n**Note:**\nText size === 0 means autofit.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetTextSize/",
       "params": [],
       "returns": {
@@ -259,7 +259,7 @@
       "signature": "SetRect(rect: Rect): boolean"
     },
     "SetTextAlign": {
-      "description": "Sets widget text alignment.\n<note> Only for text/combobox/listbox fields widgets. </note>",
+      "description": "Sets widget text alignment.\n**Note:**\nOnly for text/combobox/listbox fields widgets.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/SetTextAlign/",
       "params": [
         {
@@ -290,7 +290,7 @@
       "signature": "SetTextColor(color: ApiColor): boolean"
     },
     "SetTextSize": {
-      "description": "Sets widget text size.\n<note> Text size === 0 means autofit </note>",
+      "description": "Sets widget text size.\n\n**Note:**\nText size === 0 means autofit.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/SetTextSize/",
       "params": [
         {

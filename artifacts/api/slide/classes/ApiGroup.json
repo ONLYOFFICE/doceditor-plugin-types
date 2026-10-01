@@ -128,7 +128,7 @@
       "signature": "ReplacePlaceholder(drawing: Drawing): boolean"
     },
     "SetHyperlink": {
-      "description": "Sets a hyperlink to the current drawing object (shape or image).\nPass null to remove the hyperlink.",
+      "description": "Sets a hyperlink to the current drawing object (shape or image).\n\nPass null to remove the hyperlink.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/SetHyperlink/",
       "params": [
         {

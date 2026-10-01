@@ -1,5 +1,5 @@
 {
-  "description": "Tests whether a number is greater than a threshold value. The function returns 1 if the number is greater than or equal to the threshold value and 0 otherwise.",
+  "description": "Tests whether a number is greater than a threshold value.\n\nThe function returns 1 if the number is greater than or equal to the threshold value and 0 otherwise.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/GESTEP/",
   "params": [
     {

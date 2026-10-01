@@ -31,7 +31,7 @@
       "since": "9.0.0"
     },
     "DeleteAttribute": {
-      "description": "Deletes an attribute from the custom XML node.\nIf the attribute exists, it will be removed.",
+      "description": "Deletes an attribute from the custom XML node.\n\nIf the attribute exists, it will be removed.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCustomXmlNode/Methods/DeleteAttribute/",
       "params": [
         {
@@ -48,7 +48,7 @@
       "since": "9.0.0"
     },
     "GetAttribute": {
-      "description": "Retrieves the attribute value from the custom XML node.\nIf the attribute doesn't exist, it returns `false`.",
+      "description": "Retrieves the attribute value from the custom XML node.\n\nIf the attribute doesn't exist, it returns `false`.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCustomXmlNode/Methods/GetAttribute/",
       "params": [
         {
@@ -135,7 +135,7 @@
       "since": "9.0.0"
     },
     "GetText": {
-      "description": "Returns the inner text of the current node and its child nodes.\nFor example: `<text>123<one>4</one></text>` returns `\"1234\"`.",
+      "description": "Returns the inner text of the current node and its child nodes.\n\nFor example: `<text>123<one>4</one></text>` returns `\"1234\"`.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCustomXmlNode/Methods/GetText/",
       "params": [],
       "returns": {
@@ -168,7 +168,7 @@
       "since": "9.0.0"
     },
     "SetAttribute": {
-      "description": "Sets an attribute for the custom XML node.\nIf the attribute already exists, it will not be modified.",
+      "description": "Sets an attribute for the custom XML node.\n\nIf the attribute already exists, it will not be modified.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCustomXmlNode/Methods/SetAttribute/",
       "params": [
         {
@@ -241,7 +241,7 @@
       "since": "9.0.0"
     },
     "UpdateAttribute": {
-      "description": "Updates the value of an existing attribute in the custom XML node.\nIf the attribute doesn't exist, the update will not occur.",
+      "description": "Updates the value of an existing attribute in the custom XML node.\n\nIf the attribute doesn't exist, the update will not occur.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCustomXmlNode/Methods/UpdateAttribute/",
       "params": [
         {

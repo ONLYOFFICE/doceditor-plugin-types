@@ -12,7 +12,7 @@
     "type": "string"
   },
   "BlipFillType": {
-    "description": "The type of a fill which uses an image as a background.\n**\"tile\"** - if the image is smaller than the shape which is filled, the image will be tiled all over the created shape surface.\n**\"stretch\"** - if the image is smaller than the shape which is filled, the image will be stretched to fit the created shape surface.",
+    "description": "The type of a fill which uses an image as a background.\n\n- **\"tile\"** - if the image is smaller than the shape which is filled, the image will be tiled all over the created shape surface.\n- **\"stretch\"** - if the image is smaller than the shape which is filled, the image will be stretched to fit the created shape surface.",
     "type": "\"tile\" | \"stretch\""
   },
   "Border": {
@@ -37,7 +37,7 @@
     }
   },
   "BorderType": {
-    "description": "A border type which will be added to the document element.\n**\"none\"** - no border will be added to the created element or the selected element side.\n**\"single\"** - a single border will be added to the created element or the selected element side.",
+    "description": "A border type which will be added to the document element.\n\n- **\"none\"** - no border will be added to the created element or the selected element side.\n- **\"single\"** - a single border will be added to the created element or the selected element side.",
     "type": "\"none\" | \"single\""
   },
   "CaptionLabel": {
@@ -45,11 +45,11 @@
     "type": "\"Table\" | \"Equation\" | \"Figure\""
   },
   "CaptionNumberingFormat": {
-    "description": "Possible values for the caption numbering format.\n**\"ALPHABETIC\"** - upper letter.\n**\"alphabetic\"** - lower letter.\n**\"Roman\"** - upper Roman.\n**\"roman\"** - lower Roman.\n**\"Arabic\"** - arabic.",
+    "description": "Possible values for the caption numbering format.\n\n- **\"ALPHABETIC\"** - upper letter.\n- **\"alphabetic\"** - lower letter.\n- **\"Roman\"** - upper Roman.\n- **\"roman\"** - lower Roman.\n- **\"Arabic\"** - arabic.",
     "type": "\"ALPHABETIC\" | \"alphabetic\" | \"Roman\" | \"roman\" | \"Arabic\""
   },
   "CaptionSep": {
-    "description": "Possible values for the caption separator.\n**\"hyphen\"** - the \"-\" punctuation mark.\n**\"period\"** - the \".\" punctuation mark.\n**\"colon\"** - the \":\" punctuation mark.\n**\"longDash\"** - the \"—\" punctuation mark.\n**\"dash\"** - the \"-\" punctuation mark.",
+    "description": "Possible values for the caption separator.\n\n- **\"hyphen\"** - the \"-\" punctuation mark.\n- **\"period\"** - the \".\" punctuation mark.\n- **\"colon\"** - the \":\" punctuation mark.\n- **\"longDash\"** - the \"—\" punctuation mark.\n- **\"dash\"** - the \"-\" punctuation mark.",
     "type": "\"hyphen\" | \"period\" | \"colon\" | \"longDash\" | \"dash\""
   },
   "ChartType": {
@@ -300,7 +300,7 @@
     }
   },
   "ContentControlLock": {
-    "description": "Defines the access restrictions for a content control.\nPossible values:\n**0** - only deleting,\n**1** - disable deleting or editing,\n**2** - only editing,\n**3** - full access.",
+    "description": "Defines the access restrictions for a content control.\n\nPossible values:\n\n- **0** - only deleting,\n- **1** - disable deleting or editing,\n- **2** - only editing,\n- **3** - full access.",
     "type": "0 | 1 | 2 | 3"
   },
   "CustomXmlNodeAttribute": {
@@ -400,11 +400,11 @@
     "type": "\"text\" | \"checkBox\" | \"picture\" | \"comboBox\" | \"dropDownList\" | \"dateTime\" | \"radio\" | \"complex\" | \"signature\""
   },
   "FormType": {
-    "description": "Form type.\nThe available form types.",
+    "description": "Form type.\n\nThe available form types.",
     "type": "\"textForm\" | \"comboBoxForm\" | \"dropDownForm\" | \"checkBoxForm\" | \"radioButtonForm\" | \"pictureForm\" | \"complexForm\" | \"dateForm\" | \"signatureForm\""
   },
   "GeometryCoordinate": {
-    "description": "The coordinate value for the geometry paths.\nCan be a guide name from \"gdLst\", a numeric value, or a string representation of a number.",
+    "description": "The coordinate value for the geometry paths.\n\nCan be a guide name from \"gdLst\", a numeric value, or a string representation of a number.",
     "type": "string | number"
   },
   "GeometryFormulaType": {
@@ -412,7 +412,7 @@
     "type": "\"*/\" | \"+-\" | \"+/\" | \"?:\" | \"abs\" | \"at2\" | \"cat2\" | \"cos\" | \"max\" | \"min\" | \"mod\" | \"pin\" | \"sat2\" | \"sin\" | \"sqrt\" | \"tan\" | \"val\""
   },
   "HdrFtrType": {
-    "description": "Header and footer types which can be applied to the document sections.\n**\"default\"** - a header or footer which can be applied to any default page.\n**\"title\"** - a header or footer which is applied to the title page.\n**\"even\"** - a header or footer which can be applied to even pages to distinguish them from the odd ones (which will be considered default).",
+    "description": "Header and footer types which can be applied to the document sections.\n\n- **\"default\"** - a header or footer which can be applied to any default page.\n- **\"title\"** - a header or footer which is applied to the title page.\n- **\"even\"** - a header or footer which can be applied to even pages to distinguish them from the odd ones (which will be considered default).",
     "type": "\"default\" | \"title\" | \"even\""
   },
   "LineEndSize": {
@@ -520,7 +520,7 @@
     "type": "\"unlocked\" | \"contentLocked\" | \"sdtContentLocked\" | \"sdtLocked\""
   },
   "SectionBreakType": {
-    "description": "The section break type which defines how the contents of the current section are placed relative to the previous section.\nWordprocessingML supports five distinct types of section breaks:\n**Next page** (\"nextPage\") - starts a new section on the next page (the default value).\n**Odd** (\"oddPage\") - starts a new section on the next odd-numbered page.\n**Even** (\"evenPage\") - starts a new section on the next even-numbered page.\n**Continuous** (\"continuous\") - starts a new section in the next paragraph.\nThis means that continuous section breaks might not specify certain page-level section properties,\nsince they shall be inherited from the following section.\nHowever, these breaks can specify other section properties, such as line numbering and footnote/endnote settings.\n**Column** (\"nextColumn\") - starts a new section in the next column on the page.",
+    "description": "The section break type which defines how the contents of the current section are placed relative to the previous section.\n\nWordprocessingML supports five distinct types of section breaks:\n\n- **Next page** (\"nextPage\") - starts a new section on the next page (the default value).\n- **Odd** (\"oddPage\") - starts a new section on the next odd-numbered page.\n- **Even** (\"evenPage\") - starts a new section on the next even-numbered page.\n- **Continuous** (\"continuous\") - starts a new section in the next paragraph.\n  This means that continuous section breaks might not specify certain page-level section properties,\n  since they shall be inherited from the following section.\n  However, these breaks can specify other section properties, such as line numbering and footnote/endnote settings.\n- **Column** (\"nextColumn\") - starts a new section in the next column on the page.",
     "type": "\"nextPage\" | \"oddPage\" | \"evenPage\" | \"continuous\" | \"nextColumn\""
   },
   "ShadowSettings": {
@@ -628,11 +628,11 @@
     }
   },
   "TableStyleOverrideType": {
-    "description": "This simple type specifies possible values for the table sections to which the current conditional formatting properties will be applied when this selected table style is used.\n**\"topLeftCell\"** - specifies that the table formatting is applied to the top left cell.\n**\"topRightCell\"** - specifies that the table formatting is applied to the top right cell.\n**\"bottomLeftCell\"** - specifies that the table formatting is applied to the bottom left cell.\n**\"bottomRightCell\"** - specifies that the table formatting is applied to the bottom right cell.\n**\"firstRow\"** - specifies that the table formatting is applied to the first row.\n**\"lastRow\"** - specifies that the table formatting is applied to the last row.\n**\"firstColumn\"** - specifies that the table formatting is applied to the first column. Any subsequent row which is in *table header* ({@link ApiTableRowPr#SetTableHeader}) will also use this conditional format.\n**\"lastColumn\"** - specifies that the table formatting is applied to the last column.\n**\"bandedColumn\"** - specifies that the table formatting is applied to odd numbered groupings of rows.\n**\"bandedColumnEven\"** - specifies that the table formatting is applied to even numbered groupings of rows.\n**\"bandedRow\"** - specifies that the table formatting is applied to odd numbered groupings of columns.\n**\"bandedRowEven\"** - specifies that the table formatting is applied to even numbered groupings of columns.\n**\"wholeTable\"** - specifies that the conditional formatting is applied to the whole table.",
+    "description": "This simple type specifies possible values for the table sections to which the current conditional formatting properties will be applied when this selected table style is used.\n\n- **\"topLeftCell\"** - specifies that the table formatting is applied to the top left cell.\n- **\"topRightCell\"** - specifies that the table formatting is applied to the top right cell.\n- **\"bottomLeftCell\"** - specifies that the table formatting is applied to the bottom left cell.\n- **\"bottomRightCell\"** - specifies that the table formatting is applied to the bottom right cell.\n- **\"firstRow\"** - specifies that the table formatting is applied to the first row.\n- **\"lastRow\"** - specifies that the table formatting is applied to the last row.\n- **\"firstColumn\"** - specifies that the table formatting is applied to the first column. Any subsequent row which is in *table header* ({@link ApiTableRowPr#SetTableHeader}) will also use this conditional format.\n- **\"lastColumn\"** - specifies that the table formatting is applied to the last column.\n- **\"bandedColumn\"** - specifies that the table formatting is applied to odd numbered groupings of rows.\n- **\"bandedColumnEven\"** - specifies that the table formatting is applied to even numbered groupings of rows.\n- **\"bandedRow\"** - specifies that the table formatting is applied to odd numbered groupings of columns.\n- **\"bandedRowEven\"** - specifies that the table formatting is applied to even numbered groupings of columns.\n- **\"wholeTable\"** - specifies that the conditional formatting is applied to the whole table.",
     "type": "\"topLeftCell\" | \"topRightCell\" | \"bottomLeftCell\" | \"bottomRightCell\" | \"firstRow\" | \"lastRow\" | \"firstColumn\" | \"lastColumn\" | \"bandedColumn\" | \"bandedColumnEven\" | \"bandedRow\" | \"bandedRowEven\" | \"wholeTable\""
   },
   "TableWidth": {
-    "description": "The possible values for the units of the width property are defined by a specific table or table cell width property.\n**\"auto\"** - sets the table or table cell width to auto width.\n**\"twips\"** - sets the table or table cell width to be measured in twentieths of a point.\n**\"nul\"** - sets the table or table cell width to be of a zero value.\n**\"percent\"** - sets the table or table cell width to be measured in percent to the parent container.",
+    "description": "The possible values for the units of the width property are defined by a specific table or table cell width property.\n\n- **\"auto\"** - sets the table or table cell width to auto width.\n- **\"twips\"** - sets the table or table cell width to be measured in twentieths of a point.\n- **\"nul\"** - sets the table or table cell width to be of a zero value.\n- **\"percent\"** - sets the table or table cell width to be measured in percent to the parent container.",
     "type": "\"auto\" | \"twips\" | \"nul\" | \"percent\""
   },
   "TextFlowDirection": {
@@ -658,7 +658,7 @@
     "type": "\"textArchDown\" | \"textArchDownPour\" | \"textArchUp\" | \"textArchUpPour\" | \"textButton\" | \"textButtonPour\" | \"textCanDown\" | \"textCanUp\" | \"textCascadeDown\" | \"textCascadeUp\" | \"textChevron\" | \"textChevronInverted\" | \"textCircle\" | \"textCirclePour\" | \"textCurveDown\" | \"textCurveUp\" | \"textDeflate\" | \"textDeflateBottom\" | \"textDeflateInflate\" | \"textDeflateInflateDeflate\" | \"textDeflateTop\" | \"textDoubleWave1\" | \"textFadeDown\" | \"textFadeLeft\" | \"textFadeRight\" | \"textFadeUp\" | \"textInflate\" | \"textInflateBottom\" | \"textInflateTop\" | \"textPlain\" | \"textRingInside\" | \"textRingOutside\" | \"textSlantDown\" | \"textSlantUp\" | \"textStop\" | \"textTriangle\" | \"textTriangleInverted\" | \"textWave1\" | \"textWave2\" | \"textWave4\" | \"textNoShape\""
   },
   "TickLabelPosition": {
-    "description": "Possible values for the position of chart tick labels (either horizontal or vertical).\n**\"none\"** - not display the selected tick labels.\n**\"nextTo\"** - sets the position of the selected tick labels next to the main label.\n**\"low\"** - sets the position of the selected tick labels in the part of the chart with lower values.\n**\"high\"** - sets the position of the selected tick labels in the part of the chart with higher values.",
+    "description": "Possible values for the position of chart tick labels (either horizontal or vertical).\n\n- **\"none\"** - not display the selected tick labels.\n- **\"nextTo\"** - sets the position of the selected tick labels next to the main label.\n- **\"low\"** - sets the position of the selected tick labels in the part of the chart with lower values.\n- **\"high\"** - sets the position of the selected tick labels in the part of the chart with higher values.",
     "type": "\"none\" | \"nextTo\" | \"low\" | \"high\""
   },
   "TickMark": {
@@ -704,13 +704,13 @@
         "type": "number"
       },
       "StylesLvls": {
-        "description": "Style levels (for example, [{Name: \"Heading 1\", Lvl: 2}, {Name: \"Heading 2\", Lvl: 3}]).\r<note>If StylesLvls.length > 0, then the OutlineLvls property will be ignored.</note>",
+        "description": "Style levels (for example, [{Name: \"Heading 1\", Lvl: 2}, {Name: \"Heading 2\", Lvl: 3}]). If _StylesLvls.length_ is greater than 0, the _OutlineLvls_ property is ignored.",
         "type": "TocStyleLvl[]"
       }
     }
   },
   "TocLeader": {
-    "description": "Possible values for the table of contents leader:\n**\"dot\"** - \".......\"\n**\"dash\"** - \"-------\"\n**\"underline\"** - \"_______\"",
+    "description": "Possible values for the table of contents leader:\n\n- **\"dot\"** - \".......\"\n- **\"dash\"** - \"-------\"\n- **\"underline\"** - \"_______\"",
     "type": "\"dot\" | \"dash\" | \"underline\" | \"none\""
   },
   "TocPr": {
@@ -857,7 +857,7 @@
     }
   },
   "bookmarkRefTo": {
-    "description": "Available values of the \"bookmark\" reference type:\n**\"text\"** - the entire bookmark text;\n**\"pageNum\"** - the bookmark page number;\n**\"paraNum\"** - the bookmark paragraph number;\n**\"noCtxParaNum\"** - the abbreviated paragraph number (the specific item only, e.g. instead of \"4.1.1\" you refer to \"1\" only);\n**\"fullCtxParaNum** - the full paragraph number, e.g. \"4.1.1\";\n**\"aboveBelow\"** - the words \"above\" or \"below\" depending on the item position.",
+    "description": "Available values of the \"bookmark\" reference type:\n\n- **\"text\"** - the entire bookmark text;\n- **\"pageNum\"** - the bookmark page number;\n- **\"paraNum\"** - the bookmark paragraph number;\n- **\"noCtxParaNum\"** - the abbreviated paragraph number (the specific item only, e.g. instead of \"4.1.1\" you refer to \"1\" only);\n- **\"fullCtxParaNum** - the full paragraph number, e.g. \"4.1.1\";\n- **\"aboveBelow\"** - the words \"above\" or \"below\" depending on the item position.",
     "type": "\"text\" | \"pageNum\" | \"paraNum\" | \"noCtxParaNum\" | \"fullCtxParaNum\" | \"aboveBelow\""
   },
   "byte": {
@@ -865,7 +865,7 @@
     "type": "number"
   },
   "captionRefTo": {
-    "description": "Available values of the \"equation\"/\"figure\"/\"table\" reference type:\n**\"entireCaption\"**- the entire caption text;\n**\"labelNumber\"** - the label and object number only, e.g. \"Table 1.1\";\n**\"captionText\"** - the caption text only;\n**\"pageNum\"** - the page number containing the referenced object;\n**\"aboveBelow\"** - the words \"above\" or \"below\" depending on the item position.",
+    "description": "Available values of the \"equation\"/\"figure\"/\"table\" reference type:\n\n- **\"entireCaption\"**- the entire caption text;\n- **\"labelNumber\"** - the label and object number only, e.g. \"Table 1.1\";\n- **\"captionText\"** - the caption text only;\n- **\"pageNum\"** - the page number containing the referenced object;\n- **\"aboveBelow\"** - the words \"above\" or \"below\" depending on the item position.",
     "type": "\"entireCaption\" | \"labelNumber\" | \"captionText\" | \"pageNum\" | \"aboveBelow\""
   },
   "comment": {
@@ -882,15 +882,15 @@
     }
   },
   "endnoteRefTo": {
-    "description": "Available values of the \"endnote\" reference type:\n**\"endnoteNum\"** - the endnote number;\n**\"pageNum\"** - the endnote page number;\n**\"aboveBelow\"** - the words \"above\" or \"below\" depending on the item position;\n**\"formEndnoteNum\"** - the form number formatted as an endnote. The numbering of the actual endnotes is not affected.",
+    "description": "Available values of the \"endnote\" reference type:\n\n- **\"endnoteNum\"** - the endnote number;\n- **\"pageNum\"** - the endnote page number;\n- **\"aboveBelow\"** - the words \"above\" or \"below\" depending on the item position;\n- **\"formEndnoteNum\"** - the form number formatted as an endnote. The numbering of the actual endnotes is not affected.",
     "type": "\"endnoteNum\" | \"pageNum\" | \"aboveBelow\" | \"formEndnoteNum\""
   },
   "footnoteRefTo": {
-    "description": "Available values of the \"footnote\" reference type:\n**\"footnoteNum\"** - the footnote number;\n**\"pageNum\"** - the page number of the footnote;\n**\"aboveBelow\"** - the words \"above\" or \"below\" depending on the position of the item;\n**\"formFootnoteNum\"** - the form number formatted as a footnote. The numbering of the actual footnotes is not affected.",
+    "description": "Available values of the \"footnote\" reference type:\n\n- **\"footnoteNum\"** - the footnote number;\n- **\"pageNum\"** - the page number of the footnote;\n- **\"aboveBelow\"** - the words \"above\" or \"below\" depending on the position of the item;\n- **\"formFootnoteNum\"** - the form number formatted as a footnote. The numbering of the actual footnotes is not affected.",
     "type": "\"footnoteNum\" | \"pageNum\" | \"aboveBelow\" | \"formFootnoteNum\""
   },
   "headingRefTo": {
-    "description": "Available values of the \"heading\" reference type:\n**\"text\"** - the entire heading text;\n**\"pageNum\"** - the heading page number;\n**\"headingNum\"** - the heading sequence number;\n**\"noCtxHeadingNum\"** - the abbreviated heading number. Make sure the cursor pointer is in the section you are referencing to, e.g. you are in section 4 and you wish to refer to heading 4.B, so instead of \"4.B\" you receive \"B\" only;\n**\"fullCtxHeadingNum\"** - the full heading number even if the cursor pointer is in the same section;\n**\"aboveBelow\"** - the words \"above\" or \"below\" depending on the item position.",
+    "description": "Available values of the \"heading\" reference type:\n\n- **\"text\"** - the entire heading text;\n- **\"pageNum\"** - the heading page number;\n- **\"headingNum\"** - the heading sequence number;\n- **\"noCtxHeadingNum\"** - the abbreviated heading number. Make sure the cursor pointer is in the section you are referencing to, e.g. you are in section 4 and you wish to refer to heading 4.B, so instead of \"4.B\" you receive \"B\" only;\n- **\"fullCtxHeadingNum\"** - the full heading number even if the cursor pointer is in the same section;\n- **\"aboveBelow\"** - the words \"above\" or \"below\" depending on the item position.",
     "type": "\"text\" | \"pageNum\" | \"headingNum\" | \"noCtxHeadingNum\" | \"fullCtxHeadingNum\" | \"aboveBelow\""
   },
   "highlightColor": {
@@ -910,7 +910,7 @@
     "type": "number"
   },
   "numberedRefTo": {
-    "description": "Available values of the \"numbered\" reference type:\n**\"pageNum\"** - the numbered item page number;\n**\"paraNum\"** - the numbered item paragraph number;\n**\"noCtxParaNum\"** - the abbreviated paragraph number (the specific item only, e.g. instead of \"4.1.1\" you refer to \"1\" only);\n**\"fullCtxParaNum\"** - the full paragraph number, e.g. \"4.1.1\";\n**\"text\"** - the paragraph text value, e.g. if you have \"4.1.1. Terms and Conditions\", you refer to \"Terms and Conditions\" only;\n**\"aboveBelow\"** - the words \"above\" or \"below\" depending on the item position.",
+    "description": "Available values of the \"numbered\" reference type:\n\n- **\"pageNum\"** - the numbered item page number;\n- **\"paraNum\"** - the numbered item paragraph number;\n- **\"noCtxParaNum\"** - the abbreviated paragraph number (the specific item only, e.g. instead of \"4.1.1\" you refer to \"1\" only);\n- **\"fullCtxParaNum\"** - the full paragraph number, e.g. \"4.1.1\";\n- **\"text\"** - the paragraph text value, e.g. if you have \"4.1.1. Terms and Conditions\", you refer to \"Terms and Conditions\" only;\n- **\"aboveBelow\"** - the words \"above\" or \"below\" depending on the item position.",
     "type": "\"pageNum\" | \"paraNum\" | \"noCtxParaNum\" | \"fullCtxParaNum\" | \"text\" | \"aboveBelow\""
   },
   "percentage": {

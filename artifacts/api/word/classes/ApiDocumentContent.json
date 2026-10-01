@@ -329,7 +329,7 @@
       "since": "9.3.0"
     },
     "MoveCursorToNoteReference": {
-      "description": "Moves the cursor to the reference of this footnote/endnote in the main document. If this document content is not a footnote/endnote, does nothing.",
+      "description": "Moves the cursor to the reference of this footnote/endnote in the main document.\n\nIf this document content is not a footnote/endnote, does nothing.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/MoveCursorToNoteReference/",
       "params": [
         {
@@ -362,7 +362,7 @@
       "signature": "Push(oElement: DocumentElement): boolean"
     },
     "RemoveAllElements": {
-      "description": "Removes all the elements from the current document or from the current document element.\n<note>When all elements are removed, a new empty paragraph is automatically created. If you want to add\ncontent to this paragraph, use the {@link ApiDocumentContent#GetElement} method.</note>",
+      "description": "Removes all the elements from the current document or from the current document element.\n\n**Note:**\nWhen all elements are removed, a new empty paragraph is automatically created. If you want to add\ncontent to this paragraph, use the {@link ApiDocumentContent#GetElement} method.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/RemoveAllElements/",
       "params": [],
       "returns": {
@@ -386,7 +386,7 @@
       "signature": "RemoveElement(nPos: number): boolean"
     },
     "SelectNoteReference": {
-      "description": "Select the reference to this footnote/endnote. If this document content is not a footnote/endnote, do nothing.",
+      "description": "Selects the reference to this footnote/endnote.\n\nIf this document content is not a footnote/endnote, do nothing.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/SelectNoteReference/",
       "params": [],
       "returns": {

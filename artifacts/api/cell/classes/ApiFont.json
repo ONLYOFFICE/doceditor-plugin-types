@@ -104,7 +104,7 @@
       "since": "7.4.0"
     },
     "SetBold": {
-      "description": "Sets the bold property to the specified font.\n<note>This method will work only with the text format of the cell.</note>",
+      "description": "Sets the bold property to the specified font.\n\n**Note:**\nThis method will work only with the text format of the cell.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/SetBold/",
       "params": [
         {
@@ -120,7 +120,7 @@
       "since": "7.4.0"
     },
     "SetColor": {
-      "description": "Sets the font color property to the specified font.\n<note>This method will work only with the text format of the cell.</note>",
+      "description": "Sets the font color property to the specified font.\n\n**Note:**\nThis method will work only with the text format of the cell.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/SetColor/",
       "params": [
         {
@@ -136,7 +136,7 @@
       "since": "7.4.0"
     },
     "SetItalic": {
-      "description": "Sets the italic property to the specified font.\n<note>This method will work only with the text format of the cell.</note>",
+      "description": "Sets the italic property to the specified font.\n\n**Note:**\nThis method will work only with the text format of the cell.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/SetItalic/",
       "params": [
         {
@@ -152,7 +152,7 @@
       "since": "7.4.0"
     },
     "SetName": {
-      "description": "Sets the font name property to the specified font.\n<note>This method will work only with the text format of the cell.</note>",
+      "description": "Sets the font name property to the specified font.\n\n**Note:**\nThis method will work only with the text format of the cell.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/SetName/",
       "params": [
         {
@@ -168,7 +168,7 @@
       "since": "7.4.0"
     },
     "SetSize": {
-      "description": "Sets the font size property to the specified font.\n<note>This method will work only with the text format of the cell.</note>",
+      "description": "Sets the font size property to the specified font.\n\n**Note:**\nThis method will work only with the text format of the cell.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/SetSize/",
       "params": [
         {
@@ -184,7 +184,7 @@
       "since": "7.4.0"
     },
     "SetStrikethrough": {
-      "description": "Sets the strikethrough property to the specified font.\n<note>This method will work only with the text format of the cell.</note>",
+      "description": "Sets the strikethrough property to the specified font.\n\n**Note:**\nThis method will work only with the text format of the cell.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/SetStrikethrough/",
       "params": [
         {
@@ -200,7 +200,7 @@
       "since": "7.4.0"
     },
     "SetSubscript": {
-      "description": "Sets the subscript property to the specified font.\n<note>This method will work only with the text format of the cell.</note>",
+      "description": "Sets the subscript property to the specified font.\n\n**Note:**\nThis method will work only with the text format of the cell.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/SetSubscript/",
       "params": [
         {
@@ -216,7 +216,7 @@
       "since": "7.4.0"
     },
     "SetSuperscript": {
-      "description": "Sets the superscript property to the specified font.\n<note>This method will work only with the text format of the cell.</note>",
+      "description": "Sets the superscript property to the specified font.\n\n**Note:**\nThis method will work only with the text format of the cell.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/SetSuperscript/",
       "params": [
         {
@@ -232,7 +232,7 @@
       "since": "7.4.0"
     },
     "SetUnderline": {
-      "description": "Sets an underline of the type specified in the request to the current font.\n<note>This method will work only with the text format of the cell.</note>",
+      "description": "Sets an underline of the type specified in the request to the current font.\n\n**Note:**\nThis method will work only with the text format of the cell.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFont/Methods/SetUnderline/",
       "params": [
         {

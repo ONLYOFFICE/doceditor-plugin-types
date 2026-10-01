@@ -1,5 +1,5 @@
 {
-  "description": "Creates a new style with the specified type and name. If a style with the specified name already exists, it will be returned without creating a new one.",
+  "description": "Creates a new style with the specified type and name.\n\nIf a style with the specified name already exists, it will be returned without creating a new one.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/CreateStyle/",
   "params": [
     {

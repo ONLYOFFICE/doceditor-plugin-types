@@ -1,5 +1,5 @@
 {
-  "description": "Specifies the border which will be displayed below a set of paragraphs which have the same paragraph border settings.\n<note>The paragraphs of the same style going one by one are considered as a single block, so the border is added\nto the whole block rather than to every paragraph in this block.</note>",
+  "description": "Specifies the border which will be displayed below a set of paragraphs which have the same paragraph border settings.\n**Note:**\nThe paragraphs of the same style going one by one are considered as a single block, so the border is added\nto the whole block rather than to every paragraph in this block.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetBottomBorder/",
   "params": [
     {

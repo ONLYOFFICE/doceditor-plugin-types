@@ -149,10 +149,11 @@ interface ContentControlListElement {
 
 /**
  * A value that defines if it is possible to delete and/or edit the content control or not:
- * **0** - only deleting
- * **1** - disable deleting or editing
- * **2** - only editing
- * **3** - full access
+ *
+ * - **0** - only deleting
+ * - **1** - disable deleting or editing
+ * - **2** - only editing
+ * - **3** - full access
  */
 type ContentControlLock = 0 | 1 | 2 | 3;
 
@@ -224,10 +225,11 @@ interface ContentControlPropertiesAndContent {
 
 /**
  * A numeric value that specifies the content control type:
- * **1** - block content control
- * **2** - inline content control
- * **3** - row content control
- * **4** - cell content control
+ *
+ * - **1** - block content control
+ * - **2** - inline content control
+ * - **3** - row content control
+ * - **4** - cell content control
  */
 type ContentControlType = 1 | 2 | 3 | 4;
 
@@ -257,10 +259,11 @@ interface ContextMenuItem {
 
 /**
  * The document editing restrictions:
- * **none** - no editing restrictions,
- * **comments** - allows editing comments,
- * **forms** - allows editing form fields,
- * **readOnly** - does not allow editing.
+ *
+ * - **none** - no editing restrictions,
+ * - **comments** - allows editing comments,
+ * - **forms** - allows editing form fields,
+ * - **readOnly** - does not allow editing.
  */
 type DocumentEditingRestrictions = 'none' | 'comments' | 'forms' | 'readOnly';
 
@@ -560,9 +563,10 @@ interface TextAnnotationRange {
 
 /**
  * Specifies if the whole text or only its part will be returned or replaced:
- * **entirely** - replaces/returns the whole text,
- * **beforeCursor** - replaces/returns only the part of the text before the cursor,
- * **afterCursor** - replaces/returns only the part of the text after the cursor.
+ *
+ * - **entirely** - replaces/returns the whole text,
+ * - **beforeCursor** - replaces/returns only the part of the text before the cursor,
+ * - **afterCursor** - replaces/returns only the part of the text after the cursor.
  */
 type TextPartType = "entirely" | "beforeCursor" | "afterCursor";
 
@@ -698,10 +702,11 @@ interface comment {
 
 /**
  * The editors which the plugin is available for:
- * **word** - text document editor,
- * **cell** - spreadsheet editor,
- * **slide** - presentation editor,
- * **pdf** - pdf editor.
+ *
+ * - **word** - text document editor,
+ * - **cell** - spreadsheet editor,
+ * - **slide** - presentation editor,
+ * - **pdf** - pdf editor.
  */
 type editorType = "word" | "cell" | "slide" | "pdf";
 
@@ -713,13 +718,14 @@ interface fillForms {
 
 /**
  * The data type selected in the editor and sent to the plugin:
- * **text** - the text data,
- * **html** - HTML formatted code,
- * **ole** - OLE object data,
- * **desktop** - the desktop editor data,
- * **desktop-external** - the main page data of the desktop app (system messages),
- * **none** - no data will be send to the plugin from the editor,
- * **sign** - the sign for the keychain plugin.
+ *
+ * - **text** - the text data,
+ * - **html** - HTML formatted code,
+ * - **ole** - OLE object data,
+ * - **desktop** - the desktop editor data,
+ * - **desktop-external** - the main page data of the desktop app (system messages),
+ * - **none** - no data will be send to the plugin from the editor,
+ * - **sign** - the sign for the keychain plugin.
  */
 type initDataType = "text" | "html" | "ole" | "desktop" | "desktop-external" | "none" | "sign";
 
@@ -1269,7 +1275,8 @@ type WordMethodArgs = {
   GetAllForms: [];
   /**
    * Returns all OLE object data for objects which can be opened by the specified plugin.
-   * If *sPluginId* is not defined, this method returns all OLE objects contained in the currrent
+   *
+   * If *sPluginId* is not defined, this method returns all OLE objects contained in the current
    * document.
    *
    * @param sPluginId - Plugin identifier. It must be of the *asc.{UUID}* type.
@@ -1510,8 +1517,9 @@ type WordMethodArgs = {
    */
   GetFormsByTag: [tag: string];
   /**
-   * Returns the image data from the first of the selected drawings. If there are no drawings selected,
-   * the method returns a white rectangle.
+   * Returns the image data from the first of the selected drawings.
+   *
+   * If there are no drawings selected, the method returns a white rectangle.
    *
    * @returns The ImageData object containig the information about the base64 encoded png image.
    * @since 7.2.0
@@ -1796,7 +1804,9 @@ type WordMethodArgs = {
    */
   InputText: [text: string, textReplace: string];
   /**
-   * Inserts the content control containing data. The data is specified by the JS code for
+   * Inserts the content control containing data.
+   *
+   * The data is specified by the JS code for
    * {@link https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ Document Builder}, or by a
    * link to the shared document.
    *
@@ -1957,6 +1967,7 @@ type WordMethodArgs = {
   /**
    * Moves a cursor to the end of the current editing area (document body, footer/header, footnote, or
    * autoshape).
+   *
    * This method is similar to pressing the **Ctrl + End** keyboard shortcut.
    *
    * @param isMoveToMainContent - This flag ignores the current position and always moves a cursor to the end of the document
@@ -1984,6 +1995,7 @@ type WordMethodArgs = {
   /**
    * Moves a cursor to the beginning of the current editing area (document body, footer/header, footnote,
    * or autoshape).
+   *
    * This method is similar to pressing the **Ctrl + Home** keyboard shortcut.
    *
    * @param isMoveToMainContent - This flag ignores the current position and always moves a cursor to the beginning of the
@@ -2097,6 +2109,7 @@ type WordMethodArgs = {
   PasteText: [text: string];
   /**
    * Replaces the first selected drawing with the image specified in the parameters.
+   *
    * If there are no drawings selected, the method inserts the image at the current position.
    *
    * @param oImageData - The information about the base64 encoded *png* image.
@@ -2189,8 +2202,9 @@ type WordMethodArgs = {
    */
   RemoveComments: [arrIds: string[]];
   /**
-   * Removes the currently selected content control retaining all its contents. The content control where
-   * the mouse cursor is currently positioned will be removed.
+   * Removes the currently selected content control retaining all its contents.
+   *
+   * The content control where the mouse cursor is currently positioned will be removed.
    *
    * @param InternalId - A unique internal identifier of the content control.
    * @returns An object which contains the following values: Parent - content control parent, Pos - content
@@ -2499,6 +2513,7 @@ type WordMethodArgs = {
   SetMacros: [data: string];
   /**
    * Replaces all content of the specified paragraph with the content parsed from the given HTML string.
+   *
    * If the HTML contains multiple block-level elements, their inline content is merged into the target
    * paragraph.
    *
@@ -2514,10 +2529,14 @@ type WordMethodArgs = {
    */
   SetParagraphHtml: [html: string, paraId?: number];
   /**
-   * Configures plugins from an external source. The settings can be set for all plugins or for a
-   * specific plugin.
-   * For example, this method can be used to pass an authorization token to the plugin. This method can
-   * be used only with the connector class.
+   * Configures plugins from an external source.
+   *
+   * The settings can be set for all plugins or for a specific plugin. For example, this method can be
+   * used to pass an authorization token to the plugin.
+   *
+   * **Note:**
+   * This method can be used only with the
+   * {@link https://api.onlyoffice.com/docs/docs-api/usage-api/automation-api/connector-class connector class}.
    *
    * @param options - Plugin options.
    * @since 8.1.1

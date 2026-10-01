@@ -202,7 +202,7 @@
       "since": "8.2.0"
     },
     "SetSpacingAfter": {
-      "description": "Sets the spacing after the current paragraph. If the value of the isAfterAuto parameter is true, then \nany value of the nAfter is ignored. If isAfterAuto parameter is not specified, then it \nwill be interpreted as false.",
+      "description": "Sets the spacing after the current paragraph.\n\nIf the value of the isAfterAuto parameter is true, then\nany value of the nAfter is ignored. If isAfterAuto parameter is not specified, then it \nwill be interpreted as false.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParaPr/Methods/SetSpacingAfter/",
       "params": [
         {
@@ -223,7 +223,7 @@
       "signature": "SetSpacingAfter(nAfter: twips, isAfterAuto?: boolean): boolean"
     },
     "SetSpacingBefore": {
-      "description": "Sets the spacing before the current paragraph. If the value of the isBeforeAuto parameter is true, then \nany value of the nBefore is ignored. If isBeforeAuto parameter is not specified, then \nit will be interpreted as false.",
+      "description": "Sets the spacing before the current paragraph.\n\nIf the value of the isBeforeAuto parameter is true, then\nany value of the nBefore is ignored. If isBeforeAuto parameter is not specified, then \nit will be interpreted as false.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParaPr/Methods/SetSpacingBefore/",
       "params": [
         {
@@ -244,7 +244,7 @@
       "signature": "SetSpacingBefore(nBefore: twips, isBeforeAuto?: boolean): boolean"
     },
     "SetSpacingLine": {
-      "description": "Sets the paragraph line spacing. If the value of the sLineRule parameter is either \n\"atLeast\" or \"exact\", then the value of nLine will be interpreted as twentieths of a point. If \nthe value of the sLineRule parameter is \"auto\", then the value of the \nnLine parameter will be interpreted as 240ths of a line.",
+      "description": "Sets the paragraph line spacing.\n\nIf the value of the sLineRule parameter is either\n\"atLeast\" or \"exact\", then the value of nLine will be interpreted as twentieths of a point. If \nthe value of the sLineRule parameter is \"auto\", then the value of the \nnLine parameter will be interpreted as 240ths of a line.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParaPr/Methods/SetSpacingLine/",
       "params": [
         {
@@ -264,7 +264,7 @@
       "signature": "SetSpacingLine(nLine: twips | line240, sLineRule: \"auto\" | \"atLeast\" | \"exact\"): boolean"
     },
     "SetTabs": {
-      "description": "Specifies a sequence of custom tab stops which will be used for any tab characters in the current paragraph.\n**Warning**: The lengths of aPos array and aVal array **MUST BE** equal to each other.",
+      "description": "Specifies a sequence of custom tab stops which will be used for any tab characters in the current paragraph.\n\n**Warning:**\nThe lengths of the aPos and aVal arrays must be equal to each other.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParaPr/Methods/SetTabs/",
       "params": [
         {

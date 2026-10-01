@@ -458,7 +458,7 @@
       "signature": "SetHorAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean"
     },
     "SetHyperlink": {
-      "description": "Sets a hyperlink to the current drawing object (shape or image).\nPass null to remove the hyperlink.",
+      "description": "Sets a hyperlink to the current drawing object (shape or image).\n\nPass null to remove the hyperlink.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/SetHyperlink/",
       "params": [
         {
@@ -839,7 +839,7 @@
       "signature": "SetSeriaValues(aValues: number[], nSeria: number): boolean"
     },
     "SetSeriesFill": {
-      "description": "Sets the fill to the specified chart series.",
+      "description": "Sets the fill to the specified chart series.\n**Note:**\nThe fill is not applied to 2D line and scatter series. Use the SetSeriesOutLine method to change their line and the SetMarkerFill method to change their markers.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/SetSeriesFill/",
       "params": [
         {
@@ -1140,7 +1140,7 @@
       "signature": "SetVertAxisTickLabelPosition(sTickLabelPosition: TickLabelPosition): boolean"
     },
     "SetXValues": {
-      "description": "Sets the x-axis values to all chart series. It is used with the scatter charts only.",
+      "description": "Sets the x-axis values to all chart series.\n\nIt is used with the scatter charts only.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/SetXValues/",
       "params": [
         {

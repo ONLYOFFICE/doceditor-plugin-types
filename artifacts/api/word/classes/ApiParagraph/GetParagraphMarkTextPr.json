@@ -1,5 +1,5 @@
 {
-  "description": "Returns the text properties of the paragraph mark which is used to mark the paragraph end. The mark can also acquire\ncommon text properties like bold, italic, underline, etc.",
+  "description": "Returns the text properties of the paragraph mark which is used to mark the paragraph end.\n\nThe mark can also acquire\ncommon text properties like bold, italic, underline, etc.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/GetParagraphMarkTextPr/",
   "params": [],
   "returns": {
