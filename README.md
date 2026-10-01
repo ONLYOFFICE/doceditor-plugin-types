@@ -188,11 +188,11 @@ https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/main/artifac
 
 | `<file>` | size |
 | -------- | ---- |
-| `onlyoffice-doceditor-plugin-types.word.ambient.d.ts` | 2.49 MB |
-| `onlyoffice-doceditor-plugin-types.cell.ambient.d.ts` | 2.42 MB |
-| `onlyoffice-doceditor-plugin-types.slide.ambient.d.ts` | 1.43 MB |
-| `onlyoffice-doceditor-plugin-types.pdf.ambient.d.ts` | 1.37 MB |
-| `onlyoffice-doceditor-plugin-types.forms.ambient.d.ts` | 0.54 MB |
+| `onlyoffice-doceditor-plugin-types.word.ambient.d.ts` | 2.50 MB |
+| `onlyoffice-doceditor-plugin-types.cell.ambient.d.ts` | 2.48 MB |
+| `onlyoffice-doceditor-plugin-types.slide.ambient.d.ts` | 1.46 MB |
+| `onlyoffice-doceditor-plugin-types.pdf.ambient.d.ts` | 1.41 MB |
+| `onlyoffice-doceditor-plugin-types.forms.ambient.d.ts` | 0.55 MB |
 
 Each is self-contained - `Asc`, `AscPlugin`, that editor's namespace and its global `Api`. Load
 exactly one: all five declare the same globals with different types.
@@ -241,7 +241,7 @@ the [repository](https://github.com/ONLYOFFICE/doceditor-plugin-types), not in t
 
 [AGENTS.md](AGENTS.md) is the guide: the runtime's three channels and what confuses them, how to
 look a member up without guessing, how to check plugin code you wrote against a compiler, and which
-211 members need a paid edition. It ships inside the npm package, so an installed copy has it at
+227 members need a paid edition. It ships inside the npm package, so an installed copy has it at
 `node_modules/@onlyoffice/doceditor-plugin-types/AGENTS.md`.
 
 What it points to for looking a member up lives in this repository rather than the package:
@@ -263,8 +263,6 @@ guards, how to read the machine-readable index, and the project layout.
 
 ## License
 
-[Apache-2.0](LICENSE), Copyright 2026 Ascensio System SIA - the same license as
-[`@onlyoffice/doceditor-types`](https://www.npmjs.com/package/@onlyoffice/doceditor-types), so these
-declarations can be consumed by plugins under any license. Note that this covers the type
-declarations only; the ONLYOFFICE editors themselves (`sdkjs`, from whose JSDoc these types are
-generated) remain under AGPL-3.0-or-later.
+[Apache-2.0](LICENSE), Copyright 2026 Ascensio System SIA - these declarations can be consumed by
+plugins under any license. Note that this covers the type declarations only; the ONLYOFFICE editors
+themselves (`sdkjs`, from whose JSDoc these types are generated) remain under AGPL-3.0-or-later.

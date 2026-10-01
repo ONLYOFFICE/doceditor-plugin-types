@@ -232,6 +232,19 @@ against disk in both directions, for the directories meant to be listed file by 
 after the tree was found listing 8 of 15 scripts - three of them missing long before the module split
 that finally exposed it. An unguarded hand-written fact drifts silently.
 
+The same check covers the measured numbers README.md, AGENTS.md and CONTRIBUTING.md quote - the five
+ambient bundle sizes, the size of `artifacts/api/`, and the paid-member counts - each derived from
+disk rather than from another document, since two documents agreeing with each other while both being
+wrong is the case worth catching. It is also why the numbers are checked at all: every one of them is
+quoted in at least two places (a bundle size in README.md's table and again in the tree below), so the
+normal failure is updating one copy and missing the other. The paid count read 211 in both documents
+while the changelog had already recorded 227, and the size of `artifacts/api/` was simultaneously
+right in AGENTS.md and stale here. A fact that no document states any more is reported too: a pattern
+that has stopped matching guards nothing, and a silent gate is worse than no gate.
+
+CHANGELOG.md is deliberately excluded. Its entries describe what was true at a release, and must not
+be rewritten when disk moves on.
+
 `npm run check-package` does the same for the one fact that is invisible in a checkout: what
 `npm publish` would actually ship. It runs `npm pack --dry-run` and rejects anything outside the
 package's declared shape (a new directory under `src/` publishes itself the moment it exists),
@@ -351,13 +364,13 @@ directly linkable/reviewable, but excluded from the npm package (`package.json`'
 consumers get the modular package instead:
 
 ```text
-artifacts/ambient/onlyoffice-doceditor-plugin-types.word.ambient.d.ts   # 2.49 MB - Asc/AscPlugin/events/buttons/
+artifacts/ambient/onlyoffice-doceditor-plugin-types.word.ambient.d.ts   # 2.50 MB - Asc/AscPlugin/events/buttons/
                                                           # config/theme/services + namespace Word
                                                           # + a global `Api: Word.Api`
-artifacts/ambient/onlyoffice-doceditor-plugin-types.cell.ambient.d.ts   # 2.42 MB - ...same, for Cell
-artifacts/ambient/onlyoffice-doceditor-plugin-types.slide.ambient.d.ts  # 1.43 MB - ...same, for Slide
-artifacts/ambient/onlyoffice-doceditor-plugin-types.pdf.ambient.d.ts    # 1.37 MB - ...same, for Pdf
-artifacts/ambient/onlyoffice-doceditor-plugin-types.forms.ambient.d.ts  # 0.54 MB - ...same, for Forms, minus the
+artifacts/ambient/onlyoffice-doceditor-plugin-types.cell.ambient.d.ts   # 2.48 MB - ...same, for Cell
+artifacts/ambient/onlyoffice-doceditor-plugin-types.slide.ambient.d.ts  # 1.46 MB - ...same, for Slide
+artifacts/ambient/onlyoffice-doceditor-plugin-types.pdf.ambient.d.ts    # 1.41 MB - ...same, for Pdf
+artifacts/ambient/onlyoffice-doceditor-plugin-types.forms.ambient.d.ts  # 0.55 MB - ...same, for Forms, minus the
                                                           # global `Api` (Forms has none: its
                                                           # methods go through executeMethod)
 ```
@@ -460,7 +473,7 @@ few - `ApiWorksheetFunction` is the Excel formula library with 416 members - wou
 single 100k-token read and reintroduce exactly the problem the split exists to solve.
 
 Two ways to get it: fetch the git-tracked files from raw.githubusercontent.com, or regenerate
-locally with `npm run generate`. It is deliberately not in the npm package - at 4.70 MB it was 37%
+locally with `npm run generate`. It is deliberately not in the npm package - at 4.87 MB it was 37%
 of the install for something only an agent reads, and an agent reaching for it can fetch it over
 HTTP, while everyone installing the package for editor completion carried it for nothing.
 Written by `generate-types.js` (object model + events), `generate-plugin-methods.js` (executeMethod
@@ -541,7 +554,7 @@ onlyoffice-types/
 │   ├── check-runtime-contract.js
 │   ├── check-plugin-events.js
 │   ├── check-arity.js
-│   ├── check-structure.js         # this tree against what is actually on disk
+│   ├── check-structure.js         # this tree, and the measured numbers the docs quote, vs disk
 │   ├── check-package-contents.js  # what `npm publish` would ship, and that exports resolve in it
 │   └── validate-config-schema.js
 ├── tsconfig.json           # builds/typechecks the library itself

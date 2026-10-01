@@ -1,4 +1,6 @@
-// Drift checker for the Project Structure tree in CONTRIBUTING.md.
+// Drift checker for the hand-written facts about this package's shape: the Project Structure tree in
+// CONTRIBUTING.md, and the measured numbers quoted in the three documents an outside reader starts
+// from.
 //
 // Every other hand-written fact in this package has a check behind it - the arity corrections, the
 // paid-event marking, the config schema, the machine-readable index. The file tree did not, and it
@@ -8,6 +10,12 @@
 // Scoped to the directories whose contents are meant to be enumerated one file at a time. `src/`,
 // `artifacts/` and `test/` are described in the tree by shape rather than by listing (`artifacts/api/` is 1200
 // generated files), so adding a file there is not drift - but a new script, entry point or override is.
+//
+// The numbers rotted the same way, and worse, because each one is quoted in more than one document:
+// a bundle size sits in README.md's table and again in CONTRIBUTING.md's tree, and the paid-member
+// count sits in README.md and AGENTS.md. Updating one copy and missing the other is the normal
+// outcome - the count said 211 in both while the changelog had already recorded 227, and the size of
+// `artifacts/api/` was right in AGENTS.md and stale in CONTRIBUTING.md at the same time.
 
 const fs = require('fs');
 const path = require('path');
@@ -67,6 +75,135 @@ const ROOT_IGNORED = new Set([
  'WIKI-building-and-releasing.md',
 ]);
 
+// --- Measured numbers quoted in the documentation -------------------------------------------------
+
+// The documents a reader outside the repository starts from. CHANGELOG.md is deliberately absent:
+// its entries record what was true at a release and must not be rewritten when disk moves on.
+const NUMERIC_DOCS = ['README.md', 'AGENTS.md', 'CONTRIBUTING.md'];
+
+const MB = 1048576;
+// Same rounding the ambient generator prints, so a size copied from its output matches.
+const mb = (bytes) => (bytes / MB).toFixed(2);
+
+function directoryBytes(dir) {
+  let total = 0;
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const abs = path.join(dir, entry.name);
+    total += entry.isDirectory() ? directoryBytes(abs) : fs.statSync(abs).size;
+  }
+  return total;
+}
+
+// Every fact is derived from disk, never from another document - two documents agreeing with each
+// other while both being wrong is the failure this check exists to catch.
+function measure() {
+  const ambient = path.join(PACKAGE_ROOT, 'artifacts', 'ambient');
+  const bundles = new Map();
+  for (const entry of fs.readdirSync(ambient)) {
+    const m = /\.([a-z]+)\.ambient\.d\.ts$/.exec(entry);
+    if (m) bundles.set(m[1], fs.statSync(path.join(ambient, entry)).size);
+  }
+  if (bundles.size === 0) throw new Error('artifacts/ambient holds no bundles to measure.');
+
+  const paid = { executeMethods: 0, methods: 0 };
+  for (const editor of fs.readdirSync(path.join(PACKAGE_ROOT, 'artifacts', 'api'), { withFileTypes: true })) {
+    if (!editor.isDirectory()) continue;
+    const index = path.join(PACKAGE_ROOT, 'artifacts', 'api', editor.name, 'index.json');
+    if (!fs.existsSync(index)) continue;
+    const parsed = JSON.parse(fs.readFileSync(index, 'utf8'));
+    // Summed per editor rather than deduplicated by name, which is how CHANGELOG.md has counted
+    // them since the surface was first reported. `EndGroupActions` needs the paid edition in each of
+    // the four editors that offer it, and each editor's index lists it - so four is what a reader
+    // comparing the prose against those lists counts.
+    paid.executeMethods += (parsed.paidExecuteMethods || []).length;
+    paid.methods += (parsed.paidMethods || []).length;
+  }
+
+  const sizes = [...bundles.values()];
+  return {
+    bundles,
+    smallest: mb(Math.min(...sizes)),
+    largest: mb(Math.max(...sizes)),
+    apiBytes: directoryBytes(path.join(PACKAGE_ROOT, 'artifacts', 'api')),
+    paid,
+    wordChars: fs.readFileSync([...fs.readdirSync(ambient)]
+      .map((e) => path.join(ambient, e))
+      .find((p) => p.endsWith('.word.ambient.d.ts')), 'utf8').length,
+  };
+}
+
+// A fact is a pattern plus what its captures must equal. `expected` receives the match and returns
+// the correct text, or null when the line is not actually a statement of this fact.
+function numericFacts(actual) {
+  return [
+    {
+      label: 'ambient bundle size',
+      // The README table and the CONTRIBUTING tree both put the size on the same line as the file
+      // name, so one rule covers them and any future mention that follows the same habit.
+      pattern: /([a-z]+)\.ambient\.d\.ts`?\s*(?:\||#)\s*(\d+\.\d{2}) MB/g,
+      expected: ([, editor, quoted]) => {
+        const size = actual.bundles.get(editor);
+        if (size === undefined) return { found: quoted, want: `a bundle named ${editor}`, note: 'no such bundle on disk' };
+        return { found: quoted, want: mb(size) };
+      },
+    },
+    {
+      label: 'ambient bundle size range',
+      pattern: /(\d+\.\d{2})-(\d+\.\d{2}) MB/g,
+      expected: ([whole]) => ({ found: whole, want: `${actual.smallest}-${actual.largest} MB` }),
+    },
+    {
+      label: 'artifacts/api size',
+      pattern: /at (\d+\.\d{2}) MB it was/g,
+      expected: ([, quoted]) => ({ found: quoted, want: mb(actual.apiBytes) }),
+    },
+    {
+      label: 'paid members, total',
+      pattern: /(\d+) members need/g,
+      expected: ([, quoted]) => ({ found: quoted, want: String(actual.paid.executeMethods + actual.paid.methods) }),
+    },
+    {
+      label: 'paid members, split',
+      pattern: /(\d+) `executeMethod` names and (\d+)\s*\n?\s*object-model methods/g,
+      expected: ([, names, methods]) => ({
+        found: `${names} + ${methods}`,
+        want: `${actual.paid.executeMethods} + ${actual.paid.methods}`,
+      }),
+    },
+    {
+      label: 'word bundle character count',
+      pattern: /~(\d+(?:\.\d+)?)M characters/g,
+      expected: ([, quoted]) => ({ found: quoted, want: (actual.wordChars / 1e6).toFixed(1) }),
+    },
+  ];
+}
+
+function checkNumbers() {
+  const actual = measure();
+  const problems = [];
+  let mentions = 0;
+
+  for (const fact of numericFacts(actual)) {
+    let seen = 0;
+    for (const file of NUMERIC_DOCS) {
+      const text = fs.readFileSync(path.join(PACKAGE_ROOT, file), 'utf8');
+      for (const match of text.matchAll(fact.pattern)) {
+        seen += 1;
+        const { found, want, note } = fact.expected(match);
+        if (found === want) continue;
+        const line = text.slice(0, match.index).split(NL).length;
+        problems.push(`${file}:${line} ${fact.label} says ${found}, disk says ${want}${note ? ` (${note})` : ''}`);
+      }
+    }
+    // A fact nobody states is a pattern that has stopped matching - a reworded sentence, or a
+    // mention deleted outright. Either way this check silently stops guarding it, which is how a
+    // gate becomes decorative; it has to be noisy instead.
+    if (seen === 0) problems.push(`no document states the ${fact.label} any more - reword the pattern in ${path.basename(__filename)} or restore the mention`);
+    mentions += seen;
+  }
+  return { problems, mentions, facts: numericFacts(actual).length };
+}
+
 function main() {
   const listed = namesIn(structureBlock());
   const problems = [];
@@ -103,11 +240,22 @@ function main() {
     if (!onDisk.has(name)) problems.push(`${name} is in the tree but no longer exists`);
   }
 
+  // Both halves are reported together rather than one failing first: a regeneration that moves the
+  // numbers usually moves the tree as well, and fixing them one error at a time means running the
+  // check once per edit.
+  const numbers = checkNumbers();
+
   if (problems.length > 0) {
     console.error(`structure: CONTRIBUTING.md's Project Structure tree is out of date -${NL}  ${problems.sort().join(`${NL}  `)}`);
-    throw new Error(`${problems.length} file(s) out of sync - see above.`);
   }
+  if (numbers.problems.length > 0) {
+    console.error(`numbers: documentation disagrees with disk -${NL}  ${numbers.problems.sort().join(`${NL}  `)}`);
+  }
+  const total = problems.length + numbers.problems.length;
+  if (total > 0) throw new Error(`${total} fact(s) out of sync - see above.`);
+
   console.log(`structure: ${listed.size} names in the tree, all ${Object.keys(ENUMERATED).length} enumerated directories match disk`);
+  console.log(`numbers: ${numbers.facts} measured facts, ${numbers.mentions} mentions across ${NUMERIC_DOCS.length} documents match disk`);
 }
 
 try {

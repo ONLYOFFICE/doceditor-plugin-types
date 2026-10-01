@@ -1,12 +1,12 @@
 # Changelog
 
 Versions mirror the ONLYOFFICE editor release this package's types were generated from - see
-[Versioning](README.md#versioning). The `0.x` entries below are development history from before the
-first publish; no `0.x` version was ever released to npm.
+[Versioning](README.md#versioning). Everything below `10.0.0` is development history from before the
+first publish: neither `9.5.0` nor any `0.x` version was released to npm.
 
 ## 10.0.0
 
-First published release. Generated from sdkjs `v10.0.0.114`.
+First published release. Generated from sdkjs `v10.0.0.138`.
 
 The version follows the editor release the types were generated from (see
 [Versioning](README.md#versioning)), so this supersedes the unpublished `9.5.0` below rather than
@@ -73,9 +73,26 @@ building on it: everything listed under `9.5.0` ships here, regenerated against 
   so a reader holding only the compact index could see `ApiListObject.GetRange` with no hint that the
   whole class needs a commercial build. The detail files keep the `requires` string naming the
   edition; this is the same answer at the level an agent actually reads.
+- `npm run check-structure` also guards the measured numbers README.md, AGENTS.md and CONTRIBUTING.md
+  quote: the five ambient bundle sizes, the size of `artifacts/api/`, and the paid-member counts -
+  seventeen mentions of six facts, each derived from disk rather than from another document. They
+  were the last hand-written facts with nothing behind them, and they had drifted in both of the
+  ways a repeated number does: the paid count read 211 in two documents while the changelog had
+  already recorded 227, and the size of `artifacts/api/` was right in AGENTS.md and stale in
+  CONTRIBUTING.md at the same time. The check found that second one on its first run.
+
+  A fact that no document states any more is an error too, not a pass. A pattern that silently stops
+  matching guards nothing, which is the failure mode of a gate rather than of the thing it gates.
+  CHANGELOG.md is excluded on purpose: its entries record what was true at a release.
 
 ### Fixed
 
+- `<note>` no longer reaches the declarations as a literal tag. sdkjs writes its notes two ways -
+  the HTML-flavored `<note>...</note>` and the Docusaurus `:::note` fence - and only the fence was
+  translated, so 124 descriptions across `src/generated` and `artifacts/api` carried a raw tag into
+  the hover tooltip. Both spellings now produce the same `**Note:**` lead-in, which matters beyond
+  the leak itself: sdkjs converted 67 of its notes to the fence in `v10.0.0.138`, and without this
+  a member's description would have changed every time someone reformatted its comment upstream.
 - `AscDesktopEditor` documents that it is not reachable inside a `callCommand` body. That body does
   not run in the plugin's scope: the editor evaluates it against a scope it builds itself
   (`_safePluginEval` in sdkjs's `common/macros.js`), where the name is bound to an empty object -
@@ -139,6 +156,17 @@ building on it: everything listed under `9.5.0` ships here, regenerated against 
   The paid surface grows from 211 members to 227: 205 object-model methods and 22 executeMethod
   names. `check-arity`'s 57 corrections still hold against the new sources, so nothing sdkjs changed
   in those 221 commits invalidated the documented evidence behind them.
+- Regenerated again against sdkjs `v10.0.0.138`, with `sdkjs-ext` and `sdkjs-forms` at the same tag.
+  Over `v10.0.0.114` that adds 42 object-model members, among them Cell's `ApiTableStyle`,
+  `ApiTableStyleElement`, `ApiTableStyleElements` and `ApiTableStyles`, `ApiPivotField.Group` and
+  `ApiRange.RemoveDuplicates`, and sharpens several return types that had been documented as
+  unconditional - `ApiRange.SetValue` now reports `false` when the cell was not written, and
+  `RemoveRows` answers `null` where the rows cannot be removed. The paid surface is unchanged at
+  227 members.
+
+  Most of the diff is prose rather than API: sdkjs rewrote 67 of its `<note>` blocks as `:::note`
+  fences and turned several inline enumerations into markdown lists, which reflows a large number
+  of descriptions without changing a single signature.
 - `dist/` is now `artifacts/`. The name said "what gets distributed" while describing the one part
   of the repository that npm never sees: not a byte of it is in the tarball, and it is reachable
   only over raw.githubusercontent.com. The mismatch was mild while `dist/api` was still in `files`
@@ -152,7 +180,7 @@ building on it: everything listed under `9.5.0` ships here, regenerated against 
   repository does not have, which nothing would have caught: the files resolve locally either way,
   and `artifacts/api` and `artifacts/ambient` are reachable only over those links now that neither ships on
   npm.
-- `artifacts/api/` is no longer in the npm package, and `exports["./api/*"]` is gone with it. At 4.70 MB
+- `artifacts/api/` is no longer in the npm package, and `exports["./api/*"]` is gone with it. At 4.87 MB
   it was 37% of the install for a surface only an agent reads, and an agent that reaches for it can
   fetch it from raw.githubusercontent.com, where it stays tracked in git - while everyone installing
   the package for editor completion carried it for nothing. The package is now 35 files, 0.99 MB
@@ -160,10 +188,10 @@ building on it: everything listed under `9.5.0` ships here, regenerated against 
   importing `@onlyoffice/doceditor-plugin-types/api/<path>` must switch to the raw URL; nothing else moves,
   and the same facts remain in each member's JSDoc for an agent working offline.
 - `artifacts/ambient/` is now five self-contained per-editor bundles -
-  `onlyoffice-doceditor-plugin-types.{word,cell,slide,pdf,forms}.ambient.d.ts`, 0.54-2.49 MB each - instead of
+  `onlyoffice-doceditor-plugin-types.{word,cell,slide,pdf,forms}.ambient.d.ts`, 0.55-2.50 MB each - instead of
   one 7.98 MB bundle plus four ~10-line `Api` addons. Load exactly one; nothing goes alongside it.
   The old layout made a consumer parse all five editor namespaces to use one: a word consumer loaded
-  7.98 MB where it now loads 2.49 MB, and the first completion after `Api.GetDocument().` went from
+  7.98 MB where it now loads 2.50 MB, and the first completion after `Api.GetDocument().` went from
   636-663 ms to 259-262 ms measured cold through `ts.LanguageService`, or 515-542 ms to 346-372 ms
   in Monaco 0.52.2. The completion itself is unchanged - 152 members either way. Total tracked size
   is practically unchanged (7.98 MB to 8.25 MB) because only the ~55 KB of non-editor declarations
@@ -187,7 +215,8 @@ building on it: everything listed under `9.5.0` ships here, regenerated against 
 
 ## 9.5.0
 
-First published release. Generated from sdkjs `v9.5.0.150`.
+Never released to npm. Generated from sdkjs `v9.5.0.150`, and superseded by `10.0.0` above, which
+ships everything listed here regenerated against a newer editor.
 
 ### Breaking
 

@@ -70,7 +70,7 @@ three channels, and confusing them is the most common source of broken plugin co
   in the JSDoc of the corresponding member in the `.d.ts`, and every member that has one also has a
   `docsUrl`; carrying them in both places duplicated 4.5 MB of identical text.
 
-  It lives in git, **not in the npm package** — at 4.70 MB it was 37% of an install that most
+  It lives in git, **not in the npm package** — at 4.87 MB it was 37% of an install that most
   consumers make for editor completion alone. If you have no network, fall back to the `.d.ts`: the
   same facts are in each member's JSDoc (`@since`, `@see`, `@requires` for paid members), and
   `<Editor>PaidMethodName` types the paid `executeMethod` names.
@@ -91,8 +91,8 @@ three channels, and confusing them is the most common source of broken plugin co
 
   Rule of thumb for which half to search: `<editor>/…` answers what you do *inside* a `callCommand`
   body; `runtime.json` answers how you write the plugin around it.
-- **Check `requires` before recommending a member.** 211 members need ONLYOFFICE Docs Developer
-  Edition and are not present in a Community Edition build: 20 `executeMethod` names and 191
+- **Check `requires` before recommending a member.** 227 members need ONLYOFFICE Docs Developer
+  Edition and are not present in a Community Edition build: 22 `executeMethod` names and 205
   object-model methods (`ApiTableOfContents`, `ApiListObject`, `ApiSort`, ...). They carry a `requires` field in `artifacts/api/`, and each editor's `index.json` lists them
   outright - `paidExecuteMethods` and `paidMethods` - so a single read answers it. The executeMethod
   names are also typed as `<Editor>PaidMethodName`. Suggesting one to a Community Edition
@@ -107,7 +107,7 @@ three channels, and confusing them is the most common source of broken plugin co
   member".
 - `artifacts/ambient/` holds five flattened no-import `.d.ts` bundles, one per editor:
   `onlyoffice-doceditor-plugin-types.<editor>.ambient.d.ts` for `word`, `cell`, `slide`, `pdf`, `forms`. Each
-  is self-contained (0.54-2.49 MB) - load exactly one, since the five declare the same globals with
+  is self-contained (0.55-2.50 MB) - load exactly one, since the five declare the same globals with
   different types. Written for editors that take a single global-scope blob (a Monaco
   `addExtraLib()`), and useful here for a different reason - see below. Not shipped in the npm
   package (those consumers take the modular sources instead) - fetch from git:
@@ -153,7 +153,7 @@ npm run check-runtime    # full API surface vs sdkjs (SDKJS_PATH); the plugins.d
 npm run check-plugin-events  # plugin-window event map vs sdkjs event sources (SDKJS_PATH)
 npm run validate-schema  # schemas/config.schema.json vs every real config.json (skips outside the monorepo)
 npm run check-arity      # parameter-optionality corrections vs the documented examples (DOCS_PATH)
-npm run check-structure  # CONTRIBUTING.md's file tree vs what is on disk
+npm run check-structure  # CONTRIBUTING.md's file tree, and every measured number the docs quote
 npm run check-package    # what `npm publish` would ship, and that every exports subpath resolves in it
 npm run generate         # regenerate src/generated from sdkjs + rebuild artifacts/api
                          # (postgenerate also regenerates executeMethod types and artifacts/ambient)

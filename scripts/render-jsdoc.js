@@ -28,6 +28,12 @@ function htmlToMarkdown(text) {
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
     .replace(/&amp;/g, '&')
+    // `<note>` is the older spelling of the same thing, and it used to reach the declarations as a
+    // literal tag. sdkjs rewrote 67 of its notes as the `:::note` fence below in v10.0.0.138 and
+    // left ten behind (cell 2, pdf 4, word 4), so both spellings are live. They deliberately produce
+    // the same prose: otherwise a member's description would change for no reason the day someone
+    // reformats its comment upstream.
+    .replace(/<note>\s*([\s\S]*?)\s*<\/note>/gi, '**Note:**\n$1')
     // Docusaurus admonitions. sdkjs writes these for the docs site's renderer, so the raw `:::`
     // fences reached the declarations verbatim and read as noise in a hover tooltip. The label is
     // the part worth keeping - a `:::danger[Breaking Change]` block is exactly what a reader must
