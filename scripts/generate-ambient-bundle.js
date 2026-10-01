@@ -11,9 +11,9 @@
 // Nothing else has to be loaded alongside it.
 //
 // One bundle per editor rather than a shared base plus per-editor addons, even though that repeats
-// the ~55 KB of non-editor declarations five times: the editor namespaces are the bulk of the text
-// (0.4-2.4 MB each) and none of them references another, so a combined bundle made every consumer
-// parse all five to use one. Whoever loads this pays for parsing, not just downloading - a Monaco
+// the non-editor declarations five times: the editor namespaces are the bulk of the text by far and
+// none of them references another, so a combined bundle made every consumer parse all five to use
+// one. Whoever loads this pays for parsing, not just downloading - a Monaco
 // worker binds the whole blob before it can answer the first completion.
 //
 // AscPlugin's executeMethod/callMethodAsync/attachEditorEvent/detachEditorEvent are written in the

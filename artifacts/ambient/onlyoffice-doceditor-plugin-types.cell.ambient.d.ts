@@ -64040,7 +64040,7 @@ interface PluginWindow {
     show: (variation: VariationConfig) => void;
     close: () => void;
     attachEvent: (eventName: string, callback: PluginEventCallback) => void;
-    // detachEvent: (eventName: string) => void;
+    detachEvent: (eventName: string) => void;
     command: (methodName: string, payload?: unknown) => void;
 }
 
@@ -64067,15 +64067,13 @@ interface PluginInfo {
 }
 
 // ---- src/services/desktop-editor.d.ts ----
-// Native C++ object injected by OnlyOffice Desktop Editor into the browser window.
+// Native C++ object injected by ONLYOFFICE Desktop Editor into the browser window.
 //
-// Present in the plugin's own frame, and NOT inside a `callCommand` body. That body does not run in
-// the plugin's scope: the editor evaluates it against a scope it builds itself (`_safePluginEval` in
-// sdkjs's common/macros.js), where this name is bound to an empty object - `"AscDesktopEditor": {}`
-// - alongside sandboxed `setTimeout`/`setInterval`/`XMLHttpRequest`. Every method below is therefore
-// declared but absent at that point, and calling one reaches a TypeError rather than the desktop
-// bridge. The declaration stays global because the plugin frame is where it is meant to be used, and
-// a global cannot be scoped away inside one function body.
+// Unreachable inside a `callCommand` body, and the interface below says so. The mechanism: the
+// editor evaluates that body against a scope it builds itself (`_safePluginEval` in sdkjs's
+// common/macros.js), binding this name to an empty object alongside sandboxed
+// `setTimeout`/`setInterval`/`XMLHttpRequest`. The declaration stays global anyway - the plugin
+// frame is where it is meant to be used, and a global cannot be scoped away inside one body.
 
 type DesktopDialogType = 'plugin' | 'images' | 'cell' | 'word' | 'slide';
 

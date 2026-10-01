@@ -1033,6 +1033,9 @@
         "command": {
           "signature": "command: (methodName: string, payload?: unknown) => void;"
         },
+        "detachEvent": {
+          "signature": "detachEvent: (eventName: string) => void;"
+        },
         "id": {
           "signature": "id: string;"
         },

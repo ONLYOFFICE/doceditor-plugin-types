@@ -141,7 +141,8 @@ function applyDocsExamples(classes, editor, docsRoot) {
 
 
 // sdkjs-ext declares whole object-model classes of its own under `js-api/<editor>/` -
-// `ApiTableOfContents`, `ApiListObject`, `ApiSort`, `ApiDocumentVisitor` and friends, ~191 methods.
+// `ApiTableOfContents`, `ApiListObject`, `ApiSort`, `ApiDocumentVisitor` and friends. How many
+// members that is today is `paidMethods` in each editor's `artifacts/api/<editor>/index.json`.
 // sdkjs's own apiBuilder.js only *references* them (`ApiTableOfContents` appears twice there, as a
 // return type; the class's 71 JSDoc lines live in ext), so reading sdkjs alone produced
 // `export type ApiTableOfContents = unknown;` stubs - which is why `src/overrides/` had to declare

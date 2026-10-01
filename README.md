@@ -190,7 +190,7 @@ https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/main/artifac
 | -------- | ---- |
 | `onlyoffice-doceditor-plugin-types.word.ambient.d.ts` | 2.50 MB |
 | `onlyoffice-doceditor-plugin-types.cell.ambient.d.ts` | 2.48 MB |
-| `onlyoffice-doceditor-plugin-types.slide.ambient.d.ts` | 1.46 MB |
+| `onlyoffice-doceditor-plugin-types.slide.ambient.d.ts` | 1.45 MB |
 | `onlyoffice-doceditor-plugin-types.pdf.ambient.d.ts` | 1.41 MB |
 | `onlyoffice-doceditor-plugin-types.forms.ambient.d.ts` | 0.55 MB |
 

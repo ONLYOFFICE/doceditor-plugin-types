@@ -1,21 +1,10 @@
 // Drift checker for the hand-written facts about this package's shape: the Project Structure tree in
-// CONTRIBUTING.md, and the measured numbers quoted in the three documents an outside reader starts
-// from.
+// CONTRIBUTING.md, and the measured numbers the reader-facing documents quote. Why either is checked
+// at all, and why CHANGELOG.md is left out, is in CONTRIBUTING.md rather than repeated here.
 //
-// Every other hand-written fact in this package has a check behind it - the arity corrections, the
-// paid-event marking, the config schema, the machine-readable index. The file tree did not, and it
-// rotted exactly the way an unguarded fact does: it listed 8 of 15 scripts, three of which had been
-// missing since well before the module split that finally exposed it.
-//
-// Scoped to the directories whose contents are meant to be enumerated one file at a time. `src/`,
-// `artifacts/` and `test/` are described in the tree by shape rather than by listing (`artifacts/api/` is 1200
-// generated files), so adding a file there is not drift - but a new script, entry point or override is.
-//
-// The numbers rotted the same way, and worse, because each one is quoted in more than one document:
-// a bundle size sits in README.md's table and again in CONTRIBUTING.md's tree, and the paid-member
-// count sits in README.md and AGENTS.md. Updating one copy and missing the other is the normal
-// outcome - the count said 211 in both while the changelog had already recorded 227, and the size of
-// `artifacts/api/` was right in AGENTS.md and stale in CONTRIBUTING.md at the same time.
+// Scoped to the directories meant to be enumerated one file at a time. `src/`, `artifacts/` and
+// `test/` are described in the tree by shape rather than by listing, so adding a file there is not
+// drift - but a new script, entry point or override is.
 
 const fs = require('fs');
 const path = require('path');
@@ -77,8 +66,7 @@ const ROOT_IGNORED = new Set([
 
 // --- Measured numbers quoted in the documentation -------------------------------------------------
 
-// The documents a reader outside the repository starts from. CHANGELOG.md is deliberately absent:
-// its entries record what was true at a release and must not be rewritten when disk moves on.
+// CHANGELOG.md is deliberately absent: its entries record what was true at a release.
 const NUMERIC_DOCS = ['README.md', 'AGENTS.md', 'CONTRIBUTING.md'];
 
 const MB = 1048576;
@@ -94,8 +82,7 @@ function directoryBytes(dir) {
   return total;
 }
 
-// Every fact is derived from disk, never from another document - two documents agreeing with each
-// other while both being wrong is the failure this check exists to catch.
+// Every fact is derived from disk, never from another document.
 function measure() {
   const ambient = path.join(PACKAGE_ROOT, 'artifacts', 'ambient');
   const bundles = new Map();
@@ -111,10 +98,8 @@ function measure() {
     const index = path.join(PACKAGE_ROOT, 'artifacts', 'api', editor.name, 'index.json');
     if (!fs.existsSync(index)) continue;
     const parsed = JSON.parse(fs.readFileSync(index, 'utf8'));
-    // Summed per editor rather than deduplicated by name, which is how CHANGELOG.md has counted
-    // them since the surface was first reported. `EndGroupActions` needs the paid edition in each of
-    // the four editors that offer it, and each editor's index lists it - so four is what a reader
-    // comparing the prose against those lists counts.
+    // Summed per editor, not deduplicated by name: `EndGroupActions` is listed by each of the four
+    // editors that offer it, so four is what a reader comparing the prose against those lists counts.
     paid.executeMethods += (parsed.paidExecuteMethods || []).length;
     paid.methods += (parsed.paidMethods || []).length;
   }
@@ -132,8 +117,8 @@ function measure() {
   };
 }
 
-// A fact is a pattern plus what its captures must equal. `expected` receives the match and returns
-// the correct text, or null when the line is not actually a statement of this fact.
+// A fact is a pattern plus what its captures must equal. `expected` turns a match into what was
+// found and what disk says, plus an optional `note` when the mismatch needs explaining.
 function numericFacts(actual) {
   return [
     {
@@ -195,9 +180,8 @@ function checkNumbers() {
         problems.push(`${file}:${line} ${fact.label} says ${found}, disk says ${want}${note ? ` (${note})` : ''}`);
       }
     }
-    // A fact nobody states is a pattern that has stopped matching - a reworded sentence, or a
-    // mention deleted outright. Either way this check silently stops guarding it, which is how a
-    // gate becomes decorative; it has to be noisy instead.
+    // A fact nobody states means the pattern has stopped matching - reworded or deleted - and this
+    // check is silently guarding nothing. It has to be noisy about that.
     if (seen === 0) problems.push(`no document states the ${fact.label} any more - reword the pattern in ${path.basename(__filename)} or restore the mention`);
     mentions += seen;
   }

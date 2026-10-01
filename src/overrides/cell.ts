@@ -2,10 +2,8 @@
 // defects in sdkjs's own JSDoc. See src/overrides/word.ts for the general rationale.
 //
 // This file used to also declare `ApiListObject`, `ApiListColumn`, `ApiListRow` and `ApiSort` by
-// hand, re-derived from `sdkjs/deploy/sdkjs/cell/sdk-all.js`. They are now generated from their real
-// source: those classes are declared in the commercial extension sources, which the generator reads
-// hand-written copies would only shadow the genuine declarations and go stale. `generate-types.js`
-// warns when an override becomes resolvable this way - that warning is what prompted the removal.
+// hand, re-derived from `sdkjs/deploy/sdkjs/cell/sdk-all.js`; they are generated from the extension
+// sources now, for the reason word.ts gives.
 //
 // The import and the alias below exist only so this file type-checks on its own (it is in
 // tsconfig.typecheck.json for that reason). `loadOverrides` picks up only `export interface` /

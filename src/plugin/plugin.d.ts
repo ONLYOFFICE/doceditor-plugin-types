@@ -263,7 +263,7 @@ interface PluginWindow {
     show: (variation: VariationConfig) => void;
     close: () => void;
     attachEvent: (eventName: string, callback: PluginEventCallback) => void;
-    // detachEvent: (eventName: string) => void;
+    detachEvent: (eventName: string) => void;
     command: (methodName: string, payload?: unknown) => void;
 }
 

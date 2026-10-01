@@ -2,11 +2,10 @@
 // runnable examples and docs links the .d.ts JSDoc carries, but as JSON for tools that don't parse
 // TypeScript (search indexes, RAG pipelines, AI agents).
 //
-// It is a TREE, not one file, and that is the whole point. The previous single
-// `artifacts/api-index.json` reached 6.3 MB / ~1.6M tokens - eight times a typical model context - so the
-// one consumer it was built for could not actually read it, only grep fragments out of it. The
-// layout below is sized for how an agent works: load a small index, then read exactly one detail
-// file.
+// It is a tree, not one file. The previous single `artifacts/api-index.json` reached 6.3 MB /
+// ~1.6M tokens - eight times a typical model context - so the one consumer it was built for could
+// not read it, only grep fragments out of it. The layout below is sized for how an agent works:
+// load a small index, then read exactly one detail file.
 //
 //   artifacts/api/index.json                     manifest: editors, counts, how to navigate (~1 KB)
 //   artifacts/api/<editor>/index.json            every name -> signature for that editor (~20-40k tokens)

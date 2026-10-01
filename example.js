@@ -1,5 +1,5 @@
 // Example plugin demonstrating type usage
-// This file shows how to use the OnlyOffice Plugin API types
+// This file shows how to use the ONLYOFFICE Document Editor Plugin API types
 
 // @ts-check
 

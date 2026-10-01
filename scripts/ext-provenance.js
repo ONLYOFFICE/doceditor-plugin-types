@@ -19,10 +19,9 @@ function isFromExt(doclet, extRoot) {
 // an executeMethod name is a "method", an object-model entry may be a class or a property - and
 // keeping both here is what stops them drifting apart in wording as well as in meaning.
 //
-// Deliberately names no internal repository. The reader needs to know which edition to run, not which
-// of ONLYOFFICE's repositories the declaration came out of - and every other published @onlyoffice
-// package names none either, so this one would have been the exception. The provenance itself stays in
-// the generator, where it is derived from `meta.path`; only the wording shipped to consumers changes.
+// Names no internal repository: the reader needs to know which edition to run, not which of
+// ONLYOFFICE's repositories the declaration came out of. The provenance itself stays in the
+// generator, derived from `meta.path`; only the wording shipped to consumers is here.
 function developerEditionRequirement(noun) {
   return `ONLYOFFICE Docs Developer Edition. This ${noun} is not present in Community Edition builds.`;
 }

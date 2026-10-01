@@ -1,6 +1,6 @@
 # Guidance for AI agents
 
-This package is the TypeScript definition set for the ONLYOFFICE Plugin API. Two audiences: agents
+This package is the TypeScript definition set for the ONLYOFFICE Document Editor Plugin API. Two audiences: agents
 **authoring a plugin** with these types, and agents **working on this package** itself.
 
 ## Authoring a plugin

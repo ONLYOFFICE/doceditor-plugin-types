@@ -3,10 +3,10 @@
 //
 // This file used to carry ten more entries: `ApiTableOfContents`, `ApiTableOfFigures` and their
 // supporting types (`TocPr`, `TofPr`, `TocLeader`, `TocStyle`, ...). They are now generated from
-// their real source - those classes are declared in the commercial extension sources, which the generator
-// reads directly - so the hand-written versions would shadow the genuine declarations and drift on
-// the next change there. `generate-types.js` warns when an override has become resolvable, and
-// that warning is what prompted the removal; heed it rather than leaving a stale copy in place.
+// their real source - those classes are declared in the commercial extension sources, which the
+// generator reads directly - so the hand-written versions would shadow the genuine declarations and
+// drift on the next change there. `generate-types.js` warns when an override becomes resolvable;
+// that warning is what prompted the removal.
 //
 // What remains are the two annotation payload shapes, which sdkjs references from its event
 // documentation but declares nowhere.
