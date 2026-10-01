@@ -119,7 +119,7 @@ window.Asc.plugin.attachEditorEvent("onParagraphAdd", (data) => {
 
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/main/schemas/config.schema.json",
+  "$schema": "https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/master/schemas/config.schema.json",
   "name": "My Plugin"
 }
 ```
@@ -183,7 +183,7 @@ editor's `addExtraLib()`, a browser playground, a sandbox that has no package ma
 repository carries five flattened bundles, one per editor, with no `import`/`export` in them:
 
 ```text
-https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/main/artifacts/ambient/<file>
+https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/master/artifacts/ambient/<file>
 ```
 
 | `<file>` | size |
@@ -248,7 +248,7 @@ What it points to for looking a member up lives in this repository rather than t
 `artifacts/api/`, the same API surface as JSON - signature, description, `since`, a verified docs
 link, and `requires` where a paid edition is needed - split into a tree so no single read is large.
 Fetch it from
-`https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/main/artifacts/api/<path>`, starting at
+`https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/master/artifacts/api/<path>`, starting at
 `index.json`, which carries a link back to the guide - as does each editor's index and
 `runtime.json`, so whichever of them you start from says where the instructions are.
 

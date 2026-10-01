@@ -36,7 +36,7 @@ const BUNDLE_PREFIX = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json')
 
 // These bundles are not in the npm package; whoever loads one fetched it by URL and has nothing
 // else of this repository in hand. The same pointer api-index.js puts in every JSON file.
-const AGENTS_GUIDE = 'https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/main/AGENTS.md';
+const AGENTS_GUIDE = 'https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/master/AGENTS.md';
 
 // Flattening to global scope puts every declaration in the same namespace as the DOM lib, where a
 // name we share with it stops being a separate type and becomes a declaration *merge*. That is fine

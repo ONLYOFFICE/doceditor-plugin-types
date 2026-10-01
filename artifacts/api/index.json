@@ -1,5 +1,5 @@
 {
-  "agents": "https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/main/AGENTS.md",
+  "agents": "https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/master/AGENTS.md",
   "editors": {
     "cell": {
       "classes": 125,
@@ -43,7 +43,7 @@
     "executeMethod names live in <editor>/executeMethods.json; the plugin runtime (Asc.plugin, config.json) in runtime.json.",
     "Do not concatenate the tree - it is deliberately split so no single read is large.",
     "Runnable examples are not here - they are in each member's JSDoc in the .d.ts. `requires` marks a member absent from Community Edition builds.",
-    "Read https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/main/AGENTS.md before working from this tree: it is what the \"agents\" field on this file, each editor index and runtime.json points at."
+    "Read https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/master/AGENTS.md before working from this tree: it is what the \"agents\" field on this file, each editor index and runtime.json points at."
   ],
   "package": "@onlyoffice/doceditor-plugin-types",
   "version": "10.0.0"

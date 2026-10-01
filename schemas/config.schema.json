@@ -396,7 +396,7 @@
       ]
     }
   },
-  "$id": "https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/main/schemas/config.schema.json",
+  "$id": "https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/master/schemas/config.schema.json",
   "title": "ONLYOFFICE Plugin config.json",
   "description": "Generated from PluginConfig (and the types it references) in index.d.ts - do not hand-edit, run `npm run generate-schema` instead."
 }

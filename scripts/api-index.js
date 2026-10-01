@@ -52,7 +52,7 @@ function sortKeysDeep(value) {
 // `executeMethods.json` are keyed by member name, so an extra key reads as another member. Adding
 // one there put a method called `agents` in word/executeMethods.json and shifted every count in the
 // compact index by one, because buildEditorIndex counts what was written.
-const AGENTS_GUIDE = 'https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/main/AGENTS.md';
+const AGENTS_GUIDE = 'https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/master/AGENTS.md';
 const withGuide = (value) => ({ agents: AGENTS_GUIDE, ...value });
 
 function writeJson(file, value) {

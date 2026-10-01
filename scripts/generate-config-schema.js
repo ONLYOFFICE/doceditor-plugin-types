@@ -31,7 +31,7 @@ function main() {
   }
 
   const schema = createGenerator(config).createSchema(config.type);
-  schema.$id = 'https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/main/schemas/config.schema.json';
+  schema.$id = 'https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/master/schemas/config.schema.json';
   schema.title = 'ONLYOFFICE Plugin config.json';
   schema.description = 'Generated from PluginConfig (and the types it references) in index.d.ts - do not hand-edit, run `npm run generate-schema` instead.';
 

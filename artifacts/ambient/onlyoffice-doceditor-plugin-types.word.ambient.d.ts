@@ -8,7 +8,7 @@
 // to hand-edit.
 //
 // Reached by URL rather than through the npm package, so: the guide for working with these types is
-// https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/main/AGENTS.md
+// https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/master/AGENTS.md
 
 
 // ---- src/generated/word.ts ----

@@ -1,5 +1,5 @@
 {
-  "agents": "https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/main/AGENTS.md",
+  "agents": "https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/master/AGENTS.md",
   "classes": {
     "Api": {
       "CentimetersToPoints": "CentimetersToPoints(cm: number): number",
