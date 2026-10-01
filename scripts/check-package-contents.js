@@ -28,8 +28,26 @@ const ALLOWED_ROOT_FILES = new Set([
   'AGENTS.md',
 ]);
 
-// Directories the package ships, by prefix.
-const ALLOWED_PREFIXES = ['src/', 'schemas/'];
+// Directories the package ships, by prefix. Named one level down rather than as a bare `src/`,
+// because `files` says `"src"` and that is a blanket include: anything dropped anywhere under it
+// ships, and a prefix of `src/` here would wave it through as "declared shape". A probe file left
+// directly in `src/` did exactly that - published, and this check reported OK. Listing the real
+// subdirectories means a new one, or a loose file beside them, has to be admitted deliberately.
+const ALLOWED_PREFIXES = [
+  'src/config/',
+  'src/editors/',
+  'src/generated/',
+  'src/plugin/',
+  'src/services/',
+  'src/theme/',
+  'schemas/',
+];
+
+// Within those directories the package is declarations and nothing else. `src/generated/` holds
+// `.ts` rather than `.d.ts` (the generator emits namespaces), so both are allowed - but a `.json`,
+// a `.md`, a source map or a stray fixture is not, which is the other half of how something
+// unintended reaches a consumer.
+const ALLOWED_SRC_EXTENSIONS = ['.ts'];
 
 // Things whose absence is the point, each with the reason, so a future `files` edit that lets one
 // back in fails with the argument rather than just a name.
@@ -37,6 +55,14 @@ const FORBIDDEN = [
   {
     pattern: /^src\/generated\/generation-manifest\.json$/,
     why: 'pins the exact source commits a build came from - repository provenance, not something a consumer can act on',
+  },
+  {
+    pattern: /^src\/generated\/api-report\.json$/,
+    why: 'QA counts from the generator (anyOccurrences, unresolvedTypes) - about the build, not about the API',
+  },
+  {
+    pattern: /^src\/overrides\//,
+    why: 'generator inputs; their declarations are already inlined into src/generated, so a copy here would only go stale',
   },
   {
     pattern: /^artifacts\//,
@@ -122,8 +148,12 @@ function main() {
       ? ALLOWED_PREFIXES.some((prefix) => file.startsWith(prefix))
       : ALLOWED_ROOT_FILES.has(file);
     if (!allowed) {
-      const key = file.includes('/') ? `${file.split('/')[0]}/` : file;
+      const key = file.includes('/') ? `${file.split('/').slice(0, -1).join('/')}/` : file;
       group(key, file, 'is published but is not part of the package\'s declared shape - add it to ALLOWED_ROOT_FILES/ALLOWED_PREFIXES here if that is intended, or exclude it in package.json\'s "files"');
+      continue;
+    }
+    if (file.startsWith('src/') && !ALLOWED_SRC_EXTENSIONS.some((ext) => file.endsWith(ext))) {
+      group('src-extension', file, `is published from src/ but is not a declaration file (expected ${ALLOWED_SRC_EXTENSIONS.join(' or ')}) - exclude it in package.json's "files"`);
     }
   }
   for (const { message, files } of groups.values()) {

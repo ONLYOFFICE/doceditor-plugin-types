@@ -155,6 +155,7 @@ npm run validate-schema  # schemas/config.schema.json vs every real config.json 
 npm run check-arity      # parameter-optionality corrections vs the documented examples (DOCS_PATH)
 npm run check-structure  # CONTRIBUTING.md's file tree, and every measured number the docs quote
 npm run check-package    # what `npm publish` would ship, and that every exports subpath resolves in it
+npm run verify           # the six checks that need no editor sources; runs as prepublishOnly too
 npm run generate         # regenerate src/generated from sdkjs + rebuild artifacts/api
                          # (postgenerate also regenerates executeMethod types and artifacts/ambient)
 ```

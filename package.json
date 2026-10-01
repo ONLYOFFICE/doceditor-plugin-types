@@ -109,6 +109,7 @@
     "access": "public"
   },
   "scripts": {
+    "verify": "npm run typecheck && npm run test && npm run validate-schema && npm run check-schema && npm run check-structure && npm run check-package",
     "generate": "node scripts/generate-types.js",
     "postgenerate": "node scripts/generate-plugin-methods.js && node scripts/generate-runtime-index.js && node scripts/generate-ambient-bundle.js",
     "generate-plugin-methods": "node scripts/generate-plugin-methods.js",

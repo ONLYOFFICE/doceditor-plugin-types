@@ -253,6 +253,13 @@ anything deliberately excluded that came back, a `files` entry matching nothing,
 `typesVersions` subpath resolving to a file the tarball does not contain. That last failure is
 otherwise invisible until someone installs the package: the repository has the file either way.
 
+A check guards only what it actually runs against, so this one is wired into publishing rather than
+left to be remembered. `npm run verify` is the six checks that need no editor sources - typecheck,
+test, both schema checks, structure, package - and it is `prepublishOnly`, so `npm publish` runs it
+whether the workflow is publishing or a person is. The other six read sdkjs and cannot run where
+those sources are absent, which is why the release path verifies a subset rather than everything;
+`check-generated` and `check-release-sources` stay a local gate to run before tagging.
+
 Two limits are deliberate. The evidence is taken only from the member's **own** page, never from
 sibling pages of the same class: a call is matched as plain text, so `.GetRange()` in a sibling example
 may be a different class's genuinely zero-argument `GetRange`, and nothing distinguishes the receiver.
