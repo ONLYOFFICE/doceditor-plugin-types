@@ -953,7 +953,7 @@ function generateDtsFile(data, typeName, namespaceName, docsRoot, extRoot) {
 
   const activeOverrideNames = Object.keys(activeOverrides).sort();
   if (activeOverrideNames.length > 0) {
-    body += `// Manual overrides (see src/overrides/${typeName}.ts) for types sdkjs's own JSDoc doesn't\n// resolve from this package's usual sources\n`;
+    body += `// Manual overrides for types sdkjs's own JSDoc doesn't resolve from its usual sources.\n// Their sources are src/overrides/${typeName}.ts in the repository; the declarations are inlined\n// here, so the npm package does not carry that directory.\n`;
     for (const name of activeOverrideNames) {
       body += `${activeOverrides[name]}\n`;
     }

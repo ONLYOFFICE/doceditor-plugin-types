@@ -1287,8 +1287,9 @@ declare namespace Cell {
   /** Twentieths of a point (equivalent to 1/1440th of an inch). */
   export type twips = number;
 
-  // Manual overrides (see src/overrides/cell.ts) for types sdkjs's own JSDoc doesn't
-  // resolve from this package's usual sources
+  // Manual overrides for types sdkjs's own JSDoc doesn't resolve from its usual sources.
+  // Their sources are src/overrides/cell.ts in the repository; the declarations are inlined
+  // here, so the npm package does not carry that directory.
   /**
    * `ApiWorksheet.GetHyperlinks`/`ApiRange.GetHyperlinks` are documented with `@returns {ApiHyperlinks}`,
    * but there is no `ApiHyperlinks` class anywhere in sdkjs (checked out, in the extensions, or in the

@@ -101,7 +101,9 @@
     "LICENSE",
     "CHANGELOG.md",
     "AGENTS.md",
-    "!src/generated/generation-manifest.json"
+    "!src/generated/generation-manifest.json",
+    "!src/generated/api-report.json",
+    "!src/overrides"
   ],
   "publishConfig": {
     "access": "public"

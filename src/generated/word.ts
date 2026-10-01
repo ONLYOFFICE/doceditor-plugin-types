@@ -869,8 +869,9 @@ export namespace Word {
   /** Twentieths of a point (equivalent to 1/1440th of an inch). */
   export type twips = number;
 
-  // Manual overrides (see src/overrides/word.ts) for types sdkjs's own JSDoc doesn't
-  // resolve from this package's usual sources
+  // Manual overrides for types sdkjs's own JSDoc doesn't resolve from its usual sources.
+  // Their sources are src/overrides/word.ts in the repository; the declarations are inlined
+  // here, so the npm package does not carry that directory.
   /**
    * A grammar/spellcheck-style annotation attached to a paragraph - the payload of
    * `onBlurAnnotation`/`onFocusAnnotation`/`onClickAnnotation`. Kept in sync by hand with the

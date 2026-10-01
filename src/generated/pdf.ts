@@ -1093,8 +1093,9 @@ export namespace Pdf {
   /** Twentieths of a point (equivalent to 1/1440th of an inch). */
   export type twips = number;
 
-  // Manual overrides (see src/overrides/pdf.ts) for types sdkjs's own JSDoc doesn't
-  // resolve from this package's usual sources
+  // Manual overrides for types sdkjs's own JSDoc doesn't resolve from its usual sources.
+  // Their sources are src/overrides/pdf.ts in the repository; the declarations are inlined
+  // here, so the npm package does not carry that directory.
   /**
    * `PdfFile.ToBase64` is tagged `@returns {Base64}`, but sdkjs never declares a `Base64` typedef
    * anywhere - a naming slip, not a gap in this checkout. The implementation returns
