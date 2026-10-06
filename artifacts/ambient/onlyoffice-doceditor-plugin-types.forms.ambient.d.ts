@@ -13842,6 +13842,13 @@ interface AscTheme {
 // concept (window.Asc.plugin.info), not a static config.json shape, so it lives in ./src/plugin/plugin.d.ts.
 
 interface ButtonConfig {
+    /**
+     * Hide this button when the document is open read-only. Opt-out: read as `isViewer !== false`,
+     * so the button shows in viewer mode unless this is `false`.
+     *
+     * Note the opposite sense of {@link VariationConfig.isViewer}, which is opt-in and defaults to
+     * hidden. Same name, same file, inverted default.
+     */
     isViewer?: boolean;
     primary?: boolean;
     text: string;
@@ -13944,6 +13951,10 @@ interface VariationConfig {
     initOnSelectionChanged?: boolean;
     isCanDocked?: boolean;
     isCustomWindow?: boolean;
+    /**
+     * Hide a viewer-enabled variation from the viewer's plugin list after all. Only consulted when
+     * `isViewer` is `true`, and read as `isDisplayedInViewer !== false`.
+     */
     isDisplayedInViewer?: boolean;
     isInsideMode?: boolean;
     isModal?: boolean;
@@ -13961,6 +13972,14 @@ interface VariationConfig {
     isSystem?: boolean;
     isTargeted?: boolean;
     isUpdateOleOnResize?: boolean;
+    /**
+     * Offer this variation when the document is open read-only. Opt-in, default `false`: in edit
+     * mode a variation is listed regardless, and in viewer mode only `isViewer: true` puts it
+     * there - subject to `isDisplayedInViewer`, which can hide it again.
+     *
+     * The editor's test is `isEdit || isViewer && isDisplayedInViewer !== false`. Note that
+     * {@link ButtonConfig.isViewer} is the opposite: opt-out, shown unless set to `false`.
+     */
     isViewer?: boolean;
     /** Omitted in practice about as often as it's set explicitly. */
     isVisual?: boolean;
@@ -14117,6 +14136,9 @@ type PluginEditorEventCallback<T = unknown> = (...args: T[]) => void;
 // button classes) - split out of index.d.ts since it's a self-contained group referencing only
 // config types (EditorType/IconConfig), not the plugin runtime itself.
 
+// The payload the editor passes to both context-menu hooks below; declared with the plugin-window
+// events because that is where `onContextMenuShow` itself lives.
+
 type CustomMenuClickCallback = (data?: string) => void;
 
 type ToolbarButtonType = "button" | "big-button";
@@ -14150,9 +14172,48 @@ interface ButtonBase {
     copy?: () => ButtonBase;
 }
 
+/**
+ * One entry of the menu as the `Asc.Buttons` helper layer builds it - the object `toItem()` returns
+ * and the two hooks below are handed. Only `id` and `text` are always present; every other field is
+ * written only when the matching property is set on the button.
+ *
+ * Not the same shape as the generated `ContextMenuItem`, which is what `executeMethod`'s
+ * `AddContextMenuItem` accepts: this one carries the helper's own `hint`, `separator`,
+ * `lockInViewMode`, `enableToggle` and `pressed`, and has no `icons`.
+ */
+interface ContextMenuShowItem {
+    id: string;
+    text: string;
+    hint?: string;
+    separator?: boolean;
+    data?: unknown;
+    lockInViewMode?: boolean;
+    enableToggle?: boolean;
+    disabled?: boolean;
+    pressed?: boolean;
+    items?: ContextMenuShowItem[];
+}
+
 interface ButtonContextMenu extends ButtonBase {
     showOnOptionsType: string[];
     addCheckers: (...keys: string[]) => void;
+    /**
+     * Called first, every time the menu is about to be shown. Return `true` to drop this button
+     * from this particular menu - the editor then skips it and all of its children, before the
+     * `showOnOptionsType` and `EditorsSupport` tests run at all.
+     *
+     * Override to decide per invocation, from `options` or from where the button would be placed.
+     * The default implementation returns `false`, so nothing is dropped.
+     */
+    onContextMenuShowAnalyze?: (options: ContextMenuShowEvent, parent: ContextMenuShowItem) => boolean;
+    /**
+     * Called once the item has been built and before it is pushed into the parent's `items`, so a
+     * mutation here lands in the menu the editor renders. Children are processed afterwards.
+     *
+     * Use it to adjust text, `disabled` or `pressed` per invocation; returning anything is
+     * pointless, as `onContextMenuShow` ignores the result.
+     */
+    onContextMenuShowExtendItem?: (options: ContextMenuShowEvent, item: ContextMenuShowItem) => void;
 }
 
 interface ButtonToolbar extends ButtonBase {
@@ -14418,6 +14479,12 @@ interface AscPlugin {
      * own `callback` argument.
      */
     onMethodReturn?: (returnValue: unknown) => void;
+    /**
+     * Called after the host replaces {@link PluginInfo.options} via an `updateOptions` message. It
+     * takes no arguments - read the new value from `Asc.plugin.info.options`, which is already
+     * updated by the time this runs.
+     */
+    onUpdateOptions?: () => void;
     /** Called when the editor integrator sends the plugin a message. */
     onExternalPluginMessage?: (data: { type: string; [key: string]: unknown }) => void;
     detachEditorEvent: (<T extends Forms.EditorEventName>(eventName: T) => void) &
@@ -14453,7 +14520,14 @@ interface AscPlugin {
         (<T extends FormsMethodName>(methodName: T, args?: FormsMethodArgs[T], callback?: (result: FormsMethodReturn<T>) => void) => void);
     executeCommand: ExecuteCommandCallback;
     info: PluginInfo;
-    init: () => void;
+    /**
+     * Called when the plugin is launched. The argument is the launch data the variation asked for
+     * through `initDataType` - the selected text for `"text"`, HTML for `"html"`, and so on, empty
+     * for `"none"`. The runtime passes `Asc.plugin.info.data`, so the same value is readable there.
+     *
+     * An implementation that ignores it may take no parameters at all.
+     */
+    init: (data: string) => void;
     onExternalMouseUp: () => void;
     onThemeChanged: (theme: AscTheme) => void;
     onThemeChangedBase: (theme: AscTheme) => void;
@@ -14487,6 +14561,23 @@ interface ExecuteCommandCallback {
 interface PluginInfo {
     editorType: EditorType;
     editorSubType?: 'pdf' | string;
+    /**
+     * What the editor sent the plugin at launch, shaped by the variation's `initDataType`: the
+     * selected text for `"text"`, HTML for `"html"`, and so on. The same value `init` receives as
+     * its argument, which is the usual way to read it.
+     */
+    data?: string;
+    /**
+     * Replaced wholesale whenever the host sends `updateOptions`, just before
+     * {@link AscPlugin.onUpdateOptions} fires. The payload is whatever that host chose to send, so
+     * it carries no shape the editor guarantees.
+     */
+    options?: unknown;
+    /**
+     * Set by the runtime around a command issued from a plugin window, and read by the editor to
+     * decide whether to recalculate after it. Not something a plugin assigns.
+     */
+    recalculate?: boolean;
     documentCallbackUrl: string;
     documentId: string;
     documentTitle: string;

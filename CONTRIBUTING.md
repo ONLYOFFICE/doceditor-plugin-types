@@ -371,12 +371,12 @@ directly linkable/reviewable, but excluded from the npm package (`package.json`'
 consumers get the modular package instead:
 
 ```text
-artifacts/ambient/onlyoffice-doceditor-plugin-types.word.ambient.d.ts   # 2.50 MB - Asc/AscPlugin/events/buttons/
+artifacts/ambient/onlyoffice-doceditor-plugin-types.word.ambient.d.ts   # 2.51 MB - Asc/AscPlugin/events/buttons/
                                                           # config/theme/services + namespace Word
                                                           # + a global `Api: Word.Api`
 artifacts/ambient/onlyoffice-doceditor-plugin-types.cell.ambient.d.ts   # 2.48 MB - ...same, for Cell
 artifacts/ambient/onlyoffice-doceditor-plugin-types.slide.ambient.d.ts  # 1.46 MB - ...same, for Slide
-artifacts/ambient/onlyoffice-doceditor-plugin-types.pdf.ambient.d.ts    # 1.41 MB - ...same, for Pdf
+artifacts/ambient/onlyoffice-doceditor-plugin-types.pdf.ambient.d.ts    # 1.42 MB - ...same, for Pdf
 artifacts/ambient/onlyoffice-doceditor-plugin-types.forms.ambient.d.ts  # 0.55 MB - ...same, for Forms, minus the
                                                           # global `Api` (Forms has none: its
                                                           # methods go through executeMethod)

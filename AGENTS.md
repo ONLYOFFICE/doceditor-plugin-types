@@ -107,7 +107,7 @@ three channels, and confusing them is the most common source of broken plugin co
   member".
 - `artifacts/ambient/` holds five flattened no-import `.d.ts` bundles, one per editor:
   `onlyoffice-doceditor-plugin-types.<editor>.ambient.d.ts` for `word`, `cell`, `slide`, `pdf`, `forms`. Each
-  is self-contained (0.55-2.50 MB) - load exactly one, since the five declare the same globals with
+  is self-contained (0.55-2.51 MB) - load exactly one, since the five declare the same globals with
   different types. Written for editors that take a single global-scope blob (a Monaco
   `addExtraLib()`), and useful here for a different reason - see below. Not shipped in the npm
   package (those consumers take the modular sources instead) - fetch from git:

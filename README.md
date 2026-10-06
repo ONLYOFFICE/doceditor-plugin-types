@@ -137,17 +137,25 @@ one thing is affected: the global `Api` inside `callCommand`. Everything else - 
 `executeMethod`, events, buttons - comes from the root package and is editor-independent, so a
 multi-editor project types it without any special arrangement.
 
-Two entry points in one program collide on purpose (`TS2403`): `Api` cannot be two types at once, and
-a silent `any` would leave every `Api.*` call unchecked. Pick whichever fits the project.
+Two entry points in one program collide on purpose (`TS2403`): `Api` and `Editor` cannot be two
+types at once, and a silent `any` would leave every call through them unchecked. Pick whichever fits
+the project.
 
-**Declare `Api` yourself, over the editors you support.** One program, no editor entry point, a cast
-in each command body - which is where you already branch on the editor anyway. `Api<T>` distributes,
-so the parameter is the same list as `EditorsSupport` in your `config.json`:
+**Declare the globals yourself, over the editors you support.** One program, no editor entry point,
+a cast in each command body - which is where you already branch on the editor anyway. `Api<T>` and
+`Editor<T>` both distribute, so the parameter is the same list as `EditorsSupport` in your
+`config.json`:
 
 ```typescript
-import type { Api as ApiOf, Word, Cell } from "@onlyoffice/doceditor-plugin-types";
+import type { Api as ApiOf, Editor as EditorOf, Word, Cell } from "@onlyoffice/doceditor-plugin-types";
 
-declare global { var Api: ApiOf<"word" | "cell">; }
+declare global {
+    var Api: ApiOf<"word" | "cell">;
+    var Editor: EditorOf<"word" | "cell">;
+}
+
+// A method both editors have is callable directly; one only a single editor has is not.
+const text = await Editor.GetSelectedText();
 
 if (Asc.plugin.info.editorType === "word") {
     Asc.plugin.callCommand(function () {
@@ -191,10 +199,10 @@ https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/master/artif
 
 | `<file>` | size |
 | -------- | ---- |
-| `onlyoffice-doceditor-plugin-types.word.ambient.d.ts` | 2.50 MB |
+| `onlyoffice-doceditor-plugin-types.word.ambient.d.ts` | 2.51 MB |
 | `onlyoffice-doceditor-plugin-types.cell.ambient.d.ts` | 2.48 MB |
 | `onlyoffice-doceditor-plugin-types.slide.ambient.d.ts` | 1.46 MB |
-| `onlyoffice-doceditor-plugin-types.pdf.ambient.d.ts` | 1.41 MB |
+| `onlyoffice-doceditor-plugin-types.pdf.ambient.d.ts` | 1.42 MB |
 | `onlyoffice-doceditor-plugin-types.forms.ambient.d.ts` | 0.55 MB |
 
 Each is self-contained - `Asc`, `AscPlugin`, that editor's namespace and its global `Api`. Load

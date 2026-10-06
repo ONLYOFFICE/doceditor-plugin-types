@@ -3,6 +3,13 @@
 // concept (window.Asc.plugin.info), not a static config.json shape, so it lives in ./src/plugin/plugin.d.ts.
 
 interface ButtonConfig {
+    /**
+     * Hide this button when the document is open read-only. Opt-out: read as `isViewer !== false`,
+     * so the button shows in viewer mode unless this is `false`.
+     *
+     * Note the opposite sense of {@link VariationConfig.isViewer}, which is opt-in and defaults to
+     * hidden. Same name, same file, inverted default.
+     */
     isViewer?: boolean;
     primary?: boolean;
     text: string;
@@ -105,6 +112,10 @@ interface VariationConfig {
     initOnSelectionChanged?: boolean;
     isCanDocked?: boolean;
     isCustomWindow?: boolean;
+    /**
+     * Hide a viewer-enabled variation from the viewer's plugin list after all. Only consulted when
+     * `isViewer` is `true`, and read as `isDisplayedInViewer !== false`.
+     */
     isDisplayedInViewer?: boolean;
     isInsideMode?: boolean;
     isModal?: boolean;
@@ -122,6 +133,14 @@ interface VariationConfig {
     isSystem?: boolean;
     isTargeted?: boolean;
     isUpdateOleOnResize?: boolean;
+    /**
+     * Offer this variation when the document is open read-only. Opt-in, default `false`: in edit
+     * mode a variation is listed regardless, and in viewer mode only `isViewer: true` puts it
+     * there - subject to `isDisplayedInViewer`, which can hide it again.
+     *
+     * The editor's test is `isEdit || isViewer && isDisplayedInViewer !== false`. Note that
+     * {@link ButtonConfig.isViewer} is the opposite: opt-out, shown unless set to `false`.
+     */
     isViewer?: boolean;
     /** Omitted in practice about as often as it's set explicitly. */
     isVisual?: boolean;

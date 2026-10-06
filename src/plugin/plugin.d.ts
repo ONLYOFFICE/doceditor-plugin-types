@@ -197,6 +197,12 @@ interface AscPlugin {
      * own `callback` argument.
      */
     onMethodReturn?: (returnValue: unknown) => void;
+    /**
+     * Called after the host replaces {@link PluginInfo.options} via an `updateOptions` message. It
+     * takes no arguments - read the new value from `Asc.plugin.info.options`, which is already
+     * updated by the time this runs.
+     */
+    onUpdateOptions?: () => void;
     /** Called when the editor integrator sends the plugin a message. */
     onExternalPluginMessage?: (data: { type: string; [key: string]: unknown }) => void;
     detachEditorEvent: (<T extends Word.EditorEventName>(eventName: T) => void) &
@@ -240,7 +246,14 @@ interface AscPlugin {
         (<T extends FormsMethodName>(methodName: T, args?: FormsMethodArgs[T], callback?: (result: FormsMethodReturn<T>) => void) => void);
     executeCommand: ExecuteCommandCallback;
     info: PluginInfo;
-    init: () => void;
+    /**
+     * Called when the plugin is launched. The argument is the launch data the variation asked for
+     * through `initDataType` - the selected text for `"text"`, HTML for `"html"`, and so on, empty
+     * for `"none"`. The runtime passes `Asc.plugin.info.data`, so the same value is readable there.
+     *
+     * An implementation that ignores it may take no parameters at all.
+     */
+    init: (data: string) => void;
     onExternalMouseUp: () => void;
     onThemeChanged: (theme: AscTheme) => void;
     onThemeChangedBase: (theme: AscTheme) => void;
@@ -274,6 +287,23 @@ interface ExecuteCommandCallback {
 interface PluginInfo {
     editorType: EditorType;
     editorSubType?: 'pdf' | string;
+    /**
+     * What the editor sent the plugin at launch, shaped by the variation's `initDataType`: the
+     * selected text for `"text"`, HTML for `"html"`, and so on. The same value `init` receives as
+     * its argument, which is the usual way to read it.
+     */
+    data?: string;
+    /**
+     * Replaced wholesale whenever the host sends `updateOptions`, just before
+     * {@link AscPlugin.onUpdateOptions} fires. The payload is whatever that host chose to send, so
+     * it carries no shape the editor guarantees.
+     */
+    options?: unknown;
+    /**
+     * Set by the runtime around a command issued from a plugin window, and read by the editor to
+     * decide whether to recalculate after it. Not something a plugin assigns.
+     */
+    recalculate?: boolean;
     documentCallbackUrl: string;
     documentId: string;
     documentTitle: string;
