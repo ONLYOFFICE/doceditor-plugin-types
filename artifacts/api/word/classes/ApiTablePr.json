@@ -36,13 +36,13 @@
         {
           "description": "Spacing value measured in twentieths of a point (1/1440 of an inch). `\"Null\"` means that no spacing will be applied.",
           "name": "nValue",
-          "type": "twips"
+          "type": "twips | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetCellSpacing(nValue: twips): boolean"
+      "signature": "SetCellSpacing(nValue: twips | null): boolean"
     },
     "SetJc": {
       "description": "Specifies the alignment of the current table with respect to the text margins in the current section.",

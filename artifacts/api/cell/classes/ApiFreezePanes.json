@@ -26,13 +26,13 @@
           "description": "Optional number of columns to freeze, or zero to unfreeze all columns.",
           "name": "count",
           "optional": true,
-          "type": "number"
+          "type": "number | null"
         }
       ],
       "returns": {
         "type": "void"
       },
-      "signature": "FreezeColumns(count?: number): void",
+      "signature": "FreezeColumns(count?: number | null): void",
       "since": "8.0.0"
     },
     "FreezeRows": {
@@ -43,13 +43,13 @@
           "description": "Optional number of rows to freeze, or zero to unfreeze all rows.",
           "name": "count",
           "optional": true,
-          "type": "number"
+          "type": "number | null"
         }
       ],
       "returns": {
         "type": "void"
       },
-      "signature": "FreezeRows(count?: number): void",
+      "signature": "FreezeRows(count?: number | null): void",
       "since": "8.0.0"
     },
     "GetLocation": {

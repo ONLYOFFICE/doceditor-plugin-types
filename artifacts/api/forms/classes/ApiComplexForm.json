@@ -280,13 +280,13 @@
           "description": "Specifies whether a cursor will be placed before (false) or after (true) the current form.",
           "name": "isAfter",
           "optional": true,
-          "type": "boolean"
+          "type": "boolean | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "MoveCursorOutside(isAfter?: boolean): boolean",
+      "signature": "MoveCursorOutside(isAfter?: boolean | null): boolean",
       "since": "8.1.0"
     },
     "SetBackgroundColor": {

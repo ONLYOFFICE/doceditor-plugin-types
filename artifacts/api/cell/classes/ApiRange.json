@@ -94,13 +94,13 @@
           "description": "Specifies the new range to which the specified range will be copied. If this argument is omitted, the range will be copied to the clipboard.",
           "name": "destination",
           "optional": true,
-          "type": "ApiRange"
+          "type": "ApiRange | null"
         }
       ],
       "returns": {
         "type": "void"
       },
-      "signature": "Copy(destination?: ApiRange): void"
+      "signature": "Copy(destination?: ApiRange | null): void"
     },
     "Cut": {
       "description": "Cuts the range and save it to the clipboard or paste it to the specified range.",
@@ -110,13 +110,13 @@
           "description": "Specifies the new range to which the cut range will be pasted. If this argument is omitted, the range will be copied to the clipboard.",
           "name": "destination",
           "optional": true,
-          "type": "ApiRange"
+          "type": "ApiRange | null"
         }
       ],
       "returns": {
         "type": "void"
       },
-      "signature": "Cut(destination?: ApiRange): void",
+      "signature": "Cut(destination?: ApiRange | null): void",
       "since": "8.1.0"
     },
     "Delete": {

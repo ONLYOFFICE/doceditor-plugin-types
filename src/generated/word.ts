@@ -283,13 +283,13 @@ export namespace Word {
     Application: string;
 
     /** The date and time when the file was created. */
-    CreatedRaw: Date;
+    CreatedRaw: Date | null;
 
     /** The parsed date and time when the file was created. */
     Created: string;
 
     /** The date and time when the file was last modified. */
-    LastModifiedRaw: Date;
+    LastModifiedRaw: Date | null;
 
     /** The parsed date and time when the file was last modified. */
     LastModified: string;
@@ -4214,7 +4214,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiBlockLvlSdt/Methods/MoveCursorOutside/
      */
-    MoveCursorOutside(isAfter?: boolean): boolean;
+    MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
      * Pushes a paragraph or a table or a block content control to actually add it to the current
@@ -6880,7 +6880,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/SetMajorHorizontalGridlines/
      */
-    SetMajorHorizontalGridlines(oStroke: ApiStroke): boolean;
+    SetMajorHorizontalGridlines(oStroke: ApiStroke | null): boolean;
 
     /**
      * Specifies major vertical gridline visual properties.
@@ -6913,7 +6913,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/SetMajorVerticalGridlines/
      */
-    SetMajorVerticalGridlines(oStroke: ApiStroke): boolean;
+    SetMajorVerticalGridlines(oStroke: ApiStroke | null): boolean;
 
     /**
      * Sets the fill to the marker in the specified chart series.
@@ -7016,7 +7016,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/SetMinorHorizontalGridlines/
      */
-    SetMinorHorizontalGridlines(oStroke: ApiStroke): boolean;
+    SetMinorHorizontalGridlines(oStroke: ApiStroke | null): boolean;
 
     /**
      * Specifies minor vertical gridline visual properties.
@@ -7049,7 +7049,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/SetMinorVerticalGridlines/
      */
-    SetMinorVerticalGridlines(oStroke: ApiStroke): boolean;
+    SetMinorVerticalGridlines(oStroke: ApiStroke | null): boolean;
 
     /**
      * Sets the name of the current drawing.
@@ -7465,7 +7465,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetShadow/
      */
-    SetShadow(shadow: ApiShadow): boolean;
+    SetShadow(shadow: ApiShadow | null): boolean;
 
     /**
      * Specifies which chart data labels are shown for the chart.
@@ -9122,7 +9122,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/MoveCursorOutside/
      */
-    MoveCursorOutside(isAfter?: boolean): boolean;
+    MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
      * Sets the background color to the current form.
@@ -10658,7 +10658,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/MoveCursorOutside/
      */
-    MoveCursorOutside(isAfter?: boolean): boolean;
+    MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
      * Selects the specified value from the combo box list values.
@@ -12520,7 +12520,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/MoveCursorOutside/
      */
-    MoveCursorOutside(isAfter?: boolean): boolean;
+    MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
      * Sets the background color to the current form.
@@ -16146,7 +16146,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/MoveCursorOutside/
      */
-    MoveCursorOutside(isAfter?: boolean): boolean;
+    MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
      * Sets the background color to the current form.
@@ -23361,7 +23361,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetShadow/
      */
-    SetShadow(shadow: ApiShadow): boolean;
+    SetShadow(shadow: ApiShadow | null): boolean;
 
     /**
      * Sets the size of the object (image, shape, chart) bounding box.
@@ -24483,7 +24483,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/MoveCursorOutside/
      */
-    MoveCursorOutside(isAfter?: boolean): boolean;
+    MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
      * Sets the background color to the current form.
@@ -26695,7 +26695,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetShadow/
      */
-    SetShadow(shadow: ApiShadow): boolean;
+    SetShadow(shadow: ApiShadow | null): boolean;
 
     /**
      * Sets the size of the object (image, shape, chart) bounding box.
@@ -28732,7 +28732,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetShadow/
      */
-    SetShadow(shadow: ApiShadow): boolean;
+    SetShadow(shadow: ApiShadow | null): boolean;
 
     /**
      * Sets the size of the object (image, shape, chart) bounding box.
@@ -30071,7 +30071,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/MoveCursorOutside/
      */
-    MoveCursorOutside(isAfter?: boolean): boolean;
+    MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
      * Adds an element to the end of inline text content control.
@@ -32735,7 +32735,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetShadow/
      */
-    SetShadow(shadow: ApiShadow): boolean;
+    SetShadow(shadow: ApiShadow | null): boolean;
 
     /**
      * Sets the size of the object (image, shape, chart) bounding box.
@@ -34132,7 +34132,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetNumPr/
      */
-    SetNumPr(numPr: ApiNumbering, lvl?: number): boolean;
+    SetNumPr(numPr: ApiNumbering | null, lvl?: number): boolean;
 
     /**
      * Sets the outline level for the specified properties.
@@ -34414,7 +34414,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetStyle/
      */
-    SetStyle(style: ApiStyle | string): ApiParaPr;
+    SetStyle(style: ApiStyle | string | null): ApiParaPr;
 
     /**
      * Specifies a sequence of custom tab stops which will be used for any tab characters in the current
@@ -37600,7 +37600,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetNumPr/
      */
-    SetNumPr(numPr: ApiNumbering, lvl?: number): boolean;
+    SetNumPr(numPr: ApiNumbering | null, lvl?: number): boolean;
 
     /**
      * Specifies that the current paragraph references the numbering definition instance in the current
@@ -37611,7 +37611,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/SetNumbering/
      */
-    SetNumbering(numberingLevel: ApiNumberingLevel): boolean;
+    SetNumbering(numberingLevel: ApiNumberingLevel | null): boolean;
 
     /**
      * Sets the outline level for the specified properties.
@@ -37764,7 +37764,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/SetReadingOrder/
      */
-    SetReadingOrder(readingOrder?: ReadingOrder): ApiParagraph;
+    SetReadingOrder(readingOrder?: ReadingOrder | null): ApiParagraph;
 
     /**
      * Specifies the border which will be displayed at the right side of the page around the specified
@@ -38090,7 +38090,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/SetStyle/
      */
-    SetStyle(style: ApiStyle | string): ApiParaPr;
+    SetStyle(style: ApiStyle | string | null): ApiParaPr;
 
     /**
      * Specifies a sequence of custom tab stops which will be used for any tab characters in the current
@@ -40166,7 +40166,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/MoveCursorOutside/
      */
-    MoveCursorOutside(isAfter?: boolean): boolean;
+    MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
      * Sets the background color to the current form.
@@ -43183,7 +43183,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetStyle/
      */
-    SetStyle(style: ApiStyle | string): ApiTextPr;
+    SetStyle(style: ApiStyle | string | null): ApiTextPr;
 
     /**
      * Sets the text fill to the current text run.
@@ -45158,7 +45158,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetStyle/
      */
-    SetStyle(style: ApiStyle | string): ApiTextPr;
+    SetStyle(style: ApiStyle | string | null): ApiTextPr;
 
     /**
      * Replaces the whole text of the current run with the specified text, keeping the run properties.
@@ -47852,7 +47852,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiShape/Methods/SetPaddings/
      */
-    SetPaddings(nLeft: EMU, nTop: EMU, nRight: EMU, nBottom: EMU): boolean;
+    SetPaddings(nLeft: EMU | null, nTop: EMU | null, nRight: EMU | null, nBottom: EMU | null): boolean;
 
     /**
      * Sets the relative height of the object (image, shape, chart) bounding box.
@@ -47965,7 +47965,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetShadow/
      */
-    SetShadow(shadow: ApiShadow): boolean;
+    SetShadow(shadow: ApiShadow | null): boolean;
 
     /**
      * Sets the size of the object (image, shape, chart) bounding box.
@@ -48908,7 +48908,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/MoveCursorOutside/
      */
-    MoveCursorOutside(isAfter?: boolean): boolean;
+    MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
      * Sets the background color to the current form.
@@ -50580,7 +50580,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetShadow/
      */
-    SetShadow(shadow: ApiShadow): boolean;
+    SetShadow(shadow: ApiShadow | null): boolean;
 
     /**
      * Sets the size of the object (image, shape, chart) bounding box.
@@ -52691,7 +52691,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablePr/Methods/SetCellSpacing/
      */
-    SetCellSpacing(nValue: twips): boolean;
+    SetCellSpacing(nValue: twips | null): boolean;
 
     /**
      * Sets the width of the specified column (by index) of the current table.
@@ -54390,7 +54390,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetCellMarginBottom/
      */
-    SetCellMarginBottom(nValue: twips): boolean;
+    SetCellMarginBottom(nValue: twips | null): boolean;
 
     /**
      * Specifies an amount of space which will be left between the left extent of the cell contents and
@@ -54423,7 +54423,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetCellMarginLeft/
      */
-    SetCellMarginLeft(nValue: twips): boolean;
+    SetCellMarginLeft(nValue: twips | null): boolean;
 
     /**
      * Specifies an amount of space which will be left between the right extent of the cell contents and
@@ -54456,7 +54456,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetCellMarginRight/
      */
-    SetCellMarginRight(nValue: twips): boolean;
+    SetCellMarginRight(nValue: twips | null): boolean;
 
     /**
      * Specifies an amount of space which will be left between the upper extent of the cell contents
@@ -54489,7 +54489,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetCellMarginTop/
      */
-    SetCellMarginTop(nValue: twips): boolean;
+    SetCellMarginTop(nValue: twips | null): boolean;
 
     /**
      * Sets the cell properties to the current cell.
@@ -55033,7 +55033,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetCellMarginBottom/
      */
-    SetCellMarginBottom(nValue: twips): boolean;
+    SetCellMarginBottom(nValue: twips | null): boolean;
 
     /**
      * Specifies an amount of space which will be left between the left extent of the cell contents and
@@ -55066,7 +55066,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetCellMarginLeft/
      */
-    SetCellMarginLeft(nValue: twips): boolean;
+    SetCellMarginLeft(nValue: twips | null): boolean;
 
     /**
      * Specifies an amount of space which will be left between the right extent of the cell contents and
@@ -55099,7 +55099,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetCellMarginRight/
      */
-    SetCellMarginRight(nValue: twips): boolean;
+    SetCellMarginRight(nValue: twips | null): boolean;
 
     /**
      * Specifies an amount of space which will be left between the upper extent of the cell contents
@@ -55132,7 +55132,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/SetCellMarginTop/
      */
-    SetCellMarginTop(nValue: twips): boolean;
+    SetCellMarginTop(nValue: twips | null): boolean;
 
     /**
      * Specifies how the current table cell is laid out when the parent table is displayed in a document.
@@ -55683,7 +55683,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablePr/Methods/SetCellSpacing/
      */
-    SetCellSpacing(nValue: twips): boolean;
+    SetCellSpacing(nValue: twips | null): boolean;
 
     /**
      * Specifies the alignment of the current table with respect to the text margins in the current
@@ -58311,7 +58311,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/MoveCursorOutside/
      */
-    MoveCursorOutside(isAfter?: boolean): boolean;
+    MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
      * Sets the allowed symbols for the current text field.
@@ -60074,7 +60074,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/SetStyle/
      */
-    SetStyle(style: ApiStyle | string): ApiTextPr;
+    SetStyle(style: ApiStyle | string | null): ApiTextPr;
 
     /**
      * Sets the text fill to the current text run.

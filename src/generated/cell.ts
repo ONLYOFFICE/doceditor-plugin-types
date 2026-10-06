@@ -238,13 +238,13 @@ export namespace Cell {
     Application: string;
 
     /** The date and time when the file was created. */
-    CreatedRaw: Date;
+    CreatedRaw: Date | null;
 
     /** The parsed date and time when the file was created. */
     Created: string;
 
     /** The date and time when the file was last modified. */
-    LastModifiedRaw: Date;
+    LastModifiedRaw: Date | null;
 
     /** The parsed date and time when the file was last modified. */
     LastModified: string;
@@ -6634,7 +6634,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/SetMajorHorizontalGridlines/
      */
-    SetMajorHorizontalGridlines(oStroke: ApiStroke): boolean;
+    SetMajorHorizontalGridlines(oStroke: ApiStroke | null): boolean;
 
     /**
      * Specifies major vertical gridline visual properties.
@@ -6671,7 +6671,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/SetMajorVerticalGridlines/
      */
-    SetMajorVerticalGridlines(oStroke: ApiStroke): boolean;
+    SetMajorVerticalGridlines(oStroke: ApiStroke | null): boolean;
 
     /**
      * Sets the fill to the marker in the specified chart series.
@@ -6793,7 +6793,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/SetMinorHorizontalGridlines/
      */
-    SetMinorHorizontalGridlines(oStroke: ApiStroke): boolean;
+    SetMinorHorizontalGridlines(oStroke: ApiStroke | null): boolean;
 
     /**
      * Specifies minor vertical gridline visual properties.
@@ -6830,7 +6830,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/SetMinorVerticalGridlines/
      */
-    SetMinorVerticalGridlines(oStroke: ApiStroke): boolean;
+    SetMinorVerticalGridlines(oStroke: ApiStroke | null): boolean;
 
     /**
      * Sets the fill to the chart plot area.
@@ -16181,7 +16181,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/SetShadow/
      */
-    SetShadow(shadow: ApiShadow): boolean;
+    SetShadow(shadow: ApiShadow | null): boolean;
 
     /**
      * Sets a size of the object (image, shape, chart) bounding box.
@@ -18719,7 +18719,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFreezePanes/Methods/FreezeColumns/
      */
-    FreezeColumns(count?: number): void;
+    FreezeColumns(count?: number | null): void;
 
     /**
      * Freezes the top row or rows of the current worksheet.
@@ -18741,7 +18741,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFreezePanes/Methods/FreezeRows/
      */
-    FreezeRows(count?: number): void;
+    FreezeRows(count?: number | null): void;
 
     /**
      * Returns a range that describes the frozen cells in the active worksheet view.
@@ -24806,7 +24806,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParaPr/Methods/SetBullet/
      */
-    SetBullet(oBullet: ApiBullet): void;
+    SetBullet(oBullet: ApiBullet | null): void;
 
     /**
      * Sets the paragraph first line indentation.
@@ -26173,7 +26173,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParaPr/Methods/SetBullet/
      */
-    SetBullet(oBullet: ApiBullet): void;
+    SetBullet(oBullet: ApiBullet | null): void;
 
     /**
      * Specifies that any lowercase characters in this paragraph are formatted for display only as their
@@ -38187,7 +38187,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/Copy/
      */
-    Copy(destination?: ApiRange): void;
+    Copy(destination?: ApiRange | null): void;
 
     /**
      * Cuts the range and save it to the clipboard or paste it to the specified range.
@@ -38210,7 +38210,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/Cut/
      */
-    Cut(destination?: ApiRange): void;
+    Cut(destination?: ApiRange | null): void;
 
     /**
      * Deletes the Range object.
@@ -42201,7 +42201,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiShape/Methods/SetPaddings/
      */
-    SetPaddings(nLeft: EMU, nTop: EMU, nRight: EMU, nBottom: EMU): boolean;
+    SetPaddings(nLeft: EMU | null, nTop: EMU | null, nRight: EMU | null, nBottom: EMU | null): boolean;
 
     /**
      * Sets the vertical alignment to the shape content where a paragraph or text runs can be inserted.
@@ -50156,7 +50156,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/Paste/
      */
-    Paste(destination?: ApiRange): boolean;
+    Paste(destination?: ApiRange | null): boolean;
 
     /**
      * Refreshes all pivot tables on the current worksheet.

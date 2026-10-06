@@ -6,12 +6,12 @@
       "description": "The reading order.",
       "name": "readingOrder",
       "optional": true,
-      "type": "ReadingOrder"
+      "type": "ReadingOrder | null"
     }
   ],
   "returns": {
     "description": "Returns the current paragraph itself (ApiParagraph).",
     "type": "ApiParagraph"
   },
-  "signature": "SetReadingOrder(readingOrder?: ReadingOrder): ApiParagraph"
+  "signature": "SetReadingOrder(readingOrder?: ReadingOrder | null): ApiParagraph"
 }

@@ -263,28 +263,28 @@
         {
           "description": "Left padding.",
           "name": "nLeft",
-          "type": "EMU"
+          "type": "EMU | null"
         },
         {
           "description": "Top padding.",
           "name": "nTop",
-          "type": "EMU"
+          "type": "EMU | null"
         },
         {
           "description": "Right padding.",
           "name": "nRight",
-          "type": "EMU"
+          "type": "EMU | null"
         },
         {
           "description": "Bottom padding.",
           "name": "nBottom",
-          "type": "EMU"
+          "type": "EMU | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetPaddings(nLeft: EMU, nTop: EMU, nRight: EMU, nBottom: EMU): boolean",
+      "signature": "SetPaddings(nLeft: EMU | null, nTop: EMU | null, nRight: EMU | null, nBottom: EMU | null): boolean",
       "since": "9.3.0"
     },
     "SetPlaceholder": {

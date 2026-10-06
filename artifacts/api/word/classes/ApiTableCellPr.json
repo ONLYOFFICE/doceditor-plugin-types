@@ -142,13 +142,13 @@
         {
           "description": "The value for the amount of space below the bottom extent of the cell measured in twentieths\rof a point (1/1440 of an inch). If this value is `null`, then default table cell bottom margin will be used, otherwise\rthe table cell bottom margin will be overridden with the specified value for the current cell.",
           "name": "nValue",
-          "type": "twips"
+          "type": "twips | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetCellMarginBottom(nValue: twips): boolean"
+      "signature": "SetCellMarginBottom(nValue: twips | null): boolean"
     },
     "SetCellMarginLeft": {
       "description": "Specifies an amount of space which will be left between the left extent of the cell contents and \nthe border of a specific table cell within a table.",
@@ -157,13 +157,13 @@
         {
           "description": "The value for the amount of space to the left extent of the cell measured in twentieths\rof a point (1/1440 of an inch). If this value is `null`, then default table cell left margin will be used, otherwise\rthe table cell left margin will be overridden with the specified value for the current cell.",
           "name": "nValue",
-          "type": "twips"
+          "type": "twips | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetCellMarginLeft(nValue: twips): boolean"
+      "signature": "SetCellMarginLeft(nValue: twips | null): boolean"
     },
     "SetCellMarginRight": {
       "description": "Specifies an amount of space which will be left between the right extent of the cell contents and the border of a specific table cell within a table.",
@@ -172,13 +172,13 @@
         {
           "description": "The value for the amount of space to the right extent of the cell measured in twentieths\rof a point (1/1440 of an inch). If this value is `null`, then default table cell right margin will be used, otherwise\rthe table cell right margin will be overridden with the specified value for the current cell.",
           "name": "nValue",
-          "type": "twips"
+          "type": "twips | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetCellMarginRight(nValue: twips): boolean"
+      "signature": "SetCellMarginRight(nValue: twips | null): boolean"
     },
     "SetCellMarginTop": {
       "description": "Specifies an amount of space which will be left between the upper extent of the cell contents\nand the border of a specific table cell within a table.",
@@ -187,13 +187,13 @@
         {
           "description": "The value for the amount of space above the upper extent of the cell measured in twentieths\rof a point (1/1440 of an inch). If this value is `null`, then default table cell top margin will be used, otherwise\rthe table cell top margin will be overridden with the specified value for the current cell.",
           "name": "nValue",
-          "type": "twips"
+          "type": "twips | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetCellMarginTop(nValue: twips): boolean"
+      "signature": "SetCellMarginTop(nValue: twips | null): boolean"
     },
     "SetNoWrap": {
       "description": "Specifies how the current table cell is laid out when the parent table is displayed in a document.\n\nThis setting\nonly affects the behavior of the cell when the {@link ApiTablePr#SetTableLayout} table layout for this table is set to use the `\"autofit\"` algorithm.",

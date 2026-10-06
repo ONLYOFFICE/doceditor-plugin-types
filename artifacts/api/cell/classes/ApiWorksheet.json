@@ -949,14 +949,14 @@
           "description": "The cell range where the clipboard contents should be pasted. If this argument is omitted, the current selection is used.",
           "name": "destination",
           "optional": true,
-          "type": "ApiRange"
+          "type": "ApiRange | null"
         }
       ],
       "returns": {
         "description": "Returns false if there is nothing to paste. Only the data copied by the editor itself is available, the system clipboard can be read asynchronously only.",
         "type": "boolean"
       },
-      "signature": "Paste(destination?: ApiRange): boolean",
+      "signature": "Paste(destination?: ApiRange | null): boolean",
       "since": "8.1.0"
     },
     "RefreshAllPivots": {

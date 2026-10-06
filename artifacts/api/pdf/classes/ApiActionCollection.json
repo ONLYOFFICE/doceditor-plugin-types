@@ -119,13 +119,13 @@
         {
           "description": "The action to set, or `null` to remove it.",
           "name": "action",
-          "type": "ApiJsAction"
+          "type": "ApiJsAction | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetCalculate(action: ApiJsAction): boolean",
+      "signature": "SetCalculate(action: ApiJsAction | null): boolean",
       "since": "10.0.0"
     },
     "SetFormat": {
@@ -135,13 +135,13 @@
         {
           "description": "The action to set, or `null` to remove it.",
           "name": "action",
-          "type": "ApiJsAction"
+          "type": "ApiJsAction | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetFormat(action: ApiJsAction): boolean",
+      "signature": "SetFormat(action: ApiJsAction | null): boolean",
       "since": "10.0.0"
     },
     "SetKeystroke": {
@@ -151,13 +151,13 @@
         {
           "description": "The action to set, or `null` to remove it.",
           "name": "action",
-          "type": "ApiJsAction"
+          "type": "ApiJsAction | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetKeystroke(action: ApiJsAction): boolean",
+      "signature": "SetKeystroke(action: ApiJsAction | null): boolean",
       "since": "10.0.0"
     },
     "SetMouseDown": {
@@ -167,13 +167,13 @@
         {
           "description": "The action to set, or `null` to remove it.",
           "name": "action",
-          "type": "ApiBaseAction"
+          "type": "ApiBaseAction | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetMouseDown(action: ApiBaseAction): boolean",
+      "signature": "SetMouseDown(action: ApiBaseAction | null): boolean",
       "since": "10.0.0"
     },
     "SetMouseEnter": {
@@ -183,13 +183,13 @@
         {
           "description": "The action to set, or `null` to remove it.",
           "name": "action",
-          "type": "ApiBaseAction"
+          "type": "ApiBaseAction | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetMouseEnter(action: ApiBaseAction): boolean",
+      "signature": "SetMouseEnter(action: ApiBaseAction | null): boolean",
       "since": "10.0.0"
     },
     "SetMouseExit": {
@@ -199,13 +199,13 @@
         {
           "description": "The action to set, or `null` to remove it.",
           "name": "action",
-          "type": "ApiBaseAction"
+          "type": "ApiBaseAction | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetMouseExit(action: ApiBaseAction): boolean",
+      "signature": "SetMouseExit(action: ApiBaseAction | null): boolean",
       "since": "10.0.0"
     },
     "SetMouseUp": {
@@ -215,13 +215,13 @@
         {
           "description": "The action to set, or `null` to remove it.",
           "name": "action",
-          "type": "ApiBaseAction"
+          "type": "ApiBaseAction | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetMouseUp(action: ApiBaseAction): boolean",
+      "signature": "SetMouseUp(action: ApiBaseAction | null): boolean",
       "since": "10.0.0"
     },
     "SetOnBlur": {
@@ -231,13 +231,13 @@
         {
           "description": "The action to set, or `null` to remove it.",
           "name": "action",
-          "type": "ApiBaseAction"
+          "type": "ApiBaseAction | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetOnBlur(action: ApiBaseAction): boolean",
+      "signature": "SetOnBlur(action: ApiBaseAction | null): boolean",
       "since": "10.0.0"
     },
     "SetOnFocus": {
@@ -247,13 +247,13 @@
         {
           "description": "The action to set, or `null` to remove it.",
           "name": "action",
-          "type": "ApiBaseAction"
+          "type": "ApiBaseAction | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetOnFocus(action: ApiBaseAction): boolean",
+      "signature": "SetOnFocus(action: ApiBaseAction | null): boolean",
       "since": "10.0.0"
     },
     "SetValidate": {
@@ -263,13 +263,13 @@
         {
           "description": "The action to set, or `null` to remove it.",
           "name": "action",
-          "type": "ApiJsAction"
+          "type": "ApiJsAction | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetValidate(action: ApiJsAction): boolean",
+      "signature": "SetValidate(action: ApiJsAction | null): boolean",
       "since": "10.0.0"
     }
   }

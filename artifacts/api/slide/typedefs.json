@@ -269,7 +269,7 @@
       },
       "CreatedRaw": {
         "description": "The date and time when the file was created.",
-        "type": "Date"
+        "type": "Date | null"
       },
       "LastModified": {
         "description": "The parsed date and time when the file was last modified.",
@@ -281,7 +281,7 @@
       },
       "LastModifiedRaw": {
         "description": "The date and time when the file was last modified.",
-        "type": "Date"
+        "type": "Date | null"
       },
       "Subject": {
         "description": "This property allows you to simplify your documents classification.",

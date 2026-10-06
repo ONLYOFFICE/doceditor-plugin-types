@@ -256,13 +256,13 @@
         {
           "description": "The cell margin. If this value is `null`, the default margin is used.\rotherwise override the table cell bottom margin with specified value for the current cell.",
           "name": "margin",
-          "type": "twips"
+          "type": "twips | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetCellMarginBottom(margin: twips): boolean"
+      "signature": "SetCellMarginBottom(margin: twips | null): boolean"
     },
     "SetCellMarginLeft": {
       "description": "Specifies an amount of space which shall be left between the left extent of the current cell contents and the\nleft edge border of a specific individual table cell within a table.",
@@ -271,13 +271,13 @@
         {
           "description": "The cell margin. If this value is `null`, the default margin is used.\rotherwise override the table cell left margin with specified value for the current cell.",
           "name": "margin",
-          "type": "twips"
+          "type": "twips | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetCellMarginLeft(margin: twips): boolean"
+      "signature": "SetCellMarginLeft(margin: twips | null): boolean"
     },
     "SetCellMarginRight": {
       "description": "Specifies an amount of space which shall be left between the right extent of the current cell contents and the\nright edge border of a specific individual table cell within a table.",
@@ -286,13 +286,13 @@
         {
           "description": "The cell margin. If this value is `null`, the default margin is used.\rotherwise override the table cell right margin with specified value for the current cell.",
           "name": "margin",
-          "type": "twips"
+          "type": "twips | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetCellMarginRight(margin: twips): boolean"
+      "signature": "SetCellMarginRight(margin: twips | null): boolean"
     },
     "SetCellMarginTop": {
       "description": "Specifies an amount of space which shall be left between the top extent of the current cell contents and the\ntop edge border of a specific individual table cell within a table.",
@@ -301,13 +301,13 @@
         {
           "description": "The cell margin. If this value is `null`, the default margin is used.\rotherwise override the table cell top margin with specified value for the current cell.",
           "name": "margin",
-          "type": "twips"
+          "type": "twips | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetCellMarginTop(margin: twips): boolean"
+      "signature": "SetCellMarginTop(margin: twips | null): boolean"
     },
     "SetColumnBackgroundColor": {
       "description": "Sets the background color to all cells in the column containing the current cell.",

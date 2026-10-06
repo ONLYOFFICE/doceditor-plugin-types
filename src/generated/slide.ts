@@ -209,13 +209,13 @@ export namespace Slide {
     Application: string;
 
     /** The date and time when the file was created. */
-    CreatedRaw: Date;
+    CreatedRaw: Date | null;
 
     /** The parsed date and time when the file was created. */
     Created: string;
 
     /** The date and time when the file was last modified. */
-    LastModifiedRaw: Date;
+    LastModifiedRaw: Date | null;
 
     /** The parsed date and time when the file was last modified. */
     LastModified: string;
@@ -5678,7 +5678,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/SetMajorHorizontalGridlines/
      */
-    SetMajorHorizontalGridlines(oStroke: ApiStroke): boolean;
+    SetMajorHorizontalGridlines(oStroke: ApiStroke | null): boolean;
 
     /**
      * Specifies major vertical gridline visual properties.
@@ -5715,7 +5715,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/SetMajorVerticalGridlines/
      */
-    SetMajorVerticalGridlines(oStroke: ApiStroke): boolean;
+    SetMajorVerticalGridlines(oStroke: ApiStroke | null): boolean;
 
     /**
      * Sets the fill to the marker in the specified chart series.
@@ -5835,7 +5835,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/SetMinorHorizontalGridlines/
      */
-    SetMinorHorizontalGridlines(oStroke: ApiStroke): boolean;
+    SetMinorHorizontalGridlines(oStroke: ApiStroke | null): boolean;
 
     /**
      * Specifies minor vertical gridline visual properties.
@@ -5873,7 +5873,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/SetMinorVerticalGridlines/
      */
-    SetMinorVerticalGridlines(oStroke: ApiStroke): boolean;
+    SetMinorVerticalGridlines(oStroke: ApiStroke | null): boolean;
 
     /**
      * Sets the specified placeholder to the current drawing object.
@@ -12767,7 +12767,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/SetShadow/
      */
-    SetShadow(shadow: ApiShadow): boolean;
+    SetShadow(shadow: ApiShadow | null): boolean;
 
     /**
      * Sets the size of the object (image, shape, chart) bounding box.
@@ -18285,7 +18285,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParaPr/Methods/SetBullet/
      */
-    SetBullet(oBullet: ApiBullet): void;
+    SetBullet(oBullet: ApiBullet | null): void;
 
     /**
      * Sets the paragraph first line indentation.
@@ -20012,7 +20012,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParaPr/Methods/SetBullet/
      */
-    SetBullet(oBullet: ApiBullet): void;
+    SetBullet(oBullet: ApiBullet | null): void;
 
     /**
      * Specifies that any lowercase characters in this paragraph are formatted for display only as their
@@ -22248,7 +22248,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/AddSlide/
      */
-    AddSlide(oSlide: ApiSlide, nIndex?: number): void;
+    AddSlide(oSlide: ApiSlide, nIndex?: number | null): void;
 
     /**
      * Applies a theme to all the slides in the presentation.
@@ -26943,7 +26943,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShape/Methods/SetPaddings/
      */
-    SetPaddings(nLeft: EMU, nTop: EMU, nRight: EMU, nBottom: EMU): boolean;
+    SetPaddings(nLeft: EMU | null, nTop: EMU | null, nRight: EMU | null, nBottom: EMU | null): boolean;
 
     /**
      * Sets the specified placeholder to the current drawing object.
@@ -31330,7 +31330,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/SetCellMarginBottom/
      */
-    SetCellMarginBottom(nValue: twips): void;
+    SetCellMarginBottom(nValue: twips | null): void;
 
     /**
      * Specifies an amount of space which shall be left between the left extent of the current cell
@@ -31364,7 +31364,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/SetCellMarginLeft/
      */
-    SetCellMarginLeft(nValue: twips): void;
+    SetCellMarginLeft(nValue: twips | null): void;
 
     /**
      * Specifies an amount of space which shall be left between the right extent of the current cell
@@ -31398,7 +31398,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/SetCellMarginRight/
      */
-    SetCellMarginRight(nValue: twips): void;
+    SetCellMarginRight(nValue: twips | null): void;
 
     /**
      * Specifies an amount of space which shall be left between the top extent of the current cell contents
@@ -31432,7 +31432,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/SetCellMarginTop/
      */
-    SetCellMarginTop(nValue: twips): void;
+    SetCellMarginTop(nValue: twips | null): void;
 
     /**
      * Sets the background color to all cells in the column containing the current cell.

@@ -639,13 +639,13 @@
         {
           "description": "Spacing value measured in twentieths of a point (1/1440 of an inch). `\"Null\"` means that no spacing will be applied.",
           "name": "nValue",
-          "type": "twips"
+          "type": "twips | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetCellSpacing(nValue: twips): boolean"
+      "signature": "SetCellSpacing(nValue: twips | null): boolean"
     },
     "SetColumnWidth": {
       "description": "Sets the width of the specified column (by index) of the current table.",

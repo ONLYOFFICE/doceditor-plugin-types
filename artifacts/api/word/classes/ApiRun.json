@@ -771,14 +771,14 @@
         {
           "description": "The style which must be applied to the text character, or the name of an existing style, or _undefined_/_null_ to remove the style.",
           "name": "style",
-          "type": "ApiStyle | string"
+          "type": "ApiStyle | string | null"
         }
       ],
       "returns": {
         "description": "this text properties.",
         "type": "ApiTextPr"
       },
-      "signature": "SetStyle(style: ApiStyle | string): ApiTextPr"
+      "signature": "SetStyle(style: ApiStyle | string | null): ApiTextPr"
     },
     "SetText": {
       "description": "Replaces the whole text of the current run with the specified text, keeping the run properties.",

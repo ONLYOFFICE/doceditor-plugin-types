@@ -322,7 +322,7 @@ function parseType(typeObj) {
   return typeObj.names.map(parseTypeName).join(' | ');
 }
 
-// jsdoc normalizes the nullable prefix: `@returns {?ApiComment}` arrives as a clean
+// jsdoc normalizes the nullable prefix on both `@returns` and `@param`: `{?ApiComment}` arrives as a clean
 // `type.names: ["ApiComment"]` plus a separate `nullable: true` flag, so the `?` never reaches
 // `parseType` and the nullability was being dropped on the floor. What that cost is visible on
 // `Api.GetByInternalId` - `@returns {?(ApiDocument | ...)}` over an implementation whose first
@@ -333,8 +333,8 @@ function parseType(typeObj) {
 // The other spelling, `{ApiParagraph | null}`, already arrives as a `null` member of `type.names`
 // and is handled by `parseTypeName`; this only covers the flag form. `unknown` and `void` already
 // admit null, so appending there would be noise.
-function withNullable(type, returnsEntry) {
-  if (!returnsEntry || returnsEntry.nullable !== true) return type;
+function withNullable(type, entry) {
+  if (!entry || entry.nullable !== true) return type;
   if (type === 'unknown' || type === 'void' || type === 'null') return type;
   if (splitTopLevel(type, '|').includes('null')) return type;
   return `${type} | null`;
@@ -523,19 +523,30 @@ function extractClasses(data, editor, extRoot) {
           }
           seenNames.add(name);
           const acceptsUndefined = p.type?.names?.includes('undefined');
-          // JSDoc's `?type` nullable prefix (e.g. `@param {?number} nIndex`) is how sdkjs marks
-          // "may be omitted, behaves sensibly if so" in practice (see ApiPresentation#AddSlide:
-          // "@param {?number} nIndex - ... If not specified, the slide will be added to the end"),
-          // even though strict JSDoc semantics would call that "nullable", not "optional".
-          const isNullable = p.type?.names?.some(n => typeof n === 'string' && n.startsWith('?'));
-          const isOwnOptional = Boolean(p.optional || p.defaultvalue !== undefined || acceptsUndefined || isNullable)
+          // `@param {?twips} nValue` is nullable, and that is all it is - the parameter stays
+          // required and gains `null` as an accepted value. This used to read the nullable prefix
+          // as "may be omitted" and mark the parameter optional, on the strength of one member
+          // (ApiPresentation#AddSlide: "If not specified, the slide will be added to the end").
+          // That generalization does not hold: ApiTablePr#SetCellSpacing documents `"Null" means
+          // that no spacing will be applied` over an implementation whose only branch is
+          // `if (null === nValue)`, which `undefined` never reaches - omitting the argument is a
+          // different call, not a shorter spelling of the same one. Members where sdkjs really does
+          // accept both spellings say so (ApiParagraph#SetNumbering checks `undefined ===
+          // numberingLevel || null === numberingLevel`) and are corrected per member via
+          // PARAM_OPTIONAL_FROM, which is where a judgement about one member's arity belongs.
+          //
+          // The test it was written against never ran, either: jsdoc normalizes the prefix into a
+          // `nullable: true` flag and strips the `?` from `type.names`, so the old
+          // `names.some(n => n.startsWith('?'))` matched 0 of the 128 nullable parameters in the
+          // sources. Removing it is behaviour-preserving; the `| null` on the type is the new part.
+          const isOwnOptional = Boolean(p.optional || p.defaultvalue !== undefined || acceptsUndefined)
             || ownOptional.length >= optionalFrom;
           ownOptional.push(isOwnOptional);
           if (isOwnOptional) hasOptional = true;
           const names = acceptsUndefined ? p.type.names.filter(type => type !== 'undefined') : p.type?.names;
           return {
             name,
-            type: parseType(names?.length ? { ...p.type, names } : p.type),
+            type: withNullable(parseType(names?.length ? { ...p.type, names } : p.type), p),
             optional: hasOptional,
             defaultValue: p.defaultvalue,
             description: p.description || '',
@@ -607,7 +618,7 @@ function extractTypedefs(data) {
         type: hasProps ? null : parseType(item.type),
         properties: hasProps ? item.properties.map(p => ({
           name: p.name,
-          type: parseType(p.type),
+          type: withNullable(parseType(p.type), p),
           optional: p.optional || false,
           description: p.description || ''
         })) : []

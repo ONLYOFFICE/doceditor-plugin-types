@@ -446,13 +446,13 @@
         {
           "description": "The bullet object created with the {@link Api#CreateBullet} or {@link Api#CreateNumbering} method.",
           "name": "oBullet",
-          "type": "ApiBullet"
+          "type": "ApiBullet | null"
         }
       ],
       "returns": {
         "type": "void"
       },
-      "signature": "SetBullet(oBullet: ApiBullet): void"
+      "signature": "SetBullet(oBullet: ApiBullet | null): void"
     },
     "SetCaps": {
       "description": "Specifies that any lowercase characters in this paragraph are formatted for display only as their capital letter character equivalents.",

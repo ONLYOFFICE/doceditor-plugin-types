@@ -453,14 +453,14 @@
         {
           "description": "The shadow to apply, or null to remove the current shadow.",
           "name": "shadow",
-          "type": "ApiShadow"
+          "type": "ApiShadow | null"
         }
       ],
       "returns": {
         "description": "returns false if the graphic object does not support shadow.",
         "type": "boolean"
       },
-      "signature": "SetShadow(shadow: ApiShadow): boolean",
+      "signature": "SetShadow(shadow: ApiShadow | null): boolean",
       "since": "10.0.0"
     },
     "SetSize": {

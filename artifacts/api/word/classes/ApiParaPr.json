@@ -452,7 +452,7 @@
         {
           "description": "Specifies a numbering definition, or _undefined_/_null_ to remove numbering.",
           "name": "numPr",
-          "type": "ApiNumbering"
+          "type": "ApiNumbering | null"
         },
         {
           "description": "Specifies a numbering level reference. If the current instance of the ApiParaPr class is direct\rformatting of a paragraph, then this parameter MUST BE specified. Otherwise, if the current instance of the ApiParaPr class\ris the part of ApiStyle properties, this parameter will be ignored.",
@@ -464,7 +464,7 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetNumPr(numPr: ApiNumbering, lvl?: number): boolean"
+      "signature": "SetNumPr(numPr: ApiNumbering | null, lvl?: number): boolean"
     },
     "SetOutlineLvl": {
       "description": "Sets the outline level for the specified properties.",
@@ -614,14 +614,14 @@
         {
           "description": "The style of the paragraph to be set, or the name of an existing style, or _undefined_/_null_ to remove the style.",
           "name": "style",
-          "type": "ApiStyle | string"
+          "type": "ApiStyle | string | null"
         }
       ],
       "returns": {
         "description": "this paragraph properties.",
         "type": "ApiParaPr"
       },
-      "signature": "SetStyle(style: ApiStyle | string): ApiParaPr"
+      "signature": "SetStyle(style: ApiStyle | string | null): ApiParaPr"
     },
     "SetTabs": {
       "description": "Specifies a sequence of custom tab stops which will be used for any tab characters in the current paragraph.\n\n**Warning:**\nThe lengths of the aPos and aVal arrays must be equal to each other.\n",

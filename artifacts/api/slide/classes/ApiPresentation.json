@@ -59,13 +59,13 @@
           "description": "Index of the slide to be added. If not specified, the slide will be added to the end of the presentation.",
           "name": "nIndex",
           "optional": true,
-          "type": "number"
+          "type": "number | null"
         }
       ],
       "returns": {
         "type": "void"
       },
-      "signature": "AddSlide(oSlide: ApiSlide, nIndex?: number): void"
+      "signature": "AddSlide(oSlide: ApiSlide, nIndex?: number | null): void"
     },
     "ApplyTheme": {
       "description": "Applies a theme to all the slides in the presentation.",

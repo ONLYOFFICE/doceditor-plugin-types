@@ -258,13 +258,13 @@ export namespace Pdf {
     Application: string;
 
     /** The date and time when the file was created. */
-    CreatedRaw: Date;
+    CreatedRaw: Date | null;
 
     /** The parsed date and time when the file was created. */
     Created: string;
 
     /** The date and time when the file was last modified. */
-    LastModifiedRaw: Date;
+    LastModifiedRaw: Date | null;
 
     /** The parsed date and time when the file was last modified. */
     LastModified: string;
@@ -3681,7 +3681,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetCalculate/
      */
-    SetCalculate(action: ApiJsAction): boolean;
+    SetCalculate(action: ApiJsAction | null): boolean;
 
     /**
      * Sets the Format action.
@@ -3691,7 +3691,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetFormat/
      */
-    SetFormat(action: ApiJsAction): boolean;
+    SetFormat(action: ApiJsAction | null): boolean;
 
     /**
      * Sets the Keystroke action.
@@ -3701,7 +3701,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetKeystroke/
      */
-    SetKeystroke(action: ApiJsAction): boolean;
+    SetKeystroke(action: ApiJsAction | null): boolean;
 
     /**
      * Sets the MouseDown action.
@@ -3711,7 +3711,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetMouseDown/
      */
-    SetMouseDown(action: ApiBaseAction): boolean;
+    SetMouseDown(action: ApiBaseAction | null): boolean;
 
     /**
      * Sets the MouseEnter action.
@@ -3721,7 +3721,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetMouseEnter/
      */
-    SetMouseEnter(action: ApiBaseAction): boolean;
+    SetMouseEnter(action: ApiBaseAction | null): boolean;
 
     /**
      * Sets the MouseExit action.
@@ -3731,7 +3731,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetMouseExit/
      */
-    SetMouseExit(action: ApiBaseAction): boolean;
+    SetMouseExit(action: ApiBaseAction | null): boolean;
 
     /**
      * Sets the MouseUp action.
@@ -3741,7 +3741,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetMouseUp/
      */
-    SetMouseUp(action: ApiBaseAction): boolean;
+    SetMouseUp(action: ApiBaseAction | null): boolean;
 
     /**
      * Sets the OnBlur action.
@@ -3751,7 +3751,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetOnBlur/
      */
-    SetOnBlur(action: ApiBaseAction): boolean;
+    SetOnBlur(action: ApiBaseAction | null): boolean;
 
     /**
      * Sets the OnFocus action.
@@ -3761,7 +3761,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetOnFocus/
      */
-    SetOnFocus(action: ApiBaseAction): boolean;
+    SetOnFocus(action: ApiBaseAction | null): boolean;
 
     /**
      * Sets the Validate action.
@@ -3771,7 +3771,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetValidate/
      */
-    SetValidate(action: ApiJsAction): boolean;
+    SetValidate(action: ApiJsAction | null): boolean;
   }
 
   /**
@@ -4406,7 +4406,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetContents/
      */
-    SetContents(contents: string): boolean;
+    SetContents(contents: string | null): boolean;
 
     /**
      * Sets annotation creation date.
@@ -4501,7 +4501,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetFillColor/
      */
-    SetFillColor(color?: ApiColor): boolean;
+    SetFillColor(color?: ApiColor | null): boolean;
 
     /**
      * Sets annotation last modification date.
@@ -4615,7 +4615,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetSubject/
      */
-    SetSubject(subject: string): boolean;
+    SetSubject(subject: string | null): boolean;
 
     /**
      * Sets annotation unique name.
@@ -4961,7 +4961,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/SetTooltip/
      */
-    SetTooltip(tooltip: string): boolean;
+    SetTooltip(tooltip: string | null): boolean;
 
     /**
      * Sets field value
@@ -5517,7 +5517,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/SetTooltip/
      */
-    SetTooltip(tooltip: string): boolean;
+    SetTooltip(tooltip: string | null): boolean;
 
     /**
      * Sets field value
@@ -6195,7 +6195,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetContents/
      */
-    SetContents(contents: string): boolean;
+    SetContents(contents: string | null): boolean;
 
     /**
      * Sets annotation creation date.
@@ -6290,7 +6290,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetFillColor/
      */
-    SetFillColor(color?: ApiColor): boolean;
+    SetFillColor(color?: ApiColor | null): boolean;
 
     /**
      * Sets annotation last modification date.
@@ -6427,7 +6427,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetSubject/
      */
-    SetSubject(subject: string): boolean;
+    SetSubject(subject: string | null): boolean;
 
     /**
      * Sets annotation unique name.
@@ -7464,7 +7464,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/SetTooltip/
      */
-    SetTooltip(tooltip: string): boolean;
+    SetTooltip(tooltip: string | null): boolean;
 
     /**
      * Sets image for all button field widgets
@@ -9545,7 +9545,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiChart/Methods/SetMajorHorizontalGridlines/
      */
-    SetMajorHorizontalGridlines(oStroke: ApiStroke): boolean;
+    SetMajorHorizontalGridlines(oStroke: ApiStroke | null): boolean;
 
     /**
      * Specifies major vertical gridline visual properties.
@@ -9582,7 +9582,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiChart/Methods/SetMajorVerticalGridlines/
      */
-    SetMajorVerticalGridlines(oStroke: ApiStroke): boolean;
+    SetMajorVerticalGridlines(oStroke: ApiStroke | null): boolean;
 
     /**
      * Sets the fill to the marker in the specified chart series.
@@ -9699,7 +9699,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiChart/Methods/SetMinorHorizontalGridlines/
      */
-    SetMinorHorizontalGridlines(oStroke: ApiStroke): boolean;
+    SetMinorHorizontalGridlines(oStroke: ApiStroke | null): boolean;
 
     /**
      * Specifies minor vertical gridline visual properties.
@@ -9736,7 +9736,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiChart/Methods/SetMinorVerticalGridlines/
      */
-    SetMinorVerticalGridlines(oStroke: ApiStroke): boolean;
+    SetMinorVerticalGridlines(oStroke: ApiStroke | null): boolean;
 
     /**
      * Sets the fill to the chart plot area.
@@ -11122,7 +11122,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/SetTooltip/
      */
-    SetTooltip(tooltip: string): boolean;
+    SetTooltip(tooltip: string | null): boolean;
 
     /**
      * Sets field value
@@ -12607,7 +12607,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetContents/
      */
-    SetContents(contents: string): boolean;
+    SetContents(contents: string | null): boolean;
 
     /**
      * Sets annotation creation date.
@@ -12702,7 +12702,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetFillColor/
      */
-    SetFillColor(color?: ApiColor): boolean;
+    SetFillColor(color?: ApiColor | null): boolean;
 
     /**
      * Sets annotation last modification date.
@@ -12841,7 +12841,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetSubject/
      */
-    SetSubject(subject: string): boolean;
+    SetSubject(subject: string | null): boolean;
 
     /**
      * Sets annotation unique name.
@@ -15463,7 +15463,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/SetShadow/
      */
-    SetShadow(shadow: ApiShadow): boolean;
+    SetShadow(shadow: ApiShadow | null): boolean;
 
     /**
      * Sets the size of the object (image, shape, chart) bounding box.
@@ -16407,7 +16407,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetContents/
      */
-    SetContents(contents: string): boolean;
+    SetContents(contents: string | null): boolean;
 
     /**
      * Sets annotation creation date.
@@ -16511,7 +16511,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetFillColor/
      */
-    SetFillColor(color?: ApiColor): boolean;
+    SetFillColor(color?: ApiColor | null): boolean;
 
     /**
      * Sets intent type for this annotation.
@@ -16673,7 +16673,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetSubject/
      */
-    SetSubject(subject: string): boolean;
+    SetSubject(subject: string | null): boolean;
 
     /**
      * Sets annotation unique name.
@@ -18811,7 +18811,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetContents/
      */
-    SetContents(contents: string): boolean;
+    SetContents(contents: string | null): boolean;
 
     /**
      * Sets annotation creation date.
@@ -18906,7 +18906,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetFillColor/
      */
-    SetFillColor(color?: ApiColor): boolean;
+    SetFillColor(color?: ApiColor | null): boolean;
 
     /**
      * Sets annotation last modification date.
@@ -19045,7 +19045,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetSubject/
      */
-    SetSubject(subject: string): boolean;
+    SetSubject(subject: string | null): boolean;
 
     /**
      * Sets annotation unique name.
@@ -19819,7 +19819,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetContents/
      */
-    SetContents(contents: string): boolean;
+    SetContents(contents: string | null): boolean;
 
     /**
      * Sets annotation creation date.
@@ -19961,7 +19961,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetFillColor/
      */
-    SetFillColor(color?: ApiColor): boolean;
+    SetFillColor(color?: ApiColor | null): boolean;
 
     /**
      * Sets annotation last modification date.
@@ -20122,7 +20122,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetSubject/
      */
-    SetSubject(subject: string): boolean;
+    SetSubject(subject: string | null): boolean;
 
     /**
      * Sets annotation unique name.
@@ -20197,7 +20197,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiLinkAnnotation/Methods/SetAction/
      */
-    SetAction(action: ApiBaseAction): boolean;
+    SetAction(action: ApiBaseAction | null): boolean;
 
     /**
      * Sets quads to current markup annotation.
@@ -21501,7 +21501,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiParaPr/Methods/SetBullet/
      */
-    SetBullet(oBullet: ApiBullet): void;
+    SetBullet(oBullet: ApiBullet | null): void;
 
     /**
      * Sets the paragraph first line indentation.
@@ -23158,7 +23158,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiParaPr/Methods/SetBullet/
      */
-    SetBullet(oBullet: ApiBullet): void;
+    SetBullet(oBullet: ApiBullet | null): void;
 
     /**
      * Specifies that any lowercase characters in this paragraph are formatted for display only as their
@@ -25774,7 +25774,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetContents/
      */
-    SetContents(contents: string): boolean;
+    SetContents(contents: string | null): boolean;
 
     /**
      * Sets annotation creation date.
@@ -25894,7 +25894,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetFillColor/
      */
-    SetFillColor(color?: ApiColor): boolean;
+    SetFillColor(color?: ApiColor | null): boolean;
 
     /**
      * Sets annotation last modification date.
@@ -26033,7 +26033,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetSubject/
      */
-    SetSubject(subject: string): boolean;
+    SetSubject(subject: string | null): boolean;
 
     /**
      * Sets annotation unique name.
@@ -26734,7 +26734,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetContents/
      */
-    SetContents(contents: string): boolean;
+    SetContents(contents: string | null): boolean;
 
     /**
      * Sets annotation creation date.
@@ -26829,7 +26829,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetFillColor/
      */
-    SetFillColor(color?: ApiColor): boolean;
+    SetFillColor(color?: ApiColor | null): boolean;
 
     /**
      * Sets annotation last modification date.
@@ -26943,7 +26943,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetSubject/
      */
-    SetSubject(subject: string): boolean;
+    SetSubject(subject: string | null): boolean;
 
     /**
      * Sets annotation unique name.
@@ -28300,7 +28300,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParagraph/Methods/SetReadingOrder/
      */
-    SetReadingOrder(readingOrder?: ReadingOrder): ApiRichParagraph;
+    SetReadingOrder(readingOrder?: ReadingOrder | null): ApiRichParagraph;
   }
 
   /**
@@ -30546,7 +30546,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiShape/Methods/SetPaddings/
      */
-    SetPaddings(nLeft: EMU, nTop: EMU, nRight: EMU, nBottom: EMU): boolean;
+    SetPaddings(nLeft: EMU | null, nTop: EMU | null, nRight: EMU | null, nBottom: EMU | null): boolean;
 
     /**
      * Sets the x position of the drawing on the page.
@@ -31644,7 +31644,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetContents/
      */
-    SetContents(contents: string): boolean;
+    SetContents(contents: string | null): boolean;
 
     /**
      * Sets annotation creation date.
@@ -31739,7 +31739,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetFillColor/
      */
-    SetFillColor(color?: ApiColor): boolean;
+    SetFillColor(color?: ApiColor | null): boolean;
 
     /**
      * Sets annotation last modification date.
@@ -31878,7 +31878,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetSubject/
      */
-    SetSubject(subject: string): boolean;
+    SetSubject(subject: string | null): boolean;
 
     /**
      * Sets annotation unique name.
@@ -32593,7 +32593,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetContents/
      */
-    SetContents(contents: string): boolean;
+    SetContents(contents: string | null): boolean;
 
     /**
      * Sets annotation creation date.
@@ -32688,7 +32688,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetFillColor/
      */
-    SetFillColor(color?: ApiColor): boolean;
+    SetFillColor(color?: ApiColor | null): boolean;
 
     /**
      * Sets annotation last modification date.
@@ -32849,7 +32849,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetSubject/
      */
-    SetSubject(subject: string): boolean;
+    SetSubject(subject: string | null): boolean;
 
     /**
      * Sets annotation unique name.
@@ -34226,7 +34226,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/Methods/SetCellMarginBottom/
      */
-    SetCellMarginBottom(margin: twips): boolean;
+    SetCellMarginBottom(margin: twips | null): boolean;
 
     /**
      * Specifies an amount of space which shall be left between the left extent of the current cell
@@ -34259,7 +34259,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/Methods/SetCellMarginLeft/
      */
-    SetCellMarginLeft(margin: twips): boolean;
+    SetCellMarginLeft(margin: twips | null): boolean;
 
     /**
      * Specifies an amount of space which shall be left between the right extent of the current cell
@@ -34292,7 +34292,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/Methods/SetCellMarginRight/
      */
-    SetCellMarginRight(margin: twips): boolean;
+    SetCellMarginRight(margin: twips | null): boolean;
 
     /**
      * Specifies an amount of space which shall be left between the top extent of the current cell contents
@@ -34325,7 +34325,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/Methods/SetCellMarginTop/
      */
-    SetCellMarginTop(margin: twips): boolean;
+    SetCellMarginTop(margin: twips | null): boolean;
 
     /**
      * Sets the background color to all cells in the column containing the current cell.
@@ -35293,7 +35293,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetContents/
      */
-    SetContents(contents: string): boolean;
+    SetContents(contents: string | null): boolean;
 
     /**
      * Sets annotation creation date.
@@ -35388,7 +35388,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetFillColor/
      */
-    SetFillColor(color?: ApiColor): boolean;
+    SetFillColor(color?: ApiColor | null): boolean;
 
     /**
      * Sets icon type for this annotation.
@@ -35529,7 +35529,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetSubject/
      */
-    SetSubject(subject: string): boolean;
+    SetSubject(subject: string | null): boolean;
 
     /**
      * Sets annotation unique name.
@@ -36325,7 +36325,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/SetTooltip/
      */
-    SetTooltip(tooltip: string): boolean;
+    SetTooltip(tooltip: string | null): boolean;
 
     /**
      * Sets validate range for field.

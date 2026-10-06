@@ -243,14 +243,14 @@
         {
           "description": "The tooltip text for the field.",
           "name": "tooltip",
-          "type": "string"
+          "type": "string | null"
         }
       ],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetTooltip(tooltip: string): boolean",
+      "signature": "SetTooltip(tooltip: string | null): boolean",
       "since": "9.4.0"
     },
     "SetValue": {

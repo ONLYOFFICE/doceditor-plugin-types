@@ -5,12 +5,12 @@
     {
       "description": "The style of the paragraph to be set, or the name of an existing style, or _undefined_/_null_ to remove the style.",
       "name": "style",
-      "type": "ApiStyle | string"
+      "type": "ApiStyle | string | null"
     }
   ],
   "returns": {
     "description": "this paragraph properties.",
     "type": "ApiParaPr"
   },
-  "signature": "SetStyle(style: ApiStyle | string): ApiParaPr"
+  "signature": "SetStyle(style: ApiStyle | string | null): ApiParaPr"
 }

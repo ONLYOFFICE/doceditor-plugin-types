@@ -5,11 +5,11 @@
     {
       "description": "The numbering level which will be used for assigning the numbers to the paragraph, or _undefined_/_null_ to remove numbering.",
       "name": "numberingLevel",
-      "type": "ApiNumberingLevel"
+      "type": "ApiNumberingLevel | null"
     }
   ],
   "returns": {
     "type": "boolean"
   },
-  "signature": "SetNumbering(numberingLevel: ApiNumberingLevel): boolean"
+  "signature": "SetNumbering(numberingLevel: ApiNumberingLevel | null): boolean"
 }

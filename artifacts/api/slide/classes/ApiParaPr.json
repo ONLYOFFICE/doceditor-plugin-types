@@ -116,13 +116,13 @@
         {
           "description": "The bullet object created with the {@link Api#CreateBullet} or {@link Api#CreateNumbering} method.",
           "name": "oBullet",
-          "type": "ApiBullet"
+          "type": "ApiBullet | null"
         }
       ],
       "returns": {
         "type": "void"
       },
-      "signature": "SetBullet(oBullet: ApiBullet): void"
+      "signature": "SetBullet(oBullet: ApiBullet | null): void"
     },
     "SetIndFirstLine": {
       "description": "Sets the paragraph first line indentation.",

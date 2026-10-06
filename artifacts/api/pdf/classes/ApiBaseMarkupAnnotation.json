@@ -308,13 +308,13 @@
         {
           "description": "The annotation text contents.",
           "name": "contents",
-          "type": "string"
+          "type": "string | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetContents(contents: string): boolean"
+      "signature": "SetContents(contents: string | null): boolean"
     },
     "SetCreationDate": {
       "description": "Sets annotation creation date.",
@@ -369,13 +369,13 @@
           "description": "color to set fill (omit the argument to set no fill)",
           "name": "color",
           "optional": true,
-          "type": "ApiColor"
+          "type": "ApiColor | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetFillColor(color?: ApiColor): boolean"
+      "signature": "SetFillColor(color?: ApiColor | null): boolean"
     },
     "SetModDate": {
       "description": "Sets annotation last modification date.",
@@ -459,13 +459,13 @@
         {
           "description": "The annotation subject text.",
           "name": "subject",
-          "type": "string"
+          "type": "string | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetSubject(subject: string): boolean"
+      "signature": "SetSubject(subject: string | null): boolean"
     },
     "SetUniqueName": {
       "description": "Sets annotation unique name.",

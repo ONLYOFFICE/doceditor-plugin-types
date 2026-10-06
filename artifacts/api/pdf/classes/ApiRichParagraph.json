@@ -150,14 +150,14 @@
           "description": "The reading order.",
           "name": "readingOrder",
           "optional": true,
-          "type": "ReadingOrder"
+          "type": "ReadingOrder | null"
         }
       ],
       "returns": {
         "description": "Returns the current paragraph itself (ApiRichParagraph).",
         "type": "ApiRichParagraph"
       },
-      "signature": "SetReadingOrder(readingOrder?: ReadingOrder): ApiRichParagraph"
+      "signature": "SetReadingOrder(readingOrder?: ReadingOrder | null): ApiRichParagraph"
     }
   }
 }

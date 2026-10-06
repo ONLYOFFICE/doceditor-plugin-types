@@ -424,13 +424,13 @@
         {
           "description": "The stroke used to create the element shadow.",
           "name": "oStroke",
-          "type": "ApiStroke"
+          "type": "ApiStroke | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetMajorHorizontalGridlines(oStroke: ApiStroke): boolean"
+      "signature": "SetMajorHorizontalGridlines(oStroke: ApiStroke | null): boolean"
     },
     "SetMajorVerticalGridlines": {
       "description": "Specifies major vertical gridline visual properties.",
@@ -439,13 +439,13 @@
         {
           "description": "The stroke used to create the element shadow.",
           "name": "oStroke",
-          "type": "ApiStroke"
+          "type": "ApiStroke | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetMajorVerticalGridlines(oStroke: ApiStroke): boolean"
+      "signature": "SetMajorVerticalGridlines(oStroke: ApiStroke | null): boolean"
     },
     "SetMarkerFill": {
       "description": "Sets the fill to the marker in the specified chart series.",
@@ -516,13 +516,13 @@
         {
           "description": "The stroke used to create the element shadow.",
           "name": "oStroke",
-          "type": "ApiStroke"
+          "type": "ApiStroke | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetMinorHorizontalGridlines(oStroke: ApiStroke): boolean"
+      "signature": "SetMinorHorizontalGridlines(oStroke: ApiStroke | null): boolean"
     },
     "SetMinorVerticalGridlines": {
       "description": "Specifies minor vertical gridline visual properties.",
@@ -531,13 +531,13 @@
         {
           "description": "The stroke used to create the element shadow.",
           "name": "oStroke",
-          "type": "ApiStroke"
+          "type": "ApiStroke | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetMinorVerticalGridlines(oStroke: ApiStroke): boolean"
+      "signature": "SetMinorVerticalGridlines(oStroke: ApiStroke | null): boolean"
     },
     "SetPlotAreaFill": {
       "description": "Sets the fill to the chart plot area.",

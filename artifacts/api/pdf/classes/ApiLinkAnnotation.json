@@ -40,13 +40,13 @@
         {
           "description": "GoTo, URI, or another PDF action; null removes the action.",
           "name": "action",
-          "type": "ApiBaseAction"
+          "type": "ApiBaseAction | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetAction(action: ApiBaseAction): boolean",
+      "signature": "SetAction(action: ApiBaseAction | null): boolean",
       "since": "10.0.0"
     },
     "SetQuads": {

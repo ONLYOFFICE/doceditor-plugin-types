@@ -1018,13 +1018,13 @@
         {
           "description": "The stroke used to create the element shadow.",
           "name": "oStroke",
-          "type": "ApiStroke"
+          "type": "ApiStroke | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetMajorHorizontalGridlines(oStroke: ApiStroke): boolean"
+      "signature": "SetMajorHorizontalGridlines(oStroke: ApiStroke | null): boolean"
     },
     "SetMajorVerticalGridlines": {
       "description": "Specifies major vertical gridline visual properties.",
@@ -1033,13 +1033,13 @@
         {
           "description": "The stroke used to create the element shadow.",
           "name": "oStroke",
-          "type": "ApiStroke"
+          "type": "ApiStroke | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetMajorVerticalGridlines(oStroke: ApiStroke): boolean"
+      "signature": "SetMajorVerticalGridlines(oStroke: ApiStroke | null): boolean"
     },
     "SetMarkerFill": {
       "description": "Sets the fill to the marker in the specified chart series.",
@@ -1110,13 +1110,13 @@
         {
           "description": "The stroke used to create the element shadow.",
           "name": "oStroke",
-          "type": "ApiStroke"
+          "type": "ApiStroke | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetMinorHorizontalGridlines(oStroke: ApiStroke): boolean"
+      "signature": "SetMinorHorizontalGridlines(oStroke: ApiStroke | null): boolean"
     },
     "SetMinorVerticalGridlines": {
       "description": "Specifies minor vertical gridline visual properties.",
@@ -1125,13 +1125,13 @@
         {
           "description": "The stroke used to create the element shadow.",
           "name": "oStroke",
-          "type": "ApiStroke"
+          "type": "ApiStroke | null"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetMinorVerticalGridlines(oStroke: ApiStroke): boolean"
+      "signature": "SetMinorVerticalGridlines(oStroke: ApiStroke | null): boolean"
     },
     "SetName": {
       "description": "Sets the name of the current drawing.\n\nIf another drawing with the same name already exists, that drawing's name will be reset to a default auto-generated name.\nOLE objects do not support a custom name, so for them this method always returns false.",
@@ -1404,14 +1404,14 @@
         {
           "description": "The shadow to apply, or null to remove the current shadow.",
           "name": "shadow",
-          "type": "ApiShadow"
+          "type": "ApiShadow | null"
         }
       ],
       "returns": {
         "description": "returns false if the graphic object does not support shadow.",
         "type": "boolean"
       },
-      "signature": "SetShadow(shadow: ApiShadow): boolean",
+      "signature": "SetShadow(shadow: ApiShadow | null): boolean",
       "since": "10.0.0"
     },
     "SetShowDataLabels": {

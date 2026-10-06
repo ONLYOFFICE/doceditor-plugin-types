@@ -294,13 +294,13 @@ declare namespace Forms {
     Application: string;
 
     /** The date and time when the file was created. */
-    CreatedRaw: Date;
+    CreatedRaw: Date | null;
 
     /** The parsed date and time when the file was created. */
     Created: string;
 
     /** The date and time when the file was last modified. */
-    LastModifiedRaw: Date;
+    LastModifiedRaw: Date | null;
 
     /** The parsed date and time when the file was last modified. */
     LastModified: string;
@@ -2186,7 +2186,7 @@ declare namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/MoveCursorOutside/
      */
-    MoveCursorOutside(isAfter?: boolean): boolean;
+    MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
      * Sets the background color to the current form.
@@ -3414,7 +3414,7 @@ declare namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/MoveCursorOutside/
      */
-    MoveCursorOutside(isAfter?: boolean): boolean;
+    MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
      * Selects the specified value from the combo box list values.
@@ -4556,7 +4556,7 @@ declare namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/MoveCursorOutside/
      */
-    MoveCursorOutside(isAfter?: boolean): boolean;
+    MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
      * Sets the background color to the current form.
@@ -5681,7 +5681,7 @@ declare namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/MoveCursorOutside/
      */
-    MoveCursorOutside(isAfter?: boolean): boolean;
+    MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
      * Sets the background color to the current form.
@@ -7241,7 +7241,7 @@ declare namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/MoveCursorOutside/
      */
-    MoveCursorOutside(isAfter?: boolean): boolean;
+    MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
      * Sets the background color to the current form.
@@ -8681,7 +8681,7 @@ declare namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/MoveCursorOutside/
      */
-    MoveCursorOutside(isAfter?: boolean): boolean;
+    MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
      * Sets the background color to the current form.
@@ -9847,7 +9847,7 @@ declare namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/MoveCursorOutside/
      */
-    MoveCursorOutside(isAfter?: boolean): boolean;
+    MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
      * Sets the background color to the current form.
@@ -11013,7 +11013,7 @@ declare namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/MoveCursorOutside/
      */
-    MoveCursorOutside(isAfter?: boolean): boolean;
+    MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
      * Sets the allowed symbols for the current text field.
