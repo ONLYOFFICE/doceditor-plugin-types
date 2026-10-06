@@ -314,6 +314,18 @@ interface PluginInfo {
     jwt: string;
     lang: string;
     mmToPx: number;
+    /**
+     * What the editor currently forbids, as a bit mask (sdkjs calls the type `EditorRestrictions`):
+     *
+     * - `0x00` - nothing restricted;
+     * - `0x01` - only form fields may be edited;
+     * - `0x02` - only comments and range-permission regions may be edited;
+     * - `0x04` - the document is signed and cannot be changed;
+     * - `0x80` - editing is not allowed at all.
+     * Not the same question as {@link PluginInfo.isViewMode}: a document can be restricted to forms
+     * or comments while still being editable, and a PDF reports view mode regardless.
+     */
+    restrictions: number;
     theme: AscTheme;
     userId: string;
     userName: string;

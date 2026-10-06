@@ -203,7 +203,7 @@ https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/master/artif
 | `onlyoffice-doceditor-plugin-types.cell.ambient.d.ts` | 2.48 MB |
 | `onlyoffice-doceditor-plugin-types.slide.ambient.d.ts` | 1.46 MB |
 | `onlyoffice-doceditor-plugin-types.pdf.ambient.d.ts` | 1.42 MB |
-| `onlyoffice-doceditor-plugin-types.forms.ambient.d.ts` | 0.55 MB |
+| `onlyoffice-doceditor-plugin-types.forms.ambient.d.ts` | 0.56 MB |
 
 Each is self-contained - `Asc`, `AscPlugin`, that editor's namespace and its global `Api`. Load
 exactly one: all five declare the same globals with different types.
@@ -252,7 +252,7 @@ the [repository](https://github.com/ONLYOFFICE/doceditor-plugin-types), not in t
 
 [AGENTS.md](AGENTS.md) is the guide: the runtime's three channels and what confuses them, how to
 look a member up without guessing, how to check plugin code you wrote against a compiler, and which
-227 members need a paid edition. It ships inside the npm package, so an installed copy has it at
+228 members need a paid edition. It ships inside the npm package, so an installed copy has it at
 `node_modules/@onlyoffice/doceditor-plugin-types/AGENTS.md`.
 
 What it points to for looking a member up lives in this repository rather than the package:
