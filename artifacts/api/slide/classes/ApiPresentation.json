@@ -7,7 +7,7 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/AddMaster/",
       "params": [
         {
-          "description": "The position where the slide master will be added.",
+          "description": "The position where the slide master will be added. If the position is invalid, the slide master is added to the end.",
           "name": "pos",
           "optional": true,
           "type": "number"
@@ -20,7 +20,7 @@
         }
       ],
       "returns": {
-        "description": "return false if position is invalid or apiMaster doesn't exist.",
+        "description": "returns false if apiMaster isn't a slide master or is already in the presentation.",
         "type": "boolean"
       },
       "signature": "AddMaster(pos?: number, apiMaster?: ApiMaster): boolean"
@@ -950,9 +950,10 @@
         }
       ],
       "returns": {
-        "type": "object[]"
+        "description": "returns null if the slide range is invalid.",
+        "type": "object | null"
       },
-      "signature": "SlidesToJSON(nStart?: number, nEnd?: number, bWriteLayout?: boolean, bWriteMaster?: boolean, bWriteAllMasLayouts?: boolean, bWriteTableStyles?: boolean): object[]"
+      "signature": "SlidesToJSON(nStart?: number, nEnd?: number, bWriteLayout?: boolean, bWriteMaster?: boolean, bWriteAllMasLayouts?: boolean, bWriteTableStyles?: boolean): object | null"
     },
     "ToJSON": {
       "description": "Converts the ApiPresentation object into the JSON object.",

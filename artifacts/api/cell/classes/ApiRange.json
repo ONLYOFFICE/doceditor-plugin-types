@@ -29,13 +29,13 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/AutoFit/",
       "params": [
         {
-          "description": "Specifies if the width of the columns will be autofit.",
+          "description": "Specifies if the height of the rows will be autofit.",
           "name": "bRows",
           "optional": true,
           "type": "boolean"
         },
         {
-          "description": "Specifies if the height of the rows will be autofit.",
+          "description": "Specifies if the width of the columns will be autofit.",
           "name": "bCols",
           "optional": true,
           "type": "boolean"

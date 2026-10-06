@@ -86,6 +86,16 @@
       },
       "signature": "GetHeight(): EMU"
     },
+    "GetInternalId": {
+      "description": "Returns an internal ID of the current drawing object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetInternalId/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetInternalId(): string",
+      "since": "10.0.0"
+    },
     "GetLine": {
       "description": "Gets the outline properties from the current graphic object.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetLine/",
@@ -247,7 +257,7 @@
         "type": "void"
       },
       "signature": "Select(isReplace?: boolean): void",
-      "since": "9.3.0"
+      "since": "9.1.0"
     },
     "SetDescription": {
       "description": "Sets the description of the current drawing.",

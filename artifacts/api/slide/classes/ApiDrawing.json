@@ -331,7 +331,7 @@
         "type": "boolean"
       },
       "signature": "Select(isReplace?: boolean): boolean",
-      "since": "9.3.0"
+      "since": "8.2.0"
     },
     "SetDescription": {
       "description": "Sets the description of the current drawing.",

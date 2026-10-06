@@ -60,13 +60,13 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiName/Methods/SetRefersTo/",
       "params": [
         {
-          "description": "The range reference which must contain the sheet name, followed by sign ! and a range of cells.\rExample: \"Sheet1!$A$1:$B$2\".",
+          "description": "The range reference which must contain the sheet name, followed by sign ! and a range of cells.\rExample: \"Sheet1!$A$1:$B$2\". A constant or a formula is accepted as well, and so is a leading \"=\", as in the Excel RefersTo form.",
           "name": "sRef",
           "type": "string"
         }
       ],
       "returns": {
-        "description": "returns true if the reference was set successfully.",
+        "description": "returns true if the reference was set successfully, false if it is not a valid formula.",
         "type": "boolean"
       },
       "signature": "SetRefersTo(sRef: string): boolean"

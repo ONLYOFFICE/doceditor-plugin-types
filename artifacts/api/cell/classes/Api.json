@@ -570,8 +570,7 @@
       "returns": {
         "type": "ApiStroke"
       },
-      "signature": "CreateStroke(width: EMU, fill: ApiFill, sDash?: DashType): ApiStroke",
-      "since": "9.3.0"
+      "signature": "CreateStroke(width: EMU, fill: ApiFill, sDash?: DashType): ApiStroke"
     },
     "CreateTextPr": {
       "description": "Creates the empty text properties.",
@@ -670,6 +669,22 @@
       },
       "signature": "GetAllPivotTables(): ApiPivotTable[]",
       "since": "8.2.0"
+    },
+    "GetByInternalId": {
+      "description": "Returns an object by its internal ID.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetByInternalId/",
+      "params": [
+        {
+          "description": "The internal ID of the object.",
+          "name": "id",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "ApiDrawing | ApiDocumentContent | ApiParagraph | null"
+      },
+      "signature": "GetByInternalId(id: string): ApiDrawing | ApiDocumentContent | ApiParagraph | null",
+      "since": "10.0.0"
     },
     "GetCommentById": {
       "description": "Returns a comment from the current document by its ID.",

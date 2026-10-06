@@ -9,12 +9,12 @@
     },
     {
       "description": "The number of degrees of freedom, a number between 1 and 10^10, excluding 10^10.",
-      "name": "arg2_",
+      "name": "arg2",
       "type": "ApiRange | ApiName | number"
     }
   ],
   "returns": {
     "type": "number"
   },
-  "signature": "CHISQ_INV(arg1: ApiRange | ApiName | number, arg2_: ApiRange | ApiName | number): number"
+  "signature": "CHISQ_INV(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number): number"
 }

@@ -399,11 +399,17 @@ declare namespace Forms {
    */
   export type HdrFtrType = "default" | "title" | "even";
 
+  /** The line cap type. */
+  export type LineCapType = "flat" | "round" | "square";
+
   /** The line end size. */
   export type LineEndSize = "large" | "medium" | "small";
 
   /** The line end type. */
   export type LineEndType = "none" | "arrow" | "diamond" | "oval" | "stealth" | "triangle";
+
+  /** The line join type. */
+  export type LineJoinType = "empty" | "round" | "bevel" | "miter";
 
   /** Standard numeric format. */
   export type NumFormat = "General" | "0" | "0.00" | "#,##0" | "#,##0.00" | "0%" | "0.00%" | "0.00E+00" | "# ?/?" | "# ??/??" | "m/d/yyyy" | "d-mmm-yy" | "d-mmm" | "mmm-yy" | "h:mm AM/PM" | "h:mm:ss AM/PM" | "h:mm" | "h:mm:ss" | "m/d/yyyy h:mm" | "#,##0_);(#,##0)" | "#,##0_);[Red](#,##0)" | "#,##0.00_);(#,##0.00)" | "#,##0.00_);[Red](#,##0.00)" | "mm:ss" | "[h]:mm:ss" | "mm:ss.0" | "##0.0E+0" | "@";
@@ -541,7 +547,7 @@ declare namespace Forms {
   /** Properties used to create a shadow. */
   export interface ShadowSettings {
     /** The shadow color (black by default). */
-    color?: ApiColor | ApiUniColor;
+    color?: ApiColor;
 
     /** The shadow transparency from 0.0 (opaque) to 1.0 (clear). */
     transparency?: number;
@@ -560,7 +566,7 @@ declare namespace Forms {
   }
 
   /** This type specifies the preset shape geometry that will be used for a shape. */
-  export type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "trapezoid" | "triangle" | "upArrowCallout" | "upDownArrow" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
+  export type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "textRect" | "trapezoid" | "triangle" | "upArrowCallout" | "upDownArrow" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
 
   /** A shade type which can be added to the document element. */
   export type ShdType = "nil" | "clear";
@@ -1863,7 +1869,8 @@ declare namespace Forms {
     /**
      * Returns the text properties from the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @example
      * ```js
@@ -2386,7 +2393,8 @@ declare namespace Forms {
     /**
      * Sets the placeholder text to the current form.
      *
-     * *Can't be set to checkbox or radio button.*
+     * **Note:**
+     * The placeholder text can't be set for checkbox or radio button forms.
      *
      * @param sText - The text that will be set to the current form.
      *
@@ -2550,7 +2558,8 @@ declare namespace Forms {
     /**
      * Sets the text properties to the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @param textPr - The text properties that will be set to the current form.
      *
@@ -2656,7 +2665,8 @@ declare namespace Forms {
     /**
      * Converts the current form to an inline form.
      *
-     * *Picture form can't be converted to an inline form, it's always a fixed size object.*
+     * **Note:**
+     * A picture form can't be converted to an inline form, as it's always a fixed-size object.
      *
      * @example
      * ```js
@@ -3119,7 +3129,8 @@ declare namespace Forms {
     /**
      * Returns the text properties from the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @example
      * ```js
@@ -3498,7 +3509,8 @@ declare namespace Forms {
     /**
      * Sets the placeholder text to the current form.
      *
-     * *Can't be set to checkbox or radio button.*
+     * **Note:**
+     * The placeholder text can't be set for checkbox or radio button forms.
      *
      * @param sText - The text that will be set to the current form.
      *
@@ -3630,7 +3642,8 @@ declare namespace Forms {
     /**
      * Sets the text to the current combo box.
      *
-     * *Available only for editable combo box forms.*
+     * **Note:**
+     * Available only for editable combo box forms.
      *
      * @param sText - The combo box text.
      *
@@ -3654,7 +3667,8 @@ declare namespace Forms {
     /**
      * Sets the text properties to the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @param textPr - The text properties that will be set to the current form.
      *
@@ -3763,7 +3777,8 @@ declare namespace Forms {
     /**
      * Converts the current form to an inline form.
      *
-     * *Picture form can't be converted to an inline form, it's always a fixed size object.*
+     * **Note:**
+     * A picture form can't be converted to an inline form, as it's always a fixed-size object.
      *
      * @example
      * ```js
@@ -4279,7 +4294,8 @@ declare namespace Forms {
     /**
      * Returns the text properties from the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @example
      * ```js
@@ -4591,7 +4607,8 @@ declare namespace Forms {
     /**
      * Sets the placeholder text to the current form.
      *
-     * *Can't be set to checkbox or radio button.*
+     * **Note:**
+     * The placeholder text can't be set for checkbox or radio button forms.
      *
      * @param sText - The text that will be set to the current form.
      *
@@ -4723,7 +4740,8 @@ declare namespace Forms {
     /**
      * Sets the text properties to the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @param textPr - The text properties that will be set to the current form.
      *
@@ -4828,7 +4846,8 @@ declare namespace Forms {
     /**
      * Converts the current form to an inline form.
      *
-     * *Picture form can't be converted to an inline form, it's always a fixed size object.*
+     * **Note:**
+     * A picture form can't be converted to an inline form, as it's always a fixed-size object.
      *
      * @example
      * ```js
@@ -5376,7 +5395,8 @@ declare namespace Forms {
     /**
      * Returns the text properties from the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @example
      * ```js
@@ -5794,7 +5814,8 @@ declare namespace Forms {
     /**
      * Sets the placeholder text to the current form.
      *
-     * *Can't be set to checkbox or radio button.*
+     * **Note:**
+     * The placeholder text can't be set for checkbox or radio button forms.
      *
      * @param sText - The text that will be set to the current form.
      *
@@ -5926,7 +5947,8 @@ declare namespace Forms {
     /**
      * Sets the text properties to the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @param textPr - The text properties that will be set to the current form.
      *
@@ -6058,7 +6080,8 @@ declare namespace Forms {
     /**
      * Converts the current form to an inline form.
      *
-     * *Picture form can't be converted to an inline form, it's always a fixed size object.*
+     * **Note:**
+     * A picture form can't be converted to an inline form, as it's always a fixed-size object.
      *
      * @example
      * ```js
@@ -6959,7 +6982,8 @@ declare namespace Forms {
     /**
      * Returns the text properties from the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @example
      * ```js
@@ -7268,7 +7292,8 @@ declare namespace Forms {
     /**
      * Sets the placeholder text to the current form.
      *
-     * *Can't be set to checkbox or radio button.*
+     * **Note:**
+     * The placeholder text can't be set for checkbox or radio button forms.
      *
      * @param sText - The text that will be set to the current form.
      *
@@ -7400,7 +7425,8 @@ declare namespace Forms {
     /**
      * Sets the text properties to the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @param textPr - The text properties that will be set to the current form.
      *
@@ -7505,7 +7531,8 @@ declare namespace Forms {
     /**
      * Converts the current form to an inline form.
      *
-     * *Picture form can't be converted to an inline form, it's always a fixed size object.*
+     * **Note:**
+     * A picture form can't be converted to an inline form, as it's always a fixed-size object.
      *
      * @example
      * ```js
@@ -8346,7 +8373,8 @@ declare namespace Forms {
     /**
      * Returns the text properties from the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @example
      * ```js
@@ -8793,7 +8821,8 @@ declare namespace Forms {
     /**
      * Sets the placeholder text to the current form.
      *
-     * *Can't be set to checkbox or radio button.*
+     * **Note:**
+     * The placeholder text can't be set for checkbox or radio button forms.
      *
      * @param sText - The text that will be set to the current form.
      *
@@ -8980,7 +9009,8 @@ declare namespace Forms {
     /**
      * Sets the text properties to the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @param textPr - The text properties that will be set to the current form.
      *
@@ -9085,7 +9115,8 @@ declare namespace Forms {
     /**
      * Converts the current form to an inline form.
      *
-     * *Picture form can't be converted to an inline form, it's always a fixed size object.*
+     * **Note:**
+     * A picture form can't be converted to an inline form, as it's always a fixed-size object.
      *
      * @example
      * ```js
@@ -9557,7 +9588,8 @@ declare namespace Forms {
     /**
      * Returns the text properties from the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @example
      * ```js
@@ -9866,7 +9898,8 @@ declare namespace Forms {
     /**
      * Sets the placeholder text to the current form.
      *
-     * *Can't be set to checkbox or radio button.*
+     * **Note:**
+     * The placeholder text can't be set for checkbox or radio button forms.
      *
      * @param sText - The text that will be set to the current form.
      *
@@ -9998,7 +10031,8 @@ declare namespace Forms {
     /**
      * Sets the text properties to the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @param textPr - The text properties that will be set to the current form.
      *
@@ -10103,7 +10137,8 @@ declare namespace Forms {
     /**
      * Converts the current form to an inline form.
      *
-     * *Picture form can't be converted to an inline form, it's always a fixed size object.*
+     * **Note:**
+     * A picture form can't be converted to an inline form, as it's always a fixed-size object.
      *
      * @example
      * ```js
@@ -10648,7 +10683,8 @@ declare namespace Forms {
     /**
      * Returns the text properties from the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @example
      * ```js
@@ -11214,7 +11250,8 @@ declare namespace Forms {
     /**
      * Sets the placeholder text to the current form.
      *
-     * *Can't be set to checkbox or radio button.*
+     * **Note:**
+     * The placeholder text can't be set for checkbox or radio button forms.
      *
      * @param sText - The text that will be set to the current form.
      *
@@ -11368,7 +11405,8 @@ declare namespace Forms {
     /**
      * Sets the text properties to the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @param textPr - The text properties that will be set to the current form.
      *
@@ -11473,7 +11511,8 @@ declare namespace Forms {
     /**
      * Converts the current form to an inline form.
      *
-     * *Picture form can't be converted to an inline form, it's always a fixed size object.*
+     * **Note:**
+     * A picture form can't be converted to an inline form, as it's always a fixed-size object.
      *
      * @example
      * ```js

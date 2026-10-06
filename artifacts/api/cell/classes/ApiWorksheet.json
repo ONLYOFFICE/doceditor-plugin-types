@@ -304,7 +304,7 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/AddShape/",
       "params": [
         {
-          "description": "The shape type which specifies the preset shape geometry.",
+          "description": "The shape type which specifies the preset shape geometry. The \"textRect\" type creates a text box as the editor inserts it: a light fill and a thin black outline.",
           "name": "sType",
           "optional": true,
           "type": "ShapeType"

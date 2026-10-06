@@ -397,8 +397,7 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "Select(isReplace?: boolean): boolean",
-      "since": "9.3.0"
+      "signature": "Select(isReplace?: boolean): boolean"
     },
     "SetAllowOverlap": {
       "description": "Sets whether the drawing object is allowed to overlap other drawing objects.",
@@ -574,8 +573,7 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetHorPosition(sRelativeFrom: RelFromH, nDistance: EMU | number, bPercent?: boolean): boolean",
-      "since": "9.3.0"
+      "signature": "SetHorPosition(sRelativeFrom: RelFromH, nDistance: EMU | number, bPercent?: boolean): boolean"
     },
     "SetLockAspect": {
       "description": "Sets whether the aspect ratio of the drawing is locked.",
@@ -809,8 +807,7 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetVerPosition(sRelativeFrom: RelFromV, nDistance: EMU | number, bPercent?: boolean): boolean",
-      "since": "9.3.0"
+      "signature": "SetVerPosition(sRelativeFrom: RelFromV, nDistance: EMU | number, bPercent?: boolean): boolean"
     },
     "SetVertFlip": {
       "description": "Flips the current drawing vertically.",

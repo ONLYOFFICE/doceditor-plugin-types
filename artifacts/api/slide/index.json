@@ -751,7 +751,7 @@
       "SetLanguage": "SetLanguage(sLangId: string): boolean",
       "SetLoopUntilStopped": "SetLoopUntilStopped(loopUntilStopped: boolean): boolean",
       "SetSizes": "SetSizes(nWidth: EMU, nHeight: EMU): void",
-      "SlidesToJSON": "SlidesToJSON(nStart?: number, nEnd?: number, bWriteLayout?: boolean, bWriteMaster?: boolean, bWriteAllMasLayouts?: boolean, bWriteTableStyles?: boolean): object[]",
+      "SlidesToJSON": "SlidesToJSON(nStart?: number, nEnd?: number, bWriteLayout?: boolean, bWriteMaster?: boolean, bWriteAllMasLayouts?: boolean, bWriteTableStyles?: boolean): object | null",
       "ToJSON": "ToJSON(bWriteTableStyles?: boolean): object"
     },
     "ApiPresentationVisitor": {
@@ -972,13 +972,17 @@
     },
     "ApiStroke": {
       "GetBeginArrow": "GetBeginArrow(): object | null",
+      "GetCapType": "GetCapType(): LineCapType | null",
       "GetClassType": "GetClassType(): \"stroke\"",
       "GetDashType": "GetDashType(): DashType | null",
       "GetEndArrow": "GetEndArrow(): object | null",
       "GetFill": "GetFill(): ApiFill | null",
+      "GetJoinType": "GetJoinType(): LineJoinType | null",
       "GetWidth": "GetWidth(): EMU | null",
       "SetBeginArrow": "SetBeginArrow(type: LineEndType, width?: LineEndSize, length?: LineEndSize): boolean",
-      "SetEndArrow": "SetEndArrow(type: LineEndType, width?: LineEndSize, length?: LineEndSize): boolean"
+      "SetCapType": "SetCapType(type: LineCapType): boolean",
+      "SetEndArrow": "SetEndArrow(type: LineEndType, width?: LineEndSize, length?: LineEndSize): boolean",
+      "SetJoinType": "SetJoinType(type: LineJoinType): boolean"
     },
     "ApiStyle": {
       "GetTablePr": "GetTablePr(): ApiTablePr",
@@ -1353,8 +1357,10 @@
     "GeometryFormulaType",
     "HdrFtrType",
     "LayoutType",
+    "LineCapType",
     "LineEndSize",
     "LineEndType",
+    "LineJoinType",
     "NumFormat",
     "ParagraphContent",
     "ParagraphLikeContainer",

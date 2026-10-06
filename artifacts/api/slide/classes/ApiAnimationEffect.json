@@ -111,7 +111,7 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiAnimationEffect/Methods/SetDelay/",
       "params": [
         {
-          "description": "The delay in milliseconds.",
+          "description": "The delay in milliseconds. The maximum delay is 65536000 ms, a larger value is set to 65536000 ms.",
           "name": "delay",
           "type": "number"
         }
@@ -128,7 +128,7 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiAnimationEffect/Methods/SetDuration/",
       "params": [
         {
-          "description": "The duration in milliseconds.",
+          "description": "The duration in milliseconds. The minimum duration is 10 ms, a smaller value is set to 10 ms.",
           "name": "duration",
           "type": "number"
         }

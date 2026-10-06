@@ -750,7 +750,7 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/CreateShape/",
       "params": [
         {
-          "description": "The shape type which specifies the preset shape geometry.",
+          "description": "The shape type which specifies the preset shape geometry. The \"textRect\" type creates a text box as the editor inserts it: a light fill and a thin black outline.",
           "name": "shapeType",
           "optional": true,
           "type": "ShapeType"
@@ -847,8 +847,7 @@
       "returns": {
         "type": "ApiStroke"
       },
-      "signature": "CreateStroke(width: EMU, fill: ApiFill, sDash?: DashType): ApiStroke",
-      "since": "9.3.0"
+      "signature": "CreateStroke(width: EMU, fill: ApiFill, sDash?: DashType): ApiStroke"
     },
     "CreateTable": {
       "description": "Creates a new table with a specified number of rows and columns.\n\n**Breaking Change:**\nStarting from version 9.4.0, the parameter order has been changed from `Api.CreateTable(cols, rows)` to `Api.CreateTable(rows, cols)`.\n",

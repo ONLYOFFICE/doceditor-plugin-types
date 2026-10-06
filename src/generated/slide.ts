@@ -290,11 +290,17 @@ export namespace Slide {
   /** Available layout types. */
   export type LayoutType = "blank" | "chart" | "chartAndTx" | "clipArtAndTx" | "clipArtAndVertTx" | "cust" | "dgm" | "fourObj" | "mediaAndTx" | "obj" | "objAndTwoObj" | "objAndTx" | "objOnly" | "objOverTx" | "objTx" | "picTx" | "secHead" | "tbl" | "title" | "titleOnly" | "twoColTx" | "twoObj" | "twoObjAndObj" | "twoObjAndTx" | "twoObjOverTx" | "twoTxTwoObj" | "tx" | "txAndChart" | "txAndClipArt" | "txAndMedia" | "txAndObj" | "txAndTwoObj" | "txOverObj" | "vertTitleAndTx" | "vertTitleAndTxOverChart" | "vertTx";
 
+  /** The line cap type. */
+  export type LineCapType = "flat" | "round" | "square";
+
   /** The line end size. */
   export type LineEndSize = "large" | "medium" | "small";
 
   /** The line end type. */
   export type LineEndType = "none" | "arrow" | "diamond" | "oval" | "stealth" | "triangle";
+
+  /** The line join type. */
+  export type LineJoinType = "empty" | "round" | "bevel" | "miter";
 
   /** Standard numeric format. */
   export type NumFormat = "General" | "0" | "0.00" | "#,##0" | "#,##0.00" | "0%" | "0.00%" | "0.00E+00" | "# ?/?" | "# ??/??" | "m/d/yyyy" | "d-mmm-yy" | "d-mmm" | "mmm-yy" | "h:mm AM/PM" | "h:mm:ss AM/PM" | "h:mm" | "h:mm:ss" | "m/d/yyyy h:mm" | "#,##0_);(#,##0)" | "#,##0_);[Red](#,##0)" | "#,##0.00_);(#,##0.00)" | "#,##0.00_);[Red](#,##0.00)" | "mm:ss" | "[h]:mm:ss" | "mm:ss.0" | "##0.0E+0" | "@";
@@ -401,7 +407,7 @@ export namespace Slide {
   /** Properties used to create a shadow. */
   export interface ShadowSettings {
     /** The shadow color (black by default). */
-    color?: ApiColor | ApiUniColor;
+    color?: ApiColor;
 
     /** The shadow transparency from 0.0 (opaque) to 1.0 (clear). */
     transparency?: number;
@@ -420,7 +426,7 @@ export namespace Slide {
   }
 
   /** This type specifies the preset shape geometry that will be used for a shape. */
-  export type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "trapezoid" | "triangle" | "upArrowCallout" | "upDownArrow" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
+  export type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "textRect" | "trapezoid" | "triangle" | "upArrowCallout" | "upDownArrow" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
 
   /** A shade type which can be added to the document element. */
   export type ShdType = "nil" | "clear";
@@ -1810,13 +1816,14 @@ export namespace Slide {
     /**
      * Creates a shape with the parameters specified.
      *
-     * @param sType - The shape type which specifies the preset shape geometry.
+     * @param sType - The shape type which specifies the preset shape geometry. The "textRect" type creates a text
+     *   box: it has no fill and no outline, uses the theme text color, and its height follows the text.
      * @param nWidth - The shape width in English measure units.
      * @param nHeight - The shape height in English measure units.
      * @param oFill - The color or pattern used to fill the shape. If not specified, the default shape style fill
-     *   (theme accent) is used.
+     *   (theme accent) is used, a text box has no fill.
      * @param oStroke - The stroke used to draw the shape outline. If not specified, the default shape style outline
-     *   (theme accent) is used.
+     *   (theme accent) is used, a text box has no outline.
      * @default sType = "rect"
      * @default nWidth = 914400
      * @default nHeight = 914400
@@ -1954,7 +1961,6 @@ export namespace Slide {
      * @param fill - The fill type used to create the shadow.
      * @param sDash - The type of line dash.
      * @default sDash = "solid"
-     * @since 9.3.0
      *
      * @example
      * ```js
@@ -3818,7 +3824,8 @@ export namespace Slide {
     /**
      * Sets the delay before the animation effect starts in milliseconds.
      *
-     * @param delay - The delay in milliseconds.
+     * @param delay - The delay in milliseconds. The maximum delay is 65536000 ms, a larger value is set to 65536000
+     *   ms.
      * @returns True if the delay was set successfully.
      * @since 9.3.0
      *
@@ -3868,7 +3875,7 @@ export namespace Slide {
     /**
      * Sets the duration of the animation effect in milliseconds.
      *
-     * @param duration - The duration in milliseconds.
+     * @param duration - The duration in milliseconds. The minimum duration is 10 ms, a smaller value is set to 10 ms.
      * @returns True if the duration was set successfully.
      * @since 9.3.0
      *
@@ -12269,7 +12276,7 @@ export namespace Slide {
      * @param isReplace - Specifies whether the selection should replace the current selection (true) or be added to it
      *   (false).
      * @default isReplace = false
-     * @since 9.3.0
+     * @since 8.2.0
      *
      * @example
      * ```js
@@ -22078,10 +22085,11 @@ export namespace Slide {
     /**
      * Adds the slide master to the presentation slide masters collection.
      *
-     * @param pos - The position where the slide master will be added.
+     * @param pos - The position where the slide master will be added. If the position is invalid, the slide master
+     *   is added to the end.
      * @param apiMaster - The slide master to be added.
      * @default pos = ApiPresentation.GetMastersCount()
-     * @returns return false if position is invalid or apiMaster doesn't exist.
+     * @returns returns false if apiMaster isn't a slide master or is already in the presentation.
      *
      * @example
      * ```js
@@ -23774,6 +23782,7 @@ export namespace Slide {
      * @default bWriteMaster = false
      * @default bWriteAllMasLayouts = false
      * @default bWriteTableStyles = false
+     * @returns returns null if the slide range is invalid.
      *
      * @example
      * ```js
@@ -23805,7 +23814,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/SlidesToJSON/
      */
-    SlidesToJSON(nStart?: number, nEnd?: number, bWriteLayout?: boolean, bWriteMaster?: boolean, bWriteAllMasLayouts?: boolean, bWriteTableStyles?: boolean): object[];
+    SlidesToJSON(nStart?: number, nEnd?: number, bWriteLayout?: boolean, bWriteMaster?: boolean, bWriteAllMasLayouts?: boolean, bWriteTableStyles?: boolean): object | null;
 
     /**
      * Converts the ApiPresentation object into the JSON object.
@@ -29508,6 +29517,15 @@ export namespace Slide {
     GetBeginArrow(): object | null;
 
     /**
+     * Returns the cap type of the stroke.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStroke/Methods/GetCapType/
+     */
+    GetCapType(): LineCapType | null;
+
+    /**
      * Returns a type of the ApiStroke class.
      *
      * @example
@@ -29609,6 +29627,15 @@ export namespace Slide {
     GetFill(): ApiFill | null;
 
     /**
+     * Returns the join type of the stroke.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStroke/Methods/GetJoinType/
+     */
+    GetJoinType(): LineJoinType | null;
+
+    /**
      * Gets the width of the stroke in English Metric Units.
      *
      * @example
@@ -29671,6 +29698,16 @@ export namespace Slide {
     SetBeginArrow(type: LineEndType, width?: LineEndSize, length?: LineEndSize): boolean;
 
     /**
+     * Sets the cap type of the stroke.
+     *
+     * @param type - The cap type of the stroke.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStroke/Methods/SetCapType/
+     */
+    SetCapType(type: LineCapType): boolean;
+
+    /**
      * Sets the ending arrow of the stroke.
      *
      * @param type - The type of the ending arrow.
@@ -29683,6 +29720,16 @@ export namespace Slide {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStroke/Methods/SetEndArrow/
      */
     SetEndArrow(type: LineEndType, width?: LineEndSize, length?: LineEndSize): boolean;
+
+    /**
+     * Sets the join type of the stroke.
+     *
+     * @param type - The join type of the stroke.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStroke/Methods/SetJoinType/
+     */
+    SetJoinType(type: LineJoinType): boolean;
   }
 
   /**
@@ -33764,8 +33811,9 @@ export namespace Slide {
     /**
      * Changes a color in the theme color scheme.
      *
-     * @param nPos - Color position in the color scheme which will be changed.
-     * @param oColor - New color of the theme color scheme.
+     * @param nPos - Color position in the color scheme which will be changed: 0-5 - accent1-accent6, 6 - dk1, 7 -
+     *   dk2, 8 - folHlink, 9 - hlink, 10 - lt1, 11 - lt2.
+     * @param oColor - New color of the theme color scheme. A theme color is saved as its current RGB value.
      *
      * @example
      * ```js

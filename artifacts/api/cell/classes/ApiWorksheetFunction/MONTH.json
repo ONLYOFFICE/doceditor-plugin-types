@@ -4,12 +4,12 @@
   "params": [
     {
       "description": "A number in the date-time code.",
-      "name": "arg1_",
+      "name": "arg1",
       "type": "ApiRange | ApiName | number"
     }
   ],
   "returns": {
     "type": "number"
   },
-  "signature": "MONTH(arg1_: ApiRange | ApiName | number): number"
+  "signature": "MONTH(arg1: ApiRange | ApiName | number): number"
 }

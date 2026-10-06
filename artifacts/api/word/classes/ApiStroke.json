@@ -12,6 +12,16 @@
       "signature": "GetBeginArrow(): object | null",
       "since": "10.0.0"
     },
+    "GetCapType": {
+      "description": "Returns the cap type of the stroke.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStroke/Methods/GetCapType/",
+      "params": [],
+      "returns": {
+        "type": "LineCapType | null"
+      },
+      "signature": "GetCapType(): LineCapType | null",
+      "since": "10.0.0"
+    },
     "GetClassType": {
       "description": "Returns a type of the ApiStroke class.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStroke/Methods/GetClassType/",
@@ -50,6 +60,16 @@
       },
       "signature": "GetFill(): ApiFill | null"
     },
+    "GetJoinType": {
+      "description": "Returns the join type of the stroke.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStroke/Methods/GetJoinType/",
+      "params": [],
+      "returns": {
+        "type": "LineJoinType | null"
+      },
+      "signature": "GetJoinType(): LineJoinType | null",
+      "since": "10.0.0"
+    },
     "GetWidth": {
       "description": "Gets the width of the stroke in English Metric Units.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStroke/Methods/GetWidth/",
@@ -87,6 +107,22 @@
       "signature": "SetBeginArrow(type: LineEndType, width?: LineEndSize, length?: LineEndSize): boolean",
       "since": "10.0.0"
     },
+    "SetCapType": {
+      "description": "Sets the cap type of the stroke.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStroke/Methods/SetCapType/",
+      "params": [
+        {
+          "description": "The cap type of the stroke.",
+          "name": "type",
+          "type": "LineCapType"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetCapType(type: LineCapType): boolean",
+      "since": "10.0.0"
+    },
     "SetEndArrow": {
       "description": "Sets the ending arrow of the stroke.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStroke/Methods/SetEndArrow/",
@@ -113,6 +149,22 @@
         "type": "boolean"
       },
       "signature": "SetEndArrow(type: LineEndType, width?: LineEndSize, length?: LineEndSize): boolean",
+      "since": "10.0.0"
+    },
+    "SetJoinType": {
+      "description": "Sets the join type of the stroke.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStroke/Methods/SetJoinType/",
+      "params": [
+        {
+          "description": "The join type of the stroke.",
+          "name": "type",
+          "type": "LineJoinType"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetJoinType(type: LineJoinType): boolean",
       "since": "10.0.0"
     },
     "ToJSON": {

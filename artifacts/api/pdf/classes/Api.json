@@ -389,13 +389,13 @@
       "signature": "CreateImageField(rect: Rect): ApiButtonField"
     },
     "CreateImageStampAnnot": {
-      "description": "Creates stamp annotation from an image.",
+      "description": "Creates stamp annotation from an image.\nThe annotation dimensions are taken from the loaded image, or updated after it has been loaded.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateImageStampAnnot/",
       "params": [
         {
-          "description": "annotation rect",
-          "name": "rect",
-          "type": "Rect"
+          "description": "The position of the upper-left corner of the annotation. For a Rect, only x1 and y1 are used.",
+          "name": "position",
+          "type": "Point | Rect"
         },
         {
           "description": "The image source where the image should be taken from (currently,\ronly internet URL or Base64 encoded images are supported).",
@@ -418,7 +418,7 @@
       "returns": {
         "type": "ApiStampAnnotation"
       },
-      "signature": "CreateImageStampAnnot(rect: Rect, imageSrc: string, author?: string, creationDate?: number): ApiStampAnnotation",
+      "signature": "CreateImageStampAnnot(position: Point | Rect, imageSrc: string, author?: string, creationDate?: number): ApiStampAnnotation",
       "since": "10.0.0"
     },
     "CreateInkAnnot": {
@@ -887,7 +887,7 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateShape/",
       "params": [
         {
-          "description": "The shape type which specifies the preset shape geometry.",
+          "description": "The shape type which specifies the preset shape geometry. The \"textRect\" type creates a text box: it has no fill and no outline, and its height follows the text.",
           "name": "shapeType",
           "optional": true,
           "type": "ShapeType"
@@ -905,13 +905,13 @@
           "type": "EMU"
         },
         {
-          "description": "The color or pattern used to fill the shape. If not specified, the default shape style fill (theme accent) is used.",
+          "description": "The color or pattern used to fill the shape. If not specified, the default shape style fill (theme accent) is used, a text box has no fill.",
           "name": "fill",
           "optional": true,
           "type": "ApiFill"
         },
         {
-          "description": "The stroke used to draw the shape outline. If not specified, the default shape style outline (theme accent) is used.",
+          "description": "The stroke used to draw the shape outline. If not specified, the default shape style outline (theme accent) is used, a text box has no outline.",
           "name": "stroke",
           "optional": true,
           "type": "ApiStroke"
@@ -996,9 +996,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateStampAnnot/",
       "params": [
         {
-          "description": "annotation rect (only x1, y1 coordinates will be used, since the stamp dimensions are reserved).",
-          "name": "rect",
-          "type": "Rect"
+          "description": "The position of the upper-left corner of the annotation. For a Rect, only x1 and y1 are used.",
+          "name": "position",
+          "type": "Point | Rect"
         },
         {
           "description": "stamp type",
@@ -1021,7 +1021,7 @@
       "returns": {
         "type": "ApiStampAnnotation"
       },
-      "signature": "CreateStampAnnot(rect: Rect, type: StampType, author?: string, creationDate?: number): ApiStampAnnotation"
+      "signature": "CreateStampAnnot(position: Point | Rect, type: StampType, author?: string, creationDate?: number): ApiStampAnnotation"
     },
     "CreateStrikeoutAnnot": {
       "description": "Creates strikeout annotation.",
@@ -1062,8 +1062,7 @@
       "returns": {
         "type": "ApiStroke"
       },
-      "signature": "CreateStroke(width: EMU, fill: ApiFill, sDash?: DashType): ApiStroke",
-      "since": "9.3.0"
+      "signature": "CreateStroke(width: EMU, fill: ApiFill, sDash?: DashType): ApiStroke"
     },
     "CreateTable": {
       "description": "Creates a table.",

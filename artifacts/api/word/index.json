@@ -780,7 +780,9 @@
       "SetText": "SetText(text: string): ApiRun",
       "ToJSON": "ToJSON(isWriteNumberings: boolean, isWriteStyles: boolean): object"
     },
-    "ApiDocumentVisitor": {},
+    "ApiDocumentVisitor": {
+      "Stop": "Stop(): boolean"
+    },
     "ApiDrawing": {
       "AddBreak": "AddBreak(breakType: number, position: string): boolean",
       "Copy": "Copy(): ApiDrawing | null",
@@ -1122,7 +1124,7 @@
       "SetPictureSize": "SetPictureSize(width: EMU, height: EMU): boolean",
       "SetPlaceholderText": "SetPlaceholderText(sText: string): boolean",
       "SetTag": "SetTag(sTag: string): boolean",
-      "SetTextPr": "SetTextPr(oTextPr: ApiTextPr): ApiInlineLvlSdt",
+      "SetTextPr": "SetTextPr(oTextPr: ApiTextPr): ApiInlineLvlSdt | null",
       "ToJSON": "ToJSON(bWriteStyles: boolean): object",
       "UpdateFromXmlMapping": "UpdateFromXmlMapping(): boolean"
     },
@@ -1864,13 +1866,17 @@
     },
     "ApiStroke": {
       "GetBeginArrow": "GetBeginArrow(): object | null",
+      "GetCapType": "GetCapType(): LineCapType | null",
       "GetClassType": "GetClassType(): \"stroke\"",
       "GetDashType": "GetDashType(): DashType | null",
       "GetEndArrow": "GetEndArrow(): object | null",
       "GetFill": "GetFill(): ApiFill | null",
+      "GetJoinType": "GetJoinType(): LineJoinType | null",
       "GetWidth": "GetWidth(): EMU | null",
       "SetBeginArrow": "SetBeginArrow(type: LineEndType, width?: LineEndSize, length?: LineEndSize): boolean",
+      "SetCapType": "SetCapType(type: LineCapType): boolean",
       "SetEndArrow": "SetEndArrow(type: LineEndType, width?: LineEndSize, length?: LineEndSize): boolean",
+      "SetJoinType": "SetJoinType(type: LineJoinType): boolean",
       "ToJSON": "ToJSON(): object"
     },
     "ApiStyle": {
@@ -2409,6 +2415,7 @@
     "ApiDocument.GetTablesOfContents",
     "ApiDocument.GetTablesOfFigures",
     "ApiDocumentContent.GetDocumentVisitor",
+    "ApiDocumentVisitor.Stop",
     "ApiDrawing.SetBackgroundColor",
     "ApiParagraph.MoveCursorToEnd",
     "ApiParagraph.MoveCursorToStart",
@@ -2484,8 +2491,10 @@
     "GeometryCoordinate",
     "GeometryFormulaType",
     "HdrFtrType",
+    "LineCapType",
     "LineEndSize",
     "LineEndType",
+    "LineJoinType",
     "NumFormat",
     "ParagraphContent",
     "ParagraphLikeContainer",

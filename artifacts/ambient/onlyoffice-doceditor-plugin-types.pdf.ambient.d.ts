@@ -460,6 +460,9 @@ declare namespace Pdf {
   /** The available horizontal text alignment. */
   export type HorTextAlign = "left" | "right" | "both" | "center";
 
+  /** The line cap type. */
+  export type LineCapType = "flat" | "round" | "square";
+
   /** The line end size. */
   export type LineEndSize = "large" | "medium" | "small";
 
@@ -468,6 +471,9 @@ declare namespace Pdf {
 
   /** The line end type. */
   export type LineEndType = "none" | "arrow" | "diamond" | "oval" | "stealth" | "triangle";
+
+  /** The line join type. */
+  export type LineJoinType = "empty" | "round" | "bevel" | "miter";
 
   /** A single list option, either a plain string (used as both display and export value) or a tuple. */
   export type ListOption = string | ListOptionTuple;
@@ -749,7 +755,7 @@ declare namespace Pdf {
   /** Properties used to create a shadow. */
   export interface ShadowSettings {
     /** The shadow color (black by default). */
-    color?: ApiColor | ApiUniColor;
+    color?: ApiColor;
 
     /** The shadow transparency from 0.0 (opaque) to 1.0 (clear). */
     transparency?: number;
@@ -768,7 +774,7 @@ declare namespace Pdf {
   }
 
   /** This type specifies the preset shape geometry that will be used for a shape. */
-  export type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "trapezoid" | "triangle" | "upArrowCallout" | "upDownArrow" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
+  export type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "textRect" | "trapezoid" | "triangle" | "upArrowCallout" | "upDownArrow" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
 
   /** A shade type which can be added to the document element. */
   export type ShdType = "nil" | "clear";
@@ -1835,8 +1841,9 @@ declare namespace Pdf {
 
     /**
      * Creates stamp annotation from an image.
+     * The annotation dimensions are taken from the loaded image, or updated after it has been loaded.
      *
-     * @param rect - annotation rect
+     * @param position - The position of the upper-left corner of the annotation. For a Rect, only x1 and y1 are used.
      * @param imageSrc - The image source where the image should be taken from (currently, only internet URL or Base64
      *   encoded images are supported).
      * @param author - name of the author
@@ -1845,7 +1852,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateImageStampAnnot/
      */
-    CreateImageStampAnnot(rect: Rect, imageSrc: string, author?: string, creationDate?: number): ApiStampAnnotation;
+    CreateImageStampAnnot(position: Point | Rect, imageSrc: string, author?: string, creationDate?: number): ApiStampAnnotation;
 
     /**
      * Creates ink annotation.
@@ -2525,13 +2532,14 @@ declare namespace Pdf {
     /**
      * Creates a shape with the parameters specified.
      *
-     * @param shapeType - The shape type which specifies the preset shape geometry.
+     * @param shapeType - The shape type which specifies the preset shape geometry. The "textRect" type creates a text
+     *   box: it has no fill and no outline, and its height follows the text.
      * @param width - The shape width in English measure units.
      * @param height - The shape height in English measure units.
      * @param fill - The color or pattern used to fill the shape. If not specified, the default shape style fill
-     *   (theme accent) is used.
+     *   (theme accent) is used, a text box has no fill.
      * @param stroke - The stroke used to draw the shape outline. If not specified, the default shape style outline
-     *   (theme accent) is used.
+     *   (theme accent) is used, a text box has no outline.
      * @default shapeType = "rect"
      * @default width = 914400
      * @default height = 914400
@@ -2641,7 +2649,7 @@ declare namespace Pdf {
     /**
      * Creates stamp annotation.
      *
-     * @param rect - annotation rect (only x1, y1 coordinates will be used, since the stamp dimensions are reserved).
+     * @param position - The position of the upper-left corner of the annotation. For a Rect, only x1 and y1 are used.
      * @param type - stamp type
      * @param author - name of the author
      * @param creationDate - creation date (timeStamp)
@@ -2660,7 +2668,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateStampAnnot/
      */
-    CreateStampAnnot(rect: Rect, type: StampType, author?: string, creationDate?: number): ApiStampAnnotation;
+    CreateStampAnnot(position: Point | Rect, type: StampType, author?: string, creationDate?: number): ApiStampAnnotation;
 
     /**
      * Creates strikeout annotation.
@@ -2690,7 +2698,6 @@ declare namespace Pdf {
      * @param fill - The fill type used to create the shadow.
      * @param sDash - The type of line dash.
      * @default sDash = "solid"
-     * @since 9.3.0
      *
      * @example
      * ```js
@@ -4376,7 +4383,7 @@ declare namespace Pdf {
     /**
      * Sets annotation border style.
      *
-     * @param borderStyle - The border style: **"solid"** or **"dashed"**.
+     * @param borderStyle - The border style: `"solid"` or `"dashed"`.
      *
      * @example
      * ```js
@@ -4466,7 +4473,8 @@ declare namespace Pdf {
      * Sets annotation dash pattern.
      *
      * **Note:**
-     * The border style property must be set to "dashed".
+     * The border style must be set to `"dashed"` using the {@link ApiBaseAnnotation#SetBorderStyle}
+     * method.
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
@@ -4603,6 +4611,9 @@ declare namespace Pdf {
 
     /**
      * Sets annotation rect.
+     *
+     * **Note:**
+     * Not for stamps. The SetScale method is used to change the stamp size.
      *
      * @param rect - The new bounding rectangle for the annotation.
      *
@@ -6161,7 +6172,7 @@ declare namespace Pdf {
     /**
      * Sets annotation border style.
      *
-     * @param borderStyle - The border style: **"solid"** or **"dashed"**.
+     * @param borderStyle - The border style: `"solid"` or `"dashed"`.
      *
      * @example
      * ```js
@@ -6251,7 +6262,8 @@ declare namespace Pdf {
      * Sets annotation dash pattern.
      *
      * **Note:**
-     * The border style property must be set to "dashed".
+     * The border style must be set to `"dashed"` using the {@link ApiBaseAnnotation#SetBorderStyle}
+     * method.
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
@@ -6411,6 +6423,9 @@ declare namespace Pdf {
 
     /**
      * Sets annotation rect.
+     *
+     * **Note:**
+     * Not for stamps. The SetScale method is used to change the stamp size.
      *
      * @param rect - The new bounding rectangle for the annotation.
      *
@@ -12533,7 +12548,7 @@ declare namespace Pdf {
     /**
      * Sets annotation border style.
      *
-     * @param borderStyle - The border style: **"solid"** or **"dashed"**.
+     * @param borderStyle - The border style: `"solid"` or `"dashed"`.
      *
      * @example
      * ```js
@@ -12623,7 +12638,8 @@ declare namespace Pdf {
      * Sets annotation dash pattern.
      *
      * **Note:**
-     * The border style property must be set to "dashed".
+     * The border style must be set to `"dashed"` using the {@link ApiBaseAnnotation#SetBorderStyle}
+     * method.
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
@@ -12760,6 +12776,9 @@ declare namespace Pdf {
 
     /**
      * Sets annotation rect.
+     *
+     * **Note:**
+     * Not for stamps. The SetScale method is used to change the stamp size.
      *
      * @param rect - The new bounding rectangle for the annotation.
      *
@@ -16303,7 +16322,7 @@ declare namespace Pdf {
     /**
      * Sets annotation border style.
      *
-     * @param borderStyle - The border style: **"solid"** or **"dashed"**.
+     * @param borderStyle - The border style: `"solid"` or `"dashed"`.
      *
      * @example
      * ```js
@@ -16419,7 +16438,8 @@ declare namespace Pdf {
      * Sets annotation dash pattern.
      *
      * **Note:**
-     * The border style property must be set to "dashed".
+     * The border style must be set to `"dashed"` using the {@link ApiBaseAnnotation#SetBorderStyle}
+     * method.
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
@@ -16590,6 +16610,9 @@ declare namespace Pdf {
 
     /**
      * Sets annotation rect.
+     *
+     * **Note:**
+     * Not for stamps. The SetScale method is used to change the stamp size.
      *
      * @param rect - The new bounding rectangle for the annotation.
      *
@@ -18729,7 +18752,7 @@ declare namespace Pdf {
     /**
      * Sets annotation border style.
      *
-     * @param borderStyle - The border style: **"solid"** or **"dashed"**.
+     * @param borderStyle - The border style: `"solid"` or `"dashed"`.
      *
      * @example
      * ```js
@@ -18819,7 +18842,8 @@ declare namespace Pdf {
      * Sets annotation dash pattern.
      *
      * **Note:**
-     * The border style property must be set to "dashed".
+     * The border style must be set to `"dashed"` using the {@link ApiBaseAnnotation#SetBorderStyle}
+     * method.
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
@@ -18981,6 +19005,9 @@ declare namespace Pdf {
 
     /**
      * Sets annotation rect.
+     *
+     * **Note:**
+     * Not for stamps. The SetScale method is used to change the stamp size.
      *
      * @param rect - The new bounding rectangle for the annotation.
      *
@@ -19733,7 +19760,7 @@ declare namespace Pdf {
     /**
      * Sets annotation border style.
      *
-     * @param borderStyle - The border style: **"solid"** or **"dashed"**.
+     * @param borderStyle - The border style: `"solid"` or `"dashed"`.
      *
      * @example
      * ```js
@@ -19823,7 +19850,8 @@ declare namespace Pdf {
      * Sets annotation dash pattern.
      *
      * **Note:**
-     * The border style property must be set to "dashed".
+     * The border style must be set to `"dashed"` using the {@link ApiBaseAnnotation#SetBorderStyle}
+     * method.
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
@@ -20007,6 +20035,9 @@ declare namespace Pdf {
 
     /**
      * Sets annotation rect.
+     *
+     * **Note:**
+     * Not for stamps. The SetScale method is used to change the stamp size.
      *
      * @param rect - The new bounding rectangle for the annotation.
      *
@@ -25684,7 +25715,7 @@ declare namespace Pdf {
     /**
      * Sets annotation border style.
      *
-     * @param borderStyle - The border style: **"solid"** or **"dashed"**.
+     * @param borderStyle - The border style: `"solid"` or `"dashed"`.
      *
      * @example
      * ```js
@@ -25774,7 +25805,8 @@ declare namespace Pdf {
      * Sets annotation dash pattern.
      *
      * **Note:**
-     * The border style property must be set to "dashed".
+     * The border style must be set to `"dashed"` using the {@link ApiBaseAnnotation#SetBorderStyle}
+     * method.
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
@@ -25936,6 +25968,9 @@ declare namespace Pdf {
 
     /**
      * Sets annotation rect.
+     *
+     * **Note:**
+     * Not for stamps. The SetScale method is used to change the stamp size.
      *
      * @param rect - The new bounding rectangle for the annotation.
      *
@@ -26640,7 +26675,7 @@ declare namespace Pdf {
     /**
      * Sets annotation border style.
      *
-     * @param borderStyle - The border style: **"solid"** or **"dashed"**.
+     * @param borderStyle - The border style: `"solid"` or `"dashed"`.
      *
      * @example
      * ```js
@@ -26730,7 +26765,8 @@ declare namespace Pdf {
      * Sets annotation dash pattern.
      *
      * **Note:**
-     * The border style property must be set to "dashed".
+     * The border style must be set to `"dashed"` using the {@link ApiBaseAnnotation#SetBorderStyle}
+     * method.
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
@@ -26867,6 +26903,9 @@ declare namespace Pdf {
 
     /**
      * Sets annotation rect.
+     *
+     * **Note:**
+     * Not for stamps. The SetScale method is used to change the stamp size.
      *
      * @param rect - The new bounding rectangle for the annotation.
      *
@@ -31546,7 +31585,7 @@ declare namespace Pdf {
     /**
      * Sets annotation border style.
      *
-     * @param borderStyle - The border style: **"solid"** or **"dashed"**.
+     * @param borderStyle - The border style: `"solid"` or `"dashed"`.
      *
      * @example
      * ```js
@@ -31636,7 +31675,8 @@ declare namespace Pdf {
      * Sets annotation dash pattern.
      *
      * **Note:**
-     * The border style property must be set to "dashed".
+     * The border style must be set to `"dashed"` using the {@link ApiBaseAnnotation#SetBorderStyle}
+     * method.
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
@@ -31773,6 +31813,9 @@ declare namespace Pdf {
 
     /**
      * Sets annotation rect.
+     *
+     * **Note:**
+     * Not for stamps. The SetScale method is used to change the stamp size.
      *
      * @param rect - The new bounding rectangle for the annotation.
      *
@@ -32491,7 +32534,7 @@ declare namespace Pdf {
     /**
      * Sets annotation border style.
      *
-     * @param borderStyle - The border style: **"solid"** or **"dashed"**.
+     * @param borderStyle - The border style: `"solid"` or `"dashed"`.
      *
      * @example
      * ```js
@@ -32581,7 +32624,8 @@ declare namespace Pdf {
      * Sets annotation dash pattern.
      *
      * **Note:**
-     * The border style property must be set to "dashed".
+     * The border style must be set to `"dashed"` using the {@link ApiBaseAnnotation#SetBorderStyle}
+     * method.
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
@@ -32718,6 +32762,9 @@ declare namespace Pdf {
 
     /**
      * Sets annotation rect.
+     *
+     * **Note:**
+     * Not for stamps. The SetScale method is used to change the stamp size.
      *
      * @param rect - The new bounding rectangle for the annotation.
      *
@@ -32916,6 +32963,15 @@ declare namespace Pdf {
     GetBeginArrow(): object | null;
 
     /**
+     * Returns the cap type of the stroke.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiStroke/Methods/GetCapType/
+     */
+    GetCapType(): LineCapType | null;
+
+    /**
      * Returns a type of the ApiStroke class.
      *
      * @example
@@ -33018,6 +33074,15 @@ declare namespace Pdf {
     GetFill(): ApiFill | null;
 
     /**
+     * Returns the join type of the stroke.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiStroke/Methods/GetJoinType/
+     */
+    GetJoinType(): LineJoinType | null;
+
+    /**
      * Gets the width of the stroke in English Metric Units.
      *
      * @example
@@ -33081,6 +33146,16 @@ declare namespace Pdf {
     SetBeginArrow(type: LineEndType, width?: LineEndSize, length?: LineEndSize): boolean;
 
     /**
+     * Sets the cap type of the stroke.
+     *
+     * @param type - The cap type of the stroke.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiStroke/Methods/SetCapType/
+     */
+    SetCapType(type: LineCapType): boolean;
+
+    /**
      * Sets the ending arrow of the stroke.
      *
      * @param type - The type of the ending arrow.
@@ -33093,6 +33168,16 @@ declare namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiStroke/Methods/SetEndArrow/
      */
     SetEndArrow(type: LineEndType, width?: LineEndSize, length?: LineEndSize): boolean;
+
+    /**
+     * Sets the join type of the stroke.
+     *
+     * @param type - The join type of the stroke.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiStroke/Methods/SetJoinType/
+     */
+    SetJoinType(type: LineJoinType): boolean;
   }
 
   /** Class representing a style. */
@@ -35149,7 +35234,7 @@ declare namespace Pdf {
     /**
      * Sets annotation border style.
      *
-     * @param borderStyle - The border style: **"solid"** or **"dashed"**.
+     * @param borderStyle - The border style: `"solid"` or `"dashed"`.
      *
      * @example
      * ```js
@@ -35239,7 +35324,8 @@ declare namespace Pdf {
      * Sets annotation dash pattern.
      *
      * **Note:**
-     * The border style property must be set to "dashed".
+     * The border style must be set to `"dashed"` using the {@link ApiBaseAnnotation#SetBorderStyle}
+     * method.
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
@@ -35403,6 +35489,9 @@ declare namespace Pdf {
 
     /**
      * Sets annotation rect.
+     *
+     * **Note:**
+     * Not for stamps. The SetScale method is used to change the stamp size.
      *
      * @param rect - The new bounding rectangle for the annotation.
      *

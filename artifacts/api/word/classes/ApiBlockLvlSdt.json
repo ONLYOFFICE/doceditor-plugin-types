@@ -401,7 +401,7 @@
       "signature": "GetTag(): string"
     },
     "IsPicture": {
-      "description": "Checks whether the content control is a picture control.\n\nThis method verifies if the content control is specifically a picture control.",
+      "description": "Checks whether the content control is a picture control.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiBlockLvlSdt/Methods/IsPicture/",
       "params": [],
       "returns": {
@@ -449,7 +449,7 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiBlockLvlSdt/Methods/RemoveAllElements/",
       "params": [],
       "returns": {
-        "description": "returns true.",
+        "description": "returns false if the content control content is locked.",
         "type": "boolean"
       },
       "signature": "RemoveAllElements(): boolean"
@@ -627,7 +627,7 @@
       "signature": "SetLock(lockType: \"unlocked\" | \"contentLocked\" | \"sdtContentLocked\" | \"sdtLocked\"): boolean"
     },
     "SetPicture": {
-      "description": "Sets the content (image) for the picture content control.\n\nThis method updates the picture inside a content control by setting an image from a provided URL.\nThe URL should be an internet link to the image.",
+      "description": "Sets the content (image) for the picture content control.\n\nThe URL should be an internet link to the image.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiBlockLvlSdt/Methods/SetPicture/",
       "params": [
         {

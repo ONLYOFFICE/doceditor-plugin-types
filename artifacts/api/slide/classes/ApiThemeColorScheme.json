@@ -7,12 +7,12 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeColorScheme/Methods/ChangeColor/",
       "params": [
         {
-          "description": "Color position in the color scheme which will be changed.",
+          "description": "Color position in the color scheme which will be changed:\r0-5 - accent1-accent6, 6 - dk1, 7 - dk2, 8 - folHlink, 9 - hlink, 10 - lt1, 11 - lt2.",
           "name": "nPos",
           "type": "number"
         },
         {
-          "description": "New color of the theme color scheme.",
+          "description": "New color of the theme color scheme. A theme color is saved as its current RGB value.",
           "name": "oColor",
           "type": "ApiColor | ApiUniColor | ApiRGBColor"
         }

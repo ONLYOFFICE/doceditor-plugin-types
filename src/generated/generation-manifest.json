@@ -12,13 +12,13 @@
       "version": "9.2.0"
     },
     "sdkjs": {
-      "commit": "f4766fd2ecf533432de96d737ea3abc8b60fa353",
-      "describe": "v10.0.0.138",
+      "commit": "407b5588211ac37fdaca8d3c98fa466314495a06",
+      "describe": "v10.0.0.151",
       "dirty": false
     },
     "sdkjsExt": {
-      "commit": "c3cf0cf26390555589035eaa2d597dfedf403808",
-      "describe": "v10.0.0.138",
+      "commit": "b01569b6208fc56c7bd83320da9b98e9a1236253",
+      "describe": "v10.0.0.140",
       "dirty": false
     },
     "sdkjsForms": {
@@ -31,7 +31,7 @@
     {
       "repository": "sdkjs",
       "path": "word/apiBuilder.js",
-      "sha256": "2fcddfccfb41e8aa3ad55605f6b3ba1db5b84ebc0e82dddb3401f36d8849ba18"
+      "sha256": "82ceee6f138910f2f2ff84bd16b819f9d1df6599f301b7af3d0aa6ffac63cf24"
     },
     {
       "repository": "sdkjs",
@@ -46,7 +46,7 @@
     {
       "repository": "sdkjs",
       "path": "../sdkjs-ext/js-api/word/api-document-visitor.js",
-      "sha256": "5889da92126b59cf1d4c7e3467d08f0ee841e46346b0be3d466f75e3f8c19ff8"
+      "sha256": "e47205c37a81d352c0e976576e739f3044822a200f2ef30620b2a5345c24a230"
     },
     {
       "repository": "sdkjs",
@@ -91,12 +91,12 @@
     {
       "repository": "sdkjs",
       "path": "slide/apiBuilder.js",
-      "sha256": "b06bf2593e39afe61e4474aee498d1f24768433cebddf606ab5c998a44540229"
+      "sha256": "284cfaba9aaafd034e4e30674a740c5fa601726331a09b7f2fab51490c456430"
     },
     {
       "repository": "sdkjs",
       "path": "cell/apiBuilder.js",
-      "sha256": "8e4a7a79073d02839734488b6e90472a578be06246b74b948297d6ff9cca3309"
+      "sha256": "70244451921a853ed6f2bb128269bc451f06e25ee94d28f93beffe095d3a127a"
     },
     {
       "repository": "sdkjs",
@@ -231,7 +231,7 @@
     {
       "repository": "sdkjs",
       "path": "pdf/apiBuilder.js",
-      "sha256": "13af5856a64925b8b9f0d93362e2e04931640a7a956e87b7f326705dbab9344e"
+      "sha256": "66cf58973b17caec5f7d363939b652b10bb56cb16c4172c2f748f7406cd65b0a"
     },
     {
       "repository": "sdkjs",

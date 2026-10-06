@@ -1,3 +1,17 @@
 {
-  "description": "Class representing a document visitor."
+  "description": "Class representing a document visitor.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/",
+  "methods": {
+    "Stop": {
+      "description": "Stops the traversal. No further hooks are called after the current one returns.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/Stop/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "Stop(): boolean",
+      "since": "10.0.0"
+    }
+  }
 }

@@ -372,11 +372,17 @@ declare namespace Word {
    */
   export type HdrFtrType = "default" | "title" | "even";
 
+  /** The line cap type. */
+  export type LineCapType = "flat" | "round" | "square";
+
   /** The line end size. */
   export type LineEndSize = "large" | "medium" | "small";
 
   /** The line end type. */
   export type LineEndType = "none" | "arrow" | "diamond" | "oval" | "stealth" | "triangle";
+
+  /** The line join type. */
+  export type LineJoinType = "empty" | "round" | "bevel" | "miter";
 
   /** Standard numeric format. */
   export type NumFormat = "General" | "0" | "0.00" | "#,##0" | "#,##0.00" | "0%" | "0.00%" | "0.00E+00" | "# ?/?" | "# ??/??" | "m/d/yyyy" | "d-mmm-yy" | "d-mmm" | "mmm-yy" | "h:mm AM/PM" | "h:mm:ss AM/PM" | "h:mm" | "h:mm:ss" | "m/d/yyyy h:mm" | "#,##0_);(#,##0)" | "#,##0_);[Red](#,##0)" | "#,##0.00_);(#,##0.00)" | "#,##0.00_);[Red](#,##0.00)" | "mm:ss" | "[h]:mm:ss" | "mm:ss.0" | "##0.0E+0" | "@";
@@ -477,7 +483,7 @@ declare namespace Word {
   /** Properties used to create a shadow. */
   export interface ShadowSettings {
     /** The shadow color (black by default). */
-    color?: ApiColor | ApiUniColor;
+    color?: ApiColor;
 
     /** The shadow transparency from 0.0 (opaque) to 1.0 (clear). */
     transparency?: number;
@@ -496,7 +502,7 @@ declare namespace Word {
   }
 
   /** This type specifies the preset shape geometry that will be used for a shape. */
-  export type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "trapezoid" | "triangle" | "upArrowCallout" | "upDownArrow" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
+  export type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "textRect" | "trapezoid" | "triangle" | "upArrowCallout" | "upDownArrow" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
 
   /** A shade type which can be added to the document element. */
   export type ShdType = "nil" | "clear";
@@ -2029,7 +2035,8 @@ declare namespace Word {
     /**
      * Creates a shape with the parameters specified.
      *
-     * @param shapeType - The shape type which specifies the preset shape geometry.
+     * @param shapeType - The shape type which specifies the preset shape geometry. The "textRect" type creates a text box
+     *   as the editor inserts it: a light fill and a thin black outline.
      * @param width - The shape width in English measure units.
      * @param height - The shape height in English measure units.
      * @param fill - The color or pattern used to fill the shape. If not specified, the default shape style fill
@@ -2102,7 +2109,6 @@ declare namespace Word {
      * @param fill - The fill type used to create the shadow.
      * @param sDash - The type of line dash.
      * @default sDash = "solid"
-     * @since 9.3.0
      *
      * @example
      * ```js
@@ -4118,8 +4124,6 @@ declare namespace Word {
     /**
      * Checks whether the content control is a picture control.
      *
-     * This method verifies if the content control is specifically a picture control.
-     *
      * @returns Returns `true` if the content control is a picture, otherwise `false`.
      * @since 9.0.0
      *
@@ -4201,7 +4205,7 @@ declare namespace Word {
     /**
      * Clears the contents from the current content control.
      *
-     * @returns returns true.
+     * @returns returns false if the content control content is locked.
      *
      * @example
      * ```js
@@ -4511,7 +4515,6 @@ declare namespace Word {
     /**
      * Sets the content (image) for the picture content control.
      *
-     * This method updates the picture inside a content control by setting an image from a provided URL.
      * The URL should be an internet link to the image.
      *
      * @param imageUrl - The URL of the image to be used for the content control. Currently, only internet URLs are
@@ -5943,8 +5946,7 @@ declare namespace Word {
      *
      * @param isReplace - Specifies whether the selection should replace the current selection (true) or be added to it
      *   (false).
-     * @default isReplace = true
-     * @since 9.3.0
+     * @default isReplace = false
      *
      * @example
      * ```js
@@ -6597,7 +6599,6 @@ declare namespace Word {
      *   absolute distance or a number for percent (1 = 1%) when bPercent=true.
      * @param bPercent - The option defining whether the horizontal alignment offset is specified in percent.
      * @default bPercent = false
-     * @since 9.3.0
      *
      * @example
      * ```js
@@ -7761,7 +7762,6 @@ declare namespace Word {
      *   absolute units or a number (1 = 1%) when bPercent=true for percent relative positioning.
      * @param bPercent - The option defining whether the vertical alignment offset is specified in percent.
      * @default bPercent = false
-     * @since 9.3.0
      *
      * @example
      * ```js
@@ -8820,7 +8820,8 @@ declare namespace Word {
     /**
      * Returns the text properties from the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @example
      * ```js
@@ -9343,7 +9344,8 @@ declare namespace Word {
     /**
      * Sets the placeholder text to the current form.
      *
-     * *Can't be set to checkbox or radio button.*
+     * **Note:**
+     * The placeholder text can't be set for checkbox or radio button forms.
      *
      * @param sText - The text that will be set to the current form.
      *
@@ -9507,7 +9509,8 @@ declare namespace Word {
     /**
      * Sets the text properties to the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @param textPr - The text properties that will be set to the current form.
      *
@@ -9613,7 +9616,8 @@ declare namespace Word {
     /**
      * Converts the current form to an inline form.
      *
-     * *Picture form can't be converted to an inline form, it's always a fixed size object.*
+     * **Note:**
+     * A picture form can't be converted to an inline form, as it's always a fixed-size object.
      *
      * @example
      * ```js
@@ -10384,7 +10388,8 @@ declare namespace Word {
     /**
      * Returns the text properties from the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @example
      * ```js
@@ -10763,7 +10768,8 @@ declare namespace Word {
     /**
      * Sets the placeholder text to the current form.
      *
-     * *Can't be set to checkbox or radio button.*
+     * **Note:**
+     * The placeholder text can't be set for checkbox or radio button forms.
      *
      * @param sText - The text that will be set to the current form.
      *
@@ -10895,7 +10901,8 @@ declare namespace Word {
     /**
      * Sets the text to the current combo box.
      *
-     * *Available only for editable combo box forms.*
+     * **Note:**
+     * Available only for editable combo box forms.
      *
      * @param sText - The combo box text.
      *
@@ -10919,7 +10926,8 @@ declare namespace Word {
     /**
      * Sets the text properties to the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @param textPr - The text properties that will be set to the current form.
      *
@@ -11028,7 +11036,8 @@ declare namespace Word {
     /**
      * Converts the current form to an inline form.
      *
-     * *Picture form can't be converted to an inline form, it's always a fixed size object.*
+     * **Note:**
+     * A picture form can't be converted to an inline form, as it's always a fixed-size object.
      *
      * @example
      * ```js
@@ -12264,7 +12273,8 @@ declare namespace Word {
     /**
      * Returns the text properties from the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @example
      * ```js
@@ -12576,7 +12586,8 @@ declare namespace Word {
     /**
      * Sets the placeholder text to the current form.
      *
-     * *Can't be set to checkbox or radio button.*
+     * **Note:**
+     * The placeholder text can't be set for checkbox or radio button forms.
      *
      * @param sText - The text that will be set to the current form.
      *
@@ -12708,7 +12719,8 @@ declare namespace Word {
     /**
      * Sets the text properties to the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @param textPr - The text properties that will be set to the current form.
      *
@@ -12813,7 +12825,8 @@ declare namespace Word {
     /**
      * Converts the current form to an inline form.
      *
-     * *Picture form can't be converted to an inline form, it's always a fixed size object.*
+     * **Note:**
+     * A picture form can't be converted to an inline form, as it's always a fixed-size object.
      *
      * @example
      * ```js
@@ -15862,7 +15875,8 @@ declare namespace Word {
     /**
      * Returns the text properties from the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @example
      * ```js
@@ -16280,7 +16294,8 @@ declare namespace Word {
     /**
      * Sets the placeholder text to the current form.
      *
-     * *Can't be set to checkbox or radio button.*
+     * **Note:**
+     * The placeholder text can't be set for checkbox or radio button forms.
      *
      * @param sText - The text that will be set to the current form.
      *
@@ -16412,7 +16427,8 @@ declare namespace Word {
     /**
      * Sets the text properties to the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @param textPr - The text properties that will be set to the current form.
      *
@@ -16544,7 +16560,8 @@ declare namespace Word {
     /**
      * Converts the current form to an inline form.
      *
-     * *Picture form can't be converted to an inline form, it's always a fixed size object.*
+     * **Note:**
+     * A picture form can't be converted to an inline form, as it's always a fixed-size object.
      *
      * @example
      * ```js
@@ -21972,8 +21989,21 @@ declare namespace Word {
     ToJSON(isWriteNumberings: boolean, isWriteStyles: boolean): object;
   }
 
-  /** Class representing a document visitor. */
+  /**
+   * Class representing a document visitor.
+   *
+   * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/
+   */
   export interface ApiDocumentVisitor {
+    /**
+     * Stops the traversal. No further hooks are called after the current one returns.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/Stop/
+     */
+    Stop(): boolean;
   }
 
   /**
@@ -22726,8 +22756,7 @@ declare namespace Word {
      *
      * @param isReplace - Specifies whether the selection should replace the current selection (true) or be added to it
      *   (false).
-     * @default isReplace = true
-     * @since 9.3.0
+     * @default isReplace = false
      *
      * @example
      * ```js
@@ -23028,7 +23057,6 @@ declare namespace Word {
      *   absolute distance or a number for percent (1 = 1%) when bPercent=true.
      * @param bPercent - The option defining whether the horizontal alignment offset is specified in percent.
      * @default bPercent = false
-     * @since 9.3.0
      *
      * @example
      * ```js
@@ -23387,7 +23415,6 @@ declare namespace Word {
      *   absolute units or a number (1 = 1%) when bPercent=true for percent relative positioning.
      * @param bPercent - The option defining whether the vertical alignment offset is specified in percent.
      * @default bPercent = false
-     * @since 9.3.0
      *
      * @example
      * ```js
@@ -24212,7 +24239,8 @@ declare namespace Word {
     /**
      * Returns the text properties from the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @example
      * ```js
@@ -24521,7 +24549,8 @@ declare namespace Word {
     /**
      * Sets the placeholder text to the current form.
      *
-     * *Can't be set to checkbox or radio button.*
+     * **Note:**
+     * The placeholder text can't be set for checkbox or radio button forms.
      *
      * @param sText - The text that will be set to the current form.
      *
@@ -24653,7 +24682,8 @@ declare namespace Word {
     /**
      * Sets the text properties to the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @param textPr - The text properties that will be set to the current form.
      *
@@ -24758,7 +24788,8 @@ declare namespace Word {
     /**
      * Converts the current form to an inline form.
      *
-     * *Picture form can't be converted to an inline form, it's always a fixed size object.*
+     * **Note:**
+     * A picture form can't be converted to an inline form, as it's always a fixed-size object.
      *
      * @example
      * ```js
@@ -26062,8 +26093,7 @@ declare namespace Word {
      *
      * @param isReplace - Specifies whether the selection should replace the current selection (true) or be added to it
      *   (false).
-     * @default isReplace = true
-     * @since 9.3.0
+     * @default isReplace = false
      *
      * @example
      * ```js
@@ -26361,7 +26391,6 @@ declare namespace Word {
      *   absolute distance or a number for percent (1 = 1%) when bPercent=true.
      * @param bPercent - The option defining whether the horizontal alignment offset is specified in percent.
      * @default bPercent = false
-     * @since 9.3.0
      *
      * @example
      * ```js
@@ -26720,7 +26749,6 @@ declare namespace Word {
      *   absolute units or a number (1 = 1%) when bPercent=true for percent relative positioning.
      * @param bPercent - The option defining whether the vertical alignment offset is specified in percent.
      * @default bPercent = false
-     * @since 9.3.0
      *
      * @example
      * ```js
@@ -28102,8 +28130,7 @@ declare namespace Word {
      *
      * @param isReplace - Specifies whether the selection should replace the current selection (true) or be added to it
      *   (false).
-     * @default isReplace = true
-     * @since 9.3.0
+     * @default isReplace = false
      *
      * @example
      * ```js
@@ -28401,7 +28428,6 @@ declare namespace Word {
      *   absolute distance or a number for percent (1 = 1%) when bPercent=true.
      * @param bPercent - The option defining whether the horizontal alignment offset is specified in percent.
      * @default bPercent = false
-     * @since 9.3.0
      *
      * @example
      * ```js
@@ -28760,7 +28786,6 @@ declare namespace Word {
      *   absolute units or a number (1 = 1%) when bPercent=true for percent relative positioning.
      * @param bPercent - The option defining whether the vertical alignment offset is specified in percent.
      * @default bPercent = false
-     * @since 9.3.0
      *
      * @example
      * ```js
@@ -29962,8 +29987,6 @@ declare namespace Word {
     /**
      * Checks whether the content control is a picture control.
      *
-     * This method verifies if the content control is specifically a picture control.
-     *
      * @returns Returns `true` if the content control is a picture, otherwise `false`.
      * @since 9.0.0
      *
@@ -30273,8 +30296,6 @@ declare namespace Word {
     /**
      * Sets the checkbox value for the content control.
      *
-     * This method updates the checkbox state of the content control to either checked or unchecked.
-     *
      * @param isChecked - The state to set for the checkbox. `true` for checked, `false` for unchecked.
      * @returns Returns `true` if the checkbox value was successfully set, `false` if the content control is not
      *   a checkbox.
@@ -30380,8 +30401,6 @@ declare namespace Word {
     /**
      * Sets the date format for the datepicker content control.
      *
-     * This method allows setting the format in which the date should be displayed in the datepicker
-     * content control.
      * The format string should be specified using common date format patterns (e.g., "mm.dd.yyyy").
      *
      * @param dateFormat - The desired date format (e.g., "mm.dd.yyyy").
@@ -30502,7 +30521,6 @@ declare namespace Word {
     /**
      * Sets the content (image) for the picture content control.
      *
-     * This method updates the picture inside a content control by setting an image from a provided URL.
      * The URL should be an internet link to the image.
      *
      * @param imageUrl - The URL of the image to be used for the content control. Currently, only internet URLs are
@@ -30529,8 +30547,6 @@ declare namespace Word {
     /**
      * Sets the size for the picture in a content control.
      *
-     * This method adjusts the width and height of the image if the content control is a picture.
-     *
      * @param width - The desired image width .
      * @param height - The desired image height.
      * @returns Returns `true` if the size was successfully set, or `false` if the content control is not a
@@ -30555,7 +30571,8 @@ declare namespace Word {
     /**
      * Sets the placeholder text to the current inline content control.
      *
-     * *Can't be set to checkbox or radio button*
+     * **Note:**
+     * The placeholder text can't be set for checkbox or radio button content controls.
      *
      * @param sText - The text that will be set to the current inline content control.
      *
@@ -30609,7 +30626,7 @@ declare namespace Word {
      * Applies text settings to the content of the content control.
      *
      * @param oTextPr - The properties that will be set to the content of the content control.
-     * @returns this.
+     * @returns this, or null if the content control content is locked.
      *
      * @example
      * ```js
@@ -30630,7 +30647,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/SetTextPr/
      */
-    SetTextPr(oTextPr: ApiTextPr): ApiInlineLvlSdt;
+    SetTextPr(oTextPr: ApiTextPr): ApiInlineLvlSdt | null;
 
     /**
      * Converts the ApiInlineLvlSdt object into the JSON object.
@@ -32062,8 +32079,7 @@ declare namespace Word {
      *
      * @param isReplace - Specifies whether the selection should replace the current selection (true) or be added to it
      *   (false).
-     * @default isReplace = true
-     * @since 9.3.0
+     * @default isReplace = false
      *
      * @example
      * ```js
@@ -32415,7 +32431,6 @@ declare namespace Word {
      *   absolute distance or a number for percent (1 = 1%) when bPercent=true.
      * @param bPercent - The option defining whether the horizontal alignment offset is specified in percent.
      * @default bPercent = false
-     * @since 9.3.0
      *
      * @example
      * ```js
@@ -32774,7 +32789,6 @@ declare namespace Word {
      *   absolute units or a number (1 = 1%) when bPercent=true for percent relative positioning.
      * @param bPercent - The option defining whether the vertical alignment offset is specified in percent.
      * @default bPercent = false
-     * @since 9.3.0
      *
      * @example
      * ```js
@@ -39859,7 +39873,8 @@ declare namespace Word {
     /**
      * Returns the text properties from the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @example
      * ```js
@@ -40306,7 +40321,8 @@ declare namespace Word {
     /**
      * Sets the placeholder text to the current form.
      *
-     * *Can't be set to checkbox or radio button.*
+     * **Note:**
+     * The placeholder text can't be set for checkbox or radio button forms.
      *
      * @param sText - The text that will be set to the current form.
      *
@@ -40493,7 +40509,8 @@ declare namespace Word {
     /**
      * Sets the text properties to the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @param textPr - The text properties that will be set to the current form.
      *
@@ -40598,7 +40615,8 @@ declare namespace Word {
     /**
      * Converts the current form to an inline form.
      *
-     * *Picture form can't be converted to an inline form, it's always a fixed size object.*
+     * **Note:**
+     * A picture form can't be converted to an inline form, as it's always a fixed-size object.
      *
      * @example
      * ```js
@@ -47218,8 +47236,7 @@ declare namespace Word {
      *
      * @param isReplace - Specifies whether the selection should replace the current selection (true) or be added to it
      *   (false).
-     * @default isReplace = true
-     * @since 9.3.0
+     * @default isReplace = false
      *
      * @example
      * ```js
@@ -47583,7 +47600,6 @@ declare namespace Word {
      *   absolute distance or a number for percent (1 = 1%) when bPercent=true.
      * @param bPercent - The option defining whether the horizontal alignment offset is specified in percent.
      * @default bPercent = false
-     * @since 9.3.0
      *
      * @example
      * ```js
@@ -48003,7 +48019,6 @@ declare namespace Word {
      *   absolute units or a number (1 = 1%) when bPercent=true for percent relative positioning.
      * @param bPercent - The option defining whether the vertical alignment offset is specified in percent.
      * @default bPercent = false
-     * @since 9.3.0
      *
      * @example
      * ```js
@@ -48649,7 +48664,8 @@ declare namespace Word {
     /**
      * Returns the text properties from the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @example
      * ```js
@@ -48958,7 +48974,8 @@ declare namespace Word {
     /**
      * Sets the placeholder text to the current form.
      *
-     * *Can't be set to checkbox or radio button.*
+     * **Note:**
+     * The placeholder text can't be set for checkbox or radio button forms.
      *
      * @param sText - The text that will be set to the current form.
      *
@@ -49090,7 +49107,8 @@ declare namespace Word {
     /**
      * Sets the text properties to the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @param textPr - The text properties that will be set to the current form.
      *
@@ -49195,7 +49213,8 @@ declare namespace Word {
     /**
      * Converts the current form to an inline form.
      *
-     * *Picture form can't be converted to an inline form, it's always a fixed size object.*
+     * **Note:**
+     * A picture form can't be converted to an inline form, as it's always a fixed-size object.
      *
      * @example
      * ```js
@@ -49959,8 +49978,7 @@ declare namespace Word {
      *
      * @param isReplace - Specifies whether the selection should replace the current selection (true) or be added to it
      *   (false).
-     * @default isReplace = true
-     * @since 9.3.0
+     * @default isReplace = false
      *
      * @example
      * ```js
@@ -50258,7 +50276,6 @@ declare namespace Word {
      *   absolute distance or a number for percent (1 = 1%) when bPercent=true.
      * @param bPercent - The option defining whether the horizontal alignment offset is specified in percent.
      * @default bPercent = false
-     * @since 9.3.0
      *
      * @example
      * ```js
@@ -50617,7 +50634,6 @@ declare namespace Word {
      *   absolute units or a number (1 = 1%) when bPercent=true for percent relative positioning.
      * @param bPercent - The option defining whether the vertical alignment offset is specified in percent.
      * @default bPercent = false
-     * @since 9.3.0
      *
      * @example
      * ```js
@@ -50818,6 +50834,15 @@ declare namespace Word {
     GetBeginArrow(): object | null;
 
     /**
+     * Returns the cap type of the stroke.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStroke/Methods/GetCapType/
+     */
+    GetCapType(): LineCapType | null;
+
+    /**
      * Returns a type of the ApiStroke class.
      *
      * @example
@@ -50909,6 +50934,15 @@ declare namespace Word {
     GetFill(): ApiFill | null;
 
     /**
+     * Returns the join type of the stroke.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStroke/Methods/GetJoinType/
+     */
+    GetJoinType(): LineJoinType | null;
+
+    /**
      * Gets the width of the stroke in English Metric Units.
      *
      * @example
@@ -50964,6 +50998,16 @@ declare namespace Word {
     SetBeginArrow(type: LineEndType, width?: LineEndSize, length?: LineEndSize): boolean;
 
     /**
+     * Sets the cap type of the stroke.
+     *
+     * @param type - The cap type of the stroke.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStroke/Methods/SetCapType/
+     */
+    SetCapType(type: LineCapType): boolean;
+
+    /**
      * Sets the ending arrow of the stroke.
      *
      * @param type - The type of the ending arrow.
@@ -50976,6 +51020,16 @@ declare namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStroke/Methods/SetEndArrow/
      */
     SetEndArrow(type: LineEndType, width?: LineEndSize, length?: LineEndSize): boolean;
+
+    /**
+     * Sets the join type of the stroke.
+     *
+     * @param type - The join type of the stroke.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStroke/Methods/SetJoinType/
+     */
+    SetJoinType(type: LineJoinType): boolean;
 
     /**
      * Converts the ApiStroke object into the JSON object.
@@ -57942,7 +57996,8 @@ declare namespace Word {
     /**
      * Returns the text properties from the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @example
      * ```js
@@ -58508,7 +58563,8 @@ declare namespace Word {
     /**
      * Sets the placeholder text to the current form.
      *
-     * *Can't be set to checkbox or radio button.*
+     * **Note:**
+     * The placeholder text can't be set for checkbox or radio button forms.
      *
      * @param sText - The text that will be set to the current form.
      *
@@ -58662,7 +58718,8 @@ declare namespace Word {
     /**
      * Sets the text properties to the current form.
      *
-     * *Used if possible for this type of form*
+     * **Note:**
+     * Used if possible for this type of form.
      *
      * @param textPr - The text properties that will be set to the current form.
      *
@@ -58767,7 +58824,8 @@ declare namespace Word {
     /**
      * Converts the current form to an inline form.
      *
-     * *Picture form can't be converted to an inline form, it's always a fixed size object.*
+     * **Note:**
+     * A picture form can't be converted to an inline form, as it's always a fixed-size object.
      *
      * @example
      * ```js

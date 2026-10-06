@@ -4,7 +4,7 @@
   "params": [
     {
       "description": "The range of cells that makes up the list or database. A database is a list of related data.",
-      "name": "arg1_",
+      "name": "arg1",
       "type": "ApiRange | ApiName"
     },
     {
@@ -21,5 +21,5 @@
   "returns": {
     "type": "number"
   },
-  "signature": "DCOUNTA(arg1_: ApiRange | ApiName, arg2: ApiRange | ApiName | number | string, arg3: ApiRange | ApiName): number"
+  "signature": "DCOUNTA(arg1: ApiRange | ApiName, arg2: ApiRange | ApiName | number | string, arg3: ApiRange | ApiName): number"
 }

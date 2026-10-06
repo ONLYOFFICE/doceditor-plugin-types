@@ -199,7 +199,7 @@
       "signature": "GetText(): string"
     },
     "GetTextPr": {
-      "description": "Returns the text properties from the current form.\n\n*Used if possible for this type of form*",
+      "description": "Returns the text properties from the current form.\n\n**Note:**\nUsed if possible for this type of form.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetTextPr/",
       "params": [],
       "returns": {
@@ -482,7 +482,7 @@
       "signature": "SetMultiline(bMultiline: boolean): boolean"
     },
     "SetPlaceholderText": {
-      "description": "Sets the placeholder text to the current form.\n\n*Can't be set to checkbox or radio button.*",
+      "description": "Sets the placeholder text to the current form.\n\n**Note:**\nThe placeholder text can't be set for checkbox or radio button forms.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/SetPlaceholderText/",
       "params": [
         {
@@ -559,7 +559,7 @@
       "signature": "SetText(text: string): boolean"
     },
     "SetTextPr": {
-      "description": "Sets the text properties to the current form.\n\n*Used if possible for this type of form*",
+      "description": "Sets the text properties to the current form.\n\n**Note:**\nUsed if possible for this type of form.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/SetTextPr/",
       "params": [
         {
@@ -631,7 +631,7 @@
       "signature": "ToFixed(width: twips, height: twips, keepPosition?: boolean): boolean"
     },
     "ToInline": {
-      "description": "Converts the current form to an inline form.\n\n*Picture form can't be converted to an inline form, it's always a fixed size object.*",
+      "description": "Converts the current form to an inline form.\n\n**Note:**\nA picture form can't be converted to an inline form, as it's always a fixed-size object.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/ToInline/",
       "params": [],
       "returns": {

@@ -285,7 +285,7 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetBorderStyle/",
       "params": [
         {
-          "description": "The border style: **\"solid\"** or **\"dashed\"**.",
+          "description": "The border style: `\"solid\"` or `\"dashed\"`.",
           "name": "borderStyle",
           "type": "AnnotBorderStyle"
         }
@@ -341,7 +341,7 @@
       "signature": "SetCreationDate(timeStamp: number): boolean"
     },
     "SetDashPattern": {
-      "description": "Sets annotation dash pattern.\n\n**Note:**\nThe border style property must be set to \"dashed\".\n",
+      "description": "Sets annotation dash pattern.\n\n**Note:**\nThe border style must be set to `\"dashed\"` using the {@link ApiBaseAnnotation#SetBorderStyle} method.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetDashPattern/",
       "params": [
         {
@@ -447,7 +447,7 @@
       "signature": "SetPosition(position: Point): boolean"
     },
     "SetRect": {
-      "description": "Sets annotation rect.",
+      "description": "Sets annotation rect.\n\n**Note:**\nNot for stamps. The SetScale method is used to change the stamp size.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetRect/",
       "params": [
         {
