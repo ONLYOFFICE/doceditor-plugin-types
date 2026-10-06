@@ -25,9 +25,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiUniColor/Methods/ToJSON/",
       "params": [],
       "returns": {
-        "type": "object"
+        "type": "string"
       },
-      "signature": "ToJSON(): object"
+      "signature": "ToJSON(): string"
     }
   }
 }

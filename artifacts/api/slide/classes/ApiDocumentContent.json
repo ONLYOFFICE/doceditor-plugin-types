@@ -61,9 +61,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDocumentContent/Methods/GetCurrentParagraph/",
       "params": [],
       "returns": {
-        "type": "ApiParagraph"
+        "type": "ApiParagraph | null"
       },
-      "signature": "GetCurrentParagraph(): ApiParagraph",
+      "signature": "GetCurrentParagraph(): ApiParagraph | null",
       "since": "9.0.0"
     },
     "GetCurrentRun": {
@@ -71,9 +71,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDocumentContent/Methods/GetCurrentRun/",
       "params": [],
       "returns": {
-        "type": "ApiRun"
+        "type": "ApiRun | null"
       },
-      "signature": "GetCurrentRun(): ApiRun",
+      "signature": "GetCurrentRun(): ApiRun | null",
       "since": "9.0.0"
     },
     "GetElement": {
@@ -87,9 +87,9 @@
         }
       ],
       "returns": {
-        "type": "DocumentElement"
+        "type": "DocumentElement | null"
       },
-      "signature": "GetElement(nPos: number): DocumentElement"
+      "signature": "GetElement(nPos: number): DocumentElement | null"
     },
     "GetElementsCount": {
       "description": "Returns a number of elements in the current document.",

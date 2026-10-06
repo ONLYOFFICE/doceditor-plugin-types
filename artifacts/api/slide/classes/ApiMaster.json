@@ -384,9 +384,9 @@
         }
       ],
       "returns": {
-        "type": "object"
+        "type": "string"
       },
-      "signature": "ToJSON(bWriteTableStyles?: boolean): object"
+      "signature": "ToJSON(bWriteTableStyles?: boolean): string"
     }
   }
 }

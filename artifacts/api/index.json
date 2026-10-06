@@ -6,35 +6,35 @@
       "events": 1,
       "executeMethods": 47,
       "methods": 1996,
-      "typedefs": 176
+      "typedefs": 178
     },
     "forms": {
       "classes": 69,
       "events": 1,
       "executeMethods": 50,
       "methods": 379,
-      "typedefs": 115
+      "typedefs": 117
     },
     "pdf": {
       "classes": 112,
       "events": 2,
       "executeMethods": 31,
-      "methods": 1509,
-      "typedefs": 147
+      "methods": 1513,
+      "typedefs": 149
     },
     "slide": {
       "classes": 85,
       "events": 5,
       "executeMethods": 62,
       "methods": 1063,
-      "typedefs": 111
+      "typedefs": 113
     },
     "word": {
       "classes": 73,
       "events": 19,
       "executeMethods": 113,
       "methods": 2118,
-      "typedefs": 105
+      "typedefs": 109
     }
   },
   "howToUse": [

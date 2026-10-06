@@ -88,9 +88,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiComment/Methods/GetRepliesCount/",
       "params": [],
       "returns": {
-        "type": "number"
+        "type": "number | null"
       },
-      "signature": "GetRepliesCount(): number",
+      "signature": "GetRepliesCount(): number | null",
       "since": "7.5.0"
     },
     "GetReply": {
@@ -105,9 +105,9 @@
         }
       ],
       "returns": {
-        "type": "ApiCommentReply"
+        "type": "ApiCommentReply | null"
       },
-      "signature": "GetReply(nIndex?: number): ApiCommentReply",
+      "signature": "GetReply(nIndex?: number): ApiCommentReply | null",
       "since": "7.5.0"
     },
     "GetText": {

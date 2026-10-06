@@ -16,9 +16,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiFill/Methods/GetColor/",
       "params": [],
       "returns": {
-        "type": "ApiColor"
+        "type": "ApiColor | null"
       },
-      "signature": "GetColor(): ApiColor",
+      "signature": "GetColor(): ApiColor | null",
       "since": "10.0.0"
     },
     "GetTransparent": {

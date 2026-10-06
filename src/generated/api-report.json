@@ -1,31 +1,31 @@
 {
   "word": {
     "classes": 73,
-    "typedefs": 105,
+    "typedefs": 109,
     "unresolvedTypes": [],
     "anyOccurrences": 0
   },
   "cell": {
     "classes": 125,
-    "typedefs": 176,
+    "typedefs": 178,
     "unresolvedTypes": [],
     "anyOccurrences": 0
   },
   "slide": {
     "classes": 85,
-    "typedefs": 111,
+    "typedefs": 113,
     "unresolvedTypes": [],
     "anyOccurrences": 0
   },
   "forms": {
     "classes": 69,
-    "typedefs": 115,
+    "typedefs": 117,
     "unresolvedTypes": [],
     "anyOccurrences": 0
   },
   "pdf": {
     "classes": 112,
-    "typedefs": 147,
+    "typedefs": 149,
     "unresolvedTypes": [],
     "anyOccurrences": 0
   }

@@ -28,9 +28,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichRun/Methods/GetParentParagraph/",
       "params": [],
       "returns": {
-        "type": "ApiRichParagraph"
+        "type": "ApiRichParagraph | null"
       },
-      "signature": "GetParentParagraph(): ApiRichParagraph"
+      "signature": "GetParentParagraph(): ApiRichParagraph | null"
     },
     "GetTextPr": {
       "description": "Returns the text properties of the current run.",

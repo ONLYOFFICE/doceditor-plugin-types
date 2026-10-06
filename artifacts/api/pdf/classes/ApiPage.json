@@ -94,9 +94,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiPage/Methods/GetSelection/",
       "params": [],
       "returns": {
-        "type": "PageSelection"
+        "type": "PageSelection | null"
       },
-      "signature": "GetSelection(): PageSelection",
+      "signature": "GetSelection(): PageSelection | null",
       "since": "10.0.0"
     },
     "GetSelectionQuads": {

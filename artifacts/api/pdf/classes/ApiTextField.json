@@ -27,9 +27,9 @@
         }
       ],
       "returns": {
-        "type": "ApiWidget"
+        "type": "ApiWidget | null"
       },
-      "signature": "AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget"
+      "signature": "AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget | null"
     },
     "ClearFormat": {
       "description": "Clears format of field.",

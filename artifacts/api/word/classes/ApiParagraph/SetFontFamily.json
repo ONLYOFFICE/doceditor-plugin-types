@@ -11,7 +11,7 @@
   ],
   "returns": {
     "description": "this",
-    "type": "ApiParagraph"
+    "type": "ApiParagraph | null"
   },
-  "signature": "SetFontFamily(fontFamily?: string | null): ApiParagraph"
+  "signature": "SetFontFamily(fontFamily?: string | null): ApiParagraph | null"
 }

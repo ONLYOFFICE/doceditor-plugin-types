@@ -42,9 +42,9 @@
       ],
       "returns": {
         "description": "Returns null if the comment was not added.",
-        "type": "ApiComment"
+        "type": "ApiComment | null"
       },
-      "signature": "AddComment(sText: string, sAuthor?: string, sUserId?: string): ApiComment"
+      "signature": "AddComment(sText: string, sAuthor?: string, sUserId?: string): ApiComment | null"
     },
     "AddField": {
       "description": "Adds a field to the specified range by the field instruction code.\n\n**Note:**\nThis method removes text within a range.\n",
@@ -84,9 +84,9 @@
       ],
       "returns": {
         "description": "returns null if range contains more than one paragraph or sLink is invalid.",
-        "type": "ApiHyperlink"
+        "type": "ApiHyperlink | null"
       },
-      "signature": "AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink"
+      "signature": "AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink | null"
     },
     "AddText": {
       "description": "Adds a text to the specified position.",
@@ -701,9 +701,9 @@
         }
       ],
       "returns": {
-        "type": "object"
+        "type": "string"
       },
-      "signature": "ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): object"
+      "signature": "ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): string"
     }
   }
 }

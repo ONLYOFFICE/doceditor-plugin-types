@@ -601,9 +601,9 @@
       ],
       "returns": {
         "description": "returns null if numType is not one of the BulletType values.",
-        "type": "ApiBullet"
+        "type": "ApiBullet | null"
       },
-      "signature": "CreateNumbering(numType: BulletType, startAt: number): ApiBullet",
+      "signature": "CreateNumbering(numType: BulletType, startAt: number): ApiBullet | null",
       "since": "10.0.0"
     },
     "CreateParagraph": {
@@ -709,9 +709,9 @@
         }
       ],
       "returns": {
-        "type": "ApiGeometry"
+        "type": "ApiGeometry | null"
       },
-      "signature": "CreatePresetGeometry(preset?: ShapeType): ApiGeometry",
+      "signature": "CreatePresetGeometry(preset?: ShapeType): ApiGeometry | null",
       "since": "9.1.0"
     },
     "CreateRGBColor": {

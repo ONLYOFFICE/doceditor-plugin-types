@@ -8,9 +8,9 @@
       "params": [],
       "returns": {
         "description": "returns null if the current style is not a table style.",
-        "type": "ApiTablePr"
+        "type": "ApiTablePr | null"
       },
-      "signature": "GetTablePr(): ApiTablePr",
+      "signature": "GetTablePr(): ApiTablePr | null",
       "since": "10.0.0"
     },
     "SetTablePr": {

@@ -1,5 +1,5 @@
 // Manual override for a Pdf-referenced typedef that generate-types.js can't resolve from this
-// package's own sources. See src/overrides/word.ts for the general rationale.
+// package's own sources. See src/overrides/cell.ts for the general rationale.
 
 /**
  * A paragraph numbering bullet type, referenced by a `word/apiBuilder.js` method also tagged for

@@ -3,7 +3,7 @@
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/Last/",
   "params": [],
   "returns": {
-    "type": "ParagraphContent"
+    "type": "ParagraphContent | null"
   },
-  "signature": "Last(): ParagraphContent"
+  "signature": "Last(): ParagraphContent | null"
 }

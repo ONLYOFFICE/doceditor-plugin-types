@@ -14,15 +14,25 @@
       },
       "signature": "Delete(): boolean"
     },
+    "GetActions": {
+      "description": "Gets actions collection.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetActions/",
+      "params": [],
+      "returns": {
+        "type": "ApiActionCollection"
+      },
+      "signature": "GetActions(): ApiActionCollection",
+      "since": "10.0.0"
+    },
     "GetActionsJSON": {
       "description": "Gets all field actions in json format.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetActionsJSON/",
       "params": [],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
       "returns": {
-        "type": "object"
+        "type": "string"
       },
-      "signature": "GetActionsJSON(): object",
+      "signature": "GetActionsJSON(): string",
       "since": "9.4.0"
     },
     "GetBackgroundColor": {
@@ -30,18 +40,18 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetBackgroundColor/",
       "params": [],
       "returns": {
-        "type": "ApiColor"
+        "type": "ApiColor | null"
       },
-      "signature": "GetBackgroundColor(): ApiColor"
+      "signature": "GetBackgroundColor(): ApiColor | null"
     },
     "GetBorderColor": {
       "description": "Gets widget border color.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetBorderColor/",
       "params": [],
       "returns": {
-        "type": "ApiColor"
+        "type": "ApiColor | null"
       },
-      "signature": "GetBorderColor(): ApiColor"
+      "signature": "GetBorderColor(): ApiColor | null"
     },
     "GetBorderStyle": {
       "description": "Gets widget border style.",
@@ -99,6 +109,16 @@
       "signature": "GetInternalId(): string",
       "since": "9.4.0"
     },
+    "GetParent": {
+      "description": "Gets parent field.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetParent/",
+      "params": [],
+      "returns": {
+        "type": "ApiField"
+      },
+      "signature": "GetParent(): ApiField",
+      "since": "10.0.0"
+    },
     "GetPosition": {
       "description": "Gets widget position.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetPosition/",
@@ -132,9 +152,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetTextColor/",
       "params": [],
       "returns": {
-        "type": "ApiColor"
+        "type": "ApiColor | null"
       },
-      "signature": "GetTextColor(): ApiColor"
+      "signature": "GetTextColor(): ApiColor | null"
     },
     "GetTextSize": {
       "description": "Gets widget text size.\n\n**Note:**\nText size === 0 means autofit.\n",

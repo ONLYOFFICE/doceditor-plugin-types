@@ -203,6 +203,60 @@ export namespace Slide {
   /** Any valid element which can be added to the document structure. */
   export type DocumentElement = ApiParagraph;
 
+  /** The document information. */
+  export interface DocumentInfo {
+    /** The application the document has been created with. */
+    Application: string;
+
+    /** The date and time when the file was created. */
+    CreatedRaw: Date;
+
+    /** The parsed date and time when the file was created. */
+    Created: string;
+
+    /** The date and time when the file was last modified. */
+    LastModifiedRaw: Date;
+
+    /** The parsed date and time when the file was last modified. */
+    LastModified: string;
+
+    /** The name of the user who has made the latest change to the document. */
+    LastModifiedBy: string;
+
+    /** The persons who have created the file. */
+    Authors: string[];
+
+    /** This property allows you to simplify your documents classification. */
+    Title: string;
+
+    /** This property allows you to simplify your documents classification. */
+    Tags: string;
+
+    /** This property allows you to simplify your documents classification. */
+    Subject: string;
+
+    /** This property allows you to simplify your documents classification. */
+    Comment: string;
+  }
+
+  /** The document statistics. */
+  export interface DocumentStatistics {
+    /** The number of pages. */
+    PageCount: number;
+
+    /** The number of words. */
+    WordsCount: number;
+
+    /** The number of paragraphs. */
+    ParagraphCount: number;
+
+    /** The number of symbols, spaces excluded. */
+    SymbolsCount: number;
+
+    /** The number of symbols, spaces included. */
+    SymbolsWSCount: number;
+  }
+
   /** Any valid drawing element. */
   export type Drawing = ApiShape | ApiImage | ApiGroup | ApiOleObject | ApiTable | ApiChart | ApiSmartArt;
 
@@ -1411,7 +1465,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/CreateMaster/
      */
-    CreateMaster(oTheme?: ApiTheme): ApiMaster;
+    CreateMaster(oTheme?: ApiTheme): ApiMaster | null;
 
     /**
      * Creates a math equation from a linear text string. The resulting object can be inserted into
@@ -1490,7 +1544,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/CreateNumbering/
      */
-    CreateNumbering(numType: BulletType, startAt: number): ApiBullet;
+    CreateNumbering(numType: BulletType, startAt: number): ApiBullet | null;
 
     /**
      * Creates an OLE object with the parameters specified.
@@ -1679,7 +1733,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/CreatePresetGeometry/
      */
-    CreatePresetGeometry(preset?: ShapeType): ApiGeometry;
+    CreatePresetGeometry(preset?: ShapeType): ApiGeometry | null;
 
     /**
      * Creates an RGB color setting the appropriate values for the red, green and blue color components.
@@ -2011,7 +2065,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/CreateTable/
      */
-    CreateTable(rows: unknown, cols: unknown): ApiTable;
+    CreateTable(rows: unknown, cols: unknown): ApiTable | null;
 
     /**
      * Creates the empty table properties.
@@ -2167,7 +2221,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/CreateThemeColorScheme/
      */
-    CreateThemeColorScheme(arrColors: ApiUniColor[] | ApiRGBColor[] | ApiColor[] | string[], sName: string): ApiThemeColorScheme;
+    CreateThemeColorScheme(arrColors: ApiUniColor[] | ApiRGBColor[] | ApiColor[] | string[], sName: string): ApiThemeColorScheme | null;
 
     /**
      * Creates a new theme font scheme.
@@ -2271,7 +2325,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/CreateThemeFormatScheme/
      */
-    CreateThemeFormatScheme(arrFill: ApiFill[], arrBgFill: ApiFill[], arrLine: ApiStroke[], sName: string): ApiThemeFormatScheme;
+    CreateThemeFormatScheme(arrFill: ApiFill[], arrBgFill: ApiFill[], arrLine: ApiStroke[], sName: string): ApiThemeFormatScheme | null;
 
     /**
      * Creates a Text Art object with the parameters specified.
@@ -2429,7 +2483,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/FromJSON/
      */
-    FromJSON(sMessage: object): void;
+    FromJSON(sMessage: string): void;
 
     /**
      * Returns the first slide of the presentation.
@@ -2455,7 +2509,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/GetFirstSlide/
      */
-    GetFirstSlide(): ApiSlide;
+    GetFirstSlide(): ApiSlide | null;
 
     /**
      * Returns the full name of the currently opened file.
@@ -2515,7 +2569,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/GetLastSlide/
      */
-    GetLastSlide(): ApiSlide;
+    GetLastSlide(): ApiSlide | null;
 
     /**
      * Returns the main presentation.
@@ -2611,7 +2665,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/GetSlideByIndex/
      */
-    GetSlideByIndex(nIndex: number): ApiSlide;
+    GetSlideByIndex(nIndex: number): ApiSlide | null;
 
     /**
      * Creates a color from a HEX string.
@@ -4353,7 +4407,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiBullet/Methods/ToJSON/
      */
-    ToJSON(): object;
+    ToJSON(): string;
   }
 
   /**
@@ -4857,7 +4911,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/GetSeries/
      */
-    GetSeries(nIdx: number): ApiChartSeries;
+    GetSeries(nIdx: number): ApiChartSeries | null;
 
     /**
      * Returns the chart title text.
@@ -7005,7 +7059,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiColor/Methods/GetRGB/
      */
-    GetRGB(): object;
+    GetRGB(): { r: number; g: number; b: number };
 
     /**
      * Gets the RGBA components of the color.
@@ -7040,7 +7094,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiColor/Methods/GetRGBA/
      */
-    GetRGBA(): object;
+    GetRGBA(): { r: number; g: number; b: number; a: number };
 
     /**
      * Gets the theme color name if the color is a theme color.
@@ -7222,7 +7276,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiComment/Methods/AddReply/
      */
-    AddReply(sText: string, sAuthorName?: string, sUserId?: string, nPos?: number): ApiComment;
+    AddReply(sText: string, sAuthorName?: string, sUserId?: string, nPos?: number): ApiComment | null;
 
     /**
      * Deletes the current comment from the document.
@@ -7365,7 +7419,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiComment/Methods/GetPosition/
      */
-    GetPosition(): object;
+    GetPosition(): { x: EMU; y: EMU };
 
     /**
      * Returns the quote text of the current comment.
@@ -7400,7 +7454,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiComment/Methods/GetQuoteText/
      */
-    GetQuoteText(): number;
+    GetQuoteText(): number | null;
 
     /**
      * Returns a number of the comment replies.
@@ -7438,7 +7492,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiComment/Methods/GetRepliesCount/
      */
-    GetRepliesCount(): number;
+    GetRepliesCount(): number | null;
 
     /**
      * Returns the comment text.
@@ -7667,7 +7721,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiComment/Methods/RemoveReplies/
      */
-    RemoveReplies(nPos?: number, nCount?: number, bRemoveAll?: boolean): ApiComment;
+    RemoveReplies(nPos?: number, nCount?: number, bRemoveAll?: boolean): ApiComment | null;
 
     /**
      * Sets the comment author's name.
@@ -7823,7 +7877,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiComment/Methods/SetText/
      */
-    SetText(sText: string): ApiComment;
+    SetText(sText: string): ApiComment | null;
 
     /**
      * Sets the timestamp of the comment creation in the current time zone format.
@@ -8136,7 +8190,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiCommentReply/Methods/SetText/
      */
-    SetText(sText: string): ApiCommentReply;
+    SetText(sText: string): ApiCommentReply | null;
 
     /**
      * Sets the user ID to the comment reply author.
@@ -10837,7 +10891,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDocumentContent/Methods/GetCurrentParagraph/
      */
-    GetCurrentParagraph(): ApiParagraph;
+    GetCurrentParagraph(): ApiParagraph | null;
 
     /**
      * Returns the current run where the cursor is located.
@@ -10846,7 +10900,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDocumentContent/Methods/GetCurrentRun/
      */
-    GetCurrentRun(): ApiRun;
+    GetCurrentRun(): ApiRun | null;
 
     /**
      * Returns an element by its position in the document.
@@ -10855,7 +10909,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDocumentContent/Methods/GetElement/
      */
-    GetElement(nPos: number): DocumentElement;
+    GetElement(nPos: number): DocumentElement | null;
 
     /**
      * Returns a number of elements in the current document.
@@ -11136,7 +11190,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDocumentContent/Methods/GetCurrentParagraph/
      */
-    GetCurrentParagraph(): ApiParagraph;
+    GetCurrentParagraph(): ApiParagraph | null;
 
     /**
      * Returns the current run where the cursor is located.
@@ -11173,7 +11227,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDocumentContent/Methods/GetCurrentRun/
      */
-    GetCurrentRun(): ApiRun;
+    GetCurrentRun(): ApiRun | null;
 
     /**
      * Returns an element by its position in the document.
@@ -11211,7 +11265,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDocumentContent/Methods/GetElement/
      */
-    GetElement(nPos: number): DocumentElement;
+    GetElement(nPos: number): DocumentElement | null;
 
     /**
      * Returns a number of elements in the current document.
@@ -12787,7 +12841,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/ToJSON/
      */
-    ToJSON(): object;
+    ToJSON(): string;
 
     /**
      * Removes the current graphic object from the selection.
@@ -12882,7 +12936,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiFill/Methods/GetColor/
      */
-    GetColor(): ApiColor;
+    GetColor(): ApiColor | null;
 
     /**
      * Returns the transparency of the fill.
@@ -13304,7 +13358,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiGeometry/Methods/GetPreset/
      */
-    GetPreset(): ShapeType;
+    GetPreset(): ShapeType | null;
 
     /**
      * Checks whether the current geometry is custom.
@@ -14175,7 +14229,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiHyperlink/Methods/GetElement/
      */
-    GetElement(nPos: number): ParagraphContent;
+    GetElement(nPos: number): ParagraphContent | null;
 
     /**
      * Returns a number of elements in the current hyperlink.
@@ -15567,7 +15621,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiLayout/Methods/GetMaster/
      */
-    GetMaster(): ApiMaster;
+    GetMaster(): ApiMaster | null;
 
     /**
      * Returns a name of the current layout.
@@ -15848,7 +15902,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiLayout/Methods/ToJSON/
      */
-    ToJSON(bWriteMaster?: boolean, bWriteTableStyles?: boolean): object;
+    ToJSON(bWriteMaster?: boolean, bWriteTableStyles?: boolean): string;
   }
 
   /**
@@ -16842,7 +16896,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiMaster/Methods/ToJSON/
      */
-    ToJSON(bWriteTableStyles?: boolean): object;
+    ToJSON(bWriteTableStyles?: boolean): string;
   }
 
   /**
@@ -18910,7 +18964,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParagraph/Methods/GetElement/
      */
-    GetElement(nPos: number): ParagraphContent;
+    GetElement(nPos: number): ParagraphContent | null;
 
     /**
      * Returns a number of elements in the current paragraph.
@@ -19723,7 +19777,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParagraph/Methods/Last/
      */
-    Last(): ParagraphContent;
+    Last(): ParagraphContent | null;
 
     /**
      * Adds an element to the current paragraph.
@@ -20065,7 +20119,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParagraph/Methods/SetFontFamily/
      */
-    SetFontFamily(fontFamily?: string | null): ApiParagraph;
+    SetFontFamily(fontFamily?: string | null): ApiParagraph | null;
 
     /**
      * Sets the font size to the characters of the current paragraph.
@@ -20764,7 +20818,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParagraph/Methods/ToJSON/
      */
-    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): object;
+    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): string;
   }
 
   /**
@@ -22870,7 +22924,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/GetCurrentSlide/
      */
-    GetCurrentSlide(): ApiSlide;
+    GetCurrentSlide(): ApiSlide | null;
 
     /**
      * Returns the current visible slide.
@@ -23040,7 +23094,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/GetDocumentInfo/
      */
-    GetDocumentInfo(): object;
+    GetDocumentInfo(): DocumentInfo;
 
     /**
      * Returns a collection of drawing objects from the presentation slides filtered by their names,
@@ -23240,7 +23294,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/GetSlideByIndex/
      */
-    GetSlideByIndex(nIndex: number): ApiSlide;
+    GetSlideByIndex(nIndex: number): ApiSlide | null;
 
     /**
      * Returns a number of slides.
@@ -23814,7 +23868,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/SlidesToJSON/
      */
-    SlidesToJSON(nStart?: number, nEnd?: number, bWriteLayout?: boolean, bWriteMaster?: boolean, bWriteAllMasLayouts?: boolean, bWriteTableStyles?: boolean): object | null;
+    SlidesToJSON(nStart?: number, nEnd?: number, bWriteLayout?: boolean, bWriteMaster?: boolean, bWriteAllMasLayouts?: boolean, bWriteTableStyles?: boolean): string | null;
 
     /**
      * Converts the ApiPresentation object into the JSON object.
@@ -23848,7 +23902,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/ToJSON/
      */
-    ToJSON(bWriteTableStyles?: boolean): object;
+    ToJSON(bWriteTableStyles?: boolean): string;
   }
 
   /**
@@ -23991,7 +24045,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetBold/
      */
-    GetBold(): boolean;
+    GetBold(): boolean | null;
 
     /**
      * Returns whether the text with the current text properties are capitalized.
@@ -24000,7 +24054,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetCaps/
      */
-    GetCaps(): boolean;
+    GetCaps(): boolean | null;
 
     /**
      * Returns a type of the ApiTextPr class.
@@ -24016,7 +24070,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetDoubleStrikeout/
      */
-    GetDoubleStrikeout(): boolean;
+    GetDoubleStrikeout(): boolean | null;
 
     /**
      * Gets the text color from the current text properties.
@@ -24036,7 +24090,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetFontFamily/
      */
-    GetFontFamily(): string;
+    GetFontFamily(): string | null;
 
     /**
      * Gets the font size from the current text properties.
@@ -24045,7 +24099,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetFontSize/
      */
-    GetFontSize(): hps;
+    GetFontSize(): hps | null;
 
     /**
      * Gets the highlight property from the current text properties.
@@ -24054,7 +24108,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetHighlight/
      */
-    GetHighlight(): string;
+    GetHighlight(): string | null;
 
     /**
      * Gets the italic property from the current text properties.
@@ -24063,7 +24117,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetItalic/
      */
-    GetItalic(): boolean;
+    GetItalic(): boolean | null;
 
     /**
      * Gets the text outline from the current text properties.
@@ -24082,7 +24136,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetSmallCaps/
      */
-    GetSmallCaps(): boolean;
+    GetSmallCaps(): boolean | null;
 
     /**
      * Gets the text spacing from the current text properties measured in twentieths of a point.
@@ -24091,7 +24145,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetSpacing/
      */
-    GetSpacing(): twips;
+    GetSpacing(): twips | null;
 
     /**
      * Gets the strikeout property from the current text properties.
@@ -24100,7 +24154,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetStrikeout/
      */
-    GetStrikeout(): boolean;
+    GetStrikeout(): boolean | null;
 
     /**
      * Gets the text fill from the current text properties.
@@ -24118,7 +24172,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetUnderline/
      */
-    GetUnderline(): boolean;
+    GetUnderline(): boolean | null;
 
     /**
      * Sets the bold property to the text character.
@@ -24549,7 +24603,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetBold/
      */
-    GetBold(): boolean;
+    GetBold(): boolean | null;
 
     /**
      * Returns whether the text with the current text properties are capitalized.
@@ -24590,7 +24644,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetCaps/
      */
-    GetCaps(): boolean;
+    GetCaps(): boolean | null;
 
     /**
      * Returns a type of the ApiRun class.
@@ -24663,7 +24717,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetDoubleStrikeout/
      */
-    GetDoubleStrikeout(): boolean;
+    GetDoubleStrikeout(): boolean | null;
 
     /**
      * Gets the text color from the current text properties.
@@ -24751,7 +24805,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetFontFamily/
      */
-    GetFontFamily(): string;
+    GetFontFamily(): string | null;
 
     /**
      * Returns all font names from all elements inside the current run.
@@ -24840,7 +24894,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetFontSize/
      */
-    GetFontSize(): hps;
+    GetFontSize(): hps | null;
 
     /**
      * Gets the highlight property from the current text properties.
@@ -24881,7 +24935,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetHighlight/
      */
-    GetHighlight(): string;
+    GetHighlight(): string | null;
 
     /**
      * Gets the italic property from the current text properties.
@@ -24922,7 +24976,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetItalic/
      */
-    GetItalic(): boolean;
+    GetItalic(): boolean | null;
 
     /**
      * Gets the text outline from the current text properties.
@@ -25007,7 +25061,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetSmallCaps/
      */
-    GetSmallCaps(): boolean;
+    GetSmallCaps(): boolean | null;
 
     /**
      * Gets the text spacing from the current text properties measured in twentieths of a point.
@@ -25048,7 +25102,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetSpacing/
      */
-    GetSpacing(): twips;
+    GetSpacing(): twips | null;
 
     /**
      * Gets the strikeout property from the current text properties.
@@ -25089,7 +25143,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetStrikeout/
      */
-    GetStrikeout(): boolean;
+    GetStrikeout(): boolean | null;
 
     /**
      * Gets the text fill from the current text properties.
@@ -25220,7 +25274,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetUnderline/
      */
-    GetUnderline(): boolean;
+    GetUnderline(): boolean | null;
 
     /**
      * Removes all the elements from the current run.
@@ -26216,7 +26270,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShape/Methods/GetContent/
      */
-    GetContent(): ApiDocumentContent;
+    GetContent(): ApiDocumentContent | null;
 
     /**
      * Deprecated in 6.2.
@@ -26250,7 +26304,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShape/Methods/GetDocContent/
      */
-    GetDocContent(): ApiDocumentContent;
+    GetDocContent(): ApiDocumentContent | null;
 
     /**
      * Gets the fill properties from the current shape.
@@ -27093,7 +27147,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShd/Methods/GetColor/
      */
-    GetColor(): ApiColor;
+    GetColor(): ApiColor | null;
 
     /**
      * Returns the shading type.
@@ -28429,7 +28483,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiSlide/Methods/ToJSON/
      */
-    ToJSON(bWriteLayout?: boolean, bWriteMaster?: boolean, bWriteAllMasLayouts?: boolean, bWriteTableStyles?: boolean): object;
+    ToJSON(bWriteLayout?: boolean, bWriteMaster?: boolean, bWriteAllMasLayouts?: boolean, bWriteTableStyles?: boolean): string;
   }
 
   /**
@@ -29514,7 +29568,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStroke/Methods/GetBeginArrow/
      */
-    GetBeginArrow(): object | null;
+    GetBeginArrow(): { Type: LineEndType; Width: LineEndSize; Length: LineEndSize } | null;
 
     /**
      * Returns the cap type of the stroke.
@@ -29593,7 +29647,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStroke/Methods/GetEndArrow/
      */
-    GetEndArrow(): object | null;
+    GetEndArrow(): { Type: LineEndType; Width: LineEndSize; Length: LineEndSize } | null;
 
     /**
      * Gets the fill (color) of the stroke.
@@ -29746,7 +29800,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStyle/Methods/GetTablePr/
      */
-    GetTablePr(): ApiTablePr;
+    GetTablePr(): ApiTablePr | null;
 
     /**
      * Sets the table properties to the current style.
@@ -30295,7 +30349,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/GetRow/
      */
-    GetRow(nIndex: number): ApiTableRow;
+    GetRow(nIndex: number): ApiTableRow | null;
 
     /**
      * Returns a number of rows in the current table.
@@ -30379,7 +30433,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/MergeCells/
      */
-    MergeCells(aCells: ApiTableCell[]): ApiTableCell;
+    MergeCells(aCells: ApiTableCell[]): ApiTableCell | null;
 
     /**
      * Removes a table column with the specified cell.
@@ -30884,7 +30938,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/ToJSON/
      */
-    ToJSON(bWriteTableStyles?: boolean): object;
+    ToJSON(bWriteTableStyles?: boolean): string;
   }
 
   /**
@@ -31890,7 +31944,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetBold/
      */
-    GetBold(): boolean;
+    GetBold(): boolean | null;
 
     /**
      * Returns whether the text with the current text properties are capitalized.
@@ -31931,7 +31985,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetCaps/
      */
-    GetCaps(): boolean;
+    GetCaps(): boolean | null;
 
     /**
      * Returns a type of the ApiTextPr class.
@@ -32006,7 +32060,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetDoubleStrikeout/
      */
-    GetDoubleStrikeout(): boolean;
+    GetDoubleStrikeout(): boolean | null;
 
     /**
      * Gets the text color from the current text properties.
@@ -32094,7 +32148,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetFontFamily/
      */
-    GetFontFamily(): string;
+    GetFontFamily(): string | null;
 
     /**
      * Gets the font size from the current text properties.
@@ -32135,7 +32189,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetFontSize/
      */
-    GetFontSize(): hps;
+    GetFontSize(): hps | null;
 
     /**
      * Gets the highlight property from the current text properties.
@@ -32176,7 +32230,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetHighlight/
      */
-    GetHighlight(): string;
+    GetHighlight(): string | null;
 
     /**
      * Gets the italic property from the current text properties.
@@ -32217,7 +32271,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetItalic/
      */
-    GetItalic(): boolean;
+    GetItalic(): boolean | null;
 
     /**
      * Gets the text outline from the current text properties.
@@ -32302,7 +32356,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetSmallCaps/
      */
-    GetSmallCaps(): boolean;
+    GetSmallCaps(): boolean | null;
 
     /**
      * Gets the text spacing from the current text properties measured in twentieths of a point.
@@ -32343,7 +32397,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetSpacing/
      */
-    GetSpacing(): twips;
+    GetSpacing(): twips | null;
 
     /**
      * Gets the strikeout property from the current text properties.
@@ -32384,7 +32438,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetStrikeout/
      */
-    GetStrikeout(): boolean;
+    GetStrikeout(): boolean | null;
 
     /**
      * Gets the text fill from the current text properties.
@@ -32468,7 +32522,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetUnderline/
      */
-    GetUnderline(): boolean;
+    GetUnderline(): boolean | null;
 
     /**
      * Sets the bold property to the text character.
@@ -33072,7 +33126,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/AddHyperlink/
      */
-    AddHyperlink(link: string, screenTipText: string): ApiHyperlink;
+    AddHyperlink(link: string, screenTipText: string): ApiHyperlink | null;
 
     /**
      * Adds a text to the specified position. The current range is expanded to include the added text.
@@ -33560,7 +33614,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTheme/Methods/GetColorScheme/
      */
-    GetColorScheme(): ApiThemeColorScheme;
+    GetColorScheme(): ApiThemeColorScheme | null;
 
     /**
      * Returns the font scheme of the current theme.
@@ -33595,7 +33649,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTheme/Methods/GetFontScheme/
      */
-    GetFontScheme(): ApiThemeFontScheme;
+    GetFontScheme(): ApiThemeFontScheme | null;
 
     /**
      * Returns the format scheme of the current theme.
@@ -33630,7 +33684,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTheme/Methods/GetFormatScheme/
      */
-    GetFormatScheme(): ApiThemeFormatScheme;
+    GetFormatScheme(): ApiThemeFormatScheme | null;
 
     /**
      * Returns the slide master of the current theme.
@@ -33965,7 +34019,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeColorScheme/Methods/GetColor/
      */
-    GetColor(position: number): ApiColor;
+    GetColor(position: number): ApiColor | null;
 
     /**
      * Returns the name of the current theme color scheme.
@@ -34062,7 +34116,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeColorScheme/Methods/ToJSON/
      */
-    ToJSON(): object;
+    ToJSON(): string;
   }
 
   /**
@@ -34189,7 +34243,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFontScheme/Methods/GetMajorFont/
      */
-    GetMajorFont(script?: ThemeFontScript): string;
+    GetMajorFont(script?: ThemeFontScript): string | null;
 
     /**
      * Returns the minor theme font of the current theme font scheme.
@@ -34202,7 +34256,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFontScheme/Methods/GetMinorFont/
      */
-    GetMinorFont(script?: ThemeFontScript): string;
+    GetMinorFont(script?: ThemeFontScript): string | null;
 
     /**
      * Returns the name of the current theme font scheme.
@@ -34334,7 +34388,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFontScheme/Methods/ToJSON/
      */
-    ToJSON(): object;
+    ToJSON(): string;
   }
 
   /**
@@ -34691,7 +34745,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFormatScheme/Methods/ToJSON/
      */
-    ToJSON(): object;
+    ToJSON(): string;
   }
 
   /**

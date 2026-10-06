@@ -287,9 +287,9 @@
         }
       ],
       "returns": {
-        "type": "ApiTableRow"
+        "type": "ApiTableRow | null"
       },
-      "signature": "GetRow(nIndex: number): ApiTableRow"
+      "signature": "GetRow(nIndex: number): ApiTableRow | null"
     },
     "GetRowsCount": {
       "description": "Returns a number of rows in the current table.",
@@ -352,9 +352,9 @@
         }
       ],
       "returns": {
-        "type": "ApiTableCell"
+        "type": "ApiTableCell | null"
       },
-      "signature": "MergeCells(aCells: ApiTableCell[]): ApiTableCell"
+      "signature": "MergeCells(aCells: ApiTableCell[]): ApiTableCell | null"
     },
     "RemoveColumn": {
       "description": "Removes a table column with the specified cell.",
@@ -690,9 +690,9 @@
         }
       ],
       "returns": {
-        "type": "object"
+        "type": "string"
       },
-      "signature": "ToJSON(bWriteTableStyles?: boolean): object"
+      "signature": "ToJSON(bWriteTableStyles?: boolean): string"
     }
   }
 }

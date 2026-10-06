@@ -151,9 +151,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/GetCurrentParagraph/",
       "params": [],
       "returns": {
-        "type": "ApiParagraph"
+        "type": "ApiParagraph | null"
       },
-      "signature": "GetCurrentParagraph(): ApiParagraph",
+      "signature": "GetCurrentParagraph(): ApiParagraph | null",
       "since": "9.0.0"
     },
     "GetCurrentRun": {
@@ -161,9 +161,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/GetCurrentRun/",
       "params": [],
       "returns": {
-        "type": "ApiRun"
+        "type": "ApiRun | null"
       },
-      "signature": "GetCurrentRun(): ApiRun",
+      "signature": "GetCurrentRun(): ApiRun | null",
       "since": "9.0.0"
     },
     "GetDocumentVisitor": {
@@ -189,9 +189,9 @@
         }
       ],
       "returns": {
-        "type": "DocumentElement"
+        "type": "DocumentElement | null"
       },
-      "signature": "GetElement(nPos: number): DocumentElement"
+      "signature": "GetElement(nPos: number): DocumentElement | null"
     },
     "GetElementIndex": {
       "description": "Returns the position (index) of the specified element within the current document content.",
@@ -428,9 +428,9 @@
         }
       ],
       "returns": {
-        "type": "object"
+        "type": "string"
       },
-      "signature": "ToJSON(isWriteNumberings: boolean, isWriteStyles: boolean): object"
+      "signature": "ToJSON(isWriteNumberings: boolean, isWriteStyles: boolean): string"
     }
   }
 }

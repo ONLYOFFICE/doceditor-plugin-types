@@ -4,7 +4,7 @@
   "params": [],
   "returns": {
     "description": "The style of the paragraph.",
-    "type": "ApiStyle"
+    "type": "ApiStyle | null"
   },
-  "signature": "GetStyle(): ApiStyle"
+  "signature": "GetStyle(): ApiStyle | null"
 }

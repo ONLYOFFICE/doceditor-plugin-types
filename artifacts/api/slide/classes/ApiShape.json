@@ -19,18 +19,18 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShape/Methods/GetContent/",
       "params": [],
       "returns": {
-        "type": "ApiDocumentContent"
+        "type": "ApiDocumentContent | null"
       },
-      "signature": "GetContent(): ApiDocumentContent"
+      "signature": "GetContent(): ApiDocumentContent | null"
     },
     "GetDocContent": {
       "description": "Deprecated in 6.2.\nReturns the shape inner contents where a paragraph or text runs can be inserted.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShape/Methods/GetDocContent/",
       "params": [],
       "returns": {
-        "type": "ApiDocumentContent"
+        "type": "ApiDocumentContent | null"
       },
-      "signature": "GetDocContent(): ApiDocumentContent"
+      "signature": "GetDocContent(): ApiDocumentContent | null"
     },
     "GetFill": {
       "description": "Gets the fill properties from the current shape.",

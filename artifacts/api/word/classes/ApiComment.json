@@ -32,9 +32,9 @@
       ],
       "returns": {
         "description": "this",
-        "type": "ApiComment"
+        "type": "ApiComment | null"
       },
-      "signature": "AddReply(sText: string, sAuthorName?: string, sUserId?: string, nPos?: number): ApiComment"
+      "signature": "AddReply(sText: string, sAuthorName?: string, sUserId?: string, nPos?: number): ApiComment | null"
     },
     "Delete": {
       "description": "Deletes the current comment from the document.",
@@ -68,27 +68,27 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/GetId/",
       "params": [],
       "returns": {
-        "type": "string"
+        "type": "string | null"
       },
-      "signature": "GetId(): string"
+      "signature": "GetId(): string | null"
     },
     "GetQuoteText": {
       "description": "Returns the quote text of the current comment.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/GetQuoteText/",
       "params": [],
       "returns": {
-        "type": "number"
+        "type": "number | null"
       },
-      "signature": "GetQuoteText(): number"
+      "signature": "GetQuoteText(): number | null"
     },
     "GetRepliesCount": {
       "description": "Returns a number of the comment replies.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/GetRepliesCount/",
       "params": [],
       "returns": {
-        "type": "number"
+        "type": "number | null"
       },
-      "signature": "GetRepliesCount(): number"
+      "signature": "GetRepliesCount(): number | null"
     },
     "GetReply": {
       "description": "Returns the specified comment reply.",
@@ -102,9 +102,9 @@
         }
       ],
       "returns": {
-        "type": "ApiCommentReply"
+        "type": "ApiCommentReply | null"
       },
-      "signature": "GetReply(nIndex?: number): ApiCommentReply"
+      "signature": "GetReply(nIndex?: number): ApiCommentReply | null"
     },
     "GetText": {
       "description": "Returns the comment text.",
@@ -176,9 +176,9 @@
       ],
       "returns": {
         "description": "this",
-        "type": "ApiComment"
+        "type": "ApiComment | null"
       },
-      "signature": "RemoveReplies(nPos?: number, nCount?: number, bRemoveAll?: boolean): ApiComment"
+      "signature": "RemoveReplies(nPos?: number, nCount?: number, bRemoveAll?: boolean): ApiComment | null"
     },
     "SetAuthorName": {
       "description": "Sets the comment author's name.",
@@ -224,9 +224,9 @@
       ],
       "returns": {
         "description": "this",
-        "type": "ApiComment"
+        "type": "ApiComment | null"
       },
-      "signature": "SetText(sText: string): ApiComment"
+      "signature": "SetText(sText: string): ApiComment | null"
     },
     "SetTime": {
       "description": "Sets the timestamp of the comment creation in the current time zone format.",

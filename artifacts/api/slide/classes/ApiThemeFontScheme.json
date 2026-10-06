@@ -33,9 +33,9 @@
       ],
       "returns": {
         "description": "The font name, an empty string if the scheme has no font for this script, or null if the script is not supported.",
-        "type": "string"
+        "type": "string | null"
       },
-      "signature": "GetMajorFont(script?: ThemeFontScript): string",
+      "signature": "GetMajorFont(script?: ThemeFontScript): string | null",
       "since": "10.0.0"
     },
     "GetMinorFont": {
@@ -51,9 +51,9 @@
       ],
       "returns": {
         "description": "The font name, an empty string if the scheme has no font for this script, or null if the script is not supported.",
-        "type": "string"
+        "type": "string | null"
       },
-      "signature": "GetMinorFont(script?: ThemeFontScript): string",
+      "signature": "GetMinorFont(script?: ThemeFontScript): string | null",
       "since": "10.0.0"
     },
     "GetSchemeName": {
@@ -127,9 +127,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFontScheme/Methods/ToJSON/",
       "params": [],
       "returns": {
-        "type": "object"
+        "type": "string"
       },
-      "signature": "ToJSON(): object"
+      "signature": "ToJSON(): string"
     }
   }
 }

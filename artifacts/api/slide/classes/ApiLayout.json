@@ -183,9 +183,9 @@
       "params": [],
       "returns": {
         "description": "returns null if parent slide master doesn't exist.",
-        "type": "ApiMaster"
+        "type": "ApiMaster | null"
       },
-      "signature": "GetMaster(): ApiMaster"
+      "signature": "GetMaster(): ApiMaster | null"
     },
     "GetName": {
       "description": "Returns a name of the current layout.",
@@ -338,9 +338,9 @@
         }
       ],
       "returns": {
-        "type": "object"
+        "type": "string"
       },
-      "signature": "ToJSON(bWriteMaster?: boolean, bWriteTableStyles?: boolean): object"
+      "signature": "ToJSON(bWriteMaster?: boolean, bWriteTableStyles?: boolean): string"
     }
   }
 }

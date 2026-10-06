@@ -252,6 +252,60 @@ export namespace Pdf {
   /** Any valid element which can be added to the document structure. */
   export type DocumentElement = ApiParagraph | ApiTable | ApiBlockLvlSdt;
 
+  /** The document information. */
+  export interface DocumentInfo {
+    /** The application the document has been created with. */
+    Application: string;
+
+    /** The date and time when the file was created. */
+    CreatedRaw: Date;
+
+    /** The parsed date and time when the file was created. */
+    Created: string;
+
+    /** The date and time when the file was last modified. */
+    LastModifiedRaw: Date;
+
+    /** The parsed date and time when the file was last modified. */
+    LastModified: string;
+
+    /** The name of the user who has made the latest change to the document. */
+    LastModifiedBy: string;
+
+    /** The persons who have created the file. */
+    Authors: string[];
+
+    /** This property allows you to simplify your documents classification. */
+    Title: string;
+
+    /** This property allows you to simplify your documents classification. */
+    Tags: string;
+
+    /** This property allows you to simplify your documents classification. */
+    Subject: string;
+
+    /** This property allows you to simplify your documents classification. */
+    Comment: string;
+  }
+
+  /** The document statistics. */
+  export interface DocumentStatistics {
+    /** The number of pages. */
+    PageCount: number;
+
+    /** The number of words. */
+    WordsCount: number;
+
+    /** The number of paragraphs. */
+    ParagraphCount: number;
+
+    /** The number of symbols, spaces excluded. */
+    SymbolsCount: number;
+
+    /** The number of symbols, spaces included. */
+    SymbolsWSCount: number;
+  }
+
   /** Any valid drawing object. */
   export type Drawing = ApiShape | ApiImage | ApiTable | ApiChart;
 
@@ -1966,7 +2020,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateNumbering/
      */
-    CreateNumbering(numType: BulletType, startAt: number): ApiBullet;
+    CreateNumbering(numType: BulletType, startAt: number): ApiBullet | null;
 
     /**
      * Creates a new paragraph.
@@ -2131,7 +2185,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreatePresetGeometry/
      */
-    CreatePresetGeometry(preset?: ShapeType): ApiGeometry;
+    CreatePresetGeometry(preset?: ShapeType): ApiGeometry | null;
 
     /**
      * Creates an RGB color setting the appropriate values for the red, green and blue color components.
@@ -3838,7 +3892,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Gets annotation border effect intensity.
@@ -3945,7 +3999,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetContents/
      */
-    GetContents(): string;
+    GetContents(): string | null;
 
     /**
      * Gets annotation creation date.
@@ -4028,7 +4082,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetFillColor/
      */
-    GetFillColor(): ApiColor;
+    GetFillColor(): ApiColor | null;
 
     /**
      * Returns an internal ID of the current annotation.
@@ -4169,7 +4223,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetSubject/
      */
-    GetSubject(): string;
+    GetSubject(): string | null;
 
     /**
      * Gets annotation unique name.
@@ -4617,7 +4671,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/AddWidget/
      */
-    AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget;
+    AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget | null;
 
     /**
      * Removes field from document.
@@ -4992,7 +5046,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/AddWidget/
      */
-    AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget;
+    AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget | null;
 
     /**
      * Removes field from document.
@@ -5607,7 +5661,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Gets annotation border effect intensity.
@@ -5714,7 +5768,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetContents/
      */
-    GetContents(): string;
+    GetContents(): string | null;
 
     /**
      * Gets annotation creation date.
@@ -5797,7 +5851,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetFillColor/
      */
-    GetFillColor(): ApiColor;
+    GetFillColor(): ApiColor | null;
 
     /**
      * Returns an internal ID of the current annotation.
@@ -5958,7 +6012,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetSubject/
      */
-    GetSubject(): string;
+    GetSubject(): string | null;
 
     /**
      * Gets annotation unique name.
@@ -6445,7 +6499,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetActionsJSON/
      */
-    GetActionsJSON(): object;
+    GetActionsJSON(): string;
 
     /**
      * Gets widget background color.
@@ -6473,7 +6527,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetBackgroundColor/
      */
-    GetBackgroundColor(): ApiColor;
+    GetBackgroundColor(): ApiColor | null;
 
     /**
      * Gets widget border color.
@@ -6501,7 +6555,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Gets widget border style.
@@ -6682,7 +6736,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetTextColor/
      */
-    GetTextColor(): ApiColor;
+    GetTextColor(): ApiColor | null;
 
     /**
      * Gets widget text size.
@@ -7062,7 +7116,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBullet/Methods/ToJSON/
      */
-    ToJSON(): object;
+    ToJSON(): string;
   }
 
   /**
@@ -7096,7 +7150,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/AddWidget/
      */
-    AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget;
+    AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget | null;
 
     /**
      * Removes field from document.
@@ -7456,6 +7510,15 @@ export namespace Pdf {
     Delete(): boolean;
 
     /**
+     * Gets actions collection.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetActions/
+     */
+    GetActions(): ApiActionCollection;
+
+    /**
      * Gets all field actions in json format.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
@@ -7463,7 +7526,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetActionsJSON/
      */
-    GetActionsJSON(): object;
+    GetActionsJSON(): string;
 
     /**
      * Gets widget background color.
@@ -7491,7 +7554,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetBackgroundColor/
      */
-    GetBackgroundColor(): ApiColor;
+    GetBackgroundColor(): ApiColor | null;
 
     /**
      * Gets button widget behavior.
@@ -7543,7 +7606,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Gets widget border style.
@@ -7714,7 +7777,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiButtonWidget/Methods/GetLabel/
      */
-    GetLabel(appearance?: ButtonAppearance): string;
+    GetLabel(appearance?: ButtonAppearance): string | null;
 
     /**
      * Gets button widget layout type
@@ -7738,6 +7801,15 @@ export namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiButtonWidget/Methods/GetLayout/
      */
     GetLayout(): ButtonLayout;
+
+    /**
+     * Gets parent field.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetParent/
+     */
+    GetParent(): ApiField;
 
     /**
      * Gets widget position.
@@ -7867,7 +7939,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetTextColor/
      */
-    GetTextColor(): ApiColor;
+    GetTextColor(): ApiColor | null;
 
     /**
      * Gets widget text size.
@@ -8721,7 +8793,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetParentPage/
      */
-    GetParentPage(): ApiPage;
+    GetParentPage(): ApiPage | null;
 
     /**
      * Gets the x position of the drawing on the page.
@@ -8823,7 +8895,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiChart/Methods/GetSeries/
      */
-    GetSeries(nIdx: number): ApiChartSeries;
+    GetSeries(nIdx: number): ApiChartSeries | null;
 
     /**
      * Returns the chart title text.
@@ -10694,7 +10766,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/AddWidget/
      */
-    AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget;
+    AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget | null;
 
     /**
      * Removes field from document.
@@ -11107,6 +11179,15 @@ export namespace Pdf {
     Delete(): boolean;
 
     /**
+     * Gets actions collection.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetActions/
+     */
+    GetActions(): ApiActionCollection;
+
+    /**
      * Gets all field actions in json format.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
@@ -11114,7 +11195,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetActionsJSON/
      */
-    GetActionsJSON(): object;
+    GetActionsJSON(): string;
 
     /**
      * Gets widget background color.
@@ -11142,7 +11223,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetBackgroundColor/
      */
-    GetBackgroundColor(): ApiColor;
+    GetBackgroundColor(): ApiColor | null;
 
     /**
      * Gets widget border color.
@@ -11170,7 +11251,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Gets widget border style.
@@ -11308,6 +11389,15 @@ export namespace Pdf {
     GetInternalId(): string;
 
     /**
+     * Gets parent field.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetParent/
+     */
+    GetParent(): ApiField;
+
+    /**
      * Gets widget position.
      *
      * @example
@@ -11387,7 +11477,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetTextColor/
      */
-    GetTextColor(): ApiColor;
+    GetTextColor(): ApiColor | null;
 
     /**
      * Gets widget text size.
@@ -11959,7 +12049,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Gets annotation border effect intensity.
@@ -12088,7 +12178,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetContents/
      */
-    GetContents(): string;
+    GetContents(): string | null;
 
     /**
      * Gets annotation creation date.
@@ -12171,7 +12261,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetFillColor/
      */
-    GetFillColor(): ApiColor;
+    GetFillColor(): ApiColor | null;
 
     /**
      * Returns an internal ID of the current annotation.
@@ -12334,7 +12424,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetSubject/
      */
-    GetSubject(): string;
+    GetSubject(): string | null;
 
     /**
      * Gets annotation unique name.
@@ -12921,7 +13011,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiColor/Methods/GetRGB/
      */
-    GetRGB(): object;
+    GetRGB(): { r: number; g: number; b: number };
 
     /**
      * Gets the RGBA components of the color.
@@ -12955,7 +13045,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiColor/Methods/GetRGBA/
      */
-    GetRGBA(): object;
+    GetRGBA(): { r: number; g: number; b: number; a: number };
 
     /**
      * Gets the theme color name if the color is a theme color.
@@ -13870,7 +13960,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/GetCurrentParagraph/
      */
-    GetCurrentParagraph(): ApiParagraph;
+    GetCurrentParagraph(): ApiParagraph | null;
 
     /**
      * Returns the current run where the cursor is located.
@@ -13879,7 +13969,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/GetCurrentRun/
      */
-    GetCurrentRun(): ApiRun;
+    GetCurrentRun(): ApiRun | null;
 
     /**
      * Returns an element by its position in the document.
@@ -13888,7 +13978,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/GetElement/
      */
-    GetElement(nPos: number): DocumentElement;
+    GetElement(nPos: number): DocumentElement | null;
 
     /**
      * Returns a number of elements in the current document.
@@ -13920,7 +14010,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/GetFieldByName/
      */
-    GetFieldByName(name: string): ApiField;
+    GetFieldByName(name: string): ApiField | null;
 
     /**
      * Returns an internal ID of the current document content.
@@ -13987,7 +14077,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/GetSelection/
      */
-    GetSelection(): DocSelection;
+    GetSelection(): DocSelection | null;
 
     /**
      * Gets document selection quads by page
@@ -14352,7 +14442,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/GetCurrentParagraph/
      */
-    GetCurrentParagraph(): ApiParagraph;
+    GetCurrentParagraph(): ApiParagraph | null;
 
     /**
      * Returns the current run where the cursor is located.
@@ -14388,7 +14478,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/GetCurrentRun/
      */
-    GetCurrentRun(): ApiRun;
+    GetCurrentRun(): ApiRun | null;
 
     /**
      * Returns an element by its position in the document.
@@ -14425,7 +14515,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/GetElement/
      */
-    GetElement(nPos: number): DocumentElement;
+    GetElement(nPos: number): DocumentElement | null;
 
     /**
      * Returns a number of elements in the current document.
@@ -14945,7 +15035,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetParentPage/
      */
-    GetParentPage(): ApiPage;
+    GetParentPage(): ApiPage | null;
 
     /**
      * Gets the x position of the drawing on the page.
@@ -15483,7 +15573,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiFill/Methods/GetColor/
      */
-    GetColor(): ApiColor;
+    GetColor(): ApiColor | null;
 
     /**
      * Returns the transparency of the fill.
@@ -15654,7 +15744,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Gets annotation border effect intensity.
@@ -15763,7 +15853,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiFreeTextAnnotation/Methods/GetCallout/
      */
-    GetCallout(): FreeTextCallout;
+    GetCallout(): FreeTextCallout | null;
 
     /**
      * Returns a type of the ApiFreeTextAnnotation class.
@@ -15833,7 +15923,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetContents/
      */
-    GetContents(): string;
+    GetContents(): string | null;
 
     /**
      * Gets annotation creation date.
@@ -15923,7 +16013,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetFillColor/
      */
-    GetFillColor(): ApiColor;
+    GetFillColor(): ApiColor | null;
 
     /**
      * Gets intent type of this annotation.
@@ -16108,7 +16198,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetSubject/
      */
-    GetSubject(): string;
+    GetSubject(): string | null;
 
     /**
      * Gets annotation unique name.
@@ -16960,7 +17050,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGeometry/Methods/GetPreset/
      */
-    GetPreset(): ShapeType;
+    GetPreset(): ShapeType | null;
 
     /**
      * Checks whether the current geometry is custom.
@@ -17113,7 +17203,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/GetRect/
      */
-    GetRect(): Rect;
+    GetRect(): Rect | null;
 
     /**
      * Gets goto type
@@ -17131,7 +17221,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/GetZoom/
      */
-    GetZoom(): number;
+    GetZoom(): number | null;
 
     /**
      * Sets desctination page index
@@ -17265,7 +17355,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetParentPage/
      */
-    GetParentPage(): ApiPage;
+    GetParentPage(): ApiPage | null;
 
     /**
      * Gets the x position of the drawing on the page.
@@ -17628,7 +17718,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiHyperlink/Methods/GetElement/
      */
-    GetElement(nPos: number): ParagraphContent;
+    GetElement(nPos: number): ParagraphContent | null;
 
     /**
      * Returns a number of elements in the current hyperlink.
@@ -17906,7 +17996,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetParentPage/
      */
-    GetParentPage(): ApiPage;
+    GetParentPage(): ApiPage | null;
 
     /**
      * Gets the x position of the drawing on the page.
@@ -18163,7 +18253,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Gets annotation border effect intensity.
@@ -18292,7 +18382,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetContents/
      */
-    GetContents(): string;
+    GetContents(): string | null;
 
     /**
      * Gets annotation creation date.
@@ -18375,7 +18465,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetFillColor/
      */
-    GetFillColor(): ApiColor;
+    GetFillColor(): ApiColor | null;
 
     /**
      * Returns an internal ID of the current annotation.
@@ -18538,7 +18628,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetSubject/
      */
-    GetSubject(): string;
+    GetSubject(): string | null;
 
     /**
      * Gets annotation unique name.
@@ -19110,7 +19200,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Gets annotation border effect intensity.
@@ -19238,7 +19328,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetContents/
      */
-    GetContents(): string;
+    GetContents(): string | null;
 
     /**
      * Gets annotation creation date.
@@ -19363,7 +19453,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetFillColor/
      */
-    GetFillColor(): ApiColor;
+    GetFillColor(): ApiColor | null;
 
     /**
      * Returns an internal ID of the current annotation.
@@ -19546,7 +19636,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetSubject/
      */
-    GetSubject(): string;
+    GetSubject(): string | null;
 
     /**
      * Gets annotation unique name.
@@ -20070,7 +20160,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiLinkAnnotation/Methods/GetAction/
      */
-    GetAction(): ApiBaseAction;
+    GetAction(): ApiBaseAction | null;
 
     /**
      * Returns a type of the ApiLinkAnnotation class.
@@ -20539,7 +20629,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetParentPage/
      */
-    GetParentPage(): ApiPage;
+    GetParentPage(): ApiPage | null;
 
     /**
      * Gets the x position of the drawing on the page.
@@ -20810,7 +20900,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiPage/Methods/GetSelection/
      */
-    GetSelection(): PageSelection;
+    GetSelection(): PageSelection | null;
 
     /**
      * Gets page selection quads
@@ -22073,7 +22163,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiParagraph/Methods/GetElement/
      */
-    GetElement(nPos: number): ParagraphContent;
+    GetElement(nPos: number): ParagraphContent | null;
 
     /**
      * Returns a number of elements in the current paragraph.
@@ -22867,7 +22957,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiParagraph/Methods/Last/
      */
-    Last(): ParagraphContent;
+    Last(): ParagraphContent | null;
 
     /**
      * Adds an element to the current paragraph.
@@ -23161,7 +23251,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiParagraph/Methods/SetFontFamily/
      */
-    SetFontFamily(fontFamily?: string | null): ApiParagraph;
+    SetFontFamily(fontFamily?: string | null): ApiParagraph | null;
 
     /**
      * Sets the font size to the characters of the current paragraph.
@@ -23842,7 +23932,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiParagraph/Methods/ToJSON/
      */
-    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): object;
+    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): string;
   }
 
   /**
@@ -25082,7 +25172,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Gets annotation border effect intensity.
@@ -25211,7 +25301,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetContents/
      */
-    GetContents(): string;
+    GetContents(): string | null;
 
     /**
      * Gets annotation creation date.
@@ -25316,7 +25406,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetFillColor/
      */
-    GetFillColor(): ApiColor;
+    GetFillColor(): ApiColor | null;
 
     /**
      * Returns an internal ID of the current annotation.
@@ -25479,7 +25569,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetSubject/
      */
-    GetSubject(): string;
+    GetSubject(): string | null;
 
     /**
      * Gets annotation unique name.
@@ -26086,7 +26176,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Gets annotation border effect intensity.
@@ -26215,7 +26305,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetContents/
      */
-    GetContents(): string;
+    GetContents(): string | null;
 
     /**
      * Gets annotation creation date.
@@ -26298,7 +26388,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetFillColor/
      */
-    GetFillColor(): ApiColor;
+    GetFillColor(): ApiColor | null;
 
     /**
      * Returns an internal ID of the current annotation.
@@ -26439,7 +26529,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetSubject/
      */
-    GetSubject(): string;
+    GetSubject(): string | null;
 
     /**
      * Gets annotation unique name.
@@ -27152,7 +27242,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetBold/
      */
-    GetBold(): boolean;
+    GetBold(): boolean | null;
 
     /**
      * Returns whether the text with the current text properties are capitalized.
@@ -27161,7 +27251,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetCaps/
      */
-    GetCaps(): boolean;
+    GetCaps(): boolean | null;
 
     /**
      * Returns a type of the ApiTextPr class.
@@ -27177,7 +27267,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetDoubleStrikeout/
      */
-    GetDoubleStrikeout(): boolean;
+    GetDoubleStrikeout(): boolean | null;
 
     /**
      * Gets the text color from the current text properties.
@@ -27197,7 +27287,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetFontFamily/
      */
-    GetFontFamily(): string;
+    GetFontFamily(): string | null;
 
     /**
      * Gets the font size from the current text properties.
@@ -27206,7 +27296,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetFontSize/
      */
-    GetFontSize(): hps;
+    GetFontSize(): hps | null;
 
     /**
      * Gets the highlight property from the current text properties.
@@ -27215,7 +27305,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetHighlight/
      */
-    GetHighlight(): string;
+    GetHighlight(): string | null;
 
     /**
      * Gets the italic property from the current text properties.
@@ -27224,7 +27314,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetItalic/
      */
-    GetItalic(): boolean;
+    GetItalic(): boolean | null;
 
     /**
      * Gets the text outline from the current text properties.
@@ -27243,7 +27333,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetSmallCaps/
      */
-    GetSmallCaps(): boolean;
+    GetSmallCaps(): boolean | null;
 
     /**
      * Gets the text spacing from the current text properties measured in twentieths of a point.
@@ -27252,7 +27342,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetSpacing/
      */
-    GetSpacing(): twips;
+    GetSpacing(): twips | null;
 
     /**
      * Gets the strikeout property from the current text properties.
@@ -27261,7 +27351,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetStrikeout/
      */
-    GetStrikeout(): boolean;
+    GetStrikeout(): boolean | null;
 
     /**
      * Gets the text fill from the current text properties.
@@ -27279,7 +27369,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetUnderline/
      */
-    GetUnderline(): boolean;
+    GetUnderline(): boolean | null;
 
     /**
      * Sets the bold property to the text character.
@@ -27697,7 +27787,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichContent/Methods/GetCurrentParagraph/
      */
-    GetCurrentParagraph(): ApiRichParagraph;
+    GetCurrentParagraph(): ApiRichParagraph | null;
 
     /**
      * Returns the current run where the cursor is located.
@@ -27725,7 +27815,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichContent/Methods/GetCurrentRun/
      */
-    GetCurrentRun(): ApiRichRun;
+    GetCurrentRun(): ApiRichRun | null;
 
     /**
      * Returns an rich paragraph by its position in the content.
@@ -27753,7 +27843,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichContent/Methods/GetElement/
      */
-    GetElement(pos: number): ApiRichParagraph;
+    GetElement(pos: number): ApiRichParagraph | null;
 
     /**
      * Pushes a rich paragraph to a rich content.
@@ -27979,7 +28069,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParagraph/Methods/GetElement/
      */
-    GetElement(pos: number): ApiRichRun;
+    GetElement(pos: number): ApiRichRun | null;
 
     /**
      * Returns the next paragraph.
@@ -28012,7 +28102,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParagraph/Methods/GetNext/
      */
-    GetNext(): ApiRichParagraph;
+    GetNext(): ApiRichParagraph | null;
 
     /**
      * Returns the paragraph properties.
@@ -28076,7 +28166,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParagraph/Methods/GetPrevious/
      */
-    GetPrevious(): ApiRichParagraph;
+    GetPrevious(): ApiRichParagraph | null;
 
     /**
      * Returns the last element of the paragraph.
@@ -28310,7 +28400,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichRun/Methods/GetParentParagraph/
      */
-    GetParentParagraph(): ApiRichParagraph;
+    GetParentParagraph(): ApiRichParagraph | null;
 
     /**
      * Returns the text properties of the current run.
@@ -28671,7 +28761,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetBold/
      */
-    GetBold(): boolean;
+    GetBold(): boolean | null;
 
     /**
      * Returns whether the text with the current text properties are capitalized.
@@ -28711,7 +28801,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetCaps/
      */
-    GetCaps(): boolean;
+    GetCaps(): boolean | null;
 
     /**
      * Returns a type of the ApiRun class.
@@ -28782,7 +28872,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetDoubleStrikeout/
      */
-    GetDoubleStrikeout(): boolean;
+    GetDoubleStrikeout(): boolean | null;
 
     /**
      * Gets the text color from the current text properties.
@@ -28868,7 +28958,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetFontFamily/
      */
-    GetFontFamily(): string;
+    GetFontFamily(): string | null;
 
     /**
      * Returns all font names from all elements inside the current run.
@@ -28955,7 +29045,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetFontSize/
      */
-    GetFontSize(): hps;
+    GetFontSize(): hps | null;
 
     /**
      * Gets the highlight property from the current text properties.
@@ -28995,7 +29085,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetHighlight/
      */
-    GetHighlight(): string;
+    GetHighlight(): string | null;
 
     /**
      * Gets the italic property from the current text properties.
@@ -29035,7 +29125,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetItalic/
      */
-    GetItalic(): boolean;
+    GetItalic(): boolean | null;
 
     /**
      * Gets the text outline from the current text properties.
@@ -29118,7 +29208,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetSmallCaps/
      */
-    GetSmallCaps(): boolean;
+    GetSmallCaps(): boolean | null;
 
     /**
      * Gets the text spacing from the current text properties measured in twentieths of a point.
@@ -29158,7 +29248,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetSpacing/
      */
-    GetSpacing(): twips;
+    GetSpacing(): twips | null;
 
     /**
      * Gets the strikeout property from the current text properties.
@@ -29198,7 +29288,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetStrikeout/
      */
-    GetStrikeout(): boolean;
+    GetStrikeout(): boolean | null;
 
     /**
      * Gets the text fill from the current text properties.
@@ -29326,7 +29416,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetUnderline/
      */
-    GetUnderline(): boolean;
+    GetUnderline(): boolean | null;
 
     /**
      * Removes all the elements from the current run.
@@ -30119,7 +30209,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiShape/Methods/GetContent/
      */
-    GetContent(): ApiDocumentContent;
+    GetContent(): ApiDocumentContent | null;
 
     /**
      * Returns the shape inner contents where a paragraph or text runs can be inserted.
@@ -30128,7 +30218,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiShape/Methods/GetDocContent/
      */
-    GetDocContent(): ApiDocumentContent;
+    GetDocContent(): ApiDocumentContent | null;
 
     /**
      * Gets the fill properties from the current shape.
@@ -30263,7 +30353,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetParentPage/
      */
-    GetParentPage(): ApiPage;
+    GetParentPage(): ApiPage | null;
 
     /**
      * Gets the x position of the drawing on the page.
@@ -30627,7 +30717,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiShd/Methods/GetColor/
      */
-    GetColor(): ApiColor;
+    GetColor(): ApiColor | null;
 
     /**
      * Returns the shading type.
@@ -30739,7 +30829,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetParentPage/
      */
-    GetParentPage(): ApiPage;
+    GetParentPage(): ApiPage | null;
 
     /**
      * Gets the x position of the drawing on the page.
@@ -30996,7 +31086,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Gets annotation border effect intensity.
@@ -31125,7 +31215,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetContents/
      */
-    GetContents(): string;
+    GetContents(): string | null;
 
     /**
      * Gets annotation creation date.
@@ -31208,7 +31298,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetFillColor/
      */
-    GetFillColor(): ApiColor;
+    GetFillColor(): ApiColor | null;
 
     /**
      * Returns an internal ID of the current annotation.
@@ -31371,7 +31461,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetSubject/
      */
-    GetSubject(): string;
+    GetSubject(): string | null;
 
     /**
      * Gets annotation unique name.
@@ -31905,7 +31995,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Gets annotation border effect intensity.
@@ -32032,7 +32122,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetContents/
      */
-    GetContents(): string;
+    GetContents(): string | null;
 
     /**
      * Gets annotation creation date.
@@ -32115,7 +32205,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetFillColor/
      */
-    GetFillColor(): ApiColor;
+    GetFillColor(): ApiColor | null;
 
     /**
      * Returns an internal ID of the current annotation.
@@ -32300,7 +32390,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetSubject/
      */
-    GetSubject(): string;
+    GetSubject(): string | null;
 
     /**
      * Gets stamp type.
@@ -32867,7 +32957,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiStroke/Methods/GetBeginArrow/
      */
-    GetBeginArrow(): object | null;
+    GetBeginArrow(): { Type: LineEndType; Width: LineEndSize; Length: LineEndSize } | null;
 
     /**
      * Returns the cap type of the stroke.
@@ -32946,7 +33036,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiStroke/Methods/GetEndArrow/
      */
-    GetEndArrow(): object | null;
+    GetEndArrow(): { Type: LineEndType; Width: LineEndSize; Length: LineEndSize } | null;
 
     /**
      * Gets the fill (color) of the stroke.
@@ -33216,7 +33306,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/GetCell/
      */
-    GetCell(rowIndex: number, cellIndex: number): ApiTableCell;
+    GetCell(rowIndex: number, cellIndex: number): ApiTableCell | null;
 
     /**
      * Returns the type of the ApiTable object.
@@ -33304,7 +33394,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetParentPage/
      */
-    GetParentPage(): ApiPage;
+    GetParentPage(): ApiPage | null;
 
     /**
      * Gets the x position of the drawing on the page.
@@ -33394,7 +33484,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/GetRow/
      */
-    GetRow(rowIndex: number): ApiTableRow;
+    GetRow(rowIndex: number): ApiTableRow | null;
 
     /**
      * Returns a number of rows in the current table.
@@ -33468,7 +33558,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/MergeCells/
      */
-    MergeCells(cells: ApiTableCell[]): ApiTableCell;
+    MergeCells(cells: ApiTableCell[]): ApiTableCell | null;
 
     /**
      * Removes a table column with the specified cell.
@@ -34645,7 +34735,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Gets annotation border effect intensity.
@@ -34774,7 +34864,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetContents/
      */
-    GetContents(): string;
+    GetContents(): string | null;
 
     /**
      * Gets annotation creation date.
@@ -34857,7 +34947,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetFillColor/
      */
-    GetFillColor(): ApiColor;
+    GetFillColor(): ApiColor | null;
 
     /**
      * Gets icon type of this annotation.
@@ -35020,7 +35110,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetSubject/
      */
-    GetSubject(): string;
+    GetSubject(): string | null;
 
     /**
      * Gets annotation unique name.
@@ -35495,7 +35585,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/AddWidget/
      */
-    AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget;
+    AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget | null;
 
     /**
      * Clears format of field.
@@ -36346,7 +36436,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetBold/
      */
-    GetBold(): boolean;
+    GetBold(): boolean | null;
 
     /**
      * Returns whether the text with the current text properties are capitalized.
@@ -36386,7 +36476,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetCaps/
      */
-    GetCaps(): boolean;
+    GetCaps(): boolean | null;
 
     /**
      * Returns a type of the ApiTextPr class.
@@ -36459,7 +36549,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetDoubleStrikeout/
      */
-    GetDoubleStrikeout(): boolean;
+    GetDoubleStrikeout(): boolean | null;
 
     /**
      * Gets the text color from the current text properties.
@@ -36545,7 +36635,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetFontFamily/
      */
-    GetFontFamily(): string;
+    GetFontFamily(): string | null;
 
     /**
      * Gets the font size from the current text properties.
@@ -36585,7 +36675,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetFontSize/
      */
-    GetFontSize(): hps;
+    GetFontSize(): hps | null;
 
     /**
      * Gets the highlight property from the current text properties.
@@ -36625,7 +36715,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetHighlight/
      */
-    GetHighlight(): string;
+    GetHighlight(): string | null;
 
     /**
      * Gets the italic property from the current text properties.
@@ -36665,7 +36755,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetItalic/
      */
-    GetItalic(): boolean;
+    GetItalic(): boolean | null;
 
     /**
      * Gets the text outline from the current text properties.
@@ -36748,7 +36838,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetSmallCaps/
      */
-    GetSmallCaps(): boolean;
+    GetSmallCaps(): boolean | null;
 
     /**
      * Gets the text spacing from the current text properties measured in twentieths of a point.
@@ -36788,7 +36878,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetSpacing/
      */
-    GetSpacing(): twips;
+    GetSpacing(): twips | null;
 
     /**
      * Gets the strikeout property from the current text properties.
@@ -36828,7 +36918,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetStrikeout/
      */
-    GetStrikeout(): boolean;
+    GetStrikeout(): boolean | null;
 
     /**
      * Gets the text fill from the current text properties.
@@ -36910,7 +37000,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetUnderline/
      */
-    GetUnderline(): boolean;
+    GetUnderline(): boolean | null;
 
     /**
      * Sets the bold property to the text character.
@@ -37499,7 +37589,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/AddHyperlink/
      */
-    AddHyperlink(link: string, screenTipText: string): ApiHyperlink;
+    AddHyperlink(link: string, screenTipText: string): ApiHyperlink | null;
 
     /**
      * Adds a text to the specified position. The current range is expanded to include the added text.

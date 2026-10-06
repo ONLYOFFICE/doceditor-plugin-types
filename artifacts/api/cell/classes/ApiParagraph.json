@@ -105,9 +105,9 @@
         }
       ],
       "returns": {
-        "type": "ParagraphContent"
+        "type": "ParagraphContent | null"
       },
-      "signature": "GetElement(nPos: number): ParagraphContent"
+      "signature": "GetElement(nPos: number): ParagraphContent | null"
     },
     "GetElementsCount": {
       "description": "Returns a number of elements in the current paragraph.",
@@ -379,9 +379,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/Last/",
       "params": [],
       "returns": {
-        "type": "ParagraphContent"
+        "type": "ParagraphContent | null"
       },
-      "signature": "Last(): ParagraphContent"
+      "signature": "Last(): ParagraphContent | null"
     },
     "Push": {
       "description": "Adds an element to the current paragraph.",
@@ -516,9 +516,9 @@
       ],
       "returns": {
         "description": "this",
-        "type": "ApiParagraph"
+        "type": "ApiParagraph | null"
       },
-      "signature": "SetFontFamily(fontFamily?: string | null): ApiParagraph"
+      "signature": "SetFontFamily(fontFamily?: string | null): ApiParagraph | null"
     },
     "SetFontSize": {
       "description": "Sets the font size to the characters of the current paragraph.",
@@ -839,9 +839,9 @@
         }
       ],
       "returns": {
-        "type": "object"
+        "type": "string"
       },
-      "signature": "ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): object"
+      "signature": "ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): string"
     }
   }
 }

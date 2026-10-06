@@ -3,7 +3,7 @@
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetStatistics/",
   "params": [],
   "returns": {
-    "type": "object"
+    "type": "DocumentStatistics"
   },
-  "signature": "GetStatistics(): object"
+  "signature": "GetStatistics(): DocumentStatistics"
 }

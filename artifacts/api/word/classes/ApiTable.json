@@ -130,9 +130,9 @@
       ],
       "returns": {
         "description": "Returns null if the comment was not added.",
-        "type": "ApiComment"
+        "type": "ApiComment | null"
       },
-      "signature": "AddComment(sText: string, sAuthor?: string, sUserId?: string): ApiComment"
+      "signature": "AddComment(sText: string, sAuthor?: string, sUserId?: string): ApiComment | null"
     },
     "AddElement": {
       "description": "Adds a paragraph or a table or a blockLvl content control using its position in the cell.",
@@ -503,9 +503,9 @@
         }
       ],
       "returns": {
-        "type": "ApiTableCell"
+        "type": "ApiTableCell | null"
       },
-      "signature": "MergeCells(aCells: ApiTableCell[]): ApiTableCell"
+      "signature": "MergeCells(aCells: ApiTableCell[]): ApiTableCell | null"
     },
     "RemoveColumn": {
       "description": "Removes a table column with a specified cell.",
@@ -1301,9 +1301,9 @@
         }
       ],
       "returns": {
-        "type": "object"
+        "type": "string"
       },
-      "signature": "ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): object"
+      "signature": "ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): string"
     }
   }
 }

@@ -12,8 +12,8 @@
       "version": "9.2.0"
     },
     "sdkjs": {
-      "commit": "407b5588211ac37fdaca8d3c98fa466314495a06",
-      "describe": "v10.0.0.151",
+      "commit": "70ae8877c730dd8bb953027417f4a20558b1bb45",
+      "describe": "v10.0.0.151-9-g70ae8877c7",
       "dirty": false
     },
     "sdkjsExt": {
@@ -31,7 +31,7 @@
     {
       "repository": "sdkjs",
       "path": "word/apiBuilder.js",
-      "sha256": "82ceee6f138910f2f2ff84bd16b819f9d1df6599f301b7af3d0aa6ffac63cf24"
+      "sha256": "2893b62582c156bb3146ceba9ec555128534ab7b02758a553fdfedd0b27f0a12"
     },
     {
       "repository": "sdkjs",
@@ -90,13 +90,18 @@
     },
     {
       "repository": "sdkjs",
+      "path": "../sdkjs-ext/word/api_plugins.js",
+      "sha256": "022c9a0388c320cf6b6c0ca7f6ccda6ce81d79da409eaa737411b58d8bc927de"
+    },
+    {
+      "repository": "sdkjs",
       "path": "slide/apiBuilder.js",
-      "sha256": "284cfaba9aaafd034e4e30674a740c5fa601726331a09b7f2fab51490c456430"
+      "sha256": "5ed52a37d462918c1ce3967518143153f05ef011c2cc62ebfb5caa40e1f55b48"
     },
     {
       "repository": "sdkjs",
       "path": "cell/apiBuilder.js",
-      "sha256": "70244451921a853ed6f2bb128269bc451f06e25ee94d28f93beffe095d3a127a"
+      "sha256": "dd18569bfae83c170cf5d80a3991d3fcbc16f9566f3b957a0fb4707bae799d57"
     },
     {
       "repository": "sdkjs",
@@ -175,6 +180,11 @@
     },
     {
       "repository": "sdkjs",
+      "path": "../sdkjs-ext/cell/api_plugins.js",
+      "sha256": "7d2be7ca32eeed10c32f62fc3aa1f660c6a95afd007c323f1632ba0fab019897"
+    },
+    {
+      "repository": "sdkjs",
       "path": "slide/plugin-events.js",
       "sha256": "8429b2f63672d14772aa9f0dac206c736a416e1ba60a0dcd070d9f7587707bd8"
     },
@@ -219,6 +229,11 @@
       "sha256": "ab9bae951c049989be9314ea1d0650bf1562551192151f582f3520487de61a13"
     },
     {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/slide/api_plugins.js",
+      "sha256": "cfb33afda96fc3d9d799c760ef8eac9b69da39c16455183e15ddaa06fa3a1047"
+    },
+    {
       "repository": "sdkjs-forms",
       "path": "apiBuilder.js",
       "sha256": "d2a76ac69fa6e14d5813f5818ee30c4001b7107f6c4d4587ede83bf61135db44"
@@ -231,7 +246,7 @@
     {
       "repository": "sdkjs",
       "path": "pdf/apiBuilder.js",
-      "sha256": "66cf58973b17caec5f7d363939b652b10bb56cb16c4172c2f748f7406cd65b0a"
+      "sha256": "2899a7f1019087b0730ad6086975adef4b070ff4816b719af9bec7c90e0164bf"
     },
     {
       "repository": "sdkjs",
@@ -272,6 +287,11 @@
       "repository": "sdkjs",
       "path": "../sdkjs-ext/js-api/pdf/api.js",
       "sha256": "43959e9792357339398747a6d5f0dc70cebaa40ae99e924fb15560261d3543dd"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/pdf/api_plugins.js",
+      "sha256": "7d2be7ca32eeed10c32f62fc3aa1f660c6a95afd007c323f1632ba0fab019897"
     }
   ],
   "pluginMethodSourceFiles": [

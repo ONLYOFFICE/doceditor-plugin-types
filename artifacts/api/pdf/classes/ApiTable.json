@@ -149,9 +149,9 @@
         }
       ],
       "returns": {
-        "type": "ApiTableCell"
+        "type": "ApiTableCell | null"
       },
-      "signature": "GetCell(rowIndex: number, cellIndex: number): ApiTableCell",
+      "signature": "GetCell(rowIndex: number, cellIndex: number): ApiTableCell | null",
       "since": "10.0.0"
     },
     "GetClassType": {
@@ -205,9 +205,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetParentPage/",
       "params": [],
       "returns": {
-        "type": "ApiPage"
+        "type": "ApiPage | null"
       },
-      "signature": "GetParentPage(): ApiPage"
+      "signature": "GetParentPage(): ApiPage | null"
     },
     "GetPosX": {
       "description": "Gets the x position of the drawing on the page.",
@@ -238,9 +238,9 @@
         }
       ],
       "returns": {
-        "type": "ApiTableRow"
+        "type": "ApiTableRow | null"
       },
-      "signature": "GetRow(rowIndex: number): ApiTableRow"
+      "signature": "GetRow(rowIndex: number): ApiTableRow | null"
     },
     "GetRowsCount": {
       "description": "Returns a number of rows in the current table.",
@@ -293,9 +293,9 @@
         }
       ],
       "returns": {
-        "type": "ApiTableCell"
+        "type": "ApiTableCell | null"
       },
-      "signature": "MergeCells(cells: ApiTableCell[]): ApiTableCell"
+      "signature": "MergeCells(cells: ApiTableCell[]): ApiTableCell | null"
     },
     "RemoveColumn": {
       "description": "Removes a table column with the specified cell.",

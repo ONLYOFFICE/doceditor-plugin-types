@@ -78,9 +78,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetParentSheet/",
       "params": [],
       "returns": {
-        "type": "ApiWorksheet"
+        "type": "ApiWorksheet | null"
       },
-      "signature": "GetParentSheet(): ApiWorksheet",
+      "signature": "GetParentSheet(): ApiWorksheet | null",
       "since": "8.3.0"
     },
     "GetPosition": {
@@ -105,9 +105,9 @@
         }
       ],
       "returns": {
-        "type": "ApiChartSeries"
+        "type": "ApiChartSeries | null"
       },
-      "signature": "GetSeries(nIdx: number): ApiChartSeries"
+      "signature": "GetSeries(nIdx: number): ApiChartSeries | null"
     },
     "GetTitle": {
       "description": "Returns the chart title text.",

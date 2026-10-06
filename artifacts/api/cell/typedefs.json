@@ -272,6 +272,80 @@
     "description": "Any valid element which can be added to the document structure.",
     "type": "ApiParagraph"
   },
+  "DocumentInfo": {
+    "description": "The document information.",
+    "properties": {
+      "Application": {
+        "description": "The application the document has been created with.",
+        "type": "string"
+      },
+      "Authors": {
+        "description": "The persons who have created the file.",
+        "type": "string[]"
+      },
+      "Comment": {
+        "description": "This property allows you to simplify your documents classification.",
+        "type": "string"
+      },
+      "Created": {
+        "description": "The parsed date and time when the file was created.",
+        "type": "string"
+      },
+      "CreatedRaw": {
+        "description": "The date and time when the file was created.",
+        "type": "Date"
+      },
+      "LastModified": {
+        "description": "The parsed date and time when the file was last modified.",
+        "type": "string"
+      },
+      "LastModifiedBy": {
+        "description": "The name of the user who has made the latest change to the document.",
+        "type": "string"
+      },
+      "LastModifiedRaw": {
+        "description": "The date and time when the file was last modified.",
+        "type": "Date"
+      },
+      "Subject": {
+        "description": "This property allows you to simplify your documents classification.",
+        "type": "string"
+      },
+      "Tags": {
+        "description": "This property allows you to simplify your documents classification.",
+        "type": "string"
+      },
+      "Title": {
+        "description": "This property allows you to simplify your documents classification.",
+        "type": "string"
+      }
+    }
+  },
+  "DocumentStatistics": {
+    "description": "The document statistics.",
+    "properties": {
+      "PageCount": {
+        "description": "The number of pages.",
+        "type": "number"
+      },
+      "ParagraphCount": {
+        "description": "The number of paragraphs.",
+        "type": "number"
+      },
+      "SymbolsCount": {
+        "description": "The number of symbols, spaces excluded.",
+        "type": "number"
+      },
+      "SymbolsWSCount": {
+        "description": "The number of symbols, spaces included.",
+        "type": "number"
+      },
+      "WordsCount": {
+        "description": "The number of words.",
+        "type": "number"
+      }
+    }
+  },
   "Drawing": {
     "description": "Any valid drawing element.",
     "type": "ApiShape | ApiImage | ApiOleObject | ApiChart | ApiGroup | ApiSmartArt"

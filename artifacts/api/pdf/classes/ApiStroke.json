@@ -7,9 +7,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiStroke/Methods/GetBeginArrow/",
       "params": [],
       "returns": {
-        "type": "object | null"
+        "type": "{ Type: LineEndType; Width: LineEndSize; Length: LineEndSize } | null"
       },
-      "signature": "GetBeginArrow(): object | null",
+      "signature": "GetBeginArrow(): { Type: LineEndType; Width: LineEndSize; Length: LineEndSize } | null",
       "since": "10.0.0"
     },
     "GetCapType": {
@@ -46,9 +46,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiStroke/Methods/GetEndArrow/",
       "params": [],
       "returns": {
-        "type": "object | null"
+        "type": "{ Type: LineEndType; Width: LineEndSize; Length: LineEndSize } | null"
       },
-      "signature": "GetEndArrow(): object | null",
+      "signature": "GetEndArrow(): { Type: LineEndType; Width: LineEndSize; Length: LineEndSize } | null",
       "since": "10.0.0"
     },
     "GetFill": {

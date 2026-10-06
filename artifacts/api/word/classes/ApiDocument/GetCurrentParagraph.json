@@ -3,8 +3,8 @@
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/GetCurrentParagraph/",
   "params": [],
   "returns": {
-    "type": "ApiParagraph"
+    "type": "ApiParagraph | null"
   },
-  "signature": "GetCurrentParagraph(): ApiParagraph",
+  "signature": "GetCurrentParagraph(): ApiParagraph | null",
   "since": "9.0.0"
 }

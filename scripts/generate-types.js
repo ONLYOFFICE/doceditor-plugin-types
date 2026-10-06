@@ -165,11 +165,22 @@ function extJsApiSources(editor, paths) {
     .map((file) => path.join(dir, file));
 }
 
+// `sdkjs-ext/<editor>/api_plugins.js` is the executeMethod surface, read here only for the typedefs
+// it declares: `TextAnnotation` and `TextAnnotationRange` live there, while `apiBuilder.js` refers to
+// them from its event documentation, so without this they stay unresolvable and need a hand-written
+// stub in src/overrides/. The methods in the same file belong to the other generator and are dropped
+// by their `pluginMethod_` naming - see `isPluginMethodDoclet`.
+function extPluginSources(editor, paths) {
+  if (!paths.sdkjsExt) return [];
+  const file = path.join(paths.sdkjsExt, editor, 'api_plugins.js');
+  return fs.existsSync(file) ? [file] : [];
+}
+
 function getSourcePaths(editor, paths) {
   const own = EDITORS[editor].sources.map((source) => (source.startsWith('../sdkjs-forms/')
     ? path.join(paths.sdkjsForms, source.slice('../sdkjs-forms/'.length))
     : path.join(paths.sdkjs, source)));
-  return [...own, ...extJsApiSources(editor, paths)];
+  return [...own, ...extJsApiSources(editor, paths), ...extPluginSources(editor, paths)];
 }
 
 function runJsdoc(sources) {
@@ -191,8 +202,18 @@ function hasEditorTag(item, editorCode) {
   return item.tags?.some((tag) => tag.title === 'typeofeditors' && tag.value.includes(editorCode));
 }
 
+// A doclet from `sdkjs-ext/<editor>/api_plugins.js`. That file is read for its typedefs only: its
+// methods are `executeMethod` names carrying `@memberof Api`, and `Api` is also the object model's
+// entry class, so taking them at face value put `AnnotateParagraph`, `SetParagraphHtml` and five
+// others on `Api` as if they were callable inside a `callCommand` body. They are not - they belong
+// to the surface generate-plugin-methods.js builds.
+function isPluginMethodDoclet(item) {
+  return item.meta?.filename === 'api_plugins.js';
+}
+
 function filterDoclets(doclets, editorCode) {
   return doclets.filter((item) => {
+    if (isPluginMethodDoclet(item)) return item.kind === 'typedef' && !item.name?.startsWith('_');
     if (item.kind === 'typedef' || item.kind === 'class') return !item.name?.startsWith('_');
     if (item.kind === 'event') return hasEditorTag(item, editorCode);
     if (item.kind !== 'function' && item.kind !== 'method') return false;
@@ -273,7 +294,12 @@ function parseTypeName(n) {
   // the alias is purely additive. `byte` has no such typedef in the sources, so it still maps
   // directly.
   if (n === 'byte') return 'number';
-  if (n === 'JSON') return 'object';
+  // `JSON` is not a type sdkjs declares anywhere - it is shorthand for "the serialized form",
+  // and both sides of every ToJSON/FromJSON pair are strings: the documented examples all call
+  // `JSON.parse` on the result. Mapped here rather than waited on, because the name appears 39
+  // times across the four apiBuilder files; `{string}` in sdkjs is the proper fix and makes this
+  // branch dead but harmless.
+  if (n === 'JSON') return 'string';
   if (n === 'base64img') return 'string';
   if (n === 'range') return 'unknown';
   if (n.startsWith('"') && n.endsWith('"')) return n;
@@ -294,6 +320,68 @@ function parseTypeName(n) {
 function parseType(typeObj) {
   if (!typeObj || !typeObj.names) return 'unknown';
   return typeObj.names.map(parseTypeName).join(' | ');
+}
+
+// jsdoc normalizes the nullable prefix: `@returns {?ApiComment}` arrives as a clean
+// `type.names: ["ApiComment"]` plus a separate `nullable: true` flag, so the `?` never reaches
+// `parseType` and the nullability was being dropped on the floor. What that cost is visible on
+// `Api.GetByInternalId` - `@returns {?(ApiDocument | ...)}` over an implementation whose first
+// branch is `if (!obj) return null` - and on `ApiRange#AddComment`, whose own `@returns` prose
+// reads "Returns null if the comment was not added" while the emitted type promised an
+// `ApiComment`. Both made the correct `if (obj)` guard look redundant to the compiler.
+//
+// The other spelling, `{ApiParagraph | null}`, already arrives as a `null` member of `type.names`
+// and is handled by `parseTypeName`; this only covers the flag form. `unknown` and `void` already
+// admit null, so appending there would be noise.
+function withNullable(type, returnsEntry) {
+  if (!returnsEntry || returnsEntry.nullable !== true) return type;
+  if (type === 'unknown' || type === 'void' || type === 'null') return type;
+  if (splitTopLevel(type, '|').includes('null')) return type;
+  return `${type} | null`;
+}
+
+// sdkjs writes some returns as an inline record - `@returns {{r: byte, g: byte, b: byte, a: byte}}`
+// on `GetRGBA`, `{{Type: LineEndType, Width: LineEndSize, Length: LineEndSize} | null}` on the arrow
+// getters. jsdoc parses the braces and then throws the shape away: the doclet's `type.names` is just
+// `["Object"]`, so going through `parseType` alone turned a fully documented shape into bare
+// `object`. The shape is still in the doclet's raw `comment`, so it is recovered from there.
+//
+// Deliberately narrow. Only a brace-balanced record of `name: Type` pairs is accepted - no nested
+// records, no optional-key syntax - and anything else falls back to whatever `parseType` said. A
+// half-understood shape would be worse than the honest `object` it replaces.
+function inlineRecordType(comment, tag) {
+  if (!comment) return null;
+  const at = comment.indexOf(`@${tag}`);
+  if (at === -1) return null;
+  const open = comment.indexOf('{', at);
+  if (open === -1 || comment[open + 1] !== '{') return null;
+
+  let depth = 0;
+  let end = -1;
+  for (let i = open + 1; i < comment.length; i += 1) {
+    if (comment[i] === '{') depth += 1;
+    else if (comment[i] === '}') {
+      depth -= 1;
+      if (depth === 0) { end = i; break; }
+    }
+  }
+  if (end === -1) return null;
+
+  const inner = comment.slice(open + 2, end).replace(/\s*\n\s*\*?\s*/g, ' ').trim();
+  if (!inner || inner.includes('{')) return null;
+
+  const fields = [];
+  for (const part of splitTopLevel(inner, ',')) {
+    const m = /^\s*([A-Za-z_$][A-Za-z0-9_$]*)\s*:\s*(.+?)\s*$/.exec(part);
+    if (!m) return null;
+    fields.push(`${m[1]}: ${parseTypeName(m[2])}`);
+  }
+  if (fields.length === 0) return null;
+
+  // Whatever follows the record inside the same tag - `} | null` and nothing else in practice.
+  const tail = comment.slice(end + 1, comment.indexOf('}', end + 1) + 1);
+  const union = /\|\s*null/.test(tail) ? ' | null' : '';
+  return `{ ${fields.join('; ')} }${union}`;
 }
 
 // Every documented sdkjs member carries a `@see office-js-api/Examples/<Editor>/<Class>/Methods/<Method>.js`
@@ -455,7 +543,10 @@ function extractClasses(data, editor, extRoot) {
         }) : [];
 
         const returnType = item.returns && item.returns.length > 0
-          ? parseType(item.returns[0].type)
+          ? withNullable(
+              inlineRecordType(item.comment, 'returns') || parseType(item.returns[0].type),
+              item.returns[0],
+            )
           : 'void';
 
         classes[className].methods[item.name] = {
@@ -901,7 +992,7 @@ function parseOverrideBlocks(text) {
 // A handful of classes/typedefs sdkjs documents fully but that this package can't reach from a
 // plain sdkjs checkout (the individual source file only exists in ONLYOFFICE's prebuilt deploy
 // bundle, or the reference is a plain naming mistake in sdkjs's own JSDoc) - see
-// src/overrides/word.ts for the full rationale. Loaded once per editor and spliced into the
+// src/overrides/cell.ts for the full rationale. Loaded once per editor and spliced into the
 // generated output in place of a blind `export type X = unknown;` stub, the same pattern
 // DefinitelyTyped uses for undocumented corners of a real-world API.
 function loadOverrides(typeName) {

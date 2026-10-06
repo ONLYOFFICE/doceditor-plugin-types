@@ -19,9 +19,9 @@
       ],
       "returns": {
         "description": "returns null if the range spans more than one paragraph or the link is invalid.",
-        "type": "ApiHyperlink"
+        "type": "ApiHyperlink | null"
       },
-      "signature": "AddHyperlink(link: string, screenTipText: string): ApiHyperlink",
+      "signature": "AddHyperlink(link: string, screenTipText: string): ApiHyperlink | null",
       "since": "10.0.0"
     },
     "AddText": {

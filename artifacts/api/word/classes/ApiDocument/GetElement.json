@@ -9,7 +9,7 @@
     }
   ],
   "returns": {
-    "type": "DocumentElement"
+    "type": "DocumentElement | null"
   },
-  "signature": "GetElement(nPos: number): DocumentElement"
+  "signature": "GetElement(nPos: number): DocumentElement | null"
 }

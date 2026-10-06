@@ -52,9 +52,9 @@
       ],
       "returns": {
         "description": "The RGB color, or null if the position is out of range or the scheme has no color at this position.",
-        "type": "ApiColor"
+        "type": "ApiColor | null"
       },
-      "signature": "GetColor(position: number): ApiColor",
+      "signature": "GetColor(position: number): ApiColor | null",
       "since": "10.0.0"
     },
     "GetSchemeName": {
@@ -87,9 +87,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeColorScheme/Methods/ToJSON/",
       "params": [],
       "returns": {
-        "type": "object"
+        "type": "string"
       },
-      "signature": "ToJSON(): object"
+      "signature": "ToJSON(): string"
     }
   }
 }

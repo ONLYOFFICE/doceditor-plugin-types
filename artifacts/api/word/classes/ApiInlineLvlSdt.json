@@ -26,9 +26,9 @@
       ],
       "returns": {
         "description": "Returns null if the comment was not added.",
-        "type": "ApiComment"
+        "type": "ApiComment | null"
       },
-      "signature": "AddComment(sText: string, sAuthor?: string, sUserId?: string): ApiComment"
+      "signature": "AddComment(sText: string, sAuthor?: string, sUserId?: string): ApiComment | null"
     },
     "AddElement": {
       "description": "Adds an element to the inline text content control.",
@@ -92,9 +92,9 @@
       ],
       "returns": {
         "description": "returns null if content control can't be edited.",
-        "type": "ApiRun"
+        "type": "ApiRun | null"
       },
-      "signature": "AddText(text: string): ApiRun"
+      "signature": "AddText(text: string): ApiRun | null"
     },
     "Copy": {
       "description": "Creates a copy of an inline content control.\n\nIgnores comments, footnote references, complex fields.",
@@ -146,9 +146,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/GetBackgroundColor/",
       "params": [],
       "returns": {
-        "type": "ApiColor"
+        "type": "ApiColor | null"
       },
-      "signature": "GetBackgroundColor(): ApiColor",
+      "signature": "GetBackgroundColor(): ApiColor | null",
       "since": "8.3.2"
     },
     "GetBorderColor": {
@@ -156,9 +156,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/GetBorderColor/",
       "params": [],
       "returns": {
-        "type": "ApiColor"
+        "type": "ApiColor | null"
       },
-      "signature": "GetBorderColor(): ApiColor",
+      "signature": "GetBorderColor(): ApiColor | null",
       "since": "8.3.2"
     },
     "GetClassType": {
@@ -187,9 +187,9 @@
       "params": [],
       "returns": {
         "description": "Returns the data binding of the content control if it exists, otherwise `null`.",
-        "type": "XmlMapping"
+        "type": "XmlMapping | null"
       },
-      "signature": "GetDataBinding(): XmlMapping",
+      "signature": "GetDataBinding(): XmlMapping | null",
       "since": "9.0.0"
     },
     "GetDataForXmlMapping": {
@@ -234,9 +234,9 @@
         }
       ],
       "returns": {
-        "type": "ParagraphContent"
+        "type": "ParagraphContent | null"
       },
-      "signature": "GetElement(nPos: number): ParagraphContent"
+      "signature": "GetElement(nPos: number): ParagraphContent | null"
     },
     "GetElementIndex": {
       "description": "Returns the position (index) of the specified element within the current inline content control.",
@@ -307,9 +307,9 @@
       "params": [],
       "returns": {
         "description": "returns null if the content control has no parent.",
-        "type": "ParagraphLikeContainer"
+        "type": "ParagraphLikeContainer | null"
       },
-      "signature": "GetParent(): ParagraphLikeContainer",
+      "signature": "GetParent(): ParagraphLikeContainer | null",
       "since": "10.0.0"
     },
     "GetParentContentControl": {
@@ -868,9 +868,9 @@
         }
       ],
       "returns": {
-        "type": "object"
+        "type": "string"
       },
-      "signature": "ToJSON(bWriteStyles: boolean): object"
+      "signature": "ToJSON(bWriteStyles: boolean): string"
     },
     "UpdateFromXmlMapping": {
       "description": "Updates the content control using the value from the XML mapping.",

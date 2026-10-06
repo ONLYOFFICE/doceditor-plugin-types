@@ -20,7 +20,7 @@
   ],
   "returns": {
     "description": "returns null if params are invalid.",
-    "type": "ApiHyperlink"
+    "type": "ApiHyperlink | null"
   },
-  "signature": "AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink"
+  "signature": "AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink | null"
 }

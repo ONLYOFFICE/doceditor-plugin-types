@@ -250,6 +250,60 @@ export namespace Forms {
   /** Any valid element which can be added to the document structure. */
   export type DocumentElement = ApiParagraph | ApiTable | ApiBlockLvlSdt;
 
+  /** The document information. */
+  export interface DocumentInfo {
+    /** The application the document has been created with. */
+    Application: string;
+
+    /** The date and time when the file was created. */
+    CreatedRaw: Date;
+
+    /** The parsed date and time when the file was created. */
+    Created: string;
+
+    /** The date and time when the file was last modified. */
+    LastModifiedRaw: Date;
+
+    /** The parsed date and time when the file was last modified. */
+    LastModified: string;
+
+    /** The name of the user who has made the latest change to the document. */
+    LastModifiedBy: string;
+
+    /** The persons who have created the file. */
+    Authors: string[];
+
+    /** This property allows you to simplify your documents classification. */
+    Title: string;
+
+    /** This property allows you to simplify your documents classification. */
+    Tags: string;
+
+    /** This property allows you to simplify your documents classification. */
+    Subject: string;
+
+    /** This property allows you to simplify your documents classification. */
+    Comment: string;
+  }
+
+  /** The document statistics. */
+  export interface DocumentStatistics {
+    /** The number of pages. */
+    PageCount: number;
+
+    /** The number of words. */
+    WordsCount: number;
+
+    /** The number of paragraphs. */
+    ParagraphCount: number;
+
+    /** The number of symbols, spaces excluded. */
+    SymbolsCount: number;
+
+    /** The number of symbols, spaces included. */
+    SymbolsWSCount: number;
+  }
+
   /** Any valid drawing element. */
   export type Drawing = ApiShape | ApiImage | ApiGroup | ApiOleObject | ApiChart | ApiSmartArt;
 
@@ -1312,7 +1366,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/Copy/
      */
-    Copy(): ApiForm;
+    Copy(): ApiForm | null;
 
     /**
      * Removes a form and its content.
@@ -1357,7 +1411,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetBackgroundColor/
      */
-    GetBackgroundColor(): ApiColor;
+    GetBackgroundColor(): ApiColor | null;
 
     /**
      * Returns the border color of the current form.
@@ -1383,7 +1437,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Returns the choice name of the current radio button.
@@ -1657,7 +1711,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetParent/
      */
-    GetParent(): ParagraphLikeContainer;
+    GetParent(): ParagraphLikeContainer | null;
 
     /**
      * Returns the placeholder text from the current form.
@@ -1933,7 +1987,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetWrapperShape/
      */
-    GetWrapperShape(): ApiShape;
+    GetWrapperShape(): ApiShape | null;
 
     /**
      * Returns the state of the current checkbox (checked or not).
@@ -2714,7 +2768,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/Copy/
      */
-    Copy(): ApiForm;
+    Copy(): ApiForm | null;
 
     /**
      * Removes a form and its content.
@@ -2759,7 +2813,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetBackgroundColor/
      */
-    GetBackgroundColor(): ApiColor;
+    GetBackgroundColor(): ApiColor | null;
 
     /**
      * Returns the border color of the current form.
@@ -2785,7 +2839,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Returns a type of the ApiComboBoxForm class.
@@ -2947,7 +3001,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetParent/
      */
-    GetParent(): ParagraphLikeContainer;
+    GetParent(): ParagraphLikeContainer | null;
 
     /**
      * Returns the placeholder text from the current form.
@@ -3193,7 +3247,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetWrapperShape/
      */
-    GetWrapperShape(): ApiShape;
+    GetWrapperShape(): ApiShape | null;
 
     /**
      * Checks if the combo box text can be edited.
@@ -3879,7 +3933,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/Copy/
      */
-    Copy(): ApiForm;
+    Copy(): ApiForm | null;
 
     /**
      * Removes a form and its content.
@@ -3924,7 +3978,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetBackgroundColor/
      */
-    GetBackgroundColor(): ApiColor;
+    GetBackgroundColor(): ApiColor | null;
 
     /**
      * Returns the border color of the current form.
@@ -3950,7 +4004,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Returns a type of the ApiComplexForm class.
@@ -4083,7 +4137,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetParent/
      */
-    GetParent(): ParagraphLikeContainer;
+    GetParent(): ParagraphLikeContainer | null;
 
     /**
      * Returns the placeholder text from the current form.
@@ -4360,7 +4414,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetWrapperShape/
      */
-    GetWrapperShape(): ApiShape;
+    GetWrapperShape(): ApiShape | null;
 
     /**
      * Checks if the current form is filled.
@@ -4930,7 +4984,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/Copy/
      */
-    Copy(): ApiForm;
+    Copy(): ApiForm | null;
 
     /**
      * Removes a form and its content.
@@ -4975,7 +5029,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetBackgroundColor/
      */
-    GetBackgroundColor(): ApiColor;
+    GetBackgroundColor(): ApiColor | null;
 
     /**
      * Returns the border color of the current form.
@@ -5001,7 +5055,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Returns a type of the ApiDateForm class.
@@ -5213,7 +5267,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetParent/
      */
-    GetParent(): ParagraphLikeContainer;
+    GetParent(): ParagraphLikeContainer | null;
 
     /**
      * Returns the placeholder text from the current form.
@@ -5485,7 +5539,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetWrapperShape/
      */
-    GetWrapperShape(): ApiShape;
+    GetWrapperShape(): ApiShape | null;
 
     /**
      * Checks if the current form is filled.
@@ -6598,7 +6652,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/Copy/
      */
-    Copy(): ApiForm;
+    Copy(): ApiForm | null;
 
     /**
      * Removes a form and its content.
@@ -6643,7 +6697,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetBackgroundColor/
      */
-    GetBackgroundColor(): ApiColor;
+    GetBackgroundColor(): ApiColor | null;
 
     /**
      * Returns the border color of the current form.
@@ -6669,7 +6723,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Returns a type of the ApiFormBase class.
@@ -6800,7 +6854,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetParent/
      */
-    GetParent(): ParagraphLikeContainer;
+    GetParent(): ParagraphLikeContainer | null;
 
     /**
      * Returns the placeholder text from the current form.
@@ -7045,7 +7099,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetWrapperShape/
      */
-    GetWrapperShape(): ApiShape;
+    GetWrapperShape(): ApiShape | null;
 
     /**
      * Checks if the current form is filled.
@@ -7906,7 +7960,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/Copy/
      */
-    Copy(): ApiForm;
+    Copy(): ApiForm | null;
 
     /**
      * Removes a form and its content.
@@ -7951,7 +8005,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetBackgroundColor/
      */
-    GetBackgroundColor(): ApiColor;
+    GetBackgroundColor(): ApiColor | null;
 
     /**
      * Returns the border color of the current form.
@@ -7977,7 +8031,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Returns a type of the ApiPictureForm class.
@@ -8134,7 +8188,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetParent/
      */
-    GetParent(): ParagraphLikeContainer;
+    GetParent(): ParagraphLikeContainer | null;
 
     /**
      * Returns the picture position inside the current form.
@@ -8435,7 +8489,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetWrapperShape/
      */
-    GetWrapperShape(): ApiShape;
+    GetWrapperShape(): ApiShape | null;
 
     /**
      * Checks if the current form is filled.
@@ -9202,7 +9256,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/Copy/
      */
-    Copy(): ApiForm;
+    Copy(): ApiForm | null;
 
     /**
      * Removes a form and its content.
@@ -9247,7 +9301,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetBackgroundColor/
      */
-    GetBackgroundColor(): ApiColor;
+    GetBackgroundColor(): ApiColor | null;
 
     /**
      * Returns the border color of the current form.
@@ -9273,7 +9327,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Returns a type of the ApiSignatureForm class.
@@ -9406,7 +9460,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetParent/
      */
-    GetParent(): ParagraphLikeContainer;
+    GetParent(): ParagraphLikeContainer | null;
 
     /**
      * Returns the placeholder text from the current form.
@@ -9651,7 +9705,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetWrapperShape/
      */
-    GetWrapperShape(): ApiShape;
+    GetWrapperShape(): ApiShape | null;
 
     /**
      * Checks if the current form is filled.
@@ -10226,7 +10280,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/Copy/
      */
-    Copy(): ApiForm;
+    Copy(): ApiForm | null;
 
     /**
      * Removes a form and its content.
@@ -10293,7 +10347,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetBackgroundColor/
      */
-    GetBackgroundColor(): ApiColor;
+    GetBackgroundColor(): ApiColor | null;
 
     /**
      * Returns the border color of the current form.
@@ -10319,7 +10373,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Returns a limit of the text field characters.
@@ -10501,7 +10555,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetParent/
      */
-    GetParent(): ParagraphLikeContainer;
+    GetParent(): ParagraphLikeContainer | null;
 
     /**
      * Returns the placeholder text from the current form.
@@ -10746,7 +10800,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetWrapperShape/
      */
-    GetWrapperShape(): ApiShape;
+    GetWrapperShape(): ApiShape | null;
 
     /**
      * Checks if the text field content is autofit, i.e. whether the font size adjusts to the size of the

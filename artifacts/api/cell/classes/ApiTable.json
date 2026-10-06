@@ -10,9 +10,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetParentSheet/",
       "params": [],
       "returns": {
-        "type": "ApiWorksheet"
+        "type": "ApiWorksheet | null"
       },
-      "signature": "GetParentSheet(): ApiWorksheet",
+      "signature": "GetParentSheet(): ApiWorksheet | null",
       "since": "8.3.0"
     },
     "GetPosition": {

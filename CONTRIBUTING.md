@@ -374,9 +374,9 @@ consumers get the modular package instead:
 artifacts/ambient/onlyoffice-doceditor-plugin-types.word.ambient.d.ts   # 2.51 MB - Asc/AscPlugin/events/buttons/
                                                           # config/theme/services + namespace Word
                                                           # + a global `Api: Word.Api`
-artifacts/ambient/onlyoffice-doceditor-plugin-types.cell.ambient.d.ts   # 2.48 MB - ...same, for Cell
+artifacts/ambient/onlyoffice-doceditor-plugin-types.cell.ambient.d.ts   # 2.49 MB - ...same, for Cell
 artifacts/ambient/onlyoffice-doceditor-plugin-types.slide.ambient.d.ts  # 1.46 MB - ...same, for Slide
-artifacts/ambient/onlyoffice-doceditor-plugin-types.pdf.ambient.d.ts    # 1.42 MB - ...same, for Pdf
+artifacts/ambient/onlyoffice-doceditor-plugin-types.pdf.ambient.d.ts    # 1.43 MB - ...same, for Pdf
 artifacts/ambient/onlyoffice-doceditor-plugin-types.forms.ambient.d.ts  # 0.56 MB - ...same, for Forms, minus the
                                                           # global `Api` (Forms has none: its
                                                           # methods go through executeMethod)
@@ -480,7 +480,7 @@ few - `ApiWorksheetFunction` is the Excel formula library with 416 members - wou
 single 100k-token read and reintroduce exactly the problem the split exists to solve.
 
 Two ways to get it: fetch the git-tracked files from raw.githubusercontent.com, or regenerate
-locally with `npm run generate`. It is deliberately not in the npm package - at 4.89 MB it was 37%
+locally with `npm run generate`. It is deliberately not in the npm package - at 4.91 MB it was 37%
 of the install for something only an agent reads, and an agent reaching for it can fetch it over
 HTTP, while everyone installing the package for editor completion carried it for nothing.
 Written by `generate-types.js` (object model + events), `generate-plugin-methods.js` (executeMethod
@@ -518,7 +518,6 @@ onlyoffice-types/
 │   │   └── generation-manifest.json # source commits, tags and file hashes this output came from
 │   ├── overrides/          # Hand-maintained declarations for the handful of classes/typedefs
 │   │   │                   # generate-types.js can't resolve from a plain sdkjs checkout
-│   │   ├── word.ts
 │   │   ├── cell.ts
 │   │   └── pdf.ts
 │   ├── editors/            # /word, /cell, /slide, /pdf entry points (declare each editor's global Api)

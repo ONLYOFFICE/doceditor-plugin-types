@@ -19,9 +19,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/Copy/",
       "params": [],
       "returns": {
-        "type": "ApiForm"
+        "type": "ApiForm | null"
       },
-      "signature": "Copy(): ApiForm"
+      "signature": "Copy(): ApiForm | null"
     },
     "Delete": {
       "description": "Removes a form and its content.\n\nIf keepContent is true, the content is not deleted.",
@@ -46,9 +46,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetBackgroundColor/",
       "params": [],
       "returns": {
-        "type": "ApiColor"
+        "type": "ApiColor | null"
       },
-      "signature": "GetBackgroundColor(): ApiColor",
+      "signature": "GetBackgroundColor(): ApiColor | null",
       "since": "9.1.0"
     },
     "GetBorderColor": {
@@ -56,9 +56,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetBorderColor/",
       "params": [],
       "returns": {
-        "type": "ApiColor"
+        "type": "ApiColor | null"
       },
-      "signature": "GetBorderColor(): ApiColor",
+      "signature": "GetBorderColor(): ApiColor | null",
       "since": "9.1.0"
     },
     "GetClassType": {
@@ -146,9 +146,9 @@
       "params": [],
       "returns": {
         "description": "returns null if the form has no parent.",
-        "type": "ParagraphLikeContainer"
+        "type": "ParagraphLikeContainer | null"
       },
-      "signature": "GetParent(): ParagraphLikeContainer",
+      "signature": "GetParent(): ParagraphLikeContainer | null",
       "since": "10.0.0"
     },
     "GetPlaceholderText": {
@@ -246,9 +246,9 @@
       "params": [],
       "returns": {
         "description": "returns the shape in which the form is placed.",
-        "type": "ApiShape"
+        "type": "ApiShape | null"
       },
-      "signature": "GetWrapperShape(): ApiShape"
+      "signature": "GetWrapperShape(): ApiShape | null"
     },
     "IsFilled": {
       "description": "Checks if the current form is filled.",

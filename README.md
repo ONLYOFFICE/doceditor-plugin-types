@@ -200,9 +200,9 @@ https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/master/artif
 | `<file>` | size |
 | -------- | ---- |
 | `onlyoffice-doceditor-plugin-types.word.ambient.d.ts` | 2.51 MB |
-| `onlyoffice-doceditor-plugin-types.cell.ambient.d.ts` | 2.48 MB |
+| `onlyoffice-doceditor-plugin-types.cell.ambient.d.ts` | 2.49 MB |
 | `onlyoffice-doceditor-plugin-types.slide.ambient.d.ts` | 1.46 MB |
-| `onlyoffice-doceditor-plugin-types.pdf.ambient.d.ts` | 1.42 MB |
+| `onlyoffice-doceditor-plugin-types.pdf.ambient.d.ts` | 1.43 MB |
 | `onlyoffice-doceditor-plugin-types.forms.ambient.d.ts` | 0.56 MB |
 
 Each is self-contained - `Asc`, `AscPlugin`, that editor's namespace and its global `Api`. Load

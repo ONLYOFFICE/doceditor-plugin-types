@@ -10,7 +10,7 @@
   ],
   "returns": {
     "description": "The object which represents the watermark drawing if the watermark type in Settings is not \"none\".",
-    "type": "ApiDrawing"
+    "type": "ApiDrawing | null"
   },
-  "signature": "SetWatermarkSettings(Settings: ApiWatermarkSettings): ApiDrawing"
+  "signature": "SetWatermarkSettings(Settings: ApiWatermarkSettings): ApiDrawing | null"
 }

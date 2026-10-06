@@ -27,9 +27,9 @@
       "params": [],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
       "returns": {
-        "type": "object"
+        "type": "string"
       },
-      "signature": "GetActionsJSON(): object",
+      "signature": "GetActionsJSON(): string",
       "since": "9.4.0"
     },
     "GetBackgroundColor": {
@@ -37,18 +37,18 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetBackgroundColor/",
       "params": [],
       "returns": {
-        "type": "ApiColor"
+        "type": "ApiColor | null"
       },
-      "signature": "GetBackgroundColor(): ApiColor"
+      "signature": "GetBackgroundColor(): ApiColor | null"
     },
     "GetBorderColor": {
       "description": "Gets widget border color.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetBorderColor/",
       "params": [],
       "returns": {
-        "type": "ApiColor"
+        "type": "ApiColor | null"
       },
-      "signature": "GetBorderColor(): ApiColor"
+      "signature": "GetBorderColor(): ApiColor | null"
     },
     "GetBorderStyle": {
       "description": "Gets widget border style.",
@@ -131,9 +131,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetTextColor/",
       "params": [],
       "returns": {
-        "type": "ApiColor"
+        "type": "ApiColor | null"
       },
-      "signature": "GetTextColor(): ApiColor"
+      "signature": "GetTextColor(): ApiColor | null"
     },
     "GetTextSize": {
       "description": "Gets widget text size.\n\n**Note:**\nText size === 0 means autofit.\n",

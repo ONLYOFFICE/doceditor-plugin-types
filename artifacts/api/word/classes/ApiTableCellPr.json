@@ -282,9 +282,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/ToJSON/",
       "params": [],
       "returns": {
-        "type": "object"
+        "type": "string"
       },
-      "signature": "ToJSON(): object"
+      "signature": "ToJSON(): string"
     }
   }
 }

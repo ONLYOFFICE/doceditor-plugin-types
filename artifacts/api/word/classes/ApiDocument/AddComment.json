@@ -22,7 +22,7 @@
   ],
   "returns": {
     "description": "Returns null if the comment was not added.",
-    "type": "ApiComment"
+    "type": "ApiComment | null"
   },
-  "signature": "AddComment(sText: string, sAuthor?: string, sUserId?: string): ApiComment"
+  "signature": "AddComment(sText: string, sAuthor?: string, sUserId?: string): ApiComment | null"
 }

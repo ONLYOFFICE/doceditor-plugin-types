@@ -55,9 +55,9 @@
         }
       ],
       "returns": {
-        "type": "ApiDocumentContent"
+        "type": "ApiDocumentContent | null"
       },
-      "signature": "GetFooter(sType: HdrFtrType, isCreate?: boolean): ApiDocumentContent"
+      "signature": "GetFooter(sType: HdrFtrType, isCreate?: boolean): ApiDocumentContent | null"
     },
     "GetFooterDistance": {
       "description": "Returns the distance from the bottom edge of the page to the bottom edge of the footer.",
@@ -85,9 +85,9 @@
         }
       ],
       "returns": {
-        "type": "ApiDocumentContent"
+        "type": "ApiDocumentContent | null"
       },
-      "signature": "GetHeader(sType: HdrFtrType, isCreate?: boolean): ApiDocumentContent"
+      "signature": "GetHeader(sType: HdrFtrType, isCreate?: boolean): ApiDocumentContent | null"
     },
     "GetHeaderDistance": {
       "description": "Returns the distance from the top edge of the page to the top edge of the header.",
@@ -442,9 +442,9 @@
         }
       ],
       "returns": {
-        "type": "object"
+        "type": "string"
       },
-      "signature": "ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): object"
+      "signature": "ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): string"
     }
   }
 }

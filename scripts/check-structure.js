@@ -41,17 +41,36 @@ function structureBlock() {
   return parts[1];
 }
 
-// Filenames the tree mentions. The tree is ASCII art, so a name may sit behind box-drawing characters
-// and be followed by a `#` comment - only the name itself is of interest.
-function namesIn(block) {
-  const names = new Set();
-  for (const line of block.split(NL)) {
+// Every file the tree mentions, with the directory the tree puts it in. The tree is ASCII art, so a
+// name may sit behind box-drawing characters and be followed by a `#` comment.
+//
+// The directory matters, and used to be thrown away. Checking a listed name against a flat set of
+// everything on disk means any file of that name anywhere satisfies it: `src/overrides/word.ts` was
+// deleted while the tree still listed it, and the check stayed green because `src/generated/word.ts`
+// exists. Indentation is a reliable four columns per level here, so the enclosing directory is
+// recoverable and the check can ask whether that exact path exists.
+function entriesIn(block) {
+  const entries = [];
+  const stack = [];
+  for (const raw of block.split(NL)) {
+    const line = raw.replace(/#.*$/, '');
+    const marker = line.search(/[├└]/);
+    if (marker === -1) continue;
+    const depth = Math.floor(marker / 4);
+    const label = line.slice(marker).replace(/^[├└][─-]*\s*/, '').trim();
+    if (!label) continue;
+
+    if (label.endsWith('/')) {
+      stack.length = depth;
+      stack[depth] = label.slice(0, -1);
+      continue;
+    }
     // Longest extension first: `js|json` would match `api-report.json` as `api-report.js`. The second
     // alternative catches extensionless root files - LICENSE is the only one today.
-    const m = /([A-Za-z0-9_.-]+\.(?:json|js|ts|md))|(LICENSE)/.exec(line.replace(/#.*$/, ''));
-    if (m) names.add(m[1] || m[2]);
+    const m = /^([A-Za-z0-9_.-]+\.(?:json|js|ts|md))|^(LICENSE)/.exec(label);
+    if (m) entries.push({ name: m[1] || m[2], dir: stack.slice(0, depth).filter(Boolean).join('/') });
   }
-  return names;
+  return entries;
 }
 
 // Root files the tree deliberately does not draw: build output, local tooling state and untracked
@@ -189,7 +208,8 @@ function checkNumbers() {
 }
 
 function main() {
-  const listed = namesIn(structureBlock());
+  const entries = entriesIn(structureBlock());
+  const listed = new Set(entries.map((entry) => entry.name));
   const problems = [];
 
   for (const [dir, extensions] of Object.entries(ENUMERATED)) {
@@ -219,7 +239,15 @@ function main() {
     }
   };
   for (const dir of ['src', 'scripts', 'schemas', 'test']) collect(path.join(PACKAGE_ROOT, dir));
-  for (const name of listed) {
+  for (const { name, dir } of entries) {
+    // The path the tree itself claims, when it gives one - a name-only match would accept a file of
+    // that name in some other directory.
+    if (dir) {
+      if (!fs.existsSync(path.join(PACKAGE_ROOT, dir, name))) {
+        problems.push(`${dir}/${name} is in the tree but not at that path`);
+      }
+      continue;
+    }
     if (fs.existsSync(path.join(PACKAGE_ROOT, name))) continue;
     if (!onDisk.has(name)) problems.push(`${name} is in the tree but no longer exists`);
   }

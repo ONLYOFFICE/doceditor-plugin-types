@@ -3,7 +3,7 @@
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/Last/",
   "params": [],
   "returns": {
-    "type": "DocumentElement"
+    "type": "DocumentElement | null"
   },
-  "signature": "Last(): DocumentElement"
+  "signature": "Last(): DocumentElement | null"
 }

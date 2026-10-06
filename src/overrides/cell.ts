@@ -1,9 +1,18 @@
 // Manual overrides for Cell typedefs that no source resolves - not gaps in a checkout, but two real
-// defects in sdkjs's own JSDoc. See src/overrides/word.ts for the general rationale.
+// defects in sdkjs's own JSDoc.
 //
-// This file used to also declare `ApiListObject`, `ApiListColumn`, `ApiListRow` and `ApiSort` by
-// hand, re-derived from `sdkjs/deploy/sdkjs/cell/sdk-all.js`; they are generated from the extension
-// sources now, for the reason word.ts gives.
+// The general rationale for this directory, which used to live in word.ts: sdkjs documents a name it
+// never declares anywhere, so the generator would emit `export type X = unknown;` and every use of it
+// would go unchecked. A hand-written declaration here is spliced in instead - the pattern
+// DefinitelyTyped uses for undocumented corners of a real API. It is a stopgap, not a home: whenever
+// a real source starts declaring one of these, `generate-types.js` says so and the entry must go.
+//
+// That has happened twice already. word.ts is gone entirely - it held `TextAnnotation` and
+// `TextAnnotationRange`, now read from `sdkjs-ext/<editor>/api_plugins.js`, and before that ten more
+// (`ApiTableOfContents`, `ApiTableOfFigures`, `TocPr`, ...) that arrived once the generator began
+// reading the extension sources directly. This file used to carry `ApiListObject`, `ApiListColumn`,
+// `ApiListRow` and `ApiSort`, re-derived by hand from `sdkjs/deploy/sdkjs/cell/sdk-all.js`; they come
+// from the extension sources now.
 //
 // The import and the alias below exist only so this file type-checks on its own (it is in
 // tsconfig.typecheck.json for that reason). `loadOverrides` picks up only `export interface` /

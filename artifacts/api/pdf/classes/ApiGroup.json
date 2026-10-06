@@ -30,9 +30,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetParentPage/",
       "params": [],
       "returns": {
-        "type": "ApiPage"
+        "type": "ApiPage | null"
       },
-      "signature": "GetParentPage(): ApiPage"
+      "signature": "GetParentPage(): ApiPage | null"
     },
     "GetPosX": {
       "description": "Gets the x position of the drawing on the page.",

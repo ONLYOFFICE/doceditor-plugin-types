@@ -7,9 +7,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetBold/",
       "params": [],
       "returns": {
-        "type": "boolean"
+        "type": "boolean | null"
       },
-      "signature": "GetBold(): boolean",
+      "signature": "GetBold(): boolean | null",
       "since": "8.1.0"
     },
     "GetCaps": {
@@ -17,9 +17,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetCaps/",
       "params": [],
       "returns": {
-        "type": "boolean"
+        "type": "boolean | null"
       },
-      "signature": "GetCaps(): boolean",
+      "signature": "GetCaps(): boolean | null",
       "since": "8.1.0"
     },
     "GetClassType": {
@@ -36,9 +36,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetDoubleStrikeout/",
       "params": [],
       "returns": {
-        "type": "boolean"
+        "type": "boolean | null"
       },
-      "signature": "GetDoubleStrikeout(): boolean",
+      "signature": "GetDoubleStrikeout(): boolean | null",
       "since": "8.1.0"
     },
     "GetFill": {
@@ -56,9 +56,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetFontFamily/",
       "params": [],
       "returns": {
-        "type": "string"
+        "type": "string | null"
       },
-      "signature": "GetFontFamily(): string",
+      "signature": "GetFontFamily(): string | null",
       "since": "8.1.0"
     },
     "GetFontSize": {
@@ -66,9 +66,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetFontSize/",
       "params": [],
       "returns": {
-        "type": "hps"
+        "type": "hps | null"
       },
-      "signature": "GetFontSize(): hps",
+      "signature": "GetFontSize(): hps | null",
       "since": "8.1.0"
     },
     "GetHighlight": {
@@ -76,9 +76,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetHighlight/",
       "params": [],
       "returns": {
-        "type": "string"
+        "type": "string | null"
       },
-      "signature": "GetHighlight(): string",
+      "signature": "GetHighlight(): string | null",
       "since": "8.1.0"
     },
     "GetItalic": {
@@ -86,9 +86,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetItalic/",
       "params": [],
       "returns": {
-        "type": "boolean"
+        "type": "boolean | null"
       },
-      "signature": "GetItalic(): boolean",
+      "signature": "GetItalic(): boolean | null",
       "since": "8.1.0"
     },
     "GetOutLine": {
@@ -106,9 +106,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetSmallCaps/",
       "params": [],
       "returns": {
-        "type": "boolean"
+        "type": "boolean | null"
       },
-      "signature": "GetSmallCaps(): boolean",
+      "signature": "GetSmallCaps(): boolean | null",
       "since": "8.1.0"
     },
     "GetSpacing": {
@@ -116,9 +116,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetSpacing/",
       "params": [],
       "returns": {
-        "type": "twips"
+        "type": "twips | null"
       },
-      "signature": "GetSpacing(): twips",
+      "signature": "GetSpacing(): twips | null",
       "since": "8.1.0"
     },
     "GetStrikeout": {
@@ -126,9 +126,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetStrikeout/",
       "params": [],
       "returns": {
-        "type": "boolean"
+        "type": "boolean | null"
       },
-      "signature": "GetStrikeout(): boolean",
+      "signature": "GetStrikeout(): boolean | null",
       "since": "8.1.0"
     },
     "GetTextFill": {
@@ -146,9 +146,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetUnderline/",
       "params": [],
       "returns": {
-        "type": "boolean"
+        "type": "boolean | null"
       },
-      "signature": "GetUnderline(): boolean",
+      "signature": "GetUnderline(): boolean | null",
       "since": "8.1.0"
     },
     "SetBold": {

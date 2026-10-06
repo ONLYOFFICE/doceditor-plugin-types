@@ -285,9 +285,9 @@
       ],
       "returns": {
         "description": "returns null if presentation theme doesn't exist.",
-        "type": "ApiMaster"
+        "type": "ApiMaster | null"
       },
-      "signature": "CreateMaster(oTheme?: ApiTheme): ApiMaster"
+      "signature": "CreateMaster(oTheme?: ApiTheme): ApiMaster | null"
     },
     "CreateMath": {
       "description": "Creates a math equation from a linear text string. The resulting object can be inserted into\na paragraph the same way as a run (e.g. via {@link ApiParagraph#AddElement} or {@link ApiParagraph#Push}).",
@@ -337,9 +337,9 @@
       ],
       "returns": {
         "description": "returns null if numType is not one of the BulletType values.",
-        "type": "ApiBullet"
+        "type": "ApiBullet | null"
       },
-      "signature": "CreateNumbering(numType: BulletType, startAt: number): ApiBullet"
+      "signature": "CreateNumbering(numType: BulletType, startAt: number): ApiBullet | null"
     },
     "CreateOleObject": {
       "description": "Creates an OLE object with the parameters specified.",
@@ -458,9 +458,9 @@
         }
       ],
       "returns": {
-        "type": "ApiGeometry"
+        "type": "ApiGeometry | null"
       },
-      "signature": "CreatePresetGeometry(preset?: ShapeType): ApiGeometry",
+      "signature": "CreatePresetGeometry(preset?: ShapeType): ApiGeometry | null",
       "since": "9.1.0"
     },
     "CreateRGBColor": {
@@ -683,9 +683,9 @@
         }
       ],
       "returns": {
-        "type": "ApiTable"
+        "type": "ApiTable | null"
       },
-      "signature": "CreateTable(rows: unknown, cols: unknown): ApiTable"
+      "signature": "CreateTable(rows: unknown, cols: unknown): ApiTable | null"
     },
     "CreateTablePr": {
       "description": "Creates the empty table properties.",
@@ -768,9 +768,9 @@
       ],
       "returns": {
         "description": "returns null if the array does not hold exactly twelve colors this method can read.",
-        "type": "ApiThemeColorScheme"
+        "type": "ApiThemeColorScheme | null"
       },
-      "signature": "CreateThemeColorScheme(arrColors: ApiUniColor[] | ApiRGBColor[] | ApiColor[] | string[], sName: string): ApiThemeColorScheme"
+      "signature": "CreateThemeColorScheme(arrColors: ApiUniColor[] | ApiRGBColor[] | ApiColor[] | string[], sName: string): ApiThemeColorScheme | null"
     },
     "CreateThemeFontScheme": {
       "description": "Creates a new theme font scheme.",
@@ -843,9 +843,9 @@
         }
       ],
       "returns": {
-        "type": "ApiThemeFormatScheme"
+        "type": "ApiThemeFormatScheme | null"
       },
-      "signature": "CreateThemeFormatScheme(arrFill: ApiFill[], arrBgFill: ApiFill[], arrLine: ApiStroke[], sName: string): ApiThemeFormatScheme"
+      "signature": "CreateThemeFormatScheme(arrFill: ApiFill[], arrBgFill: ApiFill[], arrLine: ApiStroke[], sName: string): ApiThemeFormatScheme | null"
     },
     "CreateWordArt": {
       "description": "Creates a Text Art object with the parameters specified.",
@@ -955,13 +955,13 @@
         {
           "description": "The JSON object to convert.",
           "name": "sMessage",
-          "type": "object"
+          "type": "string"
         }
       ],
       "returns": {
         "type": "void"
       },
-      "signature": "FromJSON(sMessage: object): void"
+      "signature": "FromJSON(sMessage: string): void"
     },
     "GetFirstSlide": {
       "description": "Returns the first slide of the presentation.",
@@ -969,9 +969,9 @@
       "params": [],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
       "returns": {
-        "type": "ApiSlide"
+        "type": "ApiSlide | null"
       },
-      "signature": "GetFirstSlide(): ApiSlide",
+      "signature": "GetFirstSlide(): ApiSlide | null",
       "since": "9.4.0"
     },
     "GetFullName": {
@@ -989,9 +989,9 @@
       "params": [],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
       "returns": {
-        "type": "ApiSlide"
+        "type": "ApiSlide | null"
       },
-      "signature": "GetLastSlide(): ApiSlide",
+      "signature": "GetLastSlide(): ApiSlide | null",
       "since": "9.4.0"
     },
     "GetPresentation": {
@@ -1025,9 +1025,9 @@
       ],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
       "returns": {
-        "type": "ApiSlide"
+        "type": "ApiSlide | null"
       },
-      "signature": "GetSlideByIndex(nIndex: number): ApiSlide",
+      "signature": "GetSlideByIndex(nIndex: number): ApiSlide | null",
       "since": "9.4.0"
     },
     "HexColor": {

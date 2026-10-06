@@ -57,9 +57,9 @@
       ],
       "returns": {
         "description": "this",
-        "type": "ApiCommentReply"
+        "type": "ApiCommentReply | null"
       },
-      "signature": "SetText(sText: string): ApiCommentReply"
+      "signature": "SetText(sText: string): ApiCommentReply | null"
     },
     "SetUserId": {
       "description": "Sets the user ID to the comment reply author.",

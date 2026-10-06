@@ -16,8 +16,8 @@
     }
   ],
   "returns": {
-    "type": "ApiTableOfContents"
+    "type": "ApiTableOfContents | null"
   },
-  "signature": "AddTableOfContents(oTocPr?: TocPr, oRange?: ApiRange): ApiTableOfContents",
+  "signature": "AddTableOfContents(oTocPr?: TocPr, oRange?: ApiRange): ApiTableOfContents | null",
   "since": "10.0.0"
 }

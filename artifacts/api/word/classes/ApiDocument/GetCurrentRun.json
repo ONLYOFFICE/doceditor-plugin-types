@@ -3,8 +3,8 @@
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/GetCurrentRun/",
   "params": [],
   "returns": {
-    "type": "ApiRun"
+    "type": "ApiRun | null"
   },
-  "signature": "GetCurrentRun(): ApiRun",
+  "signature": "GetCurrentRun(): ApiRun | null",
   "since": "9.0.0"
 }

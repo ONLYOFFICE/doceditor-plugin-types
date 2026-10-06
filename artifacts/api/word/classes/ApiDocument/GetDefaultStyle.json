@@ -9,7 +9,7 @@
     }
   ],
   "returns": {
-    "type": "ApiStyle"
+    "type": "ApiStyle | null"
   },
-  "signature": "GetDefaultStyle(sStyleType: StyleType): ApiStyle"
+  "signature": "GetDefaultStyle(sStyleType: StyleType): ApiStyle | null"
 }

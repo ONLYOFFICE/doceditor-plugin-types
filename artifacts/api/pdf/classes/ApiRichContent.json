@@ -52,18 +52,18 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichContent/Methods/GetCurrentParagraph/",
       "params": [],
       "returns": {
-        "type": "ApiRichParagraph"
+        "type": "ApiRichParagraph | null"
       },
-      "signature": "GetCurrentParagraph(): ApiRichParagraph"
+      "signature": "GetCurrentParagraph(): ApiRichParagraph | null"
     },
     "GetCurrentRun": {
       "description": "Returns the current run where the cursor is located.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichContent/Methods/GetCurrentRun/",
       "params": [],
       "returns": {
-        "type": "ApiRichRun"
+        "type": "ApiRichRun | null"
       },
-      "signature": "GetCurrentRun(): ApiRichRun"
+      "signature": "GetCurrentRun(): ApiRichRun | null"
     },
     "GetElement": {
       "description": "Returns an rich paragraph by its position in the content.",
@@ -76,9 +76,9 @@
         }
       ],
       "returns": {
-        "type": "ApiRichParagraph"
+        "type": "ApiRichParagraph | null"
       },
-      "signature": "GetElement(pos: number): ApiRichParagraph"
+      "signature": "GetElement(pos: number): ApiRichParagraph | null"
     },
     "Push": {
       "description": "Pushes a rich paragraph to a rich content.",

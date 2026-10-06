@@ -325,6 +325,60 @@ declare namespace Cell {
   /** Any valid element which can be added to the document structure. */
   export type DocumentElement = ApiParagraph;
 
+  /** The document information. */
+  export interface DocumentInfo {
+    /** The application the document has been created with. */
+    Application: string;
+
+    /** The date and time when the file was created. */
+    CreatedRaw: Date;
+
+    /** The parsed date and time when the file was created. */
+    Created: string;
+
+    /** The date and time when the file was last modified. */
+    LastModifiedRaw: Date;
+
+    /** The parsed date and time when the file was last modified. */
+    LastModified: string;
+
+    /** The name of the user who has made the latest change to the document. */
+    LastModifiedBy: string;
+
+    /** The persons who have created the file. */
+    Authors: string[];
+
+    /** This property allows you to simplify your documents classification. */
+    Title: string;
+
+    /** This property allows you to simplify your documents classification. */
+    Tags: string;
+
+    /** This property allows you to simplify your documents classification. */
+    Subject: string;
+
+    /** This property allows you to simplify your documents classification. */
+    Comment: string;
+  }
+
+  /** The document statistics. */
+  export interface DocumentStatistics {
+    /** The number of pages. */
+    PageCount: number;
+
+    /** The number of words. */
+    WordsCount: number;
+
+    /** The number of paragraphs. */
+    ParagraphCount: number;
+
+    /** The number of symbols, spaces excluded. */
+    SymbolsCount: number;
+
+    /** The number of symbols, spaces included. */
+    SymbolsWSCount: number;
+  }
+
   /** Any valid drawing element. */
   export type Drawing = ApiShape | ApiImage | ApiOleObject | ApiChart | ApiGroup | ApiSmartArt;
 
@@ -1971,7 +2025,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateNumbering/
      */
-    CreateNumbering(numType: BulletType, startAt: number): ApiBullet;
+    CreateNumbering(numType: BulletType, startAt: number): ApiBullet | null;
 
     /**
      * Creates a new paragraph.
@@ -2077,7 +2131,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreatePresetGeometry/
      */
-    CreatePresetGeometry(preset?: ShapeType): ApiGeometry;
+    CreatePresetGeometry(preset?: ShapeType): ApiGeometry | null;
 
     /**
      * Creates an RGB color setting the appropriate values for the red, green and blue color components.
@@ -2470,7 +2524,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetCommentById/
      */
-    GetCommentById(sId: string): ApiComment;
+    GetCommentById(sId: string): ApiComment | null;
 
     /**
      * Returns all comments related to the whole workbook.
@@ -2698,7 +2752,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetDocumentInfo/
      */
-    GetDocumentInfo(): object;
+    GetDocumentInfo(): DocumentInfo;
 
     /**
      * Returns the freeze panes type.
@@ -5557,7 +5611,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiBullet/Methods/ToJSON/
      */
-    ToJSON(): object;
+    ToJSON(): string;
   }
 
   /**
@@ -5997,7 +6051,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetParentSheet/
      */
-    GetParentSheet(): ApiWorksheet;
+    GetParentSheet(): ApiWorksheet | null;
 
     /**
      * Returns the cell anchor of the current drawing; the offsets are limited by the anchor cell.
@@ -6045,7 +6099,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/GetSeries/
      */
-    GetSeries(nIdx: number): ApiChartSeries;
+    GetSeries(nIdx: number): ApiChartSeries | null;
 
     /**
      * Returns the chart title text.
@@ -7850,7 +7904,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiColor/Methods/GetRGB/
      */
-    GetRGB(): object;
+    GetRGB(): { r: number; g: number; b: number };
 
     /**
      * Gets the RGBA components of the color.
@@ -7876,7 +7930,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiColor/Methods/GetRGBA/
      */
-    GetRGBA(): object;
+    GetRGBA(): { r: number; g: number; b: number; a: number };
 
     /**
      * Gets the theme color name if the color is a theme color.
@@ -9639,7 +9693,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiComment/Methods/GetRepliesCount/
      */
-    GetRepliesCount(): number;
+    GetRepliesCount(): number | null;
 
     /**
      * Returns the specified comment reply.
@@ -9666,7 +9720,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiComment/Methods/GetReply/
      */
-    GetReply(nIndex?: number): ApiCommentReply;
+    GetReply(nIndex?: number): ApiCommentReply | null;
 
     /**
      * Returns the comment text.
@@ -14919,7 +14973,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDocumentContent/Methods/GetCurrentParagraph/
      */
-    GetCurrentParagraph(): ApiParagraph;
+    GetCurrentParagraph(): ApiParagraph | null;
 
     /**
      * Returns the current run where the cursor is located.
@@ -14928,7 +14982,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDocumentContent/Methods/GetCurrentRun/
      */
-    GetCurrentRun(): ApiRun;
+    GetCurrentRun(): ApiRun | null;
 
     /**
      * Returns an element by its position in the document.
@@ -14937,7 +14991,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDocumentContent/Methods/GetElement/
      */
-    GetElement(nPos: number): DocumentElement;
+    GetElement(nPos: number): DocumentElement | null;
 
     /**
      * Returns a number of elements in the current document.
@@ -15200,7 +15254,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDocumentContent/Methods/GetCurrentParagraph/
      */
-    GetCurrentParagraph(): ApiParagraph;
+    GetCurrentParagraph(): ApiParagraph | null;
 
     /**
      * Returns the current run where the cursor is located.
@@ -15236,7 +15290,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDocumentContent/Methods/GetCurrentRun/
      */
-    GetCurrentRun(): ApiRun;
+    GetCurrentRun(): ApiRun | null;
 
     /**
      * Returns an element by its position in the document.
@@ -15265,7 +15319,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDocumentContent/Methods/GetElement/
      */
-    GetElement(nPos: number): DocumentElement;
+    GetElement(nPos: number): DocumentElement | null;
 
     /**
      * Returns a number of elements in the current document.
@@ -15821,7 +15875,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetParentSheet/
      */
-    GetParentSheet(): ApiWorksheet;
+    GetParentSheet(): ApiWorksheet | null;
 
     /**
      * Returns the x position of the current drawing on the worksheet.
@@ -16336,7 +16390,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFill/Methods/GetColor/
      */
-    GetColor(): ApiColor;
+    GetColor(): ApiColor | null;
 
     /**
      * Returns the transparency of the fill.
@@ -19148,7 +19202,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiGeometry/Methods/GetPreset/
      */
-    GetPreset(): ShapeType;
+    GetPreset(): ShapeType | null;
 
     /**
      * Checks whether the current geometry is custom.
@@ -19325,7 +19379,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetParentSheet/
      */
-    GetParentSheet(): ApiWorksheet;
+    GetParentSheet(): ApiWorksheet | null;
 
     /**
      * Returns the cell anchor of the current drawing; the offsets are limited by the anchor cell.
@@ -19469,7 +19523,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiHyperlink/Methods/GetElement/
      */
-    GetElement(nPos: number): ParagraphContent;
+    GetElement(nPos: number): ParagraphContent | null;
 
     /**
      * Returns a number of elements in the current hyperlink.
@@ -21605,7 +21659,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetParentSheet/
      */
-    GetParentSheet(): ApiWorksheet;
+    GetParentSheet(): ApiWorksheet | null;
 
     /**
      * Returns the cell anchor of the current drawing; the offsets are limited by the anchor cell.
@@ -23711,7 +23765,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetParentSheet/
      */
-    GetParentSheet(): ApiWorksheet;
+    GetParentSheet(): ApiWorksheet | null;
 
     /**
      * Returns the cell anchor of the current drawing; the offsets are limited by the anchor cell.
@@ -25386,7 +25440,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/GetElement/
      */
-    GetElement(nPos: number): ParagraphContent;
+    GetElement(nPos: number): ParagraphContent | null;
 
     /**
      * Returns a number of elements in the current paragraph.
@@ -26028,7 +26082,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/Last/
      */
-    Last(): ParagraphContent;
+    Last(): ParagraphContent | null;
 
     /**
      * Adds an element to the current paragraph.
@@ -26334,7 +26388,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/SetFontFamily/
      */
-    SetFontFamily(fontFamily?: string | null): ApiParagraph;
+    SetFontFamily(fontFamily?: string | null): ApiParagraph | null;
 
     /**
      * Sets the font size to the characters of the current paragraph.
@@ -26981,7 +27035,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/ToJSON/
      */
-    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): object;
+    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): string;
   }
 
   /**
@@ -40356,7 +40410,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetBold/
      */
-    GetBold(): boolean;
+    GetBold(): boolean | null;
 
     /**
      * Returns whether the text with the current text properties are capitalized.
@@ -40365,7 +40419,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetCaps/
      */
-    GetCaps(): boolean;
+    GetCaps(): boolean | null;
 
     /**
      * Returns a type of the ApiTextPr class.
@@ -40381,7 +40435,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetDoubleStrikeout/
      */
-    GetDoubleStrikeout(): boolean;
+    GetDoubleStrikeout(): boolean | null;
 
     /**
      * Gets the text color from the current text properties.
@@ -40401,7 +40455,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetFontFamily/
      */
-    GetFontFamily(): string;
+    GetFontFamily(): string | null;
 
     /**
      * Gets the font size from the current text properties.
@@ -40410,7 +40464,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetFontSize/
      */
-    GetFontSize(): hps;
+    GetFontSize(): hps | null;
 
     /**
      * Gets the italic property from the current text properties.
@@ -40419,7 +40473,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetItalic/
      */
-    GetItalic(): boolean;
+    GetItalic(): boolean | null;
 
     /**
      * Gets the text outline from the current text properties.
@@ -40438,7 +40492,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetSmallCaps/
      */
-    GetSmallCaps(): boolean;
+    GetSmallCaps(): boolean | null;
 
     /**
      * Gets the text spacing from the current text properties measured in twentieths of a point.
@@ -40447,7 +40501,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetSpacing/
      */
-    GetSpacing(): twips;
+    GetSpacing(): twips | null;
 
     /**
      * Gets the strikeout property from the current text properties.
@@ -40456,7 +40510,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetStrikeout/
      */
-    GetStrikeout(): boolean;
+    GetStrikeout(): boolean | null;
 
     /**
      * Gets the text fill from the current text properties.
@@ -40474,7 +40528,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetUnderline/
      */
-    GetUnderline(): boolean;
+    GetUnderline(): boolean | null;
 
     /**
      * Sets the bold property to the text character.
@@ -40847,7 +40901,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetBold/
      */
-    GetBold(): boolean;
+    GetBold(): boolean | null;
 
     /**
      * Returns whether the text with the current text properties are capitalized.
@@ -40881,7 +40935,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetCaps/
      */
-    GetCaps(): boolean;
+    GetCaps(): boolean | null;
 
     /**
      * Returns a type of the ApiRun class.
@@ -40941,7 +40995,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetDoubleStrikeout/
      */
-    GetDoubleStrikeout(): boolean;
+    GetDoubleStrikeout(): boolean | null;
 
     /**
      * Gets the text color from the current text properties.
@@ -41013,7 +41067,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetFontFamily/
      */
-    GetFontFamily(): string;
+    GetFontFamily(): string | null;
 
     /**
      * Returns all font names from all elements inside the current run.
@@ -41087,7 +41141,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetFontSize/
      */
-    GetFontSize(): hps;
+    GetFontSize(): hps | null;
 
     /**
      * Gets the italic property from the current text properties.
@@ -41121,7 +41175,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetItalic/
      */
-    GetItalic(): boolean;
+    GetItalic(): boolean | null;
 
     /**
      * Gets the text outline from the current text properties.
@@ -41192,7 +41246,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetSmallCaps/
      */
-    GetSmallCaps(): boolean;
+    GetSmallCaps(): boolean | null;
 
     /**
      * Gets the text spacing from the current text properties measured in twentieths of a point.
@@ -41226,7 +41280,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetSpacing/
      */
-    GetSpacing(): twips;
+    GetSpacing(): twips | null;
 
     /**
      * Gets the strikeout property from the current text properties.
@@ -41260,7 +41314,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetStrikeout/
      */
-    GetStrikeout(): boolean;
+    GetStrikeout(): boolean | null;
 
     /**
      * Gets the text fill from the current text properties.
@@ -41371,7 +41425,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetUnderline/
      */
-    GetUnderline(): boolean;
+    GetUnderline(): boolean | null;
 
     /**
      * Removes all the elements from the current run.
@@ -42023,7 +42077,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiShape/Methods/GetContent/
      */
-    GetContent(): ApiDocumentContent;
+    GetContent(): ApiDocumentContent | null;
 
     /**
      * Returns the shape inner contents where a paragraph or text runs can be inserted.
@@ -42048,7 +42102,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiShape/Methods/GetDocContent/
      */
-    GetDocContent(): ApiDocumentContent;
+    GetDocContent(): ApiDocumentContent | null;
 
     /**
      * Returns the geometry object from the current shape.
@@ -42129,7 +42183,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetParentSheet/
      */
-    GetParentSheet(): ApiWorksheet;
+    GetParentSheet(): ApiWorksheet | null;
 
     /**
      * Returns the cell anchor of the current drawing; the offsets are limited by the anchor cell.
@@ -42295,7 +42349,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiShd/Methods/GetColor/
      */
-    GetColor(): ApiColor;
+    GetColor(): ApiColor | null;
 
     /**
      * Returns the shading type.
@@ -42359,7 +42413,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetParentSheet/
      */
-    GetParentSheet(): ApiWorksheet;
+    GetParentSheet(): ApiWorksheet | null;
 
     /**
      * Returns the cell anchor of the current drawing; the offsets are limited by the anchor cell.
@@ -43358,7 +43412,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiStroke/Methods/GetBeginArrow/
      */
-    GetBeginArrow(): object | null;
+    GetBeginArrow(): { Type: LineEndType; Width: LineEndSize; Length: LineEndSize } | null;
 
     /**
      * Returns the cap type of the stroke.
@@ -43426,7 +43480,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiStroke/Methods/GetEndArrow/
      */
-    GetEndArrow(): object | null;
+    GetEndArrow(): { Type: LineEndType; Width: LineEndSize; Length: LineEndSize } | null;
 
     /**
      * Gets the fill (color) of the stroke.
@@ -43564,7 +43618,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetParentSheet/
      */
-    GetParentSheet(): ApiWorksheet;
+    GetParentSheet(): ApiWorksheet | null;
 
     /**
      * Returns the cell anchor of the current drawing; the offsets are limited by the anchor cell.
@@ -43892,7 +43946,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetBold/
      */
-    GetBold(): boolean;
+    GetBold(): boolean | null;
 
     /**
      * Returns whether the text with the current text properties are capitalized.
@@ -43926,7 +43980,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetCaps/
      */
-    GetCaps(): boolean;
+    GetCaps(): boolean | null;
 
     /**
      * Returns a type of the ApiTextPr class.
@@ -43988,7 +44042,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetDoubleStrikeout/
      */
-    GetDoubleStrikeout(): boolean;
+    GetDoubleStrikeout(): boolean | null;
 
     /**
      * Gets the text color from the current text properties.
@@ -44060,7 +44114,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetFontFamily/
      */
-    GetFontFamily(): string;
+    GetFontFamily(): string | null;
 
     /**
      * Gets the font size from the current text properties.
@@ -44094,7 +44148,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetFontSize/
      */
-    GetFontSize(): hps;
+    GetFontSize(): hps | null;
 
     /**
      * Gets the italic property from the current text properties.
@@ -44128,7 +44182,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetItalic/
      */
-    GetItalic(): boolean;
+    GetItalic(): boolean | null;
 
     /**
      * Gets the text outline from the current text properties.
@@ -44199,7 +44253,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetSmallCaps/
      */
-    GetSmallCaps(): boolean;
+    GetSmallCaps(): boolean | null;
 
     /**
      * Gets the text spacing from the current text properties measured in twentieths of a point.
@@ -44233,7 +44287,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetSpacing/
      */
-    GetSpacing(): twips;
+    GetSpacing(): twips | null;
 
     /**
      * Gets the strikeout property from the current text properties.
@@ -44267,7 +44321,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetStrikeout/
      */
-    GetStrikeout(): boolean;
+    GetStrikeout(): boolean | null;
 
     /**
      * Gets the text fill from the current text properties.
@@ -44337,7 +44391,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetUnderline/
      */
-    GetUnderline(): boolean;
+    GetUnderline(): boolean | null;
 
     /**
      * Sets the bold property to the text character.
@@ -44817,7 +44871,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/AddHyperlink/
      */
-    AddHyperlink(link: string, screenTipText: string): ApiHyperlink;
+    AddHyperlink(link: string, screenTipText: string): ApiHyperlink | null;
 
     /**
      * Adds a text to the specified position. The current range is expanded to include the added text.
@@ -64238,11 +64292,6 @@ interface PluginInfo {
      * - `0x02` - only comments and range-permission regions may be edited;
      * - `0x04` - the document is signed and cannot be changed;
      * - `0x80` - editing is not allowed at all.
-     *
-     * Refreshed on every message the editor sends, so reading it is equivalent to calling
-     * `executeMethod("GetRestrictions")` and cheaper. `onChangeRestrictions` carries the same value
-     * when it changes.
-     *
      * Not the same question as {@link PluginInfo.isViewMode}: a document can be restricted to forms
      * or comments while still being editable, and a PDF reports view mode regardless.
      */

@@ -9,7 +9,7 @@
     }
   ],
   "returns": {
-    "type": "ParagraphContent"
+    "type": "ParagraphContent | null"
   },
-  "signature": "GetElement(nPos: number): ParagraphContent"
+  "signature": "GetElement(nPos: number): ParagraphContent | null"
 }

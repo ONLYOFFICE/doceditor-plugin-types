@@ -27,9 +27,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/GetRect/",
       "params": [],
       "returns": {
-        "type": "Rect"
+        "type": "Rect | null"
       },
-      "signature": "GetRect(): Rect",
+      "signature": "GetRect(): Rect | null",
       "since": "10.0.0"
     },
     "GetType": {
@@ -47,9 +47,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/GetZoom/",
       "params": [],
       "returns": {
-        "type": "number"
+        "type": "number | null"
       },
-      "signature": "GetZoom(): number",
+      "signature": "GetZoom(): number | null",
       "since": "10.0.0"
     },
     "SetPage": {

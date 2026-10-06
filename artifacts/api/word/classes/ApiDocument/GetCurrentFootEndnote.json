@@ -3,8 +3,8 @@
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetCurrentFootEndnote/",
   "params": [],
   "returns": {
-    "type": "ApiDocumentContent"
+    "type": "ApiDocumentContent | null"
   },
-  "signature": "GetCurrentFootEndnote(): ApiDocumentContent",
+  "signature": "GetCurrentFootEndnote(): ApiDocumentContent | null",
   "since": "9.3.0"
 }

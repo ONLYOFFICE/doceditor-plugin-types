@@ -50,9 +50,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStyle/Methods/GetTableCellPr/",
       "params": [],
       "returns": {
-        "type": "ApiTableCellPr"
+        "type": "ApiTableCellPr | null"
       },
-      "signature": "GetTableCellPr(): ApiTableCellPr"
+      "signature": "GetTableCellPr(): ApiTableCellPr | null"
     },
     "GetTablePr": {
       "description": "Returns the table properties of the current style.",
@@ -60,9 +60,9 @@
       "params": [],
       "returns": {
         "description": "If the type of this style is not a `\"table\"` then it will return\r    `null`.",
-        "type": "ApiTablePr"
+        "type": "ApiTablePr | null"
       },
-      "signature": "GetTablePr(): ApiTablePr"
+      "signature": "GetTablePr(): ApiTablePr | null"
     },
     "GetTableRowPr": {
       "description": "Returns the table row properties of the current style.",
@@ -70,9 +70,9 @@
       "params": [],
       "returns": {
         "description": "If the type of this style is not a `\"table\"` then it will return\r    `null`.",
-        "type": "ApiTableRowPr"
+        "type": "ApiTableRowPr | null"
       },
-      "signature": "GetTableRowPr(): ApiTableRowPr"
+      "signature": "GetTableRowPr(): ApiTableRowPr | null"
     },
     "GetTextPr": {
       "description": "Returns the text properties of the current style.",
@@ -229,9 +229,9 @@
         }
       ],
       "returns": {
-        "type": "object"
+        "type": "string"
       },
-      "signature": "ToJSON(bWriteNumberings: boolean): object"
+      "signature": "ToJSON(bWriteNumberings: boolean): string"
     }
   }
 }

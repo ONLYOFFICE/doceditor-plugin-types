@@ -101,9 +101,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/GetBackgroundColor/",
       "params": [],
       "returns": {
-        "type": "ApiColor"
+        "type": "ApiColor | null"
       },
-      "signature": "GetBackgroundColor(): ApiColor",
+      "signature": "GetBackgroundColor(): ApiColor | null",
       "since": "9.1.0"
     },
     "GetClassType": {
@@ -676,9 +676,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/ToJSON/",
       "params": [],
       "returns": {
-        "type": "object"
+        "type": "string"
       },
-      "signature": "ToJSON(): object"
+      "signature": "ToJSON(): string"
     }
   }
 }

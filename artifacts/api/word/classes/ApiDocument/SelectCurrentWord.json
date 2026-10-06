@@ -3,8 +3,8 @@
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/SelectCurrentWord/",
   "params": [],
   "returns": {
-    "type": "object"
+    "type": "boolean"
   },
-  "signature": "SelectCurrentWord(): object",
+  "signature": "SelectCurrentWord(): boolean",
   "since": "8.2.0"
 }

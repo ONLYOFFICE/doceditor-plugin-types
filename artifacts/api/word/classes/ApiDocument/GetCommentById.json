@@ -9,7 +9,7 @@
     }
   ],
   "returns": {
-    "type": "ApiComment"
+    "type": "ApiComment | null"
   },
-  "signature": "GetCommentById(sId: string): ApiComment"
+  "signature": "GetCommentById(sId: string): ApiComment | null"
 }

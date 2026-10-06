@@ -131,9 +131,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/GetCurrentParagraph/",
       "params": [],
       "returns": {
-        "type": "ApiParagraph"
+        "type": "ApiParagraph | null"
       },
-      "signature": "GetCurrentParagraph(): ApiParagraph",
+      "signature": "GetCurrentParagraph(): ApiParagraph | null",
       "since": "9.0.0"
     },
     "GetCurrentRun": {
@@ -141,9 +141,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/GetCurrentRun/",
       "params": [],
       "returns": {
-        "type": "ApiRun"
+        "type": "ApiRun | null"
       },
-      "signature": "GetCurrentRun(): ApiRun",
+      "signature": "GetCurrentRun(): ApiRun | null",
       "since": "9.0.0"
     },
     "GetElement": {
@@ -157,9 +157,9 @@
         }
       ],
       "returns": {
-        "type": "DocumentElement"
+        "type": "DocumentElement | null"
       },
-      "signature": "GetElement(nPos: number): DocumentElement"
+      "signature": "GetElement(nPos: number): DocumentElement | null"
     },
     "GetElementsCount": {
       "description": "Returns a number of elements in the current document.",
@@ -181,9 +181,9 @@
         }
       ],
       "returns": {
-        "type": "ApiField"
+        "type": "ApiField | null"
       },
-      "signature": "GetFieldByName(name: string): ApiField"
+      "signature": "GetFieldByName(name: string): ApiField | null"
     },
     "GetInternalId": {
       "description": "Returns an internal ID of the current document content.",
@@ -234,9 +234,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/GetSelection/",
       "params": [],
       "returns": {
-        "type": "DocSelection"
+        "type": "DocSelection | null"
       },
-      "signature": "GetSelection(): DocSelection",
+      "signature": "GetSelection(): DocSelection | null",
       "since": "10.0.0"
     },
     "GetSelectionQuads": {

@@ -32,9 +32,9 @@
       ],
       "returns": {
         "description": "this",
-        "type": "ApiComment"
+        "type": "ApiComment | null"
       },
-      "signature": "AddReply(sText: string, sAuthorName?: string, sUserId?: string, nPos?: number): ApiComment"
+      "signature": "AddReply(sText: string, sAuthorName?: string, sUserId?: string, nPos?: number): ApiComment | null"
     },
     "Delete": {
       "description": "Deletes the current comment from the document.",
@@ -69,27 +69,27 @@
       "params": [],
       "returns": {
         "description": "An object with the coordinates (in EMU) of the comment position.",
-        "type": "object"
+        "type": "{ x: EMU; y: EMU }"
       },
-      "signature": "GetPosition(): object"
+      "signature": "GetPosition(): { x: EMU; y: EMU }"
     },
     "GetQuoteText": {
       "description": "Returns the quote text of the current comment.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiComment/Methods/GetQuoteText/",
       "params": [],
       "returns": {
-        "type": "number"
+        "type": "number | null"
       },
-      "signature": "GetQuoteText(): number"
+      "signature": "GetQuoteText(): number | null"
     },
     "GetRepliesCount": {
       "description": "Returns a number of the comment replies.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiComment/Methods/GetRepliesCount/",
       "params": [],
       "returns": {
-        "type": "number"
+        "type": "number | null"
       },
-      "signature": "GetRepliesCount(): number"
+      "signature": "GetRepliesCount(): number | null"
     },
     "GetText": {
       "description": "Returns the comment text.",
@@ -161,9 +161,9 @@
       ],
       "returns": {
         "description": "this",
-        "type": "ApiComment"
+        "type": "ApiComment | null"
       },
-      "signature": "RemoveReplies(nPos?: number, nCount?: number, bRemoveAll?: boolean): ApiComment"
+      "signature": "RemoveReplies(nPos?: number, nCount?: number, bRemoveAll?: boolean): ApiComment | null"
     },
     "SetAuthorName": {
       "description": "Sets the comment author's name.",
@@ -229,9 +229,9 @@
       ],
       "returns": {
         "description": "this",
-        "type": "ApiComment"
+        "type": "ApiComment | null"
       },
-      "signature": "SetText(sText: string): ApiComment"
+      "signature": "SetText(sText: string): ApiComment | null"
     },
     "SetTime": {
       "description": "Sets the timestamp of the comment creation in the current time zone format.",

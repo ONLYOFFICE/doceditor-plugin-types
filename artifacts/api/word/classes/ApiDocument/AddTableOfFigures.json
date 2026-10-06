@@ -16,8 +16,8 @@
     }
   ],
   "returns": {
-    "type": "ApiTableOfFigures"
+    "type": "ApiTableOfFigures | null"
   },
-  "signature": "AddTableOfFigures(oTofPr?: TofPr, oRange?: ApiRange): ApiTableOfFigures",
+  "signature": "AddTableOfFigures(oTofPr?: TofPr, oRange?: ApiRange): ApiTableOfFigures | null",
   "since": "10.0.0"
 }

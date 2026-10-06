@@ -16,27 +16,27 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTheme/Methods/GetColorScheme/",
       "params": [],
       "returns": {
-        "type": "ApiThemeColorScheme"
+        "type": "ApiThemeColorScheme | null"
       },
-      "signature": "GetColorScheme(): ApiThemeColorScheme"
+      "signature": "GetColorScheme(): ApiThemeColorScheme | null"
     },
     "GetFontScheme": {
       "description": "Returns the font scheme of the current theme.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTheme/Methods/GetFontScheme/",
       "params": [],
       "returns": {
-        "type": "ApiThemeFontScheme"
+        "type": "ApiThemeFontScheme | null"
       },
-      "signature": "GetFontScheme(): ApiThemeFontScheme"
+      "signature": "GetFontScheme(): ApiThemeFontScheme | null"
     },
     "GetFormatScheme": {
       "description": "Returns the format scheme of the current theme.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTheme/Methods/GetFormatScheme/",
       "params": [],
       "returns": {
-        "type": "ApiThemeFormatScheme"
+        "type": "ApiThemeFormatScheme | null"
       },
-      "signature": "GetFormatScheme(): ApiThemeFormatScheme"
+      "signature": "GetFormatScheme(): ApiThemeFormatScheme | null"
     },
     "GetMaster": {
       "description": "Returns the slide master of the current theme.",

@@ -271,9 +271,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/GetCurrentSlide/",
       "params": [],
       "returns": {
-        "type": "ApiSlide"
+        "type": "ApiSlide | null"
       },
-      "signature": "GetCurrentSlide(): ApiSlide"
+      "signature": "GetCurrentSlide(): ApiSlide | null"
     },
     "GetCurrentVisibleSlide": {
       "description": "Returns the current visible slide.",
@@ -330,9 +330,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/GetDocumentInfo/",
       "params": [],
       "returns": {
-        "type": "object"
+        "type": "DocumentInfo"
       },
-      "signature": "GetDocumentInfo(): object"
+      "signature": "GetDocumentInfo(): DocumentInfo"
     },
     "GetDrawingsByName": {
       "description": "Returns a collection of drawing objects from the presentation slides filtered by their names,\nexcluding drawing objects from slide layouts and slide masters.",
@@ -406,9 +406,9 @@
         }
       ],
       "returns": {
-        "type": "ApiSlide"
+        "type": "ApiSlide | null"
       },
-      "signature": "GetSlideByIndex(nIndex: number): ApiSlide"
+      "signature": "GetSlideByIndex(nIndex: number): ApiSlide | null"
     },
     "GetSlideCount": {
       "description": "Returns a number of slides.",
@@ -951,9 +951,9 @@
       ],
       "returns": {
         "description": "returns null if the slide range is invalid.",
-        "type": "object | null"
+        "type": "string | null"
       },
-      "signature": "SlidesToJSON(nStart?: number, nEnd?: number, bWriteLayout?: boolean, bWriteMaster?: boolean, bWriteAllMasLayouts?: boolean, bWriteTableStyles?: boolean): object | null"
+      "signature": "SlidesToJSON(nStart?: number, nEnd?: number, bWriteLayout?: boolean, bWriteMaster?: boolean, bWriteAllMasLayouts?: boolean, bWriteTableStyles?: boolean): string | null"
     },
     "ToJSON": {
       "description": "Converts the ApiPresentation object into the JSON object.",
@@ -967,9 +967,9 @@
         }
       ],
       "returns": {
-        "type": "object"
+        "type": "string"
       },
-      "signature": "ToJSON(bWriteTableStyles?: boolean): object"
+      "signature": "ToJSON(bWriteTableStyles?: boolean): string"
     }
   }
 }

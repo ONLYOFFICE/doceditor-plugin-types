@@ -144,9 +144,9 @@
         }
       ],
       "returns": {
-        "type": "ApiChartSeries"
+        "type": "ApiChartSeries | null"
       },
-      "signature": "GetSeries(nIdx: number): ApiChartSeries"
+      "signature": "GetSeries(nIdx: number): ApiChartSeries | null"
     },
     "GetTitle": {
       "description": "Returns the chart title text.",

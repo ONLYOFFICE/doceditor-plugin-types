@@ -10,8 +10,8 @@
   ],
   "returns": {
     "description": "The created drop cap, or null if the drop cap could not be created or was removed.",
-    "type": "ApiDropCap"
+    "type": "ApiDropCap | null"
   },
-  "signature": "SetDropCap(position: \"none\" | \"drop\" | \"margin\"): ApiDropCap",
+  "signature": "SetDropCap(position: \"none\" | \"drop\" | \"margin\"): ApiDropCap | null",
   "since": "10.0.0"
 }

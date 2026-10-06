@@ -14,7 +14,7 @@
     }
   ],
   "returns": {
-    "type": "object"
+    "type": "string"
   },
-  "signature": "ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): object"
+  "signature": "ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): string"
 }

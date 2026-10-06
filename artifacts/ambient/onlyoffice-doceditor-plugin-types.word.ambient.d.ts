@@ -291,6 +291,60 @@ declare namespace Word {
   /** Any valid element which can be added to the document structure. */
   export type DocumentElement = ApiParagraph | ApiTable | ApiBlockLvlSdt;
 
+  /** The document information. */
+  export interface DocumentInfo {
+    /** The application the document has been created with. */
+    Application: string;
+
+    /** The date and time when the file was created. */
+    CreatedRaw: Date;
+
+    /** The parsed date and time when the file was created. */
+    Created: string;
+
+    /** The date and time when the file was last modified. */
+    LastModifiedRaw: Date;
+
+    /** The parsed date and time when the file was last modified. */
+    LastModified: string;
+
+    /** The name of the user who has made the latest change to the document. */
+    LastModifiedBy: string;
+
+    /** The persons who have created the file. */
+    Authors: string[];
+
+    /** This property allows you to simplify your documents classification. */
+    Title: string;
+
+    /** This property allows you to simplify your documents classification. */
+    Tags: string;
+
+    /** This property allows you to simplify your documents classification. */
+    Subject: string;
+
+    /** This property allows you to simplify your documents classification. */
+    Comment: string;
+  }
+
+  /** The document statistics. */
+  export interface DocumentStatistics {
+    /** The number of pages. */
+    PageCount: number;
+
+    /** The number of words. */
+    WordsCount: number;
+
+    /** The number of paragraphs. */
+    ParagraphCount: number;
+
+    /** The number of symbols, spaces excluded. */
+    SymbolsCount: number;
+
+    /** The number of symbols, spaces included. */
+    SymbolsWSCount: number;
+  }
+
   /** Any valid drawing element. */
   export type Drawing = ApiShape | ApiImage | ApiGroup | ApiOleObject | ApiChart | ApiSmartArt;
 
@@ -595,6 +649,33 @@ declare namespace Word {
    */
   export type TableWidth = "auto" | "twips" | "nul" | "percent";
 
+  /** Identifies an annotation range within a paragraph. */
+  export interface TextAnnotation {
+    /** ID of the paragraph containing the annotation. */
+    paragraphId: string;
+
+    /** ID of the annotation range. */
+    rangeId: string;
+
+    /** Annotation type (e.g., `"grammar"`). */
+    name?: string;
+  }
+
+  /** Defines a text range within a paragraph to be highlighted as an annotation. */
+  export interface TextAnnotationRange {
+    /** Unique identifier for the range. */
+    id: string;
+
+    /** Starting index of the text range. */
+    start: number;
+
+    /** Length of the text range. */
+    length: number;
+
+    /** Annotation type (e.g., `"grammar"`). */
+    name?: string;
+  }
+
   /** The available text flow direction inside a drawing content. */
   export type TextFlowDirection = "lrtb" | "tbrl" | "btlr";
 
@@ -889,34 +970,6 @@ declare namespace Word {
   /** Twentieths of a point (equivalent to 1/1440th of an inch). */
   export type twips = number;
 
-  // Manual overrides for types sdkjs's own JSDoc doesn't resolve from its usual sources.
-  // Their sources are src/overrides/word.ts in the repository; the declarations are inlined
-  // here, so the npm package does not carry that directory.
-  /**
-   * A grammar/spellcheck-style annotation attached to a paragraph - the payload of
-   * `onBlurAnnotation`/`onFocusAnnotation`/`onClickAnnotation`. Kept in sync by hand with the
-   * identical shape `scripts/generate-plugin-methods.js` derives independently for the same concept
-   * from a different sdkjs source (word/api_plugins.js) - see src/generated/word-methods.ts.
-   */
-  export interface TextAnnotation {
-    /** ID of the paragraph containing the annotation. */
-    paragraphId: string;
-    /** ID of the annotation range. */
-    rangeId: string;
-    /** Annotation type (e.g., `"grammar"`). */
-    name?: string;
-  }
-  export interface TextAnnotationRange {
-    /** Unique identifier for the range. */
-    id: string;
-    /** Starting index of the text range. */
-    start: number;
-    /** Length of the text range. */
-    length: number;
-    /** Annotation type (e.g., `"grammar"`). */
-    name?: string;
-  }
-
   /**
    * The main class of the Document API. Use it to get the current document and to create
    * document elements, such as paragraphs, tables, images, and charts.
@@ -948,7 +1001,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/AddComment/
      */
-    AddComment(element: ApiRun[] | DocumentElement, text?: string, author?: string, userId?: string): ApiComment;
+    AddComment(element: ApiRun[] | DocumentElement, text?: string, author?: string, userId?: string): ApiComment | null;
 
     /**
      * Creates an auto-color.
@@ -1729,7 +1782,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/CreateOleObject/
      */
-    CreateOleObject(imageSrc: string, width?: EMU, height?: EMU, data?: string, appId?: string): ApiOleObject;
+    CreateOleObject(imageSrc: string, width?: EMU, height?: EMU, data?: string, appId?: string): ApiOleObject | null;
 
     /**
      * Creates the empty paragraph properties.
@@ -1898,7 +1951,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/CreatePresetGeometry/
      */
-    CreatePresetGeometry(preset?: ShapeType): ApiGeometry;
+    CreatePresetGeometry(preset?: ShapeType): ApiGeometry | null;
 
     /**
      * Creates an RGB color setting the appropriate values for the red, green and blue color components.
@@ -2065,7 +2118,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/CreateShape/
      */
-    CreateShape(shapeType?: ShapeType, width?: EMU, height?: EMU, fill?: ApiFill, stroke?: ApiStroke): ApiShape;
+    CreateShape(shapeType?: ShapeType, width?: EMU, height?: EMU, fill?: ApiFill, stroke?: ApiStroke): ApiShape | null;
 
     /**
      * Creates the shading which can be applied to text, a paragraph, a table or a table cell.
@@ -2450,7 +2503,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/FromJSON/
      */
-    FromJSON(message: object): object;
+    FromJSON(message: string): ApiUnsupported | ApiDocumentContent | ApiParagraph | ApiTable | ApiDrawing | ApiBlockLvlSdt | ApiInlineLvlSdt;
 
     /**
      * Returns the object by it's internal ID.
@@ -2481,7 +2534,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/GetByInternalId/
      */
-    GetByInternalId(id: string): object;
+    GetByInternalId(id: string): ApiDocument | ApiDocumentContent | ApiBlockLvlSdt | ApiInlineLvlSdt | ApiParagraph | ApiTable | ApiTableRow | ApiTableCell | ApiDrawing | ApiFormBase | null;
 
     /**
      * Returns the main document.
@@ -3417,7 +3470,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiBlockLvlSdt/Methods/AddComment/
      */
-    AddComment(text: string, author?: string, userId?: string): ApiComment;
+    AddComment(text: string, author?: string, userId?: string): ApiComment | null;
 
     /**
      * Adds a paragraph or a table or a block content control to the current container.
@@ -3712,7 +3765,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiBlockLvlSdt/Methods/GetBackgroundColor/
      */
-    GetBackgroundColor(): ApiColor;
+    GetBackgroundColor(): ApiColor | null;
 
     /**
      * Returns the border color of the current content control.
@@ -3740,7 +3793,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiBlockLvlSdt/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Returns a type of the ApiBlockLvlSdt class.
@@ -3792,7 +3845,7 @@ declare namespace Word {
      * @returns Returns the data binding of the content control if it exists, otherwise `null`.
      * @since 9.0.0
      */
-    GetDataBinding(): XmlMapping;
+    GetDataBinding(): XmlMapping | null;
 
     /**
      * Returns the content control data for the XML mapping.
@@ -4617,7 +4670,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiBlockLvlSdt/Methods/ToJSON/
      */
-    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): object;
+    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): string;
 
     /**
      * Updates the content control using the value from the XML mapping.
@@ -5188,7 +5241,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetContent/
      */
-    GetContent(): ApiDocumentContent;
+    GetContent(): ApiDocumentContent | null;
 
     /**
      * Gets the description of the current drawing.
@@ -5691,7 +5744,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/GetSeries/
      */
-    GetSeries(nIdx: number): ApiChartSeries;
+    GetSeries(nIdx: number): ApiChartSeries | null;
 
     /**
      * Returns the shadow of the current graphic object.
@@ -8070,7 +8123,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/ToJSON/
      */
-    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): object;
+    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): string;
 
     /**
      * Removes the current graphic object from the selection.
@@ -8301,7 +8354,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/Copy/
      */
-    Copy(): ApiForm;
+    Copy(): ApiForm | null;
 
     /**
      * Removes a form and its content.
@@ -8346,7 +8399,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetBackgroundColor/
      */
-    GetBackgroundColor(): ApiColor;
+    GetBackgroundColor(): ApiColor | null;
 
     /**
      * Returns the border color of the current form.
@@ -8372,7 +8425,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Returns the choice name of the current radio button.
@@ -8646,7 +8699,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetParent/
      */
-    GetParent(): ParagraphLikeContainer;
+    GetParent(): ParagraphLikeContainer | null;
 
     /**
      * Returns the placeholder text from the current form.
@@ -8922,7 +8975,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetWrapperShape/
      */
-    GetWrapperShape(): ApiShape;
+    GetWrapperShape(): ApiShape | null;
 
     /**
      * Returns the state of the current checkbox (checked or not).
@@ -9795,7 +9848,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiColor/Methods/GetRGB/
      */
-    GetRGB(): object;
+    GetRGB(): { r: number; g: number; b: number };
 
     /**
      * Gets the RGBA components of the color.
@@ -9830,7 +9883,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiColor/Methods/GetRGBA/
      */
-    GetRGBA(): object;
+    GetRGBA(): { r: number; g: number; b: number; a: number };
 
     /**
      * Gets the theme color name if the color is a theme color.
@@ -10011,7 +10064,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/Copy/
      */
-    Copy(): ApiForm;
+    Copy(): ApiForm | null;
 
     /**
      * Removes a form and its content.
@@ -10056,7 +10109,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetBackgroundColor/
      */
-    GetBackgroundColor(): ApiColor;
+    GetBackgroundColor(): ApiColor | null;
 
     /**
      * Returns the border color of the current form.
@@ -10082,7 +10135,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Returns a type of the ApiComboBoxForm class.
@@ -10244,7 +10297,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetParent/
      */
-    GetParent(): ParagraphLikeContainer;
+    GetParent(): ParagraphLikeContainer | null;
 
     /**
      * Returns the placeholder text from the current form.
@@ -10490,7 +10543,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetWrapperShape/
      */
-    GetWrapperShape(): ApiShape;
+    GetWrapperShape(): ApiShape | null;
 
     /**
      * Checks if the combo box text can be edited.
@@ -11101,7 +11154,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/AddReply/
      */
-    AddReply(sText: string, sAuthorName?: string, sUserId?: string, nPos?: number): ApiComment;
+    AddReply(sText: string, sAuthorName?: string, sUserId?: string, nPos?: number): ApiComment | null;
 
     /**
      * Deletes the current comment from the document.
@@ -11200,7 +11253,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/GetId/
      */
-    GetId(): string;
+    GetId(): string | null;
 
     /**
      * Returns the quote text of the current comment.
@@ -11224,7 +11277,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/GetQuoteText/
      */
-    GetQuoteText(): number;
+    GetQuoteText(): number | null;
 
     /**
      * Returns a number of the comment replies.
@@ -11249,7 +11302,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/GetRepliesCount/
      */
-    GetRepliesCount(): number;
+    GetRepliesCount(): number | null;
 
     /**
      * Returns the specified comment reply.
@@ -11277,7 +11330,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/GetReply/
      */
-    GetReply(nIndex?: number): ApiCommentReply;
+    GetReply(nIndex?: number): ApiCommentReply | null;
 
     /**
      * Returns the comment text.
@@ -11434,7 +11487,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/RemoveReplies/
      */
-    RemoveReplies(nPos?: number, nCount?: number, bRemoveAll?: boolean): ApiComment;
+    RemoveReplies(nPos?: number, nCount?: number, bRemoveAll?: boolean): ApiComment | null;
 
     /**
      * Sets the comment author's name.
@@ -11513,7 +11566,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/SetText/
      */
-    SetText(sText: string): ApiComment;
+    SetText(sText: string): ApiComment | null;
 
     /**
      * Sets the timestamp of the comment creation in the current time zone format.
@@ -11764,7 +11817,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCommentReply/Methods/SetText/
      */
-    SetText(sText: string): ApiCommentReply;
+    SetText(sText: string): ApiCommentReply | null;
 
     /**
      * Sets the user ID to the comment reply author.
@@ -11896,7 +11949,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/Copy/
      */
-    Copy(): ApiForm;
+    Copy(): ApiForm | null;
 
     /**
      * Removes a form and its content.
@@ -11941,7 +11994,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetBackgroundColor/
      */
-    GetBackgroundColor(): ApiColor;
+    GetBackgroundColor(): ApiColor | null;
 
     /**
      * Returns the border color of the current form.
@@ -11967,7 +12020,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Returns a type of the ApiComplexForm class.
@@ -12100,7 +12153,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetParent/
      */
-    GetParent(): ParagraphLikeContainer;
+    GetParent(): ParagraphLikeContainer | null;
 
     /**
      * Returns the placeholder text from the current form.
@@ -12377,7 +12430,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetWrapperShape/
      */
-    GetWrapperShape(): ApiShape;
+    GetWrapperShape(): ApiShape | null;
 
     /**
      * Checks if the current form is filled.
@@ -15448,7 +15501,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/Copy/
      */
-    Copy(): ApiForm;
+    Copy(): ApiForm | null;
 
     /**
      * Removes a form and its content.
@@ -15493,7 +15546,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetBackgroundColor/
      */
-    GetBackgroundColor(): ApiColor;
+    GetBackgroundColor(): ApiColor | null;
 
     /**
      * Returns the border color of the current form.
@@ -15519,7 +15572,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Returns a type of the ApiDateForm class.
@@ -15731,7 +15784,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetParent/
      */
-    GetParent(): ParagraphLikeContainer;
+    GetParent(): ParagraphLikeContainer | null;
 
     /**
      * Returns the placeholder text from the current form.
@@ -16003,7 +16056,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetWrapperShape/
      */
-    GetWrapperShape(): ApiShape;
+    GetWrapperShape(): ApiShape | null;
 
     /**
      * Checks if the current form is filled.
@@ -16696,7 +16749,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/AddComment/
      */
-    AddComment(sText: string, sAuthor?: string, sUserId?: string): ApiComment;
+    AddComment(sText: string, sAuthor?: string, sUserId?: string): ApiComment | null;
 
     /**
      * Adds a new date picker content control to the document.
@@ -16823,7 +16876,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/AddEndnote/
      */
-    AddEndnote(): ApiDocumentContent;
+    AddEndnote(): ApiDocumentContent | null;
 
     /**
      * Adds a footnote for the selected text (or the current position if the selection doesn't exist).
@@ -16845,7 +16898,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/AddFootnote/
      */
-    AddFootnote(): ApiDocumentContent;
+    AddFootnote(): ApiDocumentContent | null;
 
     /**
      * Adds a math equation to the current document.
@@ -16959,7 +17012,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/AddTableOfContents/
      */
-    AddTableOfContents(oTocPr?: TocPr, oRange?: ApiRange): ApiTableOfContents;
+    AddTableOfContents(oTocPr?: TocPr, oRange?: ApiRange): ApiTableOfContents | null;
 
     /**
      * Adds a table of figures to the current document.
@@ -17001,7 +17054,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/AddTableOfFigures/
      */
-    AddTableOfFigures(oTofPr?: TofPr, oRange?: ApiRange): ApiTableOfFigures;
+    AddTableOfFigures(oTofPr?: TofPr, oRange?: ApiRange): ApiTableOfFigures | null;
 
     /**
      * Appends the specified text to the end of the document content.
@@ -17770,7 +17823,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetBookmark/
      */
-    GetBookmark(sBookmarkName: string): ApiBookmark;
+    GetBookmark(sBookmarkName: string): ApiBookmark | null;
 
     /**
      * Returns a bookmark range.
@@ -17842,7 +17895,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetCommentById/
      */
-    GetCommentById(sId: string): ApiComment;
+    GetCommentById(sId: string): ApiComment | null;
 
     /**
      * Returns a report about all the comments added to the document.
@@ -18163,7 +18216,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetCurrentFootEndnote/
      */
-    GetCurrentFootEndnote(): ApiDocumentContent;
+    GetCurrentFootEndnote(): ApiDocumentContent | null;
 
     /**
      * Returns the index of the current page.
@@ -18218,7 +18271,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/GetCurrentParagraph/
      */
-    GetCurrentParagraph(): ApiParagraph;
+    GetCurrentParagraph(): ApiParagraph | null;
 
     /**
      * Returns the current run where the cursor is located.
@@ -18253,7 +18306,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/GetCurrentRun/
      */
-    GetCurrentRun(): ApiRun;
+    GetCurrentRun(): ApiRun | null;
 
     /**
      * Returns the current sentence or part of the current sentence.
@@ -18454,7 +18507,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetDefaultStyle/
      */
-    GetDefaultStyle(sStyleType: StyleType): ApiStyle;
+    GetDefaultStyle(sStyleType: StyleType): ApiStyle | null;
 
     /**
      * Returns a set of default properties for the text run in the current document.
@@ -18513,7 +18566,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetDocumentInfo/
      */
-    GetDocumentInfo(): object;
+    GetDocumentInfo(): DocumentInfo;
 
     /**
      * Returns a visitor object for traversing the elements of the current document.
@@ -18626,7 +18679,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/GetElement/
      */
-    GetElement(nPos: number): DocumentElement;
+    GetElement(nPos: number): DocumentElement | null;
 
     /**
      * Returns the position (index) of the specified element within the current document content.
@@ -19279,7 +19332,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetStatistics/
      */
-    GetStatistics(): object;
+    GetStatistics(): DocumentStatistics;
 
     /**
      * Returns a style by its name.
@@ -19744,7 +19797,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/Last/
      */
-    Last(): DocumentElement;
+    Last(): DocumentElement | null;
 
     /**
      * Moves the cursor down.
@@ -20437,7 +20490,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/SelectCurrentWord/
      */
-    SelectCurrentWord(): object;
+    SelectCurrentWord(): boolean;
 
     /**
      * Selects the reference to this footnote/endnote.
@@ -20717,7 +20770,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/SetWatermarkSettings/
      */
-    SetWatermarkSettings(Settings: ApiWatermarkSettings): ApiDrawing;
+    SetWatermarkSettings(Settings: ApiWatermarkSettings): ApiDrawing | null;
 
     /**
      * Shows a comment by its ID.
@@ -20841,7 +20894,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/ToJSON/
      */
-    ToJSON(bWriteDefaultTextPr: boolean, bWriteDefaultParaPr: boolean, bWriteTheme: boolean, bWriteSectionPr: boolean, bWriteNumberings: boolean, bWriteStyles: boolean): object;
+    ToJSON(bWriteDefaultTextPr: boolean, bWriteDefaultParaPr: boolean, bWriteTheme: boolean, bWriteSectionPr: boolean, bWriteNumberings: boolean, bWriteStyles: boolean): string;
 
     /**
      * Converts a document to Markdown.
@@ -21468,7 +21521,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/GetCurrentParagraph/
      */
-    GetCurrentParagraph(): ApiParagraph;
+    GetCurrentParagraph(): ApiParagraph | null;
 
     /**
      * Returns the current run where the cursor is located.
@@ -21503,7 +21556,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/GetCurrentRun/
      */
-    GetCurrentRun(): ApiRun;
+    GetCurrentRun(): ApiRun | null;
 
     /**
      * Returns a visitor object for traversing the elements of the current document.
@@ -21577,7 +21630,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/GetElement/
      */
-    GetElement(nPos: number): DocumentElement;
+    GetElement(nPos: number): DocumentElement | null;
 
     /**
      * Returns the position (index) of the specified element within the current document content.
@@ -21986,7 +22039,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/ToJSON/
      */
-    ToJSON(isWriteNumberings: boolean, isWriteStyles: boolean): object;
+    ToJSON(isWriteNumberings: boolean, isWriteStyles: boolean): string;
   }
 
   /**
@@ -22183,7 +22236,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetContent/
      */
-    GetContent(): ApiDocumentContent;
+    GetContent(): ApiDocumentContent | null;
 
     /**
      * Gets the description of the current drawing.
@@ -23552,7 +23605,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/ToJSON/
      */
-    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): object;
+    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): string;
 
     /**
      * Removes the current graphic object from the selection.
@@ -23707,7 +23760,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDropCap/Methods/SetPosition/
      */
-    SetPosition(position: "none" | "drop" | "margin"): ApiDropCap;
+    SetPosition(position: "none" | "drop" | "margin"): ApiDropCap | null;
   }
 
   /**
@@ -23750,7 +23803,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFill/Methods/GetColor/
      */
-    GetColor(): ApiColor;
+    GetColor(): ApiColor | null;
 
     /**
      * Returns the transparency of the fill.
@@ -23840,7 +23893,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFill/Methods/ToJSON/
      */
-    ToJSON(): object;
+    ToJSON(): string;
   }
 
   /**
@@ -23893,7 +23946,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/Copy/
      */
-    Copy(): ApiForm;
+    Copy(): ApiForm | null;
 
     /**
      * Removes a form and its content.
@@ -23938,7 +23991,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetBackgroundColor/
      */
-    GetBackgroundColor(): ApiColor;
+    GetBackgroundColor(): ApiColor | null;
 
     /**
      * Returns the border color of the current form.
@@ -23964,7 +24017,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Returns a type of the ApiFormBase class.
@@ -24095,7 +24148,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetParent/
      */
-    GetParent(): ParagraphLikeContainer;
+    GetParent(): ParagraphLikeContainer | null;
 
     /**
      * Returns the placeholder text from the current form.
@@ -24340,7 +24393,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetWrapperShape/
      */
-    GetWrapperShape(): ApiShape;
+    GetWrapperShape(): ApiShape | null;
 
     /**
      * Checks if the current form is filled.
@@ -25155,7 +25208,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiGeometry/Methods/GetPreset/
      */
-    GetPreset(): ShapeType;
+    GetPreset(): ShapeType | null;
 
     /**
      * Checks whether the current geometry is custom.
@@ -25325,7 +25378,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiGradientStop/Methods/ToJSON/
      */
-    ToJSON(): object;
+    ToJSON(): string;
   }
 
   /**
@@ -25520,7 +25573,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetContent/
      */
-    GetContent(): ApiDocumentContent;
+    GetContent(): ApiDocumentContent | null;
 
     /**
      * Gets the description of the current drawing.
@@ -26886,7 +26939,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/ToJSON/
      */
-    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): object;
+    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): string;
 
     /**
      * Ungroups the current group of drawings.
@@ -27056,7 +27109,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiHyperlink/Methods/GetElement/
      */
-    GetElement(nPos: number): ParagraphContent;
+    GetElement(nPos: number): ParagraphContent | null;
 
     /**
      * Returns a number of elements in the current hyperlink.
@@ -27123,7 +27176,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiHyperlink/Methods/GetParent/
      */
-    GetParent(): ParagraphLikeContainer;
+    GetParent(): ParagraphLikeContainer | null;
 
     /**
      * Returns the position (index) of the current hyperlink within its parent element.
@@ -27307,7 +27360,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiHyperlink/Methods/ToJSON/
      */
-    ToJSON(bWriteStyles: boolean): object;
+    ToJSON(bWriteStyles: boolean): string;
   }
 
   /**
@@ -27483,7 +27536,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetContent/
      */
-    GetContent(): ApiDocumentContent;
+    GetContent(): ApiDocumentContent | null;
 
     /**
      * Gets the description of the current drawing.
@@ -28923,7 +28976,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/ToJSON/
      */
-    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): object;
+    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): string;
 
     /**
      * Removes the current graphic object from the selection.
@@ -29003,7 +29056,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/AddComment/
      */
-    AddComment(sText: string, sAuthor?: string, sUserId?: string): ApiComment;
+    AddComment(sText: string, sAuthor?: string, sUserId?: string): ApiComment | null;
 
     /**
      * Adds an element to the inline text content control.
@@ -29083,7 +29136,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/AddText/
      */
-    AddText(text: string): ApiRun;
+    AddText(text: string): ApiRun | null;
 
     /**
      * Creates a copy of an inline content control.
@@ -29219,7 +29272,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/GetBackgroundColor/
      */
-    GetBackgroundColor(): ApiColor;
+    GetBackgroundColor(): ApiColor | null;
 
     /**
      * Returns the border color of the current content control.
@@ -29252,7 +29305,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Returns a type of the ApiInlineLvlSdt class.
@@ -29350,7 +29403,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/GetDataBinding/
      */
-    GetDataBinding(): XmlMapping;
+    GetDataBinding(): XmlMapping | null;
 
     /**
      * Returns the content control data for the XML mapping.
@@ -29461,7 +29514,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/GetElement/
      */
-    GetElement(nPos: number): ParagraphContent;
+    GetElement(nPos: number): ParagraphContent | null;
 
     /**
      * Returns the position (index) of the specified element within the current inline content control.
@@ -29633,7 +29686,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/GetParent/
      */
-    GetParent(): ParagraphLikeContainer;
+    GetParent(): ParagraphLikeContainer | null;
 
     /**
      * Returns a content control that contains the current content control.
@@ -30674,7 +30727,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/ToJSON/
      */
-    ToJSON(bWriteStyles: boolean): object;
+    ToJSON(bWriteStyles: boolean): string;
 
     /**
      * Updates the content control using the value from the XML mapping.
@@ -30744,7 +30797,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiMath/Methods/GetParent/
      */
-    GetParent(): ParagraphLikeContainer;
+    GetParent(): ParagraphLikeContainer | null;
 
     /**
      * Returns the position (index) of the current math element within its parent element.
@@ -30857,7 +30910,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiNumbering/Methods/ToJSON/
      */
-    ToJSON(): object;
+    ToJSON(): string;
   }
 
   /**
@@ -31478,7 +31531,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetContent/
      */
-    GetContent(): ApiDocumentContent;
+    GetContent(): ApiDocumentContent | null;
 
     /**
      * Returns the string data from the current OLE object.
@@ -32926,7 +32979,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/ToJSON/
      */
-    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): object;
+    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): string;
 
     /**
      * Removes the current graphic object from the selection.
@@ -33576,7 +33629,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetStyle/
      */
-    GetStyle(): ApiStyle;
+    GetStyle(): ApiStyle | null;
 
     /**
      * Returns the custom tab stops of the current paragraph.
@@ -34514,7 +34567,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/ToJSON/
      */
-    ToJSON(bWriteStyles: boolean): object;
+    ToJSON(bWriteStyles: boolean): string;
   }
 
   /**
@@ -34698,7 +34751,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/AddComment/
      */
-    AddComment(sText: string, sAuthor?: string, sUserId?: string): ApiComment;
+    AddComment(sText: string, sAuthor?: string, sUserId?: string): ApiComment | null;
 
     /**
      * Adds a drawing object (image, shape or chart) to the current paragraph.
@@ -34891,7 +34944,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/AddHyperlink/
      */
-    AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink;
+    AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink | null;
 
     /**
      * Adds an inline container.
@@ -35481,7 +35534,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/GetDropCap/
      */
-    GetDropCap(): ApiDropCap;
+    GetDropCap(): ApiDropCap | null;
 
     /**
      * Returns a paragraph element using the position specified.
@@ -35513,7 +35566,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/GetElement/
      */
-    GetElement(nPos: number): ParagraphContent;
+    GetElement(nPos: number): ParagraphContent | null;
 
     /**
      * Returns the position (index) of the specified element within the current paragraph.
@@ -35915,7 +35968,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/GetNumbering/
      */
-    GetNumbering(): ApiNumberingLevel;
+    GetNumbering(): ApiNumberingLevel | null;
 
     /**
      * Returns the outline level of the specified properties.
@@ -36466,7 +36519,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParaPr/Methods/GetStyle/
      */
-    GetStyle(): ApiStyle;
+    GetStyle(): ApiStyle | null;
 
     /**
      * Returns the custom tab stops of the current paragraph.
@@ -36695,7 +36748,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/Last/
      */
-    Last(): ParagraphContent;
+    Last(): ParagraphContent | null;
 
     /**
      * Moves the cursor to the end of the paragraph.
@@ -37139,7 +37192,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/SetDropCap/
      */
-    SetDropCap(position: "none" | "drop" | "margin"): ApiDropCap;
+    SetDropCap(position: "none" | "drop" | "margin"): ApiDropCap | null;
 
     /**
      * Sets all 4 font slots with the specified font family.
@@ -37162,7 +37215,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/SetFontFamily/
      */
-    SetFontFamily(fontFamily?: string | null): ApiParagraph;
+    SetFontFamily(fontFamily?: string | null): ApiParagraph | null;
 
     /**
      * Sets the font size to the characters of the current paragraph.
@@ -38321,7 +38374,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/ToJSON/
      */
-    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): object;
+    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): string;
 
     /**
      * Wraps the paragraph content in a mail merge field.
@@ -39444,7 +39497,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/Copy/
      */
-    Copy(): ApiForm;
+    Copy(): ApiForm | null;
 
     /**
      * Removes a form and its content.
@@ -39489,7 +39542,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetBackgroundColor/
      */
-    GetBackgroundColor(): ApiColor;
+    GetBackgroundColor(): ApiColor | null;
 
     /**
      * Returns the border color of the current form.
@@ -39515,7 +39568,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Returns a type of the ApiPictureForm class.
@@ -39672,7 +39725,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetParent/
      */
-    GetParent(): ParagraphLikeContainer;
+    GetParent(): ParagraphLikeContainer | null;
 
     /**
      * Returns the picture position inside the current form.
@@ -39973,7 +40026,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetWrapperShape/
      */
-    GetWrapperShape(): ApiShape;
+    GetWrapperShape(): ApiShape | null;
 
     /**
      * Checks if the current form is filled.
@@ -40746,7 +40799,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiPresetColor/Methods/ToJSON/
      */
-    ToJSON(): object;
+    ToJSON(): string;
   }
 
   /**
@@ -40846,7 +40899,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRGBColor/Methods/ToJSON/
      */
-    ToJSON(): object;
+    ToJSON(): string;
   }
 
   /**
@@ -40906,7 +40959,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/AddComment/
      */
-    AddComment(sText: string, sAuthor?: string, sUserId?: string): ApiComment;
+    AddComment(sText: string, sAuthor?: string, sUserId?: string): ApiComment | null;
 
     /**
      * Adds a field to the specified range by the field instruction code.
@@ -40960,7 +41013,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/AddHyperlink/
      */
-    AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink;
+    AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink | null;
 
     /**
      * Adds a text to the specified position.
@@ -41967,7 +42020,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/ToJSON/
      */
-    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): object;
+    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): string;
   }
 
   /** @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/ */
@@ -42007,7 +42060,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetBold/
      */
-    GetBold(): boolean;
+    GetBold(): boolean | null;
 
     /**
      * Returns whether the text with the current text properties are capitalized.
@@ -42044,7 +42097,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetCaps/
      */
-    GetCaps(): boolean;
+    GetCaps(): boolean | null;
 
     /**
      * Returns a type of the ApiTextPr class.
@@ -42110,7 +42163,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetColor/
      */
-    GetColor(): ApiColor;
+    GetColor(): ApiColor | null;
 
     /**
      * Gets the double strikeout property from the current text properties.
@@ -42147,7 +42200,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetDoubleStrikeout/
      */
-    GetDoubleStrikeout(): boolean;
+    GetDoubleStrikeout(): boolean | null;
 
     /**
      * Returns the font family from the current text properties.
@@ -42186,7 +42239,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetFontFamily/
      */
-    GetFontFamily(): string;
+    GetFontFamily(): string | null;
 
     /**
      * Gets the font size from the current text properties.
@@ -42223,7 +42276,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetFontSize/
      */
-    GetFontSize(): hps;
+    GetFontSize(): hps | null;
 
     /**
      * Gets the highlight property from the current text properties.
@@ -42260,7 +42313,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetHighlight/
      */
-    GetHighlight(): string;
+    GetHighlight(): string | null;
 
     /**
      * Gets the italic property from the current text properties.
@@ -42297,7 +42350,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetItalic/
      */
-    GetItalic(): boolean;
+    GetItalic(): boolean | null;
 
     /**
      * Gets the language from the current text properties.
@@ -42334,7 +42387,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetLanguage/
      */
-    GetLanguage(): string;
+    GetLanguage(): string | null;
 
     /**
      * Gets the text outline from the current text properties.
@@ -42407,7 +42460,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetPosition/
      */
-    GetPosition(): hps;
+    GetPosition(): hps | null;
 
     /**
      * Gets the text shading from the current text properties.
@@ -42491,7 +42544,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetSmallCaps/
      */
-    GetSmallCaps(): boolean;
+    GetSmallCaps(): boolean | null;
 
     /**
      * Gets the text spacing from the current text properties measured in twentieths of a point.
@@ -42528,7 +42581,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetSpacing/
      */
-    GetSpacing(): twips;
+    GetSpacing(): twips | null;
 
     /**
      * Gets the strikeout property from the current text properties.
@@ -42565,7 +42618,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetStrikeout/
      */
-    GetStrikeout(): boolean;
+    GetStrikeout(): boolean | null;
 
     /**
      * Gets the style of the current text properties.
@@ -42602,7 +42655,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetStyle/
      */
-    GetStyle(): ApiStyle;
+    GetStyle(): ApiStyle | null;
 
     /**
      * Gets the text fill from the current text properties.
@@ -42675,7 +42728,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetUnderline/
      */
-    GetUnderline(): boolean;
+    GetUnderline(): boolean | null;
 
     /**
      * Gets the vertical alignment type from the current text properties.
@@ -42712,7 +42765,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetVertAlign/
      */
-    GetVertAlign(): string;
+    GetVertAlign(): string | null;
 
     /**
      * Sets the bold property to the text character.
@@ -43277,7 +43330,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/ToJSON/
      */
-    ToJSON(bWriteStyles: boolean): object;
+    ToJSON(bWriteStyles: boolean): string;
   }
 
   /**
@@ -43338,7 +43391,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRun/Methods/AddComment/
      */
-    AddComment(sText: string, sAuthor?: string, sUserId?: string): ApiComment;
+    AddComment(sText: string, sAuthor?: string, sUserId?: string): ApiComment | null;
 
     /**
      * Adds a drawing object (image, shape or chart) to the current text run.
@@ -43400,7 +43453,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRun/Methods/AddHyperlink/
      */
-    AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink;
+    AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink | null;
 
     /**
      * Adds a line break to the current run position and starts the next element from a new line.
@@ -43608,7 +43661,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetBold/
      */
-    GetBold(): boolean;
+    GetBold(): boolean | null;
 
     /**
      * Returns whether the text with the current text properties are capitalized.
@@ -43645,7 +43698,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetCaps/
      */
-    GetCaps(): boolean;
+    GetCaps(): boolean | null;
 
     /**
      * Returns a type of the ApiRun class.
@@ -43708,7 +43761,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetColor/
      */
-    GetColor(): ApiColor;
+    GetColor(): ApiColor | null;
 
     /**
      * Gets the double strikeout property from the current text properties.
@@ -43745,7 +43798,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetDoubleStrikeout/
      */
-    GetDoubleStrikeout(): boolean;
+    GetDoubleStrikeout(): boolean | null;
 
     /**
      * Returns the font family from the current text properties.
@@ -43784,7 +43837,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetFontFamily/
      */
-    GetFontFamily(): string;
+    GetFontFamily(): string | null;
 
     /**
      * Returns all font names from all elements inside the current run.
@@ -43853,7 +43906,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetFontSize/
      */
-    GetFontSize(): hps;
+    GetFontSize(): hps | null;
 
     /**
      * Gets the highlight property from the current text properties.
@@ -43890,7 +43943,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetHighlight/
      */
-    GetHighlight(): string;
+    GetHighlight(): string | null;
 
     /**
      * Gets the italic property from the current text properties.
@@ -43927,7 +43980,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetItalic/
      */
-    GetItalic(): boolean;
+    GetItalic(): boolean | null;
 
     /**
      * Gets the language from the current text properties.
@@ -43964,7 +44017,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetLanguage/
      */
-    GetLanguage(): string;
+    GetLanguage(): string | null;
 
     /**
      * Gets the text outline from the current text properties.
@@ -44011,7 +44064,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRun/Methods/GetParent/
      */
-    GetParent(): ParagraphLikeContainer;
+    GetParent(): ParagraphLikeContainer | null;
 
     /**
      * Returns a content control that contains the current run.
@@ -44068,7 +44121,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRun/Methods/GetParentParagraph/
      */
-    GetParentParagraph(): ApiParagraph;
+    GetParentParagraph(): ApiParagraph | null;
 
     /**
      * Returns a table that contains the current run.
@@ -44180,7 +44233,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetPosition/
      */
-    GetPosition(): hps;
+    GetPosition(): hps | null;
 
     /**
      * Returns a Range object that represents the part of the document contained in the specified run.
@@ -44291,7 +44344,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetSmallCaps/
      */
-    GetSmallCaps(): boolean;
+    GetSmallCaps(): boolean | null;
 
     /**
      * Gets the text spacing from the current text properties measured in twentieths of a point.
@@ -44328,7 +44381,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetSpacing/
      */
-    GetSpacing(): twips;
+    GetSpacing(): twips | null;
 
     /**
      * Gets the strikeout property from the current text properties.
@@ -44365,7 +44418,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetStrikeout/
      */
-    GetStrikeout(): boolean;
+    GetStrikeout(): boolean | null;
 
     /**
      * Gets the style of the current text properties.
@@ -44402,7 +44455,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetStyle/
      */
-    GetStyle(): ApiStyle;
+    GetStyle(): ApiStyle | null;
 
     /**
      * Returns a text from the text run.
@@ -44536,7 +44589,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetUnderline/
      */
-    GetUnderline(): boolean;
+    GetUnderline(): boolean | null;
 
     /**
      * Gets the vertical alignment type from the current text properties.
@@ -44573,7 +44626,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetVertAlign/
      */
-    GetVertAlign(): string;
+    GetVertAlign(): string | null;
 
     /**
      * Moves a cursor to a specified position of the current text run.
@@ -45283,7 +45336,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRun/Methods/ToJSON/
      */
-    ToJSON(bWriteStyles: boolean): object;
+    ToJSON(bWriteStyles: boolean): string;
 
     /**
      * Wraps a run in a mail merge field.
@@ -45405,7 +45458,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiSchemeColor/Methods/ToJSON/
      */
-    ToJSON(): object;
+    ToJSON(): string;
   }
 
   /**
@@ -45556,7 +45609,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiSection/Methods/GetFooter/
      */
-    GetFooter(sType: HdrFtrType, isCreate?: boolean): ApiDocumentContent;
+    GetFooter(sType: HdrFtrType, isCreate?: boolean): ApiDocumentContent | null;
 
     /**
      * Returns the distance from the bottom edge of the page to the bottom edge of the footer.
@@ -45609,7 +45662,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiSection/Methods/GetHeader/
      */
-    GetHeader(sType: HdrFtrType, isCreate?: boolean): ApiDocumentContent;
+    GetHeader(sType: HdrFtrType, isCreate?: boolean): ApiDocumentContent | null;
 
     /**
      * Returns the distance from the top edge of the page to the top edge of the header.
@@ -46297,7 +46350,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiSection/Methods/ToJSON/
      */
-    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): object;
+    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): string;
   }
 
   /**
@@ -46498,7 +46551,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetContent/
      */
-    GetContent(): ApiDocumentContent;
+    GetContent(): ApiDocumentContent | null;
 
     /**
      * Gets the description of the current drawing.
@@ -46534,7 +46587,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiShape/Methods/GetDocContent/
      */
-    GetDocContent(): ApiDocumentContent;
+    GetDocContent(): ApiDocumentContent | null;
 
     /**
      * Gets the fill properties from the current shape.
@@ -48185,7 +48238,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/ToJSON/
      */
-    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): object;
+    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): string;
 
     /**
      * Removes the current graphic object from the selection.
@@ -48254,7 +48307,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiShd/Methods/GetColor/
      */
-    GetColor(): ApiColor;
+    GetColor(): ApiColor | null;
 
     /**
      * Returns the shading type.
@@ -48316,7 +48369,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/Copy/
      */
-    Copy(): ApiForm;
+    Copy(): ApiForm | null;
 
     /**
      * Removes a form and its content.
@@ -48361,7 +48414,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetBackgroundColor/
      */
-    GetBackgroundColor(): ApiColor;
+    GetBackgroundColor(): ApiColor | null;
 
     /**
      * Returns the border color of the current form.
@@ -48387,7 +48440,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Returns a type of the ApiSignatureForm class.
@@ -48520,7 +48573,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetParent/
      */
-    GetParent(): ParagraphLikeContainer;
+    GetParent(): ParagraphLikeContainer | null;
 
     /**
      * Returns the placeholder text from the current form.
@@ -48765,7 +48818,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetWrapperShape/
      */
-    GetWrapperShape(): ApiShape;
+    GetWrapperShape(): ApiShape | null;
 
     /**
      * Checks if the current form is filled.
@@ -49405,7 +49458,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetContent/
      */
-    GetContent(): ApiDocumentContent;
+    GetContent(): ApiDocumentContent | null;
 
     /**
      * Gets the description of the current drawing.
@@ -50771,7 +50824,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/ToJSON/
      */
-    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): object;
+    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): string;
 
     /**
      * Removes the current graphic object from the selection.
@@ -50831,7 +50884,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStroke/Methods/GetBeginArrow/
      */
-    GetBeginArrow(): object | null;
+    GetBeginArrow(): { Type: LineEndType; Width: LineEndSize; Length: LineEndSize } | null;
 
     /**
      * Returns the cap type of the stroke.
@@ -50902,7 +50955,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStroke/Methods/GetEndArrow/
      */
-    GetEndArrow(): object | null;
+    GetEndArrow(): { Type: LineEndType; Width: LineEndSize; Length: LineEndSize } | null;
 
     /**
      * Gets the fill (color) of the stroke.
@@ -51053,7 +51106,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStroke/Methods/ToJSON/
      */
-    ToJSON(): object;
+    ToJSON(): string;
   }
 
   /**
@@ -51207,7 +51260,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStyle/Methods/GetTableCellPr/
      */
-    GetTableCellPr(): ApiTableCellPr;
+    GetTableCellPr(): ApiTableCellPr | null;
 
     /**
      * Returns the table properties of the current style.
@@ -51241,7 +51294,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStyle/Methods/GetTablePr/
      */
-    GetTablePr(): ApiTablePr;
+    GetTablePr(): ApiTablePr | null;
 
     /**
      * Returns the table row properties of the current style.
@@ -51270,7 +51323,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStyle/Methods/GetTableRowPr/
      */
-    GetTableRowPr(): ApiTableRowPr;
+    GetTableRowPr(): ApiTableRowPr | null;
 
     /**
      * Returns the text properties of the current style.
@@ -51608,7 +51661,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStyle/Methods/ToJSON/
      */
-    ToJSON(bWriteNumberings: boolean): object;
+    ToJSON(bWriteNumberings: boolean): string;
   }
 
   /**
@@ -51760,7 +51813,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTable/Methods/AddComment/
      */
-    AddComment(sText: string, sAuthor?: string, sUserId?: string): ApiComment;
+    AddComment(sText: string, sAuthor?: string, sUserId?: string): ApiComment | null;
 
     /**
      * Adds a paragraph or a table or a blockLvl content control using its position in the cell.
@@ -52443,7 +52496,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTable/Methods/MergeCells/
      */
-    MergeCells(aCells: ApiTableCell[]): ApiTableCell;
+    MergeCells(aCells: ApiTableCell[]): ApiTableCell | null;
 
     /**
      * Removes a table column with a specified cell.
@@ -53617,7 +53670,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTable/Methods/ToJSON/
      */
-    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): object;
+    ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): string;
   }
 
   /**
@@ -53796,7 +53849,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/GetBackgroundColor/
      */
-    GetBackgroundColor(): ApiColor;
+    GetBackgroundColor(): ApiColor | null;
 
     /**
      * Returns a type of the ApiTableCell class.
@@ -54795,7 +54848,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/ToJSON/
      */
-    ToJSON(): object;
+    ToJSON(): string;
   }
 
   /**
@@ -55292,7 +55345,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCellPr/Methods/ToJSON/
      */
-    ToJSON(): object;
+    ToJSON(): string;
   }
 
   /**
@@ -56318,7 +56371,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablePr/Methods/ToJSON/
      */
-    ToJSON(): object;
+    ToJSON(): string;
   }
 
   /**
@@ -56851,7 +56904,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRowPr/Methods/ToJSON/
      */
-    ToJSON(): object;
+    ToJSON(): string;
   }
 
   /**
@@ -56977,7 +57030,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRowPr/Methods/ToJSON/
      */
-    ToJSON(): object;
+    ToJSON(): string;
   }
 
   /**
@@ -57400,7 +57453,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableStylePr/Methods/ToJSON/
      */
-    ToJSON(): object;
+    ToJSON(): string;
   }
 
   /**
@@ -57577,7 +57630,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/Copy/
      */
-    Copy(): ApiForm;
+    Copy(): ApiForm | null;
 
     /**
      * Removes a form and its content.
@@ -57644,7 +57697,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetBackgroundColor/
      */
-    GetBackgroundColor(): ApiColor;
+    GetBackgroundColor(): ApiColor | null;
 
     /**
      * Returns the border color of the current form.
@@ -57670,7 +57723,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetBorderColor/
      */
-    GetBorderColor(): ApiColor;
+    GetBorderColor(): ApiColor | null;
 
     /**
      * Returns a limit of the text field characters.
@@ -57852,7 +57905,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetParent/
      */
-    GetParent(): ParagraphLikeContainer;
+    GetParent(): ParagraphLikeContainer | null;
 
     /**
      * Returns the placeholder text from the current form.
@@ -58097,7 +58150,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetWrapperShape/
      */
-    GetWrapperShape(): ApiShape;
+    GetWrapperShape(): ApiShape | null;
 
     /**
      * Checks if the text field content is autofit, i.e. whether the font size adjusts to the size of the
@@ -58898,7 +58951,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetBold/
      */
-    GetBold(): boolean;
+    GetBold(): boolean | null;
 
     /**
      * Returns whether the text with the current text properties are capitalized.
@@ -58935,7 +58988,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetCaps/
      */
-    GetCaps(): boolean;
+    GetCaps(): boolean | null;
 
     /**
      * Returns a type of the ApiTextPr class.
@@ -59001,7 +59054,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetColor/
      */
-    GetColor(): ApiColor;
+    GetColor(): ApiColor | null;
 
     /**
      * Gets the double strikeout property from the current text properties.
@@ -59038,7 +59091,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetDoubleStrikeout/
      */
-    GetDoubleStrikeout(): boolean;
+    GetDoubleStrikeout(): boolean | null;
 
     /**
      * Returns the font family from the current text properties.
@@ -59077,7 +59130,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetFontFamily/
      */
-    GetFontFamily(): string;
+    GetFontFamily(): string | null;
 
     /**
      * Gets the font size from the current text properties.
@@ -59114,7 +59167,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetFontSize/
      */
-    GetFontSize(): hps;
+    GetFontSize(): hps | null;
 
     /**
      * Gets the highlight property from the current text properties.
@@ -59151,7 +59204,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetHighlight/
      */
-    GetHighlight(): string;
+    GetHighlight(): string | null;
 
     /**
      * Gets the italic property from the current text properties.
@@ -59188,7 +59241,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetItalic/
      */
-    GetItalic(): boolean;
+    GetItalic(): boolean | null;
 
     /**
      * Gets the language from the current text properties.
@@ -59225,7 +59278,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetLanguage/
      */
-    GetLanguage(): string;
+    GetLanguage(): string | null;
 
     /**
      * Gets the text outline from the current text properties.
@@ -59298,7 +59351,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetPosition/
      */
-    GetPosition(): hps;
+    GetPosition(): hps | null;
 
     /**
      * Gets the text shading from the current text properties.
@@ -59382,7 +59435,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetSmallCaps/
      */
-    GetSmallCaps(): boolean;
+    GetSmallCaps(): boolean | null;
 
     /**
      * Gets the text spacing from the current text properties measured in twentieths of a point.
@@ -59419,7 +59472,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetSpacing/
      */
-    GetSpacing(): twips;
+    GetSpacing(): twips | null;
 
     /**
      * Gets the strikeout property from the current text properties.
@@ -59456,7 +59509,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetStrikeout/
      */
-    GetStrikeout(): boolean;
+    GetStrikeout(): boolean | null;
 
     /**
      * Gets the style of the current text properties.
@@ -59493,7 +59546,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetStyle/
      */
-    GetStyle(): ApiStyle;
+    GetStyle(): ApiStyle | null;
 
     /**
      * Gets the text fill from the current text properties.
@@ -59566,7 +59619,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetUnderline/
      */
-    GetUnderline(): boolean;
+    GetUnderline(): boolean | null;
 
     /**
      * Gets the vertical alignment type from the current text properties.
@@ -59603,7 +59656,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetVertAlign/
      */
-    GetVertAlign(): string;
+    GetVertAlign(): string | null;
 
     /**
      * Sets the bold property to the text character.
@@ -60168,7 +60221,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/ToJSON/
      */
-    ToJSON(bWriteStyles: boolean): object;
+    ToJSON(bWriteStyles: boolean): string;
   }
 
   /** Class representing a text range within a presentation shape's text frame. */
@@ -60272,7 +60325,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiUniColor/Methods/ToJSON/
      */
-    ToJSON(): object;
+    ToJSON(): string;
   }
 
   /**
@@ -60359,7 +60412,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiWatermarkSettings/Methods/GetDirection/
      */
-    GetDirection(): WatermarkDirection;
+    GetDirection(): WatermarkDirection | null;
 
     /**
      * Returns the height of the watermark image in the document.
@@ -65035,11 +65088,6 @@ interface PluginInfo {
      * - `0x02` - only comments and range-permission regions may be edited;
      * - `0x04` - the document is signed and cannot be changed;
      * - `0x80` - editing is not allowed at all.
-     *
-     * Refreshed on every message the editor sends, so reading it is equivalent to calling
-     * `executeMethod("GetRestrictions")` and cheaper. `onChangeRestrictions` carries the same value
-     * when it changes.
-     *
      * Not the same question as {@link PluginInfo.isViewMode}: a document can be restricted to forms
      * or comments while still being editable, and a PDF reports view mode regardless.
      */

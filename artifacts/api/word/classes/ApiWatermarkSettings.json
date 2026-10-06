@@ -17,9 +17,9 @@
       "params": [],
       "returns": {
         "description": "The watermark direction.",
-        "type": "WatermarkDirection"
+        "type": "WatermarkDirection | null"
       },
-      "signature": "GetDirection(): WatermarkDirection"
+      "signature": "GetDirection(): WatermarkDirection | null"
     },
     "GetImageHeight": {
       "description": "Returns the height of the watermark image in the document.",

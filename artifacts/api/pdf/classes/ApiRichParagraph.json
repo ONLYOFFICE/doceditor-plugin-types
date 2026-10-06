@@ -70,9 +70,9 @@
         }
       ],
       "returns": {
-        "type": "ApiRichRun"
+        "type": "ApiRichRun | null"
       },
-      "signature": "GetElement(pos: number): ApiRichRun"
+      "signature": "GetElement(pos: number): ApiRichRun | null"
     },
     "GetNext": {
       "description": "Returns the next paragraph.",
@@ -80,9 +80,9 @@
       "params": [],
       "returns": {
         "description": "returns null if paragraph is last.",
-        "type": "ApiRichParagraph"
+        "type": "ApiRichParagraph | null"
       },
-      "signature": "GetNext(): ApiRichParagraph"
+      "signature": "GetNext(): ApiRichParagraph | null"
     },
     "GetParaPr": {
       "description": "Returns the paragraph properties.",
@@ -99,9 +99,9 @@
       "params": [],
       "returns": {
         "description": "returns null if paragraph is first.",
-        "type": "ApiRichParagraph"
+        "type": "ApiRichParagraph | null"
       },
-      "signature": "GetPrevious(): ApiRichParagraph"
+      "signature": "GetPrevious(): ApiRichParagraph | null"
     },
     "Last": {
       "description": "Returns the last element of the paragraph.",

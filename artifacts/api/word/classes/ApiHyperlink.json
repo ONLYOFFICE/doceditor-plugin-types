@@ -31,9 +31,9 @@
         }
       ],
       "returns": {
-        "type": "ParagraphContent"
+        "type": "ParagraphContent | null"
       },
-      "signature": "GetElement(nPos: number): ParagraphContent"
+      "signature": "GetElement(nPos: number): ParagraphContent | null"
     },
     "GetElementsCount": {
       "description": "Returns a number of elements in the current hyperlink.",
@@ -59,9 +59,9 @@
       "params": [],
       "returns": {
         "description": "returns null if the hyperlink has no parent.",
-        "type": "ParagraphLikeContainer"
+        "type": "ParagraphLikeContainer | null"
       },
-      "signature": "GetParent(): ParagraphLikeContainer",
+      "signature": "GetParent(): ParagraphLikeContainer | null",
       "since": "10.0.0"
     },
     "GetPosInParent": {
@@ -169,9 +169,9 @@
         }
       ],
       "returns": {
-        "type": "object"
+        "type": "string"
       },
-      "signature": "ToJSON(bWriteStyles: boolean): object"
+      "signature": "ToJSON(bWriteStyles: boolean): string"
     }
   }
 }

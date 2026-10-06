@@ -34,7 +34,7 @@
     }
   ],
   "returns": {
-    "type": "object"
+    "type": "string"
   },
-  "signature": "ToJSON(bWriteDefaultTextPr: boolean, bWriteDefaultParaPr: boolean, bWriteTheme: boolean, bWriteSectionPr: boolean, bWriteNumberings: boolean, bWriteStyles: boolean): object"
+  "signature": "ToJSON(bWriteDefaultTextPr: boolean, bWriteDefaultParaPr: boolean, bWriteTheme: boolean, bWriteSectionPr: boolean, bWriteNumberings: boolean, bWriteStyles: boolean): string"
 }

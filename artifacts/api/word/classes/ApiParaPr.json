@@ -211,9 +211,9 @@
       "params": [],
       "returns": {
         "description": "The style of the paragraph.",
-        "type": "ApiStyle"
+        "type": "ApiStyle | null"
       },
-      "signature": "GetStyle(): ApiStyle"
+      "signature": "GetStyle(): ApiStyle | null"
     },
     "GetTabs": {
       "description": "Returns the custom tab stops of the current paragraph.",
@@ -700,9 +700,9 @@
         }
       ],
       "returns": {
-        "type": "object"
+        "type": "string"
       },
-      "signature": "ToJSON(bWriteStyles: boolean): object"
+      "signature": "ToJSON(bWriteStyles: boolean): string"
     }
   }
 }

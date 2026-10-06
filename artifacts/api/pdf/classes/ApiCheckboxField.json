@@ -53,9 +53,9 @@
         }
       ],
       "returns": {
-        "type": "ApiWidget"
+        "type": "ApiWidget | null"
       },
-      "signature": "AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget"
+      "signature": "AddWidget(pageIndex: number, rect: Rect, isCopy?: boolean): ApiWidget | null"
     },
     "Delete": {
       "description": "Removes field from document.",

@@ -85,9 +85,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetContent/",
       "params": [],
       "returns": {
-        "type": "ApiDocumentContent"
+        "type": "ApiDocumentContent | null"
       },
-      "signature": "GetContent(): ApiDocumentContent"
+      "signature": "GetContent(): ApiDocumentContent | null"
     },
     "GetDescription": {
       "description": "Gets the description of the current drawing.",
@@ -875,9 +875,9 @@
         }
       ],
       "returns": {
-        "type": "object"
+        "type": "string"
       },
-      "signature": "ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): object"
+      "signature": "ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): string"
     },
     "Unselect": {
       "description": "Removes the current graphic object from the selection.",

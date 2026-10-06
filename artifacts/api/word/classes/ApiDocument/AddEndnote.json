@@ -3,7 +3,7 @@
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/AddEndnote/",
   "params": [],
   "returns": {
-    "type": "ApiDocumentContent"
+    "type": "ApiDocumentContent | null"
   },
-  "signature": "AddEndnote(): ApiDocumentContent"
+  "signature": "AddEndnote(): ApiDocumentContent | null"
 }

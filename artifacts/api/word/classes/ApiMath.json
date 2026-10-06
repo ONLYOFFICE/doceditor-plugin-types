@@ -17,9 +17,9 @@
       "params": [],
       "returns": {
         "description": "returns null if the math element has no parent.",
-        "type": "ParagraphLikeContainer"
+        "type": "ParagraphLikeContainer | null"
       },
-      "signature": "GetParent(): ParagraphLikeContainer",
+      "signature": "GetParent(): ParagraphLikeContainer | null",
       "since": "10.0.0"
     },
     "GetPosInParent": {

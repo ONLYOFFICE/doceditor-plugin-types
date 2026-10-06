@@ -3,8 +3,8 @@
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetDocumentInfo/",
   "params": [],
   "returns": {
-    "type": "object"
+    "type": "DocumentInfo"
   },
-  "signature": "GetDocumentInfo(): object",
+  "signature": "GetDocumentInfo(): DocumentInfo",
   "since": "8.1.0"
 }

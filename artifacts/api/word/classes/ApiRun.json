@@ -38,9 +38,9 @@
       ],
       "returns": {
         "description": "Returns null if the comment was not added.",
-        "type": "ApiComment"
+        "type": "ApiComment | null"
       },
-      "signature": "AddComment(sText: string, sAuthor?: string, sUserId?: string): ApiComment"
+      "signature": "AddComment(sText: string, sAuthor?: string, sUserId?: string): ApiComment | null"
     },
     "AddDrawing": {
       "description": "Adds a drawing object (image, shape or chart) to the current text run.",
@@ -80,9 +80,9 @@
       ],
       "returns": {
         "description": "returns false if params are invalid.",
-        "type": "ApiHyperlink"
+        "type": "ApiHyperlink | null"
       },
-      "signature": "AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink"
+      "signature": "AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink | null"
     },
     "AddLineBreak": {
       "description": "Adds a line break to the current run position and starts the next element from a new line.",
@@ -164,9 +164,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetBold/",
       "params": [],
       "returns": {
-        "type": "boolean"
+        "type": "boolean | null"
       },
-      "signature": "GetBold(): boolean",
+      "signature": "GetBold(): boolean | null",
       "since": "8.1.0"
     },
     "GetCaps": {
@@ -174,9 +174,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetCaps/",
       "params": [],
       "returns": {
-        "type": "boolean"
+        "type": "boolean | null"
       },
-      "signature": "GetCaps(): boolean",
+      "signature": "GetCaps(): boolean | null",
       "since": "8.1.0"
     },
     "GetClassType": {
@@ -193,9 +193,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetColor/",
       "params": [],
       "returns": {
-        "type": "ApiColor"
+        "type": "ApiColor | null"
       },
-      "signature": "GetColor(): ApiColor",
+      "signature": "GetColor(): ApiColor | null",
       "since": "8.1.0"
     },
     "GetDoubleStrikeout": {
@@ -203,9 +203,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetDoubleStrikeout/",
       "params": [],
       "returns": {
-        "type": "boolean"
+        "type": "boolean | null"
       },
-      "signature": "GetDoubleStrikeout(): boolean",
+      "signature": "GetDoubleStrikeout(): boolean | null",
       "since": "8.1.0"
     },
     "GetFontFamily": {
@@ -213,9 +213,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetFontFamily/",
       "params": [],
       "returns": {
-        "type": "string"
+        "type": "string | null"
       },
-      "signature": "GetFontFamily(): string",
+      "signature": "GetFontFamily(): string | null",
       "since": "8.1.0"
     },
     "GetFontNames": {
@@ -233,9 +233,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetFontSize/",
       "params": [],
       "returns": {
-        "type": "hps"
+        "type": "hps | null"
       },
-      "signature": "GetFontSize(): hps",
+      "signature": "GetFontSize(): hps | null",
       "since": "8.1.0"
     },
     "GetHighlight": {
@@ -243,9 +243,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetHighlight/",
       "params": [],
       "returns": {
-        "type": "string"
+        "type": "string | null"
       },
-      "signature": "GetHighlight(): string",
+      "signature": "GetHighlight(): string | null",
       "since": "8.1.0"
     },
     "GetItalic": {
@@ -253,9 +253,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetItalic/",
       "params": [],
       "returns": {
-        "type": "boolean"
+        "type": "boolean | null"
       },
-      "signature": "GetItalic(): boolean",
+      "signature": "GetItalic(): boolean | null",
       "since": "8.1.0"
     },
     "GetLanguage": {
@@ -263,9 +263,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetLanguage/",
       "params": [],
       "returns": {
-        "type": "string"
+        "type": "string | null"
       },
-      "signature": "GetLanguage(): string",
+      "signature": "GetLanguage(): string | null",
       "since": "8.1.0"
     },
     "GetOutLine": {
@@ -284,9 +284,9 @@
       "params": [],
       "returns": {
         "description": "returns null if the run has no parent.",
-        "type": "ParagraphLikeContainer"
+        "type": "ParagraphLikeContainer | null"
       },
-      "signature": "GetParent(): ParagraphLikeContainer",
+      "signature": "GetParent(): ParagraphLikeContainer | null",
       "since": "10.0.0"
     },
     "GetParentContentControl": {
@@ -304,9 +304,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRun/Methods/GetParentParagraph/",
       "params": [],
       "returns": {
-        "type": "ApiParagraph"
+        "type": "ApiParagraph | null"
       },
-      "signature": "GetParentParagraph(): ApiParagraph"
+      "signature": "GetParentParagraph(): ApiParagraph | null"
     },
     "GetParentTable": {
       "description": "Returns a table that contains the current run.",
@@ -344,9 +344,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetPosition/",
       "params": [],
       "returns": {
-        "type": "hps"
+        "type": "hps | null"
       },
-      "signature": "GetPosition(): hps",
+      "signature": "GetPosition(): hps | null",
       "since": "8.1.0"
     },
     "GetRange": {
@@ -384,9 +384,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetSmallCaps/",
       "params": [],
       "returns": {
-        "type": "boolean"
+        "type": "boolean | null"
       },
-      "signature": "GetSmallCaps(): boolean",
+      "signature": "GetSmallCaps(): boolean | null",
       "since": "8.1.0"
     },
     "GetSpacing": {
@@ -394,9 +394,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetSpacing/",
       "params": [],
       "returns": {
-        "type": "twips"
+        "type": "twips | null"
       },
-      "signature": "GetSpacing(): twips",
+      "signature": "GetSpacing(): twips | null",
       "since": "8.1.0"
     },
     "GetStrikeout": {
@@ -404,9 +404,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetStrikeout/",
       "params": [],
       "returns": {
-        "type": "boolean"
+        "type": "boolean | null"
       },
-      "signature": "GetStrikeout(): boolean",
+      "signature": "GetStrikeout(): boolean | null",
       "since": "8.1.0"
     },
     "GetStyle": {
@@ -415,9 +415,9 @@
       "params": [],
       "returns": {
         "description": "The used style.",
-        "type": "ApiStyle"
+        "type": "ApiStyle | null"
       },
-      "signature": "GetStyle(): ApiStyle",
+      "signature": "GetStyle(): ApiStyle | null",
       "since": "8.1.0"
     },
     "GetText": {
@@ -472,9 +472,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetUnderline/",
       "params": [],
       "returns": {
-        "type": "boolean"
+        "type": "boolean | null"
       },
-      "signature": "GetUnderline(): boolean",
+      "signature": "GetUnderline(): boolean | null",
       "since": "8.1.0"
     },
     "GetVertAlign": {
@@ -482,9 +482,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetVertAlign/",
       "params": [],
       "returns": {
-        "type": "string"
+        "type": "string | null"
       },
-      "signature": "GetVertAlign(): string",
+      "signature": "GetVertAlign(): string | null",
       "since": "8.1.0"
     },
     "MoveCursorToPos": {
@@ -871,9 +871,9 @@
         }
       ],
       "returns": {
-        "type": "object"
+        "type": "string"
       },
-      "signature": "ToJSON(bWriteStyles: boolean): object"
+      "signature": "ToJSON(bWriteStyles: boolean): string"
     },
     "WrapInMailMergeField": {
       "description": "Wraps a run in a mail merge field.",

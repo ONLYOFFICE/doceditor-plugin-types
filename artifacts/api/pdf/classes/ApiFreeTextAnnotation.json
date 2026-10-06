@@ -43,9 +43,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetBorderColor/",
       "params": [],
       "returns": {
-        "type": "ApiColor"
+        "type": "ApiColor | null"
       },
-      "signature": "GetBorderColor(): ApiColor"
+      "signature": "GetBorderColor(): ApiColor | null"
     },
     "GetBorderEffectIntensity": {
       "description": "Gets annotation border effect intensity.",
@@ -88,9 +88,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiFreeTextAnnotation/Methods/GetCallout/",
       "params": [],
       "returns": {
-        "type": "FreeTextCallout"
+        "type": "FreeTextCallout | null"
       },
-      "signature": "GetCallout(): FreeTextCallout"
+      "signature": "GetCallout(): FreeTextCallout | null"
     },
     "GetClassType": {
       "description": "Returns a type of the ApiFreeTextAnnotation class.",
@@ -115,9 +115,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetContents/",
       "params": [],
       "returns": {
-        "type": "string"
+        "type": "string | null"
       },
-      "signature": "GetContents(): string"
+      "signature": "GetContents(): string | null"
     },
     "GetCreationDate": {
       "description": "Gets annotation creation date.",
@@ -160,9 +160,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetFillColor/",
       "params": [],
       "returns": {
-        "type": "ApiColor"
+        "type": "ApiColor | null"
       },
-      "signature": "GetFillColor(): ApiColor"
+      "signature": "GetFillColor(): ApiColor | null"
     },
     "GetIntent": {
       "description": "Gets intent type of this annotation.",
@@ -243,9 +243,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetSubject/",
       "params": [],
       "returns": {
-        "type": "string"
+        "type": "string | null"
       },
-      "signature": "GetSubject(): string"
+      "signature": "GetSubject(): string | null"
     },
     "GetUniqueName": {
       "description": "Gets annotation unique name.",

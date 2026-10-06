@@ -10,9 +10,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiLinkAnnotation/Methods/GetAction/",
       "params": [],
       "returns": {
-        "type": "ApiBaseAction"
+        "type": "ApiBaseAction | null"
       },
-      "signature": "GetAction(): ApiBaseAction",
+      "signature": "GetAction(): ApiBaseAction | null",
       "since": "10.0.0"
     },
     "GetClassType": {

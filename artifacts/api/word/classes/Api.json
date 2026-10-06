@@ -32,9 +32,9 @@
       ],
       "returns": {
         "description": "Returns null if the comment was not added.",
-        "type": "ApiComment"
+        "type": "ApiComment | null"
       },
-      "signature": "AddComment(element: ApiRun[] | DocumentElement, text?: string, author?: string, userId?: string): ApiComment"
+      "signature": "AddComment(element: ApiRun[] | DocumentElement, text?: string, author?: string, userId?: string): ApiComment | null"
     },
     "AutoColor": {
       "description": "Creates an auto-color.",
@@ -534,9 +534,9 @@
         }
       ],
       "returns": {
-        "type": "ApiOleObject"
+        "type": "ApiOleObject | null"
       },
-      "signature": "CreateOleObject(imageSrc: string, width?: EMU, height?: EMU, data?: string, appId?: string): ApiOleObject"
+      "signature": "CreateOleObject(imageSrc: string, width?: EMU, height?: EMU, data?: string, appId?: string): ApiOleObject | null"
     },
     "CreateParaPr": {
       "description": "Creates the empty paragraph properties.",
@@ -634,9 +634,9 @@
         }
       ],
       "returns": {
-        "type": "ApiGeometry"
+        "type": "ApiGeometry | null"
       },
-      "signature": "CreatePresetGeometry(preset?: ShapeType): ApiGeometry",
+      "signature": "CreatePresetGeometry(preset?: ShapeType): ApiGeometry | null",
       "since": "9.1.0"
     },
     "CreateRGBColor": {
@@ -781,9 +781,9 @@
         }
       ],
       "returns": {
-        "type": "ApiShape"
+        "type": "ApiShape | null"
       },
-      "signature": "CreateShape(shapeType?: ShapeType, width?: EMU, height?: EMU, fill?: ApiFill, stroke?: ApiStroke): ApiShape"
+      "signature": "CreateShape(shapeType?: ShapeType, width?: EMU, height?: EMU, fill?: ApiFill, stroke?: ApiStroke): ApiShape | null"
     },
     "CreateShd": {
       "description": "Creates the shading which can be applied to text, a paragraph, a table or a table cell.",
@@ -1016,14 +1016,14 @@
         {
           "description": "The JSON object to convert.",
           "name": "message",
-          "type": "object"
+          "type": "string"
         }
       ],
       "returns": {
         "description": "readed api class element",
-        "type": "object"
+        "type": "ApiUnsupported | ApiDocumentContent | ApiParagraph | ApiTable | ApiDrawing | ApiBlockLvlSdt | ApiInlineLvlSdt"
       },
-      "signature": "FromJSON(message: object): object"
+      "signature": "FromJSON(message: string): ApiUnsupported | ApiDocumentContent | ApiParagraph | ApiTable | ApiDrawing | ApiBlockLvlSdt | ApiInlineLvlSdt"
     },
     "GetByInternalId": {
       "description": "Returns the object by it's internal ID.",
@@ -1036,9 +1036,9 @@
         }
       ],
       "returns": {
-        "type": "object"
+        "type": "ApiDocument | ApiDocumentContent | ApiBlockLvlSdt | ApiInlineLvlSdt | ApiParagraph | ApiTable | ApiTableRow | ApiTableCell | ApiDrawing | ApiFormBase | null"
       },
-      "signature": "GetByInternalId(id: string): object",
+      "signature": "GetByInternalId(id: string): ApiDocument | ApiDocumentContent | ApiBlockLvlSdt | ApiInlineLvlSdt | ApiParagraph | ApiTable | ApiTableRow | ApiTableCell | ApiDrawing | ApiFormBase | null",
       "since": "9.0.4"
     },
     "GetDocument": {

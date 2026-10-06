@@ -161,9 +161,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiGeometry/Methods/GetPreset/",
       "params": [],
       "returns": {
-        "type": "ShapeType"
+        "type": "ShapeType | null"
       },
-      "signature": "GetPreset(): ShapeType",
+      "signature": "GetPreset(): ShapeType | null",
       "since": "9.1.0"
     },
     "IsCustom": {

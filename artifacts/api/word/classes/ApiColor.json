@@ -45,9 +45,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiColor/Methods/GetRGB/",
       "params": [],
       "returns": {
-        "type": "object"
+        "type": "{ r: number; g: number; b: number }"
       },
-      "signature": "GetRGB(): object",
+      "signature": "GetRGB(): { r: number; g: number; b: number }",
       "since": "9.1.0"
     },
     "GetRGBA": {
@@ -55,9 +55,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiColor/Methods/GetRGBA/",
       "params": [],
       "returns": {
-        "type": "object"
+        "type": "{ r: number; g: number; b: number; a: number }"
       },
-      "signature": "GetRGBA(): object",
+      "signature": "GetRGBA(): { r: number; g: number; b: number; a: number }",
       "since": "9.1.0"
     },
     "GetThemeName": {

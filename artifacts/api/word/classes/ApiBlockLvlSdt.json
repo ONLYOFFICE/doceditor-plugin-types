@@ -77,9 +77,9 @@
       ],
       "returns": {
         "description": "Returns null if the comment was not added.",
-        "type": "ApiComment"
+        "type": "ApiComment | null"
       },
-      "signature": "AddComment(text: string, author?: string, userId?: string): ApiComment"
+      "signature": "AddComment(text: string, author?: string, userId?: string): ApiComment | null"
     },
     "AddElement": {
       "description": "Adds a paragraph or a table or a block content control to the current container.",
@@ -211,9 +211,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiBlockLvlSdt/Methods/GetBackgroundColor/",
       "params": [],
       "returns": {
-        "type": "ApiColor"
+        "type": "ApiColor | null"
       },
-      "signature": "GetBackgroundColor(): ApiColor",
+      "signature": "GetBackgroundColor(): ApiColor | null",
       "since": "8.3.2"
     },
     "GetBorderColor": {
@@ -221,9 +221,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiBlockLvlSdt/Methods/GetBorderColor/",
       "params": [],
       "returns": {
-        "type": "ApiColor"
+        "type": "ApiColor | null"
       },
-      "signature": "GetBorderColor(): ApiColor",
+      "signature": "GetBorderColor(): ApiColor | null",
       "since": "8.3.2"
     },
     "GetClassType": {
@@ -249,9 +249,9 @@
       "params": [],
       "returns": {
         "description": "Returns the data binding of the content control if it exists, otherwise `null`.",
-        "type": "XmlMapping"
+        "type": "XmlMapping | null"
       },
-      "signature": "GetDataBinding(): XmlMapping",
+      "signature": "GetDataBinding(): XmlMapping | null",
       "since": "9.0.0"
     },
     "GetDataForXmlMapping": {
@@ -704,9 +704,9 @@
         }
       ],
       "returns": {
-        "type": "object"
+        "type": "string"
       },
-      "signature": "ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): object"
+      "signature": "ToJSON(bWriteNumberings: boolean, bWriteStyles: boolean): string"
     },
     "UpdateFromXmlMapping": {
       "description": "Updates the content control using the value from the XML mapping.",

@@ -4,8 +4,8 @@
   "params": [],
   "returns": {
     "description": "The drop cap, or null if the paragraph has no drop cap.",
-    "type": "ApiDropCap"
+    "type": "ApiDropCap | null"
   },
-  "signature": "GetDropCap(): ApiDropCap",
+  "signature": "GetDropCap(): ApiDropCap | null",
   "since": "10.0.0"
 }

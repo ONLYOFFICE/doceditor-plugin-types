@@ -1068,7 +1068,7 @@
           "signature": "recalculate?: boolean;"
         },
         "restrictions": {
-          "description": "What the editor currently forbids, as a bit mask (sdkjs calls the type `EditorRestrictions`):\n\n- `0x00` - nothing restricted;\n- `0x01` - only form fields may be edited;\n- `0x02` - only comments and range-permission regions may be edited;\n- `0x04` - the document is signed and cannot be changed;\n- `0x80` - editing is not allowed at all.\n\nRefreshed on every message the editor sends, so reading it is equivalent to calling\n`executeMethod(\"GetRestrictions\")` and cheaper. `onChangeRestrictions` carries the same value\nwhen it changes.\n\nNot the same question as {@link PluginInfo.isViewMode}: a document can be restricted to forms\nor comments while still being editable, and a PDF reports view mode regardless.",
+          "description": "What the editor currently forbids, as a bit mask (sdkjs calls the type `EditorRestrictions`):\n\n- `0x00` - nothing restricted;\n- `0x01` - only form fields may be edited;\n- `0x02` - only comments and range-permission regions may be edited;\n- `0x04` - the document is signed and cannot be changed;\n- `0x80` - editing is not allowed at all.\nNot the same question as {@link PluginInfo.isViewMode}: a document can be restricted to forms\nor comments while still being editable, and a PDF reports view mode regardless.",
           "signature": "restrictions: number;"
         },
         "theme": {

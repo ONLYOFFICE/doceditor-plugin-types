@@ -356,9 +356,9 @@
       ],
       "returns": {
         "description": "returns null if numType is not one of the BulletType values.",
-        "type": "ApiBullet"
+        "type": "ApiBullet | null"
       },
-      "signature": "CreateNumbering(numType: BulletType, startAt: number): ApiBullet"
+      "signature": "CreateNumbering(numType: BulletType, startAt: number): ApiBullet | null"
     },
     "CreateParagraph": {
       "description": "Creates a new paragraph.",
@@ -423,9 +423,9 @@
         }
       ],
       "returns": {
-        "type": "ApiGeometry"
+        "type": "ApiGeometry | null"
       },
-      "signature": "CreatePresetGeometry(preset?: ShapeType): ApiGeometry",
+      "signature": "CreatePresetGeometry(preset?: ShapeType): ApiGeometry | null",
       "since": "9.1.0"
     },
     "CreateRGBColor": {
@@ -697,9 +697,9 @@
         }
       ],
       "returns": {
-        "type": "ApiComment"
+        "type": "ApiComment | null"
       },
-      "signature": "GetCommentById(sId: string): ApiComment"
+      "signature": "GetCommentById(sId: string): ApiComment | null"
     },
     "GetComments": {
       "description": "Returns all comments related to the whole workbook.",
@@ -761,9 +761,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetDocumentInfo/",
       "params": [],
       "returns": {
-        "type": "object"
+        "type": "DocumentInfo"
       },
-      "signature": "GetDocumentInfo(): object"
+      "signature": "GetDocumentInfo(): DocumentInfo"
     },
     "GetFreezePanesType": {
       "description": "Returns the freeze panes type.",

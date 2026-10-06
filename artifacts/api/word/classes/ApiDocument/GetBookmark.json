@@ -9,8 +9,8 @@
     }
   ],
   "returns": {
-    "type": "ApiBookmark"
+    "type": "ApiBookmark | null"
   },
-  "signature": "GetBookmark(sBookmarkName: string): ApiBookmark",
+  "signature": "GetBookmark(sBookmarkName: string): ApiBookmark | null",
   "since": "8.3.0"
 }
