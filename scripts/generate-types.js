@@ -244,6 +244,8 @@ function fetchApiDefinitions(paths) {
 
 
 
+const LF = String.fromCharCode(10);
+
 function splitTopLevel(str, sep) {
   const parts = [];
   let depth = 0;
@@ -684,9 +686,75 @@ function generateEventArgsType(events) {
   return output;
 }
 
-// A type-only signature (param types/optionality + return type, no param names) so two
-// documentations of "the same" method that merely spell a parameter differently
-// (`nIndex` vs `index`) don't get flagged as a conflict - only an actual type difference does.
+// Maps each `GetClassType()` string literal to the class that returns it.
+//
+// `Api.GetByInternalId` and friends return a union of ten classes, and the obvious way to pick one
+// apart - `if (o.GetClassType() === "paragraph")` - does not narrow it: TypeScript discriminates a
+// union on a *property* with a literal type, and the result of a method call is not one, however
+// literal its type. There is no declaration that changes that, so the narrowing has to come from a
+// user-defined type predicate, and this map is what spares the author from hand-writing the
+// literal-to-class table that predicate needs:
+//
+//   function isClass<K extends keyof Word.ClassTypeMap>(
+//     o: { GetClassType(): string }, k: K,
+//   ): o is Word.ClassTypeMap[K] {
+//     return o.GetClassType() === k;
+//   }
+//
+// Not a bijection, and the map says so rather than picking a winner: three literals in word (and
+// one or two in each other editor) are returned by two classes - `ApiTextPr` and `ApiRangeTextPr`
+// both answer "textPr" - so those keys carry the union. Knowing the literal genuinely does not
+// tell you which of the two you hold.
+function generateClassTypeMap(classes, classNames) {
+  const byLiteral = new Map();
+  for (const className of classNames) {
+    const method = classes[className].methods && classes[className].methods.GetClassType;
+    const literal = method && /^"([^"]+)"$/.exec(method.returnType);
+    if (!literal) continue;
+    if (!byLiteral.has(literal[1])) byLiteral.set(literal[1], []);
+    byLiteral.get(literal[1]).push(className);
+  }
+  if (byLiteral.size === 0) return '';
+
+  const doc = [
+    '/**',
+    ' * Maps every `GetClassType()` return value to the class that returns it.',
+    ' *',
+    ' * Intended for writing a type predicate that narrows the unions returned by members such',
+    ' * as `Api.GetByInternalId`, which `GetClassType()` alone cannot narrow - a method call is',
+    ' * not a discriminant, only a property is.',
+    ' *',
+    ' * ```ts',
+    ' * function isClass<K extends keyof ClassTypeMap>(',
+    ' *   o: { GetClassType(): string }, k: K,',
+    ' * ): o is ClassTypeMap[K] {',
+    ' *   return o.GetClassType() === k;',
+    ' * }',
+    ' *',
+    ' * const o = Api.GetByInternalId(id);',
+    ' * if (o && isClass(o, "paragraph")) o.Select();',
+    ' * ```',
+    ' *',
+    ' * A few literals are returned by more than one class and map to the union of them.',
+    ' */',
+  ];
+
+  const entries = [...byLiteral.keys()].sort().map((literal) => {
+    const names = byLiteral.get(literal).slice().sort();
+    return '  ' + JSON.stringify(literal) + ': ' + names.join(' | ') + ';';
+  });
+
+  return [
+    ...doc,
+    'export interface ClassTypeMap {',
+    ...entries,
+    '}',
+    '',
+    'export type ClassTypeName = keyof ClassTypeMap;',
+    '',
+  ].join(LF);
+}
+
 function methodTypeSignature(method) {
   const params = method.params.map((p) => `${p.optional ? '?' : ''}${p.type}`).join(', ');
   return `(${params}) => ${method.returnType}`;
@@ -1082,6 +1150,12 @@ function generateDtsFile(data, typeName, namespaceName, docsRoot, extRoot) {
   for (const className of classNames) {
     body += generateInterface(className, classes[className], classes);
     body += '\n';
+  }
+
+  const classTypeMap = generateClassTypeMap(classes, classNames);
+  if (classTypeMap) {
+    body += classTypeMap;
+    body += LF;
   }
 
   // executeMethod-style event args map, parsed from plugin-events.js (+ MANUAL_EVENTS above for

@@ -38277,6 +38277,102 @@ declare namespace Pdf {
     ToBase64(): Base64;
   }
 
+  /**
+   * Maps every `GetClassType()` return value to the class that returns it.
+   *
+   * Intended for writing a type predicate that narrows the unions returned by members such
+   * as `Api.GetByInternalId`, which `GetClassType()` alone cannot narrow - a method call is
+   * not a discriminant, only a property is.
+   *
+   * ```ts
+   * function isClass<K extends keyof ClassTypeMap>(
+   *   o: { GetClassType(): string }, k: K,
+   * ): o is ClassTypeMap[K] {
+   *   return o.GetClassType() === k;
+   * }
+   *
+   * const o = Api.GetByInternalId(id);
+   * if (o && isClass(o, "paragraph")) o.Select();
+   * ```
+   *
+   * A few literals are returned by more than one class and map to the union of them.
+   */
+  export interface ClassTypeMap {
+    "actionCollection": ApiActionCollection;
+    "baseWidget": ApiBaseWidget;
+    "bullet": ApiBullet;
+    "buttonField": ApiButtonField;
+    "buttonWidget": ApiButtonWidget;
+    "caretAnnot": ApiCaretAnnotation;
+    "chart": ApiChart;
+    "chartSeries": ApiChartSeries;
+    "checkboxField": ApiCheckboxField;
+    "checkboxWidget": ApiCheckboxWidget;
+    "circleAnnot": ApiCircleAnnotation;
+    "color": ApiColor;
+    "comboboxField": ApiComboboxField;
+    "document": ApiDocument;
+    "documentContent": ApiDocumentContent;
+    "drawing": ApiDrawing;
+    "fill": ApiFill;
+    "freeTextAnnot": ApiFreeTextAnnotation;
+    "geometry": ApiGeometry;
+    "goToAction": ApiGoToAction;
+    "gradientStop": ApiGradientStop;
+    "group": ApiGroup;
+    "hideShowAction": ApiHideShowFormsAction;
+    "highlightAnnot": ApiHighlightAnnotation;
+    "hyperlink": ApiHyperlink;
+    "image": ApiImage;
+    "inkAnnot": ApiInkAnnotation;
+    "jsAction": ApiJsAction;
+    "lineAnnot": ApiLineAnnotation;
+    "linkAnnot": ApiLinkAnnotation;
+    "listboxField": ApiListboxField;
+    "math": ApiMath;
+    "namedAction": ApiNamedAction;
+    "page": ApiPage;
+    "paraPr": ApiParaPr;
+    "paragraph": ApiParagraph;
+    "pdfFile": PdfFile;
+    "polyLineAnnot": ApiPolyLineAnnotation;
+    "polygonAnnot": ApiPolygonAnnotation;
+    "presetColor": ApiPresetColor;
+    "radiobuttonField": ApiRadiobuttonField;
+    "redactAnnot": ApiRedactAnnotation;
+    "resetFormsAction": ApiResetFormsAction;
+    "rgbColor": ApiRGBColor;
+    "richContent": ApiRichContent;
+    "richParaPr": ApiRichParaPr;
+    "richParagraph": ApiRichParagraph;
+    "richRun": ApiRichRun;
+    "richTextPr": ApiRichTextPr;
+    "run": ApiRun;
+    "schemeColor": ApiSchemeColor;
+    "shadow": ApiShadow;
+    "shape": ApiShape;
+    "shd": ApiShd;
+    "signatureField": ApiSignatureField;
+    "smartArt": ApiSmartArt;
+    "squareAnnot": ApiSquareAnnotation;
+    "stampAnnot": ApiStampAnnotation;
+    "strikeoutAnnot": ApiStrikeoutAnnotation;
+    "stroke": ApiStroke;
+    "table": ApiTable;
+    "tableCell": ApiTableCell;
+    "tableRow": ApiTableRow;
+    "textAnnot": ApiTextAnnotation;
+    "textField": ApiTextField;
+    "textPr": ApiRangeTextPr | ApiTextPr;
+    "textRange": ApiTextRange;
+    "underlineAnnot": ApiUnderlineAnnotation;
+    "uniColor": ApiUniColor;
+    "unsupported": ApiUnsupported;
+    "uriAction": ApiUriAction;
+  }
+
+  export type ClassTypeName = keyof ClassTypeMap;
+
   export type EditorEventArgs = {
     /** The function called was when selection was canceled. */
     onSelectionCancel: [];

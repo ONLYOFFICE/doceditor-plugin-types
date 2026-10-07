@@ -60821,6 +60821,94 @@ export namespace Word {
     SetType(sType: WatermarkType): boolean;
   }
 
+  /**
+   * Maps every `GetClassType()` return value to the class that returns it.
+   *
+   * Intended for writing a type predicate that narrows the unions returned by members such
+   * as `Api.GetByInternalId`, which `GetClassType()` alone cannot narrow - a method call is
+   * not a discriminant, only a property is.
+   *
+   * ```ts
+   * function isClass<K extends keyof ClassTypeMap>(
+   *   o: { GetClassType(): string }, k: K,
+   * ): o is ClassTypeMap[K] {
+   *   return o.GetClassType() === k;
+   * }
+   *
+   * const o = Api.GetByInternalId(id);
+   * if (o && isClass(o, "paragraph")) o.Select();
+   * ```
+   *
+   * A few literals are returned by more than one class and map to the union of them.
+   */
+  export interface ClassTypeMap {
+    "blockLvlSdt": ApiBlockLvlSdt;
+    "chart": ApiChart;
+    "chartSeries": ApiChartSeries;
+    "checkBoxForm": ApiCheckBoxForm;
+    "color": ApiColor;
+    "comboBoxForm": ApiComboBoxForm;
+    "comment": ApiComment;
+    "commentReply": ApiCommentReply;
+    "contentControlList": ApiContentControlList | ApiContentControlListEntry;
+    "core": ApiCore;
+    "customProperties": ApiCustomProperties;
+    "customXmlNode": ApiCustomXmlNode;
+    "customXmlPart": ApiCustomXmlPart;
+    "customXmlParts": ApiCustomXmlParts;
+    "dateForm": ApiDateForm;
+    "document": ApiDocument;
+    "documentContent": ApiDocumentContent;
+    "drawing": ApiDrawing;
+    "dropCap": ApiDropCap;
+    "fill": ApiFill;
+    "form": ApiComplexForm | ApiFormBase;
+    "geometry": ApiGeometry;
+    "gradientStop": ApiGradientStop;
+    "group": ApiGroup;
+    "hyperlink": ApiHyperlink;
+    "image": ApiImage;
+    "inlineLvlSdt": ApiInlineLvlSdt;
+    "math": ApiMath;
+    "numbering": ApiNumbering;
+    "numberingLevel": ApiNumberingLevel;
+    "oleObject": ApiOleObject;
+    "paraPr": ApiParaPr;
+    "paragraph": ApiParagraph;
+    "pictureForm": ApiPictureForm;
+    "presetColor": ApiPresetColor;
+    "range": ApiRange;
+    "rgbColor": ApiRGBColor;
+    "run": ApiRun;
+    "schemeColor": ApiSchemeColor;
+    "section": ApiSection;
+    "shadow": ApiShadow;
+    "shape": ApiShape;
+    "shd": ApiShd;
+    "signatureForm": ApiSignatureForm;
+    "smartArt": ApiSmartArt;
+    "stroke": ApiStroke;
+    "style": ApiStyle;
+    "table": ApiTable;
+    "tableCell": ApiTableCell;
+    "tableCellPr": ApiTableCellPr;
+    "tableOfContents": ApiTableOfContents;
+    "tablePr": ApiTablePr;
+    "tableRow": ApiTableRow;
+    "tableRowPr": ApiTableRowPr;
+    "tableStylePr": ApiTableStylePr;
+    "tableofcontents": ApiTableOfFigures;
+    "tablesOfContents": ApiTablesOfContents;
+    "tablesOfFigures": ApiTablesOfFigures;
+    "textForm": ApiTextForm;
+    "textPr": ApiRangeTextPr | ApiTextPr;
+    "uniColor": ApiUniColor;
+    "unsupported": ApiUnsupported;
+    "watermarkSettings": ApiWatermarkSettings;
+  }
+
+  export type ClassTypeName = keyof ClassTypeMap;
+
   export type EditorEventArgs = {
     /**
      * The function called when a comment is added to the document with the

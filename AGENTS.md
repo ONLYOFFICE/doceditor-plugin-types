@@ -58,6 +58,28 @@ three channels, and confusing them is the most common source of broken plugin co
   (`Word`, `Cell`, `Slide`, `Forms`, `Pdf`) and same-named classes don't collide.
 - `import type { Api } from "@onlyoffice/doceditor-plugin-types"` + `Api<"word">` resolves the entry-point
   class generically.
+- Methods that return "whatever object is at this id" - `Api.GetByInternalId` above all - are typed as a
+  union of the ten classes they can produce, and `if (o.GetClassType() === "paragraph")` does **not**
+  narrow it. TypeScript discriminates a union on a property with a literal type, and the result of
+  a method call is not one, however literal its type - no declaration on our side changes that.
+  Narrowing has to come from a type predicate, and `<Editor>.ClassTypeMap` is the generated
+  literal-to-class table it needs (`ClassTypeName` is its key union):
+
+  ```ts
+  function isClass<K extends keyof Word.ClassTypeMap>(
+    o: { GetClassType(): string }, k: K,
+  ): o is Word.ClassTypeMap[K] {
+    return o.GetClassType() === k;
+  }
+
+  const o = Api.GetByInternalId(Asc.scope.paraId);
+  if (o && isClass(o, "paragraph")) o.Select();   // o is ApiParagraph here
+  ```
+
+  The predicate has to be declared in the plugin's own code rather than shipped here: a
+  `callCommand` body is serialized and re-run in the editor, so it cannot call an imported function.
+  A few literals are returned by two classes (`ApiTextPr` and `ApiRangeTextPr` both answer
+  `"textPr"`) and map to the union of them - the literal genuinely does not say which you hold.
 - A plugin's `config.json` can be validated against `schemas/config.schema.json` (add a `$schema`
   field pointing at the raw GitHub URL, or map the project's `config.json` files in the editor).
 
@@ -107,7 +129,7 @@ three channels, and confusing them is the most common source of broken plugin co
   member".
 - `artifacts/ambient/` holds five flattened no-import `.d.ts` bundles, one per editor:
   `onlyoffice-doceditor-plugin-types.<editor>.ambient.d.ts` for `word`, `cell`, `slide`, `pdf`, `forms`. Each
-  is self-contained (0.56-2.51 MB) - load exactly one, since the five declare the same globals with
+  is self-contained (0.56-2.52 MB) - load exactly one, since the five declare the same globals with
   different types. Written for editors that take a single global-scope blob (a Monaco
   `addExtraLib()`), and useful here for a different reason - see below. Not shipped in the npm
   package (those consumers take the modular sources instead) - fetch from git:

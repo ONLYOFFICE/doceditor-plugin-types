@@ -61406,6 +61406,69 @@ export namespace Cell {
   export interface g_nApiEffectIdCounter {
   }
 
+  /**
+   * Maps every `GetClassType()` return value to the class that returns it.
+   *
+   * Intended for writing a type predicate that narrows the unions returned by members such
+   * as `Api.GetByInternalId`, which `GetClassType()` alone cannot narrow - a method call is
+   * not a discriminant, only a property is.
+   *
+   * ```ts
+   * function isClass<K extends keyof ClassTypeMap>(
+   *   o: { GetClassType(): string }, k: K,
+   * ): o is ClassTypeMap[K] {
+   *   return o.GetClassType() === k;
+   * }
+   *
+   * const o = Api.GetByInternalId(id);
+   * if (o && isClass(o, "paragraph")) o.Select();
+   * ```
+   *
+   * A few literals are returned by more than one class and map to the union of them.
+   */
+  export interface ClassTypeMap {
+    "bullet": ApiBullet;
+    "chart": ApiChart;
+    "chartSeries": ApiChartSeries;
+    "color": ApiColor;
+    "comment": ApiComment;
+    "commentReply": ApiCommentReply;
+    "core": ApiCore;
+    "customProperties": ApiCustomProperties;
+    "customXmlNode": ApiCustomXmlNode;
+    "customXmlPart": ApiCustomXmlPart;
+    "customXmlParts": ApiCustomXmlParts;
+    "documentContent": ApiDocument | ApiDocumentContent;
+    "drawing": ApiDrawing;
+    "fill": ApiFill;
+    "geometry": ApiGeometry;
+    "gradientStop": ApiGradientStop;
+    "group": ApiGroup;
+    "hyperlink": ApiHyperlink;
+    "image": ApiImage;
+    "math": ApiMath;
+    "oleObject": ApiOleObject;
+    "paraPr": ApiParaPr;
+    "paragraph": ApiParagraph;
+    "presetColor": ApiPresetColor;
+    "range": ApiRange;
+    "rgbColor": ApiRGBColor;
+    "run": ApiRun;
+    "schemeColor": ApiSchemeColor;
+    "shadow": ApiShadow;
+    "shape": ApiShape;
+    "shd": ApiShd;
+    "smartArt": ApiSmartArt;
+    "stroke": ApiStroke;
+    "textPr": ApiRangeTextPr | ApiTextPr;
+    "textRange": ApiTextRange;
+    "theme": ApiTheme;
+    "uniColor": ApiUniColor;
+    "unsupported": ApiUnsupported;
+  }
+
+  export type ClassTypeName = keyof ClassTypeMap;
+
   export type EditorEventArgs = {
     /** The function called when the current sheet has changed. */
     onChangeCurrentSheet: [index: number];
