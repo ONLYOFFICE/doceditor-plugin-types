@@ -535,6 +535,7 @@ onlyoffice-types/
 │   │   ├── events.d.ts     # PluginEventMap and plugin-window-level event types
 │   │   ├── buttons.d.ts    # Buttons, ButtonBase and its Toolbar/ContextMenu/... subtypes
 │   │   ├── editor.d.ts     # shapes of the global Editor: method proxy + RunMacro
+│   │   ├── undocumented.d.ts  # the @undocumented plugin methods, typed for both channels
 │   │   └── index.d.ts      # re-exports the files above - the /plugin entry point
 │   └── services/
 │       ├── desktop-editor.d.ts  # AscDesktopEditor

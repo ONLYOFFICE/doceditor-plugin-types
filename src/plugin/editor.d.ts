@@ -12,6 +12,7 @@
 // Two entry points in one program therefore collide on `Editor` exactly as they do on `Api`, and for
 // the same reason: a plugin runs in one editor.
 
+import type { UndocumentedMethodArgs, UndocumentedMethodReturnMap } from "./undocumented";
 import type { CommandSerializable } from "./plugin";
 
 /**
@@ -66,8 +67,17 @@ interface EditorRunMacro {
 }
 
 /** The global `Editor` of one editor: its `executeMethod` names, plus `RunMacro`. */
-type EditorGlobal<ArgsMap, ReturnMap> = EditorMethods<ArgsMap, ReturnMap> & {
+/**
+ * The `@undocumented` methods, as callable properties like every other one.
+ *
+ * They are not editor-specific: `pluginMethod_*` entries in `common/apiBase_plugins.js` are shared
+ * by all five editors, so this part of `Editor` does not vary with the method maps. They are also
+ * outside ONLYOFFICE's published surface and its compatibility promise - see `./undocumented`.
+ */
+type EditorUndocumentedMethods = EditorMethods<UndocumentedMethodArgs, UndocumentedMethodReturnMap>;
+
+type EditorGlobal<ArgsMap, ReturnMap> = EditorMethods<ArgsMap, ReturnMap> & EditorUndocumentedMethods & {
     RunMacro: EditorRunMacro;
 };
 
-export type { EditorMethod, EditorMethods, EditorRunMacro, EditorGlobal };
+export type { EditorMethod, EditorMethods, EditorRunMacro, EditorUndocumentedMethods, EditorGlobal };
