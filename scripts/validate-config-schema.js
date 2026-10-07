@@ -70,15 +70,31 @@ function main() {
   const ajv = new Ajv({ allErrors: true, strict: false });
   const validate = ajv.compile(schema);
 
-  const dirs = fs.readdirSync(contentDir, { withFileTypes: true })
-    .filter((entry) => entry.isDirectory())
-    .map((entry) => entry.name);
+  // `statSync`, not the cheaper `withFileTypes` + `entry.isDirectory()`: that reports a symlink as
+  // a symlink, not as the directory it points at, and a monorepo checkout routinely assembles this
+  // tree out of links (`sdkjs-plugins/typograf -> .../onlyoffice.github.io/.../content/typograf`).
+  // Filtering on `isDirectory()` there silently narrowed a 55-plugin corpus down to the 2 real
+  // directories and still printed a summary shaped like success. A broken link is named rather
+  // than skipped - it means the checkout is half-assembled, which is worth saying out loud.
+  const dirs = [];
+  for (const name of fs.readdirSync(contentDir)) {
+    let stats;
+    try {
+      stats = fs.statSync(path.join(contentDir, name));
+    } catch (err) {
+      console.log(`${name}: SKIP (${err.code === 'ENOENT' ? 'broken symlink' : err.message})`);
+      continue;
+    }
+    if (stats.isDirectory()) dirs.push(name);
+  }
 
   let pass = 0;
+  let read = 0;
   const unexpectedFailures = [];
   const incomplete = new Map();
   const thirdParty = new Map();
   const usedKnownIssues = new Set();
+  const seen = new Set();
 
   for (const dir of dirs) {
     const configPath = path.join(contentDir, dir, 'config.json');
@@ -91,6 +107,9 @@ function main() {
       console.log(`${dir}: SKIP (invalid JSON: ${err.message})`);
       continue;
     }
+
+    read += 1;
+    seen.add(dir);
 
     if (validate(data)) {
       pass += 1;
@@ -142,9 +161,17 @@ function main() {
 
   // A KNOWN_ISSUES entry that no longer fires is either fixed upstream or now covered by the
   // third-party rule. Left in place it reads as a live defect and quietly excuses a name.
-  const stale = Object.keys(KNOWN_ISSUES).filter((dir) => !usedKnownIssues.has(dir));
+  // Only for a config that was actually read. An entry whose plugin is simply absent from this
+  // checkout has not stopped failing - nothing asked it to - and reporting it as fixed sent me
+  // chasing a change that had never happened.
+  const stale = Object.keys(KNOWN_ISSUES)
+    .filter((dir) => !usedKnownIssues.has(dir) && seen.has(dir));
+  const absent = Object.keys(KNOWN_ISSUES).filter((dir) => !seen.has(dir));
   if (stale.length > 0) {
     console.log(`\nKNOWN_ISSUES entries that no longer fail: ${stale.join(', ')} - remove them or confirm the issue is still real.`);
+  }
+  if (absent.length > 0) {
+    console.log(`\nKNOWN_ISSUES entries not checked - no config.json for them here: ${absent.join(', ')}.`);
   }
 
   if (incomplete.size > 0) {
@@ -159,6 +186,18 @@ function main() {
       const shown = dirs_.length > 6 ? `${dirs_.slice(0, 6).join(', ')}, +${dirs_.length - 6} more` : dirs_.join(', ');
       console.log(`  ${field}: ${dirs_.length} (${shown})`);
     }
+  }
+
+  // The schema is derived from these very files, so a corpus where nothing at all validates is
+  // evidence about the run, not about the schema - a wrong PLUGINS_CONTENT_PATH, or a tree whose
+  // plugins this script failed to see. Without this the symlink bug above reported `0 passed`
+  // and exit 0, which reads as a clean run.
+  if (read === 0) {
+    console.error(`\nNo config.json found under ${contentDir} - check PLUGINS_CONTENT_PATH points at sdkjs-plugins/content.`);
+    process.exitCode = 1;
+  } else if (pass === 0) {
+    console.error(`\nRead ${read} config.json file(s) and not one validated - the corpus or the path is wrong, not the schema.`);
+    process.exitCode = 1;
   }
 
   if (unexpectedFailures.length > 0) {
