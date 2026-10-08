@@ -57,7 +57,7 @@ const MANUAL_EVENTS = {
 // reads outside this package, so a new source or a changed convention is a one-file edit.
 const { resolveSdkjsPaths, resolveSdkjsExt, resolveDocsPath } = require('./resolve-paths.js');
 const { isFromExt, developerEditionRequirement } = require('./ext-provenance.js');
-const { PARAM_OPTIONAL_FROM } = require('./overrides-tables.js');
+const { PARAM_OPTIONAL_FROM, RETURN_TYPE_OVERRIDE } = require('./overrides-tables.js');
 const { getGitMetadata, sha256File, packageVersion, assertSourcesReleasable } = require('./provenance.js');
 const {
   DOC_WIDTH, htmlToMarkdown, withoutExamples, splitDescription, wrapText, cleanProse, taggedLines, renderJsDoc,
@@ -319,6 +319,83 @@ function parseTypeName(n) {
   return n;
 }
 
+// An options bag, rebuilt from the parameters jsdoc flattened out of it.
+//
+// sdkjs documents one the ordinary way - `@param {object} [options]` followed by
+// `@param {boolean} [options.Numbering=true]`, over an implementation that takes a single
+// argument. jsdoc reports those children as further entries in `params`, distinguished only by a
+// dot in the name, and sanitizing that dot to an underscore turned each one into its own
+// positional parameter: `GetText` came out with seven, of which six do not exist. The real one
+// was left as bare `object`, so every field name and type was lost while `GetText({}, false)` -
+// a call that silently does nothing - type-checked.
+//
+// Collapsed back into a record on the parent instead. Applied only to the shape actually present
+// in the sources (one level deep, parent declared, no `name[].field` array syntax - all 100
+// nested parameters across 19 members measured); anything else falls through to the old
+// behaviour rather than being guessed at.
+function optionsBagFields(children) {
+  return children.map((child) => {
+    const key = child.name.slice(child.name.indexOf('.') + 1);
+    const safe = /^[A-Za-z_$][A-Za-z0-9_$]*$/.test(key) ? key : JSON.stringify(key);
+    const acceptsUndefined = child.type?.names?.includes('undefined');
+    const names = acceptsUndefined
+      ? child.type.names.filter((type) => type !== 'undefined')
+      : child.type?.names;
+    const type = withNullable(parseType(names?.length ? { ...child.type, names } : child.type), child);
+    const optional = child.optional || child.defaultvalue !== undefined || acceptsUndefined;
+    return `${safe}${optional ? '?' : ''}: ${type}`;
+  }).join('; ');
+}
+
+// The bag parameter's own type, with the record substituted for its `object` member. `object` is
+// usually the whole of it, but not always: ApiPresentation#Traverse takes `{object | boolean}`,
+// where the boolean is a shorthand for "defaults", and only the object half describes the fields.
+function optionsBagType(param, children) {
+  const record = `{ ${optionsBagFields(children)} }`;
+  const names = param.type?.names;
+  if (!names || names.length === 0) return record;
+  return names
+    .map((name) => (name === 'object' || name === 'Object' ? record : parseTypeName(name)))
+    .join(' | ');
+}
+
+// Groups `params` into the bags that can be collapsed and the entries to emit.
+//
+// `docParams` keeps every original entry, dotted names and all: the field prose and `@default`
+// values belong in the member's JSDoc, and collapsing the signature should not throw them away.
+function groupOptionsBags(params) {
+  const children = new Map();
+  for (const param of params) {
+    if (typeof param.name !== 'string') continue;
+    const dot = param.name.indexOf('.');
+    if (dot === -1) continue;
+    const bag = param.name.slice(0, dot);
+    if (!children.has(bag)) children.set(bag, []);
+    children.get(bag).push(param);
+  }
+
+  const bags = new Map();
+  for (const [bag, entries] of children) {
+    const parent = params.find((param) => param.name === bag);
+    const simple = entries.every((entry) => entry.name.split('.').length === 2 && !entry.name.includes('['));
+    if (parent && simple) bags.set(bag, entries);
+  }
+
+  const emitted = params.filter((param) => {
+    if (typeof param.name !== 'string') return true;
+    const dot = param.name.indexOf('.');
+    return dot === -1 || !bags.has(param.name.slice(0, dot));
+  });
+
+  return { bags, emitted };
+}
+
+// Which RETURN_TYPE_OVERRIDE entries were actually applied, and which turned out to be obsolete
+// because sdkjs now documents a real type there. Module-level because the gate runs once, after
+// every editor: an entry only used by `slide` must not look unused while `word` is being built.
+const returnOverridesApplied = new Set();
+const returnOverridesLanded = new Map();
+
 function parseType(typeObj) {
   if (!typeObj || !typeObj.names) return 'unknown';
   return typeObj.names.map(parseTypeName).join(' | ');
@@ -351,39 +428,132 @@ function withNullable(type, entry) {
 // Deliberately narrow. Only a brace-balanced record of `name: Type` pairs is accepted - no nested
 // records, no optional-key syntax - and anything else falls back to whatever `parseType` said. A
 // half-understood shape would be worse than the honest `object` it replaces.
-function inlineRecordType(comment, tag) {
-  if (!comment) return null;
-  const at = comment.indexOf(`@${tag}`);
-  if (at === -1) return null;
-  const open = comment.indexOf('{', at);
-  if (open === -1 || comment[open + 1] !== '{') return null;
-
+// Splits a JSDoc type expression on top-level `|`, respecting `{}`, `()`, `<>` and `[]`.
+function splitUnion(expr) {
+  const parts = [];
   let depth = 0;
-  let end = -1;
-  for (let i = open + 1; i < comment.length; i += 1) {
-    if (comment[i] === '{') depth += 1;
-    else if (comment[i] === '}') {
-      depth -= 1;
-      if (depth === 0) { end = i; break; }
+  let current = '';
+  for (const ch of expr) {
+    if (ch === '{' || ch === '(' || ch === '<' || ch === '[') depth += 1;
+    else if (ch === '}' || ch === ')' || ch === '>' || ch === ']') depth -= 1;
+    if (ch === '|' && depth === 0) {
+      parts.push(current.trim());
+      current = '';
+    } else {
+      current += ch;
     }
   }
-  if (end === -1) return null;
+  if (current.trim()) parts.push(current.trim());
+  return parts;
+}
 
-  const inner = comment.slice(open + 2, end).replace(/\s*\n\s*\*?\s*/g, ' ').trim();
-  if (!inner || inner.includes('{')) return null;
+// Splits a record body on top-level `,` or `;`, respecting nesting.
+function splitFields(body) {
+  const parts = [];
+  let depth = 0;
+  let current = '';
+  for (const ch of body) {
+    if (ch === '{' || ch === '(' || ch === '<' || ch === '[') depth += 1;
+    else if (ch === '}' || ch === ')' || ch === '>' || ch === ']') depth -= 1;
+    if ((ch === ',' || ch === ';') && depth === 0) {
+      parts.push(current.trim());
+      current = '';
+    } else {
+      current += ch;
+    }
+  }
+  if (current.trim()) parts.push(current.trim());
+  return parts;
+}
+
+// One JSDoc type expression to TypeScript, recovering the inline record shapes jsdoc throws away.
+//
+// jsdoc parses `{{r: byte, g: byte}}` and then reports the doclet's `type.names` as plain
+// `["Object"]`, so anything that goes through `parseType` alone loses the shape. The text survives
+// in the doclet's raw `comment`, which is what this reads.
+//
+// Returns null when the expression is not one it fully understands, and every caller falls back to
+// `parseType`. A half-understood shape would be worse than the honest `object` it replaces, so the
+// rule is all-or-nothing per expression: one unparsable field and the whole record is declined.
+//
+// Handles a record anywhere in a union and records nested inside records, because sdkjs writes
+// both: `ApiFormRoles#GetRoleColor` is `{null | {r:byte, g:byte, b:byte}}` and the `ContentControl`
+// typedef has `{{Color: {R: number, G: number, B: number, A: number}}}`. An earlier version took
+// only a record that was the entire expression and bailed on any inner `{`, which left those as
+// `object` even though sdkjs documents them in full.
+function jsdocTypeToTs(expr) {
+  const text = String(expr || '').trim();
+  if (!text) return null;
+
+  const members = splitUnion(text);
+  if (members.length === 0) return null;
+  if (members.length > 1) {
+    const parts = members.map(jsdocTypeToTs);
+    if (parts.some((part) => part === null)) return null;
+    return parts.join(' | ');
+  }
+
+  const single = members[0];
+  if (!single.startsWith('{')) {
+    // Not a record - `parseTypeName` already covers arrays, Array.<>, Object.<>, primitives.
+    if (single.includes('{')) return null;
+    return parseTypeName(single);
+  }
+  if (!single.endsWith('}')) return null;
 
   const fields = [];
-  for (const part of splitTopLevel(inner, ',')) {
-    const m = /^\s*([A-Za-z_$][A-Za-z0-9_$]*)\s*:\s*(.+?)\s*$/.exec(part);
-    if (!m) return null;
-    fields.push(`${m[1]}: ${parseTypeName(m[2])}`);
+  for (const part of splitFields(single.slice(1, -1))) {
+    const match = /^([A-Za-z_$][A-Za-z0-9_$]*)(\?)?\s*:\s*([\s\S]+)$/.exec(part.trim());
+    if (!match) return null;
+    const type = jsdocTypeToTs(match[3]);
+    if (type === null) return null;
+    fields.push(`${match[1]}${match[2] ? '?' : ''}: ${type}`);
   }
   if (fields.length === 0) return null;
+  return `{ ${fields.join('; ')} }`;
+}
 
-  // Whatever follows the record inside the same tag - `} | null` and nothing else in practice.
-  const tail = comment.slice(end + 1, comment.indexOf('}', end + 1) + 1);
-  const union = /\|\s*null/.test(tail) ? ' | null' : '';
-  return `{ ${fields.join('; ')} }${union}`;
+// The raw `{...}` type expression of a tag in a doclet comment, brace-balanced.
+//
+// `name` selects one `@property` or `@param` out of several; omit it for `@returns`. The comment is
+// unwrapped first - a tag can span lines, each continued line starting with ` * `.
+function tagTypeExpression(comment, tag, name) {
+  if (!comment) return null;
+  const flat = comment.replace(/\r?\n\s*\*?[ \t]?/g, ' ');
+  const marker = `@${tag}`;
+  let from = 0;
+  for (;;) {
+    const at = flat.indexOf(marker, from);
+    if (at === -1) return null;
+    from = at + marker.length;
+    const open = flat.indexOf('{', at);
+    if (open === -1) return null;
+
+    let depth = 0;
+    let close = -1;
+    for (let i = open; i < flat.length; i += 1) {
+      if (flat[i] === '{') depth += 1;
+      else if (flat[i] === '}') {
+        depth -= 1;
+        if (depth === 0) { close = i; break; }
+      }
+    }
+    if (close === -1) return null;
+
+    if (!name) return flat.slice(open + 1, close).trim();
+    // `@property {Type} [Color] - prose` / `@property {Type} Color - prose`
+    const after = flat.slice(close + 1).trimStart();
+    const declared = /^\[?([A-Za-z_$][A-Za-z0-9_$.]*)/.exec(after);
+    if (declared && declared[1] === name) return flat.slice(open + 1, close).trim();
+  }
+}
+
+// Back-compatible entry point: the recovered type for a tag, or null to fall back to `parseType`.
+function inlineRecordType(comment, tag, name) {
+  const expr = tagTypeExpression(comment, tag, name);
+  if (expr === null || expr === undefined) return null;
+  if (!expr.includes('{')) return null;   // nothing jsdoc lost - let parseType handle it
+  return jsdocTypeToTs(expr);
 }
 
 // Every documented sdkjs member carries a `@see office-js-api/Examples/<Editor>/<Class>/Methods/<Method>.js`
@@ -516,7 +686,8 @@ function extractClasses(data, editor, extRoot) {
         // Index from which sdkjs's own JSDoc is wrong about a parameter being required - see
         // PARAM_OPTIONAL_FROM. `Infinity` when there is no correction for this member.
         const optionalFrom = PARAM_OPTIONAL_FROM[`${className}.${item.name}`] ?? Infinity;
-        const params = item.params ? item.params.map(p => {
+        const { bags: optionsBags, emitted: emittedParams } = groupOptionsBags(item.params || []);
+        const params = emittedParams.map(p => {
           let name = p.name.replace(/[^a-zA-Z0-9_$]/g, '_');
           if (seenNames.has(name)) {
             let i = 2;
@@ -548,22 +719,46 @@ function extractClasses(data, editor, extRoot) {
           const names = acceptsUndefined ? p.type.names.filter(type => type !== 'undefined') : p.type?.names;
           return {
             name,
-            type: withNullable(parseType(names?.length ? { ...p.type, names } : p.type), p),
+            type: optionsBags.has(p.name)
+              ? optionsBagType(p, optionsBags.get(p.name))
+              : withNullable(parseType(names?.length ? { ...p.type, names } : p.type), p),
             optional: hasOptional,
             defaultValue: p.defaultvalue,
             description: p.description || '',
           };
-        }) : [];
+        });
 
-        const returnType = item.returns && item.returns.length > 0
+        const overrideKey = `${editor}.${className}.${item.name}`;
+        const documentedReturn = item.returns && item.returns.length > 0
           ? withNullable(
               inlineRecordType(item.comment, 'returns') || parseType(item.returns[0].type),
               item.returns[0],
             )
           : 'void';
+        // RETURN_TYPE_OVERRIDE only speaks about returns sdkjs documents as `object`. Anything else
+        // there means the upstream fix has landed and the entry is now shadowing a real annotation,
+        // which the gate below reports instead of letting it pass.
+        let returnType = documentedReturn;
+        if (overrideKey in RETURN_TYPE_OVERRIDE) {
+          if (/^(?:object|Object)(?: \| null)?$/.test(documentedReturn)) {
+            returnType = RETURN_TYPE_OVERRIDE[overrideKey];
+            returnOverridesApplied.add(overrideKey);
+          } else {
+            returnOverridesLanded.set(overrideKey, documentedReturn);
+          }
+        }
+
+        // Every original entry, including the ones folded into a bag above - renderJsDoc reads this
+        // so the per-field descriptions and defaults survive the collapse.
+        const docParams = optionsBags.size === 0 ? null : (item.params || []).map(p => ({
+          name: p.name,
+          defaultValue: p.defaultvalue,
+          description: p.description || '',
+        }));
 
         classes[className].methods[item.name] = {
           params,
+          docParams,
           overloadParams: buildOverloadParams(params, ownOptional),
           returnType,
           description: item.description || '',
@@ -620,7 +815,11 @@ function extractTypedefs(data) {
         type: hasProps ? null : parseType(item.type),
         properties: hasProps ? item.properties.map(p => ({
           name: p.name,
-          type: withNullable(parseType(p.type), p),
+          // Same inline-record recovery as `@returns`: the ContentControl typedef documents
+          // `@property {{Color: {R: number, G: number, B: number, A: number}}} [Border]`, which
+          // jsdoc flattens to `Object` before the generator ever sees it.
+          type: inlineRecordType(item.comment, 'property', p.name)
+            || withNullable(parseType(p.type), p),
           optional: p.optional || false,
           description: p.description || ''
         })) : []
@@ -993,10 +1192,11 @@ const TS_BUILTINS = new Set([
 function collectCustomTypeRefs(str) {
   // Only collect identifiers that can be type references. String literal enum values such as
   // "Area" and "BarClustered" must not become fake cross-file type stubs. Object-literal property
-  // names such as `InternalId: string` are not type references either.
+  // names such as `InternalId: string` are not type references either - including the optional
+  // form `Numbering?: boolean`, which an options-bag record is made of.
   const withoutStrings = str
     .replace(/"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'/g, '')
-    .replace(/\b[A-Z][a-zA-Z0-9]+\b(?=\s*:)/g, '');
+    .replace(/\b[A-Z][a-zA-Z0-9]+\b(?=\??\s*:)/g, '');
   const refs = [];
   for (const m of (withoutStrings.match(/\b[A-Z][a-zA-Z0-9]+\b/g) || [])) {
     if (!TS_BUILTINS.has(m)) refs.push(m);
@@ -1293,6 +1493,41 @@ function readExistingManifest() {
   }
 }
 
+// The switch-off mechanism for RETURN_TYPE_OVERRIDE.
+//
+// An override is a stopgap against an upstream defect, and the expensive failure mode is not the
+// stopgap - it is forgetting it. Left in place after sdkjs is fixed, it silently replaces a correct
+// annotation with a frozen copy that then drifts, and nothing ever says so.
+//
+// So every entry has to justify itself on each run, and the two ways it can stop doing that are
+// reported apart:
+//
+//   landed  - sdkjs now documents a real type there. The workaround has done its job and is now in
+//             the way; deleting the line is the whole change.
+//   unused  - the member is gone, renamed, or the key never matched. The entry protects nothing,
+//             and an override nobody can see firing is indistinguishable from one that does not
+//             work.
+//
+// Both fail the build rather than warn: a warning in a generator that prints 40 lines of progress
+// is a warning nobody reads.
+function reportReturnTypeOverrides() {
+  const keys = Object.keys(RETURN_TYPE_OVERRIDE);
+  const unused = keys.filter((key) => !returnOverridesApplied.has(key) && !returnOverridesLanded.has(key));
+
+  for (const [key, documented] of returnOverridesLanded) {
+    console.error(`RETURN_TYPE_OVERRIDE['${key}'] is obsolete - sdkjs now documents ${documented} there. Remove the entry.`);
+  }
+  for (const key of unused) {
+    console.error(`RETURN_TYPE_OVERRIDE['${key}'] matched no member - the key is wrong, or the member is gone. Remove or fix it.`);
+  }
+  if (returnOverridesLanded.size > 0 || unused.length > 0) {
+    throw new Error(`${returnOverridesLanded.size + unused.length} RETURN_TYPE_OVERRIDE entry/entries no longer earn their place - see above.`);
+  }
+  if (returnOverridesApplied.size > 0) {
+    console.log(`Applied ${returnOverridesApplied.size} return-type override(s) for sdkjs OBJECT returns (see scripts/overrides-tables.js).`);
+  }
+}
+
 async function main() {
   if (!fs.existsSync(OUTPUT_DIR)) {
     fs.mkdirSync(OUTPUT_DIR, { recursive: true });
@@ -1311,6 +1546,8 @@ async function main() {
     mergeApiIndex(typeName, generated.indexSection);
     console.log(`Generated ${filename} with ${generated.stats.classes} classes`);
   }
+
+  reportReturnTypeOverrides();
 
   fs.writeFileSync(path.join(OUTPUT_DIR, 'api-report.json'), `${JSON.stringify(report, null, 2)}\n`);
   fs.writeFileSync(path.join(OUTPUT_DIR, 'generation-manifest.json'), `${JSON.stringify(buildGenerationManifest(paths, docsRoot), null, 2)}\n`);
@@ -1336,5 +1573,12 @@ module.exports = {
 // - other scripts (e.g. generate-plugin-methods.js) require this file purely for its parsing
 // utilities and must not trigger a second, unrelated generation run as a side effect.
 if (require.main === module) {
-  main().catch(console.error);
+  // `catch(console.error)` printed the failure and still exited 0, so every gate in this file was
+  // advisory in practice - including `--require-clean-sources`, whose whole job is to stop a
+  // release being generated from a dirty checkout, and `check-generated`, which runs this before
+  // diffing. A generator that cannot generate has to fail.
+  main().catch((err) => {
+    console.error(err instanceof Error ? err.message : err);
+    process.exitCode = 1;
+  });
 }

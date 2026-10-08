@@ -208,13 +208,13 @@ export namespace Word {
     FormValue?: string | boolean | Date;
 
     /** The tag color of the content control. Present only if the tag color is set. */
-    Color?: object;
+    Color?: { R: number; G: number; B: number };
 
     /** The border color of the content control. Present only if the border color is set. */
-    Border?: object;
+    Border?: { Color: { R: number; G: number; B: number; A: number } };
 
     /** The shading color of the content control. Present only if the shading color is set. */
-    Shd?: object;
+    Shd?: { Color: { R: number; G: number; B: number; A: number } };
   }
 
   /** The checkbox content control properties */
@@ -276,60 +276,6 @@ export namespace Word {
 
   /** Any valid element which can be added to the document structure. */
   export type DocumentElement = ApiParagraph | ApiTable | ApiBlockLvlSdt;
-
-  /** The document information. */
-  export interface DocumentInfo {
-    /** The application the document has been created with. */
-    Application: string;
-
-    /** The date and time when the file was created. */
-    CreatedRaw: Date | null;
-
-    /** The parsed date and time when the file was created. */
-    Created: string;
-
-    /** The date and time when the file was last modified. */
-    LastModifiedRaw: Date | null;
-
-    /** The parsed date and time when the file was last modified. */
-    LastModified: string;
-
-    /** The name of the user who has made the latest change to the document. */
-    LastModifiedBy: string;
-
-    /** The persons who have created the file. */
-    Authors: string[];
-
-    /** This property allows you to simplify your documents classification. */
-    Title: string;
-
-    /** This property allows you to simplify your documents classification. */
-    Tags: string;
-
-    /** This property allows you to simplify your documents classification. */
-    Subject: string;
-
-    /** This property allows you to simplify your documents classification. */
-    Comment: string;
-  }
-
-  /** The document statistics. */
-  export interface DocumentStatistics {
-    /** The number of pages. */
-    PageCount: number;
-
-    /** The number of words. */
-    WordsCount: number;
-
-    /** The number of paragraphs. */
-    ParagraphCount: number;
-
-    /** The number of symbols, spaces excluded. */
-    SymbolsCount: number;
-
-    /** The number of symbols, spaces included. */
-    SymbolsWSCount: number;
-  }
 
   /** Any valid drawing element. */
   export type Drawing = ApiShape | ApiImage | ApiGroup | ApiOleObject | ApiChart | ApiSmartArt;
@@ -543,6 +489,17 @@ export namespace Word {
 
   /** This type specifies the preset shape geometry that will be used for a shape. */
   export type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "textRect" | "trapezoid" | "triangle" | "upArrowCallout" | "upDownArrow" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
+
+  /**
+   * The operation used to merge shapes.
+   *
+   * - **"union"** - unites the shapes into one shape.
+   * - **"combine"** - unites the shapes and removes their overlapping areas.
+   * - **"fragment"** - splits the shapes into separate shapes along their intersecting lines.
+   * - **"intersect"** - keeps only the overlapping area of the shapes.
+   * - **"subtract"** - subtracts the other shapes from the first one.
+   */
+  export type ShapesMergeOperation = "union" | "combine" | "fragment" | "intersect" | "subtract";
 
   /** A shade type which can be added to the document element. */
   export type ShdType = "nil" | "clear";
@@ -955,6 +912,79 @@ export namespace Word {
 
   /** Twentieths of a point (equivalent to 1/1440th of an inch). */
   export type twips = number;
+
+  // Manual overrides for types sdkjs's own JSDoc doesn't resolve from its usual sources.
+  // Their sources are src/overrides/word.ts in the repository; the declarations are inlined
+  // here, so the npm package does not carry that directory.
+  /**
+   * Document properties, as returned by `ApiDocument.GetDocumentInfo` (and its Cell/Slide
+   * equivalents, which build the same object).
+   *
+   * The implementation seeds every key up front - `"Application": ''`, `"CreatedRaw": null`,
+   * `"Authors": []` - and then fills what the document has, so every field is always present and the
+   * unset state is an empty string rather than `undefined`.
+   *
+   * `CreatedRaw` and `LastModifiedRaw` come straight from `asc_getCreated()`/`asc_getModified()` and
+   * stay `null` when the document carries no such timestamp; `Created` and `LastModified` are those
+   * same values rendered with `toLocaleString`, and stay `''` when the raw value is null.
+   */
+  export interface DocumentInfo {
+      /** The application the document was created with, including its version when one is reported. */
+      Application: string;
+
+      /** When the document was created, or null if it records no creation time. */
+      CreatedRaw: Date | null;
+
+      /** `CreatedRaw` formatted for the editor's current language, or `''` when it is null. */
+      Created: string;
+
+      /** When the document was last modified, or null if it records no modification time. */
+      LastModifiedRaw: Date | null;
+
+      /** `LastModifiedRaw` formatted for the editor's current language, or `''` when it is null. */
+      LastModified: string;
+
+      /** Who last modified the document. */
+      LastModifiedBy: string;
+
+      /** The document authors. */
+      Authors: string[];
+
+      /** The document title. */
+      Title: string;
+
+      /** The document tags. */
+      Tags: string;
+
+      /** The document subject. */
+      Subject: string;
+
+      /** The document comment. */
+      Comment: string;
+  }
+  /**
+   * Document statistics, as returned by `ApiDocument.GetStatistics`.
+   *
+   * Every field is a count taken from `oLogicDocument.Statistics` at the moment of the call. Note
+   * that the two symbol counts differ in whether spaces are included, which their names do not quite
+   * say: `SymbolsCount` is `SymbolsWOSpaces` and `SymbolsWSCount` is `SymbolsWhSpaces`.
+   */
+  export interface DocumentStatistics {
+      /** The number of pages. */
+      PageCount: number;
+
+      /** The number of words. */
+      WordsCount: number;
+
+      /** The number of paragraphs. */
+      ParagraphCount: number;
+
+      /** The number of symbols, not counting spaces. */
+      SymbolsCount: number;
+
+      /** The number of symbols, counting spaces. */
+      SymbolsWSCount: number;
+  }
 
   /**
    * The main class of the Document API. Use it to get the current document and to create
@@ -2489,7 +2519,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/FromJSON/
      */
-    FromJSON(message: string): ApiUnsupported | ApiDocumentContent | ApiParagraph | ApiTable | ApiDrawing | ApiBlockLvlSdt | ApiInlineLvlSdt;
+    FromJSON(message: string): ApiBlockLvlSdt | ApiDocumentContent | ApiDrawing | ApiHyperlink | ApiInlineLvlSdt | ApiParagraph | ApiRun | ApiSection | ApiTable | null;
 
     /**
      * Returns the object by it's internal ID.
@@ -2802,6 +2832,20 @@ export namespace Word {
      * @default comparisonPr = {}
      */
     MergeDocuments(file: object, comparisonPr?: ComparisonPr): void;
+
+    /**
+     * Merges an array of drawings into new shapes.
+     * The resulting shapes take the formatting of the first drawing in the array.
+     *
+     * @param drawings - An array of at least two drawings from the same page, slide or sheet. At least one of them must
+     *   be a shape.
+     * @param operation - The merge operation.
+     * @returns The resulting drawings, or null if the drawings cannot be merged.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/MergeShapes/
+     */
+    MergeShapes(drawings: Drawing[], operation: ShapesMergeOperation): Drawing[] | null;
 
     /**
      * Converts millimeters to English Metric Units (EMUs).
@@ -4788,25 +4832,25 @@ export namespace Word {
      * Returns the bookmark text.
      *
      * @param options - Options for formatting the returned text.
-     * @param options_Numbering - Defines if the resulting string will include numbering or not.
-     * @param options_Math - Defines if the resulting string will include mathematical expressions or not.
-     * @param options_NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
+     * @param options.Numbering - Defines if the resulting string will include numbering or not.
+     * @param options.Math - Defines if the resulting string will include mathematical expressions or not.
+     * @param options.NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r".
-     * @param options_TableCellSeparator - Defines how the table cell separator will be specified in the resulting string. Any symbol can
+     * @param options.TableCellSeparator - Defines how the table cell separator will be specified in the resulting string. Any symbol can
      *   be used. The default separator is "\t".
-     * @param options_TableRowSeparator - Defines how the table row separator will be specified in the resulting string. Any symbol can be
+     * @param options.TableRowSeparator - Defines how the table row separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r\n".
-     * @param options_ParaSeparator - Defines how the paragraph separator will be specified in the resulting string. Any symbol can be
+     * @param options.ParaSeparator - Defines how the paragraph separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r\n".
-     * @param options_TabSymbol - Defines how the tab will be specified in the resulting string (does not apply to numbering). Any
+     * @param options.TabSymbol - Defines how the tab will be specified in the resulting string (does not apply to numbering). Any
      *   symbol can be used. The default symbol is "\t".
-     * @default options_Numbering = true
-     * @default options_Math = true
-     * @default options_NewLineSeparator = '\r'
-     * @default options_TableCellSeparator = '\t'
-     * @default options_TableRowSeparator = '\r\n'
-     * @default options_ParaSeparator = '\r\n'
-     * @default options_TabSymbol = '\t'
+     * @default options.Numbering = true
+     * @default options.Math = true
+     * @default options.NewLineSeparator = '\r'
+     * @default options.TableCellSeparator = '\t'
+     * @default options.TableRowSeparator = '\r\n'
+     * @default options.ParaSeparator = '\r\n'
+     * @default options.TabSymbol = '\t'
      * @since 8.3.0
      *
      * @example
@@ -4827,7 +4871,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiBookmark/Methods/GetText/
      */
-    GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_NewLineSeparator?: string, options_TableCellSeparator?: string, options_TableRowSeparator?: string, options_ParaSeparator?: string, options_TabSymbol?: string): string;
+    GetText(options?: { Numbering?: boolean; Math?: boolean; NewLineSeparator?: string; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string }): string;
 
     /**
      * Moves a cursor to the current bookmark.
@@ -19435,25 +19479,25 @@ export namespace Word {
      * Returns the inner text of the current document content object.
      *
      * @param options - Options for formatting the returned text.
-     * @param options_Numbering - Defines if the resulting string will include numbering or not.
-     * @param options_Math - Defines if the resulting string will include mathematical expressions or not.
-     * @param options_TableCellSeparator - Defines how the table cell separator will be specified in the resulting string. Any symbol can
+     * @param options.Numbering - Defines if the resulting string will include numbering or not.
+     * @param options.Math - Defines if the resulting string will include mathematical expressions or not.
+     * @param options.TableCellSeparator - Defines how the table cell separator will be specified in the resulting string. Any symbol can
      *   be used. The default separator is "\t".
-     * @param options_TableRowSeparator - Defines how the table row separator will be specified in the resulting string. Any symbol can be
+     * @param options.TableRowSeparator - Defines how the table row separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r\n".
-     * @param options_ParaSeparator - Defines how the paragraph separator will be specified in the resulting string. Any symbol can be
+     * @param options.ParaSeparator - Defines how the paragraph separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r\n".
-     * @param options_TabSymbol - Defines how the tab will be specified in the resulting string. Any symbol can be used. The
+     * @param options.TabSymbol - Defines how the tab will be specified in the resulting string. Any symbol can be used. The
      *   default symbol is "\t".
-     * @param options_NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
+     * @param options.NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r".
-     * @default options_Numbering = true
-     * @default options_Math = true
-     * @default options_TableCellSeparator = '\t'
-     * @default options_TableRowSeparator = '\r\n'
-     * @default options_ParaSeparator = '\r\n'
-     * @default options_TabSymbol = '\t'
-     * @default options_NewLineSeparator = '\r'
+     * @default options.Numbering = true
+     * @default options.Math = true
+     * @default options.TableCellSeparator = '\t'
+     * @default options.TableRowSeparator = '\r\n'
+     * @default options.ParaSeparator = '\r\n'
+     * @default options.TabSymbol = '\t'
+     * @default options.NewLineSeparator = '\r'
      * @since 8.3.0
      *
      * @example
@@ -19477,7 +19521,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/GetText/
      */
-    GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_TableCellSeparator?: string, options_TableRowSeparator?: string, options_ParaSeparator?: string, options_TabSymbol?: string, options_NewLineSeparator?: string): string;
+    GetText(options?: { Numbering?: boolean; Math?: boolean; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string; NewLineSeparator?: string }): string;
 
     /**
      * Returns the watermark settings in the current document.
@@ -19612,12 +19656,12 @@ export namespace Word {
      * @param isInline - Inline insert or not (works only for the last and the first element and only if it's a
      *   paragraph).
      * @param pr - Insert options.
-     * @param pr_KeepTextOnly - Specifies that text and paragraph document properties are preserved for the inserted elements.
-     * @param pr_OverwriteTableCells - Specifies that if a single table is inserted into a table cell, it overwrites the content of the
+     * @param pr.KeepTextOnly - Specifies that text and paragraph document properties are preserved for the inserted elements.
+     * @param pr.OverwriteTableCells - Specifies that if a single table is inserted into a table cell, it overwrites the content of the
      *   existing cells, starting from the current one, instead of being inserted as a nested table.
      * @default isInline = false
-     * @default pr_KeepTextOnly = false
-     * @default pr_OverwriteTableCells = false
+     * @default pr.KeepTextOnly = false
+     * @default pr.OverwriteTableCells = false
      * @returns Success?
      *
      * @example
@@ -19635,7 +19679,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/InsertContent/
      */
-    InsertContent(content: (DocumentElement | ParagraphContent | ApiDrawing | string | number)[], isInline?: boolean, pr?: object, pr_KeepTextOnly?: boolean, pr_OverwriteTableCells?: boolean): boolean;
+    InsertContent(content: (DocumentElement | ParagraphContent | ApiDrawing | string | number)[], isInline?: boolean, pr?: { KeepTextOnly?: boolean; OverwriteTableCells?: boolean }): boolean;
 
     /**
      * Add paragraph to the document on the cursor position.
@@ -20421,10 +20465,10 @@ export namespace Word {
      * Finds and replaces the text.
      *
      * @param oProperties - The properties to find and replace.
-     * @param oProperties_searchString - Search string.
-     * @param oProperties_replaceString - Replacement string.
-     * @param oProperties_matchCase - Case sensitive or not.
-     * @default oProperties_matchCase = true
+     * @param oProperties.searchString - Search string.
+     * @param oProperties.replaceString - Replacement string.
+     * @param oProperties.matchCase - Case sensitive or not.
+     * @default oProperties.matchCase = true
      *
      * @example
      * ```js
@@ -20440,7 +20484,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/SearchAndReplace/
      */
-    SearchAndReplace(oProperties: object, oProperties_searchString: string, oProperties_replaceString: string, oProperties_matchCase?: string): boolean;
+    SearchAndReplace(oProperties: { searchString: string; replaceString: string; matchCase?: string }): boolean;
 
     /**
      * Selects the current sentence if it is possible.
@@ -21722,25 +21766,25 @@ export namespace Word {
      * Returns the inner text of the current document content object.
      *
      * @param options - Options for formatting the returned text.
-     * @param options_Numbering - Defines if the resulting string will include numbering or not.
-     * @param options_Math - Defines if the resulting string will include mathematical expressions or not.
-     * @param options_TableCellSeparator - Defines how the table cell separator will be specified in the resulting string. Any symbol can
+     * @param options.Numbering - Defines if the resulting string will include numbering or not.
+     * @param options.Math - Defines if the resulting string will include mathematical expressions or not.
+     * @param options.TableCellSeparator - Defines how the table cell separator will be specified in the resulting string. Any symbol can
      *   be used. The default separator is "\t".
-     * @param options_TableRowSeparator - Defines how the table row separator will be specified in the resulting string. Any symbol can be
+     * @param options.TableRowSeparator - Defines how the table row separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r\n".
-     * @param options_ParaSeparator - Defines how the paragraph separator will be specified in the resulting string. Any symbol can be
+     * @param options.ParaSeparator - Defines how the paragraph separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r\n".
-     * @param options_TabSymbol - Defines how the tab will be specified in the resulting string. Any symbol can be used. The
+     * @param options.TabSymbol - Defines how the tab will be specified in the resulting string. Any symbol can be used. The
      *   default symbol is "\t".
-     * @param options_NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
+     * @param options.NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r".
-     * @default options_Numbering = true
-     * @default options_Math = true
-     * @default options_TableCellSeparator = '\t'
-     * @default options_TableRowSeparator = '\r\n'
-     * @default options_ParaSeparator = '\r\n'
-     * @default options_TabSymbol = '\t'
-     * @default options_NewLineSeparator = '\r'
+     * @default options.Numbering = true
+     * @default options.Math = true
+     * @default options.TableCellSeparator = '\t'
+     * @default options.TableRowSeparator = '\r\n'
+     * @default options.ParaSeparator = '\r\n'
+     * @default options.TabSymbol = '\t'
+     * @default options.NewLineSeparator = '\r'
      * @since 8.3.0
      *
      * @example
@@ -21764,7 +21808,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/GetText/
      */
-    GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_TableCellSeparator?: string, options_TableRowSeparator?: string, options_ParaSeparator?: string, options_TabSymbol?: string, options_NewLineSeparator?: string): string;
+    GetText(options?: { Numbering?: boolean; Math?: boolean; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string; NewLineSeparator?: string }): string;
 
     /**
      * Check if the current document content is an endnote.
@@ -36542,16 +36586,16 @@ export namespace Word {
      * Returns the paragraph text.
      *
      * @param options - Options for formatting the returned text.
-     * @param options_Numbering - Defines if the resulting string will include numbering or not.
-     * @param options_Math - Defines if the resulting string will include mathematical expressions or not.
-     * @param options_NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any string can be
+     * @param options.Numbering - Defines if the resulting string will include numbering or not.
+     * @param options.Math - Defines if the resulting string will include mathematical expressions or not.
+     * @param options.NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any string can be
      *   used. The default separator is "\r".
-     * @param options_TabSymbol - Defines how the tab will be specified in the resulting string (does not apply to numbering). Any
+     * @param options.TabSymbol - Defines how the tab will be specified in the resulting string (does not apply to numbering). Any
      *   string can be used. The default symbol is "\t".
-     * @default options_Numbering = false
-     * @default options_Math = false
-     * @default options_NewLineSeparator = '\r'
-     * @default options_TabSymbol = '\t'
+     * @default options.Numbering = false
+     * @default options.Math = false
+     * @default options.NewLineSeparator = '\r'
+     * @default options.TabSymbol = '\t'
      *
      * @example
      * ```js
@@ -36570,7 +36614,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/GetText/
      */
-    GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_NewLineSeparator?: string, options_TabSymbol?: string): string;
+    GetText(options?: { Numbering?: boolean; Math?: boolean; NewLineSeparator?: string; TabSymbol?: string }): string;
 
     /**
      * Returns the text properties for a paragraph end mark.
@@ -41306,25 +41350,25 @@ export namespace Word {
      * Returns a text from the specified range.
      *
      * @param options - Options for formatting the returned text.
-     * @param options_Numbering - Defines if the resulting string will include numbering or not.
-     * @param options_Math - Defines if the resulting string will include mathematical expressions or not.
-     * @param options_NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
+     * @param options.Numbering - Defines if the resulting string will include numbering or not.
+     * @param options.Math - Defines if the resulting string will include mathematical expressions or not.
+     * @param options.NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r".
-     * @param options_TableCellSeparator - Defines how the table cell separator will be specified in the resulting string. Any symbol can
+     * @param options.TableCellSeparator - Defines how the table cell separator will be specified in the resulting string. Any symbol can
      *   be used. The default separator is "\t".
-     * @param options_TableRowSeparator - Defines how the table row separator will be specified in the resulting string. Any symbol can be
+     * @param options.TableRowSeparator - Defines how the table row separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r\n".
-     * @param options_ParaSeparator - Defines how the paragraph separator will be specified in the resulting string. Any symbol can be
+     * @param options.ParaSeparator - Defines how the paragraph separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r\n".
-     * @param options_TabSymbol - Defines how the tab will be specified in the resulting string (does not apply to numbering). Any
+     * @param options.TabSymbol - Defines how the tab will be specified in the resulting string (does not apply to numbering). Any
      *   symbol can be used. The default symbol is "\t".
-     * @default options_Numbering = true
-     * @default options_Math = true
-     * @default options_NewLineSeparator = '\r'
-     * @default options_TableCellSeparator = '\t'
-     * @default options_TableRowSeparator = '\r\n'
-     * @default options_ParaSeparator = '\r\n'
-     * @default options_TabSymbol = '\t'
+     * @default options.Numbering = true
+     * @default options.Math = true
+     * @default options.NewLineSeparator = '\r'
+     * @default options.TableCellSeparator = '\t'
+     * @default options.TableRowSeparator = '\r\n'
+     * @default options.ParaSeparator = '\r\n'
+     * @default options.TabSymbol = '\t'
      * @returns Returns an empty string if range is empty.
      *
      * @example
@@ -41345,7 +41389,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/GetText/
      */
-    GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_NewLineSeparator?: string, options_TableCellSeparator?: string, options_TableRowSeparator?: string, options_ParaSeparator?: string, options_TabSymbol?: string): string;
+    GetText(options?: { Numbering?: boolean; Math?: boolean; NewLineSeparator?: string; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string }): string;
 
     /**
      * Returns the merged text properties of the entire range.
@@ -44447,12 +44491,12 @@ export namespace Word {
      * Returns a text from the text run.
      *
      * @param options - Options for formatting the returned text.
-     * @param options_NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
+     * @param options.NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r".
-     * @param options_TabSymbol - Defines how the tab will be specified in the resulting string. Any symbol can be used. The
+     * @param options.TabSymbol - Defines how the tab will be specified in the resulting string. Any symbol can be used. The
      *   default symbol is "\t".
-     * @default options_NewLineSeparator = '\r'
-     * @default options_TabSymbol = '\t'
+     * @default options.NewLineSeparator = '\r'
+     * @default options.TabSymbol = '\t'
      *
      * @example
      * ```js
@@ -44473,7 +44517,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRun/Methods/GetText/
      */
-    GetText(options?: object, options_NewLineSeparator?: string, options_TabSymbol?: string): string;
+    GetText(options?: { NewLineSeparator?: string; TabSymbol?: string }): string;
 
     /**
      * Gets the text fill from the current text properties.
@@ -54077,20 +54121,20 @@ export namespace Word {
      * Returns the inner text of the current table cell.
      *
      * @param pr - Options for formatting the returned text.
-     * @param pr_Numbering - Defines if the resulting string will include numbering or not.
-     * @param pr_Math - Defines if the resulting string will include mathematical expressions or not.
-     * @param pr_TableCellSeparator - Defines how the table cell separator will be specified in the resulting string.
-     * @param pr_TableRowSeparator - Defines how the table row separator will be specified in the resulting string.
-     * @param pr_ParaSeparator - Defines how the paragraph separator will be specified in the resulting string.
-     * @param pr_TabSymbol - Defines how the tab will be specified in the resulting string.
-     * @param pr_NewLineSeparator - Defines how the line separator will be specified in the resulting string.
-     * @default pr_Numbering = true
-     * @default pr_Math = true
-     * @default pr_TableCellSeparator = '\t'
-     * @default pr_TableRowSeparator = '\r\n'
-     * @default pr_ParaSeparator = '\r\n'
-     * @default pr_TabSymbol = '\t'
-     * @default pr_NewLineSeparator = '\r'
+     * @param pr.Numbering - Defines if the resulting string will include numbering or not.
+     * @param pr.Math - Defines if the resulting string will include mathematical expressions or not.
+     * @param pr.TableCellSeparator - Defines how the table cell separator will be specified in the resulting string.
+     * @param pr.TableRowSeparator - Defines how the table row separator will be specified in the resulting string.
+     * @param pr.ParaSeparator - Defines how the paragraph separator will be specified in the resulting string.
+     * @param pr.TabSymbol - Defines how the tab will be specified in the resulting string.
+     * @param pr.NewLineSeparator - Defines how the line separator will be specified in the resulting string.
+     * @default pr.Numbering = true
+     * @default pr.Math = true
+     * @default pr.TableCellSeparator = '\t'
+     * @default pr.TableRowSeparator = '\r\n'
+     * @default pr.ParaSeparator = '\r\n'
+     * @default pr.TabSymbol = '\t'
+     * @default pr.NewLineSeparator = '\r'
      * @since 9.4.0
      *
      * @example
@@ -54112,7 +54156,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/GetText/
      */
-    GetText(pr?: object, pr_Numbering?: boolean, pr_Math?: boolean, pr_TableCellSeparator?: string, pr_TableRowSeparator?: string, pr_ParaSeparator?: string, pr_TabSymbol?: string, pr_NewLineSeparator?: string): string;
+    GetText(pr?: { Numbering?: boolean; Math?: boolean; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string; NewLineSeparator?: string }): string;
 
     /**
      * Removes a column containing the current cell.

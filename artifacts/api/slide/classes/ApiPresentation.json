@@ -803,35 +803,13 @@
         {
           "description": "The properties to find and replace.",
           "name": "properties",
-          "type": "object"
-        },
-        {
-          "description": "Search string.",
-          "name": "properties_searchString",
-          "type": "string"
-        },
-        {
-          "description": "Replacement string.",
-          "name": "properties_replaceString",
-          "type": "string"
-        },
-        {
-          "description": "Case sensitive or not.",
-          "name": "properties_matchCase",
-          "optional": true,
-          "type": "boolean"
-        },
-        {
-          "description": "Whether to search for whole words only.",
-          "name": "properties_wholeWords",
-          "optional": true,
-          "type": "boolean"
+          "type": "{ searchString: string; replaceString: string; matchCase?: boolean; wholeWords?: boolean }"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SearchAndReplace(properties: object, properties_searchString: string, properties_replaceString: string, properties_matchCase?: boolean, properties_wholeWords?: boolean): boolean",
+      "signature": "SearchAndReplace(properties: { searchString: string; replaceString: string; matchCase?: boolean; wholeWords?: boolean }): boolean",
       "since": "10.0.0"
     },
     "SelectCurrentSentence": {

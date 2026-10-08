@@ -12,8 +12,8 @@
       "version": "9.2.0"
     },
     "sdkjs": {
-      "commit": "70ae8877c730dd8bb953027417f4a20558b1bb45",
-      "describe": "v10.0.0.151-9-g70ae8877c7",
+      "commit": "cb27c725b7ba72960d5d6051d6db312e557bbf7f",
+      "describe": "v10.0.0.155",
       "dirty": false
     },
     "sdkjsExt": {
@@ -31,7 +31,7 @@
     {
       "repository": "sdkjs",
       "path": "word/apiBuilder.js",
-      "sha256": "2893b62582c156bb3146ceba9ec555128534ab7b02758a553fdfedd0b27f0a12"
+      "sha256": "8024f2114a25852011456b1f8817568dd4ca89574a6933eca74c0f2b4a6e75b1"
     },
     {
       "repository": "sdkjs",
@@ -96,12 +96,12 @@
     {
       "repository": "sdkjs",
       "path": "slide/apiBuilder.js",
-      "sha256": "5ed52a37d462918c1ce3967518143153f05ef011c2cc62ebfb5caa40e1f55b48"
+      "sha256": "2830cccd1e5c4a478ec2b66c916c61d1fa9a27a73d8054504feb22d2fde6d33d"
     },
     {
       "repository": "sdkjs",
       "path": "cell/apiBuilder.js",
-      "sha256": "dd18569bfae83c170cf5d80a3991d3fcbc16f9566f3b957a0fb4707bae799d57"
+      "sha256": "3b6d35e6499ff8df110204c1e21e587512fb0049813201136be2726564e9dc42"
     },
     {
       "repository": "sdkjs",
@@ -246,7 +246,7 @@
     {
       "repository": "sdkjs",
       "path": "pdf/apiBuilder.js",
-      "sha256": "2899a7f1019087b0730ad6086975adef4b070ff4816b719af9bec7c90e0164bf"
+      "sha256": "ee444d424983f712222906b86cdd7f0675fecf24fbfa699a527047b94aaaef93"
     },
     {
       "repository": "sdkjs",

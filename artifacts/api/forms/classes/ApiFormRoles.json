@@ -55,9 +55,9 @@
         }
       ],
       "returns": {
-        "type": "null | object"
+        "type": "null | { r: number; g: number; b: number }"
       },
-      "signature": "GetRoleColor(name: string): null | object",
+      "signature": "GetRoleColor(name: string): null | { r: number; g: number; b: number }",
       "since": "9.0.0"
     },
     "HaveRole": {

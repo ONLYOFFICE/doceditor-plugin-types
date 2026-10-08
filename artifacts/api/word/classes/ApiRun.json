@@ -428,25 +428,13 @@
           "description": "Options for formatting the returned text.",
           "name": "options",
           "optional": true,
-          "type": "object"
-        },
-        {
-          "description": "Defines how the line separator will be specified in the resulting string. Any symbol can be used. The default separator is \"\\r\".",
-          "name": "options_NewLineSeparator",
-          "optional": true,
-          "type": "string"
-        },
-        {
-          "description": "Defines how the tab will be specified in the resulting string. Any symbol can be used. The default symbol is \"\\t\".",
-          "name": "options_TabSymbol",
-          "optional": true,
-          "type": "string"
+          "type": "{ NewLineSeparator?: string; TabSymbol?: string }"
         }
       ],
       "returns": {
         "type": "string"
       },
-      "signature": "GetText(options?: object, options_NewLineSeparator?: string, options_TabSymbol?: string): string"
+      "signature": "GetText(options?: { NewLineSeparator?: string; TabSymbol?: string }): string"
     },
     "GetTextFill": {
       "description": "Gets the text fill from the current text properties.",

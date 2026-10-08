@@ -128,55 +128,13 @@
           "description": "Options for formatting the returned text.",
           "name": "pr",
           "optional": true,
-          "type": "object"
-        },
-        {
-          "description": "Defines if the resulting string will include numbering or not.",
-          "name": "pr_Numbering",
-          "optional": true,
-          "type": "boolean"
-        },
-        {
-          "description": "Defines if the resulting string will include mathematical expressions or not.",
-          "name": "pr_Math",
-          "optional": true,
-          "type": "boolean"
-        },
-        {
-          "description": "Defines how the table cell separator will be specified in the resulting string.",
-          "name": "pr_TableCellSeparator",
-          "optional": true,
-          "type": "string"
-        },
-        {
-          "description": "Defines how the table row separator will be specified in the resulting string.",
-          "name": "pr_TableRowSeparator",
-          "optional": true,
-          "type": "string"
-        },
-        {
-          "description": "Defines how the paragraph separator will be specified in the resulting string.",
-          "name": "pr_ParaSeparator",
-          "optional": true,
-          "type": "string"
-        },
-        {
-          "description": "Defines how the tab will be specified in the resulting string.",
-          "name": "pr_TabSymbol",
-          "optional": true,
-          "type": "string"
-        },
-        {
-          "description": "Defines how the line separator will be specified in the resulting string.",
-          "name": "pr_NewLineSeparator",
-          "optional": true,
-          "type": "string"
+          "type": "{ Numbering?: boolean; Math?: boolean; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string; NewLineSeparator?: string }"
         }
       ],
       "returns": {
         "type": "string"
       },
-      "signature": "GetText(pr?: object, pr_Numbering?: boolean, pr_Math?: boolean, pr_TableCellSeparator?: string, pr_TableRowSeparator?: string, pr_ParaSeparator?: string, pr_TabSymbol?: string, pr_NewLineSeparator?: string): string",
+      "signature": "GetText(pr?: { Numbering?: boolean; Math?: boolean; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string; NewLineSeparator?: string }): string",
       "since": "9.4.0"
     },
     "GetTextRange": {

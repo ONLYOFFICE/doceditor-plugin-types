@@ -193,49 +193,13 @@
           "description": "Options for formatting the returned text.",
           "name": "options",
           "optional": true,
-          "type": "object"
-        },
-        {
-          "description": "Defines if the resulting string will include mathematical expressions or not.",
-          "name": "options_Math",
-          "optional": true,
-          "type": "boolean"
-        },
-        {
-          "description": "Defines how the line separator will be specified in the resulting string. Any symbol can be used. The default separator is \"\\r\".",
-          "name": "options_NewLineSeparator",
-          "optional": true,
-          "type": "string"
-        },
-        {
-          "description": "Defines how the table cell separator will be specified in the resulting string. Any symbol can be used. The default separator is \"\\t\".",
-          "name": "options_TableCellSeparator",
-          "optional": true,
-          "type": "string"
-        },
-        {
-          "description": "Defines how the table row separator will be specified in the resulting string. Any symbol can be used. The default separator is \"\\r\\n\".",
-          "name": "options_TableRowSeparator",
-          "optional": true,
-          "type": "string"
-        },
-        {
-          "description": "Defines how the paragraph separator will be specified in the resulting string. Any symbol can be used. The default separator is \"\\r\\n\".",
-          "name": "options_ParaSeparator",
-          "optional": true,
-          "type": "string"
-        },
-        {
-          "description": "Defines how the tab will be specified in the resulting string (does not apply to numbering). Any symbol can be used. The default symbol is \"\\t\".",
-          "name": "options_TabSymbol",
-          "optional": true,
-          "type": "string"
+          "type": "{ Math?: boolean; NewLineSeparator?: string; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string }"
         }
       ],
       "returns": {
         "type": "string"
       },
-      "signature": "GetText(options?: object, options_Math?: boolean, options_NewLineSeparator?: string, options_TableCellSeparator?: string, options_TableRowSeparator?: string, options_ParaSeparator?: string, options_TabSymbol?: string): string",
+      "signature": "GetText(options?: { Math?: boolean; NewLineSeparator?: string; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string }): string",
       "since": "10.0.0"
     },
     "GetTextPr": {

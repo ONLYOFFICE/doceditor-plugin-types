@@ -480,7 +480,7 @@ few - `ApiWorksheetFunction` is the Excel formula library with 416 members - wou
 single 100k-token read and reintroduce exactly the problem the split exists to solve.
 
 Two ways to get it: fetch the git-tracked files from raw.githubusercontent.com, or regenerate
-locally with `npm run generate`. It is deliberately not in the npm package - at 4.92 MB it was 37%
+locally with `npm run generate`. It is deliberately not in the npm package - at 4.88 MB it was 37%
 of the install for something only an agent reads, and an agent reaching for it can fetch it over
 HTTP, while everyone installing the package for editor completion carried it for nothing.
 Written by `generate-types.js` (object model + events), `generate-plugin-methods.js` (executeMethod
@@ -519,7 +519,9 @@ onlyoffice-types/
 │   ├── overrides/          # Hand-maintained declarations for the handful of classes/typedefs
 │   │   │                   # generate-types.js can't resolve from a plain sdkjs checkout
 │   │   ├── cell.ts
-│   │   └── pdf.ts
+│   │   ├── pdf.ts
+│   │   ├── slide.ts
+│   │   └── word.ts
 │   ├── editors/            # /word, /cell, /slide, /pdf entry points (declare each editor's global Api)
 │   │   ├── word.d.ts
 │   │   ├── cell.d.ts
@@ -557,7 +559,7 @@ onlyoffice-types/
 │   ├── render-jsdoc.js            # doclet -> the JSDoc block that ships in the .d.ts
 │   ├── provenance.js              # git metadata, file hashes, the release-tag gate
 │   ├── ext-provenance.js          # what counts as commercial, and the @requires wording
-│   ├── overrides-tables.js        # PARAM_OPTIONAL_FROM - corrections to sdkjs's own JSDoc
+│   ├── overrides-tables.js        # PARAM_OPTIONAL_FROM, RETURN_TYPE_OVERRIDE - corrections to sdkjs's JSDoc
 │   ├── check-runtime-contract.js
 │   ├── check-plugin-events.js
 │   ├── check-arity.js

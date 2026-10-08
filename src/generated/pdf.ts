@@ -252,60 +252,6 @@ export namespace Pdf {
   /** Any valid element which can be added to the document structure. */
   export type DocumentElement = ApiParagraph | ApiTable | ApiBlockLvlSdt;
 
-  /** The document information. */
-  export interface DocumentInfo {
-    /** The application the document has been created with. */
-    Application: string;
-
-    /** The date and time when the file was created. */
-    CreatedRaw: Date | null;
-
-    /** The parsed date and time when the file was created. */
-    Created: string;
-
-    /** The date and time when the file was last modified. */
-    LastModifiedRaw: Date | null;
-
-    /** The parsed date and time when the file was last modified. */
-    LastModified: string;
-
-    /** The name of the user who has made the latest change to the document. */
-    LastModifiedBy: string;
-
-    /** The persons who have created the file. */
-    Authors: string[];
-
-    /** This property allows you to simplify your documents classification. */
-    Title: string;
-
-    /** This property allows you to simplify your documents classification. */
-    Tags: string;
-
-    /** This property allows you to simplify your documents classification. */
-    Subject: string;
-
-    /** This property allows you to simplify your documents classification. */
-    Comment: string;
-  }
-
-  /** The document statistics. */
-  export interface DocumentStatistics {
-    /** The number of pages. */
-    PageCount: number;
-
-    /** The number of words. */
-    WordsCount: number;
-
-    /** The number of paragraphs. */
-    ParagraphCount: number;
-
-    /** The number of symbols, spaces excluded. */
-    SymbolsCount: number;
-
-    /** The number of symbols, spaces included. */
-    SymbolsWSCount: number;
-  }
-
   /** Any valid drawing object. */
   export type Drawing = ApiShape | ApiImage | ApiTable | ApiChart;
 
@@ -736,6 +682,17 @@ export namespace Pdf {
 
   /** This type specifies the preset shape geometry that will be used for a shape. */
   export type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "textRect" | "trapezoid" | "triangle" | "upArrowCallout" | "upDownArrow" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
+
+  /**
+   * The operation used to merge shapes.
+   *
+   * - **"union"** - unites the shapes into one shape.
+   * - **"combine"** - unites the shapes and removes their overlapping areas.
+   * - **"fragment"** - splits the shapes into separate shapes along their intersecting lines.
+   * - **"intersect"** - keeps only the overlapping area of the shapes.
+   * - **"subtract"** - subtracts the other shapes from the first one.
+   */
+  export type ShapesMergeOperation = "union" | "combine" | "fragment" | "intersect" | "subtract";
 
   /** A shade type which can be added to the document element. */
   export type ShdType = "nil" | "clear";
@@ -3027,6 +2984,20 @@ export namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/LinesToPoints/
      */
     LinesToPoints(lines: number): number;
+
+    /**
+     * Merges an array of drawings into new shapes.
+     * The resulting shapes take the formatting of the first drawing in the array.
+     *
+     * @param drawings - An array of at least two drawings from the same page, slide or sheet. At least one of them must
+     *   be a shape.
+     * @param operation - The merge operation.
+     * @returns The resulting drawings, or null if the drawings cannot be merged.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/MergeShapes/
+     */
+    MergeShapes(drawings: Drawing[], operation: ShapesMergeOperation): Drawing[] | null;
 
     /**
      * Converts millimeters to English Metric Units (EMUs).
@@ -14102,30 +14073,30 @@ export namespace Pdf {
      * Returns the inner text of the current document content object.
      *
      * @param options - Options for formatting the returned text.
-     * @param options_Numbering - Defines if the resulting string will include numbering or not.
-     * @param options_Math - Defines if the resulting string will include mathematical expressions or not.
-     * @param options_TableCellSeparator - Defines how the table cell separator will be specified in the resulting string. Any symbol can
+     * @param options.Numbering - Defines if the resulting string will include numbering or not.
+     * @param options.Math - Defines if the resulting string will include mathematical expressions or not.
+     * @param options.TableCellSeparator - Defines how the table cell separator will be specified in the resulting string. Any symbol can
      *   be used. The default separator is "\t".
-     * @param options_TableRowSeparator - Defines how the table row separator will be specified in the resulting string. Any symbol can be
+     * @param options.TableRowSeparator - Defines how the table row separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r\n".
-     * @param options_ParaSeparator - Defines how the paragraph separator will be specified in the resulting string. Any symbol can be
+     * @param options.ParaSeparator - Defines how the paragraph separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r\n".
-     * @param options_TabSymbol - Defines how the tab will be specified in the resulting string. Any symbol can be used. The
+     * @param options.TabSymbol - Defines how the tab will be specified in the resulting string. Any symbol can be used. The
      *   default symbol is "\t".
-     * @param options_NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
+     * @param options.NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r".
-     * @default options_Numbering = true
-     * @default options_Math = true
-     * @default options_TableCellSeparator = '\t'
-     * @default options_TableRowSeparator = '\r\n'
-     * @default options_ParaSeparator = '\r\n'
-     * @default options_TabSymbol = '\t'
-     * @default options_NewLineSeparator = '\r'
+     * @default options.Numbering = true
+     * @default options.Math = true
+     * @default options.TableCellSeparator = '\t'
+     * @default options.TableRowSeparator = '\r\n'
+     * @default options.ParaSeparator = '\r\n'
+     * @default options.TabSymbol = '\t'
+     * @default options.NewLineSeparator = '\r'
      * @since 8.3.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/GetText/
      */
-    GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_TableCellSeparator?: string, options_TableRowSeparator?: string, options_ParaSeparator?: string, options_TabSymbol?: string, options_NewLineSeparator?: string): string;
+    GetText(options?: { Numbering?: boolean; Math?: boolean; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string; NewLineSeparator?: string }): string;
 
     /**
      * Returns an ApiTextRange object that represents the part of the text contained in the current
@@ -14580,25 +14551,25 @@ export namespace Pdf {
      * Returns the inner text of the current document content object.
      *
      * @param options - Options for formatting the returned text.
-     * @param options_Numbering - Defines if the resulting string will include numbering or not.
-     * @param options_Math - Defines if the resulting string will include mathematical expressions or not.
-     * @param options_TableCellSeparator - Defines how the table cell separator will be specified in the resulting string. Any symbol can
+     * @param options.Numbering - Defines if the resulting string will include numbering or not.
+     * @param options.Math - Defines if the resulting string will include mathematical expressions or not.
+     * @param options.TableCellSeparator - Defines how the table cell separator will be specified in the resulting string. Any symbol can
      *   be used. The default separator is "\t".
-     * @param options_TableRowSeparator - Defines how the table row separator will be specified in the resulting string. Any symbol can be
+     * @param options.TableRowSeparator - Defines how the table row separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r\n".
-     * @param options_ParaSeparator - Defines how the paragraph separator will be specified in the resulting string. Any symbol can be
+     * @param options.ParaSeparator - Defines how the paragraph separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r\n".
-     * @param options_TabSymbol - Defines how the tab will be specified in the resulting string. Any symbol can be used. The
+     * @param options.TabSymbol - Defines how the tab will be specified in the resulting string. Any symbol can be used. The
      *   default symbol is "\t".
-     * @param options_NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
+     * @param options.NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r".
-     * @default options_Numbering = true
-     * @default options_Math = true
-     * @default options_TableCellSeparator = '\t'
-     * @default options_TableRowSeparator = '\r\n'
-     * @default options_ParaSeparator = '\r\n'
-     * @default options_TabSymbol = '\t'
-     * @default options_NewLineSeparator = '\r'
+     * @default options.Numbering = true
+     * @default options.Math = true
+     * @default options.TableCellSeparator = '\t'
+     * @default options.TableRowSeparator = '\r\n'
+     * @default options.ParaSeparator = '\r\n'
+     * @default options.TabSymbol = '\t'
+     * @default options.NewLineSeparator = '\r'
      * @since 8.3.0
      *
      * @example
@@ -14626,7 +14597,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/GetText/
      */
-    GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_TableCellSeparator?: string, options_TableRowSeparator?: string, options_ParaSeparator?: string, options_TabSymbol?: string, options_NewLineSeparator?: string): string;
+    GetText(options?: { Numbering?: boolean; Math?: boolean; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string; NewLineSeparator?: string }): string;
 
     /**
      * Returns an ApiTextRange object that represents the part of the text contained in the current
@@ -22822,16 +22793,16 @@ export namespace Pdf {
      * Returns the paragraph text.
      *
      * @param options - Options for formatting the returned text.
-     * @param options_Numbering - Defines if the resulting string will include numbering or not.
-     * @param options_Math - Defines if the resulting string will include mathematical expressions or not.
-     * @param options_NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any string can be
+     * @param options.Numbering - Defines if the resulting string will include numbering or not.
+     * @param options.Math - Defines if the resulting string will include mathematical expressions or not.
+     * @param options.NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any string can be
      *   used. The default separator is "\r".
-     * @param options_TabSymbol - Defines how the tab will be specified in the resulting string (does not apply to numbering). Any
+     * @param options.TabSymbol - Defines how the tab will be specified in the resulting string (does not apply to numbering). Any
      *   string can be used. The default symbol is "\t".
-     * @default options_Numbering = false
-     * @default options_Math = false
-     * @default options_NewLineSeparator = '\r'
-     * @default options_TabSymbol = '\t'
+     * @default options.Numbering = false
+     * @default options.Math = false
+     * @default options.NewLineSeparator = '\r'
+     * @default options.TabSymbol = '\t'
      *
      * @example
      * ```js
@@ -22860,7 +22831,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiParagraph/Methods/GetText/
      */
-    GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_NewLineSeparator?: string, options_TabSymbol?: string): string;
+    GetText(options?: { Numbering?: boolean; Math?: boolean; NewLineSeparator?: string; TabSymbol?: string }): string;
 
     /**
      * Returns an ApiTextRange object that represents the part of the text contained in the current
@@ -34030,20 +34001,20 @@ export namespace Pdf {
      * Returns the inner text of the current table cell.
      *
      * @param pr - Options for formatting the returned text.
-     * @param pr_Numbering - Defines if the resulting string will include numbering or not.
-     * @param pr_Math - Defines if the resulting string will include mathematical expressions or not.
-     * @param pr_TableCellSeparator - Defines how the table cell separator will be specified in the resulting string.
-     * @param pr_TableRowSeparator - Defines how the table row separator will be specified in the resulting string.
-     * @param pr_ParaSeparator - Defines how the paragraph separator will be specified in the resulting string.
-     * @param pr_TabSymbol - Defines how the tab will be specified in the resulting string.
-     * @param pr_NewLineSeparator - Defines how the line separator will be specified in the resulting string.
-     * @default pr_Numbering = true
-     * @default pr_Math = true
-     * @default pr_TableCellSeparator = '\t'
-     * @default pr_TableRowSeparator = '\r\n'
-     * @default pr_ParaSeparator = '\r\n'
-     * @default pr_TabSymbol = '\t'
-     * @default pr_NewLineSeparator = '\r'
+     * @param pr.Numbering - Defines if the resulting string will include numbering or not.
+     * @param pr.Math - Defines if the resulting string will include mathematical expressions or not.
+     * @param pr.TableCellSeparator - Defines how the table cell separator will be specified in the resulting string.
+     * @param pr.TableRowSeparator - Defines how the table row separator will be specified in the resulting string.
+     * @param pr.ParaSeparator - Defines how the paragraph separator will be specified in the resulting string.
+     * @param pr.TabSymbol - Defines how the tab will be specified in the resulting string.
+     * @param pr.NewLineSeparator - Defines how the line separator will be specified in the resulting string.
+     * @default pr.Numbering = true
+     * @default pr.Math = true
+     * @default pr.TableCellSeparator = '\t'
+     * @default pr.TableRowSeparator = '\r\n'
+     * @default pr.ParaSeparator = '\r\n'
+     * @default pr.TabSymbol = '\t'
+     * @default pr.NewLineSeparator = '\r'
      * @since 9.4.0
      *
      * @example
@@ -34072,7 +34043,7 @@ export namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/Methods/GetText/
      */
-    GetText(pr?: object, pr_Numbering?: boolean, pr_Math?: boolean, pr_TableCellSeparator?: string, pr_TableRowSeparator?: string, pr_ParaSeparator?: string, pr_TabSymbol?: string, pr_NewLineSeparator?: string): string;
+    GetText(pr?: { Numbering?: boolean; Math?: boolean; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string; NewLineSeparator?: string }): string;
 
     /**
      * Selects the current table cell.
@@ -37704,28 +37675,28 @@ export namespace Pdf {
      * Returns the text content of the range. Paragraph breaks are represented as "\r".
      *
      * @param options - Options for formatting the returned text.
-     * @param options_Math - Defines if the resulting string will include mathematical expressions or not.
-     * @param options_NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
+     * @param options.Math - Defines if the resulting string will include mathematical expressions or not.
+     * @param options.NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r".
-     * @param options_TableCellSeparator - Defines how the table cell separator will be specified in the resulting string. Any symbol can
+     * @param options.TableCellSeparator - Defines how the table cell separator will be specified in the resulting string. Any symbol can
      *   be used. The default separator is "\t".
-     * @param options_TableRowSeparator - Defines how the table row separator will be specified in the resulting string. Any symbol can be
+     * @param options.TableRowSeparator - Defines how the table row separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r\n".
-     * @param options_ParaSeparator - Defines how the paragraph separator will be specified in the resulting string. Any symbol can be
+     * @param options.ParaSeparator - Defines how the paragraph separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r\n".
-     * @param options_TabSymbol - Defines how the tab will be specified in the resulting string (does not apply to numbering). Any
+     * @param options.TabSymbol - Defines how the tab will be specified in the resulting string (does not apply to numbering). Any
      *   symbol can be used. The default symbol is "\t".
-     * @default options_Math = true
-     * @default options_NewLineSeparator = '\r'
-     * @default options_TableCellSeparator = '\t'
-     * @default options_TableRowSeparator = '\r\n'
-     * @default options_ParaSeparator = '\r\n'
-     * @default options_TabSymbol = '\t'
+     * @default options.Math = true
+     * @default options.NewLineSeparator = '\r'
+     * @default options.TableCellSeparator = '\t'
+     * @default options.TableRowSeparator = '\r\n'
+     * @default options.ParaSeparator = '\r\n'
+     * @default options.TabSymbol = '\t'
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/GetText/
      */
-    GetText(options?: object, options_Math?: boolean, options_NewLineSeparator?: string, options_TableCellSeparator?: string, options_TableRowSeparator?: string, options_ParaSeparator?: string, options_TabSymbol?: string): string;
+    GetText(options?: { Math?: boolean; NewLineSeparator?: string; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string }): string;
 
     /**
      * Returns the merged text properties of the entire range.

@@ -208,12 +208,12 @@
       "Border": {
         "description": "The border color of the content control. Present only if the border color is set.",
         "optional": true,
-        "type": "object"
+        "type": "{ Color: { R: number; G: number; B: number; A: number } }"
       },
       "Color": {
         "description": "The tag color of the content control. Present only if the tag color is set.",
         "optional": true,
-        "type": "object"
+        "type": "{ R: number; G: number; B: number }"
       },
       "FormKey": {
         "description": "A unique form key. Present only if the content control is a form field.",
@@ -245,7 +245,7 @@
       "Shd": {
         "description": "The shading color of the content control. Present only if the shading color is set.",
         "optional": true,
-        "type": "object"
+        "type": "{ Color: { R: number; G: number; B: number; A: number } }"
       },
       "Tag": {
         "description": "A tag assigned to the content control. The same tag can be assigned to several content controls so that you can make reference to them in your code.",
@@ -323,80 +323,6 @@
   "DocumentElement": {
     "description": "Any valid element which can be added to the document structure.",
     "type": "ApiParagraph | ApiTable | ApiBlockLvlSdt"
-  },
-  "DocumentInfo": {
-    "description": "The document information.",
-    "properties": {
-      "Application": {
-        "description": "The application the document has been created with.",
-        "type": "string"
-      },
-      "Authors": {
-        "description": "The persons who have created the file.",
-        "type": "string[]"
-      },
-      "Comment": {
-        "description": "This property allows you to simplify your documents classification.",
-        "type": "string"
-      },
-      "Created": {
-        "description": "The parsed date and time when the file was created.",
-        "type": "string"
-      },
-      "CreatedRaw": {
-        "description": "The date and time when the file was created.",
-        "type": "Date | null"
-      },
-      "LastModified": {
-        "description": "The parsed date and time when the file was last modified.",
-        "type": "string"
-      },
-      "LastModifiedBy": {
-        "description": "The name of the user who has made the latest change to the document.",
-        "type": "string"
-      },
-      "LastModifiedRaw": {
-        "description": "The date and time when the file was last modified.",
-        "type": "Date | null"
-      },
-      "Subject": {
-        "description": "This property allows you to simplify your documents classification.",
-        "type": "string"
-      },
-      "Tags": {
-        "description": "This property allows you to simplify your documents classification.",
-        "type": "string"
-      },
-      "Title": {
-        "description": "This property allows you to simplify your documents classification.",
-        "type": "string"
-      }
-    }
-  },
-  "DocumentStatistics": {
-    "description": "The document statistics.",
-    "properties": {
-      "PageCount": {
-        "description": "The number of pages.",
-        "type": "number"
-      },
-      "ParagraphCount": {
-        "description": "The number of paragraphs.",
-        "type": "number"
-      },
-      "SymbolsCount": {
-        "description": "The number of symbols, spaces excluded.",
-        "type": "number"
-      },
-      "SymbolsWSCount": {
-        "description": "The number of symbols, spaces included.",
-        "type": "number"
-      },
-      "WordsCount": {
-        "description": "The number of words.",
-        "type": "number"
-      }
-    }
   },
   "Drawing": {
     "description": "Any valid drawing element.",
@@ -643,6 +569,10 @@
   "ShapeType": {
     "description": "This type specifies the preset shape geometry that will be used for a shape.",
     "type": "\"accentBorderCallout1\" | \"accentBorderCallout2\" | \"accentBorderCallout3\" | \"accentCallout1\" | \"accentCallout2\" | \"accentCallout3\" | \"actionButtonBackPrevious\" | \"actionButtonBeginning\" | \"actionButtonBlank\" | \"actionButtonDocument\" | \"actionButtonEnd\" | \"actionButtonForwardNext\" | \"actionButtonHelp\" | \"actionButtonHome\" | \"actionButtonInformation\" | \"actionButtonMovie\" | \"actionButtonReturn\" | \"actionButtonSound\" | \"arc\" | \"bentArrow\" | \"bentConnector2\" | \"bentConnector3\" | \"bentConnector4\" | \"bentConnector5\" | \"bentUpArrow\" | \"bevel\" | \"blockArc\" | \"borderCallout1\" | \"borderCallout2\" | \"borderCallout3\" | \"bracePair\" | \"bracketPair\" | \"callout1\" | \"callout2\" | \"callout3\" | \"can\" | \"chartPlus\" | \"chartStar\" | \"chartX\" | \"chevron\" | \"chord\" | \"circularArrow\" | \"cloud\" | \"cloudCallout\" | \"corner\" | \"cornerTabs\" | \"cube\" | \"curvedConnector2\" | \"curvedConnector3\" | \"curvedConnector4\" | \"curvedConnector5\" | \"curvedDownArrow\" | \"curvedLeftArrow\" | \"curvedRightArrow\" | \"curvedUpArrow\" | \"decagon\" | \"diagStripe\" | \"diamond\" | \"dodecagon\" | \"donut\" | \"doubleWave\" | \"downArrow\" | \"downArrowCallout\" | \"ellipse\" | \"ellipseRibbon\" | \"ellipseRibbon2\" | \"flowChartAlternateProcess\" | \"flowChartCollate\" | \"flowChartConnector\" | \"flowChartDecision\" | \"flowChartDelay\" | \"flowChartDisplay\" | \"flowChartDocument\" | \"flowChartExtract\" | \"flowChartInputOutput\" | \"flowChartInternalStorage\" | \"flowChartMagneticDisk\" | \"flowChartMagneticDrum\" | \"flowChartMagneticTape\" | \"flowChartManualInput\" | \"flowChartManualOperation\" | \"flowChartMerge\" | \"flowChartMultidocument\" | \"flowChartOfflineStorage\" | \"flowChartOffpageConnector\" | \"flowChartOnlineStorage\" | \"flowChartOr\" | \"flowChartPredefinedProcess\" | \"flowChartPreparation\" | \"flowChartProcess\" | \"flowChartPunchedCard\" | \"flowChartPunchedTape\" | \"flowChartSort\" | \"flowChartSummingJunction\" | \"flowChartTerminator\" | \"foldedCorner\" | \"frame\" | \"funnel\" | \"gear6\" | \"gear9\" | \"halfFrame\" | \"heart\" | \"heptagon\" | \"hexagon\" | \"homePlate\" | \"horizontalScroll\" | \"irregularSeal1\" | \"irregularSeal2\" | \"leftArrow\" | \"leftArrowCallout\" | \"leftBrace\" | \"leftBracket\" | \"leftCircularArrow\" | \"leftRightArrow\" | \"leftRightArrowCallout\" | \"leftRightCircularArrow\" | \"leftRightRibbon\" | \"leftRightUpArrow\" | \"leftUpArrow\" | \"lightningBolt\" | \"line\" | \"lineInv\" | \"mathDivide\" | \"mathEqual\" | \"mathMinus\" | \"mathMultiply\" | \"mathNotEqual\" | \"mathPlus\" | \"moon\" | \"nonIsoscelesTrapezoid\" | \"noSmoking\" | \"notchedRightArrow\" | \"octagon\" | \"parallelogram\" | \"pentagon\" | \"pie\" | \"pieWedge\" | \"plaque\" | \"plaqueTabs\" | \"plus\" | \"quadArrow\" | \"quadArrowCallout\" | \"rect\" | \"ribbon\" | \"ribbon2\" | \"rightArrow\" | \"rightArrowCallout\" | \"rightBrace\" | \"rightBracket\" | \"round1Rect\" | \"round2DiagRect\" | \"round2SameRect\" | \"roundRect\" | \"rtTriangle\" | \"smileyFace\" | \"snip1Rect\" | \"snip2DiagRect\" | \"snip2SameRect\" | \"snipRoundRect\" | \"squareTabs\" | \"star10\" | \"star12\" | \"star16\" | \"star24\" | \"star32\" | \"star4\" | \"star5\" | \"star6\" | \"star7\" | \"star8\" | \"straightConnector1\" | \"stripedRightArrow\" | \"sun\" | \"swooshArrow\" | \"teardrop\" | \"textRect\" | \"trapezoid\" | \"triangle\" | \"upArrowCallout\" | \"upDownArrow\" | \"upDownArrow\" | \"upDownArrowCallout\" | \"uturnArrow\" | \"verticalScroll\" | \"wave\" | \"wedgeEllipseCallout\" | \"wedgeRectCallout\" | \"wedgeRoundRectCallout\""
+  },
+  "ShapesMergeOperation": {
+    "description": "The operation used to merge shapes.\n\n- **\"union\"** - unites the shapes into one shape.\n- **\"combine\"** - unites the shapes and removes their overlapping areas.\n- **\"fragment\"** - splits the shapes into separate shapes along their intersecting lines.\n- **\"intersect\"** - keeps only the overlapping area of the shapes.\n- **\"subtract\"** - subtracts the other shapes from the first one.",
+    "type": "\"union\" | \"combine\" | \"fragment\" | \"intersect\" | \"subtract\""
   },
   "ShdType": {
     "description": "A shade type which can be added to the document element.",

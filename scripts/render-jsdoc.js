@@ -130,7 +130,10 @@ function renderJsDoc(doc, indent) {
   // of @param: someone reading a tooltip has to see the licence requirement before the signature
   // details, not after them. Only generate-plugin-methods.js sets this today (sdkjs-ext methods).
   if (doc.requires) tags.push(...taggedLines('@requires', doc.requires));
-  for (const param of doc.params || []) {
+  // `docParams` when the signature collapsed an options bag into a record (see optionsBagFields in
+  // generate-types.js): the record carries the field names and types, these lines carry their prose.
+  const docParams = doc.docParams || doc.params || [];
+  for (const param of docParams) {
     if (param.description) {
       tags.push(...taggedLines(`@param ${param.name} -`, htmlToMarkdown(cleanProse(param.description))));
     }
@@ -139,7 +142,7 @@ function renderJsDoc(doc, indent) {
   // `defaultvalue` - previously parsed and then dropped. Emitted per parameter (rather than as a
   // single bare `@default`) because a method can document several, and an editor renders the tag
   // verbatim, so naming the parameter is what makes it readable.
-  for (const param of doc.params || []) {
+  for (const param of docParams) {
     if (param.defaultValue !== undefined && param.defaultValue !== '') {
       tags.push(`@default ${param.name} = ${String(param.defaultValue).trim()}`);
     }

@@ -70,4 +70,56 @@ const PARAM_OPTIONAL_FROM = {
   'ApiWorksheet.Move': 1,  // after  [cell]
 };
 
-module.exports = { PARAM_OPTIONAL_FROM };
+// Returns that sdkjs's JSDoc gives as `{object}` over an implementation that returns something
+// specific. `object` is not a weak type in TypeScript, it is an empty one: no member of it can be
+// read, and a cast away from it is unchecked because there is nothing to check against. So these
+// are the entry points where the types stop helping entirely - `GetByInternalId`, reading document
+// properties, parsing JSON.
+//
+// A stopgap, and meant to be switched off one entry at a time. sdkjs is being fixed upstream; when
+// a fix lands, `generate-types.js` fails with the key to delete rather than quietly shadowing the
+// now-correct annotation. Deleting the entry is then the whole change.
+//
+// Keyed `editor.Class.method`, because the same name means different things per editor: `Api.
+// FromJSON` returns a builder object in Word and nothing in Slide, and `GetPosition` is a comment
+// anchor, a cell anchor, a Point or a font offset depending on where you ask. The key is also what
+// the failure prints, so it has to be unambiguous.
+//
+// Every entry is derived from the implementation, named in its comment. None is a guess: where the
+// implementation could not be read, the `object` was left alone (`ApiFormRoles#GetRoleColor` was in
+// this list until its JSDoc turned out to be complete and the gap to be in our own parser).
+const RETURN_TYPE_OVERRIDE = {
+  // `if (!obj) return null`, then an `instanceof` chain constructing nine classes. The tenth arm,
+  // `obj.IsForm() ? ToApiForm(obj) : ...`, reaches ToApiForm, which constructs ApiTextForm,
+  // ApiComboBoxForm, ApiCheckBoxForm, ApiPictureForm, ApiDateForm, ApiSignatureForm and
+  // ApiComplexForm - all ApiFormBase subclasses, named by their common base here.
+  'word.Api.GetByInternalId':
+    'ApiDocument | ApiDocumentContent | ApiBlockLvlSdt | ApiInlineLvlSdt | ApiParagraph'
+    + ' | ApiTable | ApiTableRow | ApiTableCell | ApiDrawing | ApiFormBase | null',
+
+  // `var oResult = null` ... `return oResult`, assigned from nine `new Api*` in the type switch.
+  // Note the absence of ApiFormBase and the presence of ApiHyperlink/ApiRun/ApiSection - the set
+  // is not the same as GetByInternalId's, which is why it is spelled out rather than shared.
+  'word.Api.FromJSON':
+    'ApiBlockLvlSdt | ApiDocumentContent | ApiDrawing | ApiHyperlink | ApiInlineLvlSdt'
+    + ' | ApiParagraph | ApiRun | ApiSection | ApiTable | null',
+
+  // Builds `oDocInfo` with eleven fixed keys; `DocumentInfo` is declared in src/overrides/.
+  'word.ApiDocument.GetDocumentInfo': 'DocumentInfo',
+  'cell.Api.GetDocumentInfo': 'DocumentInfo',
+  'slide.ApiPresentation.GetDocumentInfo': 'DocumentInfo',
+
+  // Five counters; `DocumentStatistics` is declared in src/overrides/.
+  'word.ApiDocument.GetStatistics': 'DocumentStatistics',
+
+  // Returns the result of the selection call. Its own neighbour settles it: ApiDocument#
+  // SelectCurrentSentence has the same body shape and is documented `{boolean}`, and slide's
+  // ApiPresentation#SelectCurrentWord is already `{boolean}` in sdkjs today.
+  'word.ApiDocument.SelectCurrentWord': 'boolean',
+
+  // `return { "x": private_MM2EMU(posMm.x), "y": private_MM2EMU(posMm.y) }`, and the prose already
+  // says "An object with the coordinates (in EMU)". `@typeofeditors ["CPE"]`, hence slide only.
+  'slide.ApiComment.GetPosition': '{ x: EMU; y: EMU }',
+};
+
+module.exports = { PARAM_OPTIONAL_FROM, RETURN_TYPE_OVERRIDE };

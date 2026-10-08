@@ -282,37 +282,13 @@
           "description": "Options for formatting the returned text.",
           "name": "options",
           "optional": true,
-          "type": "object"
-        },
-        {
-          "description": "Defines if the resulting string will include numbering or not.",
-          "name": "options_Numbering",
-          "optional": true,
-          "type": "boolean"
-        },
-        {
-          "description": "Defines if the resulting string will include mathematical expressions or not.",
-          "name": "options_Math",
-          "optional": true,
-          "type": "boolean"
-        },
-        {
-          "description": "Defines how the line separator will be specified in the resulting string. Any string can be used. The default separator is \"\\r\".",
-          "name": "options_NewLineSeparator",
-          "optional": true,
-          "type": "string"
-        },
-        {
-          "description": "Defines how the tab will be specified in the resulting string (does not apply to numbering). Any string can be used. The default symbol is \"\\t\".",
-          "name": "options_TabSymbol",
-          "optional": true,
-          "type": "string"
+          "type": "{ Numbering?: boolean; Math?: boolean; NewLineSeparator?: string; TabSymbol?: string }"
         }
       ],
       "returns": {
         "type": "string"
       },
-      "signature": "GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_NewLineSeparator?: string, options_TabSymbol?: string): string"
+      "signature": "GetText(options?: { Numbering?: boolean; Math?: boolean; NewLineSeparator?: string; TabSymbol?: string }): string"
     },
     "GetTextRange": {
       "description": "Returns an ApiTextRange object that represents the part of the text contained in the current paragraph.\nThe paragraph must be attached to the document before calling this method.",

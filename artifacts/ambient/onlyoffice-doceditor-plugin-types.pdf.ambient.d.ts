@@ -345,60 +345,6 @@ declare namespace Pdf {
   /** Any valid element which can be added to the document structure. */
   export type DocumentElement = ApiParagraph | ApiTable | ApiBlockLvlSdt;
 
-  /** The document information. */
-  export interface DocumentInfo {
-    /** The application the document has been created with. */
-    Application: string;
-
-    /** The date and time when the file was created. */
-    CreatedRaw: Date | null;
-
-    /** The parsed date and time when the file was created. */
-    Created: string;
-
-    /** The date and time when the file was last modified. */
-    LastModifiedRaw: Date | null;
-
-    /** The parsed date and time when the file was last modified. */
-    LastModified: string;
-
-    /** The name of the user who has made the latest change to the document. */
-    LastModifiedBy: string;
-
-    /** The persons who have created the file. */
-    Authors: string[];
-
-    /** This property allows you to simplify your documents classification. */
-    Title: string;
-
-    /** This property allows you to simplify your documents classification. */
-    Tags: string;
-
-    /** This property allows you to simplify your documents classification. */
-    Subject: string;
-
-    /** This property allows you to simplify your documents classification. */
-    Comment: string;
-  }
-
-  /** The document statistics. */
-  export interface DocumentStatistics {
-    /** The number of pages. */
-    PageCount: number;
-
-    /** The number of words. */
-    WordsCount: number;
-
-    /** The number of paragraphs. */
-    ParagraphCount: number;
-
-    /** The number of symbols, spaces excluded. */
-    SymbolsCount: number;
-
-    /** The number of symbols, spaces included. */
-    SymbolsWSCount: number;
-  }
-
   /** Any valid drawing object. */
   export type Drawing = ApiShape | ApiImage | ApiTable | ApiChart;
 
@@ -829,6 +775,17 @@ declare namespace Pdf {
 
   /** This type specifies the preset shape geometry that will be used for a shape. */
   export type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "textRect" | "trapezoid" | "triangle" | "upArrowCallout" | "upDownArrow" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
+
+  /**
+   * The operation used to merge shapes.
+   *
+   * - **"union"** - unites the shapes into one shape.
+   * - **"combine"** - unites the shapes and removes their overlapping areas.
+   * - **"fragment"** - splits the shapes into separate shapes along their intersecting lines.
+   * - **"intersect"** - keeps only the overlapping area of the shapes.
+   * - **"subtract"** - subtracts the other shapes from the first one.
+   */
+  export type ShapesMergeOperation = "union" | "combine" | "fragment" | "intersect" | "subtract";
 
   /** A shade type which can be added to the document element. */
   export type ShdType = "nil" | "clear";
@@ -3120,6 +3077,20 @@ declare namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/LinesToPoints/
      */
     LinesToPoints(lines: number): number;
+
+    /**
+     * Merges an array of drawings into new shapes.
+     * The resulting shapes take the formatting of the first drawing in the array.
+     *
+     * @param drawings - An array of at least two drawings from the same page, slide or sheet. At least one of them must
+     *   be a shape.
+     * @param operation - The merge operation.
+     * @returns The resulting drawings, or null if the drawings cannot be merged.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/MergeShapes/
+     */
+    MergeShapes(drawings: Drawing[], operation: ShapesMergeOperation): Drawing[] | null;
 
     /**
      * Converts millimeters to English Metric Units (EMUs).
@@ -14195,30 +14166,30 @@ declare namespace Pdf {
      * Returns the inner text of the current document content object.
      *
      * @param options - Options for formatting the returned text.
-     * @param options_Numbering - Defines if the resulting string will include numbering or not.
-     * @param options_Math - Defines if the resulting string will include mathematical expressions or not.
-     * @param options_TableCellSeparator - Defines how the table cell separator will be specified in the resulting string. Any symbol can
+     * @param options.Numbering - Defines if the resulting string will include numbering or not.
+     * @param options.Math - Defines if the resulting string will include mathematical expressions or not.
+     * @param options.TableCellSeparator - Defines how the table cell separator will be specified in the resulting string. Any symbol can
      *   be used. The default separator is "\t".
-     * @param options_TableRowSeparator - Defines how the table row separator will be specified in the resulting string. Any symbol can be
+     * @param options.TableRowSeparator - Defines how the table row separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r\n".
-     * @param options_ParaSeparator - Defines how the paragraph separator will be specified in the resulting string. Any symbol can be
+     * @param options.ParaSeparator - Defines how the paragraph separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r\n".
-     * @param options_TabSymbol - Defines how the tab will be specified in the resulting string. Any symbol can be used. The
+     * @param options.TabSymbol - Defines how the tab will be specified in the resulting string. Any symbol can be used. The
      *   default symbol is "\t".
-     * @param options_NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
+     * @param options.NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r".
-     * @default options_Numbering = true
-     * @default options_Math = true
-     * @default options_TableCellSeparator = '\t'
-     * @default options_TableRowSeparator = '\r\n'
-     * @default options_ParaSeparator = '\r\n'
-     * @default options_TabSymbol = '\t'
-     * @default options_NewLineSeparator = '\r'
+     * @default options.Numbering = true
+     * @default options.Math = true
+     * @default options.TableCellSeparator = '\t'
+     * @default options.TableRowSeparator = '\r\n'
+     * @default options.ParaSeparator = '\r\n'
+     * @default options.TabSymbol = '\t'
+     * @default options.NewLineSeparator = '\r'
      * @since 8.3.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/GetText/
      */
-    GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_TableCellSeparator?: string, options_TableRowSeparator?: string, options_ParaSeparator?: string, options_TabSymbol?: string, options_NewLineSeparator?: string): string;
+    GetText(options?: { Numbering?: boolean; Math?: boolean; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string; NewLineSeparator?: string }): string;
 
     /**
      * Returns an ApiTextRange object that represents the part of the text contained in the current
@@ -14673,25 +14644,25 @@ declare namespace Pdf {
      * Returns the inner text of the current document content object.
      *
      * @param options - Options for formatting the returned text.
-     * @param options_Numbering - Defines if the resulting string will include numbering or not.
-     * @param options_Math - Defines if the resulting string will include mathematical expressions or not.
-     * @param options_TableCellSeparator - Defines how the table cell separator will be specified in the resulting string. Any symbol can
+     * @param options.Numbering - Defines if the resulting string will include numbering or not.
+     * @param options.Math - Defines if the resulting string will include mathematical expressions or not.
+     * @param options.TableCellSeparator - Defines how the table cell separator will be specified in the resulting string. Any symbol can
      *   be used. The default separator is "\t".
-     * @param options_TableRowSeparator - Defines how the table row separator will be specified in the resulting string. Any symbol can be
+     * @param options.TableRowSeparator - Defines how the table row separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r\n".
-     * @param options_ParaSeparator - Defines how the paragraph separator will be specified in the resulting string. Any symbol can be
+     * @param options.ParaSeparator - Defines how the paragraph separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r\n".
-     * @param options_TabSymbol - Defines how the tab will be specified in the resulting string. Any symbol can be used. The
+     * @param options.TabSymbol - Defines how the tab will be specified in the resulting string. Any symbol can be used. The
      *   default symbol is "\t".
-     * @param options_NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
+     * @param options.NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r".
-     * @default options_Numbering = true
-     * @default options_Math = true
-     * @default options_TableCellSeparator = '\t'
-     * @default options_TableRowSeparator = '\r\n'
-     * @default options_ParaSeparator = '\r\n'
-     * @default options_TabSymbol = '\t'
-     * @default options_NewLineSeparator = '\r'
+     * @default options.Numbering = true
+     * @default options.Math = true
+     * @default options.TableCellSeparator = '\t'
+     * @default options.TableRowSeparator = '\r\n'
+     * @default options.ParaSeparator = '\r\n'
+     * @default options.TabSymbol = '\t'
+     * @default options.NewLineSeparator = '\r'
      * @since 8.3.0
      *
      * @example
@@ -14719,7 +14690,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/GetText/
      */
-    GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_TableCellSeparator?: string, options_TableRowSeparator?: string, options_ParaSeparator?: string, options_TabSymbol?: string, options_NewLineSeparator?: string): string;
+    GetText(options?: { Numbering?: boolean; Math?: boolean; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string; NewLineSeparator?: string }): string;
 
     /**
      * Returns an ApiTextRange object that represents the part of the text contained in the current
@@ -22915,16 +22886,16 @@ declare namespace Pdf {
      * Returns the paragraph text.
      *
      * @param options - Options for formatting the returned text.
-     * @param options_Numbering - Defines if the resulting string will include numbering or not.
-     * @param options_Math - Defines if the resulting string will include mathematical expressions or not.
-     * @param options_NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any string can be
+     * @param options.Numbering - Defines if the resulting string will include numbering or not.
+     * @param options.Math - Defines if the resulting string will include mathematical expressions or not.
+     * @param options.NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any string can be
      *   used. The default separator is "\r".
-     * @param options_TabSymbol - Defines how the tab will be specified in the resulting string (does not apply to numbering). Any
+     * @param options.TabSymbol - Defines how the tab will be specified in the resulting string (does not apply to numbering). Any
      *   string can be used. The default symbol is "\t".
-     * @default options_Numbering = false
-     * @default options_Math = false
-     * @default options_NewLineSeparator = '\r'
-     * @default options_TabSymbol = '\t'
+     * @default options.Numbering = false
+     * @default options.Math = false
+     * @default options.NewLineSeparator = '\r'
+     * @default options.TabSymbol = '\t'
      *
      * @example
      * ```js
@@ -22953,7 +22924,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiParagraph/Methods/GetText/
      */
-    GetText(options?: object, options_Numbering?: boolean, options_Math?: boolean, options_NewLineSeparator?: string, options_TabSymbol?: string): string;
+    GetText(options?: { Numbering?: boolean; Math?: boolean; NewLineSeparator?: string; TabSymbol?: string }): string;
 
     /**
      * Returns an ApiTextRange object that represents the part of the text contained in the current
@@ -34123,20 +34094,20 @@ declare namespace Pdf {
      * Returns the inner text of the current table cell.
      *
      * @param pr - Options for formatting the returned text.
-     * @param pr_Numbering - Defines if the resulting string will include numbering or not.
-     * @param pr_Math - Defines if the resulting string will include mathematical expressions or not.
-     * @param pr_TableCellSeparator - Defines how the table cell separator will be specified in the resulting string.
-     * @param pr_TableRowSeparator - Defines how the table row separator will be specified in the resulting string.
-     * @param pr_ParaSeparator - Defines how the paragraph separator will be specified in the resulting string.
-     * @param pr_TabSymbol - Defines how the tab will be specified in the resulting string.
-     * @param pr_NewLineSeparator - Defines how the line separator will be specified in the resulting string.
-     * @default pr_Numbering = true
-     * @default pr_Math = true
-     * @default pr_TableCellSeparator = '\t'
-     * @default pr_TableRowSeparator = '\r\n'
-     * @default pr_ParaSeparator = '\r\n'
-     * @default pr_TabSymbol = '\t'
-     * @default pr_NewLineSeparator = '\r'
+     * @param pr.Numbering - Defines if the resulting string will include numbering or not.
+     * @param pr.Math - Defines if the resulting string will include mathematical expressions or not.
+     * @param pr.TableCellSeparator - Defines how the table cell separator will be specified in the resulting string.
+     * @param pr.TableRowSeparator - Defines how the table row separator will be specified in the resulting string.
+     * @param pr.ParaSeparator - Defines how the paragraph separator will be specified in the resulting string.
+     * @param pr.TabSymbol - Defines how the tab will be specified in the resulting string.
+     * @param pr.NewLineSeparator - Defines how the line separator will be specified in the resulting string.
+     * @default pr.Numbering = true
+     * @default pr.Math = true
+     * @default pr.TableCellSeparator = '\t'
+     * @default pr.TableRowSeparator = '\r\n'
+     * @default pr.ParaSeparator = '\r\n'
+     * @default pr.TabSymbol = '\t'
+     * @default pr.NewLineSeparator = '\r'
      * @since 9.4.0
      *
      * @example
@@ -34165,7 +34136,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/Methods/GetText/
      */
-    GetText(pr?: object, pr_Numbering?: boolean, pr_Math?: boolean, pr_TableCellSeparator?: string, pr_TableRowSeparator?: string, pr_ParaSeparator?: string, pr_TabSymbol?: string, pr_NewLineSeparator?: string): string;
+    GetText(pr?: { Numbering?: boolean; Math?: boolean; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string; NewLineSeparator?: string }): string;
 
     /**
      * Selects the current table cell.
@@ -37797,28 +37768,28 @@ declare namespace Pdf {
      * Returns the text content of the range. Paragraph breaks are represented as "\r".
      *
      * @param options - Options for formatting the returned text.
-     * @param options_Math - Defines if the resulting string will include mathematical expressions or not.
-     * @param options_NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
+     * @param options.Math - Defines if the resulting string will include mathematical expressions or not.
+     * @param options.NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r".
-     * @param options_TableCellSeparator - Defines how the table cell separator will be specified in the resulting string. Any symbol can
+     * @param options.TableCellSeparator - Defines how the table cell separator will be specified in the resulting string. Any symbol can
      *   be used. The default separator is "\t".
-     * @param options_TableRowSeparator - Defines how the table row separator will be specified in the resulting string. Any symbol can be
+     * @param options.TableRowSeparator - Defines how the table row separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r\n".
-     * @param options_ParaSeparator - Defines how the paragraph separator will be specified in the resulting string. Any symbol can be
+     * @param options.ParaSeparator - Defines how the paragraph separator will be specified in the resulting string. Any symbol can be
      *   used. The default separator is "\r\n".
-     * @param options_TabSymbol - Defines how the tab will be specified in the resulting string (does not apply to numbering). Any
+     * @param options.TabSymbol - Defines how the tab will be specified in the resulting string (does not apply to numbering). Any
      *   symbol can be used. The default symbol is "\t".
-     * @default options_Math = true
-     * @default options_NewLineSeparator = '\r'
-     * @default options_TableCellSeparator = '\t'
-     * @default options_TableRowSeparator = '\r\n'
-     * @default options_ParaSeparator = '\r\n'
-     * @default options_TabSymbol = '\t'
+     * @default options.Math = true
+     * @default options.NewLineSeparator = '\r'
+     * @default options.TableCellSeparator = '\t'
+     * @default options.TableRowSeparator = '\r\n'
+     * @default options.ParaSeparator = '\r\n'
+     * @default options.TabSymbol = '\t'
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/GetText/
      */
-    GetText(options?: object, options_Math?: boolean, options_NewLineSeparator?: string, options_TableCellSeparator?: string, options_TableRowSeparator?: string, options_ParaSeparator?: string, options_TabSymbol?: string): string;
+    GetText(options?: { Math?: boolean; NewLineSeparator?: string; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string }): string;
 
     /**
      * Returns the merged text properties of the entire range.
@@ -40456,6 +40427,83 @@ interface WindowHeaderFrameOptions {
     isTitle?: boolean;
 }
 
+// ---- src/plugin/undocumented.d.ts ----
+// Plugin methods that sdkjs implements and marks `@undocumented`.
+//
+// They are real `pluginMethod_*` entries in `sdkjs/common/apiBase_plugins.js`, callable through
+// both channels, and plugins in this repository's own ecosystem call them - but they carry
+// `@undocumented`, so ONLYOFFICE excludes them from api.onlyoffice.com and the generator excludes
+// them too (`generate-plugin-methods.js`: `if (item.undocumented) continue;`). That exclusion is
+// the right default - the published surface is what the package mirrors - and these four are the
+// deliberate exceptions, declared by hand because real plugins depend on them.
+//
+// Nothing here is covered by ONLYOFFICE's compatibility promise. A method can change shape or
+// disappear in any release without that counting as a breaking change, and there is no
+// documentation page to check a signature against: what each one accepts was read off the sdkjs
+// implementation and off the calls real plugins make.
+//
+// One map, used by both channels. `Asc.plugin.executeMethod("ResizeWindow", [...])` and
+// `Editor.ResizeWindow(...)` reach the same `pluginMethod_ResizeWindow` - `window.Editor` is a
+// Proxy whose `get` forwards every name to `executeMethod` - so declaring them separately meant
+// the two could drift, and they had: all three of the methods that existed here before were typed
+// on `executeMethod` and missing from `Editor`, which is the form the docs tell new code to prefer.
+
+/** Argument tuples, by method name. */
+interface UndocumentedMethodArgs {
+    /** Closes a plugin modal window. */
+    CloseWindow: [windowId: number];
+
+    /** Shows or hides one of the plugin's own buttons. */
+    ShowButton: [buttonId: string, visible: boolean, align?: string];
+
+    /**
+     * Resizes the plugin modal window.
+     *
+     * sdkjs's own JSDoc for `pluginMethod_ResizeWindow` types size/minSize/maxSize as plain
+     * `number`, but the web runtime (`onPluginWindowResize` in web-apps' Plugins.js) reads
+     * `size[0]`/`size[1]` and `minSize.length`/`maxSize[0]` - all three are `[width, height]`
+     * pairs on the wire, which is also how every real caller (e.g. the antidote and mendeley
+     * plugins) passes them. minSize/maxSize are omitted when only resizing, and the callback
+     * fires with `"resize_result"` once the window has been resized.
+     */
+    ResizeWindow: [
+        frameId: string,
+        size: [width: number, height: number],
+        minSize?: [width: number, height: number],
+        maxSize?: [width: number, height: number],
+    ];
+
+    /**
+     * Acknowledges an `onDockedChanged` window event.
+     *
+     * Not a utility to call on its own - it is the second half of a handshake. When the window's
+     * docked state changes, the editor parks a callback under
+     * `dockCallbacks[pluginGuid + "_" + windowId]` and sends the plugin an `onWindowEvent` with
+     * `eventName: "onDockedChanged"`. Calling this runs that callback and deletes it, so the
+     * editor can finish what it was waiting on. Calling it with no pending callback does nothing.
+     */
+    OnWindowDockChangedCallback: [windowID: string];
+}
+
+/**
+ * What the callback receives, by method name.
+ *
+ * Only `ResizeWindow` carries a value: it is the one of the four that calls
+ * `setPluginMethodReturnAsync()` and later answers `onPluginMethodReturn("resize_result")`. The
+ * others return synchronously, so their callback fires with nothing - which is still worth
+ * declaring, because the Promise form (`await Editor.CloseWindow(1)`) resolves at that moment.
+ */
+interface UndocumentedMethodReturnMap {
+    CloseWindow: void;
+    ShowButton: void;
+    ResizeWindow: "resize_result";
+    OnWindowDockChangedCallback: void;
+}
+
+type UndocumentedMethodName = keyof UndocumentedMethodArgs;
+
+type UndocumentedMethodReturn<T extends UndocumentedMethodName> = UndocumentedMethodReturnMap[T];
+
 // ---- src/plugin/editor.d.ts ----
 // The global `Editor` object: `Editor.GetSelectedText()` where `Asc.plugin.executeMethod` was.
 //
@@ -40523,7 +40571,16 @@ interface EditorRunMacro {
 }
 
 /** The global `Editor` of one editor: its `executeMethod` names, plus `RunMacro`. */
-type EditorGlobal<ArgsMap, ReturnMap> = EditorMethods<ArgsMap, ReturnMap> & {
+/**
+ * The `@undocumented` methods, as callable properties like every other one.
+ *
+ * They are not editor-specific: `pluginMethod_*` entries in `common/apiBase_plugins.js` are shared
+ * by all five editors, so this part of `Editor` does not vary with the method maps. They are also
+ * outside ONLYOFFICE's published surface and its compatibility promise - see `./undocumented`.
+ */
+type EditorUndocumentedMethods = EditorMethods<UndocumentedMethodArgs, UndocumentedMethodReturnMap>;
+
+type EditorGlobal<ArgsMap, ReturnMap> = EditorMethods<ArgsMap, ReturnMap> & EditorUndocumentedMethods & {
     RunMacro: EditorRunMacro;
 };
 
@@ -40714,18 +40771,18 @@ interface AscPlugin {
     event_onChangeRestrictions?: PluginEventHandler<"onChangeRestrictions">;
     onDestroy?: () => void;
     onEvent: (eventName: string, payload?: unknown) => void;
-    executeMethod: ((methodName: 'CloseWindow', args?: [windowId: number]) => void) &
-        ((methodName: 'ShowButton', args?: [buttonId: string, visible: boolean, align?: string]) => void) &
-        /**
-         * Like CloseWindow/ShowButton, undocumented on api.onlyoffice.com but real and callable.
-         * sdkjs's own JSDoc for `pluginMethod_ResizeWindow` types size/minSize/maxSize as plain
-         * `number`, but the web runtime (`onPluginWindowResize` in web-apps' Plugins.js) reads
-         * `size[0]`/`size[1]` and `minSize.length`/`maxSize[0]` - all three are `[width, height]`
-         * pairs on the wire, which is also how every real caller (e.g. the antidote and mendeley
-         * plugins) passes them. minSize/maxSize are omitted when only resizing, and the callback
-         * fires with `"resize_result"` once the window has been resized.
-         */
-        ((methodName: 'ResizeWindow', args?: [frameId: string, size: [width: number, height: number], minSize?: [width: number, height: number], maxSize?: [width: number, height: number]], callback?: (result: 'resize_result') => void) => void) &
+    /**
+     * The first alternative covers the `@undocumented` methods - real and callable, outside
+     * ONLYOFFICE's published surface and its compatibility promise. See `./undocumented` for what
+     * each one does and why it is declared by hand; the same map types them on the global
+     * `Editor`, so the two channels cannot drift apart. The rest is one alternative per editor.
+     *
+     * The whole chain has to start on this line: the ambient-bundle builder recognizes an
+     * overload chain by `name: (signature) &` and prunes the four foreign editors out of it
+     * (`pruneEditorOverloads`), and it stops recognizing the chain if the first signature is
+     * moved onto a line of its own.
+     */
+    executeMethod: (<T extends UndocumentedMethodName>(methodName: T, args?: UndocumentedMethodArgs[T], callback?: (result: UndocumentedMethodReturn<T>) => void) => void) &
         (<T extends PdfMethodName>(methodName: T, args?: PdfMethodArgs[T], callback?: (result: PdfMethodReturn<T>) => void) => void);
     executeCommand: ExecuteCommandCallback;
     info: PluginInfo;

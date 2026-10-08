@@ -5,27 +5,11 @@
     {
       "description": "The properties to find and replace.",
       "name": "oProperties",
-      "type": "object"
-    },
-    {
-      "description": "Search string.",
-      "name": "oProperties_searchString",
-      "type": "string"
-    },
-    {
-      "description": "Replacement string.",
-      "name": "oProperties_replaceString",
-      "type": "string"
-    },
-    {
-      "description": "Case sensitive or not.",
-      "name": "oProperties_matchCase",
-      "optional": true,
-      "type": "string"
+      "type": "{ searchString: string; replaceString: string; matchCase?: string }"
     }
   ],
   "returns": {
     "type": "boolean"
   },
-  "signature": "SearchAndReplace(oProperties: object, oProperties_searchString: string, oProperties_replaceString: string, oProperties_matchCase?: string): boolean"
+  "signature": "SearchAndReplace(oProperties: { searchString: string; replaceString: string; matchCase?: string }): boolean"
 }

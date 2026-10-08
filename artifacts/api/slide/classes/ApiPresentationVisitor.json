@@ -21,38 +21,14 @@
           "description": "Traversal options. Passing true is the same as {selection: true}.",
           "name": "options",
           "optional": true,
-          "type": "object | boolean"
-        },
-        {
-          "description": "Traverse only the selected drawings or the selected text instead of the whole object.",
-          "name": "options_selection",
-          "optional": true,
-          "type": "boolean"
-        },
-        {
-          "description": "Also traverse the speaker notes of the visited slides.",
-          "name": "options_notes",
-          "optional": true,
-          "type": "boolean"
-        },
-        {
-          "description": "Also traverse the slide masters (only when the visitor was created from the presentation).",
-          "name": "options_masters",
-          "optional": true,
-          "type": "boolean"
-        },
-        {
-          "description": "Also traverse the slide layouts (only when the visitor was created from the presentation or a master).",
-          "name": "options_layouts",
-          "optional": true,
-          "type": "boolean"
+          "type": "{ selection?: boolean; notes?: boolean; masters?: boolean; layouts?: boolean } | boolean"
         }
       ],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
       "returns": {
         "type": "boolean"
       },
-      "signature": "Traverse(options?: object | boolean, options_selection?: boolean, options_notes?: boolean, options_masters?: boolean, options_layouts?: boolean): boolean",
+      "signature": "Traverse(options?: { selection?: boolean; notes?: boolean; masters?: boolean; layouts?: boolean } | boolean): boolean",
       "since": "10.0.0"
     }
   }

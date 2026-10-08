@@ -1273,6 +1273,28 @@
       },
       "signature": "LinesToPoints(lines: number): number"
     },
+    "MergeShapes": {
+      "description": "Merges an array of drawings into new shapes.\nThe resulting shapes take the formatting of the first drawing in the array.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/MergeShapes/",
+      "params": [
+        {
+          "description": "An array of at least two drawings from the same page, slide or sheet. At least one of them must be a shape.",
+          "name": "drawings",
+          "type": "Drawing[]"
+        },
+        {
+          "description": "The merge operation.",
+          "name": "operation",
+          "type": "ShapesMergeOperation"
+        }
+      ],
+      "returns": {
+        "description": "The resulting drawings, or null if the drawings cannot be merged.",
+        "type": "Drawing[] | null"
+      },
+      "signature": "MergeShapes(drawings: Drawing[], operation: ShapesMergeOperation): Drawing[] | null",
+      "since": "10.0.0"
+    },
     "MillimetersToEmus": {
       "description": "Converts millimeters to English Metric Units (EMUs).\n\nThe result is an integer value.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/MillimetersToEmus/",

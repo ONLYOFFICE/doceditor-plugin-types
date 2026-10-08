@@ -92,7 +92,7 @@ three channels, and confusing them is the most common source of broken plugin co
   in the JSDoc of the corresponding member in the `.d.ts`, and every member that has one also has a
   `docsUrl`; carrying them in both places duplicated 4.5 MB of identical text.
 
-  It lives in git, **not in the npm package** — at 4.92 MB it was 37% of an install that most
+  It lives in git, **not in the npm package** — at 4.88 MB it was 37% of an install that most
   consumers make for editor completion alone. If you have no network, fall back to the `.d.ts`: the
   same facts are in each member's JSDoc (`@since`, `@see`, `@requires` for paid members), and
   `<Editor>PaidMethodName` types the paid `executeMethod` names.

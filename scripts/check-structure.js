@@ -209,7 +209,12 @@ function checkNumbers() {
 
 function main() {
   const entries = entriesIn(structureBlock());
-  const listed = new Set(entries.map((entry) => entry.name));
+  // By path, not by bare name. `entriesIn` works out which directory each entry sits under, and
+  // throwing that away here made the check answer a different question than it claimed: with a
+  // name-only set, `src/overrides/slide.ts` counted as listed because `slide.ts` appears in the
+  // tree under `src/generated/`. Four of the five enumerated directories share file names with
+  // `src/generated/` (word, cell, slide, pdf), so the hole covered most of what this guards.
+  const listed = new Set(entries.map((entry) => (entry.dir ? `${entry.dir}/${entry.name}` : entry.name)));
   const problems = [];
 
   for (const [dir, extensions] of Object.entries(ENUMERATED)) {
@@ -223,7 +228,7 @@ function main() {
       if (!extensions.some((ext) => entry.endsWith(ext))) continue;
       // `.d.ts` also ends with `.ts`; match on the real name either way.
       const where = dir === '.' ? entry : `${dir}/${entry}`;
-      if (!listed.has(entry)) problems.push(`${where} exists but is missing from the tree`);
+      if (!listed.has(where)) problems.push(`${where} exists but is missing from the tree`);
     }
   }
 
