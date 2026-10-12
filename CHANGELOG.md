@@ -6,7 +6,7 @@ first publish: neither `9.5.0` nor any `0.x` version was released to npm.
 
 ## 10.0.0
 
-First published release. Generated from sdkjs `v10.0.0.138`.
+First published release. Generated from sdkjs `v10.0.0.159`.
 
 The version follows the editor release the types were generated from (see
 [Versioning](README.md#versioning)), so this supersedes the unpublished `9.5.0` below rather than
@@ -87,6 +87,24 @@ building on it: everything listed under `9.5.0` ships here, regenerated against 
 
 ### Fixed
 
+- Eight members are typed from what sdkjs returns rather than from what its JSDoc says, because
+  the JSDoc says `object` there and `object` is not a vague type in TypeScript - it is an empty
+  one. Nothing can be read off it, and a cast away from it is unchecked because there is nothing
+  to check against, so these were the entry points where the declarations stopped helping at all:
+  `Api.GetByInternalId`, `Api.FromJSON`, `GetDocumentInfo` (Word, Cell and Slide),
+  `ApiDocument.GetStatistics`, `ApiDocument.SelectCurrentWord` and Slide's
+  `ApiComment.GetPosition`.
+
+  Each type is read off the implementation, not guessed: `GetByInternalId` is an `instanceof`
+  chain over nine classes plus the form wrappers, `SelectCurrentWord` returns a boolean like its
+  neighbour `SelectCurrentSentence` already declares, and `GetDocumentInfo`/`GetStatistics` build
+  fixed-shape objects, declared here as `DocumentInfo` and `DocumentStatistics`. Where the
+  implementation could not be read the `object` was left alone - four remain, three of them a
+  document-builder file handle with no public type.
+
+  A stopgap against an upstream defect, and one that removes itself: the generator fails the
+  build naming the entry as soon as sdkjs documents a real type there, so a landed fix cannot be
+  silently shadowed by a frozen copy.
 - `<note>` no longer reaches the declarations as a literal tag. sdkjs writes its notes two ways -
   the HTML-flavored `<note>...</note>` and the Docusaurus `:::note` fence - and only the fence was
   translated, so 124 descriptions across `src/generated` and `artifacts/api` carried a raw tag into

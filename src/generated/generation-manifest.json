@@ -12,8 +12,8 @@
       "version": "9.2.0"
     },
     "sdkjs": {
-      "commit": "1fba81bbc7e1c5fd8138d0c54798ccf59baed353",
-      "describe": "v10.0.0.159-9-g1fba81bbc7",
+      "commit": "3990700ae21dfc4ab51528ec52c54b5567a429c8",
+      "describe": "v10.0.0.159",
       "dirty": false
     },
     "sdkjsExt": {
@@ -246,7 +246,7 @@
     {
       "repository": "sdkjs",
       "path": "pdf/apiBuilder.js",
-      "sha256": "5a3270e4fd2bd43fd5bd7bc9512a0cc1202d65c0fd1cfbd4d727a6b7b439eb20"
+      "sha256": "2a38860f69e20ae2b7a833df58e81d0fb46c62571305426eb00a6ac12e520446"
     },
     {
       "repository": "sdkjs",
