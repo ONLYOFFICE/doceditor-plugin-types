@@ -206,7 +206,7 @@
       "since": "9.4.0"
     },
     "SetValue": {
-      "description": "Sets image for all button field widgets",
+      "description": "Sets image for all button field widgets\n\n**Note:**\nDoesn't work with \"textOnly\" layout.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiButtonField/Methods/SetValue/",
       "params": [
         {

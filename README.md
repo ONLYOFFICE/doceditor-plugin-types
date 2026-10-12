@@ -252,7 +252,7 @@ the [repository](https://github.com/ONLYOFFICE/doceditor-plugin-types), not in t
 
 [AGENTS.md](AGENTS.md) is the guide: the runtime's three channels and what confuses them, how to
 look a member up without guessing, how to check plugin code you wrote against a compiler, and which
-228 members need a paid edition. It ships inside the npm package, so an installed copy has it at
+230 members need a paid edition. It ships inside the npm package, so an installed copy has it at
 `node_modules/@onlyoffice/doceditor-plugin-types/AGENTS.md`.
 
 What it points to for looking a member up lives in this repository rather than the package:

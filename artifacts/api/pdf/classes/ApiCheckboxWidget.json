@@ -358,7 +358,7 @@
       "signature": "SetRect(rect: Rect): boolean"
     },
     "SetTextAlign": {
-      "description": "Sets widget text alignment.\n**Note:**\nOnly for text/combobox/listbox fields widgets.",
+      "description": "Sets widget text alignment.\n\n**Note:**\nOnly for text/combobox/listbox fields widgets.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/SetTextAlign/",
       "params": [
         {

@@ -371,7 +371,7 @@
       "signature": "SetIconYPos(posY: percentage): boolean"
     },
     "SetImage": {
-      "description": "Sets image to button widget field.",
+      "description": "Sets image to button widget field.\n\n**Note:**\nDoesn't work with \"textOnly\" layout.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiButtonWidget/Methods/SetImage/",
       "params": [
         {
@@ -414,7 +414,7 @@
       "signature": "SetLabel(label: string, appearance?: ButtonAppearance): boolean"
     },
     "SetLayout": {
-      "description": "Sets button widget layout type",
+      "description": "Sets button widget layout type\n\n**Note:**\nFor signature field can't set \"textOnly\" layout\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiButtonWidget/Methods/SetLayout/",
       "params": [
         {
@@ -489,7 +489,7 @@
       "signature": "SetScaleWhen(scaleWhen: ButtonScaleWhen): boolean"
     },
     "SetTextAlign": {
-      "description": "Sets widget text alignment.\n**Note:**\nOnly for text/combobox/listbox fields widgets.",
+      "description": "Sets widget text alignment.\n\n**Note:**\nOnly for text/combobox/listbox fields widgets.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/SetTextAlign/",
       "params": [
         {

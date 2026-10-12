@@ -1180,7 +1180,7 @@
       "signature": "MergeDocuments(file: object, comparisonPr?: ComparisonPr): void"
     },
     "MergeShapes": {
-      "description": "Merges an array of drawings into new shapes.\nThe resulting shapes take the formatting of the first drawing in the array.",
+      "description": "Merges an array of drawings into new shapes.\nThe resulting shapes take the formatting of the first drawing in the array.\n\n**Note:**\nIn the spreadsheet editor, this method is not supported in the document builder and works only in the editor.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/MergeShapes/",
       "params": [
         {
@@ -1195,7 +1195,7 @@
         }
       ],
       "returns": {
-        "description": "The resulting drawings, or null if the drawings cannot be merged.",
+        "description": "The resulting drawings, or null if the drawings cannot be merged or when called in the spreadsheet document builder.",
         "type": "Drawing[] | null"
       },
       "signature": "MergeShapes(drawings: Drawing[], operation: ShapesMergeOperation): Drawing[] | null",

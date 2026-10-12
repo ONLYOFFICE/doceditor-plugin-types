@@ -2989,10 +2989,15 @@ export namespace Pdf {
      * Merges an array of drawings into new shapes.
      * The resulting shapes take the formatting of the first drawing in the array.
      *
+     * **Note:**
+     * In the spreadsheet editor, this method is not supported in the document builder and works only in
+     * the editor.
+     *
      * @param drawings - An array of at least two drawings from the same page, slide or sheet. At least one of them must
      *   be a shape.
      * @param operation - The merge operation.
-     * @returns The resulting drawings, or null if the drawings cannot be merged.
+     * @returns The resulting drawings, or null if the drawings cannot be merged or when called in the
+     *   spreadsheet document builder.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/MergeShapes/
@@ -6960,6 +6965,7 @@ export namespace Pdf {
 
     /**
      * Sets widget text alignment.
+     *
      * **Note:**
      * Only for text/combobox/listbox fields widgets.
      *
@@ -7439,6 +7445,9 @@ export namespace Pdf {
 
     /**
      * Sets image for all button field widgets
+     *
+     * **Note:**
+     * Doesn't work with "textOnly" layout.
      *
      * @param imageUrl - The URL of the image to set for the button (currently only internet URL or Base64 encoded images
      *   are supported)
@@ -8244,6 +8253,9 @@ export namespace Pdf {
     /**
      * Sets image to button widget field.
      *
+     * **Note:**
+     * Doesn't work with "textOnly" layout.
+     *
      * @param imageUrl - The URL of the image to set for the button widget (currently only internet URL or Base64 encoded
      *   images are supported)
      * @param appearance - The appearance state.
@@ -8302,6 +8314,9 @@ export namespace Pdf {
 
     /**
      * Sets button widget layout type
+     *
+     * **Note:**
+     * For signature field can't set "textOnly" layout
      *
      * @param layout - The button layout.
      *
@@ -8427,6 +8442,7 @@ export namespace Pdf {
 
     /**
      * Sets widget text alignment.
+     *
      * **Note:**
      * Only for text/combobox/listbox fields widgets.
      *
@@ -9986,6 +10002,7 @@ export namespace Pdf {
 
     /**
      * Sets the fill to the specified chart series.
+     *
      * **Note:**
      * The fill is not applied to 2D line and scatter series. Use the SetSeriesOutLine method to change
      * their line and the SetMarkerFill method to change their markers.
@@ -11855,6 +11872,7 @@ export namespace Pdf {
 
     /**
      * Sets widget text alignment.
+     *
      * **Note:**
      * Only for text/combobox/listbox fields widgets.
      *
@@ -13577,6 +13595,7 @@ export namespace Pdf {
 
     /**
      * Sets text field placeholder.
+     *
      * **Note:**
      * Makes combobox editable
      *
@@ -17167,8 +17186,9 @@ export namespace Pdf {
 
     /**
      * Gets goto destination rect
+     *
      * **Note:**
-     * For all goto types except "fitR" used only x1, y1 coordinates
+     * For all goto types except "fitR" used only x1, y1 coordinates.
      *
      * @since 10.0.0
      *
@@ -17205,8 +17225,9 @@ export namespace Pdf {
 
     /**
      * Sets goto destination rect
+     *
      * **Note:**
-     * For all goto types except "fitR" used only x1, y1 coordinates
+     * For all goto types except "fitR" used only x1, y1 coordinates.
      *
      * @since 10.0.0
      *
@@ -30729,6 +30750,9 @@ export namespace Pdf {
 
     /**
      * Sets image for all button field widgets
+     *
+     * **Note:**
+     * Doesn't work with "textOnly" layout.
      *
      * @param imageUrl - The URL of the image to set for the button (currently only internet URL or Base64 encoded images
      *   are supported)

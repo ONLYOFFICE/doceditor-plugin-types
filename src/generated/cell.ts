@@ -3089,10 +3089,15 @@ export namespace Cell {
      * Merges an array of drawings into new shapes.
      * The resulting shapes take the formatting of the first drawing in the array.
      *
+     * **Note:**
+     * In the spreadsheet editor, this method is not supported in the document builder and works only in
+     * the editor.
+     *
      * @param drawings - An array of at least two drawings from the same page, slide or sheet. At least one of them must
      *   be a shape.
      * @param operation - The merge operation.
-     * @returns The resulting drawings, or null if the drawings cannot be merged.
+     * @returns The resulting drawings, or null if the drawings cannot be merged or when called in the
+     *   spreadsheet document builder.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/MergeShapes/
@@ -7069,6 +7074,7 @@ export namespace Cell {
 
     /**
      * Sets the fill to the specified chart series.
+     *
      * **Note:**
      * The fill is not applied to 2D line and scatter series. Use the SetSeriesOutLine method to change
      * their line and the SetMarkerFill method to change their markers.
@@ -19317,6 +19323,7 @@ export namespace Cell {
 
     /**
      * Ungroups the current group of drawings.
+     *
      * **Note:**
      * This method is not supported in the document builder and works only in the editor.
      *
@@ -50117,6 +50124,7 @@ export namespace Cell {
 
     /**
      * Groups an array of drawings in the current sheet.
+     *
      * **Note:**
      * This method is not supported in the document builder and works only in the editor.
      *

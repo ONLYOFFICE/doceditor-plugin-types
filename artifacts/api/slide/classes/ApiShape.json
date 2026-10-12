@@ -177,6 +177,17 @@
       "signature": "GetVisitor(): ApiPresentationVisitor",
       "since": "10.0.0"
     },
+    "RecalculateAutoFit": {
+      "description": "Recalculates the text autofit of the current shape according to its text autofit type.\nThe \"autoFit\" type resizes the shape to fit the text, the \"normAutoFit\" type reduces the font size and line spacing to fit the text into the shape.\nThe recalculation is performed after the script is executed.\n**Note:**\nThis method is not supported in the document builder and works only in the editor.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShape/Methods/RecalculateAutoFit/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "RecalculateAutoFit(): boolean",
+      "since": "9.4.0"
+    },
     "ReplacePlaceholder": {
       "description": "Replaces the placeholder by a drawing on the slide.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/ReplacePlaceholder/",

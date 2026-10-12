@@ -113,8 +113,8 @@ three channels, and confusing them is the most common source of broken plugin co
 
   Rule of thumb for which half to search: `<editor>/…` answers what you do *inside* a `callCommand`
   body; `runtime.json` answers how you write the plugin around it.
-- **Check `requires` before recommending a member.** 228 members need ONLYOFFICE Docs Developer
-  Edition and are not present in a Community Edition build: 22 `executeMethod` names and 206
+- **Check `requires` before recommending a member.** 230 members need ONLYOFFICE Docs Developer
+  Edition and are not present in a Community Edition build: 22 `executeMethod` names and 208
   object-model methods (`ApiTableOfContents`, `ApiListObject`, `ApiSort`, ...). They carry a `requires` field in `artifacts/api/`, and each editor's `index.json` lists them
   outright - `paidExecuteMethods` and `paidMethods` - so a single read answers it. The executeMethod
   names are also typed as `<Editor>PaidMethodName`. Suggesting one to a Community Edition

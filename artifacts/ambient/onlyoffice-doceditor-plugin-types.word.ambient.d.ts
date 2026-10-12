@@ -2851,10 +2851,15 @@ declare namespace Word {
      * Merges an array of drawings into new shapes.
      * The resulting shapes take the formatting of the first drawing in the array.
      *
+     * **Note:**
+     * In the spreadsheet editor, this method is not supported in the document builder and works only in
+     * the editor.
+     *
      * @param drawings - An array of at least two drawings from the same page, slide or sheet. At least one of them must
      *   be a shape.
      * @param operation - The merge operation.
-     * @returns The resulting drawings, or null if the drawings cannot be merged.
+     * @returns The resulting drawings, or null if the drawings cannot be merged or when called in the
+     *   spreadsheet document builder.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/MergeShapes/
@@ -7447,6 +7452,7 @@ declare namespace Word {
 
     /**
      * Sets the fill to the specified chart series.
+     *
      * **Note:**
      * The fill is not applied to 2D line and scatter series. Use the SetSeriesOutLine method to change
      * their line and the SetMarkerFill method to change their markers.
@@ -17061,9 +17067,11 @@ declare namespace Word {
     /**
      * Adds a table of figures to the current document.
      *
-     * @param oTofPr - Table of figures properties. **Note:**
-     *   Please note that the table of figures properties will be filled with the default properties if
-     *   they are undefined.
+     * **Note:**
+     * Please note that the table of figures properties will be filled with the default properties if they
+     * are undefined.
+     *
+     * @param oTofPr - Table of figures properties.
      * @param oRange - The range that the table of figures replaces. If omitted, the table of figures is inserted at
      *   the current position.
      * @default oTofPr = {}
@@ -33806,6 +33814,7 @@ declare namespace Word {
     /**
      * Specifies the border which will be displayed below a set of paragraphs which have the same paragraph
      * border settings.
+     *
      * **Note:**
      * The paragraphs of the same style going one by one are considered as a single block, so the border is
      * added
@@ -34518,6 +34527,7 @@ declare namespace Word {
     /**
      * Specifies the border which will be displayed above a set of paragraphs which have the same set of
      * paragraph border settings.
+     *
      * **Note:**
      * The paragraphs of the same style going one by one are considered as a single block, so the border is
      * added to the whole block rather than to every paragraph in this block.
@@ -37080,6 +37090,7 @@ declare namespace Word {
     /**
      * Specifies the border which will be displayed below a set of paragraphs which have the same paragraph
      * border settings.
+     *
      * **Note:**
      * The paragraphs of the same style going one by one are considered as a single block, so the border is
      * added
@@ -38240,6 +38251,7 @@ declare namespace Word {
     /**
      * Specifies the border which will be displayed above a set of paragraphs which have the same set of
      * paragraph border settings.
+     *
      * **Note:**
      * The paragraphs of the same style going one by one are considered as a single block, so the border is
      * added to the whole block rather than to every paragraph in this block.

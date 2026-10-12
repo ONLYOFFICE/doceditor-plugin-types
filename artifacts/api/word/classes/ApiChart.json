@@ -1346,7 +1346,7 @@
       "signature": "SetSeriaValues(aValues: number[], nSeria: number): boolean"
     },
     "SetSeriesFill": {
-      "description": "Sets the fill to the specified chart series.\n**Note:**\nThe fill is not applied to 2D line and scatter series. Use the SetSeriesOutLine method to change their line and the SetMarkerFill method to change their markers.",
+      "description": "Sets the fill to the specified chart series.\n\n**Note:**\nThe fill is not applied to 2D line and scatter series. Use the SetSeriesOutLine method to change their line and the SetMarkerFill method to change their markers.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/SetSeriesFill/",
       "params": [
         {

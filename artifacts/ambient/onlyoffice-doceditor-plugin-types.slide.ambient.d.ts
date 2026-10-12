@@ -2860,10 +2860,15 @@ declare namespace Slide {
      * Merges an array of drawings into new shapes.
      * The resulting shapes take the formatting of the first drawing in the array.
      *
+     * **Note:**
+     * In the spreadsheet editor, this method is not supported in the document builder and works only in
+     * the editor.
+     *
      * @param drawings - An array of at least two drawings from the same page, slide or sheet. At least one of them must
      *   be a shape.
      * @param operation - The merge operation.
-     * @returns The resulting drawings, or null if the drawings cannot be merged.
+     * @returns The resulting drawings, or null if the drawings cannot be merged or when called in the
+     *   spreadsheet document builder.
      * @since 10.0.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/MergeShapes/
@@ -6314,6 +6319,7 @@ declare namespace Slide {
 
     /**
      * Sets the fill to the specified chart series.
+     *
      * **Note:**
      * The fill is not applied to 2D line and scatter series. Use the SetSeriesOutLine method to change
      * their line and the SetMarkerFill method to change their markers.
@@ -23385,6 +23391,16 @@ declare namespace Slide {
     GetMastersCount(): number;
 
     /**
+     * Returns the selection from the current presentation.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @since 9.4.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/GetSelection/
+     */
+    GetSelection(): ApiSelection;
+
+    /**
      * Returns a slide by its position in the presentation.
      *
      * @param nIndex - The slide number (position) in the presentation.
@@ -26844,6 +26860,21 @@ declare namespace Slide {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetVisitor/
      */
     GetVisitor(): ApiPresentationVisitor;
+
+    /**
+     * Recalculates the text autofit of the current shape according to its text autofit type.
+     * The "autoFit" type resizes the shape to fit the text, the "normAutoFit" type reduces the font size
+     * and line spacing to fit the text into the shape.
+     * The recalculation is performed after the script is executed.
+     * **Note:**
+     * This method is not supported in the document builder and works only in the editor.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @since 9.4.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShape/Methods/RecalculateAutoFit/
+     */
+    RecalculateAutoFit(): boolean;
 
     /**
      * Replaces the placeholder by a drawing on the slide.

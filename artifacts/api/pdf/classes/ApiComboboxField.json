@@ -276,7 +276,7 @@
       "signature": "SetPercentageFormat(decimalPlaces: number, separatorStyle: NumberSepStyle): boolean"
     },
     "SetPlaceholder": {
-      "description": "Sets text field placeholder.\n**Note:**\nMakes combobox editable",
+      "description": "Sets text field placeholder.\n\n**Note:**\nMakes combobox editable\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiComboboxField/Methods/SetPlaceholder/",
       "params": [
         {

@@ -395,6 +395,17 @@
       },
       "signature": "GetMastersCount(): number"
     },
+    "GetSelection": {
+      "description": "Returns the selection from the current presentation.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/GetSelection/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiSelection"
+      },
+      "signature": "GetSelection(): ApiSelection",
+      "since": "9.4.0"
+    },
     "GetSlideByIndex": {
       "description": "Returns a slide by its position in the presentation.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/GetSlideByIndex/",

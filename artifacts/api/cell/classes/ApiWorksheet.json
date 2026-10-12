@@ -904,7 +904,7 @@
       "signature": "GetVisible(): boolean"
     },
     "GroupDrawings": {
-      "description": "Groups an array of drawings in the current sheet.\n**Note:**\nThis method is not supported in the document builder and works only in the editor.",
+      "description": "Groups an array of drawings in the current sheet.\n\n**Note:**\nThis method is not supported in the document builder and works only in the editor.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GroupDrawings/",
       "params": [
         {
