@@ -199,9 +199,12 @@ published package; regenerating from those commits must produce a byte-identical
   documentation leaves this file untouched — a diff here means the sdkjs sources moved, not the
   docs.
 - Correctness fixes that contradict sdkjs's own JSDoc (a parameter that real calls omit, a wire
-  type that differs from the declared one) belong in the override tables in
-  `scripts/generate-plugin-methods.js` with a comment citing the real usage — never as hand edits
-  to `src/generated/*`, which the next regeneration would silently revert.
+  type that differs from the declared one, a return documented as `object`) belong in the override
+  tables — `scripts/overrides-tables.js` for the object model, `scripts/generate-plugin-methods.js`
+  for plugin methods — with a comment citing the real usage, never as hand edits to
+  `src/generated/*`, which the next regeneration would silently revert. Each entry has to keep
+  earning its place: the generator fails the build naming any override whose upstream defect is
+  fixed, so a stopgap cannot outlive the thing it works around.
 - The same hand-edit rule applies to `artifacts/api/` and `artifacts/ambient/*`: both are build
   artifacts of the generators, tracked in git only so they are directly linkable/reviewable.
 - JSDoc prose goes through `htmlToMarkdown`/`cleanProse`/`splitDescription` in
