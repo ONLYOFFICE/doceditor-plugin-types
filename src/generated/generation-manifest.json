@@ -17,8 +17,8 @@
       "dirty": false
     },
     "sdkjsExt": {
-      "commit": "9f2e114b7fd155acc2b5d86b2fb10ab7fd12e1a1",
-      "describe": "v10.0.0.155",
+      "commit": "fe3d724b8119a12bf50b132c4516ecf64d3bbfbb",
+      "describe": "v10.0.0.173",
       "dirty": false
     },
     "sdkjsForms": {
@@ -76,7 +76,7 @@
     {
       "repository": "sdkjs",
       "path": "../sdkjs-ext/js-api/word/api-table-of-figures.js",
-      "sha256": "a537f2eb0f9e7c60116720095bbda7e5aab0ec650f9bb5353f8453ea243fcda6"
+      "sha256": "ee478c84bfcb154a412ab1993941f7962dc7bf48819d611234dd480d3034a583"
     },
     {
       "repository": "sdkjs",
@@ -111,7 +111,7 @@
     {
       "repository": "sdkjs",
       "path": "../sdkjs-ext/js-api/cell/api-chart.js",
-      "sha256": "895d1237b25aaa2b47601795a2c25cf522fb660412047c8d695c499721911c57"
+      "sha256": "2295a2030be2f4f182a2835c9dbd44d4926dbfc9e82dd8caeed939fe4bc130e5"
     },
     {
       "repository": "sdkjs",
@@ -121,12 +121,12 @@
     {
       "repository": "sdkjs",
       "path": "../sdkjs-ext/js-api/cell/api-group.js",
-      "sha256": "e248425fd31e15792ba298ead2ff4c7b9e5d0d8d9726bf92290bd685c36fb406"
+      "sha256": "0f61389ec0cae970ec9fffe410533c552bc53fa786c0fa71585194262486659d"
     },
     {
       "repository": "sdkjs",
       "path": "../sdkjs-ext/js-api/cell/api-image.js",
-      "sha256": "70e335531fa2ada490576bf78816ba25f0821b807c4a3fda3c50a17fa3f912e5"
+      "sha256": "4458ad0bc2d575848fbe7a0c26d6df1ac0ab0ef699d12da388fd4959dd5597df"
     },
     {
       "repository": "sdkjs",
@@ -146,7 +146,7 @@
     {
       "repository": "sdkjs",
       "path": "../sdkjs-ext/js-api/cell/api-ole-object.js",
-      "sha256": "187c0f3d5f7151d974b236573c700d308c81c316b8ea0361b56d794e0236c611"
+      "sha256": "e0d7926a30d27f05ba21eae7217ee646b7c8cf80e2299f130e7d8657d2be712d"
     },
     {
       "repository": "sdkjs",
@@ -161,7 +161,7 @@
     {
       "repository": "sdkjs",
       "path": "../sdkjs-ext/js-api/cell/api-shape.js",
-      "sha256": "fdcdf0eb870cd1faffd3655ed4729bbcf1ef189808870a4f54c3533d0898e676"
+      "sha256": "2bc6c556c30296ca3513bf873beb4a00ec52e17162ae23616216e29828d83045"
     },
     {
       "repository": "sdkjs",

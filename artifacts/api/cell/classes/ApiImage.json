@@ -5,6 +5,17 @@
     "ApiDrawing"
   ],
   "methods": {
+    "Copy": {
+      "description": "Creates a copy of the current image.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiImage/Methods/Copy/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiImage"
+      },
+      "signature": "Copy(): ApiImage",
+      "since": "9.4.0"
+    },
     "GetClassType": {
       "description": "Returns a type of the ApiImage class.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiImage/Methods/GetClassType/",

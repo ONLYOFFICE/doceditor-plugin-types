@@ -15,7 +15,8 @@
         "name": "annotation",
         "type": "TextAnnotation"
       }
-    ]
+    ],
+    "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds."
   },
   "onBlurContentControl": {
     "description": "The function called to show which content control has been blurred.",
@@ -60,7 +61,8 @@
         "name": "annotation",
         "type": "TextAnnotation"
       }
-    ]
+    ],
+    "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds."
   },
   "onContentControlAdd": {
     "description": "Fired when a content control is added to the document.",
@@ -87,7 +89,8 @@
         "name": "annotation",
         "type": "TextAnnotation"
       }
-    ]
+    ],
+    "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds."
   },
   "onFocusContentControl": {
     "description": "The function called to show which content control has been focused.",
@@ -141,7 +144,8 @@
         "name": "data",
         "type": "{ paragraphId: string; recalcId: string; text: string; annotations: TextAnnotationRange[] }"
       }
-    ]
+    ],
+    "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds."
   },
   "onRemoveComment": {
     "description": "The function called when the specified comment is removed with the {@link https://api.onlyoffice.com/docs/plugins/interacting-with-editors/document-api/Methods/RemoveComments RemoveComments} method.",

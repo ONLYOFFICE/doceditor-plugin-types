@@ -59,6 +59,7 @@ const { resolveSdkjsPaths, resolveSdkjsExt, resolveDocsPath } = require('./resol
 const { isFromExt, developerEditionRequirement } = require('./ext-provenance.js');
 const { PARAM_OPTIONAL_FROM, RETURN_TYPE_OVERRIDE } = require('./overrides-tables.js');
 const { getGitMetadata, sha256File, packageVersion, assertSourcesReleasable } = require('./provenance.js');
+const { paidEventSets } = require('./paid-events.js');
 const {
   DOC_WIDTH, htmlToMarkdown, withoutExamples, splitDescription, wrapText, cleanProse, taggedLines, renderJsDoc,
 } = require('./render-jsdoc.js');
@@ -829,7 +830,7 @@ function extractTypedefs(data) {
   return typedefs;
 }
 
-function extractEvents(data, manualEvents) {
+function extractEvents(data, manualEvents, paidOnlyEvents) {
   const events = { ...manualEvents };
 
   for (const item of data) {
@@ -854,7 +855,15 @@ function extractEvents(data, manualEvents) {
       return { name: p.name, type: parseType(p.type) };
     });
 
-    events[item.name] = { params, description: item.description || '' };
+    events[item.name] = {
+      params,
+      description: item.description || '',
+      // An event documented in the open sdkjs but dispatched only by sdkjs-ext. Attaching a
+      // handler on a Community build succeeds and it never fires, so the tooltip has to say
+      // so - the same `@requires` the hand-written PluginEventMap carries, from the same
+      // derived set (see paid-events.js).
+      requires: paidOnlyEvents?.has(item.name) ? DEVELOPER_EDITION_REQUIREMENT : '',
+    };
   }
 
   return events;
@@ -876,7 +885,7 @@ function generateEventArgsType(events) {
   let output = 'export type EditorEventArgs = {\n';
   eventNames.forEach((name, index) => {
     const event = events[name];
-    const doc = renderJsDoc({ description: event.description }, '  ');
+    const doc = renderJsDoc({ description: event.description, requires: event.requires }, '  ');
     if (doc.includes('\n *') && index > 0) output += '\n';
     const tuple = event.params.map((p) => `${p.name}: ${p.type}`).join(', ');
     output += `${doc}  ${name}: [${tuple}];\n`;
@@ -1174,6 +1183,7 @@ function buildApiIndexSection(classes, typedefs, events) {
   for (const [name, event] of Object.entries(events)) {
     eventsIndex[name] = {
       ...proseFields(event.description),
+      ...(event.requires ? { requires: event.requires } : {}),
       params: event.params.map((p) => ({ name: p.name, type: p.type })),
     };
   }
@@ -1280,7 +1290,7 @@ function loadOverrides(typeName) {
   return parseOverrideBlocks(fs.readFileSync(overridePath, 'utf8'));
 }
 
-function generateDtsFile(data, typeName, namespaceName, docsRoot, extRoot) {
+function generateDtsFile(data, typeName, namespaceName, docsRoot, extRoot, paidOnlyEvents) {
   const editorName = typeName === 'forms' ? 'form' : typeName;
   let body = '';
 
@@ -1296,7 +1306,7 @@ function generateDtsFile(data, typeName, namespaceName, docsRoot, extRoot) {
 
   const classNames = Object.keys(classes).sort();
 
-  const events = extractEvents(data, MANUAL_EVENTS[typeName]);
+  const events = extractEvents(data, MANUAL_EVENTS[typeName], paidOnlyEvents);
 
   const definedNames = new Set([...classNames, ...typedefNames]);
   const referenced = collectReferencedApiTypes(classes, typedefs, events);
@@ -1538,8 +1548,12 @@ async function main() {
   const apiData = await fetchApiDefinitions(paths);
   const report = {};
 
+  // Null without an sdkjs-ext checkout: no comparison is possible, so nothing is marked rather
+  // than everything being declared free. check-plugin-events reports the same way.
+  const paidEvents = paidEventSets(paths.sdkjs, paths.sdkjsExt);
+
   for (const [typeName, data] of Object.entries(apiData)) {
-    const generated = generateDtsFile(data, typeName, NAMESPACE_MAP[typeName], docsRoot, paths.sdkjsExt);
+    const generated = generateDtsFile(data, typeName, NAMESPACE_MAP[typeName], docsRoot, paths.sdkjsExt, paidEvents?.paidOnly);
     const filename = `${typeName}.ts`;
     fs.writeFileSync(path.join(OUTPUT_DIR, filename), generated.content);
     report[typeName] = generated.stats;

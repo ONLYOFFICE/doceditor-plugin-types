@@ -55580,6 +55580,16 @@ declare namespace Word {
    */
   export interface ApiTableOfFigures {
     /**
+     * Removes the table of figures from the document.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/Delete/
+     */
+    Delete(): boolean;
+
+    /**
      * Returns the caption label that the table of figures is built from (for example, "Figure").
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
@@ -55597,7 +55607,7 @@ declare namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/GetClassType/
      */
-    GetClassType(): "tableofcontents";
+    GetClassType(): "tableOfFigures";
 
     /**
      * Returns whether the caption label and number are included in the table of figures entries.
@@ -55608,6 +55618,56 @@ declare namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/GetIncludeLabel/
      */
     GetIncludeLabel(): boolean;
+
+    /**
+     * Returns whether page numbers are shown in the table of figures.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/GetIncludePageNumbers/
+     */
+    GetIncludePageNumbers(): boolean;
+
+    /**
+     * Returns the document that contains the table of figures.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/GetParent/
+     */
+    GetParent(): ApiDocument | null;
+
+    /**
+     * Returns a range that covers the entire table of figures.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/GetRange/
+     */
+    GetRange(): ApiRange | null;
+
+    /**
+     * Returns whether page numbers are right-aligned in the table of figures.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/GetRightAlignPageNumbers/
+     */
+    GetRightAlignPageNumbers(): boolean;
+
+    /**
+     * Returns whether entries are formatted as hyperlinks.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/GetUseHyperlinks/
+     */
+    GetUseHyperlinks(): boolean;
 
     /**
      * Sets the caption label that the table of figures is built from (for example, "Figure").
@@ -55631,6 +55691,16 @@ declare namespace Word {
     SetIncludeLabel(isInclude: boolean): boolean;
 
     /**
+     * Specifies whether page numbers are shown in the table of figures.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/SetIncludePageNumbers/
+     */
+    SetIncludePageNumbers(isInclude: boolean): boolean;
+
+    /**
      * Applies the specified properties to the table of figures and rebuilds it.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
@@ -55640,6 +55710,37 @@ declare namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/SetPr/
      */
     SetPr(oTofPr: TofPr): boolean;
+
+    /**
+     * Specifies whether page numbers are right-aligned in the table of figures.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/SetRightAlignPageNumbers/
+     */
+    SetRightAlignPageNumbers(isRightAlign: boolean): boolean;
+
+    /**
+     * Specifies whether entries are formatted as hyperlinks.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/SetUseHyperlinks/
+     */
+    SetUseHyperlinks(isUseHyperlinks: boolean): boolean;
+
+    /**
+     * Updates the table of figures.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @default bOnlyPageNumbers = false
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/Update/
+     */
+    Update(bOnlyPageNumbers?: boolean): boolean;
   }
 
   /**
@@ -60963,11 +61064,11 @@ declare namespace Word {
     "tableCell": ApiTableCell;
     "tableCellPr": ApiTableCellPr;
     "tableOfContents": ApiTableOfContents;
+    "tableOfFigures": ApiTableOfFigures;
     "tablePr": ApiTablePr;
     "tableRow": ApiTableRow;
     "tableRowPr": ApiTableRowPr;
     "tableStylePr": ApiTableStylePr;
-    "tableofcontents": ApiTableOfFigures;
     "tablesOfContents": ApiTablesOfContents;
     "tablesOfFigures": ApiTablesOfFigures;
     "textForm": ApiTextForm;
@@ -60986,7 +61087,11 @@ declare namespace Word {
      * method.
      */
     onAddComment: [comment: comment];
-    /** The function called when an annotation loses focus. */
+    /**
+     * The function called when an annotation loses focus.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     */
     onBlurAnnotation: [annotation: TextAnnotation];
     /** The function called to show which content control has been blurred. */
     onBlurContentControl: [control: ContentControl];
@@ -61000,13 +61105,21 @@ declare namespace Word {
     onChangeContentControl: [control: ContentControl];
     /** The function called when the current page has changed. */
     onChangeCurrentPage: [index: number];
-    /** The function called when the user clicks an annotation. */
+    /**
+     * The function called when the user clicks an annotation.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     */
     onClickAnnotation: [annotation: TextAnnotation];
     /** Fired when a content control is added to the document. */
     onContentControlAdd: [control: ContentControl];
     /** Fired when a content control is removed from the document. */
     onContentControlRemove: [control: ContentControl];
-    /** The function called when an annotation receives focus. */
+    /**
+     * The function called when an annotation receives focus.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     */
     onFocusAnnotation: [annotation: TextAnnotation];
     /** The function called to show which content control has been focused. */
     onFocusContentControl: [control: ContentControl];
@@ -61018,7 +61131,11 @@ declare namespace Word {
     onParagraphAdd: [data: { InternalId: string }];
     /** Fired when a paragraph is removed from the document. */
     onParagraphRemove: [data: { InternalId: string }];
-    /** The function called when the paragraph text is updated in the document. */
+    /**
+     * The function called when the paragraph text is updated in the document.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     */
     onParagraphText: [data: { paragraphId: string; recalcId: string; text: string; annotations: TextAnnotationRange[] }];
     /**
      * The function called when the specified comment is removed with the
@@ -64914,10 +65031,6 @@ interface UndocumentedMethodArgs {
 
     /**
      * Brings a plugin window or panel forward - what `PluginWindow.activate` sends.
-     *
-     * `isFocus` is optional here though sdkjs declares it required, because the editor reads it
-     * as a flag: `if (isFocus) frame.focus()`, so the call without it still moves the window
-     * forward and simply does not steal focus.
      */
     ActivateWindow: [frameId: string, isFocus?: boolean];
 
@@ -65283,10 +65396,6 @@ interface PluginWindow {
     close: () => void;
     /**
      * Brings the window forward, and focuses it when `isFocus` is set.
-     *
-     * The argument is optional in fact though sdkjs documents it as required: the editor side
-     * guards it (`if (isFocus) frame.focus()`), so omitting it moves the window forward without
-     * taking focus - which is how the AI plugin calls it (`chatWindow.activate()`).
      */
     activate: (isFocus?: boolean) => void;
     attachEvent: (eventName: string, callback: PluginEventCallback) => void;

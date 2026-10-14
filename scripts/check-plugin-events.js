@@ -18,6 +18,7 @@
 const fs = require('fs');
 const path = require('path');
 const { resolveSdkjsPaths, resolveSdkjsExt } = require('./resolve-paths.js');
+const { paidEventSets } = require('./paid-events.js');
 
 const PACKAGE_ROOT = path.join(__dirname, '..');
 
@@ -83,41 +84,19 @@ function checkEvents(paths) {
   return 0;
 }
 
-// Events that only a commercial build ever fires. `word/plugin-events.js` in the open sdkjs
-// documents `onClickAnnotation` and friends, so they look free in autocomplete, but every
-// dispatch site lives in sdkjs-ext's annotation engine: on a Community build attaching a handler
-// succeeds and it is never called. That is invisible at compile time and hard to debug at runtime,
-// so the declaration has to say so - and this check is what keeps the hand-written marking honest
-// in both directions.
-function dispatchedEvents(root, { skipPluginEventsFiles = false } = {}) {
-  const names = new Set();
-  const walk = (dir) => {
-    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-      const full = path.join(dir, entry.name);
-      if (entry.isDirectory()) {
-        if (entry.name === 'deploy' || entry.name === 'node_modules' || entry.name === '.git') continue;
-        walk(full);
-      } else if (entry.name.endsWith('.js')) {
-        // plugin-events.js files are pure JSDoc declarations, not dispatch sites.
-        if (skipPluginEventsFiles && /plugin-events\.js$|base-plugin-events\.js$/.test(entry.name)) continue;
-        const text = fs.readFileSync(full, 'utf8');
-        for (const m of text.matchAll(/onPluginEvent2?\s*\(\s*"([A-Za-z0-9_]+)"/g)) names.add(m[1]);
-      }
-    }
-  };
-  walk(root);
-  return names;
-}
-
+// Both surfaces, because they are declared in different places and drifted apart once already:
+// the hand-written `PluginEventMap` carried `@requires` on all four annotation events while the
+// generated per-editor `EditorEventArgs` carried it on none, and this check only looked at the
+// first - so it reported "all marked" while half the surface said nothing.
 function checkPaidEvents(paths) {
   if (!paths.sdkjsExt) {
     console.log('events: paid-event marking not checked (no sdkjs-ext checkout)');
     return 0;
   }
 
-  const free = dispatchedEvents(paths.sdkjs, { skipPluginEventsFiles: true });
-  const ext = dispatchedEvents(paths.sdkjsExt, { skipPluginEventsFiles: true });
-  const paidOnly = [...ext].filter((name) => !free.has(name)).sort();
+  const sets = paidEventSets(paths.sdkjs, paths.sdkjsExt);
+  const free = sets.free;
+  const paidOnly = [...sets.paidOnly].sort();
 
   const eventsPath = path.join(PACKAGE_ROOT, 'src', 'plugin', 'events.d.ts');
   const source = fs.readFileSync(eventsPath, 'utf8');
@@ -141,11 +120,32 @@ function checkPaidEvents(paths) {
     if (isMarked(name) === true) problems.push(`${name}: marked @requires but the open sdkjs fires it too`);
   }
 
+  // The generated side. `EditorEventArgs` is emitted per editor from the same derived set, so a
+  // miss here means the generator did not run with an sdkjs-ext checkout, not that someone forgot
+  // a tag - but it ships the same unmarked declaration either way.
+  let generatedChecked = 0;
+  for (const editor of ['word', 'cell', 'slide', 'pdf', 'forms']) {
+    const file = path.join(PACKAGE_ROOT, 'src', 'generated', `${editor}.ts`);
+    if (!fs.existsSync(file)) continue;
+    const text = fs.readFileSync(file, 'utf8');
+    const at = text.indexOf('export type EditorEventArgs');
+    if (at === -1) continue;
+    const block = text.slice(at);
+    for (const name of paidOnly) {
+      const entry = block.indexOf(`\n    ${name}: [`);
+      if (entry === -1) continue;
+      generatedChecked += 1;
+      const blockStart = block.lastIndexOf('/**', entry);
+      const marked = blockStart !== -1 && block.slice(blockStart, entry).includes('@requires');
+      if (!marked) problems.push(`${name}: unmarked in src/generated/${editor}.ts (EditorEventArgs)`);
+    }
+  }
+
   if (problems.length > 0) {
     console.error(`events: paid-event marking is out of date -\n  ${problems.join('\n  ')}`);
     return problems.length;
   }
-  console.log(`events: ${paidOnly.length} commercial-only event(s) all marked @requires`);
+  console.log(`events: ${paidOnly.length} commercial-only event(s) marked @requires in PluginEventMap and ${generatedChecked} generated declaration(s)`);
   return 0;
 }
 

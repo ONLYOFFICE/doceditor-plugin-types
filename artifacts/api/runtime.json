@@ -1097,7 +1097,7 @@
       "kind": "interface",
       "members": {
         "activate": {
-          "description": "Brings the window forward, and focuses it when `isFocus` is set.\n\nThe argument is optional in fact though sdkjs documents it as required: the editor side\nguards it (`if (isFocus) frame.focus()`), so omitting it moves the window forward without\ntaking focus - which is how the AI plugin calls it (`chatWindow.activate()`).",
+          "description": "Brings the window forward, and focuses it when `isFocus` is set.",
           "signature": "activate: (isFocus?: boolean) => void;"
         },
         "attachEvent": {

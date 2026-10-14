@@ -5,7 +5,7 @@
       "classes": 125,
       "events": 1,
       "executeMethods": 47,
-      "methods": 1997,
+      "methods": 2002,
       "typedefs": 177
     },
     "forms": {
@@ -33,7 +33,7 @@
       "classes": 73,
       "events": 19,
       "executeMethods": 113,
-      "methods": 2119,
+      "methods": 2129,
       "typedefs": 108
     }
   },

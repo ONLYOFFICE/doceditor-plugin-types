@@ -5,6 +5,17 @@
     "ApiDrawing"
   ],
   "methods": {
+    "Copy": {
+      "description": "Creates a copy of the current group.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiGroup/Methods/Copy/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiGroup"
+      },
+      "signature": "Copy(): ApiGroup",
+      "since": "9.4.0"
+    },
     "GetClassType": {
       "description": "Returns a type of the ApiGroup class.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiGroup/Methods/GetClassType/",

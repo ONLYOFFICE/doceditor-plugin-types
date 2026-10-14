@@ -46,6 +46,17 @@
       },
       "signature": "ApplyChartStyle(nStyleId: unknown): boolean"
     },
+    "Copy": {
+      "description": "Creates a copy of the current chart.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/Copy/",
+      "params": [],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "ApiChart"
+      },
+      "signature": "Copy(): ApiChart",
+      "since": "9.4.0"
+    },
     "GetAllSeries": {
       "description": "Returns all series from the chart space.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/GetAllSeries/",

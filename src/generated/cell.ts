@@ -5763,7 +5763,7 @@ export namespace Cell {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/
    */
-  export interface ApiChart extends Omit<ApiDrawing, "GetClassType" | "SetTitle"> {
+  export interface ApiChart extends Omit<ApiDrawing, "GetClassType" | "SetTitle" | "Copy"> {
     /**
      * Adds a new series to the current chart.
      *
@@ -5850,6 +5850,36 @@ export namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/ApplyChartStyle/
      */
     ApplyChartStyle(nStyleId: unknown): boolean;
+
+    /**
+     * Creates a copy of the current chart.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @since 9.4.0
+     *
+     * @example
+     * ```js
+     * // How do I make a copy of a chart in a spreadsheet?
+     *
+     * // Clone a chart and add the copy to the sheet at a different cell anchor in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange("B1").SetValue(2014);
+     * worksheet.GetRange("C1").SetValue(2015);
+     * worksheet.GetRange("D1").SetValue(2016);
+     * worksheet.GetRange("A2").SetValue("Projected Revenue");
+     * worksheet.GetRange("B2").SetValue(200);
+     * worksheet.GetRange("C2").SetValue(240);
+     * worksheet.GetRange("D2").SetValue(280);
+     * let chart = worksheet.AddChart("'Sheet1'!$A$1:$D$2", true, "bar3D", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 7, 3 * 36000);
+     *
+     * let copyChart = chart.Copy();
+     * worksheet.AddDrawing(copyChart, 6, 2 * 36000, 7, 3 * 36000);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/Copy/
+     */
+    Copy(): ApiChart;
 
     /**
      * Returns all series from the chart space.
@@ -19278,7 +19308,17 @@ export namespace Cell {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiGroup/
    */
-  export interface ApiGroup extends Omit<ApiDrawing, "GetClassType"> {
+  export interface ApiGroup extends Omit<ApiDrawing, "GetClassType" | "Copy"> {
+    /**
+     * Creates a copy of the current group.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @since 9.4.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiGroup/Methods/Copy/
+     */
+    Copy(): ApiGroup;
+
     /**
      * Returns a type of the ApiGroup class.
      *
@@ -21540,7 +21580,30 @@ export namespace Cell {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiImage/
    */
-  export interface ApiImage extends Omit<ApiDrawing, "GetClassType"> {
+  export interface ApiImage extends Omit<ApiDrawing, "GetClassType" | "Copy"> {
+    /**
+     * Creates a copy of the current image.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @since 9.4.0
+     *
+     * @example
+     * ```js
+     * // How do I make a copy of an image in a spreadsheet?
+     *
+     * // Clone an image and add the copy to the sheet at a different cell anchor in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let image = worksheet.AddImage('https://static.onlyoffice.com/assets/docs/samples/img/onlyoffice_logo.png', 60 * 36000, 35 * 36000, 0, 2 * 36000, 2, 3 * 36000);
+     *
+     * let copyImage = image.Copy();
+     * worksheet.AddDrawing(copyImage, 4, 2 * 36000, 2, 3 * 36000);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiImage/Methods/Copy/
+     */
+    Copy(): ApiImage;
+
     /**
      * Returns a type of the ApiImage class.
      *
@@ -23597,7 +23660,36 @@ export namespace Cell {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiOleObject/
    */
-  export interface ApiOleObject extends Omit<ApiDrawing, "GetClassType"> {
+  export interface ApiOleObject extends Omit<ApiDrawing, "GetClassType" | "Copy"> {
+    /**
+     * Creates a copy of the current OLE object.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @since 9.4.0
+     *
+     * @example
+     * ```js
+     * // How do I make a copy of an OLE object in a spreadsheet?
+     *
+     * // Clone an OLE object and add the copy to the sheet at a different cell anchor in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let oleObject = worksheet.AddOleObject(
+     * 	'https://static.onlyoffice.com/assets/docs/samples/img/onlyoffice_logo.png',
+     * 	130 * 36000, 90 * 36000,
+     * 	'https://youtu.be/SKGz4pmnpgY',
+     * 	'asc.{38E022EA-AD92-45FC-B22B-49DF39746DB4}',
+     * 	0, 2 * 36000, 2, 3 * 36000
+     * );
+     *
+     * let copyOle = oleObject.Copy();
+     * worksheet.AddDrawing(copyOle, 4, 2 * 36000, 2, 3 * 36000);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiOleObject/Methods/Copy/
+     */
+    Copy(): ApiOleObject;
+
     /**
      * Returns the application ID from the current OLE object.
      *
@@ -41960,7 +42052,32 @@ export namespace Cell {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiShape/
    */
-  export interface ApiShape extends Omit<ApiDrawing, "GetClassType"> {
+  export interface ApiShape extends Omit<ApiDrawing, "GetClassType" | "Copy"> {
+    /**
+     * Creates a copy of the current shape.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @since 9.4.0
+     *
+     * @example
+     * ```js
+     * // How do I make a copy of a shape in a spreadsheet?
+     *
+     * // Clone a shape and add the copy to the sheet at a different cell anchor in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("flowChartOnlineStorage", 60 * 36000, 35 * 36000, fill, stroke, 0, 2 * 36000, 2, 3 * 36000);
+     *
+     * let copyShape = shape.Copy();
+     * worksheet.AddDrawing(copyShape, 4, 2 * 36000, 2, 3 * 36000);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiShape/Methods/Copy/
+     */
+    Copy(): ApiShape;
+
     /**
      * Returns a type of the ApiShape class.
      *

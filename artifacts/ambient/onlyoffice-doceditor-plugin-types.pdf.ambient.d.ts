@@ -40482,10 +40482,6 @@ interface UndocumentedMethodArgs {
 
     /**
      * Brings a plugin window or panel forward - what `PluginWindow.activate` sends.
-     *
-     * `isFocus` is optional here though sdkjs declares it required, because the editor reads it
-     * as a flag: `if (isFocus) frame.focus()`, so the call without it still moves the window
-     * forward and simply does not steal focus.
      */
     ActivateWindow: [frameId: string, isFocus?: boolean];
 
@@ -40851,10 +40847,6 @@ interface PluginWindow {
     close: () => void;
     /**
      * Brings the window forward, and focuses it when `isFocus` is set.
-     *
-     * The argument is optional in fact though sdkjs documents it as required: the editor side
-     * guards it (`if (isFocus) frame.focus()`), so omitting it moves the window forward without
-     * taking focus - which is how the AI plugin calls it (`chatWindow.activate()`).
      */
     activate: (isFocus?: boolean) => void;
     attachEvent: (eventName: string, callback: PluginEventCallback) => void;
