@@ -278,6 +278,10 @@ interface PluginWindow {
     id: string;
     show: (variation: VariationConfig) => void;
     close: () => void;
+    /**
+     * Brings the window forward, and focuses it when `isFocus` is set.
+     */
+    activate: (isFocus?: boolean) => void;
     attachEvent: (eventName: string, callback: PluginEventCallback) => void;
     detachEvent: (eventName: string) => void;
     command: (methodName: string, payload?: unknown) => void;

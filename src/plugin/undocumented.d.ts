@@ -4,7 +4,7 @@
 // both channels, and plugins in this repository's own ecosystem call them - but they carry
 // `@undocumented`, so ONLYOFFICE excludes them from api.onlyoffice.com and the generator excludes
 // them too (`generate-plugin-methods.js`: `if (item.undocumented) continue;`). That exclusion is
-// the right default - the published surface is what the package mirrors - and these four are the
+// the right default - the published surface is what the package mirrors - and these five are the
 // deliberate exceptions, declared by hand because real plugins depend on them.
 //
 // Nothing here is covered by ONLYOFFICE's compatibility promise. A method can change shape or
@@ -25,6 +25,11 @@ interface UndocumentedMethodArgs {
 
     /** Shows or hides one of the plugin's own buttons. */
     ShowButton: [buttonId: string, visible: boolean, align?: string];
+
+    /**
+     * Brings a plugin window or panel forward - what `PluginWindow.activate` sends.
+     */
+    ActivateWindow: [frameId: string, isFocus?: boolean];
 
     /**
      * Resizes the plugin modal window.
@@ -58,12 +63,13 @@ interface UndocumentedMethodArgs {
 /**
  * What the callback receives, by method name.
  *
- * Only `ResizeWindow` carries a value: it is the one of the four that calls
+ * Only `ResizeWindow` carries a value: it is the one of the five that calls
  * `setPluginMethodReturnAsync()` and later answers `onPluginMethodReturn("resize_result")`. The
  * others return synchronously, so their callback fires with nothing - which is still worth
  * declaring, because the Promise form (`await Editor.CloseWindow(1)`) resolves at that moment.
  */
 interface UndocumentedMethodReturnMap {
+    ActivateWindow: void;
     CloseWindow: void;
     ShowButton: void;
     ResizeWindow: "resize_result";

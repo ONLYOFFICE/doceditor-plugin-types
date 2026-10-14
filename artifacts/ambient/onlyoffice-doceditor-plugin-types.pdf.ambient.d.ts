@@ -40458,7 +40458,7 @@ interface WindowHeaderFrameOptions {
 // both channels, and plugins in this repository's own ecosystem call them - but they carry
 // `@undocumented`, so ONLYOFFICE excludes them from api.onlyoffice.com and the generator excludes
 // them too (`generate-plugin-methods.js`: `if (item.undocumented) continue;`). That exclusion is
-// the right default - the published surface is what the package mirrors - and these four are the
+// the right default - the published surface is what the package mirrors - and these five are the
 // deliberate exceptions, declared by hand because real plugins depend on them.
 //
 // Nothing here is covered by ONLYOFFICE's compatibility promise. A method can change shape or
@@ -40479,6 +40479,15 @@ interface UndocumentedMethodArgs {
 
     /** Shows or hides one of the plugin's own buttons. */
     ShowButton: [buttonId: string, visible: boolean, align?: string];
+
+    /**
+     * Brings a plugin window or panel forward - what `PluginWindow.activate` sends.
+     *
+     * `isFocus` is optional here though sdkjs declares it required, because the editor reads it
+     * as a flag: `if (isFocus) frame.focus()`, so the call without it still moves the window
+     * forward and simply does not steal focus.
+     */
+    ActivateWindow: [frameId: string, isFocus?: boolean];
 
     /**
      * Resizes the plugin modal window.
@@ -40512,12 +40521,13 @@ interface UndocumentedMethodArgs {
 /**
  * What the callback receives, by method name.
  *
- * Only `ResizeWindow` carries a value: it is the one of the four that calls
+ * Only `ResizeWindow` carries a value: it is the one of the five that calls
  * `setPluginMethodReturnAsync()` and later answers `onPluginMethodReturn("resize_result")`. The
  * others return synchronously, so their callback fires with nothing - which is still worth
  * declaring, because the Promise form (`await Editor.CloseWindow(1)`) resolves at that moment.
  */
 interface UndocumentedMethodReturnMap {
+    ActivateWindow: void;
     CloseWindow: void;
     ShowButton: void;
     ResizeWindow: "resize_result";
@@ -40839,6 +40849,14 @@ interface PluginWindow {
     id: string;
     show: (variation: VariationConfig) => void;
     close: () => void;
+    /**
+     * Brings the window forward, and focuses it when `isFocus` is set.
+     *
+     * The argument is optional in fact though sdkjs documents it as required: the editor side
+     * guards it (`if (isFocus) frame.focus()`), so omitting it moves the window forward without
+     * taking focus - which is how the AI plugin calls it (`chatWindow.activate()`).
+     */
+    activate: (isFocus?: boolean) => void;
     attachEvent: (eventName: string, callback: PluginEventCallback) => void;
     detachEvent: (eventName: string) => void;
     command: (methodName: string, payload?: unknown) => void;
