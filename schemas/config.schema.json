@@ -202,6 +202,20 @@
           "type": "boolean",
           "description": "Omitted in practice about as often as it's set explicitly."
         },
+        "lockReasons": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ToolbarLockReason"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "The reasons for blocking the editor toolbar that also disable the plugin button, for example `[\"reconnect\", \"disconnect\"]` (see  {@link  ToolbarLockReason } ). Omitted or `null` (the default) disables the button whenever the toolbar is blocked.\n\nWhile the document is loading or being refreshed, or the About panel is open, the button is always disabled, whatever the list says. Read from the first variation only."
+        },
         "menu": {
           "$ref": "#/definitions/MenuType"
         },
@@ -346,6 +360,30 @@
         "sign"
       ]
     },
+    "ToolbarLockReason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string",
+          "enum": [
+            "not-loaded",
+            "background-open",
+            "refresh-file",
+            "show-about",
+            "reconnect",
+            "disconnect",
+            "unknown",
+            "mailmerge",
+            "signature",
+            "send-for-signing",
+            "setlink"
+          ]
+        }
+      ],
+      "description": "Why the editor blocks its toolbar - the values `VariationConfig.lockReasons` takes and the `onChangeButtonDisableState` event reports.\n\n- `\"not-loaded\"` - the document is still loading.\n- `\"background-open\"` - Cell only: the workbook is still being opened in the background.\n- `\"refresh-file\"` - the file is being reloaded after an update.\n- `\"show-about\"` - the About panel is open.\n- `\"reconnect\"` - the connection to the server is lost and the editor is reconnecting.\n- `\"disconnect\"` - editing is off until reopening: version history, license, editing error.\n- `\"unknown\"` - Word, PDF and Visio: the co-editing session has been closed.\n- `\"mailmerge\"` - Word only: a mail merge result is being previewed.\n- `\"signature\"` - Word, Cell, Slide and PDF: the document carries digital signatures.\n- `\"send-for-signing\"` - Word and PDF: the Send for signing panel is open.\n- `\"setlink\"` - PDF only: the target of a link is being picked on a page.\n\nThe first four always disable plugin buttons, whatever `lockReasons` or `manageButtonState` say.\n\nThese are the reasons the current editor reports, not a closed set: a later editor version may add more, so any other string is accepted as well."
+    },
     "MenuType": {
       "type": "string",
       "enum": [
@@ -399,7 +437,7 @@
           "items": {
             "$ref": "#/definitions/PluginPlatform"
           },
-          "description": "Where the plugin works: `web` - the editors in a browser, `desktop` - the desktop editors, in either of their modes (local files or a connected cloud). Omit it when the plugin works everywhere.\n\nInformational only: the marketplace warns a user on any other platform that the plugin will not work there, but nothing stops it from being installed or run."
+          "description": "Where the plugin works: `web` - the editors in a browser, `desktop` - the desktop editors, in either of their modes (local files or a connected cloud). Omit it when the plugin works everywhere."
         },
         "screenshots": {
           "type": "array",

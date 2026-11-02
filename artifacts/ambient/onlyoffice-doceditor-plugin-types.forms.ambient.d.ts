@@ -14002,6 +14002,42 @@ interface InstalledPluginInfo {
 
 type PluginPlatform = 'web' | 'desktop';
 
+/**
+ * Why the editor blocks its toolbar - the values `VariationConfig.lockReasons` takes and the
+ * `onChangeButtonDisableState` event reports.
+ *
+ * - `"not-loaded"` - the document is still loading.
+ * - `"background-open"` - Cell only: the workbook is still being opened in the background.
+ * - `"refresh-file"` - the file is being reloaded after an update.
+ * - `"show-about"` - the About panel is open.
+ * - `"reconnect"` - the connection to the server is lost and the editor is reconnecting.
+ * - `"disconnect"` - editing is off until reopening: version history, license, editing error.
+ * - `"unknown"` - Word, PDF and Visio: the co-editing session has been closed.
+ * - `"mailmerge"` - Word only: a mail merge result is being previewed.
+ * - `"signature"` - Word, Cell, Slide and PDF: the document carries digital signatures.
+ * - `"send-for-signing"` - Word and PDF: the Send for signing panel is open.
+ * - `"setlink"` - PDF only: the target of a link is being picked on a page.
+ *
+ * The first four always disable plugin buttons, whatever `lockReasons` or `manageButtonState` say.
+ *
+ * These are the reasons the current editor reports, not a closed set: a later editor version may
+ * add more, so any other string is accepted as well.
+ * @since 10.0.1
+ */
+type ToolbarLockReason =
+    | 'not-loaded'
+    | 'background-open'
+    | 'refresh-file'
+    | 'show-about'
+    | 'reconnect'
+    | 'disconnect'
+    | 'unknown'
+    | 'mailmerge'
+    | 'signature'
+    | 'send-for-signing'
+    | 'setlink'
+    | (string & {});
+
 interface StoreConfig {
     background?: {
         dark: string;
@@ -14016,9 +14052,6 @@ interface StoreConfig {
      * Where the plugin works: `web` - the editors in a browser, `desktop` - the desktop editors, in
      * either of their modes (local files or a connected cloud). Omit it when the plugin works
      * everywhere.
-     *
-     * Informational only: the marketplace warns a user on any other platform that the plugin will
-     * not work there, but nothing stops it from being installed or run.
      */
     platforms?: PluginPlatform[];
     screenshots?: string[];
@@ -14076,6 +14109,16 @@ interface VariationConfig {
     isViewer?: boolean;
     /** Omitted in practice about as often as it's set explicitly. */
     isVisual?: boolean;
+    /**
+     * The reasons for blocking the editor toolbar that also disable the plugin button, for example
+     * `["reconnect", "disconnect"]` (see {@link ToolbarLockReason}). Omitted or `null` (the default)
+     * disables the button whenever the toolbar is blocked.
+     *
+     * While the document is loading or being refreshed, or the About panel is open, the button is
+     * always disabled, whatever the list says. Read from the first variation only.
+     * @since 10.0.1
+     */
+    lockReasons?: ToolbarLockReason[] | null;
     menu?: MenuType;
     /** executeMethod names this variation calls - purely descriptive/documentation, not enforced. */
     methods?: string[];
@@ -14127,6 +14170,13 @@ type PluginEventMap = {
     onChangeRestrictions: [value: number];
     /** `id` - the ID of the floating action button that was clicked. Since editor 10.0.0. */
     onFloatActionButtonClick: [id: string];
+    /**
+     * Fired when the list of reasons for blocking the editor toolbar changes, for example
+     * `["reconnect"]` while the connection is lost. An empty array means that the toolbar is not
+     * blocked. Pair it with `manageButtonState` to decide the state of a toolbar button.
+     * @since 10.0.1
+     */
+    onChangeButtonDisableState: [reasons: ToolbarLockReason[]];
 
     // Word only (per sdkjs/word/plugin-events.js's own `@typeofeditors ["CDE"]`) - firing an
     // attachEvent for one of these outside Word is not documented and won't happen in practice.
@@ -14253,6 +14303,16 @@ interface ButtonBase {
     data: string;
     separator: boolean;
     lockInViewMode: boolean;
+    /**
+     * Keep the toolbar button enabled while the editor toolbar is blocked, so the plugin decides
+     * its state itself - from the `onChangeButtonDisableState` event, through `disabled`. Default
+     * `false`: the editor disables the button together with the toolbar.
+     *
+     * Toolbar buttons only. While the document is loading or being refreshed, or the About panel is
+     * open, the editor disables the button anyway.
+     * @since 10.0.1
+     */
+    manageButtonState: boolean;
     enableToggle: boolean;
     disabled: boolean;
     removed: boolean;
@@ -14272,7 +14332,7 @@ interface ButtonBase {
  *
  * Not the same shape as the generated `ContextMenuItem`, which is what `executeMethod`'s
  * `AddContextMenuItem` accepts: this one carries the helper's own `hint`, `separator`,
- * `lockInViewMode`, `enableToggle` and `pressed`, and has no `icons`.
+ * `lockInViewMode`, `manageButtonState`, `enableToggle` and `pressed`, and has no `icons`.
  */
 interface ContextMenuShowItem {
     id: string;
@@ -14281,6 +14341,7 @@ interface ContextMenuShowItem {
     separator?: boolean;
     data?: unknown;
     lockInViewMode?: boolean;
+    manageButtonState?: boolean;
     enableToggle?: boolean;
     disabled?: boolean;
     pressed?: boolean;
@@ -14599,10 +14660,13 @@ interface AscPlugin {
     event_onWindowHeaderMenuClick?: (id?: string) => void;
     /**
      * Per-editor overloads (typed from each editor's own plugin-events.js) come first so a known
-     * event name gets its real payload type; the final overload is a loose fallback for events
-     * not modeled yet (e.g. the low-level common/UI ones - onContextMenuShow, onClick, onKeyDown, ...).
+     * event name gets its real payload type; the events shared by all editors
+     * (common/base-plugin-events.js - onChangeButtonDisableState, onFloatActionButtonClick, ...) are
+     * typed from `PluginEventMap`, the same map `attachEvent` uses, since both receive the same
+     * editor `onEvent` message; the final overload is a loose fallback for events not modeled yet.
      */
     attachEditorEvent: (<T extends Forms.EditorEventName>(eventName: T, callback: (...args: Forms.EditorEventArgs[T]) => void) => void) &
+        (<T extends keyof PluginEventMap>(eventName: T, callback: (...args: PluginEventMap[T]) => void) => void) &
         ((eventName: PluginEditorEventName, callback: PluginEditorEventCallback) => void);
     attachContextMenuClickEvent: (id: string, callback: CustomMenuClickCallback) => void;
     attachEvent: (<T extends keyof PluginEventMap>(eventName: T, callback: (...args: PluginEventMap[T]) => void) => void) &

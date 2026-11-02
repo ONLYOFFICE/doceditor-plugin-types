@@ -127,14 +127,17 @@ interface AscPlugin {
     event_onWindowHeaderMenuClick?: (id?: string) => void;
     /**
      * Per-editor overloads (typed from each editor's own plugin-events.js) come first so a known
-     * event name gets its real payload type; the final overload is a loose fallback for events
-     * not modeled yet (e.g. the low-level common/UI ones - onContextMenuShow, onClick, onKeyDown, ...).
+     * event name gets its real payload type; the events shared by all editors
+     * (common/base-plugin-events.js - onChangeButtonDisableState, onFloatActionButtonClick, ...) are
+     * typed from `PluginEventMap`, the same map `attachEvent` uses, since both receive the same
+     * editor `onEvent` message; the final overload is a loose fallback for events not modeled yet.
      */
     attachEditorEvent: (<T extends Word.EditorEventName>(eventName: T, callback: (...args: Word.EditorEventArgs[T]) => void) => void) &
         (<T extends Cell.EditorEventName>(eventName: T, callback: (...args: Cell.EditorEventArgs[T]) => void) => void) &
         (<T extends Slide.EditorEventName>(eventName: T, callback: (...args: Slide.EditorEventArgs[T]) => void) => void) &
         (<T extends Forms.EditorEventName>(eventName: T, callback: (...args: Forms.EditorEventArgs[T]) => void) => void) &
         (<T extends Pdf.EditorEventName>(eventName: T, callback: (...args: Pdf.EditorEventArgs[T]) => void) => void) &
+        (<T extends keyof PluginEventMap>(eventName: T, callback: (...args: PluginEventMap[T]) => void) => void) &
         ((eventName: PluginEditorEventName, callback: PluginEditorEventCallback) => void);
     attachContextMenuClickEvent: (id: string, callback: CustomMenuClickCallback) => void;
     attachEvent: (<T extends keyof PluginEventMap>(eventName: T, callback: (...args: PluginEventMap[T]) => void) => void) &

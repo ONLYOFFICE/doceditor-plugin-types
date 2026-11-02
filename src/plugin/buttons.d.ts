@@ -28,6 +28,16 @@ interface ButtonBase {
     data: string;
     separator: boolean;
     lockInViewMode: boolean;
+    /**
+     * Keep the toolbar button enabled while the editor toolbar is blocked, so the plugin decides
+     * its state itself - from the `onChangeButtonDisableState` event, through `disabled`. Default
+     * `false`: the editor disables the button together with the toolbar.
+     *
+     * Toolbar buttons only. While the document is loading or being refreshed, or the About panel is
+     * open, the editor disables the button anyway.
+     * @since 10.0.1
+     */
+    manageButtonState: boolean;
     enableToggle: boolean;
     disabled: boolean;
     removed: boolean;
@@ -47,7 +57,7 @@ interface ButtonBase {
  *
  * Not the same shape as the generated `ContextMenuItem`, which is what `executeMethod`'s
  * `AddContextMenuItem` accepts: this one carries the helper's own `hint`, `separator`,
- * `lockInViewMode`, `enableToggle` and `pressed`, and has no `icons`.
+ * `lockInViewMode`, `manageButtonState`, `enableToggle` and `pressed`, and has no `icons`.
  */
 interface ContextMenuShowItem {
     id: string;
@@ -56,6 +66,7 @@ interface ContextMenuShowItem {
     separator?: boolean;
     data?: unknown;
     lockInViewMode?: boolean;
+    manageButtonState?: boolean;
     enableToggle?: boolean;
     disabled?: boolean;
     pressed?: boolean;

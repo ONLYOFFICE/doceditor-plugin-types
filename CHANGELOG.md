@@ -5,9 +5,11 @@ Versions mirror the ONLYOFFICE editor release this package's types were generate
 
 ## Unreleased
 
-`StoreConfig.platforms` - where a plugin works, `"web"` and/or `"desktop"` (the new `PluginPlatform`
-type). Omitted means everywhere. It is informational: the marketplace warns a user on any other
-platform that the plugin will not work there, but does not block installing or running it.
+- `StoreConfig.platforms` (the new `PluginPlatform` type) - where a plugin works.
+- `VariationConfig.lockReasons`, `ButtonBase.manageButtonState` and the
+  `onChangeButtonDisableState` event (the new `ToolbarLockReason` type) - plugin button state while
+  the editor toolbar is blocked.
+- `attachEditorEvent` types the events shared by all editors, as `attachEvent` does.
 
 ## 10.0.0
 
