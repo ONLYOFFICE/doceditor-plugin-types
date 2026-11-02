@@ -40125,25 +40125,8 @@ interface InstalledPluginInfo {
 type PluginPlatform = 'web' | 'desktop';
 
 /**
- * Why the editor blocks its toolbar - the values `VariationConfig.lockReasons` takes and the
- * `onChangeButtonDisableState` event reports.
- *
- * - `"not-loaded"` - the document is still loading.
- * - `"background-open"` - Cell only: the workbook is still being opened in the background.
- * - `"refresh-file"` - the file is being reloaded after an update.
- * - `"show-about"` - the About panel is open.
- * - `"reconnect"` - the connection to the server is lost and the editor is reconnecting.
- * - `"disconnect"` - editing is off until reopening: version history, license, editing error.
- * - `"unknown"` - Word, PDF and Visio: the co-editing session has been closed.
- * - `"mailmerge"` - Word only: a mail merge result is being previewed.
- * - `"signature"` - Word, Cell, Slide and PDF: the document carries digital signatures.
- * - `"send-for-signing"` - Word and PDF: the Send for signing panel is open.
- * - `"setlink"` - PDF only: the target of a link is being picked on a page.
- *
- * The first four always disable plugin buttons, whatever `lockReasons` or `manageButtonState` say.
- *
- * These are the reasons the current editor reports, not a closed set: a later editor version may
- * add more, so any other string is accepted as well.
+ * A reason for blocking the editor toolbar, as `VariationConfig.lockReasons` and the
+ * `onChangeButtonDisableState` event name it. More may be added in future versions.
  * @since 10.0.1
  */
 type ToolbarLockReason =
@@ -40232,12 +40215,9 @@ interface VariationConfig {
     /** Omitted in practice about as often as it's set explicitly. */
     isVisual?: boolean;
     /**
-     * The reasons for blocking the editor toolbar that also disable the plugin button, for example
-     * `["reconnect", "disconnect"]` (see {@link ToolbarLockReason}). Omitted or `null` (the default)
-     * disables the button whenever the toolbar is blocked.
-     *
-     * While the document is loading or being refreshed, or the About panel is open, the button is
-     * always disabled, whatever the list says. Read from the first variation only.
+     * The reasons for blocking the editor toolbar that also disable the plugin button. If it is not
+     * specified, any reason disables the button. While the document is loading or being refreshed,
+     * or the About panel is open, the button is always disabled. Read from the first variation only.
      * @since 10.0.1
      */
     lockReasons?: ToolbarLockReason[] | null;

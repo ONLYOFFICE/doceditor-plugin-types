@@ -166,7 +166,7 @@
       }
     },
     "ToolbarLockReason": {
-      "description": "Why the editor blocks its toolbar - the values `VariationConfig.lockReasons` takes and the\n`onChangeButtonDisableState` event reports.\n\n- `\"not-loaded\"` - the document is still loading.\n- `\"background-open\"` - Cell only: the workbook is still being opened in the background.\n- `\"refresh-file\"` - the file is being reloaded after an update.\n- `\"show-about\"` - the About panel is open.\n- `\"reconnect\"` - the connection to the server is lost and the editor is reconnecting.\n- `\"disconnect\"` - editing is off until reopening: version history, license, editing error.\n- `\"unknown\"` - Word, PDF and Visio: the co-editing session has been closed.\n- `\"mailmerge\"` - Word only: a mail merge result is being previewed.\n- `\"signature\"` - Word, Cell, Slide and PDF: the document carries digital signatures.\n- `\"send-for-signing\"` - Word and PDF: the Send for signing panel is open.\n- `\"setlink\"` - PDF only: the target of a link is being picked on a page.\n\nThe first four always disable plugin buttons, whatever `lockReasons` or `manageButtonState` say.\n\nThese are the reasons the current editor reports, not a closed set: a later editor version may\nadd more, so any other string is accepted as well.",
+      "description": "A reason for blocking the editor toolbar, as `VariationConfig.lockReasons` and the\n`onChangeButtonDisableState` event name it. More may be added in future versions.",
       "kind": "type",
       "since": "10.0.1",
       "type": "| 'not-loaded' | 'background-open' | 'refresh-file' | 'show-about' | 'reconnect' | 'disconnect' | 'unknown' | 'mailmerge' | 'signature' | 'send-for-signing' | 'setlink' | (string & {})"
@@ -284,7 +284,7 @@
           "signature": "isVisual?: boolean;"
         },
         "lockReasons": {
-          "description": "The reasons for blocking the editor toolbar that also disable the plugin button, for example\n`[\"reconnect\", \"disconnect\"]` (see {@link ToolbarLockReason}). Omitted or `null` (the default)\ndisables the button whenever the toolbar is blocked.\n\nWhile the document is loading or being refreshed, or the About panel is open, the button is\nalways disabled, whatever the list says. Read from the first variation only.",
+          "description": "The reasons for blocking the editor toolbar that also disable the plugin button. If it is not\nspecified, any reason disables the button. While the document is loading or being refreshed,\nor the About panel is open, the button is always disabled. Read from the first variation only.",
           "optional": true,
           "signature": "lockReasons?: ToolbarLockReason[] | null;",
           "since": "10.0.1"
