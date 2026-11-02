@@ -64671,6 +64671,8 @@ interface InstalledPluginInfo {
     removed?: boolean;
 }
 
+type PluginPlatform = 'web' | 'desktop';
+
 interface StoreConfig {
     background?: {
         dark: string;
@@ -64681,6 +64683,15 @@ interface StoreConfig {
         dark: string;
         light: string;
     };
+    /**
+     * Where the plugin works: `web` - the editors in a browser, `desktop` - the desktop editors, in
+     * either of their modes (local files or a connected cloud). Omit it when the plugin works
+     * everywhere.
+     *
+     * Informational only: the marketplace warns a user on any other platform that the plugin will
+     * not work there, but nothing stops it from being installed or run.
+     */
+    platforms?: PluginPlatform[];
     screenshots?: string[];
 }
 

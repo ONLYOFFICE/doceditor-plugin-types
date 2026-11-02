@@ -135,6 +135,10 @@
         }
       }
     },
+    "PluginPlatform": {
+      "kind": "type",
+      "type": "'web' | 'desktop'"
+    },
     "StoreConfig": {
       "kind": "interface",
       "members": {
@@ -149,6 +153,11 @@
         "icons": {
           "optional": true,
           "signature": "icons?: { dark: string; light: string; };"
+        },
+        "platforms": {
+          "description": "Where the plugin works: `web` - the editors in a browser, `desktop` - the desktop editors, in\neither of their modes (local files or a connected cloud). Omit it when the plugin works\neverywhere.\n\nInformational only: the marketplace warns a user on any other platform that the plugin will\nnot work there, but nothing stops it from being installed or run.",
+          "optional": true,
+          "signature": "platforms?: PluginPlatform[];"
         },
         "screenshots": {
           "optional": true,

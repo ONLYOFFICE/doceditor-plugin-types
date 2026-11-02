@@ -79,6 +79,8 @@ interface InstalledPluginInfo {
     removed?: boolean;
 }
 
+type PluginPlatform = 'web' | 'desktop';
+
 interface StoreConfig {
     background?: {
         dark: string;
@@ -89,6 +91,12 @@ interface StoreConfig {
         dark: string;
         light: string;
     };
+    /**
+     * Where the plugin works: `web` - the editors in a browser, `desktop` - the desktop editors, in
+     * either of their modes (local files or a connected cloud). Omit it when the plugin works
+     * everywhere.
+     */
+    platforms?: PluginPlatform[];
     screenshots?: string[];
 }
 
@@ -168,6 +176,7 @@ export type {
     InitDataType,
     MenuType,
     PluginConfig,
+    PluginPlatform,
     InstalledPluginInfo,
     StoreConfig,
     VariationConfig,

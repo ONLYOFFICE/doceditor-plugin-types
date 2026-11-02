@@ -394,6 +394,13 @@
           ],
           "additionalProperties": false
         },
+        "platforms": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PluginPlatform"
+          },
+          "description": "Where the plugin works: `web` - the editors in a browser, `desktop` - the desktop editors, in either of their modes (local files or a connected cloud). Omit it when the plugin works everywhere.\n\nInformational only: the marketplace warns a user on any other platform that the plugin will not work there, but nothing stops it from being installed or run."
+        },
         "screenshots": {
           "type": "array",
           "items": {
@@ -406,6 +413,13 @@
         "background",
         "icons",
         "screenshots"
+      ]
+    },
+    "PluginPlatform": {
+      "type": "string",
+      "enum": [
+        "web",
+        "desktop"
       ]
     },
     "VariationType": {
