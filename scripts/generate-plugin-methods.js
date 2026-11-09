@@ -161,6 +161,10 @@ const METHOD_OVERRIDES = {
   // rejects; that mismatch is what causes TS to misreport the error against the last intersected
   // overload (FormsMethodArgs) instead of AddContentControlList's own signature.
   AddContentControlList: { paramTypes: { 0: '0 | 1' } },
+  // `@returns {AddinFieldData}`, while the same tag's prose says "or null if no addin field was
+  // added" and the implementation agrees: `return null` when there is no logic document, and
+  // `return field ? AscWord.CAddinFieldData.FromField(field).ToJson() : null`.
+  AddAddinField: { returnType: 'AddinFieldData | null' },
 };
 
 function applyMethodOverrides(name, method) {

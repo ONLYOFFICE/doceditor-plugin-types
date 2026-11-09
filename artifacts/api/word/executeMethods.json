@@ -26,9 +26,9 @@
     ],
     "returns": {
       "description": "An AddinFieldData object containing the data about the current added field, or null if no addin field was added.",
-      "type": "AddinFieldData"
+      "type": "AddinFieldData | null"
     },
-    "signature": "executeMethod(\"AddAddinField\", [data: AddinFieldData], callback?): AddinFieldData",
+    "signature": "executeMethod(\"AddAddinField\", [data: AddinFieldData], callback?): AddinFieldData | null",
     "since": "7.3.3"
   },
   "AddComment": {

@@ -63930,7 +63930,7 @@ type WordMethodName = keyof WordMethodArgs;
 
 type WordMethodReturnMap = {
   AcceptReviewChanges: unknown;
-  AddAddinField: AddinFieldData;
+  AddAddinField: AddinFieldData | null;
   AddComment: string | null;
   AddContentControl: ContentControl;
   AddContentControlCheckBox: unknown;

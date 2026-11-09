@@ -2298,7 +2298,7 @@
   ],
   "executeMethods": {
     "AcceptReviewChanges": "executeMethod(\"AcceptReviewChanges\", [isAll?: boolean], callback?): unknown",
-    "AddAddinField": "executeMethod(\"AddAddinField\", [data: AddinFieldData], callback?): AddinFieldData",
+    "AddAddinField": "executeMethod(\"AddAddinField\", [data: AddinFieldData], callback?): AddinFieldData | null",
     "AddComment": "executeMethod(\"AddComment\", [oCommentData: CommentData], callback?): string | null",
     "AddContentControl": "executeMethod(\"AddContentControl\", [type: ContentControlType, commonPr?: ContentControlProperties], callback?): ContentControl",
     "AddContentControlCheckBox": "executeMethod(\"AddContentControlCheckBox\", [checkBoxPr?: ContentControlCheckBoxProperties, commonPr?: ContentControlProperties], callback?): unknown",
