@@ -4,35 +4,35 @@
     "cell": {
       "classes": 125,
       "events": 1,
-      "executeMethods": 47,
+      "executeMethods": 48,
       "methods": 2002,
       "typedefs": 177
     },
     "forms": {
       "classes": 69,
       "events": 1,
-      "executeMethods": 50,
+      "executeMethods": 51,
       "methods": 379,
       "typedefs": 116
     },
     "pdf": {
       "classes": 112,
       "events": 2,
-      "executeMethods": 31,
+      "executeMethods": 32,
       "methods": 1514,
       "typedefs": 148
     },
     "slide": {
       "classes": 85,
       "events": 5,
-      "executeMethods": 62,
+      "executeMethods": 63,
       "methods": 1066,
       "typedefs": 112
     },
     "word": {
       "classes": 73,
       "events": 19,
-      "executeMethods": 113,
+      "executeMethods": 114,
       "methods": 2129,
       "typedefs": 108
     }

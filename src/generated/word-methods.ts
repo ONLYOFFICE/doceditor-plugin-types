@@ -1708,6 +1708,14 @@ type WordMethodArgs = {
    */
   GetSelectionType: [];
   /**
+   * Returns the reasons why the editor toolbar is disabled, the same as the
+   * onChangeToolbarDisableReasons event passes.
+   *
+   * @returns The current reasons. An empty array means that the editor toolbar is not disabled.
+   * @since 10.0.3
+   */
+  GetToolbarDisableReasons: [];
+  /**
    * Returns all VBA macros from the document.
    *
    * @returns VBA xml macros.
@@ -2813,6 +2821,7 @@ type WordMethodReturnMap = {
   GetSelectedOleObjects: OLEProperties[];
   GetSelectedText: string;
   GetSelectionType: SelectionType;
+  GetToolbarDisableReasons: string[];
   GetVBAMacros: string | null;
   GetVersion: string;
   InputText: unknown;
@@ -2883,7 +2892,7 @@ type WordMethodReturnMap = {
 type WordMethodReturn<T extends WordMethodName> = WordMethodReturnMap[T];
 
 /**
- * Word `executeMethod` names that need a paid ONLYOFFICE edition (8 of 113).
+ * Word `executeMethod` names that need a paid ONLYOFFICE edition (8 of 114).
  * Each one's own `@requires` tag names the edition it needs.
  *
  * Nothing restricts these by default - use this to opt into enforcement, e.g.

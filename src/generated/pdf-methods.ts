@@ -722,6 +722,14 @@ type PdfMethodArgs = {
    */
   GetSelectedText: [prop?: { Numbering?: boolean; Math?: boolean; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string; NewLineSeparator?: string }];
   /**
+   * Returns the reasons why the editor toolbar is disabled, the same as the
+   * onChangeToolbarDisableReasons event passes.
+   *
+   * @returns The current reasons. An empty array means that the editor toolbar is not disabled.
+   * @since 10.0.3
+   */
+  GetToolbarDisableReasons: [];
+  /**
    * Returns the editor version.
    *
    * @returns The editor version.
@@ -1084,6 +1092,7 @@ type PdfMethodReturnMap = {
   GetPageImage: string | object;
   GetRestrictions: EditorRestrictions;
   GetSelectedText: string;
+  GetToolbarDisableReasons: string[];
   GetVersion: string;
   GoToPage: boolean;
   InstallPlugin: object;
@@ -1108,7 +1117,7 @@ type PdfMethodReturnMap = {
 type PdfMethodReturn<T extends PdfMethodName> = PdfMethodReturnMap[T];
 
 /**
- * Pdf `executeMethod` names that need a paid ONLYOFFICE edition (0 of 31).
+ * Pdf `executeMethod` names that need a paid ONLYOFFICE edition (0 of 32).
  * Each one's own `@requires` tag names the edition it needs.
  *
  * Nothing restricts these by default - use this to opt into enforcement, e.g.

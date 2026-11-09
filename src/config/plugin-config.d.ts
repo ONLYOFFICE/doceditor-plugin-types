@@ -82,11 +82,11 @@ interface InstalledPluginInfo {
 type PluginPlatform = 'web' | 'desktop';
 
 /**
- * A reason for blocking the editor toolbar, as `VariationConfig.lockReasons` and the
- * `onChangeButtonDisableState` event name it. More may be added in future versions.
- * @since 10.0.1
+ * A reason for disabling the editor toolbar, as `VariationConfig.disableReasons` and the
+ * `onChangeToolbarDisableReasons` event name it. More may be added in future versions.
+ * @since 10.0.3
  */
-type ToolbarLockReason =
+type ToolbarDisableReason =
     | 'not-loaded'
     | 'background-open'
     | 'refresh-file'
@@ -172,12 +172,12 @@ interface VariationConfig {
     /** Omitted in practice about as often as it's set explicitly. */
     isVisual?: boolean;
     /**
-     * The reasons for blocking the editor toolbar that also disable the plugin button. If it is not
+     * The reasons for disabling the editor toolbar that also disable the plugin button. If it is not
      * specified, any reason disables the button. While the document is loading or being refreshed,
      * or the About panel is open, the button is always disabled. Read from the first variation only.
-     * @since 10.0.1
+     * @since 10.0.3
      */
-    lockReasons?: ToolbarLockReason[] | null;
+    disableReasons?: ToolbarDisableReason[];
     menu?: MenuType;
     /** executeMethod names this variation calls - purely descriptive/documentation, not enforced. */
     methods?: string[];
@@ -203,7 +203,7 @@ export type {
     MenuType,
     PluginConfig,
     PluginPlatform,
-    ToolbarLockReason,
+    ToolbarDisableReason,
     InstalledPluginInfo,
     StoreConfig,
     VariationConfig,

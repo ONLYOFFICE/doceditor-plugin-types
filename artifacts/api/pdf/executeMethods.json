@@ -162,6 +162,16 @@
     "signature": "executeMethod(\"GetSelectedText\", [prop?: { Numbering?: boolean; Math?: boolean; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string; NewLineSeparator?: string }], callback?): string",
     "since": "7.1.0"
   },
+  "GetToolbarDisableReasons": {
+    "description": "Returns the reasons why the editor toolbar is disabled, the same as the onChangeToolbarDisableReasons event passes.",
+    "params": [],
+    "returns": {
+      "description": "The current reasons. An empty array means that the editor toolbar is not disabled.",
+      "type": "string[]"
+    },
+    "signature": "executeMethod(\"GetToolbarDisableReasons\", [], callback?): string[]",
+    "since": "10.0.3"
+  },
   "GetVersion": {
     "description": "Returns the editor version.",
     "params": [],

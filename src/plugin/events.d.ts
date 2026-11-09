@@ -6,7 +6,7 @@
 // the same shapes `executeMethod`'s Word surface already models (with real-example-verified
 // optionality) - rather than duplicating them by hand and letting the copies drift.
 import type { ContentControl, comment, TextAnnotation, TextAnnotationRange } from "../generated/word-methods";
-import type { ToolbarLockReason } from "../config/plugin-config";
+import type { ToolbarDisableReason } from "../config/plugin-config";
 
 interface ContextMenuShowEvent {
     /** The context type used by the editor, for example `All`. */
@@ -36,12 +36,12 @@ type PluginEventMap = {
     /** `id` - the ID of the floating action button that was clicked. Since editor 10.0.0. */
     onFloatActionButtonClick: [id: string];
     /**
-     * Fired when the list of reasons for blocking the editor toolbar changes, for example
+     * Fired when the list of reasons for disabling the editor toolbar changes, for example
      * `["reconnect"]` while the connection is lost. An empty array means that the toolbar is not
-     * blocked. Pair it with `manageButtonState` to decide the state of a toolbar button.
-     * @since 10.0.1
+     * disabled. Pair it with `ignoreDisabledToolbar` to decide the state of a toolbar button.
+     * @since 10.0.3
      */
-    onChangeButtonDisableState: [reasons: ToolbarLockReason[]];
+    onChangeToolbarDisableReasons: [reasons: ToolbarDisableReason[]];
 
     // Word only (per sdkjs/word/plugin-events.js's own `@typeofeditors ["CDE"]`) - firing an
     // attachEvent for one of these outside Word is not documented and won't happen in practice.

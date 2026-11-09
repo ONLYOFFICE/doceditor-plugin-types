@@ -165,10 +165,10 @@
         }
       }
     },
-    "ToolbarLockReason": {
-      "description": "A reason for blocking the editor toolbar, as `VariationConfig.lockReasons` and the\n`onChangeButtonDisableState` event name it. More may be added in future versions.",
+    "ToolbarDisableReason": {
+      "description": "A reason for disabling the editor toolbar, as `VariationConfig.disableReasons` and the\n`onChangeToolbarDisableReasons` event name it. More may be added in future versions.",
       "kind": "type",
-      "since": "10.0.1",
+      "since": "10.0.3",
       "type": "| 'not-loaded' | 'background-open' | 'refresh-file' | 'show-about' | 'reconnect' | 'disconnect' | 'unknown' | 'mailmerge' | 'signature' | 'send-for-signing' | 'setlink' | (string & {})"
     },
     "VariationConfig": {
@@ -204,6 +204,12 @@
         "descriptionLocale": {
           "optional": true,
           "signature": "descriptionLocale?: Record<string, string>;"
+        },
+        "disableReasons": {
+          "description": "The reasons for disabling the editor toolbar that also disable the plugin button. If it is not\nspecified, any reason disables the button. While the document is loading or being refreshed,\nor the About panel is open, the button is always disabled. Read from the first variation only.",
+          "optional": true,
+          "signature": "disableReasons?: ToolbarDisableReason[];",
+          "since": "10.0.3"
         },
         "events": {
           "optional": true,
@@ -282,12 +288,6 @@
           "description": "Omitted in practice about as often as it's set explicitly.",
           "optional": true,
           "signature": "isVisual?: boolean;"
-        },
-        "lockReasons": {
-          "description": "The reasons for blocking the editor toolbar that also disable the plugin button. If it is not\nspecified, any reason disables the button. While the document is loading or being refreshed,\nor the About panel is open, the button is always disabled. Read from the first variation only.",
-          "optional": true,
-          "signature": "lockReasons?: ToolbarLockReason[] | null;",
-          "since": "10.0.1"
         },
         "menu": {
           "optional": true,
@@ -370,7 +370,7 @@
           "signature": "attachContextMenuClickEvent: (id: string, callback: CustomMenuClickCallback) => void;"
         },
         "attachEditorEvent": {
-          "description": "Per-editor overloads (typed from each editor's own plugin-events.js) come first so a known\nevent name gets its real payload type; the events shared by all editors\n(common/base-plugin-events.js - onChangeButtonDisableState, onFloatActionButtonClick, ...) are\ntyped from `PluginEventMap`, the same map `attachEvent` uses, since both receive the same\neditor `onEvent` message; the final overload is a loose fallback for events not modeled yet.",
+          "description": "Per-editor overloads (typed from each editor's own plugin-events.js) come first so a known\nevent name gets its real payload type; the events shared by all editors\n(common/base-plugin-events.js - onChangeToolbarDisableReasons, onFloatActionButtonClick, ...) are\ntyped from `PluginEventMap`, the same map `attachEvent` uses, since both receive the same\neditor `onEvent` message; the final overload is a loose fallback for events not modeled yet.",
           "signature": "attachEditorEvent: (<T extends Word.EditorEventName>(eventName: T, callback: (...args: Word.EditorEventArgs[T]) => void) => void) & (<T extends Cell.EditorEventName>(eventName: T, callback: (...args: Cell.EditorEventArgs[T]) => void) => void) & (<T extends Slide.EditorEventName>(eventName: T, callback: (...args: Slide.EditorEventArgs[T]) => void) => void) & (<T extends Forms.EditorEventName>(eventName: T, callback: (...args: Forms.EditorEventArgs[T]) => void) => void) & (<T extends Pdf.EditorEventName>(eventName: T, callback: (...args: Pdf.EditorEventArgs[T]) => void) => void) & (<T extends keyof PluginEventMap>(eventName: T, callback: (...args: PluginEventMap[T]) => void) => void) & ((eventName: PluginEditorEventName, callback: PluginEditorEventCallback) => void);"
         },
         "attachEvent": {
@@ -617,13 +617,13 @@
         "id": {
           "signature": "id: string;"
         },
+        "ignoreDisabledToolbar": {
+          "description": "Keep the toolbar button enabled while the editor toolbar is disabled, so the plugin decides\nits state itself - from the `onChangeToolbarDisableReasons` event, through `disabled`. Default\n`false`: the editor disables the button together with the toolbar.\n\nToolbar buttons only. While the document is loading or being refreshed, or the About panel is\nopen, the editor disables the button anyway.",
+          "signature": "ignoreDisabledToolbar: boolean;",
+          "since": "10.0.3"
+        },
         "lockInViewMode": {
           "signature": "lockInViewMode: boolean;"
-        },
-        "manageButtonState": {
-          "description": "Keep the toolbar button enabled while the editor toolbar is blocked, so the plugin decides\nits state itself - from the `onChangeButtonDisableState` event, through `disabled`. Default\n`false`: the editor disables the button together with the toolbar.\n\nToolbar buttons only. While the document is loading or being refreshed, or the About panel is\nopen, the editor disables the button anyway.",
-          "signature": "manageButtonState: boolean;",
-          "since": "10.0.1"
         },
         "menu": {
           "optional": true,
@@ -770,7 +770,7 @@
       }
     },
     "ContextMenuShowItem": {
-      "description": "One entry of the menu as the `Asc.Buttons` helper layer builds it - the object `toItem()` returns\nand the two hooks below are handed. Only `id` and `text` are always present; every other field is\nwritten only when the matching property is set on the button.\n\nNot the same shape as the generated `ContextMenuItem`, which is what `executeMethod`'s\n`AddContextMenuItem` accepts: this one carries the helper's own `hint`, `separator`,\n`lockInViewMode`, `manageButtonState`, `enableToggle` and `pressed`, and has no `icons`.",
+      "description": "One entry of the menu as the `Asc.Buttons` helper layer builds it - the object `toItem()` returns\nand the two hooks below are handed. Only `id` and `text` are always present; every other field is\nwritten only when the matching property is set on the button.\n\nNot the same shape as the generated `ContextMenuItem`, which is what `executeMethod`'s\n`AddContextMenuItem` accepts: this one carries the helper's own `hint`, `separator`,\n`lockInViewMode`, `ignoreDisabledToolbar`, `enableToggle` and `pressed`, and has no `icons`.",
       "kind": "interface",
       "members": {
         "data": {
@@ -792,6 +792,10 @@
         "id": {
           "signature": "id: string;"
         },
+        "ignoreDisabledToolbar": {
+          "optional": true,
+          "signature": "ignoreDisabledToolbar?: boolean;"
+        },
         "items": {
           "optional": true,
           "signature": "items?: ContextMenuShowItem[];"
@@ -799,10 +803,6 @@
         "lockInViewMode": {
           "optional": true,
           "signature": "lockInViewMode?: boolean;"
-        },
-        "manageButtonState": {
-          "optional": true,
-          "signature": "manageButtonState?: boolean;"
         },
         "pressed": {
           "optional": true,
@@ -904,11 +904,6 @@
           "description": "Word only. Fired when a content control loses focus.",
           "signature": "onBlurContentControl: [control: ContentControl];"
         },
-        "onChangeButtonDisableState": {
-          "description": "Fired when the list of reasons for blocking the editor toolbar changes, for example\n`[\"reconnect\"]` while the connection is lost. An empty array means that the toolbar is not\nblocked. Pair it with `manageButtonState` to decide the state of a toolbar button.",
-          "signature": "onChangeButtonDisableState: [reasons: ToolbarLockReason[]];",
-          "since": "10.0.1"
-        },
         "onChangeCommentData": {
           "description": "Word only. Fired when a comment is changed via `ChangeComment`.",
           "signature": "onChangeCommentData: [comment: comment];"
@@ -932,6 +927,11 @@
         "onChangeRestrictions": {
           "description": "`value` - the restrictions value.",
           "signature": "onChangeRestrictions: [value: number];"
+        },
+        "onChangeToolbarDisableReasons": {
+          "description": "Fired when the list of reasons for disabling the editor toolbar changes, for example\n`[\"reconnect\"]` while the connection is lost. An empty array means that the toolbar is not\ndisabled. Pair it with `ignoreDisabledToolbar` to decide the state of a toolbar button.",
+          "signature": "onChangeToolbarDisableReasons: [reasons: ToolbarDisableReason[]];",
+          "since": "10.0.3"
         },
         "onClick": {
           "description": "`isSelectionUse` - defines if the selection is used or not.",
@@ -1042,7 +1042,7 @@
           "signature": "onWindowResize: [event: unknown];"
         }
       },
-      "type": "{ onContextMenuShow: [event: ContextMenuShowEvent]; /** Payload is not documented consistently across editor versions. */ onWindowResize: [event: unknown]; /** Payload is not documented consistently across editor versions. */ onInputHelperInput: [event: unknown]; onInputHelperClear: []; onExternalMouseUp: []; onClickBack: []; onDocumentContentReady: []; onTargetPositionChanged: []; /** `isSelectionUse` - defines if the selection is used or not. */ onClick: [isSelectionUse: boolean]; /** Payload shape is not documented consistently across editor versions. */ onKeyDown: [event: unknown]; /** `isEnabled` - whether the mouse or touchpad is enabled (true) or not (false). */ onEnableMouseEvent: [isEnabled: boolean]; /** `value` - the restrictions value. */ onChangeRestrictions: [value: number]; /** `id` - the ID of the floating action button that was clicked. Since editor 10.0.0. */ onFloatActionButtonClick: [id: string]; /** * Fired when the list of reasons for blocking the editor toolbar changes, for example * `[\"reconnect\"]` while the connection is lost. An empty array means that the toolbar is not * blocked. Pair it with `manageButtonState` to decide the state of a toolbar button. * @since 10.0.1 */ onChangeButtonDisableState: [reasons: ToolbarLockReason[]]; // Word only (per sdkjs/word/plugin-events.js's own `@typeofeditors [\"CDE\"]`) - firing an // attachEvent for one of these outside Word is not documented and won't happen in practice. /** Word only. Fired when a comment is added via `AddComment`. */ onAddComment: [comment: comment]; /** Word only. Fired when a comment is changed via `ChangeComment`. */ onChangeCommentData: [comment: comment]; /** Word only. Fired when the current page changes. `index` is the newly activated page. */ onChangeCurrentPage: [index: number]; /** Word only. Fired when a comment is removed via `RemoveComments`. */ onRemoveComment: [comment: comment]; /** Word only. Fired when the user clicks the \"Complete & Submit\" button on a form. */ onSubmitForm: []; /** Word only. Fired when a content control receives focus. */ onFocusContentControl: [control: ContentControl]; /** Word only. Fired when a content control loses focus. */ onBlurContentControl: [control: ContentControl]; /** Word only. Fired when a content control changes. */ onChangeContentControl: [control: ContentControl]; /** Word only. Fired with the IDs of content control(s) that lost focus tracking in the document. */ onHideContentControlTrack: [ids: string[]]; /** Word only. Fired with the IDs of content control(s) that gained focus tracking in the document. */ onShowContentControlTrack: [ids: string[]]; /** Word only. Fired when one or more OLE objects are inserted into the document. */ onInsertOleObjects: [data: object[]]; // The four annotation events below are declared in sdkjs (word/plugin-events.js), but nothing // there ever fires them: the only code that dispatches them is the annotation engine, which a // Community Edition build does not have. Attaching a handler succeeds and it is simply never // called - so the licence has to be stated here, where a plugin author reads it, rather than // discovered by debugging a handler that never runs. `npm run check-plugin-events` fails if this // marking drifts from the sources. /** * Word only. Fired when a text annotation (e.g. a grammar/spellcheck range) loses focus. * * @requires ONLYOFFICE Docs Developer Edition. Annotations are not present in other * builds, where this event is never fired. * @since 9.2.0 */ onBlurAnnotation: [annotation: TextAnnotation]; /** * Word only. Fired when a text annotation receives focus. * * @requires ONLYOFFICE Docs Developer Edition. Annotations are not present in other * builds, where this event is never fired. * @since 9.2.0 */ onFocusAnnotation: [annotation: TextAnnotation]; /** * Word only. Fired when the user clicks a text annotation. * * @requires ONLYOFFICE Docs Developer Edition. Annotations are not present in other * builds, where this event is never fired. * @since 9.2.0 */ onClickAnnotation: [annotation: TextAnnotation]; /** * Word only. Fired when a paragraph's text is updated in the document. * * @requires ONLYOFFICE Docs Developer Edition. Dispatched only by the annotation * engine, which other builds do not have, so this event is never fired there. * @since 9.2.0 */ onParagraphText: [data: { paragraphId: string; recalcId: string; text: string; annotations: TextAnnotationRange[] }]; // Cell only. /** Cell only. Fired when the current worksheet changes. `index` is the newly activated sheet. */ onChangeCurrentSheet: [index: number]; // Slide only. /** Slide only. Fired when the current slide changes. `index` is the newly activated slide. */ onChangeCurrentSlide: [index: number]; /** Slide only. Fired when a slide show presentation starts. */ onSlideShowBegin: []; /** Slide only. Fired when a slide show presentation ends. */ onSlideShowEnd: []; /** Slide only. Fired after the slide changes during a slide show, before its content is displayed. */ onSlideShowNextSlide: []; /** Slide only. Fired when the slide changes during a slide show, with the current and previous indices (`previousSlideIndex` is `-1` for the first slide). */ onSlideShowSlideChanged: [data: { slideIndex: number; previousSlideIndex: number }]; // Pdf only. /** Pdf only. Fired when a text selection ends, at the page and point where it ended. */ onSelectionEnd: [page: number, x: number, y: number]; /** Pdf only. Fired when a text selection is canceled. */ onSelectionCancel: []; }"
+      "type": "{ onContextMenuShow: [event: ContextMenuShowEvent]; /** Payload is not documented consistently across editor versions. */ onWindowResize: [event: unknown]; /** Payload is not documented consistently across editor versions. */ onInputHelperInput: [event: unknown]; onInputHelperClear: []; onExternalMouseUp: []; onClickBack: []; onDocumentContentReady: []; onTargetPositionChanged: []; /** `isSelectionUse` - defines if the selection is used or not. */ onClick: [isSelectionUse: boolean]; /** Payload shape is not documented consistently across editor versions. */ onKeyDown: [event: unknown]; /** `isEnabled` - whether the mouse or touchpad is enabled (true) or not (false). */ onEnableMouseEvent: [isEnabled: boolean]; /** `value` - the restrictions value. */ onChangeRestrictions: [value: number]; /** `id` - the ID of the floating action button that was clicked. Since editor 10.0.0. */ onFloatActionButtonClick: [id: string]; /** * Fired when the list of reasons for disabling the editor toolbar changes, for example * `[\"reconnect\"]` while the connection is lost. An empty array means that the toolbar is not * disabled. Pair it with `ignoreDisabledToolbar` to decide the state of a toolbar button. * @since 10.0.3 */ onChangeToolbarDisableReasons: [reasons: ToolbarDisableReason[]]; // Word only (per sdkjs/word/plugin-events.js's own `@typeofeditors [\"CDE\"]`) - firing an // attachEvent for one of these outside Word is not documented and won't happen in practice. /** Word only. Fired when a comment is added via `AddComment`. */ onAddComment: [comment: comment]; /** Word only. Fired when a comment is changed via `ChangeComment`. */ onChangeCommentData: [comment: comment]; /** Word only. Fired when the current page changes. `index` is the newly activated page. */ onChangeCurrentPage: [index: number]; /** Word only. Fired when a comment is removed via `RemoveComments`. */ onRemoveComment: [comment: comment]; /** Word only. Fired when the user clicks the \"Complete & Submit\" button on a form. */ onSubmitForm: []; /** Word only. Fired when a content control receives focus. */ onFocusContentControl: [control: ContentControl]; /** Word only. Fired when a content control loses focus. */ onBlurContentControl: [control: ContentControl]; /** Word only. Fired when a content control changes. */ onChangeContentControl: [control: ContentControl]; /** Word only. Fired with the IDs of content control(s) that lost focus tracking in the document. */ onHideContentControlTrack: [ids: string[]]; /** Word only. Fired with the IDs of content control(s) that gained focus tracking in the document. */ onShowContentControlTrack: [ids: string[]]; /** Word only. Fired when one or more OLE objects are inserted into the document. */ onInsertOleObjects: [data: object[]]; // The four annotation events below are declared in sdkjs (word/plugin-events.js), but nothing // there ever fires them: the only code that dispatches them is the annotation engine, which a // Community Edition build does not have. Attaching a handler succeeds and it is simply never // called - so the licence has to be stated here, where a plugin author reads it, rather than // discovered by debugging a handler that never runs. `npm run check-plugin-events` fails if this // marking drifts from the sources. /** * Word only. Fired when a text annotation (e.g. a grammar/spellcheck range) loses focus. * * @requires ONLYOFFICE Docs Developer Edition. Annotations are not present in other * builds, where this event is never fired. * @since 9.2.0 */ onBlurAnnotation: [annotation: TextAnnotation]; /** * Word only. Fired when a text annotation receives focus. * * @requires ONLYOFFICE Docs Developer Edition. Annotations are not present in other * builds, where this event is never fired. * @since 9.2.0 */ onFocusAnnotation: [annotation: TextAnnotation]; /** * Word only. Fired when the user clicks a text annotation. * * @requires ONLYOFFICE Docs Developer Edition. Annotations are not present in other * builds, where this event is never fired. * @since 9.2.0 */ onClickAnnotation: [annotation: TextAnnotation]; /** * Word only. Fired when a paragraph's text is updated in the document. * * @requires ONLYOFFICE Docs Developer Edition. Dispatched only by the annotation * engine, which other builds do not have, so this event is never fired there. * @since 9.2.0 */ onParagraphText: [data: { paragraphId: string; recalcId: string; text: string; annotations: TextAnnotationRange[] }]; // Cell only. /** Cell only. Fired when the current worksheet changes. `index` is the newly activated sheet. */ onChangeCurrentSheet: [index: number]; // Slide only. /** Slide only. Fired when the current slide changes. `index` is the newly activated slide. */ onChangeCurrentSlide: [index: number]; /** Slide only. Fired when a slide show presentation starts. */ onSlideShowBegin: []; /** Slide only. Fired when a slide show presentation ends. */ onSlideShowEnd: []; /** Slide only. Fired after the slide changes during a slide show, before its content is displayed. */ onSlideShowNextSlide: []; /** Slide only. Fired when the slide changes during a slide show, with the current and previous indices (`previousSlideIndex` is `-1` for the first slide). */ onSlideShowSlideChanged: [data: { slideIndex: number; previousSlideIndex: number }]; // Pdf only. /** Pdf only. Fired when a text selection ends, at the page and point where it ended. */ onSelectionEnd: [page: number, x: number, y: number]; /** Pdf only. Fired when a text selection is canceled. */ onSelectionCancel: []; }"
     },
     "PluginEventName": {
       "kind": "type",

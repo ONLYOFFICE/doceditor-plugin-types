@@ -128,7 +128,7 @@ interface AscPlugin {
     /**
      * Per-editor overloads (typed from each editor's own plugin-events.js) come first so a known
      * event name gets its real payload type; the events shared by all editors
-     * (common/base-plugin-events.js - onChangeButtonDisableState, onFloatActionButtonClick, ...) are
+     * (common/base-plugin-events.js - onChangeToolbarDisableReasons, onFloatActionButtonClick, ...) are
      * typed from `PluginEventMap`, the same map `attachEvent` uses, since both receive the same
      * editor `onEvent` message; the final overload is a loose fallback for events not modeled yet.
      */

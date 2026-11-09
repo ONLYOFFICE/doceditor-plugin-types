@@ -2345,6 +2345,7 @@
     "GetSelectedOleObjects": "executeMethod(\"GetSelectedOleObjects\", [], callback?): OLEProperties[]",
     "GetSelectedText": "executeMethod(\"GetSelectedText\", [prop?: { Numbering?: boolean; Math?: boolean; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string; NewLineSeparator?: string }], callback?): string",
     "GetSelectionType": "executeMethod(\"GetSelectionType\", [], callback?): SelectionType",
+    "GetToolbarDisableReasons": "executeMethod(\"GetToolbarDisableReasons\", [], callback?): string[]",
     "GetVBAMacros": "executeMethod(\"GetVBAMacros\", [], callback?): string | null",
     "GetVersion": "executeMethod(\"GetVersion\", [], callback?): string",
     "InputText": "executeMethod(\"InputText\", [text: string, textReplace: string], callback?): unknown",

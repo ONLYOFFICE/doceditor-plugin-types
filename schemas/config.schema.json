@@ -202,19 +202,12 @@
           "type": "boolean",
           "description": "Omitted in practice about as often as it's set explicitly."
         },
-        "lockReasons": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ToolbarLockReason"
-              }
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "description": "The reasons for blocking the editor toolbar that also disable the plugin button. If it is not specified, any reason disables the button. While the document is loading or being refreshed, or the About panel is open, the button is always disabled. Read from the first variation only."
+        "disableReasons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ToolbarDisableReason"
+          },
+          "description": "The reasons for disabling the editor toolbar that also disable the plugin button. If it is not specified, any reason disables the button. While the document is loading or being refreshed, or the About panel is open, the button is always disabled. Read from the first variation only."
         },
         "menu": {
           "$ref": "#/definitions/MenuType"
@@ -360,7 +353,7 @@
         "sign"
       ]
     },
-    "ToolbarLockReason": {
+    "ToolbarDisableReason": {
       "anyOf": [
         {
           "type": "string"
@@ -382,7 +375,7 @@
           ]
         }
       ],
-      "description": "A reason for blocking the editor toolbar, as `VariationConfig.lockReasons` and the `onChangeButtonDisableState` event name it. More may be added in future versions."
+      "description": "A reason for disabling the editor toolbar, as `VariationConfig.disableReasons` and the `onChangeToolbarDisableReasons` event name it. More may be added in future versions."
     },
     "MenuType": {
       "type": "string",

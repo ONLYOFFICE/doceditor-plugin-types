@@ -62864,6 +62864,14 @@ type WordMethodArgs = {
    */
   GetSelectionType: [];
   /**
+   * Returns the reasons why the editor toolbar is disabled, the same as the
+   * onChangeToolbarDisableReasons event passes.
+   *
+   * @returns The current reasons. An empty array means that the editor toolbar is not disabled.
+   * @since 10.0.3
+   */
+  GetToolbarDisableReasons: [];
+  /**
    * Returns all VBA macros from the document.
    *
    * @returns VBA xml macros.
@@ -63969,6 +63977,7 @@ type WordMethodReturnMap = {
   GetSelectedOleObjects: OLEProperties[];
   GetSelectedText: string;
   GetSelectionType: SelectionType;
+  GetToolbarDisableReasons: string[];
   GetVBAMacros: string | null;
   GetVersion: string;
   InputText: unknown;
@@ -64039,7 +64048,7 @@ type WordMethodReturnMap = {
 type WordMethodReturn<T extends WordMethodName> = WordMethodReturnMap[T];
 
 /**
- * Word `executeMethod` names that need a paid ONLYOFFICE edition (8 of 113).
+ * Word `executeMethod` names that need a paid ONLYOFFICE edition (8 of 114).
  * Each one's own `@requires` tag names the edition it needs.
  *
  * Nothing restricts these by default - use this to opt into enforcement, e.g.
@@ -64674,11 +64683,11 @@ interface InstalledPluginInfo {
 type PluginPlatform = 'web' | 'desktop';
 
 /**
- * A reason for blocking the editor toolbar, as `VariationConfig.lockReasons` and the
- * `onChangeButtonDisableState` event name it. More may be added in future versions.
- * @since 10.0.1
+ * A reason for disabling the editor toolbar, as `VariationConfig.disableReasons` and the
+ * `onChangeToolbarDisableReasons` event name it. More may be added in future versions.
+ * @since 10.0.3
  */
-type ToolbarLockReason =
+type ToolbarDisableReason =
     | 'not-loaded'
     | 'background-open'
     | 'refresh-file'
@@ -64764,12 +64773,12 @@ interface VariationConfig {
     /** Omitted in practice about as often as it's set explicitly. */
     isVisual?: boolean;
     /**
-     * The reasons for blocking the editor toolbar that also disable the plugin button. If it is not
+     * The reasons for disabling the editor toolbar that also disable the plugin button. If it is not
      * specified, any reason disables the button. While the document is loading or being refreshed,
      * or the About panel is open, the button is always disabled. Read from the first variation only.
-     * @since 10.0.1
+     * @since 10.0.3
      */
-    lockReasons?: ToolbarLockReason[] | null;
+    disableReasons?: ToolbarDisableReason[];
     menu?: MenuType;
     /** executeMethod names this variation calls - purely descriptive/documentation, not enforced. */
     methods?: string[];
@@ -64822,12 +64831,12 @@ type PluginEventMap = {
     /** `id` - the ID of the floating action button that was clicked. Since editor 10.0.0. */
     onFloatActionButtonClick: [id: string];
     /**
-     * Fired when the list of reasons for blocking the editor toolbar changes, for example
+     * Fired when the list of reasons for disabling the editor toolbar changes, for example
      * `["reconnect"]` while the connection is lost. An empty array means that the toolbar is not
-     * blocked. Pair it with `manageButtonState` to decide the state of a toolbar button.
-     * @since 10.0.1
+     * disabled. Pair it with `ignoreDisabledToolbar` to decide the state of a toolbar button.
+     * @since 10.0.3
      */
-    onChangeButtonDisableState: [reasons: ToolbarLockReason[]];
+    onChangeToolbarDisableReasons: [reasons: ToolbarDisableReason[]];
 
     // Word only (per sdkjs/word/plugin-events.js's own `@typeofeditors ["CDE"]`) - firing an
     // attachEvent for one of these outside Word is not documented and won't happen in practice.
@@ -64955,15 +64964,15 @@ interface ButtonBase {
     separator: boolean;
     lockInViewMode: boolean;
     /**
-     * Keep the toolbar button enabled while the editor toolbar is blocked, so the plugin decides
-     * its state itself - from the `onChangeButtonDisableState` event, through `disabled`. Default
+     * Keep the toolbar button enabled while the editor toolbar is disabled, so the plugin decides
+     * its state itself - from the `onChangeToolbarDisableReasons` event, through `disabled`. Default
      * `false`: the editor disables the button together with the toolbar.
      *
      * Toolbar buttons only. While the document is loading or being refreshed, or the About panel is
      * open, the editor disables the button anyway.
-     * @since 10.0.1
+     * @since 10.0.3
      */
-    manageButtonState: boolean;
+    ignoreDisabledToolbar: boolean;
     enableToggle: boolean;
     disabled: boolean;
     removed: boolean;
@@ -64983,7 +64992,7 @@ interface ButtonBase {
  *
  * Not the same shape as the generated `ContextMenuItem`, which is what `executeMethod`'s
  * `AddContextMenuItem` accepts: this one carries the helper's own `hint`, `separator`,
- * `lockInViewMode`, `manageButtonState`, `enableToggle` and `pressed`, and has no `icons`.
+ * `lockInViewMode`, `ignoreDisabledToolbar`, `enableToggle` and `pressed`, and has no `icons`.
  */
 interface ContextMenuShowItem {
     id: string;
@@ -64992,7 +65001,7 @@ interface ContextMenuShowItem {
     separator?: boolean;
     data?: unknown;
     lockInViewMode?: boolean;
-    manageButtonState?: boolean;
+    ignoreDisabledToolbar?: boolean;
     enableToggle?: boolean;
     disabled?: boolean;
     pressed?: boolean;
@@ -65312,7 +65321,7 @@ interface AscPlugin {
     /**
      * Per-editor overloads (typed from each editor's own plugin-events.js) come first so a known
      * event name gets its real payload type; the events shared by all editors
-     * (common/base-plugin-events.js - onChangeButtonDisableState, onFloatActionButtonClick, ...) are
+     * (common/base-plugin-events.js - onChangeToolbarDisableReasons, onFloatActionButtonClick, ...) are
      * typed from `PluginEventMap`, the same map `attachEvent` uses, since both receive the same
      * editor `onEvent` message; the final overload is a loose fallback for events not modeled yet.
      */
