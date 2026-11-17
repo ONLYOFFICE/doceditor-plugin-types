@@ -63831,6 +63831,21 @@ interface InstalledPluginInfo {
 type PluginPlatform = 'web' | 'desktop';
 
 /**
+ * One word or short phrase people type into the marketplace search.
+ * @minLength 1
+ * @maxLength 30
+ */
+type PluginKeyword = string;
+
+/**
+ * Search words for one language - kept short so the list names what the plugin does rather than
+ * every popular term.
+ * @maxItems 7
+ * @uniqueItems true
+ */
+type PluginKeywords = PluginKeyword[];
+
+/**
  * A reason for disabling the editor toolbar, as `VariationConfig.disableReasons` and the
  * `onChangeToolbarDisableReasons` event name it. More may be added in future versions.
  * @since 10.0.3
@@ -63865,6 +63880,12 @@ interface StoreConfig {
      * everywhere.
      */
     platforms?: PluginPlatform[];
+    /**
+     * Words the marketplace search finds the plugin by, besides its name. A plain array is searched
+     * whatever the interface language. An object maps a language to its own words, keyed like
+     * `nameLocale` (`ru`, `pt-BR`); a search typed in Latin letters also looks at the `en` words.
+     */
+    keywords?: PluginKeywords | Record<string, PluginKeywords>;
     screenshots?: string[];
 }
 

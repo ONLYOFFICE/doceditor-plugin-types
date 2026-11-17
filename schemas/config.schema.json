@@ -432,6 +432,17 @@
           },
           "description": "Where the plugin works: `web` - the editors in a browser, `desktop` - the desktop editors, in either of their modes (local files or a connected cloud). Omit it when the plugin works everywhere."
         },
+        "keywords": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/PluginKeywords"
+            },
+            {
+              "$ref": "#/definitions/Record%3Cstring%2CPluginKeywords%3E"
+            }
+          ],
+          "description": "Words the marketplace search finds the plugin by, besides its name. A plain array is searched whatever the interface language. An object maps a language to its own words, keyed like `nameLocale` (`ru`, `pt-BR`); a search typed in Latin letters also looks at the `en` words."
+        },
         "screenshots": {
           "type": "array",
           "items": {
@@ -452,6 +463,27 @@
         "web",
         "desktop"
       ]
+    },
+    "PluginKeywords": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/PluginKeyword"
+      },
+      "description": "Search words for one language - kept short so the list names what the plugin does rather than every popular term.",
+      "maxItems": 7,
+      "uniqueItems": true
+    },
+    "PluginKeyword": {
+      "type": "string",
+      "description": "One word or short phrase people type into the marketplace search.",
+      "minLength": 1,
+      "maxLength": 30
+    },
+    "Record<string,PluginKeywords>": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/PluginKeywords"
+      }
     },
     "VariationType": {
       "type": "string",

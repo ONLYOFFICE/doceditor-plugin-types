@@ -6,6 +6,8 @@ Versions mirror the ONLYOFFICE editor release this package's types were generate
 ## Unreleased
 
 - `StoreConfig.platforms` (the new `PluginPlatform` type) - where a plugin works.
+- `StoreConfig.keywords` (the new `PluginKeyword` and `PluginKeywords` types) - marketplace search
+  words, for every language or per language.
 - `VariationConfig.disableReasons`, `ButtonBase.ignoreDisabledToolbar`, the
   `onChangeToolbarDisableReasons` event and the `GetToolbarDisableReasons` method (the new
   `ToolbarDisableReason` type) - plugin button state while the editor toolbar is disabled.

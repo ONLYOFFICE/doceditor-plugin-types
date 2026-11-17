@@ -135,6 +135,16 @@
         }
       }
     },
+    "PluginKeyword": {
+      "description": "One word or short phrase people type into the marketplace search.",
+      "kind": "type",
+      "type": "string"
+    },
+    "PluginKeywords": {
+      "description": "Search words for one language - kept short so the list names what the plugin does rather than\nevery popular term.",
+      "kind": "type",
+      "type": "PluginKeyword[]"
+    },
     "PluginPlatform": {
       "kind": "type",
       "type": "'web' | 'desktop'"
@@ -153,6 +163,11 @@
         "icons": {
           "optional": true,
           "signature": "icons?: { dark: string; light: string; };"
+        },
+        "keywords": {
+          "description": "Words the marketplace search finds the plugin by, besides its name. A plain array is searched\nwhatever the interface language. An object maps a language to its own words, keyed like\n`nameLocale` (`ru`, `pt-BR`); a search typed in Latin letters also looks at the `en` words.",
+          "optional": true,
+          "signature": "keywords?: PluginKeywords | Record<string, PluginKeywords>;"
         },
         "platforms": {
           "description": "Where the plugin works: `web` - the editors in a browser, `desktop` - the desktop editors, in\neither of their modes (local files or a connected cloud). Omit it when the plugin works\neverywhere.",
