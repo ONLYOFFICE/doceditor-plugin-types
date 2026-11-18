@@ -17,13 +17,13 @@
     },
     "GetAppliesTo": {
       "description": "Returns the range of cells to which the current conditional formatting rule applies.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetAppliesTo/",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiIconSetCondition/Methods/GetAppliesTo/",
       "params": [],
       "returns": {
-        "description": "The range of cells affected by the current condition, or null if no range is set.",
-        "type": "ApiRange | null"
+        "description": "The range of cells affected by the current condition.",
+        "type": "ApiRange"
       },
-      "signature": "GetAppliesTo(): ApiRange | null",
+      "signature": "GetAppliesTo(): ApiRange",
       "since": "9.1.0"
     },
     "GetDateOperator": {
@@ -137,19 +137,19 @@
       "since": "9.1.0"
     },
     "GetPTCondition": {
-      "description": "Returns the pivot table condition object.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetPTCondition/",
+      "description": "Returns whether the conditional formatting rule is applied to a pivot table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiIconSetCondition/Methods/GetPTCondition/",
       "params": [],
       "returns": {
-        "description": "The pivot table condition object.",
-        "type": "PTCondition | null"
+        "description": "Returns true if the rule is applied to a pivot table, otherwise null.",
+        "type": "boolean | null"
       },
-      "signature": "GetPTCondition(): PTCondition | null",
+      "signature": "GetPTCondition(): boolean | null",
       "since": "9.1.0"
     },
     "GetParent": {
       "description": "Returns the parent range object of the current format condition.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetParent/",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiIconSetCondition/Methods/GetParent/",
       "params": [],
       "returns": {
         "description": "The parent range object.",
@@ -171,7 +171,7 @@
     },
     "GetPriority": {
       "description": "Returns the priority value of the conditional formatting rule.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetPriority/",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiIconSetCondition/Methods/GetPriority/",
       "params": [],
       "returns": {
         "description": "The priority value of the conditional formatting rule.",
@@ -193,7 +193,7 @@
     },
     "GetScopeType": {
       "description": "Returns the scope type of the conditional formatting rule.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetScopeType/",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiIconSetCondition/Methods/GetScopeType/",
       "params": [],
       "returns": {
         "description": "Returns \"xlSelectionScope\" for normal ranges, \"xlDataFieldScope\" for entire worksheet, \"xlFieldsScope\" for pivot tables.",
@@ -214,8 +214,8 @@
       "since": "9.1.0"
     },
     "GetStopIfTrue": {
-      "description": "Returns whether the editor will stop evaluating additional formatting rules if this rule evaluates to true.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetStopIfTrue/",
+      "description": "Returns whether the editor will stop evaluating additional formatting rules if this rule evaluates to true.\nThis rule type cannot stop the evaluation, so the value can be changed only by opening a file where it is set.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiIconSetCondition/Methods/GetStopIfTrue/",
       "params": [],
       "returns": {
         "type": "boolean"

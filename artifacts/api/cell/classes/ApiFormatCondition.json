@@ -101,14 +101,14 @@
       "since": "9.1.0"
     },
     "GetPTCondition": {
-      "description": "Returns the pivot table condition object.",
+      "description": "Returns whether the conditional formatting rule is applied to a pivot table.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetPTCondition/",
       "params": [],
       "returns": {
-        "description": "The pivot table condition object.",
-        "type": "PTCondition | null"
+        "description": "Returns true if the rule is applied to a pivot table, otherwise null.",
+        "type": "boolean | null"
       },
-      "signature": "GetPTCondition(): PTCondition | null",
+      "signature": "GetPTCondition(): boolean | null",
       "since": "9.1.0"
     },
     "GetParent": {

@@ -5,6 +5,16 @@
     "ApiDrawing"
   ],
   "methods": {
+    "Copy": {
+      "description": "Creates a copy of the current shape.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiShape/Methods/Copy/",
+      "params": [],
+      "returns": {
+        "type": "ApiShape"
+      },
+      "signature": "Copy(): ApiShape",
+      "since": "9.4.0"
+    },
     "GetClassType": {
       "description": "Returns the type of the ApiShape class.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiShape/Methods/GetClassType/",

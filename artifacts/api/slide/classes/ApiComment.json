@@ -91,6 +91,22 @@
       },
       "signature": "GetRepliesCount(): number | null"
     },
+    "GetReply": {
+      "description": "Returns the specified comment reply.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiComment/Methods/GetReply/",
+      "params": [
+        {
+          "description": "The comment reply index.",
+          "name": "nIndex",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "ApiCommentReply | null"
+      },
+      "signature": "GetReply(nIndex?: number): ApiCommentReply | null"
+    },
     "GetText": {
       "description": "Returns the comment text.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiComment/Methods/GetText/",
@@ -239,7 +255,7 @@
       "params": [
         {
           "description": "The timestamp of the comment creation in the current time zone format.",
-          "name": "nTimeStamp",
+          "name": "timeStamp",
           "type": "number | string"
         }
       ],
@@ -247,7 +263,7 @@
         "description": "this",
         "type": "ApiComment"
       },
-      "signature": "SetTime(nTimeStamp: number | string): ApiComment"
+      "signature": "SetTime(timeStamp: number | string): ApiComment"
     },
     "SetTimeUTC": {
       "description": "Sets the timestamp of the comment creation in UTC format.",
@@ -255,7 +271,7 @@
       "params": [
         {
           "description": "The timestamp of the comment creation in UTC format.",
-          "name": "nTimeStamp",
+          "name": "timeStamp",
           "type": "number | string"
         }
       ],
@@ -263,7 +279,7 @@
         "description": "this",
         "type": "ApiComment"
       },
-      "signature": "SetTimeUTC(nTimeStamp: number | string): ApiComment"
+      "signature": "SetTimeUTC(timeStamp: number | string): ApiComment"
     },
     "SetUserId": {
       "description": "Sets the user ID to the comment author.",

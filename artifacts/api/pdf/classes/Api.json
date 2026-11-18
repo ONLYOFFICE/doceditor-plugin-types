@@ -117,7 +117,7 @@
       "signature": "CreateCaretAnnot(rect: Rect | Quad[]): ApiCaretAnnotation"
     },
     "CreateChart": {
-      "description": "Creates a chart with the parameters specified.\n\n**Note:**\nValues of _nStyleIndex_ outside **1 - 48** are interpreted as a chart style id from the _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs Enterprise](https://www.onlyoffice.com/docs-enterprise-prices?from=api) and [ONLYOFFICE Docs Developer](https://www.onlyoffice.com/developer-edition-prices?from=api).\n",
+      "description": "Creates a chart with the parameters specified.\n\n**Note:**\nValues of _nStyleIndex_ outside **1 - 48** are interpreted as a chart style id from the _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs Enterprise](https://www.onlyoffice.com/pricing?from=api) and [ONLYOFFICE Docs Developer](https://www.onlyoffice.com/pricing?from=api).\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateChart/",
       "params": [
         {
@@ -317,7 +317,7 @@
       "params": [
         {
           "description": "to hide - true, to show - false",
-          "name": "isHidde",
+          "name": "isHide",
           "type": "boolean"
         },
         {
@@ -330,7 +330,7 @@
       "returns": {
         "type": "ApiHideShowFormsAction"
       },
-      "signature": "CreateHideShowFormsAction(isHidde: boolean, names?: string[]): ApiHideShowFormsAction",
+      "signature": "CreateHideShowFormsAction(isHide: boolean, names?: string[]): ApiHideShowFormsAction",
       "since": "10.0.0"
     },
     "CreateHighlightAnnot": {
@@ -596,6 +596,7 @@
         {
           "description": "The number the first numbered paragraph will start with.",
           "name": "startAt",
+          "optional": true,
           "type": "number"
         }
       ],
@@ -603,7 +604,7 @@
         "description": "returns null if numType is not one of the BulletType values.",
         "type": "ApiBullet | null"
       },
-      "signature": "CreateNumbering(numType: BulletType, startAt: number): ApiBullet | null",
+      "signature": "CreateNumbering(numType: BulletType, startAt?: number): ApiBullet | null",
       "since": "10.0.0"
     },
     "CreateParagraph": {
@@ -801,9 +802,9 @@
         }
       ],
       "returns": {
-        "type": "ApiHideShowFormsAction"
+        "type": "ApiResetFormsAction"
       },
-      "signature": "CreateResetFormsAction(isAllExcept: boolean, names?: string[]): ApiHideShowFormsAction",
+      "signature": "CreateResetFormsAction(isAllExcept: boolean, names?: string[]): ApiResetFormsAction",
       "since": "10.0.0"
     },
     "CreateRichParaPr": {
@@ -811,9 +812,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateRichParaPr/",
       "params": [],
       "returns": {
-        "type": "ApiParaPr"
+        "type": "ApiRichParaPr"
       },
-      "signature": "CreateRichParaPr(): ApiParaPr"
+      "signature": "CreateRichParaPr(): ApiRichParaPr"
     },
     "CreateRichParagraph": {
       "description": "Creates a new rich paragraph.",
@@ -838,9 +839,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateRichTextPr/",
       "params": [],
       "returns": {
-        "type": "ApiTextPr"
+        "type": "ApiRichTextPr"
       },
-      "signature": "CreateRichTextPr(): ApiTextPr"
+      "signature": "CreateRichTextPr(): ApiRichTextPr"
     },
     "CreateRun": {
       "description": "Creates a new smaller text block to be inserted to the current paragraph or table.",
@@ -887,7 +888,7 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateShape/",
       "params": [
         {
-          "description": "The shape type which specifies the preset shape geometry. The \"textRect\" type creates a text box: it has no fill and no outline, and its height follows the text.",
+          "description": "The shape type which specifies the preset shape geometry. An unknown type is replaced with \"rect\". The \"textRect\" type creates a text box with the \"rect\" geometry: it has no fill and no outline, and its height follows the text.",
           "name": "shapeType",
           "optional": true,
           "type": "ShapeType"
@@ -1195,7 +1196,7 @@
       "signature": "EmusToPoints(emu: number): number"
     },
     "GetByInternalId": {
-      "description": "Returns the object by it's internal ID.",
+      "description": "Returns the object by its internal ID.\nInternal IDs are valid only for the current editing session: they stay the same while the document is open,\nbut they are not saved to the file and can be different after the document is reopened.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/GetByInternalId/",
       "params": [
         {

@@ -476,7 +476,7 @@ export namespace Forms {
   /** The role properties. */
   export interface RoleProperties {
     /** The role color. */
-    color: string;
+    color: ApiColor | string;
   }
 
   /** The condition to scale an image in the picture form. */
@@ -527,8 +527,11 @@ export namespace Forms {
     rotateWithShape?: boolean;
   }
 
-  /** This type specifies the preset shape geometry that will be used for a shape. */
-  export type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "textRect" | "trapezoid" | "triangle" | "upArrowCallout" | "upDownArrow" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
+  /**
+   * This type specifies the preset shape geometry that will be used for a shape. Unknown values are
+   * replaced with "rect". The "textRect" value means a text box with the "rect" geometry.
+   */
+  export type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "textRect" | "trapezoid" | "triangle" | "upArrow" | "upArrowCallout" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
 
   /**
    * The operation used to merge shapes.
@@ -602,20 +605,19 @@ export namespace Forms {
    * - **"topRightCell"** - specifies that the table formatting is applied to the top right cell.
    * - **"bottomLeftCell"** - specifies that the table formatting is applied to the bottom left cell.
    * - **"bottomRightCell"** - specifies that the table formatting is applied to the bottom right cell.
-   * - **"firstRow"** - specifies that the table formatting is applied to the first row.
+   * - **"firstRow"** - specifies that the table formatting is applied to the first row. Any subsequent
+   * row which is in *table header* will also use this conditional format.
    * - **"lastRow"** - specifies that the table formatting is applied to the last row.
-   * - **"firstColumn"** - specifies that the table formatting is applied to the first column. Any
-   * subsequent row which is in *table header* ({@link ApiTableRowPr#SetTableHeader}) will also use this
-   * conditional format.
+   * - **"firstColumn"** - specifies that the table formatting is applied to the first column.
    * - **"lastColumn"** - specifies that the table formatting is applied to the last column.
    * - **"bandedColumn"** - specifies that the table formatting is applied to odd numbered groupings of
-   * rows.
+   * columns.
    * - **"bandedColumnEven"** - specifies that the table formatting is applied to even numbered groupings
-   * of rows.
+   * of columns.
    * - **"bandedRow"** - specifies that the table formatting is applied to odd numbered groupings of
-   * columns.
+   * rows.
    * - **"bandedRowEven"** - specifies that the table formatting is applied to even numbered groupings of
-   * columns.
+   * rows.
    * - **"wholeTable"** - specifies that the conditional formatting is applied to the whole table.
    */
   export type TableStyleOverrideType = "topLeftCell" | "topRightCell" | "bottomLeftCell" | "bottomRightCell" | "firstRow" | "lastRow" | "firstColumn" | "lastColumn" | "bandedColumn" | "bandedColumnEven" | "bandedRow" | "bandedRowEven" | "wholeTable";
@@ -1063,7 +1065,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/Api/Methods/CreateCheckBoxForm/
      */
-    CreateCheckBoxForm(formPr: CheckBoxFormPr): ApiCheckBoxForm;
+    CreateCheckBoxForm(formPr?: CheckBoxFormPr): ApiCheckBoxForm;
 
     /**
      * Creates a combo box / dropdown list with the specified combo box / dropdown list properties.
@@ -1092,7 +1094,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/Api/Methods/CreateComboBoxForm/
      */
-    CreateComboBoxForm(formPr: ComboBoxFormPr): ApiComboBoxForm;
+    CreateComboBoxForm(formPr?: ComboBoxFormPr): ApiComboBoxForm;
 
     /**
      * Creates a complex form with the specified complex form properties.
@@ -1119,7 +1121,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/Api/Methods/CreateComplexForm/
      */
-    CreateComplexForm(formPr: FormPrBase): ApiComplexForm;
+    CreateComplexForm(formPr?: FormPrBase): ApiComplexForm;
 
     /**
      * Creates a date form with the specified date form properties.
@@ -1147,7 +1149,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/Api/Methods/CreateDateForm/
      */
-    CreateDateForm(formPr: DateFormPr): ApiDateForm;
+    CreateDateForm(formPr?: DateFormPr): ApiDateForm;
 
     /**
      * Creates a picture form with the specified picture form properties.
@@ -1179,7 +1181,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/Api/Methods/CreatePictureForm/
      */
-    CreatePictureForm(formPr: PictureFormPr): ApiPictureForm;
+    CreatePictureForm(formPr?: PictureFormPr): ApiPictureForm;
 
     /**
      * Creates a signature form with the specified form properties.
@@ -1220,7 +1222,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/Api/Methods/CreateTextForm/
      */
-    CreateTextForm(formPr: TextFormPr): ApiTextForm;
+    CreateTextForm(formPr?: TextFormPr): ApiTextForm;
 
     /**
      * Replaces each paragraph (or text in cell) in the select with the corresponding text from an array of
@@ -1257,20 +1259,8 @@ export namespace Forms {
   export interface ApiBlockLvlSdt {
   }
 
-  /** Class representing a bookmark in the document. */
-  export interface ApiBookmark {
-  }
-
-  /** Class representing a paragraph bullet. */
-  export interface ApiBullet {
-  }
-
   /** Class representing a chart. */
   export interface ApiChart extends ApiDrawing {
-  }
-
-  /** Class representing a chart series. */
-  export interface ApiChartSeries {
   }
 
   /**
@@ -1331,6 +1321,7 @@ export namespace Forms {
      * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
+     * @default keepContent = false
      * @returns returns false if form wasn't added to the document.
      * @since 9.2.0
      *
@@ -1579,7 +1570,22 @@ export namespace Forms {
     GetGroupValue(): string;
 
     /**
-     * Returns an internal id of the current form.
+     * Returns a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @since 10.0.1
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetId/
+     */
+    GetId(): number;
+
+    /**
+     * Returns an internal ID of the current form.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
+     * To get the ID which is saved to the file, use the {@link ApiFormBase#GetId} method.
      *
      * @since 9.2.0
      *
@@ -2309,6 +2315,18 @@ export namespace Forms {
     SetGroupValue(value: string): boolean;
 
     /**
+     * Specifies a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @param id - The numerical ID which will be specified for the current form.
+     * @since 10.0.1
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/SetId/
+     */
+    SetId(id: number): boolean;
+
+    /**
      * Sets the label for the current check box.
      *
      * @param label - The label.
@@ -2613,6 +2631,7 @@ export namespace Forms {
      * @param height - The wrapper shape height measured in twentieths of a point (1/1440 of an inch).
      * @param keepPosition - Save position on the page (it can be a little bit slow, because it runs the document
      *   calculation).
+     * @default keepPosition = false
      *
      * @example
      * ```js
@@ -2733,6 +2752,7 @@ export namespace Forms {
      * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
+     * @default keepContent = false
      * @returns returns false if form wasn't added to the document.
      * @since 9.2.0
      *
@@ -2870,7 +2890,22 @@ export namespace Forms {
     GetFormType(): FormType;
 
     /**
-     * Returns an internal id of the current form.
+     * Returns a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @since 10.0.1
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetId/
+     */
+    GetId(): number;
+
+    /**
+     * Returns an internal ID of the current form.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
+     * To get the ID which is saved to the file, use the {@link ApiFormBase#GetId} method.
      *
      * @since 9.2.0
      *
@@ -3430,6 +3465,18 @@ export namespace Forms {
     SetFormKey(sKey: string): boolean;
 
     /**
+     * Specifies a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @param id - The numerical ID which will be specified for the current form.
+     * @since 10.0.1
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/SetId/
+     */
+    SetId(id: number): boolean;
+
+    /**
      * Sets the list values to the current combo box.
      *
      * @param aListString - The combo box list values.
@@ -3725,6 +3772,7 @@ export namespace Forms {
      * @param height - The wrapper shape height measured in twentieths of a point (1/1440 of an inch).
      * @param keepPosition - Save position on the page (it can be a little bit slow, because it runs the document
      *   calculation).
+     * @default keepPosition = false
      *
      * @example
      * ```js
@@ -3781,14 +3829,6 @@ export namespace Forms {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/ToInline/
      */
     ToInline(): boolean;
-  }
-
-  /** Class representing a comment. */
-  export interface ApiComment {
-  }
-
-  /** Class representing a comment reply. */
-  export interface ApiCommentReply {
   }
 
   /**
@@ -3898,6 +3938,7 @@ export namespace Forms {
      * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
+     * @default keepContent = false
      * @returns returns false if form wasn't added to the document.
      * @since 9.2.0
      *
@@ -4035,7 +4076,22 @@ export namespace Forms {
     GetFormType(): FormType;
 
     /**
-     * Returns an internal id of the current form.
+     * Returns a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @since 10.0.1
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetId/
+     */
+    GetId(): number;
+
+    /**
+     * Returns an internal ID of the current form.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
+     * To get the ID which is saved to the file, use the {@link ApiFormBase#GetId} method.
      *
      * @since 9.2.0
      *
@@ -4550,6 +4606,18 @@ export namespace Forms {
     SetFormKey(sKey: string): boolean;
 
     /**
+     * Specifies a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @param id - The numerical ID which will be specified for the current form.
+     * @since 10.0.1
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/SetId/
+     */
+    SetId(id: number): boolean;
+
+    /**
      * Sets the lock state of the current form.
      *
      * @param isLock - Specifies whether to lock the form (true) or unlock it (false).
@@ -4794,6 +4862,7 @@ export namespace Forms {
      * @param height - The wrapper shape height measured in twentieths of a point (1/1440 of an inch).
      * @param keepPosition - Save position on the page (it can be a little bit slow, because it runs the document
      *   calculation).
+     * @default keepPosition = false
      *
      * @example
      * ```js
@@ -4850,45 +4919,6 @@ export namespace Forms {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/ToInline/
      */
     ToInline(): boolean;
-  }
-
-  /** Class representing a list of values of the combo box / drop-down list content control. */
-  export interface ApiContentControlList {
-  }
-
-  /** Class representing an entry of the combo box / drop-down list content control. */
-  export interface ApiContentControlListEntry {
-  }
-
-  /** Class representing document properties (similar to BuiltInDocumentProperties in VBA). */
-  export interface ApiCore {
-  }
-
-  /** Class representing custom properties of the document. */
-  export interface ApiCustomProperties {
-  }
-
-  /**
-   * Class representing a custom XML node.
-   *
-   * @since 9.0.0
-   */
-  export interface ApiCustomXmlNode {
-  }
-
-  /**
-   * Class representing a custom XML part.
-   *
-   * @since 9.0.0
-   */
-  export interface ApiCustomXmlPart {
-  }
-
-  /**
-   * Class representing a custom XML manager, which provides methods to manage custom XML parts in the
-   * document.
-   */
-  export interface ApiCustomXmlParts {
   }
 
   /**
@@ -4949,6 +4979,7 @@ export namespace Forms {
      * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
+     * @default keepContent = false
      * @returns returns false if form wasn't added to the document.
      * @since 9.2.0
      *
@@ -5139,7 +5170,22 @@ export namespace Forms {
     GetFormat(): string;
 
     /**
-     * Returns an internal id of the current form.
+     * Returns a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @since 10.0.1
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetId/
+     */
+    GetId(): number;
+
+    /**
+     * Returns an internal ID of the current form.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
+     * To get the ID which is saved to the file, use the {@link ApiFormBase#GetId} method.
      *
      * @since 9.2.0
      *
@@ -5729,6 +5775,18 @@ export namespace Forms {
     SetFormat(sFormat: string): boolean;
 
     /**
+     * Specifies a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @param id - The numerical ID which will be specified for the current form.
+     * @since 10.0.1
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/SetId/
+     */
+    SetId(id: number): boolean;
+
+    /**
      * Sets the date language to the current form.
      *
      * @param sLangId - The date language. The possible value for this parameter is a language identifier as defined in
@@ -6028,6 +6086,7 @@ export namespace Forms {
      * @param height - The wrapper shape height measured in twentieths of a point (1/1440 of an inch).
      * @param keepPosition - Save position on the page (it can be a little bit slow, because it runs the document
      *   calculation).
+     * @default keepPosition = false
      *
      * @example
      * ```js
@@ -6484,7 +6543,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiDocument/Methods/InsertTextForm/
      */
-    InsertTextForm(formPr: TextFormInsertPr): ApiTextForm;
+    InsertTextForm(formPr?: TextFormInsertPr): ApiTextForm;
 
     /**
      * Sets the data to the specified forms.
@@ -6548,18 +6607,6 @@ export namespace Forms {
   }
 
   /**
-   * Class representing a drop cap. A drop cap is a large initial letter that is split off from a
-   * paragraph into a
-   * separate framed paragraph.
-   */
-  export interface ApiDropCap {
-  }
-
-  /** Class representing a base class for fill. */
-  export interface ApiFill {
-  }
-
-  /**
    * Class representing a document form base.
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/
@@ -6617,6 +6664,7 @@ export namespace Forms {
      * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
+     * @default keepContent = false
      * @returns returns false if form wasn't added to the document.
      * @since 9.2.0
      *
@@ -6752,7 +6800,22 @@ export namespace Forms {
     GetFormType(): FormType;
 
     /**
-     * Returns an internal id of the current form.
+     * Returns a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @since 10.0.1
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetId/
+     */
+    GetId(): number;
+
+    /**
+     * Returns an internal ID of the current form.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
+     * To get the ID which is saved to the file, use the {@link ApiFormBase#GetId} method.
      *
      * @since 9.2.0
      *
@@ -7235,6 +7298,18 @@ export namespace Forms {
     SetFormKey(sKey: string): boolean;
 
     /**
+     * Specifies a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @param id - The numerical ID which will be specified for the current form.
+     * @since 10.0.1
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/SetId/
+     */
+    SetId(id: number): boolean;
+
+    /**
      * Sets the lock state of the current form.
      *
      * @param isLock - Specifies whether to lock the form (true) or unlock it (false).
@@ -7479,6 +7554,7 @@ export namespace Forms {
      * @param height - The wrapper shape height measured in twentieths of a point (1/1440 of an inch).
      * @param keepPosition - Save position on the page (it can be a little bit slow, because it runs the document
      *   calculation).
+     * @default keepPosition = false
      *
      * @example
      * ```js
@@ -7631,7 +7707,7 @@ export namespace Forms {
     GetCount(): number;
 
     /**
-     * Returns the RGB color of the specified role.
+     * Returns the color of the specified role.
      *
      * @param name - The role name.
      * @since 9.0.0
@@ -7652,7 +7728,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormRoles/Methods/GetRoleColor/
      */
-    GetRoleColor(name: string): null | { r: number; g: number; b: number };
+    GetRoleColor(name: string): ApiColor | null;
 
     /**
      * Checks if a role with the specified name exists.
@@ -7808,15 +7884,7 @@ export namespace Forms {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormRoles/Methods/SetRoleColor/
      */
-    SetRoleColor(name: string, color: string): boolean;
-  }
-
-  /** Class representing the shape geometry. */
-  export interface ApiGeometry {
-  }
-
-  /** Class representing gradient stop. */
-  export interface ApiGradientStop {
+    SetRoleColor(name: string, color: ApiColor | string): boolean;
   }
 
   /** Class representing a group of drawings. */
@@ -7839,14 +7907,6 @@ export namespace Forms {
   export interface ApiMath {
   }
 
-  /** Class representing the numbering properties. */
-  export interface ApiNumbering {
-  }
-
-  /** Class representing a reference to a specified level of the numbering. */
-  export interface ApiNumberingLevel {
-  }
-
   /** Class representing an Ole object. */
   export interface ApiOleObject extends ApiDrawing {
   }
@@ -7857,14 +7917,6 @@ export namespace Forms {
 
   /** Class representing a paragraph. */
   export interface ApiParagraph extends ApiParaPr {
-  }
-
-  /** Class representing a path in geometry. */
-  export interface ApiPath {
-  }
-
-  /** Class representing a path command. */
-  export interface ApiPathCommand {
   }
 
   /**
@@ -7925,6 +7977,7 @@ export namespace Forms {
      * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
+     * @default keepContent = false
      * @returns returns false if form wasn't added to the document.
      * @since 9.2.0
      *
@@ -8063,6 +8116,17 @@ export namespace Forms {
     GetFormType(): FormType;
 
     /**
+     * Returns a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @since 10.0.1
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetId/
+     */
+    GetId(): number;
+
+    /**
      * Returns an image in the base64 format from the current picture form.
      *
      * @example
@@ -8086,7 +8150,11 @@ export namespace Forms {
     GetImage(): Base64Img;
 
     /**
-     * Returns an internal id of the current form.
+     * Returns an internal ID of the current form.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
+     * To get the ID which is saved to the file, use the {@link ApiFormBase#GetId} method.
      *
      * @since 9.2.0
      *
@@ -8675,6 +8743,18 @@ export namespace Forms {
     SetFormKey(sKey: string): boolean;
 
     /**
+     * Specifies a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @param id - The numerical ID which will be specified for the current form.
+     * @since 10.0.1
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/SetId/
+     */
+    SetId(id: number): boolean;
+
+    /**
      * Sets an image to the current picture form.
      *
      * @param imageSrc - The image source where the image to be inserted should be taken from (currently, only internet
@@ -9063,6 +9143,7 @@ export namespace Forms {
      * @param height - The wrapper shape height measured in twentieths of a point (1/1440 of an inch).
      * @param keepPosition - Save position on the page (it can be a little bit slow, because it runs the document
      *   calculation).
+     * @default keepPosition = false
      *
      * @example
      * ```js
@@ -9129,13 +9210,6 @@ export namespace Forms {
   export interface ApiRGBColor extends ApiUniColor {
   }
 
-  /**
-   * Class representing a continuous region in a document.
-   * Each Range object is determined by the position of the start and end characters.
-   */
-  export interface ApiRange {
-  }
-
   export interface ApiRangeTextPr extends ApiTextPr {
   }
 
@@ -9147,20 +9221,8 @@ export namespace Forms {
   export interface ApiSchemeColor extends ApiUniColor {
   }
 
-  /** Class representing a document section. */
-  export interface ApiSection {
-  }
-
-  /** Class representing a shadow. */
-  export interface ApiShadow {
-  }
-
   /** Class representing a shape. */
   export interface ApiShape extends ApiDrawing {
-  }
-
-  /** Class representing the shading of text, a paragraph, a table or a table cell. */
-  export interface ApiShd {
   }
 
   /**
@@ -9221,6 +9283,7 @@ export namespace Forms {
      * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
+     * @default keepContent = false
      * @returns returns false if form wasn't added to the document.
      * @since 9.2.0
      *
@@ -9358,7 +9421,29 @@ export namespace Forms {
     GetFormType(): FormType;
 
     /**
-     * Returns an internal id of the current form.
+     * Returns a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @since 10.0.1
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetId/
+     */
+    GetId(): number;
+
+    /**
+     * Returns an image in the base64 format from the current signature form.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiSignatureForm/Methods/GetImage/
+     */
+    GetImage(): Base64Img;
+
+    /**
+     * Returns an internal ID of the current form.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
+     * To get the ID which is saved to the file, use the {@link ApiFormBase#GetId} method.
      *
      * @since 9.2.0
      *
@@ -9841,6 +9926,29 @@ export namespace Forms {
     SetFormKey(sKey: string): boolean;
 
     /**
+     * Specifies a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @param id - The numerical ID which will be specified for the current form.
+     * @since 10.0.1
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/SetId/
+     */
+    SetId(id: number): boolean;
+
+    /**
+     * Sets an image to the current picture form.
+     *
+     * @param imageSrc - The image source where the image to be inserted should be taken from (currently, only internet
+     *   URL or base64 encoded images are supported).
+     * @since 9.4.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiSignatureForm/Methods/SetImage/
+     */
+    SetImage(imageSrc: string): boolean;
+
+    /**
      * Sets the lock state of the current form.
      *
      * @param isLock - Specifies whether to lock the form (true) or unlock it (false).
@@ -10085,6 +10193,7 @@ export namespace Forms {
      * @param height - The wrapper shape height measured in twentieths of a point (1/1440 of an inch).
      * @param keepPosition - Save position on the page (it can be a little bit slow, because it runs the document
      *   calculation).
+     * @default keepPosition = false
      *
      * @example
      * ```js
@@ -10147,14 +10256,6 @@ export namespace Forms {
   export interface ApiSmartArt extends ApiDrawing {
   }
 
-  /** Class representing a stroke. */
-  export interface ApiStroke {
-  }
-
-  /** Class representing a style. */
-  export interface ApiStyle {
-  }
-
   /** Class representing a table. */
   export interface ApiTable extends ApiTablePr {
   }
@@ -10177,14 +10278,6 @@ export namespace Forms {
 
   /** Class representing the table row properties. */
   export interface ApiTableRowPr {
-  }
-
-  /**
-   * Class representing a set of formatting properties which shall be conditionally applied to the parts
-   * of a table
-   * which match the requirement specified on the `Type`.
-   */
-  export interface ApiTableStylePr {
   }
 
   /**
@@ -10245,6 +10338,7 @@ export namespace Forms {
      * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
+     * @default keepContent = false
      * @returns returns false if form wasn't added to the document.
      * @since 9.2.0
      *
@@ -10453,7 +10547,22 @@ export namespace Forms {
     GetFormat(): TextFormFormat;
 
     /**
-     * Returns an internal id of the current form.
+     * Returns a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @since 10.0.1
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetId/
+     */
+    GetId(): number;
+
+    /**
+     * Returns an internal ID of the current form.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
+     * To get the ID which is saved to the file, use the {@link ApiFormBase#GetId} method.
      *
      * @since 9.2.0
      *
@@ -11165,6 +11274,18 @@ export namespace Forms {
     SetFormat(format: TextFormFormat): boolean;
 
     /**
+     * Specifies a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @param id - The numerical ID which will be specified for the current form.
+     * @since 10.0.1
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/SetId/
+     */
+    SetId(id: number): boolean;
+
+    /**
      * Sets the lock state of the current form.
      *
      * @param isLock - Specifies whether to lock the form (true) or unlock it (false).
@@ -11459,6 +11580,7 @@ export namespace Forms {
      * @param height - The wrapper shape height measured in twentieths of a point (1/1440 of an inch).
      * @param keepPosition - Save position on the page (it can be a little bit slow, because it runs the document
      *   calculation).
+     * @default keepPosition = false
      *
      * @example
      * ```js
@@ -11521,20 +11643,12 @@ export namespace Forms {
   export interface ApiTextPr {
   }
 
-  /** Class representing a text range within a presentation shape's text frame. */
-  export interface ApiTextRange {
-  }
-
   /** Class representing a base class for color types. */
   export interface ApiUniColor {
   }
 
   /** Class representing an unsupported element. */
   export interface ApiUnsupported {
-  }
-
-  /** Class representing the settings which are used to create a watermark. */
-  export interface ApiWatermarkSettings {
   }
 
   /**

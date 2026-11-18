@@ -356,16 +356,16 @@
       "params": [
         {
           "description": "The new display name for the table.",
-          "name": "sDisplayName",
+          "name": "displayName",
           "type": "string"
         }
       ],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
       "returns": {
-        "description": "Returns false if the name is invalid or already used by another table.",
+        "description": "Returns false if the name is invalid or already used by another table or defined name.",
         "type": "boolean"
       },
-      "signature": "SetDisplayName(sDisplayName: string): boolean"
+      "signature": "SetDisplayName(displayName: string): boolean"
     },
     "SetName": {
       "description": "Sets the name of the table.\n\nEquivalent to SetDisplayName.",
@@ -379,7 +379,7 @@
       ],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
       "returns": {
-        "description": "Returns false if the name is invalid or already used by another table.",
+        "description": "Returns false if the name is invalid or already used by another table or defined name.",
         "type": "boolean"
       },
       "signature": "SetName(name: string): boolean"

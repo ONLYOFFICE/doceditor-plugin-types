@@ -2,6 +2,16 @@
   "description": "Class representing a set of formatting properties which shall be conditionally applied to the parts of a table\nwhich match the requirement specified on the `Type`.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableStylePr/",
   "methods": {
+    "GetClassType": {
+      "description": "Returns a type of the ApiTableStylePr class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableStylePr/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"tableStylePr\""
+      },
+      "signature": "GetClassType(): \"tableStylePr\"",
+      "since": "10.0.0"
+    },
     "GetTablePr": {
       "description": "Returns a set of the table properties which will be applied to all the regions within a table which match the conditional formatting type.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableStylePr/Methods/GetTablePr/",
@@ -10,6 +20,16 @@
         "type": "ApiTablePr"
       },
       "signature": "GetTablePr(): ApiTablePr",
+      "since": "10.0.0"
+    },
+    "GetType": {
+      "description": "Returns a type of the current table conditional style.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableStylePr/Methods/GetType/",
+      "params": [],
+      "returns": {
+        "type": "TableStyleOverrideType"
+      },
+      "signature": "GetType(): TableStyleOverrideType",
       "since": "10.0.0"
     },
     "SetTablePr": {

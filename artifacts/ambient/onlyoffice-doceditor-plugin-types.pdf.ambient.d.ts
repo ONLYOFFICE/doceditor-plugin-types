@@ -113,6 +113,9 @@ declare namespace Pdf {
   /** Axis position in the chart. */
   export type AxisPos = "top" | "bottom" | "right" | "left";
 
+  /** A Base64 encoded string without the data URL prefix. */
+  export type Base64 = string;
+
   /** The Base64 image string. */
   export type Base64Img = string;
 
@@ -148,6 +151,9 @@ declare namespace Pdf {
    * - **"single"** - a single border will be added to the created element or the selected element side.
    */
   export type BorderType = "none" | "single";
+
+  /** A numbering type which will be added to the paragraph. */
+  export type BulletType = "None" | "ArabicPeriod" | "ArabicParenR" | "RomanUcPeriod" | "RomanLcPeriod" | "AlphaLcParenR" | "AlphaLcPeriod" | "AlphaUcParenR" | "AlphaUcPeriod";
 
   /** The available button widget border appearances types. */
   export type ButtonAppearance = "normal" | "down" | "hover";
@@ -773,8 +779,11 @@ declare namespace Pdf {
     rotateWithShape?: boolean;
   }
 
-  /** This type specifies the preset shape geometry that will be used for a shape. */
-  export type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "textRect" | "trapezoid" | "triangle" | "upArrowCallout" | "upDownArrow" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
+  /**
+   * This type specifies the preset shape geometry that will be used for a shape. Unknown values are
+   * replaced with "rect". The "textRect" value means a text box with the "rect" geometry.
+   */
+  export type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "textRect" | "trapezoid" | "triangle" | "upArrow" | "upArrowCallout" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
 
   /**
    * The operation used to merge shapes.
@@ -851,20 +860,19 @@ declare namespace Pdf {
    * - **"topRightCell"** - specifies that the table formatting is applied to the top right cell.
    * - **"bottomLeftCell"** - specifies that the table formatting is applied to the bottom left cell.
    * - **"bottomRightCell"** - specifies that the table formatting is applied to the bottom right cell.
-   * - **"firstRow"** - specifies that the table formatting is applied to the first row.
+   * - **"firstRow"** - specifies that the table formatting is applied to the first row. Any subsequent
+   * row which is in *table header* will also use this conditional format.
    * - **"lastRow"** - specifies that the table formatting is applied to the last row.
-   * - **"firstColumn"** - specifies that the table formatting is applied to the first column. Any
-   * subsequent row which is in *table header* ({@link ApiTableRowPr#SetTableHeader}) will also use this
-   * conditional format.
+   * - **"firstColumn"** - specifies that the table formatting is applied to the first column.
    * - **"lastColumn"** - specifies that the table formatting is applied to the last column.
    * - **"bandedColumn"** - specifies that the table formatting is applied to odd numbered groupings of
-   * rows.
+   * columns.
    * - **"bandedColumnEven"** - specifies that the table formatting is applied to even numbered groupings
-   * of rows.
+   * of columns.
    * - **"bandedRow"** - specifies that the table formatting is applied to odd numbered groupings of
-   * columns.
+   * rows.
    * - **"bandedRowEven"** - specifies that the table formatting is applied to even numbered groupings of
-   * columns.
+   * rows.
    * - **"wholeTable"** - specifies that the conditional formatting is applied to the whole table.
    */
   export type TableStyleOverrideType = "topLeftCell" | "topRightCell" | "bottomLeftCell" | "bottomRightCell" | "firstRow" | "lastRow" | "firstColumn" | "lastColumn" | "bandedColumn" | "bandedColumnEven" | "bandedRow" | "bandedRowEven" | "wholeTable";
@@ -1203,25 +1211,6 @@ declare namespace Pdf {
   /** Twentieths of a point (equivalent to 1/1440th of an inch). */
   export type twips = number;
 
-  // Manual overrides for types sdkjs's own JSDoc doesn't resolve from its usual sources.
-  // Their sources are src/overrides/pdf.ts in the repository; the declarations are inlined
-  // here, so the npm package does not carry that directory.
-  /**
-   * `PdfFile.ToBase64` is tagged `@returns {Base64}`, but sdkjs never declares a `Base64` typedef
-   * anywhere - a naming slip, not a gap in this checkout. The implementation returns
-   * `AscCommon.Base64.encode(...)`, i.e. a string, and the sibling typedef in the same file spells the
-   * convention out: `@typedef {string} Base64Img`.
-   */
-  export type Base64 = string;
-  /**
-   * A paragraph numbering bullet type, referenced by a `word/apiBuilder.js` method also tagged for
-   * Pdf - genuinely declared in `slide/apiBuilder.js`, not one of Pdf's own sources
-   * (`word/apiBuilder.js`, `pdf/apiBuilder.js`, `pdf/plugin-events.js`). Adding all of
-   * `slide/apiBuilder.js` as a Pdf source to resolve this one typedef would pull Slide's entire class
-   * set into the Pdf namespace, so it's a one-line override instead.
-   */
-  export type BulletType = "None" | "ArabicPeriod" | "ArabicParenR" | "RomanUcPeriod" | "RomanLcPeriod" | "AlphaLcParenR" | "AlphaLcPeriod" | "AlphaUcParenR" | "AlphaUcPeriod";
-
   /**
    * The main class of the PDF API. Use it to get the current document and to create page
    * content, such as paragraphs, tables, images, annotations, and form fields.
@@ -1384,6 +1373,19 @@ declare namespace Pdf {
      * @param rect - widget rect
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // How to create and add a button field to document.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     *
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].SetLabel("Click me");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateButtonField/
      */
     CreateButtonField(rect: Rect): ApiButtonField;
@@ -1415,8 +1417,8 @@ declare namespace Pdf {
      * **Note:**
      * Values of _nStyleIndex_ outside **1 - 48** are interpreted as a chart style id from the
      * _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs
-     * Enterprise](https://www.onlyoffice.com/docs-enterprise-prices?from=api) and [ONLYOFFICE Docs
-     * Developer](https://www.onlyoffice.com/developer-edition-prices?from=api).
+     * Enterprise](https://www.onlyoffice.com/pricing?from=api) and [ONLYOFFICE Docs
+     * Developer](https://www.onlyoffice.com/pricing?from=api).
      *
      * @param chartType - The chart type used for the chart display.
      * @param series - The array of the data used to build the chart from.
@@ -1430,6 +1432,7 @@ declare namespace Pdf {
      * @param numFormats - Numeric formats which will be applied to the series (can be custom formats). The default numeric
      *   format is "General".
      * @default chartType = "ColumnClustered"
+     * @default styleIndex = 2
      * @returns returns null if the chart type is not supported.
      *
      * @example
@@ -1457,8 +1460,8 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateChart/
      */
-    CreateChart(series: number[][], seriesNames: number[] | string[], categoryNames: number[] | string[], width: EMU, height: EMU, styleIndex: number, numFormats: NumFormat[] | string[]): ApiChart | null;
-    CreateChart(chartType: ChartType, series: number[][], seriesNames: number[] | string[], categoryNames: number[] | string[], width: EMU, height: EMU, styleIndex: number, numFormats: NumFormat[] | string[]): ApiChart | null;
+    CreateChart(series: number[][], seriesNames: number[] | string[], categoryNames: number[] | string[], width: EMU, height: EMU): ApiChart | null;
+    CreateChart(chartType: ChartType, series: number[][], seriesNames: number[] | string[], categoryNames: number[] | string[], width: EMU, height: EMU, styleIndex?: number, numFormats?: NumFormat[] | string[]): ApiChart | null;
 
     /**
      * Creates a checkbox field.
@@ -1732,6 +1735,21 @@ declare namespace Pdf {
      * @default zoom = 1
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example creates a GoTo action that navigates to the first page and assigns it to a button widget.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let goToAction = Api.CreateGoToAction(0, "fit", null, [0, 0, 200, 300]);
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(goToAction);
+     *
+     * console.log('GoTo action class type: ' + goToAction.GetClassType());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateGoToAction/
      */
     CreateGoToAction(page: number, goToType: GoToType, rect: Rect): ApiGoToAction;
@@ -1769,14 +1787,34 @@ declare namespace Pdf {
     /**
      * Creates a hide-show forms action.
      *
-     * @param isHidde - to hide - true, to show - false
+     * @param isHide - to hide - true, to show - false
      * @param names - field names
      * @default names = []
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example creates a hide-show action that hides a text field when a button is clicked.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     *
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * textField.SetPartialName("myTextField");
+     * page.AddObject(textField);
+     *
+     * let buttonField = Api.CreateButtonField([10, 40, 160, 60]);
+     * page.AddObject(buttonField);
+     *
+     * let hideAction = Api.CreateHideShowFormsAction(true, ["myTextField"]);
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(hideAction);
+     *
+     * console.log('Hide action class type: ' + hideAction.GetClassType());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateHideShowFormsAction/
      */
-    CreateHideShowFormsAction(isHidde: boolean, names?: string[]): ApiHideShowFormsAction;
+    CreateHideShowFormsAction(isHide: boolean, names?: string[]): ApiHideShowFormsAction;
 
     /**
      * Creates highlight annotation.
@@ -1861,6 +1899,23 @@ declare namespace Pdf {
      * @param creationDate - creation date (timeStamp)
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Add an image stamp annotation to a PDF page.
+     *
+     * // Create a PDF stamp annotation using an image URL.
+     *
+     * // Place an image stamp at specified coordinates in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let imageAnnot = Api.CreateImageStampAnnot(
+     * 	[40, 40, 160, 100],
+     * 	'https://static.onlyoffice.com/assets/docs/samples/img/onlyoffice_logo.png'
+     * );
+     * let page = doc.GetPage(0);
+     * page.AddObject(imageAnnot);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateImageStampAnnot/
      */
     CreateImageStampAnnot(position: Point | Rect, imageSrc: string, author?: string, creationDate?: number): ApiStampAnnotation;
@@ -1891,6 +1946,21 @@ declare namespace Pdf {
      * Creates a js action.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example creates a JavaScript action and assigns it to a button widget.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let jsAction = Api.CreateJsAction("app.alert('Button clicked!');");
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(jsAction);
+     *
+     * console.log('JS action script: ' + jsAction.GetScript());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateJsAction/
      */
@@ -1995,6 +2065,28 @@ declare namespace Pdf {
      * @default format = "unicode"
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Build a math equation object and insert it into a shape's paragraph like a text run in a PDF.
+     *
+     * // Insert a formula into a shape as if it were a run of text in a PDF.
+     *
+     * // Produce a reusable equation object and place it into a shape's paragraph content in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 150 * 36000, 50 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const paragraph = shape.GetContent().GetElement(0);
+     * const math = Api.CreateMath("x^2 + y^2 = z^2", "unicode");
+     * paragraph.AddElement(math);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateMath/
      */
     CreateMath(text: string, format?: "unicode" | "latex" | "mathml"): ApiMath;
@@ -2003,6 +2095,21 @@ declare namespace Pdf {
      * Creates a named action.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example creates a named action that navigates to the next page and assigns it to a button widget.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let namedAction = Api.CreateNamedAction("NextPage");
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(namedAction);
+     *
+     * console.log('Named action name: ' + namedAction.GetName());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateNamedAction/
      */
@@ -2070,7 +2177,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateNumbering/
      */
-    CreateNumbering(numType: BulletType, startAt: number): ApiBullet | null;
+    CreateNumbering(numType: BulletType, startAt?: number): ApiBullet | null;
 
     /**
      * Creates a new paragraph.
@@ -2348,9 +2455,29 @@ declare namespace Pdf {
      * @default names = []
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example creates a reset forms action and assigns it to a button widget.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     *
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * textField.SetPartialName("myTextField");
+     * page.AddObject(textField);
+     *
+     * let buttonField = Api.CreateButtonField([10, 40, 160, 60]);
+     * page.AddObject(buttonField);
+     *
+     * let resetAction = Api.CreateResetFormsAction(false, ["myTextField"]);
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(resetAction);
+     *
+     * console.log('Reset action class type: ' + resetAction.GetClassType());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateResetFormsAction/
      */
-    CreateResetFormsAction(isAllExcept: boolean, names?: string[]): ApiHideShowFormsAction;
+    CreateResetFormsAction(isAllExcept: boolean, names?: string[]): ApiResetFormsAction;
 
     /**
      * Creates the empty rich paragraph properties.
@@ -2380,7 +2507,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateRichParaPr/
      */
-    CreateRichParaPr(): ApiParaPr;
+    CreateRichParaPr(): ApiRichParaPr;
 
     /**
      * Creates a new rich paragraph.
@@ -2468,7 +2595,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateRichTextPr/
      */
-    CreateRichTextPr(): ApiTextPr;
+    CreateRichTextPr(): ApiRichTextPr;
 
     /**
      * Creates a new smaller text block to be inserted to the current paragraph or table.
@@ -2536,6 +2663,25 @@ declare namespace Pdf {
      * @param settings - The shadow properties.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Create a shadow and apply it to a shape on a page in a PDF form.
+     *
+     * // Build an outer shadow with a color, transparency and offset, then attach it to a drawing.
+     *
+     * // Create a shape, create the shadow via Api.CreateShadow, and apply it with SetShadow.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 213, 191));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 120 * 36000, 60 * 36000, fill, stroke);
+     * shape.SetPosition(30 * 36000, 30 * 36000);
+     * page.AddObject(shape);
+     * const shadow = Api.CreateShadow({ color: Api.RGB(0, 0, 0), transparency: 0.4, offsetX: 3, offsetY: 3 });
+     * shape.SetShadow(shadow);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateShadow/
      */
     CreateShadow(settings: ShadowSettings): ApiShadow;
@@ -2543,8 +2689,9 @@ declare namespace Pdf {
     /**
      * Creates a shape with the parameters specified.
      *
-     * @param shapeType - The shape type which specifies the preset shape geometry. The "textRect" type creates a text
-     *   box: it has no fill and no outline, and its height follows the text.
+     * @param shapeType - The shape type which specifies the preset shape geometry. An unknown type is replaced with
+     *   "rect". The "textRect" type creates a text box with the "rect" geometry: it has no fill and no
+     *   outline, and its height follows the text.
      * @param width - The shape width in English measure units.
      * @param height - The shape height in English measure units.
      * @param fill - The color or pattern used to fill the shape. If not specified, the default shape style fill
@@ -2595,6 +2742,27 @@ declare namespace Pdf {
      * @param color - The shading color. Required for the **"clear"** type.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Create a shading object and apply it to table cells in a PDF.
+     *
+     * // Build the shading once with Api.CreateShd and reuse it for several table cells in a PDF.
+     *
+     * // Shade the first row of a new table with the accent1 theme color in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 3);
+     * const shd = Api.CreateShd('clear', Api.Color('accent1'));
+     * const row = table.GetRow(0);
+     * for (let i = 0; i < 3; i++) {
+     *     row.GetCell(i).SetShd(shd);
+     * }
+     *
+     * page.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateShd/
      */
     CreateShd(type: ShdType, color?: ApiColor): ApiShd;
@@ -2604,6 +2772,22 @@ declare namespace Pdf {
      *
      * @param rect - widget rect
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Create and add a field with signature to document.
+     *
+     * // Create the signature field in a PDF document.
+     *
+     * // Create the signature field and sets the signature image to it.
+     *
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     *
+     * let signatureField = Api.CreateSignatureField([10, 10, 100, 100]);
+     * page.AddObject(signatureField);
+     * signatureField.SetValue('https://static.onlyoffice.com/assets/docs/samples/img/onlyoffice_logo.png');
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateSignatureField/
      */
@@ -2760,6 +2944,26 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Create a reusable table row properties object in a PDF.
+     *
+     * // Build row formatting settings before applying them to a table row in a PDF.
+     *
+     * // Create empty row properties, set a minimum height, and apply them to every row of a table in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const table = Api.CreateTable(3, 3);
+     * for (let i = 0; i < 3; i++) {
+     * 	const rowPr = Api.CreateTableRowPr();
+     * 	rowPr.SetHeight("atLeast", 1500);
+     * 	table.GetRow(i).SetRowPr(rowPr);
+     * }
+     *
+     * page.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateTableRowPr/
      */
     CreateTableRowPr(): ApiTableRowPr;
@@ -2870,6 +3074,21 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example creates a URI action that opens a web page and assigns it to a button widget.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let uriAction = Api.CreateUriAction("https://www.onlyoffice.com");
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(uriAction);
+     *
+     * console.log('URI action class type: ' + uriAction.GetClassType());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/CreateUriAction/
      */
     CreateUriAction(uri: string): ApiUriAction;
@@ -2936,10 +3155,43 @@ declare namespace Pdf {
     EmusToPoints(emu: number): number;
 
     /**
-     * Returns the object by it's internal ID.
+     * Returns the object by its internal ID.
+     * Internal IDs are valid only for the current editing session: they stay the same while the document
+     * is open,
+     * but they are not saved to the file and can be different after the document is reopened.
      *
      * @param id - the object internal ID.
      * @since 9.4.0
+     *
+     * @example
+     * ```js
+     * // Look up a paragraph by its internal ID and display its text in a PDF.
+     *
+     * // Pass the ID returned by GetInternalId to get the same paragraph back in a PDF.
+     *
+     * // Find a paragraph by an internal ID that stays valid only while the PDF is open.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape('rect', Api.MillimetersToEmus(300), Api.MillimetersToEmus(130), fill, stroke);
+     * shape.SetPosition(Api.MillimetersToEmus(20), Api.MillimetersToEmus(35));
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText('Original paragraph text.');
+     *
+     * const internalId = paragraph.GetInternalId();
+     * const found = Api.GetByInternalId(internalId);
+     *
+     * const resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText('Found object class type: ' + found.GetClassType());
+     * resultParagraph.AddLineBreak();
+     * resultParagraph.AddText('Found paragraph text: ' + found.GetText());
+     * docContent.Push(resultParagraph);
+     * page.AddObject(shape);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/GetByInternalId/
      */
@@ -3093,6 +3345,28 @@ declare namespace Pdf {
      *   spreadsheet document builder.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Merge two overlapping shapes into a single shape in a PDF.
+     *
+     * // Build a custom shape from simple shapes with the union operation.
+     *
+     * // Unite a rectangle and an ellipse on the first page into one shape filled with the color of the rectangle.
+     *
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let fill1 = Api.CreateSolidFill(Api.Color(255, 111, 61));
+     * let fill2 = Api.CreateSolidFill(Api.Color(51, 51, 51));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let rectangle = Api.CreateShape("rect", 60 * 36000, 40 * 36000, fill1, stroke);
+     * let ellipse = Api.CreateShape("ellipse", 40 * 36000, 40 * 36000, fill2, stroke);
+     * rectangle.SetPosition(30 * 36000, 40 * 36000);
+     * ellipse.SetPosition(70 * 36000, 40 * 36000);
+     * page.AddObject(rectangle);
+     * page.AddObject(ellipse);
+     * Api.MergeShapes([rectangle, ellipse], "union");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/MergeShapes/
      */
     MergeShapes(drawings: Drawing[], operation: ShapesMergeOperation): Drawing[] | null;
@@ -3224,6 +3498,29 @@ declare namespace Pdf {
      * Converts pixels to EMUs (English Metric Units).
      *
      * @param px - The number of pixels to convert to EMUs.
+     *
+     * @example
+     * ```js
+     * // Convert pixels to english metric units in a PDF document.
+     *
+     * // The API method performs measurement unit conversion.
+     *
+     * // The result is displayed in a shape text element.
+     *
+     * const pixels = 1080;
+     * const emus = Api.PixelsToEmus(pixels);
+     *
+     * const rgb = Api.RGB(50, 150, 250);
+     * const fill = Api.CreateSolidFill(rgb);
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape('rect', 150 * 36000, 150 * 36000, fill, stroke);
+     * const paragraph = shape.GetContent().GetElement(0);
+     * paragraph.AddText(pixels + ' pixels are equal to ' + emus + ' english metric units.');
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * page.AddObject(shape);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/Api/Methods/PixelsToEmus/
      */
@@ -3648,6 +3945,35 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example gets the Calculate action from a text field's action collection.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     *
+     * let priceField = Api.CreateTextField([10, 10, 160, 30]);
+     * priceField.SetPartialName("Price");
+     * priceField.SetValue("100");
+     * page.AddObject(priceField);
+     *
+     * let qtyField = Api.CreateTextField([10, 40, 160, 60]);
+     * qtyField.SetPartialName("Qty");
+     * qtyField.SetValue("3");
+     * page.AddObject(qtyField);
+     *
+     * let totalField = Api.CreateTextField([10, 70, 160, 90]);
+     * totalField.SetPartialName("Total");
+     * page.AddObject(totalField);
+     *
+     * let calcAction = Api.CreateJsAction("event.value = this.getField('Price').value * this.getField('Qty').value;");
+     * let widgets = totalField.GetAllWidgets();
+     * let actions = widgets[0].GetActions();
+     * actions.SetCalculate(calcAction);
+     *
+     * let action = actions.GetCalculate();
+     * console.log('Calculate action script: ' + action.GetScript());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/GetCalculate/
      */
     GetCalculate(): ApiJsAction;
@@ -3656,6 +3982,20 @@ declare namespace Pdf {
      * Gets class type of this object.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example gets the class type of an action collection.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let widgets = buttonField.GetAllWidgets();
+     * let actions = widgets[0].GetActions();
+     *
+     * console.log('Actions class type: ' + actions.GetClassType());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/GetClassType/
      */
@@ -3666,6 +4006,23 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example gets the Format action from a text field's action collection.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * page.AddObject(textField);
+     *
+     * let formatAction = Api.CreateJsAction("AFNumber_Format(2, 0, 0, 0, '$', true);");
+     * let widgets = textField.GetAllWidgets();
+     * let actions = widgets[0].GetActions();
+     * actions.SetFormat(formatAction);
+     *
+     * let action = actions.GetFormat();
+     * console.log('Format action script: ' + action.GetScript());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/GetFormat/
      */
     GetFormat(): ApiJsAction;
@@ -3674,6 +4031,23 @@ declare namespace Pdf {
      * Gets Keystroke action.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example gets the Keystroke action from a text field's action collection.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * page.AddObject(textField);
+     *
+     * let keystrokeAction = Api.CreateJsAction("AFNumber_Keystroke(2, 0, 0, 0, '$', true);");
+     * let widgets = textField.GetAllWidgets();
+     * let actions = widgets[0].GetActions();
+     * actions.SetKeystroke(keystrokeAction);
+     *
+     * let action = actions.GetKeystroke();
+     * console.log('Keystroke action script: ' + action.GetScript());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/GetKeystroke/
      */
@@ -3684,6 +4058,23 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example gets the MouseDown action from an action collection.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let jsAction = Api.CreateJsAction("app.alert('Mouse down!');");
+     * let widgets = buttonField.GetAllWidgets();
+     * let actions = widgets[0].GetActions();
+     * actions.SetMouseDown(jsAction);
+     *
+     * let mouseDownAction = actions.GetMouseDown();
+     * console.log('MouseDown action class type: ' + mouseDownAction.GetClassType());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/GetMouseDown/
      */
     GetMouseDown(): ApiBaseAction;
@@ -3692,6 +4083,23 @@ declare namespace Pdf {
      * Gets MouseEnter action.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example gets the MouseEnter action from an action collection.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let jsAction = Api.CreateJsAction("app.alert('Mouse enter!');");
+     * let widgets = buttonField.GetAllWidgets();
+     * let actions = widgets[0].GetActions();
+     * actions.SetMouseEnter(jsAction);
+     *
+     * let mouseEnterAction = actions.GetMouseEnter();
+     * console.log('MouseEnter action class type: ' + mouseEnterAction.GetClassType());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/GetMouseEnter/
      */
@@ -3702,6 +4110,23 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example gets the MouseExit action from an action collection.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let jsAction = Api.CreateJsAction("app.alert('Mouse exit!');");
+     * let widgets = buttonField.GetAllWidgets();
+     * let actions = widgets[0].GetActions();
+     * actions.SetMouseExit(jsAction);
+     *
+     * let mouseExitAction = actions.GetMouseExit();
+     * console.log('MouseExit action class type: ' + mouseExitAction.GetClassType());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/GetMouseExit/
      */
     GetMouseExit(): ApiBaseAction;
@@ -3710,6 +4135,23 @@ declare namespace Pdf {
      * Gets MouseUp action.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example gets the MouseUp action from an action collection.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let jsAction = Api.CreateJsAction("app.alert('Mouse up!');");
+     * let widgets = buttonField.GetAllWidgets();
+     * let actions = widgets[0].GetActions();
+     * actions.SetMouseUp(jsAction);
+     *
+     * let mouseUpAction = actions.GetMouseUp();
+     * console.log('MouseUp action class type: ' + mouseUpAction.GetClassType());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/GetMouseUp/
      */
@@ -3720,6 +4162,23 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example gets the OnBlur action from an action collection.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * page.AddObject(textField);
+     *
+     * let jsAction = Api.CreateJsAction("app.alert('Field blurred!');");
+     * let widgets = textField.GetAllWidgets();
+     * let actions = widgets[0].GetActions();
+     * actions.SetOnBlur(jsAction);
+     *
+     * let onBlurAction = actions.GetOnBlur();
+     * console.log('OnBlur action class type: ' + onBlurAction.GetClassType());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/GetOnBlur/
      */
     GetOnBlur(): ApiBaseAction;
@@ -3729,6 +4188,23 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example gets the OnFocus action from an action collection.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * page.AddObject(textField);
+     *
+     * let jsAction = Api.CreateJsAction("app.alert('Field focused!');");
+     * let widgets = textField.GetAllWidgets();
+     * let actions = widgets[0].GetActions();
+     * actions.SetOnFocus(jsAction);
+     *
+     * let onFocusAction = actions.GetOnFocus();
+     * console.log('OnFocus action class type: ' + onFocusAction.GetClassType());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/GetOnFocus/
      */
     GetOnFocus(): ApiBaseAction;
@@ -3737,6 +4213,23 @@ declare namespace Pdf {
      * Gets Validate action.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example gets the Validate action from a text field's action collection.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * page.AddObject(textField);
+     *
+     * let validateAction = Api.CreateJsAction("if (event.value < 0) { app.alert('Value must be positive'); event.rc = false; }");
+     * let widgets = textField.GetAllWidgets();
+     * let actions = widgets[0].GetActions();
+     * actions.SetValidate(validateAction);
+     *
+     * let action = actions.GetValidate();
+     * console.log('Validate action script: ' + action.GetScript());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/GetValidate/
      */
@@ -3748,6 +4241,33 @@ declare namespace Pdf {
      * @param action - The action to set, or `null` to remove it.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example sets a Calculate action on a text field to compute its value from other fields.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     *
+     * let priceField = Api.CreateTextField([10, 10, 160, 30]);
+     * priceField.SetPartialName("Price");
+     * priceField.SetValue("100");
+     * page.AddObject(priceField);
+     *
+     * let qtyField = Api.CreateTextField([10, 40, 160, 60]);
+     * qtyField.SetPartialName("Qty");
+     * qtyField.SetValue("3");
+     * page.AddObject(qtyField);
+     *
+     * let totalField = Api.CreateTextField([10, 70, 160, 90]);
+     * totalField.SetPartialName("Total");
+     * page.AddObject(totalField);
+     *
+     * let calcAction = Api.CreateJsAction("event.value = this.getField('Price').value * this.getField('Qty').value;");
+     * let widgets = totalField.GetAllWidgets();
+     * let result = widgets[0].GetActions().SetCalculate(calcAction);
+     *
+     * console.log('Calculate action set: ' + result);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetCalculate/
      */
     SetCalculate(action: ApiJsAction | null): boolean;
@@ -3757,6 +4277,21 @@ declare namespace Pdf {
      *
      * @param action - The action to set, or `null` to remove it.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example sets a Format action on a text field to format its value as currency.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * page.AddObject(textField);
+     *
+     * let formatAction = Api.CreateJsAction("AFNumber_Format(2, 0, 0, 0, '$', true);");
+     * let widgets = textField.GetAllWidgets();
+     * let result = widgets[0].GetActions().SetFormat(formatAction);
+     *
+     * console.log('Format action set: ' + result);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetFormat/
      */
@@ -3768,6 +4303,21 @@ declare namespace Pdf {
      * @param action - The action to set, or `null` to remove it.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example sets a Keystroke action on a text field to validate input as a number.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * page.AddObject(textField);
+     *
+     * let keystrokeAction = Api.CreateJsAction("AFNumber_Keystroke(2, 0, 0, 0, '$', true);");
+     * let widgets = textField.GetAllWidgets();
+     * let result = widgets[0].GetActions().SetKeystroke(keystrokeAction);
+     *
+     * console.log('Keystroke action set: ' + result);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetKeystroke/
      */
     SetKeystroke(action: ApiJsAction | null): boolean;
@@ -3777,6 +4327,21 @@ declare namespace Pdf {
      *
      * @param action - The action to set, or `null` to remove it.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example sets a JavaScript action to fire on MouseDown of a button widget.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let jsAction = Api.CreateJsAction("app.alert('Mouse down!');");
+     * let widgets = buttonField.GetAllWidgets();
+     * let result = widgets[0].GetActions().SetMouseDown(jsAction);
+     *
+     * console.log('MouseDown set: ' + result);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetMouseDown/
      */
@@ -3788,6 +4353,21 @@ declare namespace Pdf {
      * @param action - The action to set, or `null` to remove it.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example sets a JavaScript action to fire on MouseEnter of a button widget.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let jsAction = Api.CreateJsAction("app.alert('Mouse enter!');");
+     * let widgets = buttonField.GetAllWidgets();
+     * let result = widgets[0].GetActions().SetMouseEnter(jsAction);
+     *
+     * console.log('MouseEnter set: ' + result);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetMouseEnter/
      */
     SetMouseEnter(action: ApiBaseAction | null): boolean;
@@ -3797,6 +4377,21 @@ declare namespace Pdf {
      *
      * @param action - The action to set, or `null` to remove it.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example sets a JavaScript action to fire on MouseExit of a button widget.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let jsAction = Api.CreateJsAction("app.alert('Mouse exit!');");
+     * let widgets = buttonField.GetAllWidgets();
+     * let result = widgets[0].GetActions().SetMouseExit(jsAction);
+     *
+     * console.log('MouseExit set: ' + result);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetMouseExit/
      */
@@ -3808,6 +4403,21 @@ declare namespace Pdf {
      * @param action - The action to set, or `null` to remove it.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example sets a JavaScript action to fire on MouseUp of a button widget.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let jsAction = Api.CreateJsAction("app.alert('Mouse up!');");
+     * let widgets = buttonField.GetAllWidgets();
+     * let result = widgets[0].GetActions().SetMouseUp(jsAction);
+     *
+     * console.log('MouseUp set: ' + result);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetMouseUp/
      */
     SetMouseUp(action: ApiBaseAction | null): boolean;
@@ -3817,6 +4427,21 @@ declare namespace Pdf {
      *
      * @param action - The action to set, or `null` to remove it.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example sets a JavaScript action to fire when a text field loses focus.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * page.AddObject(textField);
+     *
+     * let jsAction = Api.CreateJsAction("app.alert('Field blurred!');");
+     * let widgets = textField.GetAllWidgets();
+     * let result = widgets[0].GetActions().SetOnBlur(jsAction);
+     *
+     * console.log('OnBlur set: ' + result);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetOnBlur/
      */
@@ -3828,6 +4453,21 @@ declare namespace Pdf {
      * @param action - The action to set, or `null` to remove it.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example sets a JavaScript action to fire when a text field receives focus.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * page.AddObject(textField);
+     *
+     * let jsAction = Api.CreateJsAction("app.alert('Field focused!');");
+     * let widgets = textField.GetAllWidgets();
+     * let result = widgets[0].GetActions().SetOnFocus(jsAction);
+     *
+     * console.log('OnFocus set: ' + result);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetOnFocus/
      */
     SetOnFocus(action: ApiBaseAction | null): boolean;
@@ -3837,6 +4477,21 @@ declare namespace Pdf {
      *
      * @param action - The action to set, or `null` to remove it.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example sets a Validate action on a text field to ensure its value is positive.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * page.AddObject(textField);
+     *
+     * let validateAction = Api.CreateJsAction("if (event.value < 0) { app.alert('Value must be positive'); event.rc = false; }");
+     * let widgets = textField.GetAllWidgets();
+     * let result = widgets[0].GetActions().SetValidate(validateAction);
+     *
+     * console.log('Validate action set: ' + result);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiActionCollection/Methods/SetValidate/
      */
@@ -3854,6 +4509,25 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example creates a chain of two actions and gets the next action in the chain.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let firstAction = Api.CreateJsAction("app.alert('First action');");
+     * let secondAction = Api.CreateNamedAction("NextPage");
+     * firstAction.SetNext(secondAction);
+     *
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(firstAction);
+     *
+     * let nextAction = firstAction.GetNext();
+     * console.log('Next action class type: ' + nextAction.GetClassType());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAction/Methods/GetNext/
      */
     GetNext(): ApiBaseAction;
@@ -3863,6 +4537,24 @@ declare namespace Pdf {
      *
      * @returns returns next action
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example creates a chain of two actions: a JS alert followed by navigation to the next page.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let firstAction = Api.CreateJsAction("app.alert('Going to next page...');");
+     * let secondAction = Api.CreateNamedAction("NextPage");
+     * let result = firstAction.SetNext(secondAction);
+     *
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(firstAction);
+     *
+     * console.log('Next action set, class type: ' + result.GetClassType());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAction/Methods/SetNext/
      */
@@ -3877,6 +4569,11 @@ declare namespace Pdf {
   export interface ApiBaseAnnotation {
     /**
      * Adds reply on this annot.
+     *
+     * **Note:**
+     * If this annotation is itself a reply, the new reply is added to the thread of its root annotation
+     * (the reply then refers to the root and is listed by the root's
+     * {@link ApiBaseAnnotation#GetReplies}).
      *
      * @param textAnnot - The text annotation to use as a reply.
      *
@@ -4159,6 +4856,22 @@ declare namespace Pdf {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 9.4.0
      *
+     * @example
+     * ```js
+     * // Get the internal identifier of an annotation in a PDF.
+     *
+     * // Useful for retrieving an annotation's internal ID.
+     *
+     * // Create an annotation and print its internal ID.
+     *
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let squareAnnot = Api.CreateSquareAnnot([10, 10, 160, 32]);
+     * page.AddObject(squareAnnot);
+     *
+     * console.log(`Annotation internal ID is: ${squareAnnot.GetInternalId()}`);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetInternalId/
      */
     GetInternalId(): string;
@@ -4186,6 +4899,8 @@ declare namespace Pdf {
     /**
      * Gets annotation opacity.
      *
+     * @returns The opacity from 0 (transparent) to 100 (opaque).
+     *
      * @example
      * ```js
      * // How transparent is an annotation in a PDF?
@@ -4201,7 +4916,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetOpacity/
      */
-    GetOpacity(): string;
+    GetOpacity(): percentage;
 
     /**
      * Gets annotation position.
@@ -4412,6 +5127,10 @@ declare namespace Pdf {
 
     /**
      * Sets annotation border style.
+     *
+     * **Note:**
+     * If the `"dashed"` style is set and the annotation has no dash pattern yet,
+     * the default pattern `[2, 2]` is applied. Use {@link ApiBaseAnnotation#SetDashPattern} to change it.
      *
      * @param borderStyle - The border style: `"solid"` or `"dashed"`.
      *
@@ -4821,6 +5540,22 @@ declare namespace Pdf {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 9.4.0
      *
+     * @example
+     * ```js
+     * // Get the internal identifier of a form field in a PDF.
+     *
+     * // Useful for retrieving a field's internal ID.
+     *
+     * // Create a text field and print its internal ID.
+     *
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * page.AddObject(textField);
+     *
+     * console.log(`Field internal ID is: ${textField.GetInternalId()}`);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/GetInternalId/
      */
     GetInternalId(): string;
@@ -4853,9 +5588,26 @@ declare namespace Pdf {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 9.4.0
      *
+     * @example
+     * ```js
+     * // Read a form field tooltip in a PDF.
+     *
+     * // Useful for getting the helper text assigned to a field.
+     *
+     * // Set a field tooltip and read it back.
+     *
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * page.AddObject(textField);
+     *
+     * textField.SetTooltip("Enter your full name");
+     * textField.SetValue(textField.GetTooltip());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/GetTooltip/
      */
-    GetTooltip(): boolean;
+    GetTooltip(): string | null;
 
     /**
      * Gets field value
@@ -4952,6 +5704,9 @@ declare namespace Pdf {
     /**
      * Sets new field partial name.
      *
+     * **Note:**
+     * The name parameter must not contain a dot.
+     *
      * @param name - The new partial name for the field.
      *
      * @example
@@ -5027,6 +5782,22 @@ declare namespace Pdf {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @param tooltip - The tooltip text for the field.
      * @since 9.4.0
+     *
+     * @example
+     * ```js
+     * // Set a tooltip for a form field in a PDF.
+     *
+     * // Useful for adding helper text to a field.
+     *
+     * // Assign a tooltip to a text field.
+     *
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * page.AddObject(textField);
+     *
+     * textField.SetTooltip("Enter your full name");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/SetTooltip/
      */
@@ -5280,7 +6051,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/GetTooltip/
      */
-    GetTooltip(): boolean;
+    GetTooltip(): string | null;
 
     /**
      * Gets field value
@@ -5508,6 +6279,9 @@ declare namespace Pdf {
     /**
      * Sets new field partial name.
      *
+     * **Note:**
+     * The name parameter must not contain a dot.
+     *
      * @param name - The new partial name for the field.
      *
      * @example
@@ -5646,6 +6420,11 @@ declare namespace Pdf {
   export interface ApiBaseMarkupAnnotation extends ApiBaseAnnotation {
     /**
      * Adds reply on this annot.
+     *
+     * **Note:**
+     * If this annotation is itself a reply, the new reply is added to the thread of its root annotation
+     * (the reply then refers to the root and is listed by the root's
+     * {@link ApiBaseAnnotation#GetReplies}).
      *
      * @param textAnnot - The text annotation to use as a reply.
      *
@@ -5955,6 +6734,8 @@ declare namespace Pdf {
     /**
      * Gets annotation opacity.
      *
+     * @returns The opacity from 0 (transparent) to 100 (opaque).
+     *
      * @example
      * ```js
      * // How transparent is an annotation in a PDF?
@@ -5970,7 +6751,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetOpacity/
      */
-    GetOpacity(): string;
+    GetOpacity(): percentage;
 
     /**
      * Gets annotation position.
@@ -6201,6 +6982,10 @@ declare namespace Pdf {
 
     /**
      * Sets annotation border style.
+     *
+     * **Note:**
+     * If the `"dashed"` style is set and the annotation has no dash pattern yet,
+     * the default pattern `[2, 2]` is applied. Use {@link ApiBaseAnnotation#SetDashPattern} to change it.
      *
      * @param borderStyle - The border style: `"solid"` or `"dashed"`.
      *
@@ -6556,6 +7341,23 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example gets the actions collection of a widget and assigns a JavaScript action to MouseUp.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let widgets = buttonField.GetAllWidgets();
+     * let actions = widgets[0].GetActions();
+     *
+     * let jsAction = Api.CreateJsAction("app.alert('Clicked!');");
+     * actions.SetMouseUp(jsAction);
+     *
+     * console.log('Actions class type: ' + actions.GetClassType());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetActions/
      */
     GetActions(): ApiActionCollection;
@@ -6565,6 +7367,24 @@ declare namespace Pdf {
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 9.4.0
+     *
+     * @example
+     * ```js
+     * // Get field widget actions as JSON in a PDF.
+     *
+     * // Useful for inspecting actions assigned to a widget.
+     *
+     * // Read the actions JSON object from a field widget.
+     *
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * page.AddObject(textField);
+     *
+     * let widgets = textField.GetAllWidgets();
+     * let actionsJSON = widgets[0].GetActionsJSON();
+     * console.log(JSON.stringify(actionsJSON));
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetActionsJSON/
      */
@@ -6712,6 +7532,23 @@ declare namespace Pdf {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 9.4.0
      *
+     * @example
+     * ```js
+     * // Get the internal identifier of a form field widget in a PDF.
+     *
+     * // How do I retrieve a widget's internal ID?
+     *
+     * // Create a text field and print the internal ID of its widget.
+     *
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * page.AddObject(textField);
+     *
+     * let widgets = textField.GetAllWidgets();
+     * console.log(`Widget internal ID is: ${widgets[0].GetInternalId()}`);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetInternalId/
      */
     GetInternalId(): string;
@@ -6720,6 +7557,20 @@ declare namespace Pdf {
      * Gets parent field.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example gets the parent field of a widget.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * textField.SetPartialName("myField");
+     * page.AddObject(textField);
+     *
+     * let widgets = textField.GetAllWidgets();
+     * let parent = widgets[0].GetParent();
+     * console.log('Parent field name: ' + parent.GetPartialName());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetParent/
      */
@@ -6774,6 +7625,28 @@ declare namespace Pdf {
      * Gets widget text alignment.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the text alignment of a form field widget in a PDF.
+     *
+     * // How do I retrieve the text alignment of a widget in a PDF?
+     *
+     * // Read and display the text alignment setting of a form field widget in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * page.AddObject(textField);
+     *
+     * textField.AddWidget(0, [10, 40, 160, 60]);
+     * let widgets = textField.GetAllWidgets();
+     * widgets.forEach(function(widget) {
+     *     widget.SetTextAlign('center');
+     * });
+     * let textAlign = widgets[0].GetTextAlign();
+     * textField.SetValue('Widget text alignment is: ' + textAlign);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/GetTextAlign/
      */
@@ -7065,6 +7938,27 @@ declare namespace Pdf {
      * @param textAlign - The text alignment.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the text alignment for field widgets in a PDF.
+     *
+     * // How do I align text in form field widgets in a PDF?
+     *
+     * // Center the text displayed in all widgets of a form field in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * page.AddObject(textField);
+     *
+     * textField.SetValue('Example text');
+     * textField.AddWidget(0, [10, 40, 160, 60]);
+     * let widgets = textField.GetAllWidgets();
+     * widgets.forEach(function(widget) {
+     *     widget.SetTextAlign('center');
+     * });
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseWidget/Methods/SetTextAlign/
      */
     SetTextAlign(textAlign: WidgetTextAlign): boolean;
@@ -7136,10 +8030,6 @@ declare namespace Pdf {
   export interface ApiBlockLvlSdt {
   }
 
-  /** Class representing a bookmark in the document. */
-  export interface ApiBookmark {
-  }
-
   /**
    * Class representing a paragraph bullet.
    *
@@ -7183,6 +8073,32 @@ declare namespace Pdf {
 
     /**
      * Converts the ApiBullet object into the JSON object.
+     *
+     * @example
+     * ```js
+     * // Convert a bullet to its JSON representation in a PDF.
+     *
+     * // ToJSON serializes an ApiBullet created with Api.CreateBullet for storage or transfer.
+     *
+     * // Create a character bullet, apply it to a paragraph, and write its JSON string into the shape.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("flowChartMagneticTape", 150 * 36000, 65 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * const bullet = Api.CreateBullet("-");
+     * paragraph.SetBullet(bullet);
+     * paragraph.AddText(" Bulleted paragraph.");
+     * const json = bullet.ToJSON();
+     * const newParagraph = Api.CreateParagraph();
+     * newParagraph.AddText("Bullet JSON: " + json);
+     * docContent.Push(newParagraph);
+     * page.AddObject(shape);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBullet/Methods/ToJSON/
      */
@@ -7356,7 +8272,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/GetTooltip/
      */
-    GetTooltip(): boolean;
+    GetTooltip(): string | null;
 
     /**
      * Gets image of the button field
@@ -7456,6 +8372,9 @@ declare namespace Pdf {
     /**
      * Sets new field partial name.
      *
+     * **Note:**
+     * The name parameter must not contain a dot.
+     *
      * @param name - The new partial name for the field.
      *
      * @example
@@ -7546,6 +8465,22 @@ declare namespace Pdf {
      *   are supported)
      * @default imageUrl = ""
      * @since 9.4.0
+     *
+     * @example
+     * ```js
+     * // Set an image value for all button field widgets in a PDF.
+     *
+     * // Useful for assigning an image to a button field.
+     *
+     * // Create an image field and set the image for its widgets.
+     *
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateImageField([10, 10, 100, 100]);
+     * page.AddObject(buttonField);
+     *
+     * buttonField.SetValue("https://static.onlyoffice.com/assets/docs/samples/img/onlyoffice_logo.png");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiButtonField/Methods/SetValue/
      */
@@ -8684,7 +9619,7 @@ declare namespace Pdf {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiChart/
    */
-  export interface ApiChart extends Omit<ApiDrawing, "GetClassType" | "SetTitle"> {
+  export interface ApiChart extends Omit<ApiDrawing, "GetClassType" | "SetTitle" | "Copy"> {
     /**
      * Sets a style to the current chart by style ID.
      *
@@ -8721,7 +9656,37 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiChart/Methods/ApplyChartStyle/
      */
-    ApplyChartStyle(nStyleId: unknown): boolean;
+    ApplyChartStyle(nStyleId: number): boolean;
+
+    /**
+     * Creates a copy of the current chart.
+     *
+     * @since 9.4.0
+     *
+     * @example
+     * ```js
+     * // How do I make a copy of a chart in a PDF?
+     *
+     * // Create an exact duplicate of a chart and add it to a new page in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const chart = Api.CreateChart("bar3D", [
+     *     [200, 240, 280],
+     *     [250, 260, 280]
+     * ], ["Projected Revenue", "Estimated Costs"], [2014, 2015, 2016], 4051300, 2347595);
+     * chart.SetPosition(608400, 1267200);
+     * page.AddObject(chart);
+     *
+     * const copyChart = chart.Copy();
+     * const newPage = doc.AddPage(1);
+     * newPage.AddObject(copyChart);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiChart/Methods/Copy/
+     */
+    Copy(): ApiChart;
 
     /**
      * Returns all series from the chart space.
@@ -8767,7 +9732,8 @@ declare namespace Pdf {
     GetAllSeries(): ApiChartSeries[];
 
     /**
-     * Returns a type of the chart object.
+     * Returns a type of the chart object using the legacy chart type names. To get a chart type name that
+     * can be used to create a chart, use the GetType method.
      *
      * @example
      * ```js
@@ -9023,8 +9989,35 @@ declare namespace Pdf {
     GetTitle(): string | null;
 
     /**
-     * Returns a type of the chart object using the chart type names from the {@link ChartType}
+     * Returns a type of the chart object using the chart type names from the {@link global#ChartType}
      * enumeration.
+     *
+     * @example
+     * ```js
+     * // Determine the chart type using the chart type name in a PDF.
+     *
+     * // Useful for confirming a chart's type before applying type-specific formatting in a PDF.
+     *
+     * // Retrieve the chart type and show it as text in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const chart = Api.CreateChart('3DColumnClustered', [
+     * 	[200, 240, 280],
+     * 	[250, 260, 280]
+     * ], ['Projected Revenue', 'Estimated Costs'], [2014, 2015, 2016], 4051300, 2347595, 24);
+     * chart.SetPosition(608400, 1267200);
+     *
+     * const solidGrey = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const solidOrange = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * chart.SetSeriesFill(solidGrey, 0, false);
+     * chart.SetSeriesFill(solidOrange, 1, false);
+     * const chartType = chart.GetType();
+     * chart.SetTitle('This chart is of the ' + chartType + ' type', 28);
+     *
+     * page.AddObject(chart);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiChart/Methods/GetType/
      */
@@ -9066,6 +10059,31 @@ declare namespace Pdf {
      *
      * @param sFormat - Numeric format (can be custom format).
      * @param sAxisPos - Axis position in the chart.
+     *
+     * @example
+     * ```js
+     * // Format the numbers on a chart axis in a PDF.
+     *
+     * // How do I control how numbers appear on a chart's axis in a PDF?
+     *
+     * // Change the number format of axis labels in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const chart = Api.CreateChart("3DColumnClustered", [
+     * 	[200, 240, 280],
+     * 	[250, 260, 280]
+     * ], ["Projected Revenue", "Estimated Costs"], [2014, 2015, 2016], 4051300, 2347595, 24, ["0", "0.00"]);
+     * chart.SetSize(150 * 36000, 65 * 36000);
+     * chart.SetPosition(608400, 1267200);
+     * chart.SetAxisNumFormat("0.00", "left");
+     * let fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * chart.SetSeriesFill(fill, 0, false);
+     * fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * chart.SetSeriesFill(fill, 1, false);
+     * page.AddObject(chart);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiChart/Methods/SetAxisNumFormat/
      */
@@ -9447,7 +10465,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiChart/Methods/SetHorAxisTitle/
      */
-    SetHorAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean;
+    SetHorAxisTitle(sTitle: string, fontSize?: hps, bIsBold?: boolean): boolean;
 
     /**
      * Sets the fill to the chart legend.
@@ -10219,6 +11237,35 @@ declare namespace Pdf {
      * @default bShowKeys = false
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Display the data table beneath a chart in a PDF.
+     *
+     * // List the chart's source values in a grid under the plot area, with the legend keys.
+     *
+     * // Toggle on the data table with legend keys for a 3D bar chart in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const chart = Api.CreateChart("3DColumnClustered", [
+     * 	[200, 240, 280],
+     * 	[250, 260, 280]
+     * ], ["Projected Revenue", "Estimated Costs"], [2014, 2015, 2016], 4051300, 2347595, 24);
+     * chart.SetVerAxisTitle("USD In Hundred Thousands", 20);
+     * chart.SetHorAxisTitle("Year", 22);
+     * chart.SetLegendPos("bottom");
+     * chart.SetShowDataTable(true, true);
+     * chart.SetTitle("Financial Overview", 26);
+     * chart.SetSize(150 * 36000, 65 * 36000);
+     * chart.SetPosition(608400, 1267200);
+     *
+     * let fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * chart.SetSeriesFill(fill, 0, false);
+     * fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * chart.SetSeriesFill(fill, 1, false);
+     * page.AddObject(chart);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiChart/Methods/SetShowDataTable/
      */
     SetShowDataTable(bShow: boolean, bShowKeys?: boolean): boolean;
@@ -10303,7 +11350,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiChart/Methods/SetTitle/
      */
-    SetTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean;
+    SetTitle(sTitle: string, fontSize?: hps, bIsBold?: boolean): boolean;
 
     /**
      * Sets the fill to the chart title.
@@ -10448,7 +11495,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiChart/Methods/SetVerAxisTitle/
      */
-    SetVerAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean;
+    SetVerAxisTitle(sTitle: string, fontSize?: hps, bIsBold?: boolean): boolean;
 
     /**
      * Specifies font size for labels of the vertical axis.
@@ -10697,7 +11744,8 @@ declare namespace Pdf {
     ChangeChartType(sType: ChartType): boolean;
 
     /**
-     * Returns a chart type of the current series.
+     * Returns a chart type of the current series using the legacy chart type names. To get a chart type
+     * name that can be passed to the ChangeChartType method, use the GetType method.
      *
      * @example
      * ```js
@@ -10774,8 +11822,41 @@ declare namespace Pdf {
     GetClassType(): "chartSeries";
 
     /**
-     * Returns a chart type of the current series using the chart type names from the {@link ChartType}
-     * enumeration.
+     * Returns a chart type of the current series using the chart type names from the
+     * {@link global#ChartType} enumeration.
+     *
+     * @example
+     * ```js
+     * // Read the chart type name of a data series in a PDF.
+     *
+     * // Useful for getting the chart type name a particular series uses in a PDF.
+     *
+     * // Display the chart type of a series as text in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const chart = Api.CreateChart("ComboColumnClusteredLine", [
+     * 	[200, 240, 280],
+     * 	[250, 260, 280]
+     * ], ["Projected Revenue", "Estimated Costs"], [2014, 2015, 2016], 4051300, 2347595, 24);
+     * chart.SetVerAxisTitle("USD In Hundred Thousands", 20);
+     * chart.SetHorAxisTitle("Year", 22);
+     * chart.SetLegendPos("bottom");
+     * chart.SetShowDataLabels(false, false, true, false);
+     *
+     * const series = chart.GetSeries(0);
+     * const seriesType = series.GetType();
+     * const title = "Series Type = " + seriesType + "\n";
+     * chart.SetTitle(title, 40);
+     * chart.SetSize(150 * 36000, 65 * 36000);
+     * chart.SetPosition(608400, 1267200);
+     * let fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * chart.SetSeriesFill(fill, 0, false);
+     * fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * chart.SetSeriesFill(fill, 1, false);
+     * page.AddObject(chart);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiChartSeries/Methods/GetType/
      */
@@ -10983,7 +12064,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/GetTooltip/
      */
-    GetTooltip(): boolean;
+    GetTooltip(): string | null;
 
     /**
      * Gets field value
@@ -11101,6 +12182,9 @@ declare namespace Pdf {
 
     /**
      * Sets new field partial name.
+     *
+     * **Note:**
+     * The name parameter must not contain a dot.
      *
      * @param name - The new partial name for the field.
      *
@@ -12048,6 +13132,11 @@ declare namespace Pdf {
     /**
      * Adds reply on this annot.
      *
+     * **Note:**
+     * If this annotation is itself a reply, the new reply is added to the thread of its root annotation
+     * (the reply then refers to the root and is listed by the root's
+     * {@link ApiBaseAnnotation#GetReplies}).
+     *
      * @param textAnnot - The text annotation to use as a reply.
      *
      * @example
@@ -12378,6 +13467,8 @@ declare namespace Pdf {
     /**
      * Gets annotation opacity.
      *
+     * @returns The opacity from 0 (transparent) to 100 (opaque).
+     *
      * @example
      * ```js
      * // How transparent is an annotation in a PDF?
@@ -12393,7 +13484,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetOpacity/
      */
-    GetOpacity(): string;
+    GetOpacity(): percentage;
 
     /**
      * Gets annotation position.
@@ -12626,6 +13717,10 @@ declare namespace Pdf {
 
     /**
      * Sets annotation border style.
+     *
+     * **Note:**
+     * If the `"dashed"` style is set and the annotation has no dash pattern yet,
+     * the default pattern `[2, 2]` is applied. Use {@link ApiBaseAnnotation#SetDashPattern} to change it.
      *
      * @param borderStyle - The border style: `"solid"` or `"dashed"`.
      *
@@ -13169,6 +14264,29 @@ declare namespace Pdf {
      * @returns The shift from -1 (the darkest shade) to 1 (the lightest tint), 0 when the color is not shifted.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the luminance shift stored in a theme color on a PDF page.
+     *
+     * // The shift is kept together with the theme name, so a lightened accent stays a theme color.
+     *
+     * // Fill a shape with a lightened accent and show the shift in a second shape.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const accent = Api.ThemeColor("accent1", 0.4);
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, Api.CreateSolidFill(accent), stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const report = Api.CreateShape("rect", 200 * 36000, 40 * 36000, Api.CreateSolidFill(Api.RGB(240, 240, 240)), stroke);
+     * report.SetPosition(608400, 4000000);
+     * page.AddObject(report);
+     * report.GetContent().GetElement(0).AddText("Tint: " + accent.GetTintAndShade() + ", color: " + accent.GetHex());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiColor/Methods/GetTintAndShade/
      */
     GetTintAndShade(): number;
@@ -13335,6 +14453,26 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the formatted value of a combobox field in a PDF.
+     *
+     * // Useful for retrieving a currency value as it appears in a PDF combobox field.
+     *
+     * // Read the displayed value of a formatted combobox field in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let comboboxField = Api.CreateComboboxField([10, 10, 160, 30]);
+     * let resultField = Api.CreateTextField([10, 40, 160, 60]);
+     * page.AddObject(comboboxField);
+     * page.AddObject(resultField);
+     *
+     * comboboxField.SetNumberFormat(0, "us", "black-minus", "$", true);
+     * comboboxField.SetValue('-1000.50');
+     * resultField.SetValue(comboboxField.GetFormattedValue());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiComboboxField/Methods/GetFormattedValue/
      */
     GetFormattedValue(): string;
@@ -13394,6 +14532,23 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Retrieve the placeholder text from a combobox field in a PDF.
+     *
+     * // Useful for reading the hint text in a combobox field in a PDF.
+     *
+     * // Access the placeholder message displayed in a combobox field in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let comboboxField = Api.CreateComboboxField([10, 10, 160, 30]);
+     * page.AddObject(comboboxField);
+     *
+     * comboboxField.SetPlaceholder("Your text here");
+     * comboboxField.SetValue('Combobox field placeholder is: "' + comboboxField.GetPlaceholder() + '"');
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiComboboxField/Methods/GetPlaceholder/
      */
     GetPlaceholder(): string;
@@ -13403,9 +14558,26 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Retrieve the validation pattern from a combobox field in a PDF.
+     *
+     * // Useful for accessing the validation pattern from a combobox field in a PDF.
+     *
+     * // Display what text pattern is required for a combobox field in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let comboboxField = Api.CreateComboboxField([10, 10, 160, 30]);
+     * page.AddObject(comboboxField);
+     *
+     * comboboxField.SetRegularExp("\\S+@\\S+\\.\\S+");
+     * comboboxField.SetValue('Combobox field reg exp is: "' + comboboxField.GetRegularExp() + '"');
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiComboboxField/Methods/GetRegularExp/
      */
-    GetRegularExp(): boolean;
+    GetRegularExp(): string | null;
 
     /**
      * Gets selected value indexes.
@@ -13692,12 +14864,28 @@ declare namespace Pdf {
      * **Note:**
      * Makes combobox editable
      *
-     * @param sPlaceholder - field placeholder
+     * @param sText - field placeholder
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Add a hint text that appears before you type in a combobox field in a PDF.
+     *
+     * // Useful for adding a hint text to an empty combobox field in a PDF.
+     *
+     * // Configure what example text shows when a combobox field is empty in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let comboboxField = Api.CreateComboboxField([10, 10, 160, 30]);
+     * page.AddObject(comboboxField);
+     *
+     * comboboxField.SetPlaceholder("Your text here");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiComboboxField/Methods/SetPlaceholder/
      */
-    SetPlaceholder(sPlaceholder: string): boolean;
+    SetPlaceholder(sText: string): boolean;
 
     /**
      * Sets regular expression validate string for field.
@@ -13831,59 +15019,12 @@ declare namespace Pdf {
     SetValueIndexes(valueIndexes: number[]): boolean;
   }
 
-  /** Class representing a comment. */
-  export interface ApiComment {
-  }
-
-  /** Class representing a comment reply. */
-  export interface ApiCommentReply {
-  }
-
   /**
    * Class representing a complex field.
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiComplexForm/
    */
   export interface ApiComplexForm extends ApiFormBase {
-  }
-
-  /** Class representing a list of values of the combo box / drop-down list content control. */
-  export interface ApiContentControlList {
-  }
-
-  /** Class representing an entry of the combo box / drop-down list content control. */
-  export interface ApiContentControlListEntry {
-  }
-
-  /** Class representing document properties (similar to BuiltInDocumentProperties in VBA). */
-  export interface ApiCore {
-  }
-
-  /** Class representing custom properties of the document. */
-  export interface ApiCustomProperties {
-  }
-
-  /**
-   * Class representing a custom XML node.
-   *
-   * @since 9.0.0
-   */
-  export interface ApiCustomXmlNode {
-  }
-
-  /**
-   * Class representing a custom XML part.
-   *
-   * @since 9.0.0
-   */
-  export interface ApiCustomXmlPart {
-  }
-
-  /**
-   * Class representing a custom XML manager, which provides methods to manage custom XML parts in the
-   * document.
-   */
-  export interface ApiCustomXmlParts {
   }
 
   /**
@@ -14012,6 +15153,37 @@ declare namespace Pdf {
      * @returns order of fields names
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example gets the calculation order of fields in the document.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     *
+     * let priceField = Api.CreateTextField([10, 10, 160, 30]);
+     * priceField.SetPartialName("Price");
+     * priceField.SetValue("100");
+     * page.AddObject(priceField);
+     *
+     * let taxField = Api.CreateTextField([10, 40, 160, 60]);
+     * taxField.SetPartialName("Tax");
+     * page.AddObject(taxField);
+     *
+     * let totalField = Api.CreateTextField([10, 70, 160, 90]);
+     * totalField.SetPartialName("Total");
+     * page.AddObject(totalField);
+     *
+     * let taxCalc = Api.CreateJsAction("event.value = this.getField('Price').value * 0.2;");
+     * let taxWidgets = taxField.GetAllWidgets();
+     * taxWidgets[0].GetActions().SetCalculate(taxCalc);
+     *
+     * let totalCalc = Api.CreateJsAction("event.value = this.getField('Price').value + this.getField('Tax').value;");
+     * let totalWidgets = totalField.GetAllWidgets();
+     * totalWidgets[0].GetActions().SetCalculate(totalCalc);
+     *
+     * let order = doc.GetCalculateOrder();
+     * console.log('Calculate order: ' + order);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/GetCalculateOrder/
      */
     GetCalculateOrder(): string[];
@@ -14097,6 +15269,9 @@ declare namespace Pdf {
 
     /**
      * Returns an internal ID of the current document content.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
      *
      * @since 9.0.4
      *
@@ -14149,6 +15324,38 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Select the text in a PDF document and return it.
+     *
+     * // Set a selection over the found text, then read the plain text it contains.
+     *
+     * // Search for a phrase, select the matching range, and log the selected text.
+     *
+     * let doc = Api.GetDocument();
+     * doc.AddPage(0);
+     * let pageIndex = doc.GetPagesCount() - 1;
+     * let page = doc.GetPage(pageIndex);
+     * let fill = Api.CreateSolidFill(Api.RGB(50, 150, 250));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = Api.CreateShape("rect", 150 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(10 * 12700, 10 * 12700);
+     * let paragraph = shape.GetContent().GetElement(0);
+     * paragraph.SetJc("left");
+     * paragraph.AddText("Lorem selected text");
+     * page.AddObject(shape);
+     *
+     * let results = page.Search({text: "Lorem selected text", matchCase: true, wholeWords: false});
+     * let quads = results[0];
+     * let firstQuad = quads[0];
+     * let lastQuad = quads[quads.length - 1];
+     * doc.SetSelection({
+     * 	start: { page: pageIndex, point: { x: firstQuad[0], y: firstQuad[1] } },
+     * 	end:   { page: pageIndex, point: { x: lastQuad[2], y: lastQuad[3] } }
+     * });
+     * console.log(`The selected text is: ${doc.GetSelectedText()}`);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/GetSelectedText/
      */
     GetSelectedText(): string;
@@ -14157,6 +15364,40 @@ declare namespace Pdf {
      * Gets document selection info
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the current selection in a PDF document.
+     *
+     * // Read back the selection range set on the document as start and end page points.
+     *
+     * // Search for text, select it, then log the selection's start and end coordinates.
+     *
+     * let doc = Api.GetDocument();
+     * doc.AddPage(0);
+     * let pageIndex = doc.GetPagesCount() - 1;
+     * let page = doc.GetPage(pageIndex);
+     * let fill = Api.CreateSolidFill(Api.RGB(50, 150, 250));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = Api.CreateShape("rect", 150 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(10 * 12700, 10 * 12700);
+     * let paragraph = shape.GetContent().GetElement(0);
+     * paragraph.SetJc("left");
+     * paragraph.AddText("Lorem selected text");
+     * page.AddObject(shape);
+     *
+     * let results = page.Search({text: "Lorem selected text", matchCase: true, wholeWords: false});
+     * let quads = results[0];
+     * let firstQuad = quads[0];
+     * let lastQuad = quads[quads.length - 1];
+     * doc.SetSelection({
+     * 	start: { page: pageIndex, point: { x: firstQuad[0], y: firstQuad[1] } },
+     * 	end:   { page: pageIndex, point: { x: lastQuad[2], y: lastQuad[3] } }
+     * });
+     * let selection = doc.GetSelection();
+     * console.log('Selection start - page: ' + selection.start.page + ', x: ' + selection.start.point.x + ', y: ' + selection.start.point.y);
+     * console.log('Selection end - page: ' + selection.end.page + ', x: ' + selection.end.point.x + ', y: ' + selection.end.point.y);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/GetSelection/
      */
@@ -14167,6 +15408,45 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Highlight selected text regions in a PDF.
+     *
+     * // Useful for marking the areas where text is selected in a PDF.
+     *
+     * // Get the boundaries of selected text and apply highlighting in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * doc.AddPage(0);
+     * let pageIndex = doc.GetPagesCount() - 1;
+     * let textPage = doc.GetPage(pageIndex);
+     * let fill = Api.CreateSolidFill(Api.RGB(50, 150, 250));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = Api.CreateShape("rect", 150 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(10 * 12700, 10 * 12700);
+     * let paragraph = shape.GetContent().GetElement(0);
+     * paragraph.SetJc("left");
+     * paragraph.AddText("Lorem selected text");
+     * textPage.AddObject(shape);
+     *
+     * let results = textPage.Search({text: "Lorem selected text", matchCase: true, wholeWords: false});
+     * let textQuads = results[0];
+     * let firstQuad = textQuads[0];
+     * let lastQuad = textQuads[textQuads.length - 1];
+     * doc.SetSelection({
+     * 	start: { page: pageIndex, point: { x: firstQuad[0], y: firstQuad[1] } },
+     * 	end:   { page: pageIndex, point: { x: lastQuad[2], y: lastQuad[3] } }
+     * });
+     * let docQuads = doc.GetSelectionQuads();
+     * Object.entries(docQuads).forEach(([pageIdx, quads]) => {
+     *     let page = doc.GetPage(Number(pageIdx));
+     *     let annot = Api.CreateHighlightAnnot(quads);
+     *     page.AddObject(annot);
+     * });
+     *
+     * console.log('We highlight the selected text on the first page');
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/GetSelectionQuads/
      */
     GetSelectionQuads(): DocQuads;
@@ -14176,6 +15456,28 @@ declare namespace Pdf {
      *
      * @param sStyleName - The name of the table style to look up.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get a named table style and apply it to a table in a PDF.
+     *
+     * // Look up a built-in table style by name in a PDF document.
+     *
+     * // Fetch "Dark Style 1 - Accent 2", rename it, and apply it to a 3x3 table in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 3);
+     * const style = doc.GetStyle('Dark Style 1 - Accent 2');
+     * style.SetName('My Custom Table Style');
+     * table.SetStyle(style);
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('New style name: ' + style.GetName());
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     *
+     * page.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/GetStyle/
      */
@@ -14317,6 +15619,38 @@ declare namespace Pdf {
      * @param names - order of fields names
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example sets the calculation order of fields in the document.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     *
+     * let priceField = Api.CreateTextField([10, 10, 160, 30]);
+     * priceField.SetPartialName("Price");
+     * priceField.SetValue("100");
+     * page.AddObject(priceField);
+     *
+     * let taxField = Api.CreateTextField([10, 40, 160, 60]);
+     * taxField.SetPartialName("Tax");
+     * page.AddObject(taxField);
+     *
+     * let totalField = Api.CreateTextField([10, 70, 160, 90]);
+     * totalField.SetPartialName("Total");
+     * page.AddObject(totalField);
+     *
+     * let taxCalc = Api.CreateJsAction("event.value = this.getField('Price').value * 0.2;");
+     * let taxWidgets = taxField.GetAllWidgets();
+     * taxWidgets[0].GetActions().SetCalculate(taxCalc);
+     *
+     * let totalCalc = Api.CreateJsAction("event.value = this.getField('Price').value + this.getField('Tax').value;");
+     * let totalWidgets = totalField.GetAllWidgets();
+     * totalWidgets[0].GetActions().SetCalculate(totalCalc);
+     *
+     * let result = doc.SetCalculateOrder(["Total", "Tax"]);
+     * console.log('Calculate order set: ' + result);
+     * console.log('Current order: ' + doc.GetCalculateOrder());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/SetCalculateOrder/
      */
     SetCalculateOrder(names: string[]): boolean;
@@ -14325,6 +15659,38 @@ declare namespace Pdf {
      * Sets document selection
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Select a text area in a PDF.
+     *
+     * // Useful for marking a portion of text as selected in a PDF.
+     *
+     * // Choose a region of text and mark it as selected in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * doc.AddPage(0);
+     * let pageIndex = doc.GetPagesCount() - 1;
+     * let page = doc.GetPage(pageIndex);
+     * let fill = Api.CreateSolidFill(Api.RGB(50, 150, 250));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = Api.CreateShape("rect", 150 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(10 * 12700, 10 * 12700);
+     * let paragraph = shape.GetContent().GetElement(0);
+     * paragraph.SetJc("left");
+     * paragraph.AddText("Lorem selected text");
+     * page.AddObject(shape);
+     *
+     * let results = page.Search({text: "Lorem selected text", matchCase: true, wholeWords: false});
+     * let quads = results[0];
+     * let firstQuad = quads[0];
+     * let lastQuad = quads[quads.length - 1];
+     * doc.SetSelection({
+     * 	start: { page: pageIndex, point: { x: firstQuad[0], y: firstQuad[1] } },
+     * 	end:   { page: pageIndex, point: { x: lastQuad[2], y: lastQuad[3] } }
+     * });
+     * console.log('We selected the text on the page');
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocument/Methods/SetSelection/
      */
@@ -14632,6 +15998,9 @@ declare namespace Pdf {
 
     /**
      * Returns an internal ID of the current document content.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
      *
      * @since 9.0.4
      *
@@ -14720,6 +16089,31 @@ declare namespace Pdf {
      * @default start = 0
      * @returns returns null if the specified range is empty.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Take a text range over the whole text of a shape on a PDF page and make it bold.
+     *
+     * // The text of a shape is addressed by character positions, so a range can cover any part of it.
+     *
+     * // Get the range of the shape text body and apply bold to the first word.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 150 * 36000, 65 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = docContent.GetTextRange(0, 5);
+     * range.SetBold(true);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDocumentContent/Methods/GetTextRange/
      */
@@ -14943,6 +16337,38 @@ declare namespace Pdf {
     Delete(): boolean;
 
     /**
+     * Sets the fill formatting properties to the current graphic object.
+     *
+     * @param fill - The fill type used to fill the graphic object.
+     * @returns returns false if param is invalid or not supported for the current graphic object.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Apply a gradient fill to a shape on a page in a PDF form.
+     *
+     * // Fill a shape with a radial gradient using the drawing's fill setter.
+     *
+     * // Create a shape, build a two-stop radial gradient, and apply it with Fill.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 150 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(20 * 36000, 20 * 36000);
+     * page.AddObject(shape);
+     * const gs1 = Api.CreateGradientStop(Api.RGB(255, 213, 191), 0);
+     * const gs2 = Api.CreateGradientStop(Api.RGB(255, 111, 61), 100000);
+     * const gradientFill = Api.CreateRadialGradientFill([gs1, gs2]);
+     * shape.Fill(gradientFill);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/Fill/
+     */
+    Fill(fill: ApiFill): boolean;
+
+    /**
      * Returns the type of the ApiDrawing class.
      *
      * @example
@@ -14979,6 +16405,27 @@ declare namespace Pdf {
      * @returns The description of the current drawing, or null if not set.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the alternative-text description of a drawing in a PDF form.
+     *
+     * // Read the accessibility description previously assigned to the shape.
+     *
+     * // Create a shape, set its description, then read it and display it.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 120 * 36000, 60 * 36000, fill, stroke);
+     * shape.SetPosition(20 * 36000, 20 * 36000);
+     * page.AddObject(shape);
+     * shape.SetDescription("My Drawing Description");
+     * const description = shape.GetDescription();
+     * const paragraph = shape.GetContent().GetElement(0);
+     * paragraph.AddText("Drawing description: " + description);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetDescription/
      */
     GetDescription(): string | null;
@@ -14987,6 +16434,27 @@ declare namespace Pdf {
      * Gets the fill formatting properties from the current graphic object.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the fill formatting properties from a drawing object through the base ApiDrawing interface in a PDF.
+     *
+     * // GetFill returns the ApiFill applied to any graphic object in a PDF, or null when the object has no fill.
+     *
+     * // Read back the fill type of a filled rectangle and show it inside the shape.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(96, 125, 139));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const drawing = Api.CreateShape("rect", 50 * 36000, 50 * 36000, fill, stroke);
+     * drawing.SetPosition(2000000, 1000000);
+     * page.AddObject(drawing);
+     * const currentFill = drawing.GetFill();
+     * if (currentFill) {
+     * 	drawing.GetContent().GetElement(0).AddText("Fill type: " + currentFill.GetType());
+     * }
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetFill/
      */
@@ -14999,6 +16467,27 @@ declare namespace Pdf {
      *   properties are not available.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Determine whether a shape is flipped left-to-right on a page in a PDF form.
+     *
+     * // Read the horizontal flip state of a shape after applying a mirror transform.
+     *
+     * // Create a shape, flip it horizontally, then read and display the flip state.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rightArrow", 120 * 36000, 60 * 36000, fill, stroke);
+     * shape.SetPosition(20 * 36000, 20 * 36000);
+     * page.AddObject(shape);
+     * shape.SetFlipH(true);
+     * const flip = shape.GetFlipH();
+     * const paragraph = shape.GetContent().GetElement(0);
+     * paragraph.AddText("Drawing is flipped horizontally: " + flip);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetFlipH/
      */
     GetFlipH(): boolean | null;
@@ -15009,6 +16498,27 @@ declare namespace Pdf {
      * @returns Returns true if the figure is flipped vertically, false if not, or null if the drawing
      *   properties are not available.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Determine whether a shape is flipped top-to-bottom on a page in a PDF form.
+     *
+     * // Read the vertical flip state of a shape after applying a mirror transform.
+     *
+     * // Create a shape, flip it vertically, then read and display the flip state.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("upArrow", 60 * 36000, 120 * 36000, fill, stroke);
+     * shape.SetPosition(20 * 36000, 20 * 36000);
+     * page.AddObject(shape);
+     * shape.SetFlipV(true);
+     * const flip = shape.GetFlipV();
+     * const paragraph = shape.GetContent().GetElement(0);
+     * paragraph.AddText("Drawing is flipped vertically: " + flip);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetFlipV/
      */
@@ -15048,6 +16558,25 @@ declare namespace Pdf {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 9.4.0
      *
+     * @example
+     * ```js
+     * // Get the internal identifier of a drawing in a PDF.
+     *
+     * // Useful for retrieving a drawing object's internal ID.
+     *
+     * // Create a shape and print its internal ID.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const drawing = Api.CreateShape("rect", 50 * 36000, 60 * 36000, fill, stroke);
+     * drawing.SetPosition(608400, 1267200);
+     * page.AddObject(drawing);
+     *
+     * console.log(`Drawing internal ID is: ${drawing.GetInternalId()}`);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetInternalId/
      */
     GetInternalId(): string;
@@ -15057,6 +16586,27 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the outline of a drawing object through the base ApiDrawing interface in a PDF.
+     *
+     * // GetLine returns the ApiStroke applied to any graphic object in a PDF, or null when no outline is set.
+     *
+     * // Read back the outline width of a drawing and show it inside the shape.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(36000, Api.CreateSolidFill(Api.RGB(51, 51, 51)));
+     * const drawing = Api.CreateShape("rect", 50 * 36000, 50 * 36000, fill, stroke);
+     * drawing.SetPosition(2000000, 1000000);
+     * page.AddObject(drawing);
+     * const currentLine = drawing.GetLine();
+     * if (currentLine) {
+     * 	drawing.GetContent().GetElement(0).AddText("Outline width (EMU): " + currentLine.GetWidth());
+     * }
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetLine/
      */
     GetLine(): ApiStroke | null;
@@ -15065,6 +16615,27 @@ declare namespace Pdf {
      * Returns whether the aspect ratio of the drawing is locked.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read whether the aspect ratio of a shape is locked on a page in a PDF form.
+     *
+     * // Query the aspect-ratio lock before resizing the shape.
+     *
+     * // Create a shape, lock its aspect ratio, then read and display that lock state.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 120 * 36000, 60 * 36000, fill, stroke);
+     * shape.SetPosition(20 * 36000, 20 * 36000);
+     * page.AddObject(shape);
+     * shape.SetLockAspect(true);
+     * const locked = shape.GetLockAspect();
+     * const paragraph = shape.GetContent().GetElement(0);
+     * paragraph.AddText("Aspect ratio locked: " + locked);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetLockAspect/
      */
@@ -15076,6 +16647,27 @@ declare namespace Pdf {
      * @param sType - Lock type in the string format.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read a lock setting for a shape on a page in a PDF form.
+     *
+     * // Query whether a specific lock is applied to a shape before editing it.
+     *
+     * // Create a shape, lock it against moving, then read and display that lock value.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 120 * 36000, 60 * 36000, fill, stroke);
+     * shape.SetPosition(20 * 36000, 20 * 36000);
+     * page.AddObject(shape);
+     * shape.SetLockValue("noMove", true);
+     * const lockValue = shape.GetLockValue("noMove");
+     * const paragraph = shape.GetContent().GetElement(0);
+     * paragraph.AddText("This drawing cannot be moved: " + lockValue);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetLockValue/
      */
     GetLockValue(sType: DrawingLockType): boolean;
@@ -15084,6 +16676,27 @@ declare namespace Pdf {
      * Returns the name of the current drawing.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the name of a shape in a PDF form.
+     *
+     * // Read the name assigned to a drawing to identify it among page objects.
+     *
+     * // Create a shape, set its name, then read the name and display it.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 120 * 36000, 60 * 36000, fill, stroke);
+     * shape.SetPosition(20 * 36000, 20 * 36000);
+     * page.AddObject(shape);
+     * shape.SetName("MyShape");
+     * const name = shape.GetName();
+     * const paragraph = shape.GetContent().GetElement(0);
+     * paragraph.AddText("Drawing name: " + name);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetName/
      */
@@ -15214,6 +16827,29 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the shadow of a drawing and reuse it on a page in a PDF form.
+     *
+     * // Retrieve the shadow applied to one shape and apply the same shadow to another.
+     *
+     * // Set a shadow on the first shape, read it with GetShadow, and apply it to a second shape.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 213, 191));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 50 * 36000, 50 * 36000, fill, stroke);
+     * shape.SetPosition(30 * 36000, 30 * 36000);
+     * page.AddObject(shape);
+     * shape.SetShadow(Api.CreateShadow({ color: Api.RGB(0, 0, 0), transparency: 0.4, offsetX: 3, offsetY: 3 }));
+     * const shadow = shape.GetShadow();
+     * const shape2 = Api.CreateShape("ellipse", 50 * 36000, 50 * 36000, fill, stroke);
+     * shape2.SetPosition(30 * 36000, 90 * 36000);
+     * page.AddObject(shape2);
+     * shape2.SetShadow(shadow);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetShadow/
      */
     GetShadow(): ApiShadow | null;
@@ -15224,6 +16860,36 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the whole text of a drawing on a PDF page through a text range.
+     *
+     * // The range covers the entire text body of the drawing, so no positions have to be given.
+     *
+     * // Read the text covered by the range and show it in a second drawing.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 150 * 36000, 65 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * const reportFill = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const report = Api.CreateShape("rect", 150 * 36000, 65 * 36000, reportFill, stroke);
+     * report.SetPosition(608400, 4000000);
+     * page.AddObject(report);
+     * report.GetContent().GetElement(0).AddText("GetTextRange result: " + range.GetText());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetTextRange/
      */
     GetTextRange(): ApiTextRange | null;
@@ -15233,6 +16899,27 @@ declare namespace Pdf {
      *
      * @returns The title of the current drawing, or null if not set.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the alternative-text title of a drawing in a PDF form.
+     *
+     * // Read the accessibility title previously assigned to the shape.
+     *
+     * // Create a shape, set its title, then read the title and display it.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 120 * 36000, 60 * 36000, fill, stroke);
+     * shape.SetPosition(20 * 36000, 20 * 36000);
+     * page.AddObject(shape);
+     * shape.SetTitle("My Drawing Title");
+     * const title = shape.GetTitle();
+     * const paragraph = shape.GetContent().GetElement(0);
+     * paragraph.AddText("Drawing title: " + title);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetTitle/
      */
@@ -15270,6 +16957,36 @@ declare namespace Pdf {
      * Checks whether the current drawing has a text body.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Check whether a drawing on a PDF page can carry text before working with it.
+     *
+     * // Images and tables have no text body, so the check tells a text drawing from the others.
+     *
+     * // Show the answer in a second drawing before and after the text body is created.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 150 * 36000, 65 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const reportFill = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const report = Api.CreateShape("rect", 150 * 36000, 65 * 36000, reportFill, stroke);
+     * report.SetPosition(608400, 4000000);
+     * page.AddObject(report);
+     *
+     * const reportParagraph = report.GetContent().GetElement(0);
+     * reportParagraph.AddText("before: " + shape.HasTextContent());
+     *
+     * shape.GetTextRange().SetText("Sample");
+     *
+     * reportParagraph.AddText(" after: " + shape.HasTextContent());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/HasTextContent/
      */
@@ -15320,6 +17037,26 @@ declare namespace Pdf {
      * @returns Returns true if the operation is successful, false otherwise.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the alternative-text description of a drawing in a PDF form.
+     *
+     * // Assign an accessibility description used by assistive tools for the shape.
+     *
+     * // Create a shape, set its description, and display the description inside it.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 120 * 36000, 60 * 36000, fill, stroke);
+     * shape.SetPosition(20 * 36000, 20 * 36000);
+     * page.AddObject(shape);
+     * shape.SetDescription("My Drawing Description");
+     * const paragraph = shape.GetContent().GetElement(0);
+     * paragraph.AddText("Drawing description: " + shape.GetDescription());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/SetDescription/
      */
     SetDescription(description: string): boolean;
@@ -15330,6 +17067,24 @@ declare namespace Pdf {
      * @param fill - The fill type used to fill the graphic object.
      * @returns returns false if param is invalid or not supported for the current graphic object.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set a solid fill on a drawing object through the base ApiDrawing interface in a PDF.
+     *
+     * // The SetFill method works for any graphic object in a PDF, not only shapes.
+     *
+     * // Add a rectangle to a PDF page and fill it with a solid blue-grey color.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const drawing = Api.CreateShape("rect", 50 * 36000, 50 * 36000, Api.CreateNoFill(), stroke);
+     * drawing.SetPosition(2000000, 1000000);
+     * page.AddObject(drawing);
+     * const fill = Api.CreateSolidFill(Api.RGB(96, 125, 139));
+     * drawing.SetFill(fill);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/SetFill/
      */
@@ -15342,6 +17097,26 @@ declare namespace Pdf {
      * @returns Returns true if the operation is successful, false otherwise.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Mirror a shape left-to-right on a page in a PDF form.
+     *
+     * // Reverse a shape horizontally so its geometry is mirrored across the vertical axis.
+     *
+     * // Create a shape, flip it horizontally, and display the resulting flip state.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rightArrow", 120 * 36000, 60 * 36000, fill, stroke);
+     * shape.SetPosition(20 * 36000, 20 * 36000);
+     * page.AddObject(shape);
+     * shape.SetFlipH(true);
+     * const paragraph = shape.GetContent().GetElement(0);
+     * paragraph.AddText("Drawing is flipped horizontally: " + shape.GetFlipH());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/SetFlipH/
      */
     SetFlipH(bFlip: boolean): boolean;
@@ -15352,6 +17127,26 @@ declare namespace Pdf {
      * @param bFlip - Specifies if the figure will be flipped vertically or not.
      * @returns Returns true if the operation is successful, false otherwise.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Mirror a shape top-to-bottom on a page in a PDF form.
+     *
+     * // Reverse a shape vertically so its geometry is mirrored across the horizontal axis.
+     *
+     * // Create a shape, flip it vertically, and display the resulting flip state.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("upArrow", 60 * 36000, 120 * 36000, fill, stroke);
+     * shape.SetPosition(20 * 36000, 20 * 36000);
+     * page.AddObject(shape);
+     * shape.SetFlipV(true);
+     * const paragraph = shape.GetContent().GetElement(0);
+     * paragraph.AddText("Drawing is flipped vertically: " + shape.GetFlipV());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/SetFlipV/
      */
@@ -15364,6 +17159,25 @@ declare namespace Pdf {
      * @returns returns false if param is invalid or not supported for the current graphic object.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the outline of a drawing object through the base ApiDrawing interface in a PDF.
+     *
+     * // SetLine is the base method for the outline and works for any graphic object in a PDF, not only shapes.
+     *
+     * // Add a rectangle to a PDF page and give it a dark solid outline.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const drawing = Api.CreateShape("rect", 50 * 36000, 50 * 36000, fill, stroke);
+     * drawing.SetPosition(2000000, 1000000);
+     * page.AddObject(drawing);
+     * const outline = Api.CreateStroke(36000, Api.CreateSolidFill(Api.RGB(51, 51, 51)));
+     * drawing.SetLine(outline);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/SetLine/
      */
     SetLine(stroke: ApiStroke): boolean;
@@ -15375,6 +17189,26 @@ declare namespace Pdf {
      * @returns Returns `true` if the lock aspect was successfully set, otherwise returns `false`.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Lock the aspect ratio of a shape on a page in a PDF form.
+     *
+     * // Keep width and height proportional so resizing preserves the shape's proportions.
+     *
+     * // Create a shape, lock its aspect ratio, and display the applied lock state.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 120 * 36000, 60 * 36000, fill, stroke);
+     * shape.SetPosition(20 * 36000, 20 * 36000);
+     * page.AddObject(shape);
+     * shape.SetLockAspect(true);
+     * const paragraph = shape.GetContent().GetElement(0);
+     * paragraph.AddText("Aspect ratio locked: " + shape.GetLockAspect());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/SetLockAspect/
      */
     SetLockAspect(bAspect: boolean): boolean;
@@ -15385,6 +17219,26 @@ declare namespace Pdf {
      * @param sType - Lock type in the string format.
      * @param bValue - Specifies if the specified lock is applied to the current drawing.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Prevent a shape from being moved on a page in a PDF form.
+     *
+     * // Apply a lock so the shape cannot be repositioned by the user.
+     *
+     * // Create a shape, lock it against moving, and display the applied lock state.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 120 * 36000, 60 * 36000, fill, stroke);
+     * shape.SetPosition(20 * 36000, 20 * 36000);
+     * page.AddObject(shape);
+     * shape.SetLockValue("noMove", true);
+     * const paragraph = shape.GetContent().GetElement(0);
+     * paragraph.AddText("This drawing cannot be moved: " + shape.GetLockValue("noMove"));
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/SetLockValue/
      */
@@ -15400,9 +17254,59 @@ declare namespace Pdf {
      * @returns Returns true if the name was successfully set, otherwise returns false.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Assign a name to a shape on a page in a PDF form.
+     *
+     * // Give a page shape a recognizable name so tools can reference it.
+     *
+     * // Create a shape, assign a name, and display the applied name inside it.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 120 * 36000, 60 * 36000, fill, stroke);
+     * shape.SetPosition(20 * 36000, 20 * 36000);
+     * page.AddObject(shape);
+     * shape.SetName("CustomShapeName");
+     * const paragraph = shape.GetContent().GetElement(0);
+     * paragraph.AddText("Shape name was set to: " + shape.GetName());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/SetName/
      */
     SetName(name: string): boolean;
+
+    /**
+     * Sets the outline properties to the current graphic object.
+     *
+     * @param stroke - The stroke used to create the graphic object outline.
+     * @returns returns false if param is invalid or not supported for the current graphic object.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Add a border to a shape on a page in a PDF form.
+     *
+     * // Apply a colored stroke as the shape's outline using the drawing's outline setter.
+     *
+     * // Create a shape, build a stroke, and set it as the outline with SetOutLine.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 150 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(20 * 36000, 20 * 36000);
+     * page.AddObject(shape);
+     * const outline = Api.CreateStroke(36000, Api.CreateSolidFill(Api.RGB(51, 51, 51)));
+     * shape.SetOutLine(outline);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/SetOutLine/
+     */
+    SetOutLine(stroke: ApiStroke): boolean;
 
     /**
      * Sets the x position of the drawing on the page.
@@ -15544,6 +17448,24 @@ declare namespace Pdf {
      * @returns returns false if the graphic object does not support shadow.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Apply an outer shadow to a drawing on a page in a PDF form.
+     *
+     * // Give a shape a soft offset shadow so it appears lifted off the page.
+     *
+     * // Create a shape, build a shadow, and set it on the drawing with SetShadow.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 213, 191));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 120 * 36000, 60 * 36000, fill, stroke);
+     * shape.SetPosition(30 * 36000, 30 * 36000);
+     * page.AddObject(shape);
+     * shape.SetShadow(Api.CreateShadow({ color: Api.RGB(64, 64, 64), transparency: 0.3, offsetX: 4, offsetY: 4 }));
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/SetShadow/
      */
     SetShadow(shadow: ApiShadow | null): boolean;
@@ -15589,6 +17511,26 @@ declare namespace Pdf {
      * @returns Returns true if the operation is successful, false otherwise.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the alternative-text title of a drawing in a PDF form.
+     *
+     * // Assign an accessibility title used by assistive tools for the shape.
+     *
+     * // Create a shape, set its title, and display the title inside it.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 120 * 36000, 60 * 36000, fill, stroke);
+     * shape.SetPosition(20 * 36000, 20 * 36000);
+     * page.AddObject(shape);
+     * shape.SetTitle("My Drawing Title");
+     * const paragraph = shape.GetContent().GetElement(0);
+     * paragraph.AddText("Drawing title: " + shape.GetTitle());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/SetTitle/
      */
     SetTitle(title: string): boolean;
@@ -15598,17 +17540,40 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Remove a shape from the current selection while keeping other shapes selected on a page in a PDF form.
+     *
+     * // Deselect a single drawing without clearing the whole multi-shape selection.
+     *
+     * // Create three shapes, select all of them, then unselect the second one so the first and third stay selected.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill1 = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke1 = Api.CreateStroke(0, Api.CreateNoFill());
+     * const drawing1 = Api.CreateShape("rect", 60 * 36000, 35 * 36000, fill1, stroke1);
+     * page.AddObject(drawing1);
+     * drawing1.SetPosition(0, 0);
+     * const fill2 = Api.CreateSolidFill(Api.RGB(51, 133, 255));
+     * const stroke2 = Api.CreateStroke(0, Api.CreateNoFill());
+     * const drawing2 = Api.CreateShape("rect", 60 * 36000, 35 * 36000, fill2, stroke2);
+     * page.AddObject(drawing2);
+     * drawing2.SetPosition(70 * 36000, 0);
+     * const fill3 = Api.CreateSolidFill(Api.RGB(61, 255, 111));
+     * const stroke3 = Api.CreateStroke(0, Api.CreateNoFill());
+     * const drawing3 = Api.CreateShape("rect", 60 * 36000, 35 * 36000, fill3, stroke3);
+     * page.AddObject(drawing3);
+     * drawing3.SetPosition(140 * 36000, 0);
+     * drawing1.Select(true);
+     * drawing2.Select();
+     * drawing3.Select();
+     * drawing2.Unselect();
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/Unselect/
      */
     Unselect(): boolean;
-  }
-
-  /**
-   * Class representing a drop cap. A drop cap is a large initial letter that is split off from a
-   * paragraph into a
-   * separate framed paragraph.
-   */
-  export interface ApiDropCap {
   }
 
   /**
@@ -15654,6 +17619,29 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the color back from the fill of a shape in a PDF.
+     *
+     * // How do I find out which color a shape is filled with in a PDF?
+     *
+     * // Inspect the color of a solid fill on the page in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("flowChartMagneticTape", 150 * 36000, 65 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * const color = shape.GetFill().GetColor();
+     * paragraph.AddText("Solid fill color: " + color.GetHex());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiFill/Methods/GetColor/
      */
     GetColor(): ApiColor | null;
@@ -15663,6 +17651,30 @@ declare namespace Pdf {
      *
      * @returns The transparency value, from 0 (fully opaque) to 1 (fully transparent).
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read back the transparency of a shape's fill on a page in a PDF.
+     *
+     * // Find out how transparent a shape's fill is in a PDF.
+     *
+     * // Check the transparency that was applied to a shape's fill in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * fill.SetTransparent(0.4);
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("flowChartMagneticTape", 150 * 36000, 65 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * const appliedFill = shape.GetFill();
+     * paragraph.AddText("Fill transparency: " + appliedFill.GetTransparent());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiFill/Methods/GetTransparent/
      */
@@ -15726,6 +17738,25 @@ declare namespace Pdf {
      * @param transparent - The transparency value, from 0 (fully opaque) to 1 (fully transparent).
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Make a shape's fill semi-transparent on a page in a PDF.
+     *
+     * // Adjust how see-through a shape's fill is in a PDF.
+     *
+     * // Fade a shape's solid fill so the page content behind it shows through in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * fill.SetTransparent(0.4);
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("flowChartMagneticTape", 150 * 36000, 65 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiFill/Methods/SetTransparent/
      */
     SetTransparent(transparent: number): boolean;
@@ -15743,6 +17774,11 @@ declare namespace Pdf {
   export interface ApiFreeTextAnnotation extends ApiBaseAnnotation {
     /**
      * Adds reply on this annot.
+     *
+     * **Note:**
+     * If this annotation is itself a reply, the new reply is added to the thread of its root annotation
+     * (the reply then refers to the root and is listed by the root's
+     * {@link ApiBaseAnnotation#GetReplies}).
      *
      * @param textAnnot - The text annotation to use as a reply.
      *
@@ -16073,6 +18109,25 @@ declare namespace Pdf {
     /**
      * Gets a line end style.
      *
+     * @example
+     * ```js
+     * // Retrieve the ending style of a callout line in a PDF.
+     *
+     * // Inspect the endpoint marker of a free text callout annotation.
+     *
+     * // Read and display the configured line ending style.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     * freeTextAnnot.SetEndStyle("square");
+     * console.log(`End style is: ${freeTextAnnot.GetEndStyle()}`);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiFreeTextAnnotation/Methods/GetEndStyle/
      */
     GetEndStyle(): LineEndStyle;
@@ -16152,6 +18207,8 @@ declare namespace Pdf {
     /**
      * Gets annotation opacity.
      *
+     * @returns The opacity from 0 (transparent) to 100 (opaque).
+     *
      * @example
      * ```js
      * // How transparent is an annotation in a PDF?
@@ -16167,7 +18224,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetOpacity/
      */
-    GetOpacity(): string;
+    GetOpacity(): percentage;
 
     /**
      * Gets annotation position.
@@ -16402,6 +18459,10 @@ declare namespace Pdf {
     /**
      * Sets annotation border style.
      *
+     * **Note:**
+     * If the `"dashed"` style is set and the annotation has no dash pattern yet,
+     * the default pattern `[2, 2]` is applied. Use {@link ApiBaseAnnotation#SetDashPattern} to change it.
+     *
      * @param borderStyle - The border style: `"solid"` or `"dashed"`.
      *
      * @example
@@ -16569,6 +18630,25 @@ declare namespace Pdf {
      * Sets a line end style.
      *
      * @param style - The style of the polyline end endpoint.
+     *
+     * @example
+     * ```js
+     * // Set the ending style of a callout line in a PDF.
+     *
+     * // Customize the endpoint marker of a free text callout annotation.
+     *
+     * // Apply a square line ending and verify the resulting style.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     * freeTextAnnot.SetEndStyle("square");
+     * console.log(`End style set to: ${freeTextAnnot.GetEndStyle()}`);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiFreeTextAnnotation/Methods/SetEndStyle/
      */
@@ -17258,20 +19338,59 @@ declare namespace Pdf {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/
    */
-  export interface ApiGoToAction {
+  export interface ApiGoToAction extends ApiBaseAction {
     /**
      * Returns a type of the ApiGoToAction class.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example creates a GoTo action and gets its class type.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let goToAction = Api.CreateGoToAction(0, "fit", null, [0, 0, 200, 300]);
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(goToAction);
+     *
+     * console.log('GoTo action class type: ' + goToAction.GetClassType());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/GetClassType/
      */
     GetClassType(): "goToAction";
 
     /**
+     * Returns next action.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAction/Methods/GetNext/
+     */
+    GetNext(): ApiBaseAction;
+
+    /**
      * Gets desctination page index
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example creates a GoTo action and gets its destination page index.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let goToAction = Api.CreateGoToAction(0, "fit", null, [0, 0, 200, 300]);
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(goToAction);
+     *
+     * console.log('GoTo page index: ' + goToAction.GetPage());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/GetPage/
      */
@@ -17285,6 +19404,22 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example creates a GoTo action and gets its destination rectangle.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let goToAction = Api.CreateGoToAction(0, "fitR", null, [20, 20, 200, 200]);
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(goToAction);
+     *
+     * let rect = goToAction.GetRect();
+     * console.log('GoTo rect: ' + rect);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/GetRect/
      */
     GetRect(): Rect | null;
@@ -17293,6 +19428,21 @@ declare namespace Pdf {
      * Gets goto type
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example creates a GoTo action and gets its destination type.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let goToAction = Api.CreateGoToAction(0, "fitH", null, [0, 0, 200, 300]);
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(goToAction);
+     *
+     * console.log('GoTo type: ' + goToAction.GetType());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/GetType/
      */
@@ -17303,14 +19453,58 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example creates a GoTo action with xyz type and gets its zoom level.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let goToAction = Api.CreateGoToAction(0, "xyz", 1.5, [0, 0, 200, 300]);
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(goToAction);
+     *
+     * let zoom = goToAction.GetZoom();
+     * console.log('GoTo zoom: ' + zoom);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/GetZoom/
      */
     GetZoom(): number | null;
 
     /**
+     * Sets next action.
+     *
+     * @returns returns next action
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAction/Methods/SetNext/
+     */
+    SetNext(action: ApiBaseAction): ApiBaseAction;
+
+    /**
      * Sets desctination page index
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example creates a GoTo action and changes its destination page index.
+     * let doc = Api.GetDocument();
+     * doc.AddPage(1);
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let goToAction = Api.CreateGoToAction(0, "fit", null, [0, 0, 200, 300]);
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(goToAction);
+     *
+     * let result = goToAction.SetPage(1);
+     * console.log('Page set: ' + result);
+     * console.log('Current page: ' + goToAction.GetPage());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/SetPage/
      */
@@ -17324,6 +19518,22 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example creates a GoTo action and changes its destination rectangle.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let goToAction = Api.CreateGoToAction(0, "fitR", null, [0, 0, 200, 200]);
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(goToAction);
+     *
+     * let result = goToAction.SetRect([50, 50, 250, 300]);
+     * console.log('Rect set: ' + result);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/SetRect/
      */
     SetRect(rect: Rect): boolean;
@@ -17332,6 +19542,23 @@ declare namespace Pdf {
      * Sets goto type
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example creates a GoTo action and changes its destination type.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let goToAction = Api.CreateGoToAction(0, "fit", null, [0, 0, 200, 300]);
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(goToAction);
+     *
+     * let result = goToAction.SetType("fitH");
+     * console.log('Type set: ' + result);
+     * console.log('Current type: ' + goToAction.GetType());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/SetType/
      */
@@ -17343,6 +19570,23 @@ declare namespace Pdf {
      * @param zoom - zoom ratio, 1 is equal 100% (used only for goToType == "xyz")
      * @default zoom = 1
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example creates a GoTo action with xyz type and changes its zoom level to 150%.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let goToAction = Api.CreateGoToAction(0, "xyz", 1, [0, 0, 200, 300]);
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(goToAction);
+     *
+     * let result = goToAction.SetZoom(1.5);
+     * console.log('Zoom set: ' + result);
+     * console.log('Current zoom: ' + goToAction.GetZoom());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiGoToAction/Methods/SetZoom/
      */
@@ -17610,11 +19854,31 @@ declare namespace Pdf {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiHideShowFormsAction/
    */
-  export interface ApiHideShowFormsAction {
+  export interface ApiHideShowFormsAction extends ApiBaseAction {
     /**
      * Returns a type of the ApiHideShowFormsAction class.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example creates a hide-show action and gets its class type.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     *
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * textField.SetPartialName("myTextField");
+     * page.AddObject(textField);
+     *
+     * let buttonField = Api.CreateButtonField([10, 40, 160, 60]);
+     * page.AddObject(buttonField);
+     *
+     * let hideAction = Api.CreateHideShowFormsAction(true, ["myTextField"]);
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(hideAction);
+     *
+     * console.log('Hide action class type: ' + hideAction.GetClassType());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiHideShowFormsAction/Methods/GetClassType/
      */
@@ -17625,15 +19889,68 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example creates a hide-show action and gets the list of field names.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     *
+     * let field1 = Api.CreateTextField([10, 10, 160, 30]);
+     * field1.SetPartialName("fieldA");
+     * page.AddObject(field1);
+     *
+     * let field2 = Api.CreateTextField([10, 40, 160, 60]);
+     * field2.SetPartialName("fieldB");
+     * page.AddObject(field2);
+     *
+     * let buttonField = Api.CreateButtonField([10, 70, 160, 90]);
+     * page.AddObject(buttonField);
+     *
+     * let hideAction = Api.CreateHideShowFormsAction(true, ["fieldA", "fieldB"]);
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(hideAction);
+     *
+     * console.log('Field names: ' + hideAction.GetNames());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiHideShowFormsAction/Methods/GetNames/
      */
     GetNames(): string[];
+
+    /**
+     * Returns next action.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAction/Methods/GetNext/
+     */
+    GetNext(): ApiBaseAction;
 
     /**
      * Checks if action hide fields
      *
      * @returns if false then show fields
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example creates a hide-show action and checks if it hides the fields.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     *
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * textField.SetPartialName("myTextField");
+     * page.AddObject(textField);
+     *
+     * let buttonField = Api.CreateButtonField([10, 40, 160, 60]);
+     * page.AddObject(buttonField);
+     *
+     * let hideAction = Api.CreateHideShowFormsAction(true, ["myTextField"]);
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(hideAction);
+     *
+     * console.log('Is hide: ' + hideAction.IsHide());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiHideShowFormsAction/Methods/IsHide/
      */
@@ -17644,6 +19961,27 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example creates a hide-show action and toggles it to show the fields instead.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     *
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * textField.SetPartialName("myTextField");
+     * page.AddObject(textField);
+     *
+     * let buttonField = Api.CreateButtonField([10, 40, 160, 60]);
+     * page.AddObject(buttonField);
+     *
+     * let hideAction = Api.CreateHideShowFormsAction(true, ["myTextField"]);
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(hideAction);
+     *
+     * hideAction.SetHide(false);
+     * console.log('Is hide after change: ' + hideAction.IsHide());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiHideShowFormsAction/Methods/SetHide/
      */
     SetHide(isHide: boolean): boolean;
@@ -17653,9 +19991,44 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example creates a hide-show action and changes the list of fields to affect.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     *
+     * let field1 = Api.CreateTextField([10, 10, 160, 30]);
+     * field1.SetPartialName("fieldA");
+     * page.AddObject(field1);
+     *
+     * let field2 = Api.CreateTextField([10, 40, 160, 60]);
+     * field2.SetPartialName("fieldB");
+     * page.AddObject(field2);
+     *
+     * let buttonField = Api.CreateButtonField([10, 70, 160, 90]);
+     * page.AddObject(buttonField);
+     *
+     * let hideAction = Api.CreateHideShowFormsAction(true, ["fieldA"]);
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(hideAction);
+     *
+     * hideAction.SetNames(["fieldA", "fieldB"]);
+     * console.log('Updated field names: ' + hideAction.GetNames());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiHideShowFormsAction/Methods/SetNames/
      */
     SetNames(names: string[]): boolean;
+
+    /**
+     * Sets next action.
+     *
+     * @returns returns next action
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAction/Methods/SetNext/
+     */
+    SetNext(action: ApiBaseAction): ApiBaseAction;
   }
 
   /**
@@ -17924,6 +20297,31 @@ declare namespace Pdf {
      * @returns returns null if the hyperlink is not attached to the document or the specified range is empty.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Make the text of a hyperlink in a shape on a PDF page italic through a text range.
+     *
+     * // A hyperlink keeps its own runs, and the range covers exactly the text of the link.
+     *
+     * // Take the range of the whole hyperlink text and apply italic to it.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 150 * 36000, 65 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * docContent.GetElement(0).AddText("Open ONLYOFFICE website");
+     * const hyperlink = shape.GetTextRange().GetRange(5, 23).AddHyperlink("https://www.onlyoffice.com", "ONLYOFFICE website");
+     *
+     * const range = hyperlink.GetTextRange();
+     * range.SetItalic(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiHyperlink/Methods/GetTextRange/
      */
     GetTextRange(start?: number, end?: number): ApiTextRange | null;
@@ -18004,7 +20402,34 @@ declare namespace Pdf {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiImage/
    */
-  export interface ApiImage extends Omit<ApiDrawing, "GetClassType"> {
+  export interface ApiImage extends Omit<ApiDrawing, "Copy" | "GetClassType"> {
+    /**
+     * Creates a copy of the current image.
+     *
+     * @since 9.4.0
+     *
+     * @example
+     * ```js
+     * // How do I make a copy of an image in a PDF?
+     *
+     * // Create an exact duplicate of an image and add it to a new page in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const image = Api.CreateImage('https://static.onlyoffice.com/assets/docs/samples/img/onlyoffice_logo.png', 60 * 36000, 60 * 36000);
+     * image.SetPosition(608400, 1267200);
+     * page.AddObject(image);
+     *
+     * const copyImage = image.Copy();
+     * const newPage = doc.AddPage(1);
+     * newPage.AddObject(copyImage);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiImage/Methods/Copy/
+     */
+    Copy(): ApiImage;
+
     /**
      * Returns the type of the ApiImage class.
      *
@@ -18254,6 +20679,11 @@ declare namespace Pdf {
   export interface ApiInkAnnotation extends ApiBaseAnnotation {
     /**
      * Adds reply on this annot.
+     *
+     * **Note:**
+     * If this annotation is itself a reply, the new reply is added to the thread of its root annotation
+     * (the reply then refers to the root and is listed by the root's
+     * {@link ApiBaseAnnotation#GetReplies}).
      *
      * @param textAnnot - The text annotation to use as a reply.
      *
@@ -18585,6 +21015,8 @@ declare namespace Pdf {
     /**
      * Gets annotation opacity.
      *
+     * @returns The opacity from 0 (transparent) to 100 (opaque).
+     *
      * @example
      * ```js
      * // How transparent is an annotation in a PDF?
@@ -18600,7 +21032,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetOpacity/
      */
-    GetOpacity(): string;
+    GetOpacity(): percentage;
 
     /**
      * Gets ink path list.
@@ -18833,6 +21265,10 @@ declare namespace Pdf {
 
     /**
      * Sets annotation border style.
+     *
+     * **Note:**
+     * If the `"dashed"` style is set and the annotation has no dash pattern yet,
+     * the default pattern `[2, 2]` is applied. Use {@link ApiBaseAnnotation#SetDashPattern} to change it.
      *
      * @param borderStyle - The border style: `"solid"` or `"dashed"`.
      *
@@ -19164,29 +21600,94 @@ declare namespace Pdf {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiJsAction/
    */
-  export interface ApiJsAction {
+  export interface ApiJsAction extends ApiBaseAction {
     /**
      * Returns a type of the ApiJsAction class.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example creates a JavaScript action and gets its class type.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let jsAction = Api.CreateJsAction("app.alert('Hello World!');");
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(jsAction);
+     *
+     * console.log('JS action class type: ' + jsAction.GetClassType());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiJsAction/Methods/GetClassType/
      */
     GetClassType(): "jsAction";
 
     /**
+     * Returns next action.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAction/Methods/GetNext/
+     */
+    GetNext(): ApiBaseAction;
+
+    /**
      * Gets action script
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example creates a JavaScript action and gets its script.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let jsAction = Api.CreateJsAction("app.alert('Hello World!');");
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(jsAction);
+     *
+     * console.log('JS action script: ' + jsAction.GetScript());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiJsAction/Methods/GetScript/
      */
     GetScript(): string;
 
     /**
+     * Sets next action.
+     *
+     * @returns returns next action
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAction/Methods/SetNext/
+     */
+    SetNext(action: ApiBaseAction): ApiBaseAction;
+
+    /**
      * Sets action script.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example creates a JavaScript action and changes its script.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let jsAction = Api.CreateJsAction("app.alert('Hello World!');");
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(jsAction);
+     *
+     * jsAction.SetScript("app.alert('Script updated!');");
+     * console.log('Updated script: ' + jsAction.GetScript());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiJsAction/Methods/SetScript/
      */
@@ -19201,6 +21702,11 @@ declare namespace Pdf {
   export interface ApiLineAnnotation extends ApiBaseAnnotation {
     /**
      * Adds reply on this annot.
+     *
+     * **Note:**
+     * If this annotation is itself a reply, the new reply is added to the thread of its root annotation
+     * (the reply then refers to the root and is listed by the root's
+     * {@link ApiBaseAnnotation#GetReplies}).
      *
      * @param textAnnot - The text annotation to use as a reply.
      *
@@ -19573,6 +22079,8 @@ declare namespace Pdf {
     /**
      * Gets annotation opacity.
      *
+     * @returns The opacity from 0 (transparent) to 100 (opaque).
+     *
      * @example
      * ```js
      * // How transparent is an annotation in a PDF?
@@ -19588,7 +22096,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetOpacity/
      */
-    GetOpacity(): string;
+    GetOpacity(): percentage;
 
     /**
      * Gets annotation position.
@@ -19841,6 +22349,10 @@ declare namespace Pdf {
 
     /**
      * Sets annotation border style.
+     *
+     * **Note:**
+     * If the `"dashed"` style is set and the annotation has no dash pattern yet,
+     * the default pattern `[2, 2]` is applied. Use {@link ApiBaseAnnotation#SetDashPattern} to change it.
      *
      * @param borderStyle - The border style: `"solid"` or `"dashed"`.
      *
@@ -20636,6 +23148,34 @@ declare namespace Pdf {
     /**
      * Returns a type of the ApiMath class.
      *
+     * @example
+     * ```js
+     * // Identify the object type of a math equation in a PDF.
+     *
+     * // Find out what kind of object a formula is in a PDF.
+     *
+     * // Confirm the category a math equation belongs to in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 150 * 36000, 50 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * const math = Api.CreateMath("x^2 + y^2 = z^2", "unicode");
+     * paragraph.AddElement(math);
+     * const classType = math.GetClassType();
+     *
+     * const paragraph2 = Api.CreateParagraph();
+     * paragraph2.AddText("Class Type = " + classType);
+     * docContent.Push(paragraph2);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiMath/Methods/GetClassType/
      */
     GetClassType(): "math";
@@ -20645,6 +23185,35 @@ declare namespace Pdf {
      *
      * @param format - The format the text should be returned in.
      * @default format = "unicode"
+     *
+     * @example
+     * ```js
+     * // Read the text representation of a math equation, either as unicode linear text or as LaTeX, in a PDF.
+     *
+     * // Get the formula of an equation back as plain text or as LaTeX in a PDF.
+     *
+     * // Build a fraction equation, then read it back both as unicode text and as LaTeX.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 150 * 36000, 50 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * const math = Api.CreateMath("dx/dy", "unicode");
+     * paragraph.AddElement(math);
+     * const unicodeText = math.GetText("unicode");
+     * const latexText = math.GetText("latex");
+     *
+     * const paragraph2 = Api.CreateParagraph();
+     * paragraph2.AddText("Unicode: " + unicodeText + ", LaTeX: " + latexText);
+     * docContent.Push(paragraph2);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiMath/Methods/GetText/
      */
@@ -20656,11 +23225,26 @@ declare namespace Pdf {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiNamedAction/
    */
-  export interface ApiNamedAction {
+  export interface ApiNamedAction extends ApiBaseAction {
     /**
      * Returns a type of the ApiNamedAction class.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example creates a named action and gets its class type.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let namedAction = Api.CreateNamedAction("NextPage");
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(namedAction);
+     *
+     * console.log('Named action class type: ' + namedAction.GetClassType());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiNamedAction/Methods/GetClassType/
      */
@@ -20671,26 +23255,68 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example creates a named action and gets its name.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let namedAction = Api.CreateNamedAction("NextPage");
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(namedAction);
+     *
+     * console.log('Named action name: ' + namedAction.GetName());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiNamedAction/Methods/GetName/
      */
     GetName(): NamedActionType;
+
+    /**
+     * Returns next action.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAction/Methods/GetNext/
+     */
+    GetNext(): ApiBaseAction;
 
     /**
      * Sets a name of action.
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example creates a named action and changes its name to navigate to the last page.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let namedAction = Api.CreateNamedAction("NextPage");
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(namedAction);
+     *
+     * namedAction.SetName("LastPage");
+     * console.log('Updated action name: ' + namedAction.GetName());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiNamedAction/Methods/SetName/
      */
     SetName(name: NamedActionType): boolean;
-  }
 
-  /** Class representing the numbering properties. */
-  export interface ApiNumbering {
-  }
-
-  /** Class representing a reference to a specified level of the numbering. */
-  export interface ApiNumberingLevel {
+    /**
+     * Sets next action.
+     *
+     * @returns returns next action
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAction/Methods/SetNext/
+     */
+    SetNext(action: ApiBaseAction): ApiBaseAction;
   }
 
   /**
@@ -20915,6 +23541,22 @@ declare namespace Pdf {
     /**
      * Gets page height
      *
+     * @example
+     * ```js
+     * // Get the height of a page in a PDF.
+     *
+     * // How do I find out the vertical size of a page in a PDF?
+     *
+     * // Read the page height in points to display it in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * doc.AddPage(0);
+     * let page = doc.GetPage(0);
+     * let textField = Api.CreateTextField([10, 10, 160, 32]);
+     * page.AddObject(textField);
+     * textField.SetValue('Page height is: ' + page.GetHeight());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiPage/Methods/GetHeight/
      */
     GetHeight(): pt;
@@ -20983,6 +23625,36 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the current selection on a page in a PDF.
+     *
+     * // Read back the selection range set on a single page as start and end points.
+     *
+     * // Search for text on the page, select it, then log the selection's start and end coordinates.
+     *
+     * let doc = Api.GetDocument();
+     * doc.AddPage(0);
+     * let page = doc.GetPage(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(50, 150, 250));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = Api.CreateShape("rect", 150 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(10 * 12700, 10 * 12700);
+     * let paragraph = shape.GetContent().GetElement(0);
+     * paragraph.SetJc("left");
+     * paragraph.AddText("Lorem selected text");
+     * page.AddObject(shape);
+     *
+     * let results = page.Search({text: "Lorem selected text", matchCase: true, wholeWords: false});
+     * let quads = results[0];
+     * let firstQuad = quads[0];
+     * let lastQuad = quads[quads.length - 1];
+     * page.SetSelection({ start: { x: firstQuad[0], y: firstQuad[1] }, end: { x: lastQuad[2], y: lastQuad[3] } });
+     * let selection = page.GetSelection();
+     * console.log('Selection start - x: ' + selection.start.x + ', y: ' + selection.start.y);
+     * console.log('Selection end - x: ' + selection.end.x + ', y: ' + selection.end.y);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiPage/Methods/GetSelection/
      */
     GetSelection(): PageSelection | null;
@@ -21015,6 +23687,29 @@ declare namespace Pdf {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 9.4.0
      *
+     * @example
+     * ```js
+     * // Get all text content from a page in a PDF.
+     *
+     * // Useful for reading the text on a PDF page.
+     *
+     * // Extract page text after adding a shape with text content in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * doc.AddPage(0);
+     * let page = doc.GetPage(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(50, 150, 250));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = Api.CreateShape("rect", 150 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(10 * 12700, 10 * 12700);
+     * let paragraph = shape.GetContent().GetElement(0);
+     * paragraph.SetJc("left");
+     * paragraph.AddText("Lorem selected text");
+     * page.AddObject(shape);
+     *
+     * console.log(`Page text is: ${page.GetText()}`);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiPage/Methods/GetText/
      */
     GetText(): string;
@@ -21025,12 +23720,54 @@ declare namespace Pdf {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 9.4.0
      *
+     * @example
+     * ```js
+     * // Get text content and its coordinates from a page in a PDF.
+     *
+     * // Useful for reading PDF page text together with its location.
+     *
+     * // Extract page text lines with quadrilateral coordinates in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * doc.AddPage(0);
+     * let page = doc.GetPage(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(50, 150, 250));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = Api.CreateShape("rect", 150 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(10 * 12700, 10 * 12700);
+     * let paragraph = shape.GetContent().GetElement(0);
+     * paragraph.SetJc("left");
+     * paragraph.AddText("Lorem selected text");
+     * page.AddObject(shape);
+     *
+     * let textWithQuads = page.GetTextWithQuads();
+     * textWithQuads.forEach(function(item) {
+     * 	console.log(`Text: ${item.text}, quads: ${item.quads}`);
+     * });
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiPage/Methods/GetTextWithQuads/
      */
     GetTextWithQuads(): TextWithQuads[];
 
     /**
      * Gets page width
+     *
+     * @example
+     * ```js
+     * // Get the width of a page in a PDF.
+     *
+     * // How do I find out the horizontal size of a page in a PDF?
+     *
+     * // Read the page width in points to display it in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * doc.AddPage(0);
+     * let page = doc.GetPage(0);
+     * let textField = Api.CreateTextField([10, 10, 160, 32]);
+     * page.AddObject(textField);
+     * textField.SetValue('Page width is: ' + page.GetWidth());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiPage/Methods/GetWidth/
      */
@@ -22034,7 +24771,10 @@ declare namespace Pdf {
     AddLineBreak(): ApiRun;
 
     /**
-     * Adds a tab stop to the current paragraph.
+     * Adds a tab character to the end of the current paragraph.
+     * Use the AddText method with the "\t" character instead.
+     *
+     * @deprecated since 10.0.3 version.
      *
      * @example
      * ```js
@@ -22461,6 +25201,9 @@ declare namespace Pdf {
 
     /**
      * Returns an internal ID of the current paragraph.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
      *
      * @since 9.2.0
      *
@@ -22958,6 +25701,31 @@ declare namespace Pdf {
      * @returns returns null if the specified range is empty.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Underline a part of a paragraph of a shape on a PDF page through a text range.
+     *
+     * // Positions are counted from the beginning of the paragraph, the end position is excluded.
+     *
+     * // Take the range of the first five characters of the paragraph and underline it.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 150 * 36000, 65 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = paragraph.GetTextRange(0, 5);
+     * range.SetUnderline(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiParagraph/Methods/GetTextRange/
      */
     GetTextRange(start?: number, end?: number): ApiTextRange | null;
@@ -22969,6 +25737,8 @@ declare namespace Pdf {
      * @param sPosition - The position where the text or paragraph will be inserted ("before" or "after" the paragraph
      *   specified).
      * @param beRNewPara - Defines if this method returns a new paragraph (true) or the current paragraph (false).
+     * @default sPosition = "after"
+     * @default beRNewPara = false
      * @returns returns null if param paragraph is invalid.
      *
      * @example
@@ -22996,12 +25766,41 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiParagraph/Methods/InsertParagraph/
      */
-    InsertParagraph(paragraph: string | ApiParagraph, sPosition: string, beRNewPara: boolean): ApiParagraph | null;
+    InsertParagraph(paragraph: string | ApiParagraph, sPosition?: string, beRNewPara?: boolean): ApiParagraph | null;
 
     /**
      * Returns true if the paragraph has no content elements (only the paragraph end mark).
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Check whether the current paragraph has no content elements.
+     *
+     * // Verify that a newly created paragraph reports as empty.
+     *
+     * // Confirm the empty state changes once text is added.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const gs1 = Api.CreateGradientStop(Api.RGB(255, 213, 191), 0);
+     * const gs2 = Api.CreateGradientStop(Api.RGB(255, 111, 61), 100000);
+     * const fill = Api.CreateRadialGradientFill([gs1, gs2]);
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("flowChartMagneticTape", 150 * 36000, 65 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * const docContent = shape.GetContent();
+     * const paragraph = Api.CreateParagraph();
+     * const emptyBefore = paragraph.IsEmpty();
+     * paragraph.AddText("This is a sample text.");
+     * const emptyAfter = paragraph.IsEmpty();
+     * docContent.Push(paragraph);
+     * const resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("The paragraph was empty before adding text: " + emptyBefore + ". After adding text: " + emptyAfter + ".");
+     * docContent.Push(resultParagraph);
+     * page.AddObject(shape);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiParagraph/Methods/IsEmpty/
      */
@@ -23045,15 +25844,34 @@ declare namespace Pdf {
     Last(): ParagraphContent | null;
 
     /**
+     * Moves the cursor to the end of the current paragraph.
+     *
+     * @since 9.4.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiParagraph/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor to the start of the current paragraph.
+     *
+     * @since 9.4.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiParagraph/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
+
+    /**
      * Adds an element to the current paragraph.
      *
-     * @param oElement - The document element which will be added at the current position. Returns false if the oElement
-     *   type is not supported by a paragraph.
-     * @returns Returns `false` if the type of `oElement` is not supported by paragraph content.
+     * @param oElement - The document element which will be added at the current position. A string is added as a new run
+     *   with the text properties of the last run with text.
+     * @returns Returns `false` if the type of `oElement` is not supported by paragraph content or the element
+     *   is already in the document.
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiParagraph/Methods/Push/
      */
-    Push(oElement: ParagraphContent): boolean;
+    Push(oElement: ParagraphContent | string): boolean;
 
     /**
      * Removes all the elements from the current paragraph.
@@ -23589,6 +26407,33 @@ declare namespace Pdf {
      *   Example: "en-CA". Pass _null_ to remove the language.
      * @returns returns null if the language identifier is not supported.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the spell-check language for a paragraph in a PDF.
+     *
+     * // How do I tell the editor which language to use when checking a paragraph of a shape in a PDF?
+     *
+     * // Set the language of the paragraph and print it in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.HexColor('#FF6F3D'));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape('roundRect', Api.MillimetersToEmus(300), Api.MillimetersToEmus(130), fill, stroke);
+     * shape.SetPosition(Api.MillimetersToEmus(20), Api.MillimetersToEmus(35));
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText('This is a paragraph with the spell-check language set.');
+     * paragraph.SetLanguage('en-CA');
+     *
+     * const resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText('Paragraph language: ' + shape.GetTextRange().GetTextPr().GetLanguage());
+     * docContent.Push(resultParagraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiParagraph/Methods/SetLanguage/
      */
@@ -25174,6 +28019,11 @@ declare namespace Pdf {
     /**
      * Adds reply on this annot.
      *
+     * **Note:**
+     * If this annotation is itself a reply, the new reply is added to the thread of its root annotation
+     * (the reply then refers to the root and is listed by the root's
+     * {@link ApiBaseAnnotation#GetReplies}).
+     *
      * @param textAnnot - The text annotation to use as a reply.
      *
      * @example
@@ -25526,6 +28376,8 @@ declare namespace Pdf {
     /**
      * Gets annotation opacity.
      *
+     * @returns The opacity from 0 (transparent) to 100 (opaque).
+     *
      * @example
      * ```js
      * // How transparent is an annotation in a PDF?
@@ -25541,7 +28393,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetOpacity/
      */
-    GetOpacity(): string;
+    GetOpacity(): percentage;
 
     /**
      * Gets annotation position.
@@ -25796,6 +28648,10 @@ declare namespace Pdf {
 
     /**
      * Sets annotation border style.
+     *
+     * **Note:**
+     * If the `"dashed"` style is set and the annotation has no dash pattern yet,
+     * the default pattern `[2, 2]` is applied. Use {@link ApiBaseAnnotation#SetDashPattern} to change it.
      *
      * @param borderStyle - The border style: `"solid"` or `"dashed"`.
      *
@@ -26178,6 +29034,11 @@ declare namespace Pdf {
     /**
      * Adds reply on this annot.
      *
+     * **Note:**
+     * If this annotation is itself a reply, the new reply is added to the thread of its root annotation
+     * (the reply then refers to the root and is listed by the root's
+     * {@link ApiBaseAnnotation#GetReplies}).
+     *
      * @param textAnnot - The text annotation to use as a reply.
      *
      * @example
@@ -26508,6 +29369,8 @@ declare namespace Pdf {
     /**
      * Gets annotation opacity.
      *
+     * @returns The opacity from 0 (transparent) to 100 (opaque).
+     *
      * @example
      * ```js
      * // How transparent is an annotation in a PDF?
@@ -26523,7 +29386,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetOpacity/
      */
-    GetOpacity(): string;
+    GetOpacity(): percentage;
 
     /**
      * Gets annotation position.
@@ -26756,6 +29619,10 @@ declare namespace Pdf {
 
     /**
      * Sets annotation border style.
+     *
+     * **Note:**
+     * If the `"dashed"` style is set and the annotation has no dash pattern yet,
+     * the default pattern `[2, 2]` is applied. Use {@link ApiBaseAnnotation#SetDashPattern} to change it.
      *
      * @param borderStyle - The border style: `"solid"` or `"dashed"`.
      *
@@ -27311,13 +30178,6 @@ declare namespace Pdf {
     SetToggleToOff(allowToggleOff: boolean): boolean;
   }
 
-  /**
-   * Class representing a continuous region in a document.
-   * Each Range object is determined by the position of the start and end characters.
-   */
-  export interface ApiRange {
-  }
-
   /** @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/ */
   export interface ApiRangeTextPr extends ApiTextPr {
     /**
@@ -27368,11 +30228,13 @@ declare namespace Pdf {
      *
      * The method automatically calculates the font from the theme if the font was set via the theme.
      *
+     * @param fontSlot - The font slot. If this parameter is not specified, the "ascii" value is used.
+     * @default fontSlot = "ascii"
      * @since 8.1.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetFontFamily/
      */
-    GetFontFamily(): string | null;
+    GetFontFamily(fontSlot?: "ascii" | "eastAsia" | "hAnsi" | "cs"): string | null;
 
     /**
      * Gets the font size from the current text properties.
@@ -27400,6 +30262,15 @@ declare namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetItalic/
      */
     GetItalic(): boolean | null;
+
+    /**
+     * Gets the language from the current text properties.
+     *
+     * @since 8.1.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetLanguage/
+     */
+    GetLanguage(): string | null;
 
     /**
      * Gets the text outline from the current text properties.
@@ -27478,6 +30349,17 @@ declare namespace Pdf {
     SetCaps(isCaps: boolean): ApiTextPr;
 
     /**
+     * Sets the text color to the current text run.
+     *
+     * @param color - The text color. Pass _null_ to remove the text color.
+     * @returns this text properties.
+     * @since 9.1.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/SetColor/
+     */
+    SetColor(color: ApiColor | null): ApiTextPr;
+
+    /**
      * Specifies that the contents of the run are displayed with two horizontal lines through each
      * character displayed on the line.
      *
@@ -27539,6 +30421,19 @@ declare namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/SetItalic/
      */
     SetItalic(isItalic: boolean): ApiTextPr;
+
+    /**
+     * Specifies the languages which will be used to check spelling and grammar (if requested) when
+     * processing
+     * the contents of the text run.
+     *
+     * @param langId - The possible value for this parameter is a language identifier as defined by RFC 4646/BCP 47.
+     *   Example: "en-CA". Pass _null_ to remove the language.
+     * @returns this text properties.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/SetLanguage/
+     */
+    SetLanguage(langId: string | null): ApiTextPr;
 
     /**
      * Sets the text outline to the current text run.
@@ -27703,11 +30598,31 @@ declare namespace Pdf {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiResetFormsAction/
    */
-  export interface ApiResetFormsAction {
+  export interface ApiResetFormsAction extends ApiBaseAction {
     /**
      * Returns a type of the ApiResetFormsAction class.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example creates a reset forms action and gets its class type.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     *
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * textField.SetPartialName("myTextField");
+     * page.AddObject(textField);
+     *
+     * let buttonField = Api.CreateButtonField([10, 40, 160, 60]);
+     * page.AddObject(buttonField);
+     *
+     * let resetAction = Api.CreateResetFormsAction(false, ["myTextField"]);
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(resetAction);
+     *
+     * console.log('Reset action class type: ' + resetAction.GetClassType());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiResetFormsAction/Methods/GetClassType/
      */
@@ -27718,14 +30633,72 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example creates a reset forms action and gets the list of field names.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     *
+     * let field1 = Api.CreateTextField([10, 10, 160, 30]);
+     * field1.SetPartialName("fieldA");
+     * page.AddObject(field1);
+     *
+     * let field2 = Api.CreateTextField([10, 40, 160, 60]);
+     * field2.SetPartialName("fieldB");
+     * page.AddObject(field2);
+     *
+     * let buttonField = Api.CreateButtonField([10, 70, 160, 90]);
+     * page.AddObject(buttonField);
+     *
+     * let resetAction = Api.CreateResetFormsAction(false, ["fieldA", "fieldB"]);
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(resetAction);
+     *
+     * console.log('Field names: ' + resetAction.GetNames());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiResetFormsAction/Methods/GetNames/
      */
     GetNames(): string[];
 
     /**
+     * Returns next action.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAction/Methods/GetNext/
+     */
+    GetNext(): ApiBaseAction;
+
+    /**
      * Will all fields be reset except the fields whose names are specified
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example creates a reset forms action and checks whether all fields except listed will be reset.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     *
+     * let field1 = Api.CreateTextField([10, 10, 160, 30]);
+     * field1.SetPartialName("fieldA");
+     * page.AddObject(field1);
+     *
+     * let field2 = Api.CreateTextField([10, 40, 160, 60]);
+     * field2.SetPartialName("fieldB");
+     * page.AddObject(field2);
+     *
+     * let buttonField = Api.CreateButtonField([10, 70, 160, 90]);
+     * page.AddObject(buttonField);
+     *
+     * // Reset all fields EXCEPT fieldB
+     * let resetAction = Api.CreateResetFormsAction(true, ["fieldB"]);
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(resetAction);
+     *
+     * console.log('Is all except: ' + resetAction.IsAllExcept());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiResetFormsAction/Methods/IsAllExcept/
      */
@@ -27736,6 +30709,27 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example creates a reset forms action and changes its all-except mode.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     *
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * textField.SetPartialName("myTextField");
+     * page.AddObject(textField);
+     *
+     * let buttonField = Api.CreateButtonField([10, 40, 160, 60]);
+     * page.AddObject(buttonField);
+     *
+     * let resetAction = Api.CreateResetFormsAction(false, ["myTextField"]);
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(resetAction);
+     *
+     * resetAction.SetAllExcept(true);
+     * console.log('Is all except after change: ' + resetAction.IsAllExcept());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiResetFormsAction/Methods/SetAllExcept/
      */
     SetAllExcept(isAllExcept: boolean): boolean;
@@ -27745,9 +30739,44 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example creates a reset forms action and changes the list of fields to reset.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     *
+     * let field1 = Api.CreateTextField([10, 10, 160, 30]);
+     * field1.SetPartialName("fieldA");
+     * page.AddObject(field1);
+     *
+     * let field2 = Api.CreateTextField([10, 40, 160, 60]);
+     * field2.SetPartialName("fieldB");
+     * page.AddObject(field2);
+     *
+     * let buttonField = Api.CreateButtonField([10, 70, 160, 90]);
+     * page.AddObject(buttonField);
+     *
+     * let resetAction = Api.CreateResetFormsAction(false, ["fieldA"]);
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(resetAction);
+     *
+     * resetAction.SetNames(["fieldA", "fieldB"]);
+     * console.log('Updated field names: ' + resetAction.GetNames());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiResetFormsAction/Methods/SetNames/
      */
     SetNames(names: string[]): boolean;
+
+    /**
+     * Sets next action.
+     *
+     * @returns returns next action
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAction/Methods/SetNext/
+     */
+    SetNext(action: ApiBaseAction): ApiBaseAction;
   }
 
   /**
@@ -27817,6 +30846,7 @@ declare namespace Pdf {
      * Returns an array of rich paragraphs from the current rich content object.
      *
      * @param getCopies - Specifies if the copies of the document elements will be returned or not.
+     * @default getCopies = false
      *
      * @example
      * ```js
@@ -27931,6 +30961,75 @@ declare namespace Pdf {
     GetElement(pos: number): ApiRichParagraph | null;
 
     /**
+     * Returns a number of elements in the current document.
+     *
+     * @example
+     * ```js
+     * // Find out how many paragraphs are in formatted text in a PDF.
+     *
+     * // How do I count the text elements in rich content in a PDF?
+     *
+     * // Check the total number of paragraphs inside formatted content in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * console.log(`Elements count is: ${richContent.GetElementsCount()}`);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichContent/Methods/GetElementsCount/
+     */
+    GetElementsCount(): number;
+
+    /**
+     * Returns the inner text of the current document content object.
+     *
+     * @param options - Options for formatting the returned text.
+     * @param options.ParaSeparator - Defines how the paragraph separator will be specified in the resulting string. Any symbol can be
+     *   used. The default separator is "\r\n".
+     * @param options.TabSymbol - Defines how the tab will be specified in the resulting string. Any symbol can be used. The
+     *   default symbol is "\t".
+     * @param options.NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
+     *   used. The default separator is "\r".
+     * @default options.ParaSeparator = '\r\n'
+     * @default options.TabSymbol = '\t'
+     * @default options.NewLineSeparator = '\r'
+     *
+     * @example
+     * ```js
+     * // Extract text from rich content in a PDF.
+     *
+     * // How can I access text stored in rich content in a PDF?
+     *
+     * // Retrieve and display text from annotated content in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = Api.CreateRichParagraph();
+     * para.AddText("Example text");
+     * richContent.Push(para);
+     *
+     * console.log(`Rich content contains "${richContent.GetText()}" text`);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichContent/Methods/GetText/
+     */
+    GetText(options?: { ParaSeparator?: string; TabSymbol?: string; NewLineSeparator?: string }): string;
+
+    /**
      * Pushes a rich paragraph to a rich content.
      *
      * @param richPara - The rich paragraph which will be pushed to the rich content.
@@ -27960,6 +31059,50 @@ declare namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichContent/Methods/Push/
      */
     Push(richPara: ApiRichParagraph): boolean;
+
+    /**
+     * Removes all the elements from the current rich content.
+     *
+     * **Note:**
+     * When all elements are removed, a new empty rich paragraph is automatically created.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichContent/Methods/RemoveAllElements/
+     */
+    RemoveAllElements(): boolean;
+
+    /**
+     * Removes an element using the position specified.
+     *
+     * @param pos - The element number (position) in the rich content.
+     *
+     * @example
+     * ```js
+     * // Delete an element from rich content in a PDF.
+     *
+     * // How can I remove elements from rich content in a PDF?
+     *
+     * // Take out a specific item from the content area in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = Api.CreateRichParagraph();
+     * para.AddText("Example text");
+     * richContent.Push(para);
+     * richContent.RemoveElement(0);
+     *
+     * console.log(`We removed first paragraph from content`);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichContent/Methods/RemoveElement/
+     */
+    RemoveElement(pos: number): boolean;
   }
 
   /**
@@ -27996,6 +31139,71 @@ declare namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParaPr/Methods/GetClassType/
      */
     GetClassType(): "richParaPr";
+
+    /**
+     * Returns the rich paragraph contents justification.
+     *
+     * @example
+     * ```js
+     * // Read the text alignment of a paragraph in a PDF.
+     *
+     * // How do I check the alignment of a paragraph in a PDF?
+     *
+     * // Find out what alignment setting is applied to a paragraph in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * para.AddText("Example text");
+     * let paraPr = para.GetParaPr();
+     *
+     * console.log(`Paragraph justification is "${paraPr.GetJc()}"`);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParaPr/Methods/GetJc/
+     */
+    GetJc(): HorTextAlign;
+
+    /**
+     * Sets the rich paragraph contents justification.
+     *
+     * @param jc - The justification type that will be applied to the rich paragraph contents.
+     *
+     * @example
+     * ```js
+     * // Change the text alignment of a paragraph in a PDF.
+     *
+     * // How do I align text differently in a PDF?
+     *
+     * // Apply a specific alignment option to a paragraph in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * para.AddText("Example text");
+     * let paraPr = para.GetParaPr();
+     * paraPr.SetJc("center");
+     *
+     * console.log(`We set "${paraPr.GetJc()}" justification for paragraph properties`);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParaPr/Methods/SetJc/
+     */
+    SetJc(jc: HorTextAlign): boolean;
   }
 
   /**
@@ -28099,6 +31307,40 @@ declare namespace Pdf {
     Copy(): ApiRichParagraph;
 
     /**
+     * Deletes the current paragraph.
+     *
+     * @returns returns false if paragraph haven't parent.
+     *
+     * @example
+     * ```js
+     * // Remove a paragraph from content in a PDF.
+     *
+     * // How can I delete a paragraph in a PDF?
+     *
+     * // Eliminate a paragraph from the document layout in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = Api.CreateRichParagraph();
+     * para.AddText("Example text");
+     * richContent.AddElement(1, para);
+     * para.Delete();
+     *
+     * console.log(`We deleted paragraph from rich content`);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParagraph/Methods/Delete/
+     */
+    Delete(): boolean;
+
+    /**
      * Returns a type of the ApiRichParagraph class.
      *
      * @example
@@ -28155,6 +31397,52 @@ declare namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParagraph/Methods/GetElement/
      */
     GetElement(pos: number): ApiRichRun | null;
+
+    /**
+     * Returns a number of elements in the current paragraph.
+     *
+     * @example
+     * ```js
+     * // Count the elements in a paragraph in a PDF.
+     *
+     * // How do I find out how many items are in a paragraph in a PDF?
+     *
+     * // Determine the total number of elements within a paragraph in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * para.AddText("Example text");
+     *
+     * console.log(`Rich paragraph contains ${para.GetElementsCount()} elements`);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParagraph/Methods/GetElementsCount/
+     */
+    GetElementsCount(): number;
+
+    /**
+     * Returns the rich paragraph contents justification.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParaPr/Methods/GetJc/
+     */
+    GetJc(): HorTextAlign;
+
+    /**
+     * Returns the last Run with text in the current paragraph.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParagraph/Methods/GetLastRunWithText/
+     */
+    GetLastRunWithText(): ApiRun;
 
     /**
      * Returns the next paragraph.
@@ -28221,6 +31509,39 @@ declare namespace Pdf {
     GetParaPr(): ApiRichParaPr;
 
     /**
+     * Returns the paragraph position within its parent element.
+     *
+     * @returns returns -1 if the paragraph parent doesn't exist.
+     *
+     * @example
+     * ```js
+     * // Find a paragraph's position within its container in a PDF.
+     *
+     * // How do I locate where a paragraph sits in a PDF?
+     *
+     * // Determine the placement order of a paragraph in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * let run = para.GetElement(0);
+     * run.AddText("Some text");
+     *
+     * console.log(`Rich paragraph index is: ${para.GetPosInParent()}`);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParagraph/Methods/GetPosInParent/
+     */
+    GetPosInParent(): number;
+
+    /**
      * Returns the previous paragraph.
      *
      * @returns returns null if paragraph is first.
@@ -28252,6 +31573,45 @@ declare namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParagraph/Methods/GetPrevious/
      */
     GetPrevious(): ApiRichParagraph | null;
+
+    /**
+     * Returns the paragraph text.
+     *
+     * @param options - Options for formatting the returned text.
+     * @param options.NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any string can be
+     *   used. The default separator is "\r".
+     * @param options.TabSymbol - Defines how the tab will be specified in the resulting string (does not apply to numbering). Any
+     *   string can be used. The default symbol is "\t".
+     * @default options.NewLineSeparator = '\r'
+     * @default options.TabSymbol = '\t'
+     *
+     * @example
+     * ```js
+     * // Extract all text from a paragraph in a PDF.
+     *
+     * // How do I read the text content from a paragraph in a PDF?
+     *
+     * // Retrieve the complete text string from a paragraph in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * let run = para.GetElement(0);
+     * run.AddText("Some text");
+     *
+     * console.log(`Rich paragraph text is: ${para.GetText()}`);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParagraph/Methods/GetText/
+     */
+    GetText(options?: { NewLineSeparator?: string; TabSymbol?: string }): string;
 
     /**
      * Returns the last element of the paragraph.
@@ -28313,6 +31673,89 @@ declare namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParagraph/Methods/Push/
      */
     Push(richRun: ParagraphContent): boolean;
+
+    /**
+     * Removes all the elements from the current paragraph.
+     *
+     * **Note:**
+     * When all the elements are removed from the paragraph, a new empty run is automatically created.
+     *
+     * @example
+     * ```js
+     * // Clear all content from a paragraph in a PDF.
+     *
+     * // How do I delete every element in a paragraph in a PDF?
+     *
+     * // Empty the contents of a paragraph in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * let run = para.GetElement(0);
+     * run.AddText("Some example text");
+     * para.RemoveAllElements();
+     *
+     * console.log("We removed all elements from rich paragraph");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParagraph/Methods/RemoveAllElements/
+     */
+    RemoveAllElements(): boolean;
+
+    /**
+     * Removes an element using the position specified.
+     *
+     * **Note:**
+     * If the element you remove is the last paragraph element (i.e. all the elements are removed from the
+     * paragraph),
+     * a new empty run is automatically created.
+     *
+     * @param pos - The element position which we want to remove from the paragraph.
+     *
+     * @example
+     * ```js
+     * // Delete an element from a paragraph in a free text annotation in a PDF.
+     *
+     * // How do I remove a single element from a paragraph in a PDF?
+     *
+     * // Eliminate an item at a certain position from a paragraph in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * let run = para.GetElement(0);
+     * run.AddText("Some example text");
+     * para.RemoveElement(0);
+     *
+     * console.log("We removed first element from rich paragraph");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParagraph/Methods/RemoveElement/
+     */
+    RemoveElement(pos: number): boolean;
+
+    /**
+     * Sets the rich paragraph contents justification.
+     *
+     * @param jc - The justification type that will be applied to the rich paragraph contents.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParaPr/Methods/SetJc/
+     */
+    SetJc(jc: HorTextAlign): boolean;
 
     /**
      * Sets the paragraph properties.
@@ -28395,6 +31838,71 @@ declare namespace Pdf {
    */
   export interface ApiRichRun extends Omit<ApiRichTextPr, "GetClassType"> {
     /**
+     * Adds some text to the current run.
+     *
+     * @param text - The text which will be added to the current run.
+     *
+     * @example
+     * ```js
+     * // Insert text content into a text run in a PDF.
+     *
+     * // How do I add words to a text run in a PDF?
+     *
+     * // Write text into a text element in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * let run = para.GetElement(0);
+     * run.AddText("Some example text");
+     *
+     * console.log("We added some text to rich run object");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichRun/Methods/AddText/
+     */
+    AddText(text: string): boolean;
+
+    /**
+     * Clears the content from the current run.
+     *
+     * @example
+     * ```js
+     * // Remove all text from a text run in a PDF.
+     *
+     * // How do I empty the text in a text run in a PDF?
+     *
+     * // Delete the content of a text element in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * let run = para.GetElement(0);
+     * run.AddText("Some example text");
+     * run.ClearContent();
+     *
+     * console.log("We cleared content from rich run object");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichRun/Methods/ClearContent/
+     */
+    ClearContent(): boolean;
+
+    /**
      * Creates a copy of the current run.
      *
      * @example
@@ -28427,6 +31935,45 @@ declare namespace Pdf {
     Copy(): ApiRichRun;
 
     /**
+     * Deletes the current run.
+     *
+     * @example
+     * ```js
+     * // Remove a text run from its paragraph in a PDF.
+     *
+     * // How do I delete a text run in a PDF?
+     *
+     * // Take out a text element from a paragraph in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * let run = para.GetElement(0);
+     * run.AddText("Some example text");
+     * run.Delete();
+     *
+     * console.log("We deleted rich run object from parent paragraph");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichRun/Methods/Delete/
+     */
+    Delete(): boolean;
+
+    /**
+     * Gets the bold property from the current text properties.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/GetBold/
+     */
+    GetBold(): boolean | null;
+
+    /**
      * Returns a type of the ApiRichRun class.
      *
      * @example
@@ -28454,6 +32001,39 @@ declare namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichRun/Methods/GetClassType/
      */
     GetClassType(): "richRun";
+
+    /**
+     * Gets the RGB color from the current text properties.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/GetColor/
+     */
+    GetColor(): ApiColor | null;
+
+    /**
+     * Returns the font family from the current text properties.
+     *
+     * The method automatically calculates the font from the theme if the font was set via the theme.
+     *
+     * @param fontSlot - The font slot. If this parameter is not specified, the "ascii" value is used.
+     * @default fontSlot = "ascii"
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/GetFontFamily/
+     */
+    GetFontFamily(fontSlot?: "ascii" | "eastAsia" | "hAnsi" | "cs"): string | null;
+
+    /**
+     * Gets the font size from the current text properties.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/GetFontSize/
+     */
+    GetFontSize(): hps | null;
+
+    /**
+     * Gets the italic property from the current text properties.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/GetItalic/
+     */
+    GetItalic(): boolean | null;
 
     /**
      * Returns a parent paragraph of the current run.
@@ -28488,6 +32068,44 @@ declare namespace Pdf {
     GetParentParagraph(): ApiRichParagraph | null;
 
     /**
+     * Gets the strikeout property from the current text properties.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/GetStrikeout/
+     */
+    GetStrikeout(): boolean | null;
+
+    /**
+     * Returns a text from the text run.
+     *
+     * @example
+     * ```js
+     * // Read the text content from a text run in a PDF.
+     *
+     * // How do I extract the text from a text run in a PDF?
+     *
+     * // Retrieve what words are stored in a text element in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * let run = para.GetElement(0);
+     * run.AddText("Some example text");
+     *
+     * console.log(`The rich run text is: "${run.GetText()}"`);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichRun/Methods/GetText/
+     */
+    GetText(): string;
+
+    /**
      * Returns the text properties of the current run.
      *
      * @example
@@ -28519,6 +32137,112 @@ declare namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichRun/Methods/GetTextPr/
      */
     GetTextPr(): ApiRichTextPr;
+
+    /**
+     * Gets the underline property from the current text properties.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/GetUnderline/
+     */
+    GetUnderline(): boolean | null;
+
+    /**
+     * Gets the vertical alignment type from the current text properties.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/GetVertAlign/
+     */
+    GetVertAlign(): TextVertAlign;
+
+    /**
+     * Removes all the elements from the current run.
+     *
+     * @example
+     * ```js
+     * // Clear all child elements from a text run in a PDF.
+     *
+     * // How do I remove everything inside a text run in a PDF?
+     *
+     * // Delete all subelements contained within a text element in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * let run = para.GetElement(0);
+     * run.AddText("Some example text");
+     * run.RemoveAllElements();
+     *
+     * console.log("We removed all element from rich run object");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichRun/Methods/RemoveAllElements/
+     */
+    RemoveAllElements(): boolean;
+
+    /**
+     * Sets the bold property to the text character.
+     *
+     * @param isBold - Specifies that the contents of the run are displayed bold.
+     * @returns this text properties.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/SetBold/
+     */
+    SetBold(isBold: boolean): ApiRichTextPr;
+
+    /**
+     * Sets the text color to the current text run.
+     *
+     * @returns this text properties.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/SetColor/
+     */
+    SetColor(color: ApiColor): ApiRichTextPr;
+
+    /**
+     * Sets all 4 font slots with the specified font family.
+     *
+     * @param fontFamily - The font family or families used for the current text run.
+     * @returns this text properties.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/SetFontFamily/
+     */
+    SetFontFamily(fontFamily: string): ApiRichTextPr;
+
+    /**
+     * Sets the font size to the characters of the current text run.
+     *
+     * @param size - The text size value measured in half-points (1/144 of an inch).
+     * @returns this text properties.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/SetFontSize/
+     */
+    SetFontSize(size: hps): ApiRichTextPr;
+
+    /**
+     * Sets the italic property to the text character.
+     *
+     * @param isItalic - Specifies that the contents of the current run are displayed italicized.
+     * @returns this text properties.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/SetItalic/
+     */
+    SetItalic(isItalic: boolean): ApiRichTextPr;
+
+    /**
+     * Specifies that the contents of the run are displayed with a single horizontal line through the
+     * center of the line.
+     *
+     * @param isStrikeout - Specifies that the contents of the current run are displayed struck through.
+     * @returns this text properties.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/SetStrikeout/
+     */
+    SetStrikeout(isStrikeout: boolean): ApiRichTextPr;
 
     /**
      * Sets the text properties to the current run.
@@ -28556,6 +32280,29 @@ declare namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichRun/Methods/SetTextPr/
      */
     SetTextPr(textPr: ApiRichTextPr): ApiRichTextPr;
+
+    /**
+     * Specifies that the contents of the run are displayed along with a line appearing directly below the
+     * character
+     * (less than all the spacing above and below the characters on the line).
+     *
+     * @param isUnderline - Specifies that the contents of the current run are displayed underlined.
+     * @returns this text properties.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/SetUnderline/
+     */
+    SetUnderline(isUnderline: boolean): ApiRichTextPr;
+
+    /**
+     * Specifies the alignment which will be applied to the contents of the run in relation to the default
+     * appearance of the run text:
+     *
+     * @param type - The vertical alignment type applied to the text contents.
+     * @returns this text properties.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/SetVertAlign/
+     */
+    SetVertAlign(type: TextVertAlign): ApiRichTextPr;
   }
 
   /**
@@ -28564,6 +32311,39 @@ declare namespace Pdf {
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/
    */
   export interface ApiRichTextPr {
+    /**
+     * Gets the bold property from the current text properties.
+     *
+     * @example
+     * ```js
+     * // Check if text in a free text annotation is bold in a PDF.
+     *
+     * // How do I find out whether text is bold in a PDF?
+     *
+     * // Retrieve the bold state of formatted text in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * let run = para.GetElement(0);
+     * run.AddText("Some example text");
+     *
+     * let textPr = run.GetTextPr();
+     *
+     * console.log(`The bold property is: ${textPr.GetBold()}`);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/GetBold/
+     */
+    GetBold(): boolean | null;
+
     /**
      * Returns a type of the ApiRichTextPr class.
      *
@@ -28594,6 +32374,546 @@ declare namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/GetClassType/
      */
     GetClassType(): "richTextPr";
+
+    /**
+     * Gets the RGB color from the current text properties.
+     *
+     * @example
+     * ```js
+     * // Retrieve the text color value in a PDF.
+     *
+     * // How do I see what color the text has been set to in a PDF?
+     *
+     * // Extract color information from formatted text in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * let run = para.GetElement(0);
+     * run.AddText("Some example text");
+     *
+     * let textPr = run.GetTextPr();
+     * textPr.SetColor(Api.RGB(255, 0, 0));
+     *
+     * let color = textPr.GetColor();
+     *
+     * console.log(`The color property is {r:${color["r"]}, g:${color["g"]}, b:${color["b"]}}`);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/GetColor/
+     */
+    GetColor(): ApiColor | null;
+
+    /**
+     * Returns the font family from the current text properties.
+     *
+     * The method automatically calculates the font from the theme if the font was set via the theme.
+     *
+     * @param fontSlot - The font slot. If this parameter is not specified, the "ascii" value is used.
+     * @default fontSlot = "ascii"
+     *
+     * @example
+     * ```js
+     * // Find out which font is applied to text in a PDF.
+     *
+     * // How do I check what typeface a text uses in a PDF?
+     *
+     * // Read the font selection for formatted text in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * let run = para.GetElement(0);
+     * run.AddText("Some example text");
+     *
+     * let textPr = run.GetTextPr();
+     *
+     * console.log(`The font family property is: ${textPr.GetFontFamily()}`);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/GetFontFamily/
+     */
+    GetFontFamily(fontSlot?: "ascii" | "eastAsia" | "hAnsi" | "cs"): string | null;
+
+    /**
+     * Gets the font size from the current text properties.
+     *
+     * @example
+     * ```js
+     * // Check the text size in a PDF.
+     *
+     * // How do I see what size the text has been set to in a PDF?
+     *
+     * // Retrieve the font point size from formatted text in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * let run = para.GetElement(0);
+     * run.AddText("Some example text");
+     *
+     * let textPr = run.GetTextPr();
+     *
+     * console.log(`The font size property is: ${textPr.GetFontSize()}`);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/GetFontSize/
+     */
+    GetFontSize(): hps | null;
+
+    /**
+     * Gets the italic property from the current text properties.
+     *
+     * @example
+     * ```js
+     * // Check if text is italicized in a PDF.
+     *
+     * // How do I determine whether text is slanted in a PDF?
+     *
+     * // Retrieve the italic state of formatted text in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * let run = para.GetElement(0);
+     * run.AddText("Some example text");
+     *
+     * let textPr = run.GetTextPr();
+     *
+     * console.log(`The italic property is: ${textPr.GetItalic()}`);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/GetItalic/
+     */
+    GetItalic(): boolean | null;
+
+    /**
+     * Gets the strikeout property from the current text properties.
+     *
+     * @example
+     * ```js
+     * // Check if text has a strikethrough in a PDF.
+     *
+     * // How do I find out if text has a line through it in a PDF?
+     *
+     * // Retrieve the strikeout state of formatted text in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * let run = para.GetElement(0);
+     * run.AddText("Some example text");
+     *
+     * let textPr = run.GetTextPr();
+     *
+     * console.log(`The strikeout property is: ${textPr.GetStrikeout()}`);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/GetStrikeout/
+     */
+    GetStrikeout(): boolean | null;
+
+    /**
+     * Gets the underline property from the current text properties.
+     *
+     * @example
+     * ```js
+     * // Check if text is underlined in a PDF.
+     *
+     * // How do I see whether text has an underline in a PDF?
+     *
+     * // Retrieve the underline state of formatted text in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * let run = para.GetElement(0);
+     * run.AddText("Some example text");
+     *
+     * let textPr = run.GetTextPr();
+     *
+     * console.log(`The underline property is: ${textPr.GetUnderline()}`);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/GetUnderline/
+     */
+    GetUnderline(): boolean | null;
+
+    /**
+     * Gets the vertical alignment type from the current text properties.
+     *
+     * @example
+     * ```js
+     * // Check the vertical alignment of text in a PDF.
+     *
+     * // How do I find out if text is positioned higher or lower than normal in a PDF?
+     *
+     * // Retrieve the vertical alignment setting of formatted text in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * let run = para.GetElement(0);
+     * run.AddText("Some example text");
+     *
+     * let textPr = run.GetTextPr();
+     *
+     * console.log(`The vert align property is: ${textPr.GetVertAlign()}`);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/GetVertAlign/
+     */
+    GetVertAlign(): TextVertAlign;
+
+    /**
+     * Sets the bold property to the text character.
+     *
+     * @param isBold - Specifies that the contents of the run are displayed bold.
+     * @returns this text properties.
+     *
+     * @example
+     * ```js
+     * // Make text bold in a PDF.
+     *
+     * // How do I add bold formatting to text in a PDF?
+     *
+     * // Apply bold styling to formatted text in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * let run = para.GetElement(0);
+     * run.AddText("Some example text");
+     *
+     * let textPr = run.GetTextPr();
+     * textPr.SetBold(true);
+     *
+     * console.log(`We set bold to ${textPr.GetBold()} for rich text properties`);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/SetBold/
+     */
+    SetBold(isBold: boolean): ApiRichTextPr;
+
+    /**
+     * Sets the text color to the current text run.
+     *
+     * @returns this text properties.
+     *
+     * @example
+     * ```js
+     * // Change the color of text in a free text annotation in a PDF.
+     *
+     * // How do I change text color in a PDF?
+     *
+     * // Apply a color to text formatting in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * let run = para.GetElement(0);
+     * run.AddText("Some example text");
+     *
+     * let textPr = run.GetTextPr();
+     * textPr.SetColor(Api.RGB(255, 0, 0));
+     *
+     * let color = textPr.GetColor();
+     *
+     * console.log(`We set color to {r:${color["r"]}, g:${color["g"]}, b:${color["b"]}} for rich text properties`);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/SetColor/
+     */
+    SetColor(color: ApiColor): ApiRichTextPr;
+
+    /**
+     * Sets all 4 font slots with the specified font family.
+     *
+     * @param fontFamily - The font family or families used for the current text run.
+     * @returns this text properties.
+     *
+     * @example
+     * ```js
+     * // Change the font typeface for text in a free text annotation in a PDF.
+     *
+     * // How do I choose a different font for text in a PDF?
+     *
+     * // Select a font family for text in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * let run = para.GetElement(0);
+     * run.AddText("Some example text");
+     *
+     * let textPr = run.GetTextPr();
+     * textPr.SetFontFamily("Calibri");
+     *
+     * console.log(`We set font family to ${textPr.GetFontFamily()} for rich text properties`);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/SetFontFamily/
+     */
+    SetFontFamily(fontFamily: string): ApiRichTextPr;
+
+    /**
+     * Sets the font size to the characters of the current text run.
+     *
+     * @param size - The text size value measured in half-points (1/144 of an inch).
+     * @returns this text properties.
+     *
+     * @example
+     * ```js
+     * // Adjust the size of text in a PDF.
+     *
+     * // How do I change how large text appears in a PDF?
+     *
+     * // Modify text size in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * let run = para.GetElement(0);
+     * run.AddText("Some example text");
+     *
+     * let textPr = run.GetTextPr();
+     * textPr.SetFontSize(40);
+     *
+     * console.log(`We set font size to ${textPr.GetFontSize()} for rich text properties`);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/SetFontSize/
+     */
+    SetFontSize(size: hps): ApiRichTextPr;
+
+    /**
+     * Sets the italic property to the text character.
+     *
+     * @param isItalic - Specifies that the contents of the current run are displayed italicized.
+     * @returns this text properties.
+     *
+     * @example
+     * ```js
+     * // Make text slanted in a free text annotation in a PDF.
+     *
+     * // How do I apply italic formatting to text in a PDF?
+     *
+     * // Enable italics for text in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * let run = para.GetElement(0);
+     * run.AddText("Some example text");
+     *
+     * let textPr = run.GetTextPr();
+     * textPr.SetItalic(true);
+     *
+     * console.log(`We set italic to ${textPr.GetItalic()} for rich text properties`);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/SetItalic/
+     */
+    SetItalic(isItalic: boolean): ApiRichTextPr;
+
+    /**
+     * Specifies that the contents of the run are displayed with a single horizontal line through the
+     * center of the line.
+     *
+     * @param isStrikeout - Specifies that the contents of the current run are displayed struck through.
+     * @returns this text properties.
+     *
+     * @example
+     * ```js
+     * // Draw a line through text in a free text annotation in a PDF.
+     *
+     * // How do I add strikethrough formatting to text in a PDF?
+     *
+     * // Apply strikeout to text in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * let run = para.GetElement(0);
+     * run.AddText("Some example text");
+     *
+     * let textPr = run.GetTextPr();
+     * textPr.SetStrikeout(true);
+     *
+     * console.log(`We set strikeout to ${textPr.GetStrikeout()} for rich text properties`);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/SetStrikeout/
+     */
+    SetStrikeout(isStrikeout: boolean): ApiRichTextPr;
+
+    /**
+     * Specifies that the contents of the run are displayed along with a line appearing directly below the
+     * character
+     * (less than all the spacing above and below the characters on the line).
+     *
+     * @param isUnderline - Specifies that the contents of the current run are displayed underlined.
+     * @returns this text properties.
+     *
+     * @example
+     * ```js
+     * // Add an underline to text in a free text annotation in a PDF.
+     *
+     * // How do I underline text in a PDF?
+     *
+     * // Apply underline formatting in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * let run = para.GetElement(0);
+     * run.AddText("Some example text");
+     *
+     * let textPr = run.GetTextPr();
+     * textPr.SetUnderline(true);
+     *
+     * console.log(`We set underline to ${textPr.GetUnderline()} for rich text properties`);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/SetUnderline/
+     */
+    SetUnderline(isUnderline: boolean): ApiRichTextPr;
+
+    /**
+     * Specifies the alignment which will be applied to the contents of the run in relation to the default
+     * appearance of the run text:
+     *
+     * @param type - The vertical alignment type applied to the text contents.
+     * @returns this text properties.
+     *
+     * @example
+     * ```js
+     * // Position text vertically as superscript or subscript in a PDF.
+     *
+     * // How do I raise or lower text vertically in a PDF?
+     *
+     * // Apply vertical alignment to text in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let freeTextAnnot = Api.CreateFreeTextAnnot([160, 50, 360, 135]);
+     * let page = doc.GetPage(0);
+     * page.AddObject(freeTextAnnot);
+     * freeTextAnnot.SetIntent("freeTextCallout");
+     * freeTextAnnot.SetCallout([{x: 161, y: 51}, {x: 249, y: 125}, {x: 261, y: 125}]);
+     * freeTextAnnot.SetRectDiff([100, 64, 0.5, 0.5]);
+     *
+     * let richContent = freeTextAnnot.GetContent();
+     * let para = richContent.GetElement(0);
+     * let run = para.GetElement(0);
+     * run.AddText("Some example text");
+     *
+     * let textPr = run.GetTextPr();
+     * textPr.SetVertAlign("superscript");
+     *
+     * console.log(`We set vert align property to ${textPr.GetVertAlign()} for rich text properties`);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/SetVertAlign/
+     */
+    SetVertAlign(type: TextVertAlign): ApiRichTextPr;
   }
 
   /**
@@ -28635,7 +32955,10 @@ declare namespace Pdf {
     AddLineBreak(): boolean;
 
     /**
-     * Adds a tab stop to the current run.
+     * Adds a tab character to the end of the current run.
+     * Use the AddText method with the "\t" character instead.
+     *
+     * @deprecated since 10.0.3 version.
      *
      * @example
      * ```js
@@ -29007,6 +33330,8 @@ declare namespace Pdf {
      *
      * The method automatically calculates the font from the theme if the font was set via the theme.
      *
+     * @param fontSlot - The font slot. If this parameter is not specified, the "ascii" value is used.
+     * @default fontSlot = "ascii"
      * @since 8.1.0
      *
      * @example
@@ -29043,7 +33368,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetFontFamily/
      */
-    GetFontFamily(): string | null;
+    GetFontFamily(fontSlot?: "ascii" | "eastAsia" | "hAnsi" | "cs"): string | null;
 
     /**
      * Returns all font names from all elements inside the current run.
@@ -29213,6 +33538,15 @@ declare namespace Pdf {
     GetItalic(): boolean | null;
 
     /**
+     * Gets the language from the current text properties.
+     *
+     * @since 8.1.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetLanguage/
+     */
+    GetLanguage(): string | null;
+
+    /**
      * Gets the text outline from the current text properties.
      *
      * @since 8.1.0
@@ -29376,6 +33710,50 @@ declare namespace Pdf {
     GetStrikeout(): boolean | null;
 
     /**
+     * Returns a text from the text run.
+     *
+     * @param options - Options for formatting the returned text.
+     * @param options.NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
+     *   used. The default separator is "\r".
+     * @param options.TabSymbol - Defines how the tab will be specified in the resulting string. Any symbol can be used. The
+     *   default symbol is "\t".
+     * @default options.NewLineSeparator = '\r'
+     * @default options.TabSymbol = '\t'
+     *
+     * @example
+     * ```js
+     * // Extract the plain text content from a text run in a PDF.
+     *
+     * // Tabs and line breaks of the run are returned with the specified symbols.
+     *
+     * // Read the text of a run in a shape and show it in a new paragraph in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("flowChartMagneticTape", 150 * 36000, 65 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * const run = Api.CreateRun();
+     * run.AddText("\tThis is a text run");
+     * paragraph.AddElement(run);
+     * const text = run.GetText({"NewLineSeparator": "\r", "TabSymbol": "\t"});
+     *
+     * paragraph = Api.CreateParagraph();
+     * paragraph.AddText("The text of the specified run: " + text);
+     * docContent.Push(paragraph);
+     * page.AddObject(shape);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRun/Methods/GetText/
+     */
+    GetText(options?: { NewLineSeparator?: string; TabSymbol?: string }): string;
+
+    /**
      * Gets the text fill from the current text properties.
      *
      * @since 8.1.0
@@ -29458,6 +33836,33 @@ declare namespace Pdf {
      * @default start = 0
      * @returns returns null if the specified range is empty.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Colour a part of a text run of a shape on a PDF page through a text range.
+     *
+     * // Positions are counted from the beginning of the run, so the rest of the paragraph is untouched.
+     *
+     * // Take the range of the first word of the run and paint it red.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 150 * 36000, 65 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * const run = Api.CreateRun();
+     * run.AddText("Hello World");
+     * paragraph.AddElement(run);
+     *
+     * const range = run.GetTextRange(0, 5);
+     * range.SetColor(Api.RGB(255, 0, 0));
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRun/Methods/GetTextRange/
      */
@@ -29608,6 +34013,42 @@ declare namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/SetCaps/
      */
     SetCaps(isCaps: boolean): ApiTextPr;
+
+    /**
+     * Sets the text color to the current text run.
+     *
+     * @param color - The text color. Pass _null_ to remove the text color.
+     * @returns this text properties.
+     * @since 9.1.0
+     *
+     * @example
+     * ```js
+     * // Apply text color in a PDF.
+     *
+     * // How do I change the text appearance in a PDF?
+     *
+     * // Modify the color of text characters in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("flowChartMagneticTape", 150 * 36000, 65 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * const run = Api.CreateRun();
+     * run.AddText("This is a text run with the font color set to black.");
+     * paragraph.AddElement(run);
+     * run.SetColor(Api.RGB(51, 51, 51));
+     * page.AddObject(shape);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/SetColor/
+     */
+    SetColor(color: ApiColor | null): ApiTextPr;
 
     /**
      * Specifies that the contents of the run are displayed with two horizontal lines through each
@@ -29832,6 +34273,42 @@ declare namespace Pdf {
     SetItalic(isItalic: boolean): ApiTextPr;
 
     /**
+     * Specifies the languages which will be used to check spelling and grammar (if requested) when
+     * processing
+     * the contents of the text run.
+     *
+     * @param langId - The possible value for this parameter is a language identifier as defined by RFC 4646/BCP 47.
+     *   Example: "en-CA". Pass _null_ to remove the language.
+     * @returns this text properties.
+     *
+     * @example
+     * ```js
+     * // How do I set text language for spell checking in a PDF?
+     *
+     * // Configure language detection for text content in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("flowChartMagneticTape", 150 * 36000, 65 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * const run = Api.CreateRun();
+     * run.AddText("This is a text run with the text language set to English (Canada).");
+     * paragraph.AddElement(run);
+     * run.SetLanguage("en-CA");
+     * page.AddObject(shape);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/SetLanguage/
+     */
+    SetLanguage(langId: string | null): ApiTextPr;
+
+    /**
      * Sets the text outline to the current text run.
      *
      * @param oStroke - The stroke used to create the text outline.
@@ -29991,6 +34468,33 @@ declare namespace Pdf {
      * @param text - The new text of the run, as a string or as an array of character codes.
      * @returns The current run.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Replace the whole text of a run in one call in a PDF.
+     *
+     * // How do I replace the text of a run without losing its formatting in a PDF?
+     *
+     * // Swap the wording of a run on the page while its formatting stays in place in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("flowChartMagneticTape", 150 * 36000, 65 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * const run = Api.CreateRun();
+     * run.SetBold(true);
+     * run.SetFontSize(30);
+     * run.AddText("Draft wording.");
+     * paragraph.AddElement(run);
+     * run.SetText("Final wording, still bold.");
+     * page.AddObject(shape);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRun/Methods/SetText/
      */
@@ -30204,10 +34708,6 @@ declare namespace Pdf {
     GetClassType(): "schemeColor";
   }
 
-  /** Class representing a document section. */
-  export interface ApiSection {
-  }
-
   /**
    * Class representing a shadow.
    *
@@ -30217,6 +34717,27 @@ declare namespace Pdf {
     /**
      * Returns a type of the ApiShadow class.
      *
+     * @example
+     * ```js
+     * // Get the class type of a shadow object on a page in a PDF form.
+     *
+     * // Confirm that an object created by Api.CreateShadow reports itself as a shadow.
+     *
+     * // Create a shadow, apply it to a shape, and print the shadow class type inside the shape.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 213, 191));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 120 * 36000, 60 * 36000, fill, stroke);
+     * shape.SetPosition(30 * 36000, 30 * 36000);
+     * page.AddObject(shape);
+     * const shadow = Api.CreateShadow({ color: Api.RGB(0, 0, 0), offsetX: 3, offsetY: 3 });
+     * shape.SetShadow(shadow);
+     * const classType = shadow.GetClassType();
+     * shape.GetContent().GetElement(0).AddText("Shadow class type: " + classType);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiShadow/Methods/GetClassType/
      */
     GetClassType(): "shadow";
@@ -30225,6 +34746,26 @@ declare namespace Pdf {
      * Returns the settings of the current shadow.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the settings of a shadow applied to a drawing on a page in a PDF form.
+     *
+     * // Retrieve the shadow object and inspect its transparency, offset and size.
+     *
+     * // Set a shadow, read its settings with GetSettings, and print the values inside the shape.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 213, 191));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 160 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(30 * 36000, 30 * 36000);
+     * page.AddObject(shape);
+     * shape.SetShadow(Api.CreateShadow({ color: Api.RGB(0, 0, 0), transparency: 0.5, offsetX: 3, offsetY: 3 }));
+     * const settings = shape.GetShadow().GetSettings();
+     * shape.GetContent().GetElement(0).AddText("Shadow transparency " + settings.transparency + ", offset " + Math.round(settings.offsetX) + " x " + Math.round(settings.offsetY) + ", size " + settings.size + "%");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiShadow/Methods/GetSettings/
      */
@@ -30236,7 +34777,36 @@ declare namespace Pdf {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiShape/
    */
-  export interface ApiShape extends Omit<ApiDrawing, "GetClassType"> {
+  export interface ApiShape extends Omit<ApiDrawing, "Copy" | "GetClassType"> {
+    /**
+     * Creates a copy of the current shape.
+     *
+     * @since 9.4.0
+     *
+     * @example
+     * ```js
+     * // How do I make a copy of a shape in a PDF?
+     *
+     * // Create an exact duplicate of a shape and add it to a new page in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("flowChartMagneticTape", 150 * 36000, 65 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const copyShape = shape.Copy();
+     * const newPage = doc.AddPage(1);
+     * newPage.AddObject(copyShape);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiShape/Methods/Copy/
+     */
+    Copy(): ApiShape;
+
     /**
      * Returns the type of the ApiShape class.
      *
@@ -30300,6 +34870,32 @@ declare namespace Pdf {
      * Returns the shape inner contents where a paragraph or text runs can be inserted.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Access the inner content of a shape in a PDF.
+     *
+     * // Useful for inspecting or modifying a shape's nested content in a PDF.
+     *
+     * // Extract and work with a shape's content in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("flowChartOnlineStorage", 200 * 36000, 65 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * shape.SetVerticalTextAlign("bottom");
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.SetJc("left");
+     * paragraph.AddText("We removed all elements from the shape and added a new paragraph inside it ");
+     * paragraph.AddText("aligning it vertically by the bottom.");
+     * docContent.Push(paragraph);
+     * page.AddObject(shape);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiShape/Methods/GetDocContent/
      */
@@ -30506,6 +35102,35 @@ declare namespace Pdf {
      * @returns The text autofit type.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the text autofit type currently applied to a shape in a PDF.
+     *
+     * // Check which text fit mode is applied to a shape in a PDF.
+     *
+     * // Apply an autofit type with SetTextFit, then retrieve it back and display it in the shape in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(60, 50, 80));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     *
+     * const shape = Api.CreateShape(
+     * 	'rect',
+     * 	Api.MillimetersToEmus(100), Api.MillimetersToEmus(40),
+     * 	fill, stroke
+     * );
+     * shape.SetPosition(Api.MillimetersToEmus(50), Api.MillimetersToEmus(50));
+     * shape.SetTextFit('autoFit');
+     *
+     * const fitType = shape.GetTextFit();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Current text fit: ' + fitType);
+     * shape.GetContent().Push(paragraph);
+     * page.AddObject(shape);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiShape/Methods/GetTextFit/
      */
     GetTextFit(): TextFitType;
@@ -30514,6 +35139,32 @@ declare namespace Pdf {
      * Gets the vertical alignment from the shape content where a paragraph or text runs can be inserted.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the vertical text alignment of a shape in a PDF.
+     *
+     * // Useful for verifying vertical text placement before adjusting shape layout in a PDF.
+     *
+     * // Retrieve the current vertical alignment of a shape's inner content in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("flowChartOnlineStorage", 200 * 36000, 65 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * shape.SetVerticalTextAlign("center");
+     * const verticalAlign = shape.GetVerticalTextAlign();
+     * const docContent = shape.GetContent();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.SetJc("left");
+     * paragraph.AddText("The shape vertical text alignment is: " + verticalAlign);
+     * docContent.Push(paragraph);
+     * page.AddObject(shape);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiShape/Methods/GetVerticalTextAlign/
      */
@@ -30629,6 +35280,26 @@ declare namespace Pdf {
      * @param nBottom - Bottom padding.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set internal spacing for text content within a shape on a page in a PDF form.
+     *
+     * // Add text to a shape, then apply asymmetric left, top, right, and bottom paddings.
+     *
+     * // Control where the text sits inside the shape by setting each inset in English measure units.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 65 * 36000, fill, stroke);
+     * shape.SetPosition(20 * 36000, 20 * 36000);
+     * page.AddObject(shape);
+     * const paragraph = shape.GetContent().GetElement(0);
+     * paragraph.AddText("Text with paddings: Left 2cm, Top 0.5cm, Right 0.5cm, Bottom 0.3cm");
+     * shape.SetPaddings(20 * 36000, 5 * 36000, 5 * 36000, 3 * 36000);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiShape/Methods/SetPaddings/
      */
     SetPaddings(nLeft: EMU | null, nTop: EMU | null, nRight: EMU | null, nBottom: EMU | null): boolean;
@@ -30742,6 +35413,57 @@ declare namespace Pdf {
      * @returns returns false if the type is invalid or the shape doesn't exist.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set different text fit types to shapes in a PDF.
+     *
+     * // Make text shrink or stay the same size when it overflows a shape in a PDF.
+     *
+     * // Create three shapes and apply each of the available text autofit types in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const longText = 'This is a long text to demonstrate how the text fit setting works inside the shape.';
+     *
+     * const shape1 = Api.CreateShape(
+     * 	'rect',
+     * 	Api.MillimetersToEmus(70), Api.MillimetersToEmus(30),
+     * 	Api.CreateSolidFill(Api.RGB(60, 50, 80)), stroke
+     * );
+     * shape1.SetPosition(Api.MillimetersToEmus(5), Api.MillimetersToEmus(30));
+     * const paragraph1 = Api.CreateParagraph();
+     * paragraph1.AddText('noAutoFit: ' + longText);
+     * shape1.GetContent().Push(paragraph1);
+     * shape1.SetTextFit('noAutoFit');
+     * page.AddObject(shape1);
+     *
+     * const shape2 = Api.CreateShape(
+     * 	'rect',
+     * 	Api.MillimetersToEmus(70), Api.MillimetersToEmus(30),
+     * 	Api.CreateSolidFill(Api.RGB(50, 75, 65)), stroke
+     * );
+     * shape2.SetPosition(Api.MillimetersToEmus(85), Api.MillimetersToEmus(30));
+     * const paragraph2 = Api.CreateParagraph();
+     * paragraph2.AddText('autoFit: ' + longText);
+     * shape2.GetContent().Push(paragraph2);
+     * shape2.SetTextFit('autoFit');
+     * page.AddObject(shape2);
+     *
+     * const shape3 = Api.CreateShape(
+     * 	'rect',
+     * 	Api.MillimetersToEmus(70), Api.MillimetersToEmus(30),
+     * 	Api.CreateSolidFill(Api.RGB(75, 55, 55)), stroke
+     * );
+     * shape3.SetPosition(Api.MillimetersToEmus(165), Api.MillimetersToEmus(30));
+     * const paragraph3 = Api.CreateParagraph();
+     * paragraph3.AddText('normAutoFit: ' + longText);
+     * shape3.GetContent().Push(paragraph3);
+     * shape3.SetTextFit('normAutoFit');
+     * page.AddObject(shape3);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiShape/Methods/SetTextFit/
      */
     SetTextFit(fitType: TextFitType): boolean;
@@ -30791,6 +35513,26 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Retrieve the class type of a shading object in a PDF.
+     *
+     * // Confirm the type name of a shading object before applying it in a PDF.
+     *
+     * // Shade a table cell and write the class type of the shading into it.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 2);
+     * const cell = table.GetRow(1).GetCell(0);
+     * const shd = Api.CreateShd('clear', Api.Color('#DDEBF7'));
+     * cell.SetShd(shd);
+     * cell.AddText('Class type = ' + shd.GetClassType());
+     *
+     * page.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiShd/Methods/GetClassType/
      */
     GetClassType(): "shd";
@@ -30800,6 +35542,26 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Retrieve the color of a shading object in a PDF.
+     *
+     * // Read back the color stored in a shading object in a PDF.
+     *
+     * // Shade a table cell and write the shading color into it.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 2);
+     * const cell = table.GetRow(1).GetCell(0);
+     * const shd = Api.CreateShd('clear', Api.Color('#FCE4D6'));
+     * cell.SetShd(shd);
+     * cell.AddText('Shading color = ' + shd.GetColor().GetHex());
+     *
+     * page.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiShd/Methods/GetColor/
      */
     GetColor(): ApiColor | null;
@@ -30808,6 +35570,26 @@ declare namespace Pdf {
      * Returns the shading type.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Retrieve the type of a shading object in a PDF.
+     *
+     * // Check whether a shading fills the background before applying it in a PDF.
+     *
+     * // Shade a table cell and write the shading type into it.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 2);
+     * const cell = table.GetRow(1).GetCell(0);
+     * const shd = Api.CreateShd('clear', Api.Color('#E2EFDA'));
+     * cell.SetShd(shd);
+     * cell.AddText('Shading type = ' + shd.GetType());
+     *
+     * page.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiShd/Methods/GetType/
      */
@@ -30826,6 +35608,35 @@ declare namespace Pdf {
      * Returns a type of the ApiSignatureField class.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Determine the object type of a signature field in a PDF.
+     *
+     * // How do I find out what class a signature field belongs to in a PDF?
+     *
+     * // Identify the type category of a signature field in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     *
+     * let signatureField = Api.CreateSignatureField([10, 10, 100, 100]);
+     * page.AddObject(signatureField);
+     * signatureField.SetValue('https://static.onlyoffice.com/assets/docs/samples/img/onlyoffice_logo.png');
+     *
+     * const gs1 = Api.CreateGradientStop(Api.RGB(255, 213, 191), 0);
+     * const gs2 = Api.CreateGradientStop(Api.RGB(255, 111, 61), 100000);
+     * const fill = Api.CreateRadialGradientFill([gs1, gs2]);
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("flowChartMagneticTape", 150 * 36000, 65 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     *
+     * paragraph.SetJc("left");
+     * paragraph.AddText('Signature field class type is: ' + '"' + signatureField.GetClassType() + '"');
+     * page.AddObject(shape);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiSignatureField/Methods/GetClassType/
      */
@@ -31090,6 +35901,11 @@ declare namespace Pdf {
   export interface ApiSquareAnnotation extends ApiBaseAnnotation {
     /**
      * Adds reply on this annot.
+     *
+     * **Note:**
+     * If this annotation is itself a reply, the new reply is added to the thread of its root annotation
+     * (the reply then refers to the root and is listed by the root's
+     * {@link ApiBaseAnnotation#GetReplies}).
      *
      * @param textAnnot - The text annotation to use as a reply.
      *
@@ -31421,6 +36237,8 @@ declare namespace Pdf {
     /**
      * Gets annotation opacity.
      *
+     * @returns The opacity from 0 (transparent) to 100 (opaque).
+     *
      * @example
      * ```js
      * // How transparent is an annotation in a PDF?
@@ -31436,7 +36254,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetOpacity/
      */
-    GetOpacity(): string;
+    GetOpacity(): percentage;
 
     /**
      * Gets annotation position.
@@ -31669,6 +36487,10 @@ declare namespace Pdf {
 
     /**
      * Sets annotation border style.
+     *
+     * **Note:**
+     * If the `"dashed"` style is set and the annotation has no dash pattern yet,
+     * the default pattern `[2, 2]` is applied. Use {@link ApiBaseAnnotation#SetDashPattern} to change it.
      *
      * @param borderStyle - The border style: `"solid"` or `"dashed"`.
      *
@@ -32000,6 +36822,11 @@ declare namespace Pdf {
     /**
      * Adds reply on this annot.
      *
+     * **Note:**
+     * If this annotation is itself a reply, the new reply is added to the thread of its root annotation
+     * (the reply then refers to the root and is listed by the root's
+     * {@link ApiBaseAnnotation#GetReplies}).
+     *
      * @param textAnnot - The text annotation to use as a reply.
      *
      * @example
@@ -32328,6 +37155,8 @@ declare namespace Pdf {
     /**
      * Gets annotation opacity.
      *
+     * @returns The opacity from 0 (transparent) to 100 (opaque).
+     *
      * @example
      * ```js
      * // How transparent is an annotation in a PDF?
@@ -32343,7 +37172,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetOpacity/
      */
-    GetOpacity(): string;
+    GetOpacity(): percentage;
 
     /**
      * Gets annotation position.
@@ -32618,6 +37447,10 @@ declare namespace Pdf {
 
     /**
      * Sets annotation border style.
+     *
+     * **Note:**
+     * If the `"dashed"` style is set and the annotation has no dash pattern yet,
+     * the default pattern `[2, 2]` is applied. Use {@link ApiBaseAnnotation#SetDashPattern} to change it.
      *
      * @param borderStyle - The border style: `"solid"` or `"dashed"`.
      *
@@ -33043,6 +37876,32 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the beginning arrow of a line in a PDF.
+     *
+     * // Find out which arrow is applied to the start of a line in a PDF.
+     *
+     * // Apply a beginning arrow to a line's stroke, read it back, and label the result in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(36000, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let line = Api.CreateShape("line", 50 * 36000, 50 * 36000, fill, stroke);
+     * line.SetPosition(2000000, 1000000);
+     * page.AddObject(line);
+     * let retrievedStroke = line.GetLine();
+     * retrievedStroke.SetBeginArrow("triangle", "medium", "large");
+     * let arrow = retrievedStroke.GetBeginArrow();
+     *
+     * let label = Api.CreateShape("rect", 120 * 36000, 30 * 36000, fill, Api.CreateStroke(0, Api.CreateNoFill()));
+     * label.SetPosition(2000000, 3000000);
+     * page.AddObject(label);
+     * label.GetContent().GetElement(0).AddText("Begin arrow type: " + (arrow ? arrow.Type : "not set"));
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiStroke/Methods/GetBeginArrow/
      */
     GetBeginArrow(): { Type: LineEndType; Width: LineEndSize; Length: LineEndSize } | null;
@@ -33051,6 +37910,32 @@ declare namespace Pdf {
      * Returns the cap type of the stroke.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the cap type of a shape border in a PDF.
+     *
+     * // Get the cap type to find out how the stroke ends are drawn.
+     *
+     * // Apply a round cap to a line's stroke, then read back its cap type in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(8 * 12700, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let line = Api.CreateShape("line", 50 * 36000, 50 * 36000, fill, stroke);
+     * line.SetPosition(2000000, 1000000);
+     * page.AddObject(line);
+     * let retrievedStroke = line.GetLine();
+     * retrievedStroke.SetCapType("round");
+     * let capType = retrievedStroke.GetCapType();
+     *
+     * let label = Api.CreateShape("rect", 120 * 36000, 30 * 36000, fill, Api.CreateStroke(0, Api.CreateNoFill()));
+     * label.SetPosition(2000000, 3000000);
+     * page.AddObject(label);
+     * label.GetContent().GetElement(0).AddText("Cap type: " + capType);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiStroke/Methods/GetCapType/
      */
@@ -33122,6 +38007,32 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the ending arrow of a line in a PDF.
+     *
+     * // Find out which arrow is applied to the end of a line in a PDF.
+     *
+     * // Apply an ending arrow to a line's stroke, read it back, and label the result in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(36000, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let line = Api.CreateShape("line", 50 * 36000, 50 * 36000, fill, stroke);
+     * line.SetPosition(2000000, 1000000);
+     * page.AddObject(line);
+     * let retrievedStroke = line.GetLine();
+     * retrievedStroke.SetEndArrow("stealth", "medium", "large");
+     * let arrow = retrievedStroke.GetEndArrow();
+     *
+     * let label = Api.CreateShape("rect", 120 * 36000, 30 * 36000, fill, Api.CreateStroke(0, Api.CreateNoFill()));
+     * label.SetPosition(2000000, 3000000);
+     * page.AddObject(label);
+     * label.GetContent().GetElement(0).AddText("End arrow type: " + (arrow ? arrow.Type : "not set"));
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiStroke/Methods/GetEndArrow/
      */
     GetEndArrow(): { Type: LineEndType; Width: LineEndSize; Length: LineEndSize } | null;
@@ -33162,6 +38073,32 @@ declare namespace Pdf {
      * Returns the join type of the stroke.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the join type of a shape border in a PDF.
+     *
+     * // Get the join type to find out how the stroke corners are drawn.
+     *
+     * // Apply a miter join to a rectangle's stroke, then read back its join type in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(8 * 12700, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let shape = Api.CreateShape("rect", 50 * 36000, 50 * 36000, fill, stroke);
+     * shape.SetPosition(2000000, 1000000);
+     * page.AddObject(shape);
+     * let retrievedStroke = shape.GetLine();
+     * retrievedStroke.SetJoinType("miter");
+     * let joinType = retrievedStroke.GetJoinType();
+     *
+     * let label = Api.CreateShape("rect", 120 * 36000, 30 * 36000, fill, Api.CreateStroke(0, Api.CreateNoFill()));
+     * label.SetPosition(2000000, 3000000);
+     * page.AddObject(label);
+     * label.GetContent().GetElement(0).AddText("Join type: " + joinType);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiStroke/Methods/GetJoinType/
      */
@@ -33226,6 +38163,31 @@ declare namespace Pdf {
      * @default length = "medium"
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Add an arrowhead to the start of a line in a PDF.
+     *
+     * // Set the beginning arrow of a line's stroke in a PDF.
+     *
+     * // Create a line, retrieve its stroke, apply a triangle arrow to the start, and label the result in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(36000, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let line = Api.CreateShape("line", 50 * 36000, 50 * 36000, fill, stroke);
+     * line.SetPosition(2000000, 1000000);
+     * page.AddObject(line);
+     * let retrievedStroke = line.GetLine();
+     * let result = retrievedStroke.SetBeginArrow("triangle", "medium", "large");
+     *
+     * let label = Api.CreateShape("rect", 120 * 36000, 30 * 36000, fill, Api.CreateStroke(0, Api.CreateNoFill()));
+     * label.SetPosition(2000000, 3000000);
+     * page.AddObject(label);
+     * label.GetContent().GetElement(0).AddText("Begin arrow set: " + result);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiStroke/Methods/SetBeginArrow/
      */
     SetBeginArrow(type: LineEndType, width?: LineEndSize, length?: LineEndSize): boolean;
@@ -33235,6 +38197,31 @@ declare namespace Pdf {
      *
      * @param type - The cap type of the stroke.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set a square cap for the ends of a shape border in a PDF.
+     *
+     * // Change the cap type to control how the stroke ends are drawn.
+     *
+     * // Create a line, retrieve its stroke, apply the square cap type, and display the result in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(8 * 12700, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let line = Api.CreateShape("line", 50 * 36000, 50 * 36000, fill, stroke);
+     * line.SetPosition(2000000, 1000000);
+     * page.AddObject(line);
+     * let retrievedStroke = line.GetLine();
+     * let result = retrievedStroke.SetCapType("square");
+     *
+     * let label = Api.CreateShape("rect", 120 * 36000, 30 * 36000, fill, Api.CreateStroke(0, Api.CreateNoFill()));
+     * label.SetPosition(2000000, 3000000);
+     * page.AddObject(label);
+     * label.GetContent().GetElement(0).AddText("Cap type set: " + result);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiStroke/Methods/SetCapType/
      */
@@ -33250,6 +38237,31 @@ declare namespace Pdf {
      * @default length = "medium"
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Add an arrowhead to the end of a line in a PDF.
+     *
+     * // Set the ending arrow of a line's stroke in a PDF.
+     *
+     * // Create a line, retrieve its stroke, apply a stealth arrow to the end, and label the result in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(36000, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let line = Api.CreateShape("line", 50 * 36000, 50 * 36000, fill, stroke);
+     * line.SetPosition(2000000, 1000000);
+     * page.AddObject(line);
+     * let retrievedStroke = line.GetLine();
+     * let result = retrievedStroke.SetEndArrow("stealth", "medium", "large");
+     *
+     * let label = Api.CreateShape("rect", 120 * 36000, 30 * 36000, fill, Api.CreateStroke(0, Api.CreateNoFill()));
+     * label.SetPosition(2000000, 3000000);
+     * page.AddObject(label);
+     * label.GetContent().GetElement(0).AddText("End arrow set: " + result);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiStroke/Methods/SetEndArrow/
      */
     SetEndArrow(type: LineEndType, width?: LineEndSize, length?: LineEndSize): boolean;
@@ -33259,6 +38271,31 @@ declare namespace Pdf {
      *
      * @param type - The join type of the stroke.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set a bevel join for the corners of a shape border in a PDF.
+     *
+     * // Change the join type to control how the stroke corners are drawn.
+     *
+     * // Create a rectangle, retrieve its stroke, apply the bevel join type, and display the result in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(8 * 12700, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let shape = Api.CreateShape("rect", 50 * 36000, 50 * 36000, fill, stroke);
+     * shape.SetPosition(2000000, 1000000);
+     * page.AddObject(shape);
+     * let retrievedStroke = shape.GetLine();
+     * let result = retrievedStroke.SetJoinType("bevel");
+     *
+     * let label = Api.CreateShape("rect", 120 * 36000, 30 * 36000, fill, Api.CreateStroke(0, Api.CreateNoFill()));
+     * label.SetPosition(2000000, 3000000);
+     * page.AddObject(label);
+     * label.GetContent().GetElement(0).AddText("Join type set: " + result);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiStroke/Methods/SetJoinType/
      */
@@ -33274,7 +38311,7 @@ declare namespace Pdf {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/
    */
-  export interface ApiTable extends Omit<ApiDrawing, "GetClassType"> {
+  export interface ApiTable extends Omit<ApiDrawing, "Copy" | "GetClassType"> {
     /**
      * Adds a new column to the end of the current table.
      *
@@ -33320,6 +38357,27 @@ declare namespace Pdf {
      * @default isBefore = false
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Add new columns to a table in a PDF.
+     *
+     * // Insert several columns into a table at once in a PDF.
+     *
+     * // Create a table and add two columns after the first cell in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 2);
+     * const cell = table.GetCell(0, 0);
+     * table.AddColumns(cell, 2);
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Two columns added. Total columns: ' + table.GetRow(0).GetCellsCount());
+     * cell.GetContent().Push(paragraph);
+     *
+     * page.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/AddColumns/
      */
     AddColumns(nCount: number): ApiTable;
@@ -33332,6 +38390,25 @@ declare namespace Pdf {
      * @param nPos - The position in the cell where the specified element will be added.
      * @param oElement - The document element which will be added at the current position.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Add a paragraph at a specific position inside a table cell in a PDF.
+     *
+     * // Insert a document element into a specific cell of a table in a PDF.
+     *
+     * // Create a table and add a paragraph as the first element of its first cell in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 2);
+     * page.AddObject(table);
+     * const cell = table.GetCell(0, 0);
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Inserted paragraph');
+     * table.AddElement(cell, 0, paragraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/AddElement/
      */
@@ -33380,10 +38457,58 @@ declare namespace Pdf {
      * @default isBefore = false
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Add new rows to a table in a PDF.
+     *
+     * // Insert several rows into a table at once in a PDF.
+     *
+     * // Create a table and add two rows after the first cell in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 2);
+     * const cell = table.GetCell(0, 0);
+     * table.AddRows(cell, 2);
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Two rows were added. Total rows: ' + table.GetRowsCount());
+     * cell.GetContent().Push(paragraph);
+     *
+     * page.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/AddRows/
      */
     AddRows(nCount: number): ApiTable;
     AddRows(oCell: ApiTableCell, nCount: number, isBefore?: boolean): ApiTable;
+
+    /**
+     * Creates a copy of the current table.
+     *
+     * @since 9.4.0
+     *
+     * @example
+     * ```js
+     * // How do I make a copy of a table in a PDF?
+     *
+     * // Create an exact duplicate of a table and add it to a new page in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 3);
+     * table.SetPosition(608400, 1267200);
+     * page.AddObject(table);
+     *
+     * const copyTable = table.Copy();
+     * const newPage = doc.AddPage(1);
+     * newPage.AddObject(copyTable);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/Copy/
+     */
+    Copy(): ApiTable;
 
     /**
      * Returns a cell by its position.
@@ -33391,6 +38516,26 @@ declare namespace Pdf {
      * @param rowIndex - The row index in the current table.
      * @param cellIndex - The cell index in the specified row.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get a table cell by its row and column index in a PDF.
+     *
+     * // Access a specific cell in a table in a PDF.
+     *
+     * // Create a table and add text to the cell at row 0, column 1 in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 3);
+     * const cell = table.GetCell(0, 1);
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Row 0, Col 1');
+     * cell.GetContent().Push(paragraph);
+     *
+     * page.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/GetCell/
      */
@@ -33430,6 +38575,31 @@ declare namespace Pdf {
      * @param columnIndex - The zero-based column index.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Measure the width of a table column in a PDF.
+     *
+     * // Find out how wide a table column is in a PDF.
+     *
+     * // Read the column width value and display it in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 3);
+     * table.SetColumnWidth(0, Api.MillimetersToEmus(100));
+     * const width = table.GetColumnWidth(0);
+     *
+     * const row = table.GetRow(0);
+     * const cell = row.GetCell(0);
+     * const content = cell.GetContent();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Column 0 width: ' + width + ' EMU');
+     * content.Push(paragraph);
+     *
+     * page.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/GetColumnWidth/
      */
     GetColumnWidth(columnIndex: number): EMU | null;
@@ -33438,6 +38608,28 @@ declare namespace Pdf {
      * Returns a number of columns in the current table.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the number of columns in a table in a PDF.
+     *
+     * // Find out how many columns a table has in a PDF.
+     *
+     * // Create a table, add a column, and display the column count in the first cell in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 2);
+     * const countBefore = table.GetColumnsCount();
+     * table.AddColumn();
+     * const countAfter = table.GetColumnsCount();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Columns before: ' + countBefore + ', after adding: ' + countAfter);
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     *
+     * page.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/GetColumnsCount/
      */
@@ -33579,14 +38771,152 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the number of rows in a table in a PDF.
+     *
+     * // Find out how many rows a table has in a PDF.
+     *
+     * // Create a table, add a row, and display the row count in the first cell in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 2);
+     * const countBefore = table.GetRowsCount();
+     * table.AddRow(null, true);
+     * const countAfter = table.GetRowsCount();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Rows before: ' + countBefore + ', after adding: ' + countAfter);
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     *
+     * page.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/GetRowsCount/
      */
     GetRowsCount(): number;
 
     /**
+     * Returns the selected cells of the current table.
+     *
+     * @returns An array of the currently selected cells (empty if there is no cell selection).
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the selected cells from a table in a PDF.
+     *
+     * // Find out which cells are currently selected in a table in a PDF.
+     *
+     * // Select a cell and read back the list of selected cells in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 3);
+     * table.GetCell(0, 0).Select();
+     * const selectedCells = table.GetSelectedCells();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Selected cells count: ' + selectedCells.length);
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     *
+     * page.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/GetSelectedCells/
+     */
+    GetSelectedCells(): ApiTableCell[];
+
+    /**
+     * Returns all cells from the columns that contain the currently selected cells.
+     * This method identifies which columns contain selected cells and then returns all cells
+     * in those columns, not just the selected cells themselves.
+     *
+     * @returns An array of all cells from the columns that contain selected cells.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the cells from the selected columns of a table in a PDF.
+     *
+     * // Retrieve all cells belonging to the currently selected columns in a table in a PDF.
+     *
+     * // Select a cell and read back the cells of its column in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 4);
+     * table.GetCell(0, 0).Select();
+     * const selectedCells = table.GetSelectedColumnsCells();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Selected column cells count: ' + selectedCells.length);
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     *
+     * page.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/GetSelectedColumnsCells/
+     */
+    GetSelectedColumnsCells(): ApiTableCell[];
+
+    /**
+     * Returns the rows that contain the currently selected cells of the current table.
+     *
+     * @returns An array of the rows that contain selected cells (empty if there is no cell selection).
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the selected rows from a table in a PDF.
+     *
+     * // Retrieve the rows that contain the currently selected cells in a table in a PDF.
+     *
+     * // Select a cell and read back the rows that contain the selection in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(4, 3);
+     * table.GetCell(0, 0).Select();
+     * const selectedRows = table.GetSelectedRows();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Selected rows count: ' + selectedRows.length);
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     *
+     * page.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/GetSelectedRows/
+     */
+    GetSelectedRows(): ApiTableRow[];
+
+    /**
      * Returns the table description.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the description of a table in a PDF.
+     *
+     * // Read back the accessible description of a table in a PDF.
+     *
+     * // Create a table, set its description, and display it in the first cell in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 3);
+     * table.SetTableDescription('Sales data for Q1 2025');
+     * const description = table.GetTableDescription();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Table description: ' + description);
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     *
+     * page.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/GetTableDescription/
      */
@@ -33597,6 +38927,25 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the styling options applied to a table in a PDF.
+     *
+     * // Useful for checking which formatting options apply to a table before changing its style in a PDF.
+     *
+     * // Retrieve the conditional formatting flags of a table in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 4);
+     * table.SetTableLook(true, false, false, false, false, true);
+     * const tableLook = table.GetTableLook();
+     * table.GetRow(0).GetCell(0).AddText("First column: " + tableLook.firstCol + ", vertical banding: " + tableLook.bandVer);
+     *
+     * page.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/GetTableLook/
      */
     GetTableLook(): TableLook;
@@ -33605,6 +38954,27 @@ declare namespace Pdf {
      * Returns the table title.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the title of a table in a PDF.
+     *
+     * // Read back the accessible title of a table in a PDF.
+     *
+     * // Create a table, set its title, and display the title in the first cell in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 3);
+     * table.SetTableTitle('Quarterly Report');
+     * const title = table.GetTableTitle();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Table title: ' + title);
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     *
+     * page.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/GetTableTitle/
      */
@@ -33714,12 +39084,105 @@ declare namespace Pdf {
     RemoveRow(rowCell: ApiTableCell): boolean;
 
     /**
+     * Selects a range of cells in the current table.
+     *
+     * @param startRowIndex - The start row index.
+     * @param startCellIndex - The start cell index within the start row.
+     * @param endRowIndex - The end row index.
+     * @param endCellIndex - The end cell index within the end row.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Select a range of cells in a table in a PDF.
+     *
+     * // Select several adjacent cells in a table at once in a PDF.
+     *
+     * // Create a table and select a 2x2 block of cells starting from the top-left corner.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 3);
+     * page.AddObject(table);
+     *
+     * table.SelectRange(0, 0, 1, 1);
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Selected cells: ' + table.GetSelectedCells().length);
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/SelectRange/
+     */
+    SelectRange(startRowIndex: number, startCellIndex: number, endRowIndex: number, endCellIndex: number): boolean;
+
+    /**
+     * Sets the background color for all cells in the current table.
+     *
+     * @param color - If not passed, the background color will be cleared.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the background color for all cells in a table in a PDF.
+     *
+     * // Apply one background color to an entire table in a PDF.
+     *
+     * // Create a table and apply an orange background color to all cells in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 3);
+     * const color = Api.RGB(255, 111, 61);
+     * table.SetBackgroundColor(color);
+     *
+     * page.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/SetBackgroundColor/
+     */
+    SetBackgroundColor(color?: ApiColor): boolean;
+
+    /**
      * Sets the width of the specified column in the current table.
      *
      * @param columnIndex - The zero-based column index.
      * @param width - The column width measured in English measure units.
      * @returns Returns the actual column width set (in EMU), or null if the column index is invalid.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the width of table columns in a PDF.
+     *
+     * // Make one table column wider or narrower than the others in a PDF.
+     *
+     * // Create a table and set custom widths for specific columns in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 3);
+     * const widthCol1 = table.SetColumnWidth(1, Api.MillimetersToEmus(50));
+     * const widthCol2 = table.SetColumnWidth(2, 0);
+     *
+     * page.AddObject(table);
+     *
+     * const row0 = table.GetRow(0);
+     * const cell0 = row0.GetCell(0);
+     * const content0 = cell0.GetContent();
+     * const paragraph1 = Api.CreateParagraph();
+     * paragraph1.AddText('Middle column width: ' + Api.EmusToMillimeters(widthCol1) + ' mm');
+     * content0.Push(paragraph1);
+     *
+     * const row1 = table.GetRow(1);
+     * const cell1 = row1.GetCell(0);
+     * const content1 = cell1.GetContent();
+     * const paragraph2 = Api.CreateParagraph();
+     * paragraph2.AddText('Right column width (set to 0): ' + Api.EmusToMillimeters(widthCol2) + ' mm');
+     * content1.Push(paragraph2);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/SetColumnWidth/
      */
@@ -33733,6 +39196,22 @@ declare namespace Pdf {
      * @param nValue - The table height in English measure units.
      * @returns Returns the requested height (in EMU), or null if the table has no rows.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the total height of a table in a PDF.
+     *
+     * // Make a table a specific overall height in a PDF.
+     *
+     * // Distribute the requested height proportionally among the table rows in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 3);
+     * page.AddObject(table);
+     * table.SetHeight(Api.MillimetersToEmus(80));
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/SetHeight/
      */
@@ -33906,6 +39385,24 @@ declare namespace Pdf {
      * @param oStyle - The table style to apply.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Apply a named table style from the document to the current table in a PDF.
+     *
+     * // Look up a built-in table style by name and apply it in a PDF.
+     *
+     * // Create a table, retrieve an available style by name, and apply it in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 3);
+     * page.AddObject(table);
+     * const style = doc.GetStyle('Medium Style 2 - Accent 2');
+     * table.SetStyle(style);
+     * table.GetCell(0, 0).AddText('Set style for table: ' + style.GetName());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/SetStyle/
      */
     SetStyle(oStyle: ApiStyle): boolean;
@@ -33915,6 +39412,26 @@ declare namespace Pdf {
      *
      * @param descr - The table description to be set.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the description of a table in a PDF.
+     *
+     * // Give a table an accessible description in a PDF.
+     *
+     * // Create a table, set its description, and display it in the first cell in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 3);
+     * table.SetTableDescription('Sales data for Q1 2025');
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Table description: ' + table.GetTableDescription());
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     *
+     * page.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/SetTableDescription/
      */
@@ -33964,6 +39481,26 @@ declare namespace Pdf {
      * @param title - The table title to be set.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the title of a table in a PDF.
+     *
+     * // Give a table an accessible title in a PDF.
+     *
+     * // Create a table, set its title, and display the title in the first cell in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 3);
+     * table.SetTableTitle('Quarterly Report');
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Table title: ' + table.GetTableTitle());
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     *
+     * page.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/SetTableTitle/
      */
     SetTableTitle(title: string): boolean;
@@ -33975,6 +39512,78 @@ declare namespace Pdf {
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/
    */
   export interface ApiTableCell {
+    /**
+     * Adds the new columns to the current table.
+     *
+     * @param nCount - Count of columns to be added.
+     * @param isBefore - Specifies if the new columns will be added before or after the current cell.
+     * @default isBefore = false
+     * @returns returns null if parent table doesn't exist.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Add new columns to a table via one of its cells in a PDF.
+     *
+     * // Insert columns right after a specific cell in a PDF table.
+     *
+     * // Add two columns after the first cell in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 3);
+     * const cell = table.GetRow(0).GetCell(0);
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Two new columns added after this cell.');
+     * cell.GetContent().Push(paragraph);
+     * const paragraph2 = Api.CreateParagraph();
+     * paragraph2.AddText('Second cell.');
+     * const lastCell = table.GetRow(0).GetCell(1);
+     * lastCell.GetContent().Push(paragraph2);
+     * cell.AddColumns(2, false);
+     *
+     * page.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/Methods/AddColumns/
+     */
+    AddColumns(nCount: number, isBefore?: boolean): ApiTable | null;
+
+    /**
+     * Adds the new rows to the current table.
+     *
+     * @param nCount - Count of rows to be added.
+     * @param isBefore - Specifies if the new rows will be added before or after the current cell.
+     * @default isBefore = false
+     * @returns returns null if parent table doesn't exist.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Add new rows to a table via one of its cells in a PDF.
+     *
+     * // Insert rows right after a specific cell in a PDF table.
+     *
+     * // Add two rows after the first cell in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 3);
+     * const cell = table.GetRow(0).GetCell(0);
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Two new rows added after this cell.');
+     * cell.GetContent().Push(paragraph);
+     * cell.AddRows(2, false);
+     *
+     * page.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/Methods/AddRows/
+     */
+    AddRows(nCount: number, isBefore?: boolean): ApiTable | null;
+
     /**
      * Appends text to the end of the cell content.
      *
@@ -34002,9 +39611,65 @@ declare namespace Pdf {
     AddText(text: string): ApiRun;
 
     /**
+     * Clears the content from the current cell.
+     *
+     * @returns returns false if parent row is invalid.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Clear the content of a table cell in a PDF.
+     *
+     * // Remove all content from a single table cell in a PDF.
+     *
+     * // Add text to a cell and then clear it in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 3);
+     * const cell = table.GetRow(0).GetCell(0);
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('This text will be cleared.');
+     * const paragraph2 = Api.CreateParagraph();
+     * paragraph2.AddText('First cell was cleared.');
+     * cell.GetContent().Push(paragraph);
+     * cell.Clear();
+     * table.GetRow(1).GetCell(0).GetContent().Push(paragraph2);
+     *
+     * page.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/Methods/Clear/
+     */
+    Clear(): boolean;
+
+    /**
      * Returns the background color of the current table cell.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the background color of a table cell in a PDF.
+     *
+     * // Read back the background color applied to a table cell in a PDF.
+     *
+     * // Set a background color and read it back in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 3);
+     * const cell = table.GetRow(0).GetCell(0);
+     * cell.SetBackgroundColor(Api.RGB(255, 111, 61));
+     * const color = cell.GetBackgroundColor();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Background color: ' + (color ? color.GetHex() : 'none'));
+     * cell.GetContent().Push(paragraph);
+     *
+     * page.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/Methods/GetBackgroundColor/
      */
@@ -34066,10 +39731,99 @@ declare namespace Pdf {
     GetContent(): ApiDocumentContent;
 
     /**
+     * Returns the current cell index.
+     *
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the column index of a table cell in a PDF.
+     *
+     * // Find out the position of a cell within its row in a PDF.
+     *
+     * // Retrieve the cell index and display it in the cell in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 3);
+     * const cell = table.GetRow(0).GetCell(1);
+     * const content = cell.GetContent();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Cell index: ' + cell.GetIndex());
+     * content.Push(paragraph);
+     *
+     * page.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/Methods/GetIndex/
+     */
+    GetIndex(): number;
+
+    /**
+     * Returns an internal ID of the current table cell.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
+     *
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the internal identifier of a table cell in a PDF.
+     *
+     * // Identify a specific table cell by the ID that the editor assigns to it in a PDF.
+     *
+     * // Display the internal ID of the first table cell, which stays valid only while the PDF is open.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 4);
+     * const row = table.GetRow(0);
+     * const cell = row.GetCell(0);
+     * const content = cell.GetContent();
+     * const paragraph = Api.CreateParagraph();
+     * const internalId = cell.GetInternalId();
+     * paragraph.AddText("Cell internal ID: " + internalId);
+     * content.Push(paragraph);
+     *
+     * page.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/Methods/GetInternalId/
+     */
+    GetInternalId(): string;
+
+    /**
      * Returns the next cell if exists.
      *
      * @returns returns null if cell is last.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the next cell in a table row in a PDF.
+     *
+     * // Access the cell that follows the current one in a row in a PDF.
+     *
+     * // Add text to the first cell and to the next one in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 3);
+     * const cell = table.GetRow(0).GetCell(0);
+     * const para = Api.CreateParagraph();
+     * para.AddText('Cell 1');
+     * cell.GetContent().Push(para);
+     * const nextCell = cell.GetNext();
+     * const para2 = Api.CreateParagraph();
+     * para2.AddText('Cell 2');
+     * nextCell.GetContent().Push(para2);
+     *
+     * page.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/Methods/GetNext/
      */
@@ -34081,6 +39835,28 @@ declare namespace Pdf {
      * @returns returns null if parent row doesn't exist.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the parent row of a table cell in a PDF.
+     *
+     * // Access the row that contains a given cell in a PDF.
+     *
+     * // Get the parent row and set its height in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 3);
+     * const cell = table.GetRow(0).GetCell(0);
+     * const para = Api.CreateParagraph();
+     * para.AddText('Cell 1');
+     * cell.GetContent().Push(para);
+     * const parentRow = cell.GetParentRow();
+     * parentRow.SetHeight(50 * 36000);
+     *
+     * page.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/Methods/GetParentRow/
      */
     GetParentRow(): ApiTableRow | null;
@@ -34090,6 +39866,25 @@ declare namespace Pdf {
      *
      * @returns returns null if parent table doesn't exist.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the parent table of a table cell in a PDF.
+     *
+     * // Access the table that contains a given cell in a PDF.
+     *
+     * // Get the parent table and change its background color in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 3);
+     * const cell = table.GetRow(0).GetCell(0);
+     * const parentTable = cell.GetParentTable();
+     * parentTable.SetBackgroundColor(Api.RGB(51, 133, 255));
+     *
+     * page.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/Methods/GetParentTable/
      */
@@ -34101,6 +39896,30 @@ declare namespace Pdf {
      * @returns returns null is cell is first.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the previous cell in a table row in a PDF.
+     *
+     * // Access the cell that precedes the current one in a row in a PDF.
+     *
+     * // Add text to the second cell and to the previous one in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 3);
+     * const cell = table.GetRow(0).GetCell(1);
+     * const para = Api.CreateParagraph();
+     * para.AddText('Cell 2');
+     * cell.GetContent().Push(para);
+     * const prevCell = cell.GetPrevious();
+     * const para2 = Api.CreateParagraph();
+     * para2.AddText('Cell 1');
+     * prevCell.GetContent().Push(para2);
+     *
+     * page.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/Methods/GetPrevious/
      */
     GetPrevious(): ApiTableCell | null;
@@ -34109,6 +39928,27 @@ declare namespace Pdf {
      * Returns an index of the parent row.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the row index of a table cell in a PDF.
+     *
+     * // Find out which row a table cell belongs to in a PDF.
+     *
+     * // Retrieve the row index and display it in the cell in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 3);
+     * const cell = table.GetRow(1).GetCell(0);
+     * const content = cell.GetContent();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Row index: ' + cell.GetRowIndex());
+     * content.Push(paragraph);
+     *
+     * page.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/Methods/GetRowIndex/
      */
@@ -34163,13 +40003,121 @@ declare namespace Pdf {
     GetText(pr?: { Numbering?: boolean; Math?: boolean; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string; NewLineSeparator?: string }): string;
 
     /**
+     * Removes a column containing the current cell.
+     *
+     * @returns returns false if table doesn't exist.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Remove the column containing a cell in a PDF.
+     *
+     * // Delete a table column by referencing one of its cells in a PDF.
+     *
+     * // Get the first cell and remove its entire column in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 3);
+     * const cell = table.GetRow(0).GetCell(0);
+     * const para = Api.CreateParagraph();
+     * para.AddText('This column will be removed.');
+     * cell.GetContent().Push(para);
+     * cell.RemoveColumn();
+     *
+     * page.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/Methods/RemoveColumn/
+     */
+    RemoveColumn(): boolean;
+
+    /**
+     * Removes a row containing the current cell.
+     *
+     * @returns Is the table empty after removing.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Remove the row containing a cell in a PDF.
+     *
+     * // Delete a table row by referencing one of its cells in a PDF.
+     *
+     * // Get the first cell and remove its entire row in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 3);
+     * const cell = table.GetRow(0).GetCell(0);
+     * const para = Api.CreateParagraph();
+     * para.AddText('This row will be removed.');
+     * cell.GetContent().Push(para);
+     * cell.RemoveRow();
+     *
+     * page.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/Methods/RemoveRow/
+     */
+    RemoveRow(): boolean;
+
+    /**
      * Selects the current table cell.
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Select a table cell in a PDF to make it the current selection.
+     *
+     * // Programmatically select a single cell inside a table in a PDF.
+     *
+     * // Create a table, select one of its cells, then change its background color.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 3);
+     * page.AddObject(table);
+     * const cell = table.GetRow(1).GetCell(1);
+     * cell.Select();
+     * cell.SetBackgroundColor(Api.RGB(0, 122, 204));
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/Methods/Select/
      */
     Select(): boolean;
+
+    /**
+     * Sets the background color of the current cell.
+     *
+     * @param color - If not passed, the background color will be cleared.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the background color of a table cell in a PDF.
+     *
+     * // Color the background of a single table cell in a PDF.
+     *
+     * // Set an orange background for the first cell in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 3);
+     * const cell = table.GetRow(0).GetCell(0);
+     * cell.SetBackgroundColor(Api.RGB(255, 111, 61));
+     *
+     * page.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/Methods/SetBackgroundColor/
+     */
+    SetBackgroundColor(color?: ApiColor): boolean;
 
     /**
      * Sets the border which shall be displayed at the bottom of the current table cell.
@@ -34421,6 +40369,24 @@ declare namespace Pdf {
      * @param color - If not passed, the background color will be cleared.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the background color for an entire table column in a PDF.
+     *
+     * // Color the background of a whole column via one of its cells in a PDF.
+     *
+     * // Set an orange background for the entire first column in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 4);
+     * const cell = table.GetRow(0).GetCell(0);
+     * cell.SetColumnBackgroundColor(Api.RGB(255, 111, 61));
+     *
+     * page.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/Methods/SetColumnBackgroundColor/
      */
     SetColumnBackgroundColor(color?: ApiColor): boolean;
@@ -34513,6 +40479,37 @@ declare namespace Pdf {
     SetTextDirection(textDirection: TextFlowDirection): boolean;
 
     /**
+     * Sets the text properties to the content of the current cell.
+     *
+     * @param oTextPr - The text properties that will be set to the current cell.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Apply uniform text formatting to all content inside a table cell in a PDF.
+     *
+     * // Change the font style and size of all text in a table cell at once in a PDF.
+     *
+     * // Style every character in a table cell by setting shared text properties in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 3);
+     * table.GetCell(0, 0).GetContent().AddText('Cell 1');
+     * page.AddObject(table);
+     *
+     * const textPr = Api.CreateTextPr();
+     * textPr.SetFontSize(30);
+     * textPr.SetBold(true);
+     * table.GetCell(0, 0).SetTextPr(textPr);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/Methods/SetTextPr/
+     */
+    SetTextPr(oTextPr: ApiTextPr): boolean;
+
+    /**
      * Specifies the vertical alignment for text within the current table cell.
      *
      * @param verticalAlign - The vertical alignment type.
@@ -34550,17 +40547,28 @@ declare namespace Pdf {
      * @param nValue - The table width value measured in positive integers.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set a preferred width on individual table cells in a PDF.
+     *
+     * // Give specific cells a fixed width in a PDF table.
+     *
+     * // Create a table and set the first column cells width in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 3);
+     * for (let r = 0; r < 3; r++) {
+     * 	table.GetRow(r).GetCell(0).SetWidth('twips', 5660);
+     * }
+     *
+     * page.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableCell/Methods/SetWidth/
      */
     SetWidth(sType: TableWidth, nValue?: number): boolean;
-  }
-
-  /** Class representing the table cell properties. */
-  export interface ApiTableCellPr {
-  }
-
-  /** Class representing the table properties. */
-  export interface ApiTablePr {
   }
 
   /**
@@ -34568,7 +40576,75 @@ declare namespace Pdf {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableRow/
    */
-  export interface ApiTableRow extends ApiTableRowPr {
+  export interface ApiTableRow extends Omit<ApiTableRowPr, "GetClassType" | "SetHeight"> {
+    /**
+     * Adds the new rows to the current table.
+     *
+     * @param nCount - Count of rows to be added.
+     * @param isBefore - Specifies if the rows will be added before or after the current row.
+     * @default isBefore = false
+     * @returns returns null if parent table doesn't exist.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Add new rows to a table starting from a row in a PDF.
+     *
+     * // Insert rows right after a specific row in a table in a PDF.
+     *
+     * // Insert two new rows after the first row in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 3);
+     * const row = table.GetRow(0);
+     * const para = Api.CreateParagraph();
+     * para.AddText('First row');
+     * row.GetCell(0).GetContent().Push(para);
+     * row.AddRows(2, false);
+     *
+     * page.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableRow/Methods/AddRows/
+     */
+    AddRows(nCount: number, isBefore?: boolean): ApiTable | null;
+
+    /**
+     * Clears the content from the current row.
+     *
+     * @returns returns false if parent table doesn't exist.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Clear the content of a table row in a PDF.
+     *
+     * // Remove all content from a row while keeping the row itself in a PDF.
+     *
+     * // Add text to the first row and then clear it in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 3);
+     * const row = table.GetRow(0);
+     * const para = Api.CreateParagraph();
+     * para.AddText('This text will be cleared');
+     * row.GetCell(0).GetContent().Push(para);
+     * row.Clear();
+     * const para2 = Api.CreateParagraph();
+     * para2.AddText('First row was cleared');
+     * table.GetRow(1).GetCell(0).GetContent().Push(para2);
+     *
+     * page.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableRow/Methods/Clear/
+     */
+    Clear(): boolean;
+
     /**
      * Returns a cell by its position in the current row.
      *
@@ -34659,15 +40735,124 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the height of a table row in a PDF.
+     *
+     * // Useful for checking row dimensions before resizing a table in a PDF.
+     *
+     * // Retrieve the current row height measurement in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 4);
+     * page.AddObject(table);
+     *
+     * const row = table.GetRow(0);
+     * row.SetHeight(30 * 36000);
+     * const rowHeight = row.GetHeight();
+     * row.GetCell(0).AddText("Row height: " + rowHeight);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableRow/Methods/GetHeight/
      */
     GetHeight(): EMU;
+
+    /**
+     * Returns the current row index.
+     *
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the index of a table row in a PDF.
+     *
+     * // Find out the position of a row within a table in a PDF.
+     *
+     * // Get the index of the second row and display it in the first cell in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 3);
+     * const row = table.GetRow(1);
+     * const cell = row.GetCell(0);
+     * const content = cell.GetContent();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Row index: ' + row.GetIndex());
+     * content.Push(paragraph);
+     *
+     * page.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableRow/Methods/GetIndex/
+     */
+    GetIndex(): number;
+
+    /**
+     * Returns an internal ID of the current table row.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
+     *
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the internal identifier of a table row in a PDF.
+     *
+     * // Identify a specific table row by the ID that the editor assigns to it in a PDF.
+     *
+     * // Display the internal ID of the first table row, which stays valid only while the PDF is open.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 4);
+     * const row = table.GetRow(0);
+     * const cell = row.GetCell(0);
+     * const content = cell.GetContent();
+     * const paragraph = Api.CreateParagraph();
+     * const internalId = row.GetInternalId();
+     * paragraph.AddText("Row internal ID: " + internalId);
+     * content.Push(paragraph);
+     *
+     * page.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableRow/Methods/GetInternalId/
+     */
+    GetInternalId(): string;
 
     /**
      * Returns the next row if exists.
      *
      * @returns returns null if row is last.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the next row of a table in a PDF.
+     *
+     * // Access the row that follows the current one in a table in a PDF.
+     *
+     * // Display text in the first and second rows using GetNext in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 3);
+     * const firstRow = table.GetRow(0);
+     * const para = Api.CreateParagraph();
+     * para.AddText('First row');
+     * const para2 = Api.CreateParagraph();
+     * para2.AddText('Second row');
+     * firstRow.GetCell(0).GetContent().Push(para);
+     * firstRow.GetNext().GetCell(0).GetContent().Push(para2);
+     *
+     * page.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableRow/Methods/GetNext/
      */
@@ -34679,6 +40864,25 @@ declare namespace Pdf {
      * @returns returns null if parent table doesn't exist.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the parent table of a row in a PDF.
+     *
+     * // Access the table that contains a given row in a PDF.
+     *
+     * // Get the parent table from a row and change its background color in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 3);
+     * const row = table.GetRow(0);
+     * const parentTable = row.GetParentTable();
+     * parentTable.SetBackgroundColor(Api.RGB(51, 133, 255));
+     *
+     * page.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableRow/Methods/GetParentTable/
      */
     GetParentTable(): ApiTable | null;
@@ -34689,9 +40893,125 @@ declare namespace Pdf {
      * @returns returns null if row is first.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the previous row of a table in a PDF.
+     *
+     * // Access the row that precedes the current one in a table in a PDF.
+     *
+     * // Display text in the second and first rows using GetPrevious in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 3);
+     * const secondRow = table.GetRow(1);
+     * const para = Api.CreateParagraph();
+     * para.AddText('First row');
+     * const para2 = Api.CreateParagraph();
+     * para2.AddText('Second row');
+     * secondRow.GetCell(0).GetContent().Push(para2);
+     * secondRow.GetPrevious().GetCell(0).GetContent().Push(para);
+     *
+     * page.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableRow/Methods/GetPrevious/
      */
     GetPrevious(): ApiTableRow | null;
+
+    /**
+     * Merges the cells in the current row.
+     *
+     * @returns return null if can't merge.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Merge all cells in a table row in a PDF.
+     *
+     * // Combine all the cells of one row into a single cell in a PDF.
+     *
+     * // Merge all cells of the first row in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 3);
+     * const row = table.GetRow(0);
+     * const para = Api.CreateParagraph();
+     * para.AddText('Merged row');
+     * row.MergeCells();
+     * row.GetCell(0).GetContent().Push(para);
+     *
+     * page.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableRow/Methods/MergeCells/
+     */
+    MergeCells(): ApiTableCell | null;
+
+    /**
+     * Removes the current table row.
+     *
+     * @returns return false if parent table doesn't exist.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Remove a table row in a PDF.
+     *
+     * // Delete a row from a table in a PDF.
+     *
+     * // Remove the first row from the table in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 3);
+     * const row = table.GetRow(0);
+     * const para = Api.CreateParagraph();
+     * para.AddText('First row');
+     * const para2 = Api.CreateParagraph();
+     * para2.AddText('First row was removed');
+     * row.GetCell(0).GetContent().Push(para);
+     * row.Remove();
+     * table.GetRow(0).GetCell(0).GetContent().Push(para2);
+     *
+     * page.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableRow/Methods/Remove/
+     */
+    Remove(): boolean;
+
+    /**
+     * Sets the background color to all cells in the current table row.
+     *
+     * @param color - If not passed, the background color will be cleared.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the background color for all cells in a table row in a PDF.
+     *
+     * // Color the background of an entire table row in a PDF.
+     *
+     * // Set an orange background for the second row in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 3);
+     * const row = table.GetRow(1);
+     * row.SetBackgroundColor(Api.RGB(255, 111, 61));
+     *
+     * page.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableRow/Methods/SetBackgroundColor/
+     */
+    SetBackgroundColor(color?: ApiColor): boolean;
 
     /**
      * Sets the height to the current table row.
@@ -34717,18 +41037,169 @@ declare namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableRow/Methods/SetHeight/
      */
     SetHeight(height: EMU): boolean;
-  }
 
-  /** Class representing the table row properties. */
-  export interface ApiTableRowPr {
+    /**
+     * Sets the properties to the current table row.
+     *
+     * @param oApiTableRowPr - The table row properties.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the properties for a table row in a PDF.
+     *
+     * // Apply a set of row properties to a table row at once in a PDF.
+     *
+     * // Set the height of the first row using row properties in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 3);
+     * const row = table.GetRow(0);
+     * const rowPr = Api.CreateTableRowPr();
+     * rowPr.SetHeight('atLeast', 720 * 3);
+     * row.SetRowPr(rowPr);
+     *
+     * page.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableRow/Methods/SetRowPr/
+     */
+    SetRowPr(oApiTableRowPr: ApiTableRowPr): boolean;
+
+    /**
+     * Sets the text properties to the current row.
+     *
+     * @param oTextPr - The text properties that will be set to the current row.
+     * @returns returns false if parent table doesn't exist or param is invalid.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Apply text formatting to all cells in a table row in a PDF.
+     *
+     * // Change the text style for an entire row of a table in a PDF.
+     *
+     * // Style the text across a full table row uniformly in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 3);
+     * const row = table.GetRow(0);
+     * row.GetCell(0).GetContent().AddText('First row');
+     * const textPr = Api.CreateTextPr();
+     * textPr.SetBold(true);
+     * row.SetTextPr(textPr);
+     *
+     * page.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableRow/Methods/SetTextPr/
+     */
+    SetTextPr(oTextPr: ApiTextPr): boolean;
   }
 
   /**
-   * Class representing a set of formatting properties which shall be conditionally applied to the parts
-   * of a table
-   * which match the requirement specified on the `Type`.
+   * Class representing the table row properties.
+   *
+   * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableRowPr/
    */
-  export interface ApiTableStylePr {
+  export interface ApiTableRowPr {
+    /**
+     * Returns a type of the ApiTableRowPr class.
+     *
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the class type of a table row properties object in a PDF.
+     *
+     * // Check that an object is a table row properties object in a PDF.
+     *
+     * // Create empty row properties and display their class type in a table cell in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(2, 3);
+     * const rowPr = Api.CreateTableRowPr();
+     * const classType = rowPr.GetClassType();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Class type: ' + classType);
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     *
+     * page.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableRowPr/Methods/GetClassType/
+     */
+    GetClassType(): "tableRowPr";
+
+    /**
+     * Sets the height to the current table row within the current table.
+     *
+     * @param sHRule - The rule to apply the height value to the current table row or ignore it.
+     * @param nValue - The height for the current table row measured in twentieths of a point (1/1440 of an inch).
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set a minimum row height in a PDF table using row properties.
+     *
+     * // Apply the same minimum row height to every row of a table in a PDF.
+     *
+     * // Create a table, build row properties with a fixed minimum height, and apply them to each row in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 3);
+     * for (let i = 0; i < 3; i++) {
+     * 	const rowPr = Api.CreateTableRowPr();
+     * 	rowPr.SetHeight('atLeast', 1500);
+     * 	table.GetRow(i).SetRowPr(rowPr);
+     * }
+     *
+     * page.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableRowPr/Methods/SetHeight/
+     */
+    SetHeight(sHRule: "auto" | "atLeast", nValue?: twips): boolean;
+
+    /**
+     * Specifies that the current table row will be repeated at the top of each new page wherever this
+     * table is displayed.
+     *
+     * @param isHeader - The true value means that the current table row will be repeated at the top of each new page.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Mark the first row as a repeated table header in a PDF.
+     *
+     * // Make a table row repeat as a header row in a PDF.
+     *
+     * // Mark the first row as a header that repeats on each page in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const table = Api.CreateTable(3, 5);
+     * const headerRow = table.GetRow(0);
+     * const para = Api.CreateParagraph();
+     * para.AddText('Header row');
+     * headerRow.SetTableHeader(false);
+     * headerRow.GetCell(0).GetContent().Push(para);
+     *
+     * page.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableRowPr/Methods/SetTableHeader/
+     */
+    SetTableHeader(isHeader: boolean): boolean;
   }
 
   /**
@@ -34739,6 +41210,11 @@ declare namespace Pdf {
   export interface ApiTextAnnotation extends ApiBaseAnnotation {
     /**
      * Adds reply on this annot.
+     *
+     * **Note:**
+     * If this annotation is itself a reply, the new reply is added to the thread of its root annotation
+     * (the reply then refers to the root and is listed by the root's
+     * {@link ApiBaseAnnotation#GetReplies}).
      *
      * @param textAnnot - The text annotation to use as a reply.
      *
@@ -35092,6 +41568,8 @@ declare namespace Pdf {
     /**
      * Gets annotation opacity.
      *
+     * @returns The opacity from 0 (transparent) to 100 (opaque).
+     *
      * @example
      * ```js
      * // How transparent is an annotation in a PDF?
@@ -35107,7 +41585,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetOpacity/
      */
-    GetOpacity(): string;
+    GetOpacity(): percentage;
 
     /**
      * Gets annotation position.
@@ -35318,6 +41796,10 @@ declare namespace Pdf {
 
     /**
      * Sets annotation border style.
+     *
+     * **Note:**
+     * If the `"dashed"` style is set and the annotation has no dash pattern yet,
+     * the default pattern `[2, 2]` is applied. Use {@link ApiBaseAnnotation#SetDashPattern} to change it.
      *
      * @param borderStyle - The border style: `"solid"` or `"dashed"`.
      *
@@ -35801,6 +42283,26 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the formatted value of a text input field in a PDF.
+     *
+     * // Useful for retrieving a currency value as it appears in a PDF text field.
+     *
+     * // Read the displayed value of a formatted text field in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * let resultField = Api.CreateTextField([10, 40, 160, 60]);
+     * page.AddObject(textField);
+     * page.AddObject(resultField);
+     *
+     * textField.SetNumberFormat(0, "us", "black-minus", "$", true);
+     * textField.SetValue('-1000.50');
+     * resultField.SetValue(textField.GetFormattedValue());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/GetFormattedValue/
      */
     GetFormattedValue(): string;
@@ -35863,6 +42365,23 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Retrieve the placeholder text from a text field in a PDF.
+     *
+     * // Useful for reading the hint text in a text field in a PDF.
+     *
+     * // Access the placeholder message displayed in a text input field in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * page.AddObject(textField);
+     *
+     * textField.SetPlaceholder("Your text here");
+     * textField.SetValue('Text field placeholder is: "' + textField.GetPlaceholder() + '"');
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/GetPlaceholder/
      */
     GetPlaceholder(): string;
@@ -35872,9 +42391,26 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Retrieve the validation pattern from a text field in a PDF.
+     *
+     * // Useful for accessing the validation pattern from a text field in a PDF.
+     *
+     * // Display what text pattern is required for a text field in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * page.AddObject(textField);
+     *
+     * textField.SetRegularExp("\\S+@\\S+\\.\\S+");
+     * textField.SetValue('Text field reg exp is: "' + textField.GetRegularExp() + '"');
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/GetRegularExp/
      */
-    GetRegularExp(): boolean;
+    GetRegularExp(): string | null;
 
     /**
      * Gets field tooltip
@@ -35884,7 +42420,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/GetTooltip/
      */
-    GetTooltip(): boolean;
+    GetTooltip(): string | null;
 
     /**
      * Gets field value
@@ -36204,6 +42740,9 @@ declare namespace Pdf {
     /**
      * Sets new field partial name.
      *
+     * **Note:**
+     * The name parameter must not contain a dot.
+     *
      * @param name - The new partial name for the field.
      *
      * @example
@@ -36253,12 +42792,28 @@ declare namespace Pdf {
     /**
      * Sets text field placeholder.
      *
-     * @param sPlaceholder - field placeholder
+     * @param sText - field placeholder
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Add a hint text that appears before you type in a text field in a PDF.
+     *
+     * // Useful for adding a hint text to an empty text field in a PDF.
+     *
+     * // Configure what example text shows when a text field is empty in a PDF.
+     *
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let textField = Api.CreateTextField([10, 10, 160, 30]);
+     * page.AddObject(textField);
+     *
+     * textField.SetPlaceholder("Your text here");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/SetPlaceholder/
      */
-    SetPlaceholder(sPlaceholder: string): boolean;
+    SetPlaceholder(sText: string): boolean;
 
     /**
      * Sets field read only
@@ -36687,6 +43242,8 @@ declare namespace Pdf {
      *
      * The method automatically calculates the font from the theme if the font was set via the theme.
      *
+     * @param fontSlot - The font slot. If this parameter is not specified, the "ascii" value is used.
+     * @default fontSlot = "ascii"
      * @since 8.1.0
      *
      * @example
@@ -36723,7 +43280,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetFontFamily/
      */
-    GetFontFamily(): string | null;
+    GetFontFamily(fontSlot?: "ascii" | "eastAsia" | "hAnsi" | "cs"): string | null;
 
     /**
      * Gets the font size from the current text properties.
@@ -36844,6 +43401,15 @@ declare namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetItalic/
      */
     GetItalic(): boolean | null;
+
+    /**
+     * Gets the language from the current text properties.
+     *
+     * @since 8.1.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/GetLanguage/
+     */
+    GetLanguage(): string | null;
 
     /**
      * Gets the text outline from the current text properties.
@@ -37164,6 +43730,45 @@ declare namespace Pdf {
     SetCaps(isCaps: boolean): ApiTextPr;
 
     /**
+     * Sets the text color to the current text run.
+     *
+     * @param color - The text color. Pass _null_ to remove the text color.
+     * @returns this text properties.
+     * @since 9.1.0
+     *
+     * @example
+     * ```js
+     * // Set the font color through the text properties of a run in a PDF.
+     *
+     * // How do I change the text color with text properties in a PDF?
+     *
+     * // Get the text properties of a run and apply a dark blue color to its characters in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("flowChartMagneticTape", 150 * 36000, 65 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * const run = Api.CreateRun();
+     * const textPr = run.GetTextPr();
+     * textPr.SetFontSize(50);
+     * textPr.SetColor(Api.RGB(31, 56, 100));
+     * paragraph.SetJc("left");
+     * run.AddText("This is a sample text inside the shape with the font color set to dark blue using the text properties.");
+     * paragraph.AddElement(run);
+     * page.AddObject(shape);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/SetColor/
+     */
+    SetColor(color: ApiColor | null): ApiTextPr;
+
+    /**
      * Specifies that the contents of the run are displayed with two horizontal lines through each
      * character displayed on the line.
      *
@@ -37381,6 +43986,47 @@ declare namespace Pdf {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/SetItalic/
      */
     SetItalic(isItalic: boolean): ApiTextPr;
+
+    /**
+     * Specifies the languages which will be used to check spelling and grammar (if requested) when
+     * processing
+     * the contents of the text run.
+     *
+     * @param langId - The possible value for this parameter is a language identifier as defined by RFC 4646/BCP 47.
+     *   Example: "en-CA". Pass _null_ to remove the language.
+     * @returns this text properties.
+     *
+     * @example
+     * ```js
+     * // Set the spell-check language through the text properties of a run in a PDF.
+     *
+     * // How do I choose the proofing language with text properties in a PDF?
+     *
+     * // Get the text properties of a run and assign a language code so the text is checked against the matching dictionary in a PDF.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("flowChartMagneticTape", 150 * 36000, 65 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * const run = Api.CreateRun();
+     * const textPr = run.GetTextPr();
+     * textPr.SetFontSize(50);
+     * textPr.SetLanguage("en-CA");
+     * paragraph.SetJc("left");
+     * run.AddText("This is a sample text.");
+     * paragraph.AddElement(run);
+     * page.AddObject(shape);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextPr/Methods/SetLanguage/
+     */
+    SetLanguage(langId: string | null): ApiTextPr;
 
     /**
      * Sets the text outline to the current text run.
@@ -37675,6 +44321,33 @@ declare namespace Pdf {
      * @returns returns null if the range spans more than one paragraph or the link is invalid.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Turn a fragment of text into a hyperlink in a shape on a PDF page.
+     *
+     * // The range must stay within a single paragraph, otherwise no hyperlink is added.
+     *
+     * // Turn the word "here" into a link to the ONLYOFFICE website.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Click here to learn more");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * const link = range.GetRange(6, 10);
+     * link.AddHyperlink("https://www.onlyoffice.com", "ONLYOFFICE");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/AddHyperlink/
      */
     AddHyperlink(link: string, screenTipText: string): ApiHyperlink | null;
@@ -37688,6 +44361,38 @@ declare namespace Pdf {
      * @returns returns true if the text was successfully added.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Add text to a text range in a shape on a PDF page.
+     *
+     * // The range grows to include the added text.
+     *
+     * // Append a word after the range.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * range.AddText(" World", "after");
+     *
+     * const reportFill = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const report = Api.CreateShape("rect", 200 * 36000, 40 * 36000, reportFill, stroke);
+     * report.SetPosition(608400, 4000000);
+     * page.AddObject(report);
+     * report.GetContent().GetElement(0).AddText("AddText: " + shape.GetTextRange().GetText());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/AddText/
      */
     AddText(text: string, position?: "after" | "before"): boolean;
@@ -37698,6 +44403,38 @@ declare namespace Pdf {
      * @returns returns false if the range is empty.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Delete the text covered by a text range in a shape on a PDF page.
+     *
+     * // Only the covered fragment is removed, the rest of the text stays.
+     *
+     * // Delete the middle word.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello cruel World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * range.GetRange(5, 11).Delete();
+     *
+     * const reportFill = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const report = Api.CreateShape("rect", 200 * 36000, 40 * 36000, reportFill, stroke);
+     * report.SetPosition(608400, 4000000);
+     * page.AddObject(report);
+     * report.GetContent().GetElement(0).AddText("Delete: " + shape.GetTextRange().GetText());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/Delete/
      */
     Delete(): boolean;
@@ -37707,6 +44444,41 @@ declare namespace Pdf {
      * changed.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Join two text ranges into one in a shape on a PDF page.
+     *
+     * // The union covers everything from the first start to the last end, including the text between them.
+     *
+     * // Join the first and the last word and make the whole fragment italic.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello brave World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * const first = range.GetRange(0, 5);
+     * const second = range.GetRange(12, 17);
+     * const united = first.ExpandTo(second);
+     * united.SetItalic(true);
+     *
+     * const reportFill = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const report = Api.CreateShape("rect", 200 * 36000, 40 * 36000, reportFill, stroke);
+     * report.SetPosition(608400, 4000000);
+     * page.AddObject(report);
+     * report.GetContent().GetElement(0).AddText("ExpandTo: " + united.GetText());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/ExpandTo/
      */
@@ -37725,6 +44497,39 @@ declare namespace Pdf {
      * @default wholeWords = false
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Find a word inside a text range in a shape on a PDF page.
+     *
+     * // The result is a range that covers exactly the match.
+     *
+     * // Paint the match red and report where it starts.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("alpha TARGET omega");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * const found = range.Find("TARGET");
+     * found.SetColor(Api.RGB(255, 0, 0));
+     *
+     * const reportFill = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const report = Api.CreateShape("rect", 200 * 36000, 40 * 36000, reportFill, stroke);
+     * report.SetPosition(608400, 4000000);
+     * page.AddObject(report);
+     * report.GetContent().GetElement(0).AddText("Find: " + found.GetStartPos());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/Find/
      */
     Find(findWhat: string, after?: number, matchCase?: boolean, wholeWords?: boolean): ApiTextRange | null;
@@ -37733,6 +44538,44 @@ declare namespace Pdf {
      * Returns all Paragraph objects within this range.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Take every paragraph covered by a text range in a shape on a PDF page.
+     *
+     * // Lets a single range be processed paragraph by paragraph.
+     *
+     * // Make the first of the covered paragraphs bold.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * docContent.GetElement(0).AddText("First paragraph");
+     * const secondPara = Api.CreateParagraph();
+     * secondPara.AddText("Second paragraph");
+     * docContent.Push(secondPara);
+     * const thirdPara = Api.CreateParagraph();
+     * thirdPara.AddText("Third paragraph");
+     * docContent.Push(thirdPara);
+     *
+     * const range = shape.GetTextRange();
+     *
+     * const paragraphs = range.GetAllParagraphs();
+     * paragraphs[0].SetBold(true);
+     *
+     * const reportFill = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const report = Api.CreateShape("rect", 200 * 36000, 40 * 36000, reportFill, stroke);
+     * report.SetPosition(608400, 4000000);
+     * page.AddObject(report);
+     * report.GetContent().GetElement(0).AddText("GetAllParagraphs: " + paragraphs.length);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/GetAllParagraphs/
      */
@@ -37743,6 +44586,38 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the class type of a text range in a shape on a PDF page.
+     *
+     * // Confirms the object type before calling the range methods on it.
+     *
+     * // Read the class type of a range covering the whole text.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * const classType = range.GetClassType();
+     *
+     * const reportFill = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const report = Api.CreateShape("rect", 200 * 36000, 40 * 36000, reportFill, stroke);
+     * report.SetPosition(608400, 4000000);
+     * page.AddObject(report);
+     * report.GetContent().GetElement(0).AddText("GetClassType: " + classType);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/GetClassType/
      */
     GetClassType(): "textRange";
@@ -37751,6 +44626,39 @@ declare namespace Pdf {
      * Returns the end position of the current range.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the end position of a text range in a shape on a PDF page.
+     *
+     * // The end position points right after the last character of the range.
+     *
+     * // Read where a sub-range covering the second word ends.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * const word = range.GetRange(6, 11);
+     * const end = word.GetEndPos();
+     *
+     * const reportFill = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const report = Api.CreateShape("rect", 200 * 36000, 40 * 36000, reportFill, stroke);
+     * report.SetPosition(608400, 4000000);
+     * page.AddObject(report);
+     * report.GetContent().GetElement(0).AddText("GetEndPos: " + end);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/GetEndPos/
      */
@@ -37762,6 +44670,39 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Take one paragraph covered by a text range in a shape on a PDF page.
+     *
+     * // A range may span several paragraphs, which are addressed by index.
+     *
+     * // Append text to the second paragraph of the range and make it bold.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * docContent.GetElement(0).AddText("First paragraph");
+     * const secondPara = Api.CreateParagraph();
+     * secondPara.AddText("Second paragraph");
+     * docContent.Push(secondPara);
+     * const thirdPara = Api.CreateParagraph();
+     * thirdPara.AddText("Third paragraph");
+     * docContent.Push(thirdPara);
+     *
+     * const range = shape.GetTextRange();
+     *
+     * const secondParagraph = range.GetParagraph(1);
+     * secondParagraph.AddText(" (edited)");
+     * secondParagraph.SetBold(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/GetParagraph/
      */
     GetParagraph(index: number): ApiParagraph | null;
@@ -37770,19 +44711,85 @@ declare namespace Pdf {
      * Returns a new ApiTextRange that represents a sub-range of the current range.
      *
      * @param start - Start offset (0-based) relative to the beginning of this range.
-     * @param rangeEnd - End offset relative to the beginning of this range. -1 means the end of this range.
+     * @param end - End offset relative to the beginning of this range. -1 means the end of this range.
      * @default start = 0
-     * @default rangeEnd = -1
+     * @default end = -1
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Take a sub-range of a text range in a shape on a PDF page.
+     *
+     * // Positions are counted from the beginning of the text body, not of the parent range.
+     *
+     * // Take the second word as a sub-range and make it bold.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * const part = range.GetRange(6, 11);
+     * part.SetBold(true);
+     *
+     * const reportFill = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const report = Api.CreateShape("rect", 200 * 36000, 40 * 36000, reportFill, stroke);
+     * report.SetPosition(608400, 4000000);
+     * page.AddObject(report);
+     * report.GetContent().GetElement(0).AddText("GetRange: " + part.GetText());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/GetRange/
      */
-    GetRange(start?: number, rangeEnd?: number): ApiTextRange | null;
+    GetRange(start?: number, end?: number): ApiTextRange | null;
 
     /**
      * Returns the start position of the current range.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the start position of a text range in a shape on a PDF page.
+     *
+     * // Positions are counted in characters from the beginning of the text body.
+     *
+     * // Read where a sub-range covering the second word starts.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * const word = range.GetRange(6, 11);
+     * const start = word.GetStartPos();
+     *
+     * const reportFill = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const report = Api.CreateShape("rect", 200 * 36000, 40 * 36000, reportFill, stroke);
+     * report.SetPosition(608400, 4000000);
+     * page.AddObject(report);
+     * report.GetContent().GetElement(0).AddText("GetStartPos: " + start);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/GetStartPos/
      */
@@ -37811,6 +44818,38 @@ declare namespace Pdf {
      * @default options.TabSymbol = '\t'
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the text covered by a text range in a shape on a PDF page.
+     *
+     * // The range of a whole text body returns every character it holds.
+     *
+     * // Read the text of the range.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * const text = range.GetText();
+     *
+     * const reportFill = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const report = Api.CreateShape("rect", 200 * 36000, 40 * 36000, reportFill, stroke);
+     * report.SetPosition(608400, 4000000);
+     * page.AddObject(report);
+     * report.GetContent().GetElement(0).AddText("GetText: " + text);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/GetText/
      */
     GetText(options?: { Math?: boolean; NewLineSeparator?: string; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string }): string;
@@ -37819,6 +44858,39 @@ declare namespace Pdf {
      * Returns the merged text properties of the entire range.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the text properties of a text range in a shape on a PDF page.
+     *
+     * // The properties describe the formatting of the text the range covers.
+     *
+     * // Read back the bold flag applied to the first word.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * range.GetRange(0, 5).SetBold(true);
+     * const textPr = range.GetRange(0, 5).GetTextPr();
+     *
+     * const reportFill = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const report = Api.CreateShape("rect", 200 * 36000, 40 * 36000, reportFill, stroke);
+     * report.SetPosition(608400, 4000000);
+     * page.AddObject(report);
+     * report.GetContent().GetElement(0).AddText("GetTextPr: " + textPr.GetBold());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/GetTextPr/
      */
@@ -37830,6 +44902,41 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Take the common part of two text ranges in a shape on a PDF page.
+     *
+     * // The result is null when the two ranges do not overlap.
+     *
+     * // Underline the fragment that belongs to both ranges.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * const first = range.GetRange(0, 8);
+     * const second = range.GetRange(4, 11);
+     * const common = first.IntersectWith(second);
+     * common.SetUnderline(true);
+     *
+     * const reportFill = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const report = Api.CreateShape("rect", 200 * 36000, 40 * 36000, reportFill, stroke);
+     * report.SetPosition(608400, 4000000);
+     * page.AddObject(report);
+     * report.GetContent().GetElement(0).AddText("IntersectWith: " + common.GetText());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/IntersectWith/
      */
     IntersectWith(range: ApiTextRange): ApiTextRange | null;
@@ -37840,6 +44947,32 @@ declare namespace Pdf {
      * @param pos - The desired cursor position.
      * @default pos = 0
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Move the cursor inside the text covered by a range in a shape on a PDF page.
+     *
+     * // Places the cursor precisely before further editing.
+     *
+     * // Move the cursor between the two words.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * range.MoveCursorToPos(6);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/MoveCursorToPos/
      */
@@ -37857,6 +44990,38 @@ declare namespace Pdf {
      * @returns this
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Replace every occurrence of a word inside a text range in a shape on a PDF page.
+     *
+     * // The replacement keeps the formatting of the text it replaces.
+     *
+     * // Replace every occurrence of "foo" with "bar".
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("foo bar foo");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * range.Replace("foo", "bar");
+     *
+     * const reportFill = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const report = Api.CreateShape("rect", 200 * 36000, 40 * 36000, reportFill, stroke);
+     * report.SetPosition(608400, 4000000);
+     * page.AddObject(report);
+     * report.GetContent().GetElement(0).AddText("Replace: " + shape.GetTextRange().GetText());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/Replace/
      */
     Replace(findWhat: string, replaceWith: string, matchCase?: boolean, wholeWords?: boolean): ApiTextRange;
@@ -37865,6 +45030,32 @@ declare namespace Pdf {
      * Selects the text range in the editor.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Select the text covered by a range in a shape on a PDF page.
+     *
+     * // The selection is made in the editor, as if the user had made it.
+     *
+     * // Select the second word.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * range.GetRange(6, 11).Select();
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/Select/
      */
@@ -37875,6 +45066,32 @@ declare namespace Pdf {
      *
      * @param isBold - Pass _null_ to remove the bold formatting.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Make the text of a range bold in a shape on a PDF page.
+     *
+     * // The formatting applies to the covered fragment only.
+     *
+     * // Make the first word bold.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * range.GetRange(0, 5).SetBold(true);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetBold/
      */
@@ -37888,6 +45105,32 @@ declare namespace Pdf {
      *   capitalization.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Display the text of a range in capitals in a shape on a PDF page.
+     *
+     * // The formatting applies to the covered fragment only.
+     *
+     * // Show the first word in capitals.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * range.GetRange(0, 5).SetCaps(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetCaps/
      */
     SetCaps(isCaps: boolean | null): ApiTextRange;
@@ -37897,6 +45140,32 @@ declare namespace Pdf {
      *
      * @param color - Pass _null_ to remove the text color.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Colour the text of a range in a shape on a PDF page.
+     *
+     * // The colour is passed as an ApiColor object and applies to the covered fragment only.
+     *
+     * // Paint the first word red.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * range.GetRange(0, 5).SetColor(Api.RGB(255, 0, 0));
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetColor/
      */
@@ -37909,6 +45178,32 @@ declare namespace Pdf {
      * @param isDoubleStrikeout - Pass _null_ to remove the double strikeout.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Strike out the text of a range with a double line in a shape on a PDF page.
+     *
+     * // The formatting applies to the covered fragment only.
+     *
+     * // Double strike out the first word.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * range.GetRange(0, 5).SetDoubleStrikeout(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetDoubleStrikeout/
      */
     SetDoubleStrikeout(isDoubleStrikeout: boolean | null): ApiTextRange;
@@ -37918,6 +45213,39 @@ declare namespace Pdf {
      *
      * @param pos - End position.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Move the end of a text range in a shape on a PDF page.
+     *
+     * // The range keeps its start and stops at the new position.
+     *
+     * // Cut the range down to the first word.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * const part = range.GetRange(0, 11);
+     * part.SetEndPos(5);
+     *
+     * const reportFill = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const report = Api.CreateShape("rect", 200 * 36000, 40 * 36000, reportFill, stroke);
+     * report.SetPosition(608400, 4000000);
+     * page.AddObject(report);
+     * report.GetContent().GetElement(0).AddText("SetEndPos: " + part.GetText());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetEndPos/
      */
@@ -37930,6 +45258,32 @@ declare namespace Pdf {
      *   the font family.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Change the font of a range in a shape on a PDF page.
+     *
+     * // The font applies to the covered fragment only.
+     *
+     * // Set a monospaced font on the first word.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * range.GetRange(0, 5).SetFontFamily("Courier New");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetFontFamily/
      */
     SetFontFamily(fontFamily?: string | null): ApiTextRange | null;
@@ -37941,6 +45295,32 @@ declare namespace Pdf {
      *   size.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Change the font size of a range in a shape on a PDF page.
+     *
+     * // The size is measured in half-points, so 40 means 20pt.
+     *
+     * // Enlarge the first word.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * range.GetRange(0, 5).SetFontSize(40);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetFontSize/
      */
     SetFontSize(fontSize: hps | null): ApiTextRange | null;
@@ -37951,6 +45331,32 @@ declare namespace Pdf {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Highlight the text of a range with a named colour in a shape on a PDF page.
+     *
+     * // The highlight applies to the covered fragment only.
+     *
+     * // Highlight the first word in yellow.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * range.GetRange(0, 5).SetHighlight("yellow");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetHighlight/
      */
     SetHighlight(colorName: highlightColor): ApiTextRange | null;
@@ -37960,6 +45366,32 @@ declare namespace Pdf {
      *
      * @param isItalic - Pass _null_ to remove the italic formatting.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Make the text of a range italic in a shape on a PDF page.
+     *
+     * // The formatting applies to the covered fragment only.
+     *
+     * // Make the first word italic.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * range.GetRange(0, 5).SetItalic(true);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetItalic/
      */
@@ -37975,6 +45407,31 @@ declare namespace Pdf {
      * @returns returns null if the language identifier is not supported.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the spell-check language for a text range in a shape on a PDF page.
+     *
+     * // The language applies to the covered fragment only.
+     *
+     * // Set the language of the first word and print it.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const paragraph = shape.GetContent().GetElement(0);
+     * paragraph.AddText("This is a sample text.");
+     *
+     * const firstWord = shape.GetTextRange().GetRange(0, 4);
+     * firstWord.SetLanguage("en-CA");
+     * paragraph.AddText(" Language of the first word: " + firstWord.GetTextPr().GetLanguage());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetLanguage/
      */
     SetLanguage(langId: string | null): ApiTextRange | null;
@@ -37989,6 +45446,32 @@ declare namespace Pdf {
      *   not. Pass _null_ to remove the small capitals.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Display the text of a range in small capitals in a shape on a PDF page.
+     *
+     * // The formatting applies to the covered fragment only.
+     *
+     * // Show the first word in small capitals.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * range.GetRange(0, 5).SetSmallCaps(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetSmallCaps/
      */
     SetSmallCaps(isSmallCaps: boolean | null): ApiTextRange;
@@ -38000,6 +45483,32 @@ declare namespace Pdf {
      *   to remove the text spacing.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Change the character spacing of a range in a shape on a PDF page.
+     *
+     * // The spacing is measured in twentieths of a point.
+     *
+     * // Spread the letters of the first word apart.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * range.GetRange(0, 5).SetSpacing(150);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetSpacing/
      */
     SetSpacing(spacing: twips | null): ApiTextRange | null;
@@ -38009,6 +45518,39 @@ declare namespace Pdf {
      *
      * @param pos - Start position.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Move the start of a text range in a shape on a PDF page.
+     *
+     * // The range keeps its end and starts covering a shorter fragment.
+     *
+     * // Move the start of the range past the first word.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * const part = range.GetRange(0, 11);
+     * part.SetStartPos(6);
+     *
+     * const reportFill = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const report = Api.CreateShape("rect", 200 * 36000, 40 * 36000, reportFill, stroke);
+     * report.SetPosition(608400, 4000000);
+     * page.AddObject(report);
+     * report.GetContent().GetElement(0).AddText("SetStartPos: " + part.GetText());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetStartPos/
      */
@@ -38021,6 +45563,32 @@ declare namespace Pdf {
      * @param isStrikeout - Pass _null_ to remove the strikeout.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Strike out the text of a range in a shape on a PDF page.
+     *
+     * // The formatting applies to the covered fragment only.
+     *
+     * // Strike out the first word.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * range.GetRange(0, 5).SetStrikeout(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetStrikeout/
      */
     SetStrikeout(isStrikeout: boolean | null): ApiTextRange;
@@ -38032,6 +45600,38 @@ declare namespace Pdf {
      * @returns this
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Replace the text covered by a text range in a shape on a PDF page.
+     *
+     * // The new text takes the formatting of the text it replaces.
+     *
+     * // Replace the second word.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * range.GetRange(6, 11).SetText("Everyone");
+     *
+     * const reportFill = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const report = Api.CreateShape("rect", 200 * 36000, 40 * 36000, reportFill, stroke);
+     * report.SetPosition(608400, 4000000);
+     * page.AddObject(report);
+     * report.GetContent().GetElement(0).AddText("SetText: " + shape.GetTextRange().GetText());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetText/
      */
     SetText(text: string): ApiTextRange;
@@ -38041,6 +45641,35 @@ declare namespace Pdf {
      *
      * @param textPr - The text properties that will be applied to the current range.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Apply a set of text properties to a range at once in a shape on a PDF page.
+     *
+     * // One call replaces several separate formatting calls.
+     *
+     * // Apply bold and a larger font size in a single step.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * const textPr = Api.CreateRun().GetTextPr();
+     * textPr.SetBold(true);
+     * textPr.SetFontSize(32);
+     * range.GetRange(0, 5).SetTextPr(textPr);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetTextPr/
      */
@@ -38054,6 +45683,32 @@ declare namespace Pdf {
      * @param isUnderline - Specifies if the contents of the current Range are displayed underlined or not. Pass _null_ to
      *   remove the underline.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Underline the text of a range in a shape on a PDF page.
+     *
+     * // The formatting applies to the covered fragment only.
+     *
+     * // Underline the first word.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * range.GetRange(0, 5).SetUnderline(true);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetUnderline/
      */
@@ -38073,6 +45728,32 @@ declare namespace Pdf {
      *   alignment.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Raise the text of a range above the baseline in a shape on a PDF page.
+     *
+     * // Superscript and subscript are both set through this method.
+     *
+     * // Turn the trailing digit into a superscript.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("E=mc2");
+     *
+     * const range = shape.GetTextRange();
+     *
+     * range.GetRange(4, 5).SetVertAlign("superscript");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/SetVertAlign/
      */
     SetVertAlign(type: "baseline" | "subscript" | "superscript" | null): ApiTextRange | null;
@@ -38083,6 +45764,36 @@ declare namespace Pdf {
      * @param options - The HTML conversion options.
      * @default options = {}
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Export a part of a paragraph as an HTML string in a PDF document.
+     *
+     * // A text range limits the HTML export to the characters between its start and end positions.
+     *
+     * // Convert the end of a sentence with its bold words to HTML and show the markup in a second paragraph of the shape on a PDF page.
+     *
+     * const doc = Api.GetDocument();
+     * const page = doc.GetPage(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 200 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * page.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Convert only ");
+     * const boldRun = paragraph.AddText("this part");
+     * boldRun.SetBold(true);
+     *
+     * const range = paragraph.GetTextRange(8, 22);
+     * const html = range.ToHtml({"RenderHTMLTags": true});
+     * const htmlParagraph = Api.CreateParagraph();
+     * htmlParagraph.AddText("HTML output: " + html.trim());
+     * docContent.Push(htmlParagraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextRange/Methods/ToHtml/
      */
@@ -38218,37 +45929,98 @@ declare namespace Pdf {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiUriAction/
    */
-  export interface ApiUriAction {
+  export interface ApiUriAction extends ApiBaseAction {
     /**
      * Returns a type of the ApiUriAction class.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example creates a URI action and gets its class type.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let uriAction = Api.CreateUriAction("https://www.onlyoffice.com");
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(uriAction);
+     *
+     * console.log('URI action class type: ' + uriAction.GetClassType());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiUriAction/Methods/GetClassType/
      */
     GetClassType(): "uriAction";
 
     /**
+     * Returns next action.
+     *
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAction/Methods/GetNext/
+     */
+    GetNext(): ApiBaseAction;
+
+    /**
      * Gets uri string
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // This example creates a URI action and gets its URI string.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let uriAction = Api.CreateUriAction("https://www.onlyoffice.com");
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(uriAction);
+     *
+     * console.log('URI: ' + uriAction.GetUri());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiUriAction/Methods/GetUri/
      */
     GetUri(): string;
 
     /**
+     * Sets next action.
+     *
+     * @returns returns next action
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAction/Methods/SetNext/
+     */
+    SetNext(action: ApiBaseAction): ApiBaseAction;
+
+    /**
      * Sets uri to action
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // This example creates a URI action and changes its URI string.
+     * let doc = Api.GetDocument();
+     * let page = doc.GetPage(0);
+     * let buttonField = Api.CreateButtonField([10, 10, 100, 30]);
+     * page.AddObject(buttonField);
+     *
+     * let uriAction = Api.CreateUriAction("https://www.onlyoffice.com");
+     * let widgets = buttonField.GetAllWidgets();
+     * widgets[0].GetActions().SetMouseUp(uriAction);
+     *
+     * uriAction.SetUri("https://api.onlyoffice.com");
+     * console.log('Updated URI: ' + uriAction.GetUri());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiUriAction/Methods/SetUri/
      */
     SetUri(uri: string): boolean;
-  }
-
-  /** Class representing the settings which are used to create a watermark. */
-  export interface ApiWatermarkSettings {
   }
 
   /**
@@ -38356,6 +46128,7 @@ declare namespace Pdf {
     "table": ApiTable;
     "tableCell": ApiTableCell;
     "tableRow": ApiTableRow;
+    "tableRowPr": ApiTableRowPr;
     "textAnnot": ApiTextAnnotation;
     "textField": ApiTextField;
     "textPr": ApiRangeTextPr | ApiTextPr;
@@ -38884,10 +46657,13 @@ type pt = number;
 
 /** An object containing the watermark properties. */
 interface watermark_on_draw {
-  /** The watermark transparency degree. */
+  /** The watermark opacity, from **0** (invisible) to **1** (opaque). The default value is **0.3**. */
   transparent: number;
 
-  /** The type which specifies the preset shape geometry for the current watermark. */
+  /**
+   * The type which specifies the preset shape geometry for the current watermark. The default value is
+   * **rect**.
+   */
   type: ShapeType;
 
   /** The watermark width measured in millimeters. */
@@ -38899,7 +46675,10 @@ interface watermark_on_draw {
   /** The watermark rotation angle measured in degrees. */
   rotate: number;
 
-  /** The text margins measured in millimeters in the watermark shape. */
+  /**
+   * The text margins measured in millimeters in the watermark shape, in the order: left, top, right,
+   * bottom. Applies only when all four values are specified.
+   */
   margins: number[];
 
   /**
@@ -38908,16 +46687,22 @@ interface watermark_on_draw {
    */
   fill: number[] | string;
 
-  /** The watermark stroke width measured in millimeters. */
+  /**
+   * The watermark stroke width measured in millimeters. If only **stroke** is specified, the width is
+   * **0.35** mm (1 pt).
+   */
   "stroke-width": number;
 
   /**
-   * The watermark stroke color in the RGB format. The empty array [] means that the watermark stroke has
-   * no fill.
+   * The watermark stroke color in the RGB format. The empty array [] means that the watermark has no
+   * stroke. If only **stroke-width** is specified, the stroke is black.
    */
   stroke: number[];
 
-  /** The vertical text align in the watermark shape: **0** - bottom, **1** - center, **4** - top. */
+  /**
+   * The vertical text align in the watermark shape: **0** - bottom, **1** - center, **4** - top. The
+   * default value is **1**.
+   */
   align: number;
 
   /** The array with paragraphs from the current watermark with their properties. */

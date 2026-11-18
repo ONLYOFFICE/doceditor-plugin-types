@@ -9,7 +9,7 @@
     }
   ],
   "returns": {
-    "type": "ApiRange"
+    "type": "(number | string | boolean)[][]"
   },
-  "signature": "TRANSPOSE(arg1: ApiRange | ApiName | (number | string | boolean)[]): ApiRange"
+  "signature": "TRANSPOSE(arg1: ApiRange | ApiName | (number | string | boolean)[]): (number | string | boolean)[][]"
 }

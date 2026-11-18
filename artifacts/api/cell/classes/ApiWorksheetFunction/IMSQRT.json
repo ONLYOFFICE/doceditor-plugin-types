@@ -5,11 +5,11 @@
     {
       "description": "A complex number expressed in the *x + yi* or *x + yj* form.",
       "name": "arg1",
-      "type": "ApiRange | ApiName | number"
+      "type": "ApiRange | ApiName | number | string"
     }
   ],
   "returns": {
-    "type": "number"
+    "type": "string"
   },
-  "signature": "IMSQRT(arg1: ApiRange | ApiName | number): number"
+  "signature": "IMSQRT(arg1: ApiRange | ApiName | number | string): string"
 }

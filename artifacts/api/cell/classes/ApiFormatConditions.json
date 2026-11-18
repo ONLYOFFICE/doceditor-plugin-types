@@ -12,10 +12,10 @@
           "type": "XlFormatConditionType"
         },
         {
-          "description": "The format condition operator.",
+          "description": "The format condition operator; for the \"xlTimePeriod\" type, the time period.",
           "name": "Operator",
           "optional": true,
-          "type": "XlFormatConditionOperator"
+          "type": "XlFormatConditionOperator | XlTimePeriods"
         },
         {
           "description": "The first formula.",
@@ -34,7 +34,7 @@
         "description": "The created format condition, or null if the operation failed.",
         "type": "ApiFormatCondition | null"
       },
-      "signature": "Add(Type: XlFormatConditionType, Operator?: XlFormatConditionOperator, Formula1?: string | number | ApiRange, Formula2?: string | number | ApiRange): ApiFormatCondition | null",
+      "signature": "Add(Type: XlFormatConditionType, Operator?: XlFormatConditionOperator | XlTimePeriods, Formula1?: string | number | ApiRange, Formula2?: string | number | ApiRange): ApiFormatCondition | null",
       "since": "9.1.0"
     },
     "AddAboveAverage": {

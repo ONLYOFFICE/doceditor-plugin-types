@@ -55,7 +55,7 @@ const MANUAL_EVENTS = {
 
 // Path resolution lives in ./resolve-paths.js - one SOURCES table shared by every script that
 // reads outside this package, so a new source or a changed convention is a one-file edit.
-const { resolveSdkjsPaths, resolveSdkjsExt, resolveDocsPath } = require('./resolve-paths.js');
+const { resolveSdkjsPaths, resolveSdkjsExt, resolveDocsPath, resolveSource } = require('./resolve-paths.js');
 const { isFromExt, developerEditionRequirement } = require('./ext-provenance.js');
 const { PARAM_OPTIONAL_FROM, RETURN_TYPE_OVERRIDE } = require('./overrides-tables.js');
 const { getGitMetadata, sha256File, packageVersion, assertSourcesReleasable } = require('./provenance.js');
@@ -118,6 +118,29 @@ function docsLicence(file) {
   return null;
 }
 
+// office-js-api lays the same examples out per editor, which is what sdkjs's own
+// `@see office-js-api/Examples/{Editor}/<Class>/Methods/<Name>.js` tags point at.
+const EXAMPLES_EDITOR_DIR = {
+  word: 'Word',
+  cell: 'Cell',
+  slide: 'Slide',
+  forms: 'Forms',
+  pdf: 'Pdf',
+};
+
+// An example from office-js-api, as a one-element list so it composes with docsExamples.
+//
+// These files are plain runnable JS rather than a markdown section, so there is nothing to parse -
+// the file *is* the example. Leading `//` lines are kept: they are the explanation the docs site
+// renders as prose above the snippet.
+function officeJsApiExamples(root, editor, className, methodName) {
+  if (!root) return [];
+  const file = path.join(root, 'Examples', EXAMPLES_EDITOR_DIR[editor], className, 'Methods', `${methodName}.js`);
+  if (!fs.existsSync(file)) return [];
+  const code = fs.readFileSync(file, 'utf8').replace(/\r\n?/g, '\n').trim();
+  return code ? [code] : [];
+}
+
 function docsMethodFile(docsRoot, editor, className, methodName) {
   return path.join(docsRoot, DOCS_SECTION_DIR, DOCS_EDITOR_SECTION[editor], className, 'Methods', `${methodName}.md`);
 }
@@ -125,16 +148,32 @@ function docsMethodFile(docsRoot, editor, className, methodName) {
 // Examples are appended to the description as fenced blocks rather than carried in their own field,
 // because that is what `splitDescription` already lifts into `@example` for the declarations and
 // into `examples` for artifacts/api - one representation, both consumers.
-function applyDocsExamples(classes, editor, docsRoot) {
-  let applied = 0;
+// Two sources, deliberately not interchangeable.
+//
+// The documentation site versions on its own cycle - its newest release is v9.2.0 while the editor
+// is on 10.0.3 - so a member added in the current editor release usually has no page there yet. Of
+// the 324 members 10.0.3 added, 22 had an example on the site and 225 had one in office-js-api,
+// which is branched per editor release and is where sdkjs's own `@see` tags point.
+//
+// office-js-api does not replace the site: its Forms tree holds three classes against the site's
+// 363 documented Forms members, so preferring it wholesale would delete most of Forms' examples.
+// It fills gaps only - a member the site already documents keeps that example, which also keeps
+// this a purely additive change to output that has already shipped.
+function applyExamples(classes, editor, docsRoot, officeJsApiRoot) {
+  const applied = { docs: 0, officeJsApi: 0 };
   for (const [className, classData] of Object.entries(classes)) {
     for (const [methodName, method] of Object.entries(classData.methods)) {
-      const examples = docsExamples(docsMethodFile(docsRoot, editor, className, methodName));
+      let examples = docsExamples(docsMethodFile(docsRoot, editor, className, methodName));
+      let source = 'docs';
+      if (examples.length === 0) {
+        examples = officeJsApiExamples(officeJsApiRoot, editor, className, methodName);
+        source = 'officeJsApi';
+      }
       if (examples.length === 0) continue;
       method.description = [method.description, ...examples.map((code) => `\`\`\`js\n${code}\n\`\`\``)]
         .filter(Boolean)
         .join('\n\n');
-      applied += examples.length;
+      applied[source] += examples.length;
     }
   }
   return applied;
@@ -1290,13 +1329,13 @@ function loadOverrides(typeName) {
   return parseOverrideBlocks(fs.readFileSync(overridePath, 'utf8'));
 }
 
-function generateDtsFile(data, typeName, namespaceName, docsRoot, extRoot, paidOnlyEvents) {
+function generateDtsFile(data, typeName, namespaceName, docsRoot, extRoot, paidOnlyEvents, officeJsApiRoot) {
   const editorName = typeName === 'forms' ? 'form' : typeName;
   let body = '';
 
   const typedefs = extractTypedefs(data);
   const classes = extractClasses(data, typeName, extRoot);
-  const exampleCount = applyDocsExamples(classes, typeName, docsRoot);
+  const examples = applyExamples(classes, typeName, docsRoot, officeJsApiRoot);
 
   const typedefNames = Object.keys(typedefs).sort();
   for (const name of typedefNames) {
@@ -1310,6 +1349,28 @@ function generateDtsFile(data, typeName, namespaceName, docsRoot, extRoot, paidO
 
   const definedNames = new Set([...classNames, ...typedefNames]);
   const referenced = collectReferencedApiTypes(classes, typedefs, events);
+
+  // A class can lose every member to `@typeofeditors` and still be declared, because the doclet for
+  // the class itself carries no editor tag. 10.0.3 did exactly that to Spreadsheet's `ApiShd`: the
+  // three methods and `Api.CreateShd` were all narrowed to CDE/CPE/PDFE, leaving
+  // `export interface ApiShd {}` in cell.ts with nothing referring to it. An empty interface is not
+  // inert in TypeScript - it is the top-ish type, matching any non-nullish value - so it would
+  // silently accept whatever was assigned to it, which is worse than not being there.
+  //
+  // Only genuinely orphaned ones go: no members, no base class to inherit any, and no other
+  // declaration mentioning the name. `referenced` already includes `extends` targets, so a base
+  // class that is empty by design stays.
+  const orphanedClasses = classNames.filter((name) => (
+    Object.keys(classes[name].methods).length === 0
+    && Object.keys(classes[name].properties).length === 0
+    && (classes[name].extends || []).length === 0
+    && !referenced.has(name)
+  ));
+  for (const name of orphanedClasses) {
+    delete classes[name];
+    definedNames.delete(name);
+  }
+  const emittedClassNames = classNames.filter((name) => !orphanedClasses.includes(name));
 
   const overrides = loadOverrides(typeName);
   const shadowedOverrides = Object.keys(overrides).filter((name) => definedNames.has(name));
@@ -1357,12 +1418,12 @@ function generateDtsFile(data, typeName, namespaceName, docsRoot, extRoot, paidO
   // ApiParagraph exist in every editor with a different shape, so a flat export
   // would collide; nesting them under Word/Cell/Slide/Forms makes every type
   // importable from every editor without ambiguity.
-  for (const className of classNames) {
+  for (const className of emittedClassNames) {
     body += generateInterface(className, classes[className], classes);
     body += '\n';
   }
 
-  const classTypeMap = generateClassTypeMap(classes, classNames);
+  const classTypeMap = generateClassTypeMap(classes, emittedClassNames);
   if (classTypeMap) {
     body += classTypeMap;
     body += LF;
@@ -1395,8 +1456,10 @@ function generateDtsFile(data, typeName, namespaceName, docsRoot, extRoot, paidO
   return {
     content: output,
     stats: {
-      classes: classNames.length,
+      classes: emittedClassNames.length,
+      orphanedClasses,
       typedefs: typedefNames.length,
+      examples,
       unresolvedTypes: stubs,
       anyOccurrences,
     },
@@ -1545,6 +1608,13 @@ async function main() {
 
   const paths = { ...resolveSdkjsPaths(), sdkjsExt: resolveSdkjsExt(resolveSdkjsPaths()) };
   const docsRoot = resolveDocsPath();
+  // Optional, and its absence is reported rather than assumed harmless: without it every member the
+  // documentation site has not caught up with loses its example, which `check-generated` would show
+  // as a diff but nothing else would explain.
+  const officeJsApiRoot = resolveSource('officeJsApi', {}, { optional: true });
+  if (!officeJsApiRoot) {
+    console.warn('examples: no office-js-api checkout - members the docs site has no page for will have none (set OFFICE_JS_API_PATH or pass --office-js-api)');
+  }
   const apiData = await fetchApiDefinitions(paths);
   const report = {};
 
@@ -1553,12 +1623,18 @@ async function main() {
   const paidEvents = paidEventSets(paths.sdkjs, paths.sdkjsExt);
 
   for (const [typeName, data] of Object.entries(apiData)) {
-    const generated = generateDtsFile(data, typeName, NAMESPACE_MAP[typeName], docsRoot, paths.sdkjsExt, paidEvents?.paidOnly);
+    const generated = generateDtsFile(data, typeName, NAMESPACE_MAP[typeName], docsRoot, paths.sdkjsExt, paidEvents?.paidOnly, officeJsApiRoot);
     const filename = `${typeName}.ts`;
     fs.writeFileSync(path.join(OUTPUT_DIR, filename), generated.content);
     report[typeName] = generated.stats;
     mergeApiIndex(typeName, generated.indexSection);
-    console.log(`Generated ${filename} with ${generated.stats.classes} classes`);
+    const { docs, officeJsApi } = generated.stats.examples;
+    const dropped = generated.stats.orphanedClasses;
+    console.log(
+      `Generated ${filename} with ${generated.stats.classes} classes`
+      + `, ${docs + officeJsApi} examples (${docs} docs site, ${officeJsApi} office-js-api)`
+      + (dropped.length > 0 ? ` - dropped ${dropped.length} class(es) left empty by @typeofeditors: ${dropped.join(', ')}` : '')
+    );
   }
 
   reportReturnTypeOverrides();

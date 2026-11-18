@@ -55,20 +55,13 @@
       "since": "8.2.0"
     },
     "GetColumnFields": {
-      "description": "Returns a collection that is currently displayed as column fields in the pivot table.",
+      "description": "Returns all the fields that are currently displayed as column fields in the pivot table.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetColumnFields/",
-      "params": [
-        {
-          "description": "The name or index of the field to be returned.",
-          "name": "field",
-          "optional": true,
-          "type": "number | string"
-        }
-      ],
+      "params": [],
       "returns": {
         "type": "ApiPivotField[]"
       },
-      "signature": "GetColumnFields(field?: number | string): ApiPivotField[]",
+      "signature": "GetColumnFields(): ApiPivotField[]",
       "since": "8.2.0"
     },
     "GetColumnGrand": {
@@ -205,20 +198,13 @@
       "since": "8.2.0"
     },
     "GetPageFields": {
-      "description": "Returns a collection that represents either a single pivot table page field\nor a collection of all visible page fields.",
+      "description": "Returns all the fields that are currently displayed as page fields in the pivot table.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetPageFields/",
-      "params": [
-        {
-          "description": "The name or index of the field to be returned.",
-          "name": "field",
-          "optional": true,
-          "type": "number | string"
-        }
-      ],
+      "params": [],
       "returns": {
         "type": "ApiPivotField[]"
       },
-      "signature": "GetPageFields(field?: number | string): ApiPivotField[]",
+      "signature": "GetPageFields(): ApiPivotField[]",
       "since": "8.2.0"
     },
     "GetParent": {
@@ -273,20 +259,13 @@
       "since": "8.2.0"
     },
     "GetRowFields": {
-      "description": "Returns a collection that is currently displayed as row fields in the pivot table.",
+      "description": "Returns all the fields that are currently displayed as row fields in the pivot table.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetRowFields/",
-      "params": [
-        {
-          "description": "The name or index of the field to be returned.",
-          "name": "field",
-          "optional": true,
-          "type": "number | string"
-        }
-      ],
+      "params": [],
       "returns": {
         "type": "ApiPivotField[]"
       },
-      "signature": "GetRowFields(field?: number | string): ApiPivotField[]",
+      "signature": "GetRowFields(): ApiPivotField[]",
       "since": "8.2.0"
     },
     "GetRowGrand": {
@@ -308,6 +287,16 @@
       },
       "signature": "GetRowRange(): ApiRange | null",
       "since": "8.2.0"
+    },
+    "GetShowDrillIndicators": {
+      "description": "Returns whether expand and collapse buttons are displayed in the pivot table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetShowDrillIndicators/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "GetShowDrillIndicators(): boolean",
+      "since": "10.0.1"
     },
     "GetSource": {
       "description": "Returns the source range for the pivot table.",
@@ -668,15 +657,16 @@
           "type": "PivotLayoutType"
         },
         {
-          "description": "Specifies whether the pivot table items will be displayed in the compact form.",
+          "description": "Specifies whether the pivot table items will be displayed in the compact form. If omitted, the current compact setting is kept.",
           "name": "compact",
+          "optional": true,
           "type": "boolean"
         }
       ],
       "returns": {
         "type": "void"
       },
-      "signature": "SetRowAxisLayout(type: PivotLayoutType, compact: boolean): void",
+      "signature": "SetRowAxisLayout(type: PivotLayoutType, compact?: boolean): void",
       "since": "8.2.0"
     },
     "SetRowGrand": {
@@ -694,6 +684,22 @@
       },
       "signature": "SetRowGrand(show: boolean): void",
       "since": "8.2.0"
+    },
+    "SetShowDrillIndicators": {
+      "description": "Sets whether expand and collapse buttons are displayed in the pivot table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetShowDrillIndicators/",
+      "params": [
+        {
+          "description": "Specifies whether to display expand and collapse buttons.",
+          "name": "show",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "void"
+      },
+      "signature": "SetShowDrillIndicators(show: boolean): void",
+      "since": "10.0.1"
     },
     "SetSource": {
       "description": "Sets the source range for the pivot table.",

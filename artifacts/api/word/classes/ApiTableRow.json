@@ -90,7 +90,7 @@
       "signature": "GetIndex(): number"
     },
     "GetInternalId": {
-      "description": "Returns an internal id of the current table row.",
+      "description": "Returns an internal ID of the current table row.\nThe internal ID is valid only for the current editing session: it stays the same while the document is open,\nbut it is not saved to the file and can be different after the document is reopened.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/Methods/GetInternalId/",
       "params": [],
       "returns": {
@@ -139,6 +139,26 @@
       },
       "signature": "MergeCells(): ApiTableCell | null"
     },
+    "MoveCursorToEnd": {
+      "description": "Moves the cursor to the end of the current table row.\nThe cursor is placed at the end of the last cell of the row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/Methods/MoveCursorToEnd/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "MoveCursorToEnd(): boolean",
+      "since": "10.0.3"
+    },
+    "MoveCursorToStart": {
+      "description": "Moves the cursor to the start of the current table row.\nThe cursor is placed at the start of the first cell of the row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/Methods/MoveCursorToStart/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "MoveCursorToStart(): boolean",
+      "since": "10.0.3"
+    },
     "Remove": {
       "description": "Removes the current table row.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/Methods/Remove/",
@@ -161,13 +181,14 @@
         {
           "description": "Case sensitive or not.",
           "name": "isMatchCase",
+          "optional": true,
           "type": "boolean"
         }
       ],
       "returns": {
         "type": "ApiRange[]"
       },
-      "signature": "Search(sText: string | RegExp, isMatchCase: boolean): ApiRange[]"
+      "signature": "Search(sText: string | RegExp, isMatchCase?: boolean): ApiRange[]"
     },
     "SetBackgroundColor": {
       "description": "Sets the background color to all cells in the current table row.",

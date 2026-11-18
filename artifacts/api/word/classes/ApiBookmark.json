@@ -59,6 +59,26 @@
       "signature": "GoTo(): boolean",
       "since": "8.3.0"
     },
+    "MoveCursorToEnd": {
+      "description": "Moves the cursor to the end of the current bookmark.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiBookmark/Methods/MoveCursorToEnd/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "MoveCursorToEnd(): boolean",
+      "since": "10.0.3"
+    },
+    "MoveCursorToStart": {
+      "description": "Moves the cursor to the start of the current bookmark.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiBookmark/Methods/MoveCursorToStart/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "MoveCursorToStart(): boolean",
+      "since": "10.0.3"
+    },
     "Select": {
       "description": "Selects the current bookmark.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiBookmark/Methods/Select/",

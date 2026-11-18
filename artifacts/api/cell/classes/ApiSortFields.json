@@ -30,7 +30,7 @@
           "type": "number | string"
         },
         {
-          "description": "The data sort option.",
+          "description": "Reserved. The data sort option is stored but not applied when sorting yet.",
           "name": "DataOption",
           "optional": true,
           "type": "XlSortDataOption"
@@ -70,13 +70,13 @@
           "type": "number | string"
         },
         {
-          "description": "The data sort option.",
+          "description": "Reserved. The data sort option is stored but not applied when sorting yet.",
           "name": "DataOption",
           "optional": true,
           "type": "XlSortDataOption"
         },
         {
-          "description": "Subfield name for linked data types (e.g. \"Population\", \"Volume\").",
+          "description": "Reserved. Subfield name for linked data types (e.g. \"Population\", \"Volume\"); stored but not applied when sorting yet.",
           "name": "SubField",
           "optional": true,
           "type": "string"

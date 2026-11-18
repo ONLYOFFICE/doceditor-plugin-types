@@ -4,7 +4,7 @@
   "params": [
     {
       "description": "The text or numeric value of a heading reference you want to insert.",
-      "name": "sRefType",
+      "name": "sRefTo",
       "type": "headingRefTo"
     },
     {
@@ -19,7 +19,7 @@
       "type": "boolean"
     },
     {
-      "description": "Specifies if the above/below words indicating the position of the reference should be included (don't used with the \"text\" and \"aboveBelow\" sRefType).",
+      "description": "Specifies if the above/below words indicating the position of the reference should be included (don't used with the \"text\" and \"aboveBelow\" sRefTo).",
       "name": "bAboveBelow",
       "optional": true,
       "type": "boolean"
@@ -28,5 +28,5 @@
   "returns": {
     "type": "boolean"
   },
-  "signature": "AddHeadingCrossRef(sRefType: headingRefTo, oParaTo: ApiParagraph, bLink?: boolean, bAboveBelow?: boolean): boolean"
+  "signature": "AddHeadingCrossRef(sRefTo: headingRefTo, oParaTo: ApiParagraph, bLink?: boolean, bAboveBelow?: boolean): boolean"
 }

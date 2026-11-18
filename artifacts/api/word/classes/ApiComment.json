@@ -151,6 +151,26 @@
       },
       "signature": "IsSolved(): boolean"
     },
+    "MoveCursorToEnd": {
+      "description": "Moves the cursor to the end of the text the current comment is attached to.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/MoveCursorToEnd/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "MoveCursorToEnd(): boolean",
+      "since": "10.0.3"
+    },
+    "MoveCursorToStart": {
+      "description": "Moves the cursor to the start of the text the current comment is attached to.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/MoveCursorToStart/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "MoveCursorToStart(): boolean",
+      "since": "10.0.3"
+    },
     "RemoveReplies": {
       "description": "Removes the specified comment replies.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/RemoveReplies/",
@@ -234,7 +254,7 @@
       "params": [
         {
           "description": "The timestamp of the comment creation in the current time zone format.",
-          "name": "nTimeStamp",
+          "name": "timeStamp",
           "type": "number | string"
         }
       ],
@@ -242,7 +262,7 @@
         "description": "this",
         "type": "ApiComment"
       },
-      "signature": "SetTime(nTimeStamp: number | string): ApiComment"
+      "signature": "SetTime(timeStamp: number | string): ApiComment"
     },
     "SetTimeUTC": {
       "description": "Sets the timestamp of the comment creation in UTC format.",
@@ -250,7 +270,7 @@
       "params": [
         {
           "description": "The timestamp of the comment creation in UTC format.",
-          "name": "nTimeStamp",
+          "name": "timeStamp",
           "type": "number | string"
         }
       ],
@@ -258,7 +278,7 @@
         "description": "this",
         "type": "ApiComment"
       },
-      "signature": "SetTimeUTC(nTimeStamp: number | string): ApiComment"
+      "signature": "SetTimeUTC(timeStamp: number | string): ApiComment"
     },
     "SetUserId": {
       "description": "Sets the user ID to the comment author.",

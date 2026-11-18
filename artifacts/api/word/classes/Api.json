@@ -184,7 +184,7 @@
       "signature": "CreateBlockLvlSdt(): ApiBlockLvlSdt"
     },
     "CreateChart": {
-      "description": "Creates a chart with the parameters specified.\n\n**Note:**\nValues of _styleIndex_ outside **1 - 48** are interpreted as a chart style id from the _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs Enterprise](https://www.onlyoffice.com/docs-enterprise-prices?from=api) and [ONLYOFFICE Docs Developer](https://www.onlyoffice.com/developer-edition-prices?from=api).\n",
+      "description": "Creates a chart with the parameters specified.\n\n**Note:**\nValues of _styleIndex_ outside **1 - 48** are interpreted as a chart style id from the _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs Enterprise](https://www.onlyoffice.com/pricing?from=api) and [ONLYOFFICE Docs Developer](https://www.onlyoffice.com/pricing?from=api).\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/CreateChart/",
       "params": [
         {
@@ -357,7 +357,7 @@
       "since": "9.1.0"
     },
     "CreateGroup": {
-      "description": "Groups an array of drawings.\n**Note:**\nThe drawings must not be added to the document. To group the drawings which are already in the document, use the {@link ApiDocument#GroupDrawings} method.\n",
+      "description": "Groups an array of drawings.\n\n**Note:**\nThe drawings must not be added to the document. To group the drawings which are already in the document, use the {@link ApiDocument#GroupDrawings} method.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/CreateGroup/",
       "params": [
         {
@@ -686,24 +686,26 @@
         {
           "description": "The element from which the range will be taken.",
           "name": "element",
-          "type": "unknown"
+          "type": "ApiParagraph | ApiHyperlink | ApiRun | ApiTable | ApiDocumentContent | ApiDocument | ApiInlineLvlSdt | ApiBlockLvlSdt"
         },
         {
           "description": "Start range position.",
           "name": "start",
-          "type": "unknown"
+          "optional": true,
+          "type": "number"
         },
         {
           "description": "End range position.",
           "name": "end",
-          "type": "unknown"
+          "optional": true,
+          "type": "number"
         }
       ],
       "returns": {
         "description": "returns null if element isn't supported.",
         "type": "ApiRange | null"
       },
-      "signature": "CreateRange(element: unknown, start: unknown, end: unknown): ApiRange | null"
+      "signature": "CreateRange(element: ApiParagraph | ApiHyperlink | ApiRun | ApiTable | ApiDocumentContent | ApiDocument | ApiInlineLvlSdt | ApiBlockLvlSdt, start?: number, end?: number): ApiRange | null"
     },
     "CreateRun": {
       "description": "Creates a new smaller text block to be inserted to the current paragraph or table.",
@@ -750,7 +752,7 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/CreateShape/",
       "params": [
         {
-          "description": "The shape type which specifies the preset shape geometry. The \"textRect\" type creates a text box as the editor inserts it: a light fill and a thin black outline.",
+          "description": "The shape type which specifies the preset shape geometry. An unknown type is replaced with \"rect\". The \"textRect\" type creates a text box with the \"rect\" geometry, as the editor inserts it: a light fill and a thin black outline.",
           "name": "shapeType",
           "optional": true,
           "type": "ShapeType"
@@ -850,7 +852,7 @@
       "signature": "CreateStroke(width: EMU, fill: ApiFill, sDash?: DashType): ApiStroke"
     },
     "CreateTable": {
-      "description": "Creates a new table with a specified number of rows and columns.\n\n**Breaking Change:**\nStarting from version 9.4.0, the parameter order has been changed from `Api.CreateTable(cols, rows)` to `Api.CreateTable(rows, cols)`.\n",
+      "description": "Creates a new table with a specified number of rows and columns.\nThe table is created empty, without any settings: it has no style, no borders and no width.\n\n**Breaking Change:**\nStarting from version 9.4.0, the parameter order has been changed from `Api.CreateTable(cols, rows)` to `Api.CreateTable(rows, cols)`.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/CreateTable/",
       "params": [
         {
@@ -1026,7 +1028,7 @@
       "signature": "FromJSON(message: string): ApiBlockLvlSdt | ApiDocumentContent | ApiDrawing | ApiHyperlink | ApiInlineLvlSdt | ApiParagraph | ApiRun | ApiSection | ApiTable | null"
     },
     "GetByInternalId": {
-      "description": "Returns the object by it's internal ID.",
+      "description": "Returns the object by its internal ID.\nInternal IDs are valid only for the current editing session: they stay the same while the document is open,\nbut they are not saved to the file and can be different after the document is reopened.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/GetByInternalId/",
       "params": [
         {

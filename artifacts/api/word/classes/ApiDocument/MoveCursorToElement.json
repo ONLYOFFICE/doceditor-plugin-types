@@ -1,0 +1,22 @@
+{
+  "description": "Moves the cursor to the start or end of the specified element.\nIt is the same as calling the MoveCursorToStart or MoveCursorToEnd method of the element.\n\nThe cursor is placed inside the element: for a table, at the start of its first cell or at the end of its last cell;\nfor a content control, inside the control. For a drawing, the cursor is placed before or after it.\nIf there is any selection in the document, it will be removed.\nThe element must be attached to the document.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/MoveCursorToElement/",
+  "params": [
+    {
+      "description": "The element to move the cursor to.",
+      "name": "element",
+      "type": "DocumentElement | ParagraphContent | ApiDocument | ApiDocumentContent | ApiTableRow | ApiTableCell | ApiDrawing | ApiBookmark | ApiComment | ApiRange"
+    },
+    {
+      "description": "Specifies whether to move the cursor to the start (**true**) or end (**false**) of the element.",
+      "name": "isStart",
+      "optional": true,
+      "type": "boolean"
+    }
+  ],
+  "returns": {
+    "type": "boolean"
+  },
+  "signature": "MoveCursorToElement(element: DocumentElement | ParagraphContent | ApiDocument | ApiDocumentContent | ApiTableRow | ApiTableCell | ApiDrawing | ApiBookmark | ApiComment | ApiRange, isStart?: boolean): boolean",
+  "since": "10.0.3"
+}

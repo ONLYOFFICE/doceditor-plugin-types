@@ -15,7 +15,8 @@
       "signature": "AddLineBreak(): boolean"
     },
     "AddTabStop": {
-      "description": "Adds a tab stop to the current run.",
+      "deprecated": "since 10.0.3 version.",
+      "description": "Adds a tab character to the end of the current run.\nUse the AddText method with the \"\\t\" character instead.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiRun/Methods/AddTabStop/",
       "params": [],
       "returns": {
@@ -123,11 +124,18 @@
     "GetFontFamily": {
       "description": "Returns the font family from the current text properties.\n\nThe method automatically calculates the font from the theme if the font was set via the theme.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetFontFamily/",
-      "params": [],
+      "params": [
+        {
+          "description": "The font slot.\rIf this parameter is not specified, the \"ascii\" value is used.",
+          "name": "fontSlot",
+          "optional": true,
+          "type": "\"ascii\" | \"eastAsia\" | \"hAnsi\" | \"cs\""
+        }
+      ],
       "returns": {
         "type": "string | null"
       },
-      "signature": "GetFontFamily(): string | null",
+      "signature": "GetFontFamily(fontSlot?: \"ascii\" | \"eastAsia\" | \"hAnsi\" | \"cs\"): string | null",
       "since": "8.1.0"
     },
     "GetFontNames": {
@@ -170,6 +178,16 @@
       "signature": "GetItalic(): boolean | null",
       "since": "8.1.0"
     },
+    "GetLanguage": {
+      "description": "Gets the language from the current text properties.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetLanguage/",
+      "params": [],
+      "returns": {
+        "type": "string | null"
+      },
+      "signature": "GetLanguage(): string | null",
+      "since": "8.1.0"
+    },
     "GetOutLine": {
       "description": "Gets the text outline from the current text properties.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetOutLine/",
@@ -210,15 +228,21 @@
       "signature": "GetStrikeout(): boolean | null",
       "since": "8.1.0"
     },
-    "GetTextFill": {
-      "description": "Gets the text fill from the current text properties.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetTextFill/",
-      "params": [],
+    "GetText": {
+      "description": "Returns a text from the text run.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiRun/Methods/GetText/",
+      "params": [
+        {
+          "description": "Options for formatting the returned text.",
+          "name": "options",
+          "optional": true,
+          "type": "{ NewLineSeparator?: string; TabSymbol?: string }"
+        }
+      ],
       "returns": {
-        "type": "ApiFill"
+        "type": "string"
       },
-      "signature": "GetTextFill(): ApiFill",
-      "since": "8.1.0"
+      "signature": "GetText(options?: { NewLineSeparator?: string; TabSymbol?: string }): string"
     },
     "GetTextPr": {
       "description": "Returns the text properties of the current run.",
@@ -303,6 +327,23 @@
         "type": "ApiTextPr"
       },
       "signature": "SetCaps(isCaps: boolean): ApiTextPr"
+    },
+    "SetColor": {
+      "description": "Sets the text color to the current text run.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetColor/",
+      "params": [
+        {
+          "description": "The text color. Pass _null_ to remove the text color.",
+          "name": "color",
+          "type": "ApiColor | null"
+        }
+      ],
+      "returns": {
+        "description": "this text properties.",
+        "type": "ApiTextPr"
+      },
+      "signature": "SetColor(color: ApiColor | null): ApiTextPr",
+      "since": "9.1.0"
     },
     "SetDoubleStrikeout": {
       "description": "Specifies that the contents of the run are displayed with two horizontal lines through each character displayed on the line.",
@@ -400,6 +441,22 @@
       },
       "signature": "SetItalic(isItalic: boolean): ApiTextPr"
     },
+    "SetLanguage": {
+      "description": "Specifies the languages which will be used to check spelling and grammar (if requested) when processing\nthe contents of the text run.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetLanguage/",
+      "params": [
+        {
+          "description": "The possible value for this parameter is a language identifier as defined by\rRFC 4646/BCP 47. Example: \"en-CA\". Pass _null_ to remove the language.",
+          "name": "langId",
+          "type": "string | null"
+        }
+      ],
+      "returns": {
+        "description": "this text properties.",
+        "type": "ApiTextPr"
+      },
+      "signature": "SetLanguage(langId: string | null): ApiTextPr"
+    },
     "SetOutLine": {
       "description": "Sets the text outline to the current text run.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetOutLine/",
@@ -480,22 +537,6 @@
       },
       "signature": "SetText(text: string | number[]): ApiRun",
       "since": "10.0.0"
-    },
-    "SetTextFill": {
-      "description": "Sets the text fill to the current text run.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetTextFill/",
-      "params": [
-        {
-          "description": "The color or pattern used to fill the text color.",
-          "name": "oApiFill",
-          "type": "ApiFill"
-        }
-      ],
-      "returns": {
-        "description": "this text properties.",
-        "type": "ApiTextPr"
-      },
-      "signature": "SetTextFill(oApiFill: ApiFill): ApiTextPr"
     },
     "SetTextPr": {
       "description": "Sets the text properties to the current run.",

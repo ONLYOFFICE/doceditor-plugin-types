@@ -56,11 +56,18 @@
     "GetFontFamily": {
       "description": "Returns the font family from the current text properties.\n\nThe method automatically calculates the font from the theme if the font was set via the theme.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetFontFamily/",
-      "params": [],
+      "params": [
+        {
+          "description": "The font slot.\rIf this parameter is not specified, the \"ascii\" value is used.",
+          "name": "fontSlot",
+          "optional": true,
+          "type": "\"ascii\" | \"eastAsia\" | \"hAnsi\" | \"cs\""
+        }
+      ],
       "returns": {
         "type": "string | null"
       },
-      "signature": "GetFontFamily(): string | null",
+      "signature": "GetFontFamily(fontSlot?: \"ascii\" | \"eastAsia\" | \"hAnsi\" | \"cs\"): string | null",
       "since": "8.1.0"
     },
     "GetFontSize": {

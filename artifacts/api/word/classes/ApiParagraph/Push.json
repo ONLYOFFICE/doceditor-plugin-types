@@ -3,14 +3,14 @@
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/Push/",
   "params": [
     {
-      "description": "The document element which will be added at the current position. Returns false if the\roElement type is not supported by a paragraph.",
+      "description": "The document element which will be added at the current position. A string is added as a new run with the text properties of the last run with text.",
       "name": "oElement",
-      "type": "ParagraphContent"
+      "type": "ParagraphContent | string"
     }
   ],
   "returns": {
-    "description": "Returns `false` if the type of `oElement` is not supported by paragraph\rcontent.",
+    "description": "Returns `false` if the type of `oElement` is not supported by paragraph content or the element is already in the document.",
     "type": "boolean"
   },
-  "signature": "Push(oElement: ParagraphContent): boolean"
+  "signature": "Push(oElement: ParagraphContent | string): boolean"
 }

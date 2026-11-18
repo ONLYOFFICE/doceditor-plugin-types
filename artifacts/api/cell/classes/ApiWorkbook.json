@@ -3,20 +3,20 @@
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorkbook/",
   "methods": {
     "BreakLink": {
-      "description": "Breaks the link to the specified workbook: the formulas that refer to it are replaced with their current values, and the link is removed from the workbook.",
+      "description": "Breaks the link to the specified workbook: the formulas that refer to it, also through defined names, are replaced with their current values,\nthe defined names that refer to it become #REF!, and the link is removed from the workbook.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorkbook/Methods/BreakLink/",
       "params": [
         {
-          "description": "The path of the linked workbook as returned by the {@link ApiWorkbook#GetLinkSources} method.",
-          "name": "sName",
+          "description": "The path of the linked workbook as returned by the {@link ApiWorkbook#GetLinkSources} method, or its file name.",
+          "name": "name",
           "type": "string"
         }
       ],
       "returns": {
-        "description": "Returns false if the workbook has no link with the specified path, or if a defined name refers to that workbook; such a name has to be changed or deleted first.",
+        "description": "Returns false if the workbook has no such link, or if the link is used outside cells and defined names.",
         "type": "boolean"
       },
-      "signature": "BreakLink(sName: string): boolean",
+      "signature": "BreakLink(name: string): boolean",
       "since": "10.0.0"
     },
     "Calculate": {

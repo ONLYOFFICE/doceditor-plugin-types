@@ -731,10 +731,13 @@ type initDataType = "text" | "html" | "ole" | "desktop" | "desktop-external" | "
 
 /** An object containing the watermark properties. */
 interface watermark_on_draw {
-  /** The watermark transparency degree. */
+  /** The watermark opacity, from **0** (invisible) to **1** (opaque). The default value is **0.3**. */
   transparent: number;
 
-  /** The type which specifies the preset shape geometry for the current watermark. */
+  /**
+   * The type which specifies the preset shape geometry for the current watermark. The default value is
+   * **rect**.
+   */
   type: ShapeType;
 
   /** The watermark width measured in millimeters. */
@@ -746,7 +749,10 @@ interface watermark_on_draw {
   /** The watermark rotation angle measured in degrees. */
   rotate: number;
 
-  /** The text margins measured in millimeters in the watermark shape. */
+  /**
+   * The text margins measured in millimeters in the watermark shape, in the order: left, top, right,
+   * bottom. Applies only when all four values are specified.
+   */
   margins: number[];
 
   /**
@@ -755,16 +761,22 @@ interface watermark_on_draw {
    */
   fill: number[] | string;
 
-  /** The watermark stroke width measured in millimeters. */
+  /**
+   * The watermark stroke width measured in millimeters. If only **stroke** is specified, the width is
+   * **0.35** mm (1 pt).
+   */
   "stroke-width": number;
 
   /**
-   * The watermark stroke color in the RGB format. The empty array [] means that the watermark stroke has
-   * no fill.
+   * The watermark stroke color in the RGB format. The empty array [] means that the watermark has no
+   * stroke. If only **stroke-width** is specified, the stroke is black.
    */
   stroke: number[];
 
-  /** The vertical text align in the watermark shape: **0** - bottom, **1** - center, **4** - top. */
+  /**
+   * The vertical text align in the watermark shape: **0** - bottom, **1** - center, **4** - top. The
+   * default value is **1**.
+   */
   align: number;
 
   /** The array with paragraphs from the current watermark with their properties. */
@@ -2375,7 +2387,8 @@ type WordMethodArgs = {
   /**
    * Finds and replaces the text.
    *
-   * @param oProperties - An object which contains the search and replacement strings.
+   * @param props - An object which contains the search and replacement strings.
+   * @returns The number of replacements made. Returns 0 if nothing was found.
    *
    * @example
    * ```js
@@ -2388,7 +2401,7 @@ type WordMethodArgs = {
    * ]);
    * ```
    */
-  SearchAndReplace: [oProperties: { searchString?: string; replaceString?: string; matchCase?: boolean }];
+  SearchAndReplace: [props: { searchString?: string; replaceString?: string; matchCase?: boolean }];
   /**
    * Finds and selects the next occurrence of the text starting at the current position.
    *
@@ -2705,7 +2718,7 @@ type WordMethodArgs = {
    * @param pr - Optional parameters.
    * @since 10.0.0
    */
-  StartGroupActions: [pr?: { lockScroll?: boolean; keepSelection?: boolean }];
+  StartGroupActions: [pr?: { lockScroll?: boolean; keepSelection?: boolean; changesHighlightColor?: string | object }];
   /**
    * Unshows the input helper.
    *
@@ -2863,7 +2876,7 @@ type WordMethodReturnMap = {
   ReplaceCurrentSentence: unknown;
   ReplaceCurrentWord: unknown;
   ReplaceTextSmart: boolean;
-  SearchAndReplace: unknown;
+  SearchAndReplace: number;
   SearchNext: boolean;
   SelectAddinField: unknown;
   SelectAnnotationRange: unknown;

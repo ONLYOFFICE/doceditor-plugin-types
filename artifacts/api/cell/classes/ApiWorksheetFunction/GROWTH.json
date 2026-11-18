@@ -27,7 +27,7 @@
     }
   ],
   "returns": {
-    "type": "number"
+    "type": "number[][]"
   },
-  "signature": "GROWTH(arg1: ApiRange | ApiName | number[], arg2?: ApiRange | ApiName | number[], arg3?: ApiRange | ApiName | number[], arg4?: ApiRange | ApiName | boolean): number"
+  "signature": "GROWTH(arg1: ApiRange | ApiName | number[], arg2?: ApiRange | ApiName | number[], arg3?: ApiRange | ApiName | number[], arg4?: ApiRange | ApiName | boolean): number[][]"
 }

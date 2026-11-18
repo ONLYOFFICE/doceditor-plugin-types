@@ -133,6 +133,16 @@
       "signature": "AddRows(oCell?: ApiTableCell, nCount?: number, isBefore?: boolean): ApiTable",
       "since": "10.0.0"
     },
+    "Copy": {
+      "description": "Creates a copy of the current table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/Copy/",
+      "params": [],
+      "returns": {
+        "type": "ApiTable"
+      },
+      "signature": "Copy(): ApiTable",
+      "since": "9.4.0"
+    },
     "GetCell": {
       "description": "Returns a cell by its position.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/GetCell/",
@@ -252,6 +262,39 @@
       "signature": "GetRowsCount(): number",
       "since": "10.0.0"
     },
+    "GetSelectedCells": {
+      "description": "Returns the selected cells of the current table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/GetSelectedCells/",
+      "params": [],
+      "returns": {
+        "description": "An array of the currently selected cells (empty if there is no cell selection).",
+        "type": "ApiTableCell[]"
+      },
+      "signature": "GetSelectedCells(): ApiTableCell[]",
+      "since": "10.0.0"
+    },
+    "GetSelectedColumnsCells": {
+      "description": "Returns all cells from the columns that contain the currently selected cells.\nThis method identifies which columns contain selected cells and then returns all cells\nin those columns, not just the selected cells themselves.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/GetSelectedColumnsCells/",
+      "params": [],
+      "returns": {
+        "description": "An array of all cells from the columns that contain selected cells.",
+        "type": "ApiTableCell[]"
+      },
+      "signature": "GetSelectedColumnsCells(): ApiTableCell[]",
+      "since": "10.0.0"
+    },
+    "GetSelectedRows": {
+      "description": "Returns the rows that contain the currently selected cells of the current table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/GetSelectedRows/",
+      "params": [],
+      "returns": {
+        "description": "An array of the rows that contain selected cells (empty if there is no cell selection).",
+        "type": "ApiTableRow[]"
+      },
+      "signature": "GetSelectedRows(): ApiTableRow[]",
+      "since": "10.0.0"
+    },
     "GetTableDescription": {
       "description": "Returns the table description.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/GetTableDescription/",
@@ -328,6 +371,54 @@
         "type": "boolean"
       },
       "signature": "RemoveRow(rowCell: ApiTableCell): boolean"
+    },
+    "SelectRange": {
+      "description": "Selects a range of cells in the current table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/SelectRange/",
+      "params": [
+        {
+          "description": "The start row index.",
+          "name": "startRowIndex",
+          "type": "number"
+        },
+        {
+          "description": "The start cell index within the start row.",
+          "name": "startCellIndex",
+          "type": "number"
+        },
+        {
+          "description": "The end row index.",
+          "name": "endRowIndex",
+          "type": "number"
+        },
+        {
+          "description": "The end cell index within the end row.",
+          "name": "endCellIndex",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SelectRange(startRowIndex: number, startCellIndex: number, endRowIndex: number, endCellIndex: number): boolean",
+      "since": "10.0.0"
+    },
+    "SetBackgroundColor": {
+      "description": "Sets the background color for all cells in the current table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTable/Methods/SetBackgroundColor/",
+      "params": [
+        {
+          "description": "If not passed, the background color will be cleared.",
+          "name": "color",
+          "optional": true,
+          "type": "ApiColor"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetBackgroundColor(color?: ApiColor): boolean",
+      "since": "10.0.0"
     },
     "SetColumnWidth": {
       "description": "Sets the width of the specified column in the current table.",

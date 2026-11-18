@@ -3,7 +3,7 @@
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/ShowComment/",
   "params": [
     {
-      "description": "The comment ID.",
+      "description": "The comment ID or an array of comment IDs.",
       "name": "commentId",
       "type": "string | string[]"
     }

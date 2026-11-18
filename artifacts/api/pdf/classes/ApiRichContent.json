@@ -80,6 +80,31 @@
       },
       "signature": "GetElement(pos: number): ApiRichParagraph | null"
     },
+    "GetElementsCount": {
+      "description": "Returns a number of elements in the current document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichContent/Methods/GetElementsCount/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetElementsCount(): number"
+    },
+    "GetText": {
+      "description": "Returns the inner text of the current document content object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichContent/Methods/GetText/",
+      "params": [
+        {
+          "description": "Options for formatting the returned text.",
+          "name": "options",
+          "optional": true,
+          "type": "{ ParaSeparator?: string; TabSymbol?: string; NewLineSeparator?: string }"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetText(options?: { ParaSeparator?: string; TabSymbol?: string; NewLineSeparator?: string }): string"
+    },
     "Push": {
       "description": "Pushes a rich paragraph to a rich content.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichContent/Methods/Push/",
@@ -94,6 +119,30 @@
         "type": "boolean"
       },
       "signature": "Push(richPara: ApiRichParagraph): boolean"
+    },
+    "RemoveAllElements": {
+      "description": "Removes all the elements from the current rich content.\n\n**Note:**\nWhen all elements are removed, a new empty rich paragraph is automatically created.\n",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichContent/Methods/RemoveAllElements/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "RemoveAllElements(): boolean"
+    },
+    "RemoveElement": {
+      "description": "Removes an element using the position specified.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichContent/Methods/RemoveElement/",
+      "params": [
+        {
+          "description": "The element number (position) in the rich content.",
+          "name": "pos",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "RemoveElement(pos: number): boolean"
     }
   }
 }

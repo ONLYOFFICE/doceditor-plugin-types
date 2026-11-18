@@ -9,7 +9,7 @@
     }
   ],
   "returns": {
-    "type": "number"
+    "type": "number[][]"
   },
-  "signature": "MUNIT(arg1: ApiRange | ApiName | number): number"
+  "signature": "MUNIT(arg1: ApiRange | ApiName | number): number[][]"
 }

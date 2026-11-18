@@ -5,7 +5,7 @@
     {
       "description": "A complex number expressed in the *x + yi* or *x + yj* form.",
       "name": "arg1",
-      "type": "ApiRange | ApiName | number"
+      "type": "ApiRange | ApiName | number | string"
     },
     {
       "description": "The power to which the complex number will be raised.",
@@ -14,7 +14,7 @@
     }
   ],
   "returns": {
-    "type": "number"
+    "type": "string"
   },
-  "signature": "IMPOWER(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number): number"
+  "signature": "IMPOWER(arg1: ApiRange | ApiName | number | string, arg2: ApiRange | ApiName | number): string"
 }

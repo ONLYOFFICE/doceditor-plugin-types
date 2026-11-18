@@ -2,6 +2,43 @@
   "description": "Class representing a style.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStyle/",
   "methods": {
+    "GetClassType": {
+      "description": "Returns a type of the ApiStyle class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStyle/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"style\""
+      },
+      "signature": "GetClassType(): \"style\"",
+      "since": "10.0.0"
+    },
+    "GetConditionalTableStyle": {
+      "description": "Returns a set of formatting properties which will be conditionally applied to the parts of a table that match the\nrequirement specified in the sType parameter.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStyle/Methods/GetConditionalTableStyle/",
+      "params": [
+        {
+          "description": "The table part which the formatting properties must be applied to.",
+          "name": "sType",
+          "optional": true,
+          "type": "TableStyleOverrideType"
+        }
+      ],
+      "returns": {
+        "type": "ApiTableStylePr"
+      },
+      "signature": "GetConditionalTableStyle(sType?: TableStyleOverrideType): ApiTableStylePr",
+      "since": "10.0.3"
+    },
+    "GetName": {
+      "description": "Returns a name of the current style.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStyle/Methods/GetName/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetName(): string",
+      "since": "10.0.0"
+    },
     "GetTablePr": {
       "description": "Returns the table properties of the current style.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStyle/Methods/GetTablePr/",
@@ -11,6 +48,32 @@
         "type": "ApiTablePr | null"
       },
       "signature": "GetTablePr(): ApiTablePr | null",
+      "since": "10.0.0"
+    },
+    "GetType": {
+      "description": "Returns a type of the current style.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStyle/Methods/GetType/",
+      "params": [],
+      "returns": {
+        "type": "StyleType"
+      },
+      "signature": "GetType(): StyleType",
+      "since": "10.0.0"
+    },
+    "SetName": {
+      "description": "Sets a name to the current style.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStyle/Methods/SetName/",
+      "params": [
+        {
+          "description": "The name which will be used for the current style.",
+          "name": "styleName",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetName(styleName: string): boolean",
       "since": "10.0.0"
     },
     "SetTablePr": {

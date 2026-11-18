@@ -3,7 +3,7 @@
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/",
   "methods": {
     "AddChart": {
-      "description": "Creates a chart of the specified type from the selected data range of the current sheet.\n\n**Note:**\nThe horizontal and vertical offsets are calculated within the limits of the specified column and\nrow cells only. If this value exceeds the cell width or height, another vertical/horizontal position will be set.\n\n\n**Note:**\nValues of _nStyleIndex_ outside **1 - 48** are interpreted as a chart style id from the _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs Enterprise](https://www.onlyoffice.com/docs-enterprise-prices?from=api) and [ONLYOFFICE Docs Developer](https://www.onlyoffice.com/developer-edition-prices?from=api).\n",
+      "description": "Creates a chart of the specified type from the selected data range of the current sheet.\n\n**Note:**\nThe horizontal and vertical offsets are calculated within the limits of the specified column and\nrow cells only. If this value exceeds the cell width or height, another vertical/horizontal position will be set.\n\n\n**Note:**\nValues of _nStyleIndex_ outside **1 - 48** are interpreted as a chart style id from the _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs Enterprise](https://www.onlyoffice.com/pricing?from=api) and [ONLYOFFICE Docs Developer](https://www.onlyoffice.com/pricing?from=api).\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/AddChart/",
       "params": [
         {
@@ -304,7 +304,7 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/AddShape/",
       "params": [
         {
-          "description": "The shape type which specifies the preset shape geometry. The \"textRect\" type creates a text box as the editor inserts it: a light fill and a thin black outline.",
+          "description": "The shape type which specifies the preset shape geometry. An unknown type is replaced with \"rect\". The \"textRect\" type creates a text box with the \"rect\" geometry, as the editor inserts it: a light fill and a thin black outline.",
           "name": "sType",
           "optional": true,
           "type": "ShapeType"
@@ -564,7 +564,7 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetBottomMargin/",
       "params": [],
       "returns": {
-        "description": "The bottom margin size measured in points.",
+        "description": "The bottom margin size measured in millimeters.",
         "type": "number"
       },
       "signature": "GetBottomMargin(): number"
@@ -663,13 +663,13 @@
       "since": "8.0.0"
     },
     "GetHyperlinks": {
-      "description": "Returns a collection of all the hyperlinks on the worksheet.",
+      "description": "Returns an array of all the hyperlinks on the worksheet.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetHyperlinks/",
       "params": [],
       "returns": {
-        "type": "ApiHyperlinks"
+        "type": "ApiHyperlink[]"
       },
-      "signature": "GetHyperlinks(): ApiHyperlinks"
+      "signature": "GetHyperlinks(): ApiHyperlink[]"
     },
     "GetIndex": {
       "description": "Returns a sheet index.",
@@ -685,7 +685,7 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetLeftMargin/",
       "params": [],
       "returns": {
-        "description": "The left margin size measured in points.",
+        "description": "The left margin size measured in millimeters.",
         "type": "number"
       },
       "signature": "GetLeftMargin(): number"
@@ -826,7 +826,7 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetRightMargin/",
       "params": [],
       "returns": {
-        "description": "The right margin size measured in points.",
+        "description": "The right margin size measured in millimeters.",
         "type": "number"
       },
       "signature": "GetRightMargin(): number"
@@ -880,7 +880,7 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetTopMargin/",
       "params": [],
       "returns": {
-        "description": "The top margin size measured in points.",
+        "description": "The top margin size measured in millimeters.",
         "type": "number"
       },
       "signature": "GetTopMargin(): number"
@@ -921,12 +921,13 @@
       "since": "10.0.0"
     },
     "Move": {
-      "description": "Moves the current sheet to another location in the workbook.",
+      "description": "Moves the current sheet to another location in the workbook.\nExactly one of the \"before\" or \"after\" parameters must be specified.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/Move/",
       "params": [
         {
           "description": "The sheet before which the current sheet will be placed. You cannot specify \"before\" if you specify \"after\".",
           "name": "before",
+          "optional": true,
           "type": "ApiWorksheet"
         },
         {
@@ -939,7 +940,7 @@
       "returns": {
         "type": "void"
       },
-      "signature": "Move(before: ApiWorksheet, after?: ApiWorksheet): void"
+      "signature": "Move(before?: ApiWorksheet, after?: ApiWorksheet): void"
     },
     "Paste": {
       "description": "Pastes the contents of the clipboard to the current sheet.",
@@ -1010,8 +1011,8 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetBottomMargin/",
       "params": [
         {
-          "description": "The bottom margin size measured in points.",
-          "name": "nPoints",
+          "description": "The bottom margin size measured in millimeters.",
+          "name": "margin",
           "type": "number"
         }
       ],
@@ -1019,16 +1020,16 @@
         "description": "returns true if the bottom margin was set successfully.",
         "type": "boolean"
       },
-      "signature": "SetBottomMargin(nPoints: number): boolean"
+      "signature": "SetBottomMargin(margin: number): boolean"
     },
     "SetColumnWidth": {
       "description": "Sets the width of the specified column.\n\nOne unit of column width is equal to the width of one character in the Normal style.\nFor proportional fonts, the width of the character 0 (zero) is used.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetColumnWidth/",
       "params": [
         {
-          "description": "The number of the column to set the width to.",
-          "name": "nColumn",
-          "type": "number"
+          "description": "The number of the column to set the width to, or the column letter(s), e.g. \"B\" or \"B:D\".",
+          "name": "column",
+          "type": "number | string"
         },
         {
           "description": "The width of the column divided by 7 pixels.",
@@ -1046,7 +1047,7 @@
         "description": "returns true if the column width was set successfully.",
         "type": "boolean"
       },
-      "signature": "SetColumnWidth(nColumn: number, nWidth: number, bWithotPaddings?: boolean): boolean"
+      "signature": "SetColumnWidth(column: number | string, nWidth: number, bWithotPaddings?: boolean): boolean"
     },
     "SetDisplayGridlines": {
       "description": "Specifies whether the current sheet gridlines must be displayed or not.",
@@ -1124,8 +1125,8 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetLeftMargin/",
       "params": [
         {
-          "description": "The left margin size measured in points.",
-          "name": "nPoints",
+          "description": "The left margin size measured in millimeters.",
+          "name": "margin",
           "type": "number"
         }
       ],
@@ -1133,7 +1134,7 @@
         "description": "returns true if the left margin was set successfully.",
         "type": "boolean"
       },
-      "signature": "SetLeftMargin(nPoints: number): boolean"
+      "signature": "SetLeftMargin(margin: number): boolean"
     },
     "SetName": {
       "description": "Sets a name to the current sheet.",
@@ -1203,8 +1204,8 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetRightMargin/",
       "params": [
         {
-          "description": "The right margin size measured in points.",
-          "name": "nPoints",
+          "description": "The right margin size measured in millimeters.",
+          "name": "margin",
           "type": "number"
         }
       ],
@@ -1212,7 +1213,7 @@
         "description": "returns true if the right margin was set successfully.",
         "type": "boolean"
       },
-      "signature": "SetRightMargin(nPoints: number): boolean"
+      "signature": "SetRightMargin(margin: number): boolean"
     },
     "SetRowHeight": {
       "description": "Sets the height of the specified row measured in points.\n\nA point is 1/72 inch.",
@@ -1240,8 +1241,8 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetTopMargin/",
       "params": [
         {
-          "description": "The top margin size measured in points.",
-          "name": "nPoints",
+          "description": "The top margin size measured in millimeters.",
+          "name": "margin",
           "type": "number"
         }
       ],
@@ -1249,7 +1250,7 @@
         "description": "returns true if the top margin was set successfully.",
         "type": "boolean"
       },
-      "signature": "SetTopMargin(nPoints: number): boolean"
+      "signature": "SetTopMargin(margin: number): boolean"
     },
     "SetVisible": {
       "description": "Sets the state of sheet visibility.",

@@ -1,6 +1,9 @@
 {
   "description": "Class representing a named action.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiNamedAction/",
+  "extends": [
+    "ApiBaseAction"
+  ],
   "methods": {
     "GetClassType": {
       "description": "Returns a type of the ApiNamedAction class.",
@@ -22,6 +25,16 @@
       "signature": "GetName(): NamedActionType",
       "since": "10.0.0"
     },
+    "GetNext": {
+      "description": "Returns next action.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAction/Methods/GetNext/",
+      "params": [],
+      "returns": {
+        "type": "ApiBaseAction"
+      },
+      "signature": "GetNext(): ApiBaseAction",
+      "since": "10.0.0"
+    },
     "SetName": {
       "description": "Sets a name of action.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiNamedAction/Methods/SetName/",
@@ -35,6 +48,22 @@
         "type": "boolean"
       },
       "signature": "SetName(name: NamedActionType): boolean",
+      "since": "10.0.0"
+    },
+    "SetNext": {
+      "description": "Sets next action.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAction/Methods/SetNext/",
+      "params": [
+        {
+          "name": "action",
+          "type": "ApiBaseAction"
+        }
+      ],
+      "returns": {
+        "description": "returns next action",
+        "type": "ApiBaseAction"
+      },
+      "signature": "SetNext(action: ApiBaseAction): ApiBaseAction",
       "since": "10.0.0"
     }
   }

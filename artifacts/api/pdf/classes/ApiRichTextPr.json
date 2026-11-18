@@ -2,6 +2,15 @@
   "description": "Class representing the rich text properties.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/",
   "methods": {
+    "GetBold": {
+      "description": "Gets the bold property from the current text properties.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/GetBold/",
+      "params": [],
+      "returns": {
+        "type": "boolean | null"
+      },
+      "signature": "GetBold(): boolean | null"
+    },
     "GetClassType": {
       "description": "Returns a type of the ApiRichTextPr class.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/GetClassType/",
@@ -10,6 +19,203 @@
         "type": "\"richTextPr\""
       },
       "signature": "GetClassType(): \"richTextPr\""
+    },
+    "GetColor": {
+      "description": "Gets the RGB color from the current text properties.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/GetColor/",
+      "params": [],
+      "returns": {
+        "type": "ApiColor | null"
+      },
+      "signature": "GetColor(): ApiColor | null"
+    },
+    "GetFontFamily": {
+      "description": "Returns the font family from the current text properties.\n\nThe method automatically calculates the font from the theme if the font was set via the theme.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/GetFontFamily/",
+      "params": [
+        {
+          "description": "The font slot.\rIf this parameter is not specified, the \"ascii\" value is used.",
+          "name": "fontSlot",
+          "optional": true,
+          "type": "\"ascii\" | \"eastAsia\" | \"hAnsi\" | \"cs\""
+        }
+      ],
+      "returns": {
+        "type": "string | null"
+      },
+      "signature": "GetFontFamily(fontSlot?: \"ascii\" | \"eastAsia\" | \"hAnsi\" | \"cs\"): string | null"
+    },
+    "GetFontSize": {
+      "description": "Gets the font size from the current text properties.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/GetFontSize/",
+      "params": [],
+      "returns": {
+        "type": "hps | null"
+      },
+      "signature": "GetFontSize(): hps | null"
+    },
+    "GetItalic": {
+      "description": "Gets the italic property from the current text properties.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/GetItalic/",
+      "params": [],
+      "returns": {
+        "type": "boolean | null"
+      },
+      "signature": "GetItalic(): boolean | null"
+    },
+    "GetStrikeout": {
+      "description": "Gets the strikeout property from the current text properties.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/GetStrikeout/",
+      "params": [],
+      "returns": {
+        "type": "boolean | null"
+      },
+      "signature": "GetStrikeout(): boolean | null"
+    },
+    "GetUnderline": {
+      "description": "Gets the underline property from the current text properties.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/GetUnderline/",
+      "params": [],
+      "returns": {
+        "type": "boolean | null"
+      },
+      "signature": "GetUnderline(): boolean | null"
+    },
+    "GetVertAlign": {
+      "description": "Gets the vertical alignment type from the current text properties.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/GetVertAlign/",
+      "params": [],
+      "returns": {
+        "type": "TextVertAlign"
+      },
+      "signature": "GetVertAlign(): TextVertAlign"
+    },
+    "SetBold": {
+      "description": "Sets the bold property to the text character.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/SetBold/",
+      "params": [
+        {
+          "description": "Specifies that the contents of the run are displayed bold.",
+          "name": "isBold",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "this text properties.",
+        "type": "ApiRichTextPr"
+      },
+      "signature": "SetBold(isBold: boolean): ApiRichTextPr"
+    },
+    "SetColor": {
+      "description": "Sets the text color to the current text run.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/SetColor/",
+      "params": [
+        {
+          "name": "color",
+          "type": "ApiColor"
+        }
+      ],
+      "returns": {
+        "description": "this text properties.",
+        "type": "ApiRichTextPr"
+      },
+      "signature": "SetColor(color: ApiColor): ApiRichTextPr"
+    },
+    "SetFontFamily": {
+      "description": "Sets all 4 font slots with the specified font family.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/SetFontFamily/",
+      "params": [
+        {
+          "description": "The font family or families used for the current text run.",
+          "name": "fontFamily",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "description": "this text properties.",
+        "type": "ApiRichTextPr"
+      },
+      "signature": "SetFontFamily(fontFamily: string): ApiRichTextPr"
+    },
+    "SetFontSize": {
+      "description": "Sets the font size to the characters of the current text run.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/SetFontSize/",
+      "params": [
+        {
+          "description": "The text size value measured in half-points (1/144 of an inch).",
+          "name": "size",
+          "type": "hps"
+        }
+      ],
+      "returns": {
+        "description": "this text properties.",
+        "type": "ApiRichTextPr"
+      },
+      "signature": "SetFontSize(size: hps): ApiRichTextPr"
+    },
+    "SetItalic": {
+      "description": "Sets the italic property to the text character.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/SetItalic/",
+      "params": [
+        {
+          "description": "Specifies that the contents of the current run are displayed italicized.",
+          "name": "isItalic",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "this text properties.",
+        "type": "ApiRichTextPr"
+      },
+      "signature": "SetItalic(isItalic: boolean): ApiRichTextPr"
+    },
+    "SetStrikeout": {
+      "description": "Specifies that the contents of the run are displayed with a single horizontal line through the center of the line.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/SetStrikeout/",
+      "params": [
+        {
+          "description": "Specifies that the contents of the current run are displayed struck through.",
+          "name": "isStrikeout",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "this text properties.",
+        "type": "ApiRichTextPr"
+      },
+      "signature": "SetStrikeout(isStrikeout: boolean): ApiRichTextPr"
+    },
+    "SetUnderline": {
+      "description": "Specifies that the contents of the run are displayed along with a line appearing directly below the character\n(less than all the spacing above and below the characters on the line).",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/SetUnderline/",
+      "params": [
+        {
+          "description": "Specifies that the contents of the current run are displayed underlined.",
+          "name": "isUnderline",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "this text properties.",
+        "type": "ApiRichTextPr"
+      },
+      "signature": "SetUnderline(isUnderline: boolean): ApiRichTextPr"
+    },
+    "SetVertAlign": {
+      "description": "Specifies the alignment which will be applied to the contents of the run in relation to the default appearance of the run text:",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichTextPr/Methods/SetVertAlign/",
+      "params": [
+        {
+          "description": "The vertical alignment type applied to the text contents.",
+          "name": "type",
+          "type": "TextVertAlign"
+        }
+      ],
+      "returns": {
+        "description": "this text properties.",
+        "type": "ApiRichTextPr"
+      },
+      "signature": "SetVertAlign(type: TextVertAlign): ApiRichTextPr"
     }
   }
 }

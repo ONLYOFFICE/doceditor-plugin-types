@@ -53,7 +53,7 @@
       "signature": "GetParent(): ApiListObject"
     },
     "GetRng": {
-      "description": "Returns the data body range that the sort applies to.",
+      "description": "Returns the table range that the sort applies to, including the header row and excluding the totals row.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSort/Methods/GetRng/",
       "params": [],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
@@ -115,7 +115,7 @@
       "signature": "SetOrientation(orientation: XlSortOrientation): void"
     },
     "SetSortMethod": {
-      "description": "Sets the sort method.",
+      "description": "Sets the sort method.\nThe value is stored in the sort settings, but it is not applied when sorting yet.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSort/Methods/SetSortMethod/",
       "params": [
         {

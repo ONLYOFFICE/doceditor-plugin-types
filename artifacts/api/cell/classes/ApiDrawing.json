@@ -25,6 +25,23 @@
       "signature": "Delete(): boolean",
       "since": "9.4.0"
     },
+    "Fill": {
+      "description": "Sets the fill formatting properties to the current graphic object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/Fill/",
+      "params": [
+        {
+          "description": "The fill type used to fill the graphic object.",
+          "name": "fill",
+          "type": "ApiFill"
+        }
+      ],
+      "returns": {
+        "description": "returns false if param is invalid.",
+        "type": "boolean"
+      },
+      "signature": "Fill(fill: ApiFill): boolean",
+      "since": "10.0.0"
+    },
     "GetClassType": {
       "description": "Returns a type of the ApiDrawing class.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetClassType/",
@@ -87,7 +104,7 @@
       "signature": "GetHeight(): EMU"
     },
     "GetInternalId": {
-      "description": "Returns an internal ID of the current drawing object.",
+      "description": "Returns an internal ID of the current drawing object.\nThe internal ID is valid only for the current editing session: it stays the same while the spreadsheet is open,\nbut it is not saved to the file and can be different after the spreadsheet is reopened.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetInternalId/",
       "params": [],
       "returns": {
@@ -327,6 +344,23 @@
       "signature": "SetFlipV(bFlip: boolean): boolean",
       "since": "9.3.0"
     },
+    "SetLine": {
+      "description": "Sets the outline properties to the current graphic object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/SetLine/",
+      "params": [
+        {
+          "description": "The stroke used to create the graphic object outline.",
+          "name": "stroke",
+          "type": "ApiStroke"
+        }
+      ],
+      "returns": {
+        "description": "returns false if param is invalid or not supported for the current graphic object.",
+        "type": "boolean"
+      },
+      "signature": "SetLine(stroke: ApiStroke): boolean",
+      "since": "10.0.0"
+    },
     "SetLockAspect": {
       "description": "Sets whether the aspect ratio of the drawing is locked.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/SetLockAspect/",
@@ -404,29 +438,29 @@
       "params": [
         {
           "description": "The number of the column where the beginning of the drawing object will be placed.",
-          "name": "nFromCol",
+          "name": "fromCol",
           "type": "number"
         },
         {
-          "description": "The offset from the nFromCol column to the left part of the drawing object measured in English measure units.",
-          "name": "nColOffset",
+          "description": "The offset from the fromCol column to the left part of the drawing object measured in English measure units.",
+          "name": "colOffset",
           "type": "EMU"
         },
         {
           "description": "The number of the row where the beginning of the drawing object will be placed.",
-          "name": "nFromRow",
+          "name": "fromRow",
           "type": "number"
         },
         {
-          "description": "The offset from the nFromRow row to the upper part of the drawing object measured in English measure units.",
-          "name": "nRowOffset",
+          "description": "The offset from the fromRow row to the upper part of the drawing object measured in English measure units.",
+          "name": "rowOffset",
           "type": "EMU"
         }
       ],
       "returns": {
         "type": "void"
       },
-      "signature": "SetPosition(nFromCol: number, nColOffset: EMU, nFromRow: number, nRowOffset: EMU): void"
+      "signature": "SetPosition(fromCol: number, colOffset: EMU, fromRow: number, rowOffset: EMU): void"
     },
     "SetRotation": {
       "description": "Sets the rotation angle to the current drawing object.",
@@ -467,19 +501,19 @@
       "params": [
         {
           "description": "The object width measured in English measure units.",
-          "name": "nWidth",
+          "name": "width",
           "type": "EMU"
         },
         {
           "description": "The object height measured in English measure units.",
-          "name": "nHeight",
+          "name": "height",
           "type": "EMU"
         }
       ],
       "returns": {
         "type": "void"
       },
-      "signature": "SetSize(nWidth: EMU, nHeight: EMU): void"
+      "signature": "SetSize(width: EMU, height: EMU): void"
     },
     "SetTitle": {
       "description": "Sets the title of the current drawing.",

@@ -45,7 +45,7 @@
       "since": "9.0.0"
     },
     "GetRoleColor": {
-      "description": "Returns the RGB color of the specified role.",
+      "description": "Returns the color of the specified role.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormRoles/Methods/GetRoleColor/",
       "params": [
         {
@@ -55,9 +55,9 @@
         }
       ],
       "returns": {
-        "type": "null | { r: number; g: number; b: number }"
+        "type": "ApiColor | null"
       },
-      "signature": "GetRoleColor(name: string): null | { r: number; g: number; b: number }",
+      "signature": "GetRoleColor(name: string): ApiColor | null",
       "since": "9.0.0"
     },
     "HaveRole": {
@@ -142,13 +142,13 @@
         {
           "description": "The role color.",
           "name": "color",
-          "type": "string"
+          "type": "ApiColor | string"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetRoleColor(name: string, color: string): boolean",
+      "signature": "SetRoleColor(name: string, color: ApiColor | string): boolean",
       "since": "9.0.0"
     }
   },

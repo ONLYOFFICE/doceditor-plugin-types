@@ -43,6 +43,14 @@ const SOURCES = {
     hint: '<path-to-sdkjs-ext>',
     defaultPath: (resolved) => path.resolve(resolved.sdkjs, '..', 'sdkjs-ext'),
   },
+  officeJsApi: {
+    label: 'office-js-api',
+    kind: 'directory',
+    option: 'office-js-api',
+    env: 'OFFICE_JS_API_PATH',
+    hint: '<path-to-office-js-api>',
+    defaultPath: () => path.resolve(PACKAGE_ROOT, '..', 'office-js-api'),
+  },
   pluginsRuntime: {
     label: 'plugins.dev.js',
     kind: 'file',

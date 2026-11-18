@@ -89,6 +89,16 @@
       },
       "signature": "GetFormType(): FormType"
     },
+    "GetId": {
+      "description": "Returns a unique ID for the current form.\nThis ID is saved to the file, unlike the internal ID returned by the {@link ApiFormBase#GetInternalId} method.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetId/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetId(): number",
+      "since": "10.0.1"
+    },
     "GetImage": {
       "description": "Returns an image in the base64 format from the current picture form.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiPictureForm/Methods/GetImage/",
@@ -99,7 +109,7 @@
       "signature": "GetImage(): Base64Img"
     },
     "GetInternalId": {
-      "description": "Returns an internal id of the current form.",
+      "description": "Returns an internal ID of the current form.\nThe internal ID is valid only for the current editing session: it stays the same while the document is open,\nbut it is not saved to the file and can be different after the document is reopened.\nTo get the ID which is saved to the file, use the {@link ApiFormBase#GetId} method.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/GetInternalId/",
       "params": [],
       "returns": {
@@ -347,6 +357,22 @@
         "type": "boolean"
       },
       "signature": "SetFormKey(sKey: string): boolean"
+    },
+    "SetId": {
+      "description": "Specifies a unique ID for the current form.\nThis ID is saved to the file, unlike the internal ID returned by the {@link ApiFormBase#GetInternalId} method.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/form-api/ApiFormBase/Methods/SetId/",
+      "params": [
+        {
+          "description": "The numerical ID which will be specified for the current form.",
+          "name": "id",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetId(id: number): boolean",
+      "since": "10.0.1"
     },
     "SetImage": {
       "description": "Sets an image to the current picture form.",

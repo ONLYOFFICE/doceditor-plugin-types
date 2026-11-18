@@ -20,7 +20,7 @@
     }
   ],
   "returns": {
-    "type": "number"
+    "type": "string"
   },
-  "signature": "BASE(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number, arg3?: ApiRange | ApiName | number): number"
+  "signature": "BASE(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number, arg3?: ApiRange | ApiName | number): string"
 }

@@ -86,7 +86,7 @@
       "signature": "CreateBullet(sSymbol: string): ApiBullet"
     },
     "CreateChart": {
-      "description": "Creates a chart with the parameters specified.\n\n**Note:**\nValues of _nStyleIndex_ outside **1 - 48** are interpreted as a chart style id from the _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs Enterprise](https://www.onlyoffice.com/docs-enterprise-prices?from=api) and [ONLYOFFICE Docs Developer](https://www.onlyoffice.com/developer-edition-prices?from=api).\n",
+      "description": "Creates a chart with the parameters specified.\n\n**Note:**\nValues of _nStyleIndex_ outside **1 - 48** are interpreted as a chart style id from the _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs Enterprise](https://www.onlyoffice.com/pricing?from=api) and [ONLYOFFICE Docs Developer](https://www.onlyoffice.com/pricing?from=api).\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/CreateChart/",
       "params": [
         {
@@ -176,7 +176,7 @@
       "since": "9.1.0"
     },
     "CreateGroup": {
-      "description": "Creates a group of drawings.\n**Note:**\nThe drawings must not be added to the presentation. To group the drawings which are already in the presentation, use the {@link ApiSlide#GroupDrawings} method.\n",
+      "description": "Creates a group of drawings.\n\n**Note:**\nThe drawings must not be added to the presentation. To group the drawings which are already in the presentation, use the {@link ApiSlide#GroupDrawings} method.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/CreateGroup/",
       "params": [
         {
@@ -203,13 +203,14 @@
         {
           "description": "The tooltip text.",
           "name": "tooltip",
+          "optional": true,
           "type": "string"
         }
       ],
       "returns": {
         "type": "ApiHyperlink"
       },
-      "signature": "CreateHyperlink(link: string, tooltip: string): ApiHyperlink"
+      "signature": "CreateHyperlink(link: string, tooltip?: string): ApiHyperlink"
     },
     "CreateImage": {
       "description": "Creates an image with the parameters specified.",
@@ -332,6 +333,7 @@
         {
           "description": "The number the first numbered paragraph will start with.",
           "name": "startAt",
+          "optional": true,
           "type": "number"
         }
       ],
@@ -339,7 +341,7 @@
         "description": "returns null if numType is not one of the BulletType values.",
         "type": "ApiBullet | null"
       },
-      "signature": "CreateNumbering(numType: BulletType, startAt: number): ApiBullet | null"
+      "signature": "CreateNumbering(numType: BulletType, startAt?: number): ApiBullet | null"
     },
     "CreateOleObject": {
       "description": "Creates an OLE object with the parameters specified.",
@@ -422,13 +424,14 @@
         {
           "description": "The placeholder type (\"body\", \"chart\", \"clipArt\", \"ctrTitle\", \"diagram\", \"date\", \"footer\", \"header\", \"media\", \"object\", \"picture\", \"sldImage\", \"sldNumber\", \"subTitle\", \"table\", \"title\").",
           "name": "sType",
+          "optional": true,
           "type": "string"
         }
       ],
       "returns": {
         "type": "ApiPlaceholder"
       },
-      "signature": "CreatePlaceholder(sType: string): ApiPlaceholder"
+      "signature": "CreatePlaceholder(sType?: string): ApiPlaceholder"
     },
     "CreatePresetColor": {
       "description": "Creates a color selecting it from one of the available color presets.",
@@ -548,7 +551,7 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/CreateShape/",
       "params": [
         {
-          "description": "The shape type which specifies the preset shape geometry. The \"textRect\" type creates a text box: it has no fill and no outline, uses the theme text color, and its height follows the text.",
+          "description": "The shape type which specifies the preset shape geometry. An unknown type is replaced with \"rect\". The \"textRect\" type creates a text box with the \"rect\" geometry: it has no fill and no outline, uses the theme text color, and its height follows the text.",
           "name": "sType",
           "optional": true,
           "type": "ShapeType"
@@ -674,18 +677,18 @@
         {
           "description": "Number of rows.",
           "name": "rows",
-          "type": "unknown"
+          "type": "number"
         },
         {
           "description": "Number of columns.",
           "name": "cols",
-          "type": "unknown"
+          "type": "number"
         }
       ],
       "returns": {
         "type": "ApiTable | null"
       },
-      "signature": "CreateTable(rows: unknown, cols: unknown): ApiTable | null"
+      "signature": "CreateTable(rows: number, cols: number): ApiTable | null"
     },
     "CreateTablePr": {
       "description": "Creates the empty table properties.",
@@ -962,6 +965,22 @@
         "type": "void"
       },
       "signature": "FromJSON(sMessage: string): void"
+    },
+    "GetByInternalId": {
+      "description": "Returns an object by its internal ID.\nInternal IDs are valid only for the current editing session: they stay the same while the presentation is open,\nbut they are not saved to the file and can be different after the presentation is reopened.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/GetByInternalId/",
+      "params": [
+        {
+          "description": "The internal ID of the object.",
+          "name": "id",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "type": "Drawing | ApiDocumentContent | ApiParagraph | ApiMaster | null"
+      },
+      "signature": "GetByInternalId(id: string): Drawing | ApiDocumentContent | ApiParagraph | ApiMaster | null",
+      "since": "9.2.0"
     },
     "GetFirstSlide": {
       "description": "Returns the first slide of the presentation.",

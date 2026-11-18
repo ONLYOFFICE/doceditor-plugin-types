@@ -1,6 +1,9 @@
 {
   "description": "Class representing a js action.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiJsAction/",
+  "extends": [
+    "ApiBaseAction"
+  ],
   "methods": {
     "GetClassType": {
       "description": "Returns a type of the ApiJsAction class.",
@@ -12,6 +15,16 @@
       "signature": "GetClassType(): \"jsAction\"",
       "since": "10.0.0"
     },
+    "GetNext": {
+      "description": "Returns next action.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAction/Methods/GetNext/",
+      "params": [],
+      "returns": {
+        "type": "ApiBaseAction"
+      },
+      "signature": "GetNext(): ApiBaseAction",
+      "since": "10.0.0"
+    },
     "GetScript": {
       "description": "Gets action script",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiJsAction/Methods/GetScript/",
@@ -20,6 +33,22 @@
         "type": "string"
       },
       "signature": "GetScript(): string",
+      "since": "10.0.0"
+    },
+    "SetNext": {
+      "description": "Sets next action.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAction/Methods/SetNext/",
+      "params": [
+        {
+          "name": "action",
+          "type": "ApiBaseAction"
+        }
+      ],
+      "returns": {
+        "description": "returns next action",
+        "type": "ApiBaseAction"
+      },
+      "signature": "SetNext(action: ApiBaseAction): ApiBaseAction",
       "since": "10.0.0"
     },
     "SetScript": {

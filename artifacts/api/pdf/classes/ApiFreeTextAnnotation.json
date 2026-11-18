@@ -6,7 +6,7 @@
   ],
   "methods": {
     "AddReply": {
-      "description": "Adds reply on this annot.",
+      "description": "Adds reply on this annot.\n\n**Note:**\nIf this annotation is itself a reply, the new reply is added to the thread of its root annotation\n(the reply then refers to the root and is listed by the root's {@link ApiBaseAnnotation#GetReplies}).\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/AddReply/",
       "params": [
         {
@@ -198,9 +198,10 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetOpacity/",
       "params": [],
       "returns": {
-        "type": "string"
+        "description": "The opacity from 0 (transparent) to 100 (opaque).",
+        "type": "percentage"
       },
-      "signature": "GetOpacity(): string"
+      "signature": "GetOpacity(): percentage"
     },
     "GetPosition": {
       "description": "Gets annotation position.",
@@ -317,7 +318,7 @@
       "signature": "SetBorderEffectStyle(style: AnnotBorderEffectStyle): boolean"
     },
     "SetBorderStyle": {
-      "description": "Sets annotation border style.",
+      "description": "Sets annotation border style.\n\n**Note:**\nIf the `\"dashed\"` style is set and the annotation has no dash pattern yet,\nthe default pattern `[2, 2]` is applied. Use {@link ApiBaseAnnotation#SetDashPattern} to change it.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetBorderStyle/",
       "params": [
         {

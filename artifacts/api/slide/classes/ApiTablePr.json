@@ -2,6 +2,16 @@
   "description": "Class representing the table properties.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTablePr/",
   "methods": {
+    "GetClassType": {
+      "description": "Returns a type of the ApiTablePr class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTablePr/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"tablePr\""
+      },
+      "signature": "GetClassType(): \"tablePr\"",
+      "since": "10.0.0"
+    },
     "SetShd": {
       "description": "Specifies the shading which is applied to the extents of the current table.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTablePr/Methods/SetShd/",
@@ -198,6 +208,16 @@
         "type": "boolean"
       },
       "signature": "SetTableBorderTop(type: BorderType, size: mm, fill: ApiFill): boolean",
+      "since": "10.0.0"
+    },
+    "ToJSON": {
+      "description": "Converts the ApiTablePr object into the JSON object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTablePr/Methods/ToJSON/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "ToJSON(): string",
       "since": "10.0.0"
     }
   }

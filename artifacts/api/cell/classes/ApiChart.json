@@ -38,13 +38,13 @@
         {
           "description": "One of the styles available in the editor.",
           "name": "nStyleId",
-          "type": "unknown"
+          "type": "number"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "ApplyChartStyle(nStyleId: unknown): boolean"
+      "signature": "ApplyChartStyle(nStyleId: number): boolean"
     },
     "Copy": {
       "description": "Creates a copy of the current chart.",
@@ -67,7 +67,7 @@
       "signature": "GetAllSeries(): ApiChartSeries[]"
     },
     "GetChartType": {
-      "description": "Returns a type of the chart object.",
+      "description": "Returns a type of the chart object using the legacy chart type names. To get a chart type name that can be used to create a chart, use the GetType method.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/GetChartType/",
       "params": [],
       "returns": {
@@ -131,7 +131,7 @@
       "signature": "GetTitle(): string | null"
     },
     "GetType": {
-      "description": "Returns a type of the chart object using the chart type names from the {@link ChartType} enumeration.",
+      "description": "Returns a type of the chart object using the chart type names from the {@link global#ChartType} enumeration.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/GetType/",
       "params": [],
       "returns": {
@@ -354,6 +354,7 @@
         {
           "description": "The text size value measured in half-points (1/144 of an inch).",
           "name": "fontSize",
+          "optional": true,
           "type": "hps"
         },
         {
@@ -366,7 +367,7 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetHorAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean"
+      "signature": "SetHorAxisTitle(sTitle: string, fontSize?: hps, bIsBold?: boolean): boolean"
     },
     "SetLegendFill": {
       "description": "Sets the fill to the chart legend.",
@@ -823,6 +824,7 @@
         {
           "description": "The text size value measured in half-points (1/144 of an inch).",
           "name": "fontSize",
+          "optional": true,
           "type": "hps"
         },
         {
@@ -835,7 +837,7 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean"
+      "signature": "SetTitle(sTitle: string, fontSize?: hps, bIsBold?: boolean): boolean"
     },
     "SetTitleFill": {
       "description": "Sets the fill to the chart title.",
@@ -894,6 +896,7 @@
         {
           "description": "The text size value measured in half-points (1/144 of an inch).",
           "name": "fontSize",
+          "optional": true,
           "type": "hps"
         },
         {
@@ -906,7 +909,7 @@
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetVerAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean"
+      "signature": "SetVerAxisTitle(sTitle: string, fontSize?: hps, bIsBold?: boolean): boolean"
     },
     "SetVertAxisLabelsFontSize": {
       "description": "Specifies font size for labels of the vertical axis.",

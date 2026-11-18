@@ -104,6 +104,26 @@
       },
       "signature": "GetScreenTipText(): string"
     },
+    "MoveCursorToEnd": {
+      "description": "Moves the cursor to the end of the current hyperlink.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiHyperlink/Methods/MoveCursorToEnd/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "MoveCursorToEnd(): boolean",
+      "since": "10.0.3"
+    },
+    "MoveCursorToStart": {
+      "description": "Moves the cursor to the start of the current hyperlink.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiHyperlink/Methods/MoveCursorToStart/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "MoveCursorToStart(): boolean",
+      "since": "10.0.3"
+    },
     "SetDefaultStyle": {
       "description": "Sets the default hyperlink style.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiHyperlink/Methods/SetDefaultStyle/",

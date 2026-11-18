@@ -304,7 +304,7 @@
       "since": "10.0.0"
     },
     "GetInternalId": {
-      "description": "Returns an internal ID of the current table.",
+      "description": "Returns an internal ID of the current table.\nThe internal ID is valid only for the current editing session: it stays the same while the document is open,\nbut it is not saved to the file and can be different after the document is reopened.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTable/Methods/GetInternalId/",
       "params": [],
       "returns": {
@@ -506,6 +506,26 @@
         "type": "ApiTableCell | null"
       },
       "signature": "MergeCells(aCells: ApiTableCell[]): ApiTableCell | null"
+    },
+    "MoveCursorToEnd": {
+      "description": "Moves the cursor to the end of the current table.\nThe cursor is placed at the end of the last cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTable/Methods/MoveCursorToEnd/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "MoveCursorToEnd(): boolean",
+      "since": "10.0.3"
+    },
+    "MoveCursorToStart": {
+      "description": "Moves the cursor to the start of the current table.\nThe cursor is placed at the start of the first cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTable/Methods/MoveCursorToStart/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "MoveCursorToStart(): boolean",
+      "since": "10.0.3"
     },
     "RemoveColumn": {
       "description": "Removes a table column with a specified cell.",

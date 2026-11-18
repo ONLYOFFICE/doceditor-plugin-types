@@ -5,6 +5,40 @@
     "ApiTableRowPr"
   ],
   "methods": {
+    "AddRows": {
+      "description": "Adds the new rows to the current table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRow/Methods/AddRows/",
+      "params": [
+        {
+          "description": "Count of rows to be added.",
+          "name": "nCount",
+          "type": "number"
+        },
+        {
+          "description": "Specifies if the rows will be added before or after the current row.",
+          "name": "isBefore",
+          "optional": true,
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "description": "returns null if parent table doesn't exist.",
+        "type": "ApiTable | null"
+      },
+      "signature": "AddRows(nCount: number, isBefore?: boolean): ApiTable | null",
+      "since": "10.0.0"
+    },
+    "Clear": {
+      "description": "Clears the content from the current row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRow/Methods/Clear/",
+      "params": [],
+      "returns": {
+        "description": "returns false if parent table doesn't exist.",
+        "type": "boolean"
+      },
+      "signature": "Clear(): boolean",
+      "since": "10.0.0"
+    },
     "GetCell": {
       "description": "Returns a cell by its position in the current row.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRow/Methods/GetCell/",
@@ -48,6 +82,26 @@
       "signature": "GetHeight(): EMU | null",
       "since": "9.4.0"
     },
+    "GetIndex": {
+      "description": "Returns the current row index.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRow/Methods/GetIndex/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetIndex(): number",
+      "since": "10.0.0"
+    },
+    "GetInternalId": {
+      "description": "Returns an internal ID of the current table row.\nThe internal ID is valid only for the current editing session: it stays the same while the presentation is open,\nbut it is not saved to the file and can be different after the presentation is reopened.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRow/Methods/GetInternalId/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetInternalId(): string",
+      "since": "10.0.0"
+    },
     "GetNext": {
       "description": "Returns the next row if exists.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRow/Methods/GetNext/",
@@ -78,6 +132,45 @@
       },
       "signature": "GetPrevious(): ApiTableRow | null"
     },
+    "MergeCells": {
+      "description": "Merges the cells in the current row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRow/Methods/MergeCells/",
+      "params": [],
+      "returns": {
+        "description": "return null if can't merge.",
+        "type": "ApiTableCell | null"
+      },
+      "signature": "MergeCells(): ApiTableCell | null",
+      "since": "10.0.0"
+    },
+    "Remove": {
+      "description": "Removes the current table row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRow/Methods/Remove/",
+      "params": [],
+      "returns": {
+        "description": "return false if parent table doesn't exist.",
+        "type": "boolean"
+      },
+      "signature": "Remove(): boolean",
+      "since": "10.0.0"
+    },
+    "SetBackgroundColor": {
+      "description": "Sets the background color to all cells in the current table row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRow/Methods/SetBackgroundColor/",
+      "params": [
+        {
+          "description": "If not passed, the background color will be cleared.",
+          "name": "color",
+          "optional": true,
+          "type": "ApiColor"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetBackgroundColor(color?: ApiColor): boolean",
+      "since": "10.0.0"
+    },
     "SetHeight": {
       "description": "Sets the height to the current table row.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRow/Methods/SetHeight/",
@@ -94,6 +187,39 @@
       },
       "signature": "SetHeight(nValue?: EMU): EMU | null",
       "since": "5.1.0"
+    },
+    "SetRowPr": {
+      "description": "Sets the properties to the current table row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRow/Methods/SetRowPr/",
+      "params": [
+        {
+          "description": "The table row properties.",
+          "name": "oApiTableRowPr",
+          "type": "ApiTableRowPr"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetRowPr(oApiTableRowPr: ApiTableRowPr): boolean",
+      "since": "10.0.0"
+    },
+    "SetTextPr": {
+      "description": "Sets the text properties to the current row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRow/Methods/SetTextPr/",
+      "params": [
+        {
+          "description": "The text properties that will be set to the current row.",
+          "name": "oTextPr",
+          "type": "ApiTextPr"
+        }
+      ],
+      "returns": {
+        "description": "returns false if parent table doesn't exist or param is invalid.",
+        "type": "boolean"
+      },
+      "signature": "SetTextPr(oTextPr: ApiTextPr): boolean",
+      "since": "10.0.0"
     }
   }
 }

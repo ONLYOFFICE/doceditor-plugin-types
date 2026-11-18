@@ -1,5 +1,5 @@
 {
-  "description": "Returns an internal ID of the current document content.",
+  "description": "Returns an internal ID of the current document content.\nThe internal ID is valid only for the current editing session: it stays the same while the document is open,\nbut it is not saved to the file and can be different after the document is reopened.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/GetInternalId/",
   "params": [],
   "returns": {

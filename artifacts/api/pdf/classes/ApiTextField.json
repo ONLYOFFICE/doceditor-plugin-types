@@ -131,9 +131,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/GetRegularExp/",
       "params": [],
       "returns": {
-        "type": "boolean"
+        "type": "string | null"
       },
-      "signature": "GetRegularExp(): boolean",
+      "signature": "GetRegularExp(): string | null",
       "since": "10.0.0"
     },
     "GetTooltip": {
@@ -142,9 +142,9 @@
       "params": [],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
       "returns": {
-        "type": "boolean"
+        "type": "string | null"
       },
-      "signature": "GetTooltip(): boolean",
+      "signature": "GetTooltip(): string | null",
       "since": "9.4.0"
     },
     "GetValue": {
@@ -327,7 +327,7 @@
       "signature": "SetNumberFormat(decimalPlaces: number, separatorStyle: NumberSepStyle, negativeStyle: NumberNegStyle, currency: string, currencyPrepend: boolean): boolean"
     },
     "SetPartialName": {
-      "description": "Sets new field partial name.",
+      "description": "Sets new field partial name.\n\n**Note:**\nThe name parameter must not contain a dot.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/SetPartialName/",
       "params": [
         {
@@ -367,14 +367,14 @@
       "params": [
         {
           "description": "field placeholder",
-          "name": "sPlaceholder",
+          "name": "sText",
           "type": "string"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetPlaceholder(sPlaceholder: string): boolean",
+      "signature": "SetPlaceholder(sText: string): boolean",
       "since": "10.0.0"
     },
     "SetReadOnly": {

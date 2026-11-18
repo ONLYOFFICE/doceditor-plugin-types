@@ -29,6 +29,15 @@
       },
       "signature": "GetText(): string"
     },
+    "GetUserId": {
+      "description": "Returns the user ID of the comment reply author.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiCommentReply/Methods/GetUserId/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetUserId(): string"
+    },
     "SetAuthorName": {
       "description": "Sets the comment reply author's name.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiCommentReply/Methods/SetAuthorName/",

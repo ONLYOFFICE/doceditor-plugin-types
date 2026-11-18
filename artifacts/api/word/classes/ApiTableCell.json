@@ -134,7 +134,7 @@
       "signature": "GetIndex(): number"
     },
     "GetInternalId": {
-      "description": "Returns an internal id of the current table cell.",
+      "description": "Returns an internal ID of the current table cell.\nThe internal ID is valid only for the current editing session: it stays the same while the document is open,\nbut it is not saved to the file and can be different after the document is reopened.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/GetInternalId/",
       "params": [],
       "returns": {
@@ -208,6 +208,26 @@
       },
       "signature": "GetText(pr?: { Numbering?: boolean; Math?: boolean; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string; NewLineSeparator?: string }): string",
       "since": "9.4.0"
+    },
+    "MoveCursorToEnd": {
+      "description": "Moves the cursor to the end of the current table cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/MoveCursorToEnd/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "MoveCursorToEnd(): boolean",
+      "since": "10.0.3"
+    },
+    "MoveCursorToStart": {
+      "description": "Moves the cursor to the start of the current table cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/MoveCursorToStart/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "MoveCursorToStart(): boolean",
+      "since": "10.0.3"
     },
     "RemoveColumn": {
       "description": "Removes a column containing the current cell.",

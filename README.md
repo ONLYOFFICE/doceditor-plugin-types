@@ -199,11 +199,11 @@ https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/master/artif
 
 | `<file>` | size |
 | -------- | ---- |
-| `onlyoffice-doceditor-plugin-types.word.ambient.d.ts` | 2.52 MB |
-| `onlyoffice-doceditor-plugin-types.cell.ambient.d.ts` | 2.49 MB |
-| `onlyoffice-doceditor-plugin-types.slide.ambient.d.ts` | 1.47 MB |
-| `onlyoffice-doceditor-plugin-types.pdf.ambient.d.ts` | 1.43 MB |
-| `onlyoffice-doceditor-plugin-types.forms.ambient.d.ts` | 0.56 MB |
+| `onlyoffice-doceditor-plugin-types.word.ambient.d.ts` | 2.75 MB |
+| `onlyoffice-doceditor-plugin-types.cell.ambient.d.ts` | 2.67 MB |
+| `onlyoffice-doceditor-plugin-types.slide.ambient.d.ts` | 1.74 MB |
+| `onlyoffice-doceditor-plugin-types.pdf.ambient.d.ts` | 1.71 MB |
+| `onlyoffice-doceditor-plugin-types.forms.ambient.d.ts` | 0.57 MB |
 
 Each is self-contained - `Asc`, `AscPlugin`, that editor's namespace and its global `Api`. Load
 exactly one: all five declare the same globals with different types.
@@ -239,11 +239,12 @@ Docs Server:
 | Package version | Editors (sdkjs) version |
 | --------------- | ----------------------- |
 | 10.0.0          | 10.0.0                  |
+| 10.0.3          | 10.0.3                  |
 
 Pick the package version matching the editors you target. Because the version identifies a product
 release rather than the shape of the type surface, it is **not** semver over these declarations: a
 new editor release can rename or retype an API in any version segment, so a type-level breaking
-change can arrive in what looks like a patch. Pin exactly (`"@onlyoffice/doceditor-plugin-types": "10.0.0"`)
+change can arrive in what looks like a patch. Pin exactly (`"@onlyoffice/doceditor-plugin-types": "10.0.3"`)
 if that matters to you, and read the [changelog](CHANGELOG.md) before moving between editor
 versions. Each release records the exact editor commit it was generated from; that record lives in
 the [repository](https://github.com/ONLYOFFICE/doceditor-plugin-types), not in the published package.
@@ -252,7 +253,7 @@ the [repository](https://github.com/ONLYOFFICE/doceditor-plugin-types), not in t
 
 [AGENTS.md](AGENTS.md) is the guide: the runtime's three channels and what confuses them, how to
 look a member up without guessing, how to check plugin code you wrote against a compiler, and which
-230 members need a paid edition. It ships inside the npm package, so an installed copy has it at
+281 members need a paid edition. It ships inside the npm package, so an installed copy has it at
 `node_modules/@onlyoffice/doceditor-plugin-types/AGENTS.md`.
 
 What it points to for looking a member up lives in this repository rather than the package:

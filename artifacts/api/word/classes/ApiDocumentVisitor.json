@@ -2,6 +2,271 @@
   "description": "Class representing a document visitor.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/",
   "methods": {
+    "BlockLevelSdt": {
+      "description": "A hook called when the traversal enters a block content control.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/BlockLevelSdt/",
+      "params": [
+        {
+          "description": "The content control.",
+          "name": "contentControl",
+          "type": "ApiBlockLvlSdt"
+        },
+        {
+          "description": "With a selection traversal of a partly selected content control, the index of the first selected element of the content control (a paragraph, a table, a block content control); undefined when the whole content control is traversed.",
+          "name": "start",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "With a selection traversal of a partly selected content control, the index of the last selected element of the content control, inclusive; undefined when the whole content control is traversed.",
+          "name": "end",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "Return true to skip the content of the content control; the BlockLevelSdtEnd hook is not called then.",
+        "type": "boolean"
+      },
+      "signature": "BlockLevelSdt(contentControl: ApiBlockLvlSdt, start?: number, end?: number): boolean",
+      "since": "9.1.0"
+    },
+    "BlockLevelSdtEnd": {
+      "description": "A hook called when the traversal leaves a block content control.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/BlockLevelSdtEnd/",
+      "params": [
+        {
+          "description": "The content control.",
+          "name": "contentControl",
+          "type": "ApiBlockLvlSdt"
+        },
+        {
+          "description": "With a selection traversal of a partly selected content control, the index of the first selected element of the content control (a paragraph, a table, a block content control); undefined when the whole content control is traversed.",
+          "name": "start",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "With a selection traversal of a partly selected content control, the index of the last selected element of the content control, inclusive; undefined when the whole content control is traversed.",
+          "name": "end",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "BlockLevelSdtEnd(contentControl: ApiBlockLvlSdt, start?: number, end?: number): boolean",
+      "since": "9.1.0"
+    },
+    "Form": {
+      "description": "A hook called for a form. The traversal does not go inside forms, and there is no hook for leaving a form.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/Form/",
+      "params": [
+        {
+          "description": "The form.",
+          "name": "form",
+          "type": "ApiFormBase"
+        },
+        {
+          "description": "With a selection traversal of a partly selected inline form, the index of the first selected element inside the form; undefined when the whole form is traversed and for a fixed-size form.",
+          "name": "start",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "With a selection traversal of a partly selected inline form, the index of the last selected element inside the form, inclusive; undefined when the whole form is traversed and for a fixed-size form.",
+          "name": "end",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "Form(form: ApiFormBase, start?: number, end?: number): boolean",
+      "since": "9.1.0"
+    },
+    "InlineLevelSdt": {
+      "description": "A hook called when the traversal enters an inline content control.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/InlineLevelSdt/",
+      "params": [
+        {
+          "description": "The content control.",
+          "name": "contentControl",
+          "type": "ApiInlineLvlSdt"
+        },
+        {
+          "description": "With a selection traversal of a partly selected content control, the index of the first selected element inside the content control (a run, a hyperlink...); undefined when the whole content control is traversed.",
+          "name": "start",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "With a selection traversal of a partly selected content control, the index of the last selected element inside the content control, inclusive; undefined when the whole content control is traversed.",
+          "name": "end",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "Return true to skip the content of the content control; the InlineLevelSdtEnd hook is not called then.",
+        "type": "boolean"
+      },
+      "signature": "InlineLevelSdt(contentControl: ApiInlineLvlSdt, start?: number, end?: number): boolean",
+      "since": "9.1.0"
+    },
+    "InlineLevelSdtEnd": {
+      "description": "A hook called when the traversal leaves an inline content control.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/InlineLevelSdtEnd/",
+      "params": [
+        {
+          "description": "The content control.",
+          "name": "contentControl",
+          "type": "ApiInlineLvlSdt"
+        },
+        {
+          "description": "With a selection traversal of a partly selected content control, the index of the first selected element inside the content control (a run, a hyperlink...); undefined when the whole content control is traversed.",
+          "name": "start",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "With a selection traversal of a partly selected content control, the index of the last selected element inside the content control, inclusive; undefined when the whole content control is traversed.",
+          "name": "end",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "InlineLevelSdtEnd(contentControl: ApiInlineLvlSdt, start?: number, end?: number): boolean",
+      "since": "9.1.0"
+    },
+    "Paragraph": {
+      "description": "A hook called when the traversal enters a paragraph. Assign a function to it to process paragraphs.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/Paragraph/",
+      "params": [
+        {
+          "description": "The paragraph.",
+          "name": "paragraph",
+          "type": "ApiParagraph"
+        },
+        {
+          "description": "With a selection traversal of a partly selected paragraph, the index of the first selected element of the paragraph (a run, a hyperlink, an inline content control...); undefined when the whole paragraph is traversed.",
+          "name": "start",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "With a selection traversal of a partly selected paragraph, the index of the last selected element of the paragraph, inclusive; undefined when the whole paragraph is traversed.",
+          "name": "end",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "Return true to skip the content of the paragraph; the ParagraphEnd hook is not called then.",
+        "type": "boolean"
+      },
+      "signature": "Paragraph(paragraph: ApiParagraph, start?: number, end?: number): boolean",
+      "since": "9.1.0"
+    },
+    "ParagraphEnd": {
+      "description": "A hook called when the traversal leaves a paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/ParagraphEnd/",
+      "params": [
+        {
+          "description": "The paragraph.",
+          "name": "paragraph",
+          "type": "ApiParagraph"
+        },
+        {
+          "description": "With a selection traversal of a partly selected paragraph, the index of the first selected element of the paragraph (a run, a hyperlink, an inline content control...); undefined when the whole paragraph is traversed.",
+          "name": "start",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "With a selection traversal of a partly selected paragraph, the index of the last selected element of the paragraph, inclusive; undefined when the whole paragraph is traversed.",
+          "name": "end",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "ParagraphEnd(paragraph: ApiParagraph, start?: number, end?: number): boolean",
+      "since": "9.1.0"
+    },
+    "Run": {
+      "description": "A hook called when the traversal enters a text run. A run that contains only the paragraph mark is skipped.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/Run/",
+      "params": [
+        {
+          "description": "The run.",
+          "name": "run",
+          "type": "ApiRun"
+        },
+        {
+          "description": "With a selection traversal of a partly selected run, the position of the first selected run element (a character, a space, a tab, a line break, a drawing...); undefined when the whole run is traversed.",
+          "name": "start",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "With a selection traversal of a partly selected run, the position after the last selected run element, exclusive; undefined when the whole run is traversed.",
+          "name": "end",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "Return true to skip the text of the run; the Text and RunEnd hooks are not called for it then.",
+        "type": "boolean"
+      },
+      "signature": "Run(run: ApiRun, start?: number, end?: number): boolean",
+      "since": "9.1.0"
+    },
+    "RunEnd": {
+      "description": "A hook called when the traversal leaves a text run.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/RunEnd/",
+      "params": [
+        {
+          "description": "The run.",
+          "name": "run",
+          "type": "ApiRun"
+        },
+        {
+          "description": "With a selection traversal of a partly selected run, the position of the first selected run element (a character, a space, a tab, a line break, a drawing...); undefined when the whole run is traversed.",
+          "name": "start",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "With a selection traversal of a partly selected run, the position after the last selected run element, exclusive; undefined when the whole run is traversed.",
+          "name": "end",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "RunEnd(run: ApiRun, start?: number, end?: number): boolean",
+      "since": "9.1.0"
+    },
     "Stop": {
       "description": "Stops the traversal. No further hooks are called after the current one returns.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/Stop/",
@@ -12,6 +277,170 @@
       },
       "signature": "Stop(): boolean",
       "since": "10.0.0"
+    },
+    "Table": {
+      "description": "A hook called when the traversal enters a table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/Table/",
+      "params": [
+        {
+          "description": "The table.",
+          "name": "table",
+          "type": "ApiTable"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "Return true to skip the rows of the table; the TableEnd hook is not called then.",
+        "type": "boolean"
+      },
+      "signature": "Table(table: ApiTable): boolean",
+      "since": "9.1.0"
+    },
+    "TableCell": {
+      "description": "A hook called when the traversal enters a table cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/TableCell/",
+      "params": [
+        {
+          "description": "The table cell.",
+          "name": "cell",
+          "type": "ApiTableCell"
+        },
+        {
+          "description": "With a selection traversal of a partly selected cell, the index of the first selected element of the cell content (a paragraph, a table, a block content control); undefined when the whole cell is traversed.",
+          "name": "start",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "With a selection traversal of a partly selected cell, the index of the last selected element of the cell content, inclusive; undefined when the whole cell is traversed.",
+          "name": "end",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "Return true to skip the content of the cell; the TableCellEnd hook is not called then.",
+        "type": "boolean"
+      },
+      "signature": "TableCell(cell: ApiTableCell, start?: number, end?: number): boolean",
+      "since": "9.1.0"
+    },
+    "TableCellEnd": {
+      "description": "A hook called when the traversal leaves a table cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/TableCellEnd/",
+      "params": [
+        {
+          "description": "The table cell.",
+          "name": "cell",
+          "type": "ApiTableCell"
+        },
+        {
+          "description": "With a selection traversal of a partly selected cell, the index of the first selected element of the cell content (a paragraph, a table, a block content control); undefined when the whole cell is traversed.",
+          "name": "start",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "With a selection traversal of a partly selected cell, the index of the last selected element of the cell content, inclusive; undefined when the whole cell is traversed.",
+          "name": "end",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "TableCellEnd(cell: ApiTableCell, start?: number, end?: number): boolean",
+      "since": "9.1.0"
+    },
+    "TableEnd": {
+      "description": "A hook called when the traversal leaves a table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/TableEnd/",
+      "params": [
+        {
+          "description": "The table.",
+          "name": "table",
+          "type": "ApiTable"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "TableEnd(table: ApiTable): boolean",
+      "since": "9.1.0"
+    },
+    "TableRow": {
+      "description": "A hook called when the traversal enters a table row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/TableRow/",
+      "params": [
+        {
+          "description": "The table row.",
+          "name": "row",
+          "type": "ApiTableRow"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "Return true to skip the cells of the row; the TableRowEnd hook is not called then.",
+        "type": "boolean"
+      },
+      "signature": "TableRow(row: ApiTableRow): boolean",
+      "since": "9.1.0"
+    },
+    "TableRowEnd": {
+      "description": "A hook called when the traversal leaves a table row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/TableRowEnd/",
+      "params": [
+        {
+          "description": "The table row.",
+          "name": "row",
+          "type": "ApiTableRow"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "TableRowEnd(row: ApiTableRow): boolean",
+      "since": "9.1.0"
+    },
+    "Text": {
+      "description": "A hook called with the text of a run. Letters, spaces, tabs (\"\\t\") and line breaks (\"\\n\") that follow one another come as one string; any other run element splits the text into separate calls.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/Text/",
+      "params": [
+        {
+          "description": "The text.",
+          "name": "text",
+          "type": "string"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "Text(text: string): boolean",
+      "since": "9.1.0"
+    },
+    "Traverse": {
+      "description": "Traverses the document content the visitor was created from and calls the assigned hooks for every node.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/Traverse/",
+      "params": [
+        {
+          "description": "Traverse only the selected part of the content instead of the whole content.",
+          "name": "isSelection",
+          "optional": true,
+          "type": "boolean"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "Traverse(isSelection?: boolean): boolean",
+      "since": "9.1.0"
     }
   }
 }

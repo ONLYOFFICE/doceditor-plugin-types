@@ -73,9 +73,10 @@
         }
       ],
       "returns": {
-        "type": "void"
+        "description": "returns false if the name is empty (the reply keeps its author).",
+        "type": "boolean"
       },
-      "signature": "SetAuthorName(sAuthorName: string): void",
+      "signature": "SetAuthorName(sAuthorName: string): boolean",
       "since": "7.5.0"
     },
     "SetText": {

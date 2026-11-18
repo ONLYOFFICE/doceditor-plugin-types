@@ -49,13 +49,14 @@
         {
           "description": "Checkbox / radio button properties.",
           "name": "formPr",
+          "optional": true,
           "type": "CheckBoxFormPr"
         }
       ],
       "returns": {
         "type": "ApiCheckBoxForm"
       },
-      "signature": "CreateCheckBoxForm(formPr: CheckBoxFormPr): ApiCheckBoxForm"
+      "signature": "CreateCheckBoxForm(formPr?: CheckBoxFormPr): ApiCheckBoxForm"
     },
     "CreateComboBoxForm": {
       "description": "Creates a combo box / dropdown list with the specified combo box / dropdown list properties.",
@@ -64,13 +65,14 @@
         {
           "description": "Combo box / dropdown list properties.",
           "name": "formPr",
+          "optional": true,
           "type": "ComboBoxFormPr"
         }
       ],
       "returns": {
         "type": "ApiComboBoxForm"
       },
-      "signature": "CreateComboBoxForm(formPr: ComboBoxFormPr): ApiComboBoxForm"
+      "signature": "CreateComboBoxForm(formPr?: ComboBoxFormPr): ApiComboBoxForm"
     },
     "CreateComplexForm": {
       "description": "Creates a complex form with the specified complex form properties.",
@@ -79,13 +81,14 @@
         {
           "description": "Complex form properties.",
           "name": "formPr",
+          "optional": true,
           "type": "FormPrBase"
         }
       ],
       "returns": {
         "type": "ApiComplexForm"
       },
-      "signature": "CreateComplexForm(formPr: FormPrBase): ApiComplexForm"
+      "signature": "CreateComplexForm(formPr?: FormPrBase): ApiComplexForm"
     },
     "CreateDateForm": {
       "description": "Creates a date form with the specified date form properties.",
@@ -94,13 +97,14 @@
         {
           "description": "Date form properties.",
           "name": "formPr",
+          "optional": true,
           "type": "DateFormPr"
         }
       ],
       "returns": {
         "type": "ApiDateForm"
       },
-      "signature": "CreateDateForm(formPr: DateFormPr): ApiDateForm"
+      "signature": "CreateDateForm(formPr?: DateFormPr): ApiDateForm"
     },
     "CreatePictureForm": {
       "description": "Creates a picture form with the specified picture form properties.",
@@ -109,13 +113,14 @@
         {
           "description": "Picture form properties.",
           "name": "formPr",
+          "optional": true,
           "type": "PictureFormPr"
         }
       ],
       "returns": {
         "type": "ApiPictureForm"
       },
-      "signature": "CreatePictureForm(formPr: PictureFormPr): ApiPictureForm"
+      "signature": "CreatePictureForm(formPr?: PictureFormPr): ApiPictureForm"
     },
     "CreateSignatureForm": {
       "description": "Creates a signature form with the specified form properties.",
@@ -140,13 +145,14 @@
         {
           "description": "Text field properties.",
           "name": "formPr",
+          "optional": true,
           "type": "TextFormPr"
         }
       ],
       "returns": {
         "type": "ApiTextForm"
       },
-      "signature": "CreateTextForm(formPr: TextFormPr): ApiTextForm"
+      "signature": "CreateTextForm(formPr?: TextFormPr): ApiTextForm"
     },
     "ReplaceTextSmart": {
       "description": "Replaces each paragraph (or text in cell) in the select with the corresponding text from an array of strings.",

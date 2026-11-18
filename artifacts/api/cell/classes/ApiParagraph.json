@@ -37,7 +37,8 @@
       "signature": "AddLineBreak(): ApiRun"
     },
     "AddTabStop": {
-      "description": "Adds a tab stop to the current paragraph.",
+      "deprecated": "since 10.0.3 version.",
+      "description": "Adds a tab character to the end of the current paragraph.\nUse the AddText method with the \"\\t\" character instead.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/AddTabStop/",
       "params": [],
       "returns": {
@@ -159,7 +160,7 @@
       "signature": "GetIndRight(): twips | undefined"
     },
     "GetInternalId": {
-      "description": "Returns an internal ID of the current paragraph.",
+      "description": "Returns an internal ID of the current paragraph.\nThe internal ID is valid only for the current editing session: it stays the same while the document is open,\nbut it is not saved to the file and can be different after the document is reopened.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/GetInternalId/",
       "params": [],
       "returns": {
@@ -326,11 +327,13 @@
         {
           "description": "The position where the text or paragraph will be inserted (\"before\" or \"after\" the paragraph specified).",
           "name": "sPosition",
+          "optional": true,
           "type": "string"
         },
         {
           "description": "Defines if this method returns a new paragraph (true) or the current paragraph (false).",
           "name": "beRNewPara",
+          "optional": true,
           "type": "boolean"
         }
       ],
@@ -338,7 +341,7 @@
         "description": "returns null if param paragraph is invalid.",
         "type": "ApiParagraph | null"
       },
-      "signature": "InsertParagraph(paragraph: string | ApiParagraph, sPosition: string, beRNewPara: boolean): ApiParagraph | null"
+      "signature": "InsertParagraph(paragraph: string | ApiParagraph, sPosition?: string, beRNewPara?: boolean): ApiParagraph | null"
     },
     "IsEmpty": {
       "description": "Returns true if the paragraph has no content elements (only the paragraph end mark).",
@@ -359,21 +362,41 @@
       },
       "signature": "Last(): ParagraphContent | null"
     },
+    "MoveCursorToEnd": {
+      "description": "Moves the cursor to the end of the current paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/MoveCursorToEnd/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "MoveCursorToEnd(): boolean",
+      "since": "9.4.0"
+    },
+    "MoveCursorToStart": {
+      "description": "Moves the cursor to the start of the current paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/MoveCursorToStart/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "MoveCursorToStart(): boolean",
+      "since": "9.4.0"
+    },
     "Push": {
       "description": "Adds an element to the current paragraph.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/Push/",
       "params": [
         {
-          "description": "The document element which will be added at the current position. Returns false if the\roElement type is not supported by a paragraph.",
+          "description": "The document element which will be added at the current position. A string is added as a new run with the text properties of the last run with text.",
           "name": "oElement",
-          "type": "ParagraphContent"
+          "type": "ParagraphContent | string"
         }
       ],
       "returns": {
-        "description": "Returns `false` if the type of `oElement` is not supported by paragraph\rcontent.",
+        "description": "Returns `false` if the type of `oElement` is not supported by paragraph content or the element is already in the document.",
         "type": "boolean"
       },
-      "signature": "Push(oElement: ParagraphContent): boolean"
+      "signature": "Push(oElement: ParagraphContent | string): boolean"
     },
     "RemoveAllElements": {
       "description": "Removes all the elements from the current paragraph.\n\n**Note:**\nWhen all the elements are removed from the paragraph, a new empty run is automatically created. If you want to add\ncontent to this run, use the {@link ApiParagraph#GetElement} method.\n",

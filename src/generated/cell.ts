@@ -675,8 +675,11 @@ export namespace Cell {
     rotateWithShape?: boolean;
   }
 
-  /** This type specifies the preset shape geometry that will be used for a shape. */
-  export type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "textRect" | "trapezoid" | "triangle" | "upArrowCallout" | "upDownArrow" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
+  /**
+   * This type specifies the preset shape geometry that will be used for a shape. Unknown values are
+   * replaced with "rect". The "textRect" value means a text box with the "rect" geometry.
+   */
+  export type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "textRect" | "trapezoid" | "triangle" | "upArrow" | "upArrowCallout" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
 
   /**
    * The operation used to merge shapes.
@@ -775,20 +778,19 @@ export namespace Cell {
    * - **"topRightCell"** - specifies that the table formatting is applied to the top right cell.
    * - **"bottomLeftCell"** - specifies that the table formatting is applied to the bottom left cell.
    * - **"bottomRightCell"** - specifies that the table formatting is applied to the bottom right cell.
-   * - **"firstRow"** - specifies that the table formatting is applied to the first row.
+   * - **"firstRow"** - specifies that the table formatting is applied to the first row. Any subsequent
+   * row which is in *table header* will also use this conditional format.
    * - **"lastRow"** - specifies that the table formatting is applied to the last row.
-   * - **"firstColumn"** - specifies that the table formatting is applied to the first column. Any
-   * subsequent row which is in *table header* ({@link ApiTableRowPr#SetTableHeader}) will also use this
-   * conditional format.
+   * - **"firstColumn"** - specifies that the table formatting is applied to the first column.
    * - **"lastColumn"** - specifies that the table formatting is applied to the last column.
    * - **"bandedColumn"** - specifies that the table formatting is applied to odd numbered groupings of
-   * rows.
+   * columns.
    * - **"bandedColumnEven"** - specifies that the table formatting is applied to even numbered groupings
-   * of rows.
+   * of columns.
    * - **"bandedRow"** - specifies that the table formatting is applied to odd numbered groupings of
-   * columns.
+   * rows.
    * - **"bandedRowEven"** - specifies that the table formatting is applied to even numbered groupings of
-   * columns.
+   * rows.
    * - **"wholeTable"** - specifies that the conditional formatting is applied to the whole table.
    */
   export type TableStyleOverrideType = "topLeftCell" | "topRightCell" | "bottomLeftCell" | "bottomRightCell" | "firstRow" | "lastRow" | "firstColumn" | "lastColumn" | "bandedColumn" | "bandedColumnEven" | "bandedRow" | "bandedRowEven" | "wholeTable";
@@ -1398,6 +1400,7 @@ export namespace Cell {
      * @param sRef - The reference to the specified range. It must contain the sheet name, followed by sign ! and a
      *   range of cells. Example: "Sheet1!$A$1:$B$2".
      * @param isHidden - Defines if the range name is hidden or not.
+     * @default isHidden = false
      * @returns returns false if sName or sRef are invalid.
      *
      * @example
@@ -1443,6 +1446,23 @@ export namespace Cell {
      * until a macro finishes, so up-to-date formula results can be read within the same macro.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Recalculate the formulas that need recalculation in the active workbook.
+     *
+     * // How do I read an up-to-date formula result inside a macro?
+     *
+     * // Force the recalculation and show the result in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange("A1").SetValue(10);
+     * worksheet.GetRange("B1").SetValue("=A1*2");
+     * Api.Calculate();
+     * let value = worksheet.GetRange("B1").GetValue();
+     * worksheet.GetRange("A3").SetValue("Recalculated value of B1: ");
+     * worksheet.GetRange("B3").SetValue(value);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/Calculate/
      */
@@ -1858,6 +1878,24 @@ export namespace Cell {
      * @default format = "unicode"
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Build a math equation object and insert it into a shape's paragraph like a text run in a spreadsheet.
+     *
+     * // Insert a formula into a shape as if it were a run of text in a spreadsheet.
+     *
+     * // Produce a reusable equation object and place it into a shape's paragraph content in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 60 * 36000, 35 * 36000, fill, stroke, 0, 2 * 36000, 0, 3 * 36000);
+     *
+     * let paragraph = shape.GetContent().GetElement(0);
+     * let math = Api.CreateMath("x^2 + y^2 = z^2", "unicode");
+     * paragraph.AddElement(math);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateMath/
      */
     CreateMath(text: string, format?: "unicode" | "latex" | "mathml"): ApiMath;
@@ -1935,7 +1973,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateNumbering/
      */
-    CreateNumbering(numType: BulletType, startAt: number): ApiBullet | null;
+    CreateNumbering(numType: BulletType, startAt?: number): ApiBullet | null;
 
     /**
      * Creates a new paragraph.
@@ -2148,20 +2186,25 @@ export namespace Cell {
      * @param settings - The shadow properties.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Create a shadow and apply it to a shape in a spreadsheet.
+     *
+     * // Build an outer shadow with a color, transparency and offset, then attach it to a drawing.
+     *
+     * // Create a shape, create the shadow via Api.CreateShadow, and apply it with SetShadow.
+     *
+     * const worksheet = Api.GetActiveSheet();
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 213, 191));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = worksheet.AddShape("rect", 120 * 36000, 60 * 36000, fill, stroke, 2, 0, 2, 0);
+     * const shadow = Api.CreateShadow({ color: Api.RGB(0, 0, 0), transparency: 0.4, offsetX: 3, offsetY: 3 });
+     * shape.SetShadow(shadow);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateShadow/
      */
     CreateShadow(settings: ShadowSettings): ApiShadow;
-
-    /**
-     * Creates the shading which can be applied to text, a paragraph, a table or a table cell.
-     *
-     * @param type - The shading type: **"nil"** - no shading, **"clear"** - solid fill.
-     * @param color - The shading color. Required for the **"clear"** type.
-     * @since 10.0.0
-     *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateShd/
-     */
-    CreateShd(type: ShdType, color?: ApiColor): ApiShd;
 
     /**
      * Creates a solid fill to apply to the object using a selected solid color as the object background.
@@ -2405,9 +2448,37 @@ export namespace Cell {
 
     /**
      * Returns an object by its internal ID.
+     * Internal IDs are valid only for the current editing session: they stay the same while the
+     * spreadsheet is open,
+     * but they are not saved to the file and can be different after the spreadsheet is reopened.
      *
      * @param id - The internal ID of the object.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Look up a shape by its internal ID and add text to it in a spreadsheet.
+     *
+     * // Pass the ID returned by GetInternalId to get the same drawing object back in a spreadsheet.
+     *
+     * // Find a shape by an internal ID that stays valid only while the spreadsheet is open.
+     *
+     * const worksheet = Api.GetActiveSheet();
+     * const fill = Api.CreateSolidFill(Api.RGB(89, 130, 190));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = worksheet.AddShape(
+     * 	'roundRect',
+     * 	Api.MillimetersToEmus(70), Api.MillimetersToEmus(20),
+     * 	fill, stroke,
+     * 	0, 0, 2, 0
+     * );
+     *
+     * const internalId = shape.GetInternalId();
+     * const found = Api.GetByInternalId(internalId);
+     *
+     * found.GetContent().GetElement(0).AddText('This shape was found by its internal ID.');
+     * worksheet.GetRange('A1').SetValue('Found object class type: ' + found.GetClassType());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetByInternalId/
      */
@@ -3034,7 +3105,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/InsertPivotNewWorksheet/
      */
-    InsertPivotNewWorksheet(dataRef: ApiRange, newSheetName?: ApiRange): ApiPivotTable;
+    InsertPivotNewWorksheet(dataRef: ApiRange, newSheetName?: string): ApiPivotTable;
 
     /**
      * Returns the ApiRange object that represents the rectangular intersection of two or more ranges.
@@ -3099,6 +3170,23 @@ export namespace Cell {
      * @returns The resulting drawings, or null if the drawings cannot be merged or when called in the
      *   spreadsheet document builder.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Merge two overlapping shapes into a single shape on a worksheet.
+     *
+     * // Build a custom shape from simple shapes with the union operation.
+     *
+     * // Unite a rectangle and an ellipse on the active sheet into one shape filled with the color of the rectangle.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill1 = Api.CreateSolidFill(Api.Color(255, 111, 61));
+     * let fill2 = Api.CreateSolidFill(Api.Color(51, 51, 51));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let rectangle = worksheet.AddShape("rect", 60 * 36000, 40 * 36000, fill1, stroke, 1, 0, 2, 0);
+     * let ellipse = worksheet.AddShape("ellipse", 80 * 36000, 80 * 36000, fill2, stroke, 2, 2 * 36000, 2, 0);
+     * Api.MergeShapes([rectangle, ellipse], "union");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/MergeShapes/
      */
@@ -3203,6 +3291,22 @@ export namespace Cell {
      * Converts pixels to EMUs (English Metric Units).
      *
      * @param px - The number of pixels to convert to EMUs.
+     *
+     * @example
+     * ```js
+     * // Express a pixel count as english metric units in a spreadsheet.
+     *
+     * // How do I turn a number of pixels into english metric units in a spreadsheet?
+     *
+     * // Store the equivalent english metric unit value for a pixel measurement in a spreadsheet.
+     *
+     * const pixels = 1080;
+     * const emus = Api.PixelsToEmus(pixels);
+     * const text = pixels + ' pixels are equal to ' + emus + ' english metric units.';
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange('B2').SetValue(text);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/PixelsToEmus/
      */
@@ -3468,6 +3572,7 @@ export namespace Cell {
      * Recalculates all formulas in the active workbook.
      *
      * @param fLogger - A function which specifies the logger object for checking recalculation of formulas.
+     * @returns Returns true if the formulas were recalculated, false if there is no workbook.
      *
      * @example
      * ```js
@@ -3497,6 +3602,23 @@ export namespace Cell {
      * {@link Api#Calculate} first if formula results must be up to date.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Redraw the screen so the changes made so far become visible.
+     *
+     * // How do I show intermediate results while a macro is still running?
+     *
+     * // Write the data, force the recalculation and repaint the canvas.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange("A1").SetValue(10);
+     * worksheet.GetRange("B1").SetValue("=A1*2");
+     * Api.Calculate();
+     * Api.Redraw();
+     * worksheet.GetRange("A3").SetValue("The value of B1 is already on the screen: ");
+     * worksheet.GetRange("B3").SetValue(worksheet.GetRange("B1").GetValue());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/Redraw/
      */
@@ -3813,7 +3935,7 @@ export namespace Cell {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiAboveAverage/
    */
-  export interface ApiAboveAverage extends ApiFormatCondition {
+  export interface ApiAboveAverage extends Omit<ApiFormatCondition, "GetAppliesTo" | "GetFont"> {
     /**
      * Deletes the current format condition.
      *
@@ -3894,7 +4016,7 @@ export namespace Cell {
     /**
      * Returns the range of cells to which the current conditional formatting rule applies.
      *
-     * @returns The range of cells affected by the current condition, or null if no range is set.
+     * @returns The range of cells affected by the current condition.
      * @since 9.1.0
      *
      * @example
@@ -3925,9 +4047,9 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(appliedRange.GetAddress());
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetAppliesTo/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiAboveAverage/Methods/GetAppliesTo/
      */
-    GetAppliesTo(): ApiRange | null;
+    GetAppliesTo(): ApiRange;
 
     /**
      * Returns the date operator for time period conditions.
@@ -4005,15 +4127,14 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(currentColor === "No Fill" ? "No Fill" : "Color applied");
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetFillColor/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiAboveAverage/Methods/GetFillColor/
      */
     GetFillColor(): ApiColor | 'No Fill';
 
     /**
      * Returns the font applied by the current format condition.
      *
-     * @returns An ApiFont object representing the font applied by the format condition, or null if no font is
-     *   defined.
+     * @returns An ApiFont object representing the font applied by the format condition.
      * @since 9.1.0
      *
      * @example
@@ -4049,9 +4170,9 @@ export namespace Cell {
      * worksheet.GetRange("C3").SetValue("Size: " + (font ? font.Size : "default"));
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetFont/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiAboveAverage/Methods/GetFont/
      */
-    GetFont(): ApiFont | null;
+    GetFont(): ApiFont;
 
     /**
      * Returns the first formula used by the current conditional formatting rule.
@@ -4204,7 +4325,7 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(numberFormat);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetNumberFormat/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiAboveAverage/Methods/GetNumberFormat/
      */
     GetNumberFormat(): string;
 
@@ -4247,9 +4368,9 @@ export namespace Cell {
     GetOperator(): XlFormatConditionOperator;
 
     /**
-     * Returns the pivot table condition object.
+     * Returns whether the conditional formatting rule is applied to a pivot table.
      *
-     * @returns The pivot table condition object.
+     * @returns Returns true if the rule is applied to a pivot table, otherwise null.
      * @since 9.1.0
      *
      * @example
@@ -4280,9 +4401,9 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(ptCondition ? "Found" : "None");
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetPTCondition/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiAboveAverage/Methods/GetPTCondition/
      */
-    GetPTCondition(): PTCondition | null;
+    GetPTCondition(): boolean | null;
 
     /**
      * Returns the parent range object of the current format condition.
@@ -4313,7 +4434,7 @@ export namespace Cell {
      * worksheet.GetRange('C2').SetValue(parentRange.GetAddress());
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetParent/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiAboveAverage/Methods/GetParent/
      */
     GetParent(): ApiRange;
 
@@ -4351,7 +4472,7 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(priority);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetPriority/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiAboveAverage/Methods/GetPriority/
      */
     GetPriority(): number;
 
@@ -4390,7 +4511,7 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(scopeType);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetScopeType/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiAboveAverage/Methods/GetScopeType/
      */
     GetScopeType(): XlPivotConditionScope;
 
@@ -4400,7 +4521,35 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetStopIfTrue/
+     * @example
+     * ```js
+     * // Check whether an above average rule prevents the lower priority rules from being applied in a spreadsheet.
+     *
+     * // How do I find out if an above average rule stops the evaluation of the other rules in a spreadsheet?
+     *
+     * // Read the "stop if true" flag of an above average rule in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     *
+     * worksheet.GetRange("A1").SetValue("Sales Data");
+     * worksheet.GetRange("A2").SetValue(100);
+     * worksheet.GetRange("A3").SetValue(250);
+     * worksheet.GetRange("A4").SetValue(150);
+     * worksheet.GetRange("A5").SetValue(300);
+     * worksheet.GetRange("A6").SetValue(75);
+     *
+     * let dataRange = worksheet.GetRange("A2:A6");
+     * let formatConditions = dataRange.GetFormatConditions();
+     *
+     * let aboveAverage = formatConditions.AddAboveAverage();
+     * aboveAverage.SetFillColor(Api.RGB(255, 255, 0));
+     * aboveAverage.SetStopIfTrue(true);
+     *
+     * worksheet.GetRange("C1").SetValue("Stop if true:");
+     * worksheet.GetRange("C2").SetValue(aboveAverage.GetStopIfTrue() ? "Yes" : "No");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiAboveAverage/Methods/GetStopIfTrue/
      */
     GetStopIfTrue(): boolean;
 
@@ -5035,6 +5184,37 @@ export namespace Cell {
      * @param StopIfTrue - True to stop evaluating additional rules.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Stop the evaluation of the lower priority formatting rules when an above average rule is fulfilled in a spreadsheet.
+     *
+     * // How do I prevent the other formatting rules from being applied to the above average cells in a spreadsheet?
+     *
+     * // Keep the above average cells formatted by the first rule only in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     *
+     * worksheet.GetRange("A1").SetValue("Sales Data");
+     * worksheet.GetRange("A2").SetValue(100);
+     * worksheet.GetRange("A3").SetValue(250);
+     * worksheet.GetRange("A4").SetValue(150);
+     * worksheet.GetRange("A5").SetValue(300);
+     * worksheet.GetRange("A6").SetValue(75);
+     *
+     * let dataRange = worksheet.GetRange("A2:A6");
+     * let formatConditions = dataRange.GetFormatConditions();
+     *
+     * let aboveAverage = formatConditions.AddAboveAverage();
+     * let condition = formatConditions.Add("xlCellValue", "xlGreater", "20");
+     *
+     * aboveAverage.SetFillColor(Api.RGB(255, 255, 0));
+     * aboveAverage.SetStopIfTrue(true);
+     *
+     * condition.SetNumberFormat("0.00");
+     *
+     * worksheet.GetRange("C1").SetValue("The above average cells keep the general number format");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/SetStopIfTrue/
      */
     SetStopIfTrue(StopIfTrue: boolean): void;
@@ -5120,14 +5300,6 @@ export namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/SetTextOperator/
      */
     SetTextOperator(TextOperator: XlContainsOperator): void;
-  }
-
-  /** Class representing an animation effect. */
-  export interface ApiAnimationEffect {
-  }
-
-  /** Class representing an animation sequence (main sequence or interactive sequence). */
-  export interface ApiAnimationSequence {
   }
 
   /**
@@ -5488,14 +5660,6 @@ export namespace Cell {
     ShowAllData(): void;
   }
 
-  /** Class representing a container for the document content. */
-  export interface ApiBlockLvlSdt {
-  }
-
-  /** Class representing a bookmark in the document. */
-  export interface ApiBookmark {
-  }
-
   /**
    * Class representing a paragraph bullet.
    *
@@ -5537,6 +5701,27 @@ export namespace Cell {
 
     /**
      * Converts the ApiBullet object into the JSON object.
+     *
+     * @example
+     * ```js
+     * // Serialize a bullet to a JSON string in a spreadsheet.
+     *
+     * // ToJSON returns the JSON form of an ApiBullet, useful for saving or copying list formatting.
+     *
+     * // Create a numbering bullet, apply it to a paragraph in a shape, and write its JSON into a cell.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("flowChartOnlineStorage", 120 * 36000, 35 * 36000, fill, stroke, 0, 2 * 36000, 0, 3 * 36000);
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * let bullet = Api.CreateNumbering("ArabicParenR", 1);
+     * paragraph.SetBullet(bullet);
+     * paragraph.AddText(" Bulleted paragraph.");
+     * let json = bullet.ToJSON();
+     * worksheet.GetRange("A1").SetValue("Bullet JSON: " + json);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiBullet/Methods/ToJSON/
      */
@@ -5849,7 +6034,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/ApplyChartStyle/
      */
-    ApplyChartStyle(nStyleId: unknown): boolean;
+    ApplyChartStyle(nStyleId: number): boolean;
 
     /**
      * Creates a copy of the current chart.
@@ -5922,7 +6107,8 @@ export namespace Cell {
     GetAllSeries(): ApiChartSeries[];
 
     /**
-     * Returns a type of the chart object.
+     * Returns a type of the chart object using the legacy chart type names. To get a chart type name that
+     * can be used to create a chart, use the GetType method.
      *
      * @example
      * ```js
@@ -6094,8 +6280,34 @@ export namespace Cell {
     GetTitle(): string | null;
 
     /**
-     * Returns a type of the chart object using the chart type names from the {@link ChartType}
+     * Returns a type of the chart object using the chart type names from the {@link global#ChartType}
      * enumeration.
+     *
+     * @example
+     * ```js
+     * // Read the chart type using the chart type name and show it in the title in a spreadsheet.
+     *
+     * // Useful for confirming a chart's type before applying type-specific formatting in a spreadsheet.
+     *
+     * // Confirm the chart type programmatically to use its name as a label in a spreadsheet.
+     *
+     * const worksheet = Api.GetActiveSheet();
+     *
+     * worksheet.GetRange("B1").SetValue(2014);
+     * worksheet.GetRange("C1").SetValue(2015);
+     * worksheet.GetRange("D1").SetValue(2016);
+     * worksheet.GetRange("A2").SetValue("Projected Revenue");
+     * worksheet.GetRange("A3").SetValue("Estimated Costs");
+     * worksheet.GetRange("B2").SetValue(200);
+     * worksheet.GetRange("B3").SetValue(250);
+     * worksheet.GetRange("C2").SetValue(240);
+     * worksheet.GetRange("C3").SetValue(260);
+     * worksheet.GetRange("D2").SetValue(280);
+     * worksheet.GetRange("D3").SetValue(280);
+     * const chart = worksheet.AddChart("'Sheet1'!$A$1:$D$3", true, "3DColumnClustered", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 5, 3 * 36000);
+     *
+     * chart.SetTitle('This is the ' + chart.GetType() + ' chart', 30);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/GetType/
      */
@@ -6141,6 +6353,35 @@ export namespace Cell {
      *
      * @param sFormat - Numeric format (can be custom format).
      * @param sAxisPos - Axis position in the chart.
+     *
+     * @example
+     * ```js
+     * // Apply a custom number format to the values shown on a chart axis in a spreadsheet.
+     *
+     * // How do I control how numbers are displayed on a chart axis in a spreadsheet?
+     *
+     * // Format axis values with a specific pattern to improve chart readability in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange("B1").SetValue(2014);
+     * worksheet.GetRange("C1").SetValue(2015);
+     * worksheet.GetRange("D1").SetValue(2016);
+     * worksheet.GetRange("A2").SetValue("Projected Revenue");
+     * worksheet.GetRange("A3").SetValue("Estimated Costs");
+     * worksheet.GetRange("B2").SetValue(200);
+     * worksheet.GetRange("B3").SetValue(250);
+     * worksheet.GetRange("C2").SetValue(240);
+     * worksheet.GetRange("C3").SetValue(260);
+     * worksheet.GetRange("D2").SetValue(280);
+     * worksheet.GetRange("D3").SetValue(280);
+     * let chart = worksheet.AddChart("'Sheet1'!$A$1:$D$3", true, "3DColumnClustered", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 7, 3 * 36000);
+     * chart.SetTitle("Financial Overview", 26);
+     * chart.SetAxisNumFormat("0.00", "left");
+     * let fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * chart.SetSeriesFill(fill, 0, false);
+     * fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * chart.SetSeriesFill(fill, 1, false);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/SetAxisNumFormat/
      */
@@ -6192,6 +6433,43 @@ export namespace Cell {
      * @param textPr - The text properties to apply to the data labels.
      * @returns Returns true if the text properties were applied successfully, false otherwise.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the text properties for all chart data labels in a spreadsheet.
+     *
+     * const worksheet = Api.GetActiveSheet();
+     *
+     * worksheet.GetRange('B1').SetValue(2014);
+     * worksheet.GetRange('C1').SetValue(2015);
+     * worksheet.GetRange('D1').SetValue(2016);
+     * worksheet.GetRange('A2').SetValue('Projected Revenue');
+     * worksheet.GetRange('A3').SetValue('Estimated Costs');
+     * worksheet.GetRange('B2').SetValue(200);
+     * worksheet.GetRange('B3').SetValue(250);
+     * worksheet.GetRange('C2').SetValue(240);
+     * worksheet.GetRange('C3').SetValue(260);
+     * worksheet.GetRange('D2').SetValue(280);
+     * worksheet.GetRange('D3').SetValue(280);
+     *
+     * const chart = worksheet.AddChart(
+     * 	"'Sheet1'!$A$1:$D$3", true, 'bar3D', 2,
+     * 	Api.MillimetersToEmus(100), Api.MillimetersToEmus(70),
+     * 	0, Api.MillimetersToEmus(2),
+     * 	5, Api.MillimetersToEmus(3)
+     * );
+     * chart.SetTitle('Financial Overview', 26);
+     * chart.SetShowDataLabels(false, false, true, false);
+     * chart.SetSeriesFill(Api.CreateSolidFill(Api.RGB(55, 71, 79)), 0, false);
+     * chart.SetSeriesFill(Api.CreateSolidFill(Api.RGB(21, 101, 131)), 1, false);
+     *
+     * const textPr = Api.CreateTextPr();
+     * textPr.SetFontSize(18);
+     * textPr.SetBold(true);
+     * textPr.SetFontFamily('Arial');
+     * textPr.SetColor(Api.HexColor('#54b8f7'));
+     * chart.SetDataLabelsTextPr(textPr);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/SetDataLabelsTextPr/
      */
@@ -6503,7 +6781,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/SetHorAxisTitle/
      */
-    SetHorAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean;
+    SetHorAxisTitle(sTitle: string, fontSize?: hps, bIsBold?: boolean): boolean;
 
     /**
      * Sets the fill to the chart legend.
@@ -6967,6 +7245,44 @@ export namespace Cell {
      * @returns Returns true if the text properties were applied successfully, false otherwise.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the text properties for a specific chart point data label in a spreadsheet.
+     *
+     * const worksheet = Api.GetActiveSheet();
+     *
+     * worksheet.GetRange('B1').SetValue(2014);
+     * worksheet.GetRange('C1').SetValue(2015);
+     * worksheet.GetRange('D1').SetValue(2016);
+     * worksheet.GetRange('A2').SetValue('Projected Revenue');
+     * worksheet.GetRange('A3').SetValue('Estimated Costs');
+     * worksheet.GetRange('B2').SetValue(200);
+     * worksheet.GetRange('B3').SetValue(250);
+     * worksheet.GetRange('C2').SetValue(240);
+     * worksheet.GetRange('C3').SetValue(260);
+     * worksheet.GetRange('D2').SetValue(280);
+     * worksheet.GetRange('D3').SetValue(280);
+     *
+     * const chart = worksheet.AddChart(
+     * 	"'Sheet1'!$A$1:$D$3", true, 'bar3D', 2,
+     * 	Api.MillimetersToEmus(100), Api.MillimetersToEmus(70),
+     * 	0, Api.MillimetersToEmus(2),
+     * 	5, Api.MillimetersToEmus(3)
+     * );
+     * chart.SetTitle('Financial Overview', 26);
+     * chart.SetShowDataLabels(false, false, true, false);
+     * chart.SetSeriesFill(Api.CreateSolidFill(Api.RGB(69, 90, 100)), 0, false);
+     * chart.SetSeriesFill(Api.CreateSolidFill(Api.RGB(38, 80, 109)), 1, false);
+     *
+     * const textPr = Api.CreateTextPr();
+     * textPr.SetFontSize(24);
+     * textPr.SetBold(true);
+     * textPr.SetItalic(true);
+     * textPr.SetFontFamily('Arial');
+     * textPr.SetColor(Api.RGB(210, 105, 30));
+     * chart.SetPointDataLabelTextPr(1, 0, textPr);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/SetPointDataLabelTextPr/
      */
     SetPointDataLabelTextPr(seriesIndex: number, pointIndex: number, textPr: ApiTextPr): boolean;
@@ -7233,6 +7549,35 @@ export namespace Cell {
      * @default bShowKeys = false
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Display the data table beneath a chart in a spreadsheet.
+     *
+     * // Show the chart's source values as a grid under the plot area, with the legend keys.
+     *
+     * // Enable the data table with legend keys for a 3D bar chart in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange("B1").SetValue(2014);
+     * worksheet.GetRange("C1").SetValue(2015);
+     * worksheet.GetRange("D1").SetValue(2016);
+     * worksheet.GetRange("A2").SetValue("Projected Revenue");
+     * worksheet.GetRange("A3").SetValue("Estimated Costs");
+     * worksheet.GetRange("B2").SetValue(200);
+     * worksheet.GetRange("B3").SetValue(250);
+     * worksheet.GetRange("C2").SetValue(240);
+     * worksheet.GetRange("C3").SetValue(260);
+     * worksheet.GetRange("D2").SetValue(280);
+     * worksheet.GetRange("D3").SetValue(280);
+     * let chart = worksheet.AddChart("'Sheet1'!$A$1:$D$3", true, "3DColumnClustered", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 5, 3 * 36000);
+     * chart.SetTitle("Financial Overview", 26);
+     * chart.SetShowDataTable(true, true);
+     * let fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * chart.SetSeriesFill(fill, 0, false);
+     * fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * chart.SetSeriesFill(fill, 1, false);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/SetShowDataTable/
      */
     SetShowDataTable(bShow: boolean, bShowKeys?: boolean): boolean;
@@ -7315,7 +7660,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/SetTitle/
      */
-    SetTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean;
+    SetTitle(sTitle: string, fontSize?: hps, bIsBold?: boolean): boolean;
 
     /**
      * Sets the fill to the chart title.
@@ -7464,7 +7809,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChart/Methods/SetVerAxisTitle/
      */
-    SetVerAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean;
+    SetVerAxisTitle(sTitle: string, fontSize?: hps, bIsBold?: boolean): boolean;
 
     /**
      * Specifies font size for labels of the vertical axis.
@@ -7671,7 +8016,8 @@ export namespace Cell {
     ChangeChartType(sType: ChartType): boolean;
 
     /**
-     * Returns a chart type of the current series.
+     * Returns a chart type of the current series using the legacy chart type names. To get a chart type
+     * name that can be passed to the ChangeChartType method, use the GetType method.
      *
      * @example
      * ```js
@@ -7743,8 +8089,39 @@ export namespace Cell {
     GetClassType(): "chartSeries";
 
     /**
-     * Returns a chart type of the current series using the chart type names from the {@link ChartType}
-     * enumeration.
+     * Returns a chart type of the current series using the chart type names from the
+     * {@link global#ChartType} enumeration.
+     *
+     * @example
+     * ```js
+     * // Read the chart type name assigned to a specific data series in a spreadsheet.
+     *
+     * // Useful for confirming which chart type a specific data series uses in a spreadsheet.
+     *
+     * // Retrieve a series chart type and write the result to a cell in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange("B1").SetValue(2014);
+     * worksheet.GetRange("C1").SetValue(2015);
+     * worksheet.GetRange("D1").SetValue(2016);
+     * worksheet.GetRange("A2").SetValue("Projected Revenue");
+     * worksheet.GetRange("A3").SetValue("Estimated Costs");
+     * worksheet.GetRange("B2").SetValue(200);
+     * worksheet.GetRange("B3").SetValue(250);
+     * worksheet.GetRange("C2").SetValue(240);
+     * worksheet.GetRange("C3").SetValue(260);
+     * worksheet.GetRange("D2").SetValue(280);
+     * worksheet.GetRange("D3").SetValue(280);
+     * let chart = worksheet.AddChart("'Sheet1'!$A$1:$D$3", true, "ComboColumnClusteredLine", 2, 100 * 36000, 70 * 36000, 0, 2 * 36000, 5, 3 * 36000);
+     * chart.SetTitle("Financial Overview", 26);
+     * let fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * chart.SetSeriesFill(fill, 0, false);
+     * fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * chart.SetSeriesFill(fill, 1, false);
+     * let series = chart.GetSeries(0);
+     * let seriesType = series.GetType();
+     * worksheet.GetRange("F1").SetValue("Series Type = " + seriesType);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChartSeries/Methods/GetType/
      */
@@ -7924,6 +8301,23 @@ export namespace Cell {
      * @returns The shift from -1 (the darkest shade) to 1 (the lightest tint), 0 when the color is not shifted.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the luminance shift stored in a theme color in a spreadsheet.
+     *
+     * // The same theme color can be stored lightened or darkened, and cells keep that shift.
+     *
+     * // Fill a cell with a lightened accent and write the shift read back from it.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange("A1").SetFillColor(Api.ThemeColor("accent1", 0.4));
+     *
+     * let fill = worksheet.GetRange("A1").GetFillColor();
+     * worksheet.GetRange("A3").SetValue("Theme: " + fill.GetThemeName());
+     * worksheet.GetRange("A4").SetValue("Tint: " + fill.GetTintAndShade());
+     * worksheet.GetRange("A5").SetValue("Color: " + fill.GetHex());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiColor/Methods/GetTintAndShade/
      */
     GetTintAndShade(): number;
@@ -7987,7 +8381,7 @@ export namespace Cell {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiColorScale/
    */
-  export interface ApiColorScale extends ApiFormatCondition {
+  export interface ApiColorScale extends Omit<ApiFormatCondition, "GetAppliesTo"> {
     /**
      * Deletes the current format condition.
      *
@@ -8031,7 +8425,7 @@ export namespace Cell {
     /**
      * Returns the range of cells to which the current conditional formatting rule applies.
      *
-     * @returns The range of cells affected by the current condition, or null if no range is set.
+     * @returns The range of cells affected by the current condition.
      * @since 9.1.0
      *
      * @example
@@ -8062,9 +8456,9 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(appliedRange.GetAddress());
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetAppliesTo/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiColorScale/Methods/GetAppliesTo/
      */
-    GetAppliesTo(): ApiRange | null;
+    GetAppliesTo(): ApiRange;
 
     /**
      * Returns the collection of criteria that define this color scale rule.
@@ -8384,9 +8778,9 @@ export namespace Cell {
     GetOperator(): XlFormatConditionOperator;
 
     /**
-     * Returns the pivot table condition object.
+     * Returns whether the conditional formatting rule is applied to a pivot table.
      *
-     * @returns The pivot table condition object.
+     * @returns Returns true if the rule is applied to a pivot table, otherwise null.
      * @since 9.1.0
      *
      * @example
@@ -8417,9 +8811,9 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(ptCondition ? "Found" : "None");
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetPTCondition/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiColorScale/Methods/GetPTCondition/
      */
-    GetPTCondition(): PTCondition | null;
+    GetPTCondition(): boolean | null;
 
     /**
      * Returns the parent range object of the current format condition.
@@ -8450,7 +8844,7 @@ export namespace Cell {
      * worksheet.GetRange('C2').SetValue(parentRange.GetAddress());
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetParent/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiColorScale/Methods/GetParent/
      */
     GetParent(): ApiRange;
 
@@ -8488,7 +8882,7 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(priority);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetPriority/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiColorScale/Methods/GetPriority/
      */
     GetPriority(): number;
 
@@ -8527,17 +8921,45 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(scopeType);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetScopeType/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiColorScale/Methods/GetScopeType/
      */
     GetScopeType(): XlPivotConditionScope;
 
     /**
      * Returns whether the editor will stop evaluating additional formatting rules if this rule evaluates
      * to true.
+     * This rule type cannot stop the evaluation, so the value can be changed only by opening a file where
+     * it is set.
      *
      * @since 10.0.0
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetStopIfTrue/
+     * @example
+     * ```js
+     * // Check whether a color scale rule prevents the lower priority rules from being applied in a spreadsheet.
+     *
+     * // How do I find out if a color scale rule stops the evaluation of the other rules in a spreadsheet?
+     *
+     * // Read the "stop if true" flag of a color gradient rule in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     *
+     * worksheet.GetRange("A1").SetValue("Sales Data");
+     * worksheet.GetRange("A2").SetValue(100);
+     * worksheet.GetRange("A3").SetValue(250);
+     * worksheet.GetRange("A4").SetValue(150);
+     * worksheet.GetRange("A5").SetValue(300);
+     * worksheet.GetRange("A6").SetValue(75);
+     *
+     * let dataRange = worksheet.GetRange("A2:A6");
+     * let formatConditions = dataRange.GetFormatConditions();
+     *
+     * let colorScale = formatConditions.AddColorScale();
+     *
+     * worksheet.GetRange("C1").SetValue("Stop if true:");
+     * worksheet.GetRange("C2").SetValue(colorScale.GetStopIfTrue() ? "Yes" : "No");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiColorScale/Methods/GetStopIfTrue/
      */
     GetStopIfTrue(): boolean;
 
@@ -9831,6 +10253,7 @@ export namespace Cell {
      * Sets the comment author's name.
      *
      * @param sAuthorName - The comment author's name.
+     * @returns returns false if the name is empty (the comment keeps its author).
      * @since 7.5.0
      *
      * @example
@@ -9850,7 +10273,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiComment/Methods/SetAuthorName/
      */
-    SetAuthorName(sAuthorName: string): void;
+    SetAuthorName(sAuthorName: string): boolean;
 
     /**
      * Marks a comment as solved.
@@ -9881,6 +10304,7 @@ export namespace Cell {
      * Sets the comment text.
      *
      * @param text - New text for comment.
+     * @returns returns false if the text is empty (the comment keeps its text).
      * @since 7.5.0
      *
      * @example
@@ -9898,7 +10322,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiComment/Methods/SetText/
      */
-    SetText(text: string): void;
+    SetText(text: string): boolean;
 
     /**
      * Sets the timestamp of the comment creation in the current time zone format.
@@ -10136,6 +10560,7 @@ export namespace Cell {
      * Sets the comment reply author's name.
      *
      * @param sAuthorName - The comment reply author's name.
+     * @returns returns false if the name is empty (the reply keeps its author).
      * @since 7.5.0
      *
      * @example
@@ -10157,7 +10582,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiCommentReply/Methods/SetAuthorName/
      */
-    SetAuthorName(sAuthorName: string): void;
+    SetAuthorName(sAuthorName: string): boolean;
 
     /**
      * Sets the comment reply text.
@@ -10274,14 +10699,6 @@ export namespace Cell {
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiComplexForm/
    */
   export interface ApiComplexForm extends ApiFormBase {
-  }
-
-  /** Class representing a list of values of the combo box / drop-down list content control. */
-  export interface ApiContentControlList {
-  }
-
-  /** Class representing an entry of the combo box / drop-down list content control. */
-  export interface ApiContentControlListEntry {
   }
 
   /**
@@ -12555,7 +12972,7 @@ export namespace Cell {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDatabar/
    */
-  export interface ApiDatabar extends ApiFormatCondition {
+  export interface ApiDatabar extends Omit<ApiFormatCondition, "GetAppliesTo"> {
     /**
      * Deletes the current format condition.
      *
@@ -12599,7 +13016,7 @@ export namespace Cell {
     /**
      * Returns the range of cells to which the current conditional formatting rule applies.
      *
-     * @returns The range of cells affected by the current condition, or null if no range is set.
+     * @returns The range of cells affected by the current condition.
      * @since 9.1.0
      *
      * @example
@@ -12630,9 +13047,9 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(appliedRange.GetAddress());
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetAppliesTo/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDatabar/Methods/GetAppliesTo/
      */
-    GetAppliesTo(): ApiRange | null;
+    GetAppliesTo(): ApiRange;
 
     /**
      * Returns the axis color of the data bar conditional formatting rule.
@@ -13385,9 +13802,9 @@ export namespace Cell {
     GetOperator(): XlFormatConditionOperator;
 
     /**
-     * Returns the pivot table condition object.
+     * Returns whether the conditional formatting rule is applied to a pivot table.
      *
-     * @returns The pivot table condition object.
+     * @returns Returns true if the rule is applied to a pivot table, otherwise null.
      * @since 9.1.0
      *
      * @example
@@ -13418,9 +13835,9 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(ptCondition ? "Found" : "None");
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetPTCondition/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDatabar/Methods/GetPTCondition/
      */
-    GetPTCondition(): PTCondition | null;
+    GetPTCondition(): boolean | null;
 
     /**
      * Returns the parent range object of the current format condition.
@@ -13451,7 +13868,7 @@ export namespace Cell {
      * worksheet.GetRange('C2').SetValue(parentRange.GetAddress());
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetParent/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDatabar/Methods/GetParent/
      */
     GetParent(): ApiRange;
 
@@ -13561,7 +13978,7 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(priority);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetPriority/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDatabar/Methods/GetPriority/
      */
     GetPriority(): number;
 
@@ -13600,7 +14017,7 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(scopeType);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetScopeType/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDatabar/Methods/GetScopeType/
      */
     GetScopeType(): XlPivotConditionScope;
 
@@ -13643,10 +14060,38 @@ export namespace Cell {
     /**
      * Returns whether the editor will stop evaluating additional formatting rules if this rule evaluates
      * to true.
+     * This rule type cannot stop the evaluation, so the value can be changed only by opening a file where
+     * it is set.
      *
      * @since 10.0.0
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetStopIfTrue/
+     * @example
+     * ```js
+     * // Check whether a data bar rule prevents the lower priority rules from being applied in a spreadsheet.
+     *
+     * // How do I find out if a data bar rule stops the evaluation of the other rules in a spreadsheet?
+     *
+     * // Read the "stop if true" flag of a data bar rule in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     *
+     * worksheet.GetRange("A1").SetValue("Sales Data");
+     * worksheet.GetRange("A2").SetValue(100);
+     * worksheet.GetRange("A3").SetValue(250);
+     * worksheet.GetRange("A4").SetValue(150);
+     * worksheet.GetRange("A5").SetValue(300);
+     * worksheet.GetRange("A6").SetValue(75);
+     *
+     * let dataRange = worksheet.GetRange("A2:A6");
+     * let formatConditions = dataRange.GetFormatConditions();
+     *
+     * let dataBar = formatConditions.AddDatabar();
+     *
+     * worksheet.GetRange("C1").SetValue("Stop if true:");
+     * worksheet.GetRange("C2").SetValue(dataBar.GetStopIfTrue() ? "Yes" : "No");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDatabar/Methods/GetStopIfTrue/
      */
     GetStopIfTrue(): boolean;
 
@@ -13896,6 +14341,7 @@ export namespace Cell {
      * Sets the axis position for the data bar conditional formatting rule.
      *
      * @param position - The axis position setting for the data bar.
+     * @returns Returns true if the setting was applied successfully.
      * @since 9.1.0
      *
      * @example
@@ -13929,7 +14375,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDatabar/Methods/SetAxisPosition/
      */
-    SetAxisPosition(position: XlDataBarAxisPosition): void;
+    SetAxisPosition(position: XlDataBarAxisPosition): boolean;
 
     /**
      * Sets the bar border color for the data bar.
@@ -14015,6 +14461,7 @@ export namespace Cell {
      * Sets the bar fill type for the data bar.
      *
      * @param fillType - The fill type setting for the data bar (solid or gradient).
+     * @returns Returns true if the setting was applied successfully.
      * @since 9.1.0
      *
      * @example
@@ -14048,7 +14495,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDatabar/Methods/SetBarFillType/
      */
-    SetBarFillType(fillType: XlDataBarFillType): void;
+    SetBarFillType(fillType: XlDataBarFillType): boolean;
 
     /**
      * Sets the border style for the conditional formatting rule.
@@ -14137,6 +14584,7 @@ export namespace Cell {
      * Sets the direction for the data bar.
      *
      * @param direction - The direction setting for the data bar (context, left-to-right, or right-to-left).
+     * @returns Returns true if the setting was applied successfully.
      * @since 9.1.0
      *
      * @example
@@ -14170,7 +14618,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDatabar/Methods/SetDirection/
      */
-    SetDirection(direction: XlReadingOrder): void;
+    SetDirection(direction: XlReadingOrder): boolean;
 
     /**
      * Sets the background color to the format condition with the previously created color object.
@@ -14588,6 +15036,7 @@ export namespace Cell {
      * Sets the percent maximum value for the data bar.
      *
      * @param percent - The maximum length of the data bar in percent.
+     * @returns Returns true if the setting was applied successfully.
      * @since 9.1.0
      *
      * @example
@@ -14621,12 +15070,13 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDatabar/Methods/SetPercentMax/
      */
-    SetPercentMax(percent: number): void;
+    SetPercentMax(percent: number): boolean;
 
     /**
      * Sets the percent minimum value for the data bar.
      *
      * @param percent - The minimum length of the data bar in percent.
+     * @returns Returns true if the setting was applied successfully.
      * @since 9.1.0
      *
      * @example
@@ -14660,7 +15110,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDatabar/Methods/SetPercentMin/
      */
-    SetPercentMin(percent: number): void;
+    SetPercentMin(percent: number): boolean;
 
     /**
      * Sets the priority value of the conditional formatting rule.
@@ -14748,6 +15198,7 @@ export namespace Cell {
      * Specifies whether the data bar displays the cell value.
      *
      * @param showValue - True to show the value, false to hide it.
+     * @returns Returns true if the setting was applied successfully.
      * @since 9.1.0
      *
      * @example
@@ -14781,7 +15232,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDatabar/Methods/SetShowValue/
      */
-    SetShowValue(showValue: boolean): void;
+    SetShowValue(showValue: boolean): boolean;
 
     /**
      * Sets whether the editor will stop evaluating additional formatting rules if this rule evaluates to
@@ -14962,6 +15413,9 @@ export namespace Cell {
 
     /**
      * Returns an internal ID of the current document content.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
      *
      * @since 9.0.4
      *
@@ -15309,6 +15763,9 @@ export namespace Cell {
 
     /**
      * Returns an internal ID of the current document content.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
      *
      * @since 9.0.4
      *
@@ -15404,6 +15861,27 @@ export namespace Cell {
      * @default start = 0
      * @returns returns null if the specified range is empty.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Take a text range over the whole text of a shape on a worksheet and make it bold.
+     *
+     * // The text of a shape is addressed by character positions, so a range can cover any part of it.
+     *
+     * // Get the range of the shape text body and apply bold to the first word.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 150 * 36000, 65 * 36000, fill, stroke, 0, 2 * 36000, 2, 3 * 36000);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = docContent.GetTextRange(0, 5);
+     * range.SetBold(true);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDocumentContent/Methods/GetTextRange/
      */
@@ -15609,6 +16087,33 @@ export namespace Cell {
     Delete(): boolean;
 
     /**
+     * Sets the fill formatting properties to the current graphic object.
+     *
+     * @param fill - The fill type used to fill the graphic object.
+     * @returns returns false if param is invalid.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // How do I change the background of a shape to a radial gradient in a spreadsheet?
+     *
+     * // Replace a solid fill with a smooth color blend across a shape in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.CreateRGBColor(51, 51, 51));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = worksheet.AddShape("cube", 90 * 36000, 27 * 36000, fill, stroke, 0, 2 * 36000, 0, 3 * 36000);
+     * let gs1 = Api.CreateGradientStop(Api.CreateRGBColor(255, 213, 191), 0);
+     * let gs2 = Api.CreateGradientStop(Api.CreateRGBColor(255, 111, 61), 100000);
+     * fill = Api.CreateRadialGradientFill([gs1, gs2]);
+     * drawing.Fill(fill);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/Fill/
+     */
+    Fill(fill: ApiFill): boolean;
+
+    /**
      * Returns a type of the ApiDrawing class.
      *
      * @example
@@ -15639,6 +16144,24 @@ export namespace Cell {
      * @returns The description of the current drawing, or null if not set.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the description of a drawing in a spreadsheet.
+     *
+     * // Needed when reading the alternative text of a drawing.
+     *
+     * // Create a drawing, set its description, and read it back.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = worksheet.AddShape("cube", 60 * 36000, 35 * 36000, fill, stroke, 0, 2 * 36000, 0, 3 * 36000);
+     * drawing.SetDescription("My Drawing Description");
+     * let description = drawing.GetDescription();
+     * worksheet.SetColumnWidth(0, 30);
+     * worksheet.GetRange("A1").SetValue("Drawing description: " + description);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetDescription/
      */
     GetDescription(): string | null;
@@ -15647,6 +16170,45 @@ export namespace Cell {
      * Gets the fill formatting properties from the current graphic object.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the fill formatting properties from a drawing in a spreadsheet.
+     *
+     * // GetFill returns the ApiFill of a drawing object, or null when the object has no fill.
+     *
+     * // Read the fill type from a filled shape and an image and write the values into cells.
+     *
+     * const worksheet = Api.GetActiveSheet();
+     * const gs1 = Api.CreateGradientStop(Api.RGB(200, 230, 180), 0);
+     * const gs2 = Api.CreateGradientStop(Api.RGB(110, 170, 150), 100000);
+     * const fill = Api.CreateLinearGradientFill([gs1, gs2], 5400000);
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = worksheet.AddShape(
+     * 	'rect',
+     * 	Api.MillimetersToEmus(60), Api.MillimetersToEmus(40),
+     * 	fill, stroke,
+     * 	0, Api.MillimetersToEmus(1), 1, Api.MillimetersToEmus(1)
+     * );
+     *
+     * const image = worksheet.AddImage(
+     * 	'https://static.onlyoffice.com/assets/docs/samples/img/onlyoffice_logo.png',
+     * 	Api.MillimetersToEmus(40), Api.MillimetersToEmus(40),
+     * 	7, Api.MillimetersToEmus(1), 1, Api.MillimetersToEmus(1)
+     * );
+     * const imageFill = Api.CreateSolidFill(Api.HexColor('#c7edfc'));
+     * image.SetFill(imageFill);
+     *
+     * const shapeFill = shape.GetFill();
+     * if (shapeFill) {
+     *     worksheet.GetRange('A1').SetValue('Shape fill type: ' + shapeFill.GetType());
+     * }
+     *
+     * const retrievedImageFill = image.GetFill();
+     * if (retrievedImageFill) {
+     *     worksheet.GetRange('H1').SetValue('Image fill type: ' + retrievedImageFill.GetType());
+     * }
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetFill/
      */
@@ -15730,8 +16292,30 @@ export namespace Cell {
 
     /**
      * Returns an internal ID of the current drawing object.
+     * The internal ID is valid only for the current editing session: it stays the same while the
+     * spreadsheet is open,
+     * but it is not saved to the file and can be different after the spreadsheet is reopened.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the internal identifier of a drawing object in a spreadsheet.
+     *
+     * // Identify a specific shape by the ID that the editor assigns to it in a spreadsheet.
+     *
+     * // Display the internal ID of a shape, which stays valid only while the spreadsheet is open.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = worksheet.AddShape("flowChartOnlineStorage", 60 * 36000, 35 * 36000, fill, stroke, 0, 2 * 36000, 0, 3 * 36000);
+     * drawing.SetSize(120 * 36000, 70 * 36000);
+     * drawing.SetPosition(0, 2 * 36000, 1, 3 * 36000);
+     * let internalId = drawing.GetInternalId();
+     * worksheet.SetColumnWidth(0, 15);
+     * worksheet.GetRange("A1").SetValue("Internal ID = " + internalId);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetInternalId/
      */
@@ -15742,6 +16326,24 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the outline of a drawing object through the base ApiDrawing interface in a spreadsheet.
+     *
+     * // GetLine returns the ApiStroke of a drawing object, or null when no outline is set.
+     *
+     * // Read the outline width from a shape and write it into a cell.
+     *
+     * const worksheet = Api.GetActiveSheet();
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(36000, Api.CreateSolidFill(Api.RGB(51, 51, 51)));
+     * const drawing = worksheet.AddShape("rect", 90 * 36000, 27 * 36000, fill, stroke, 0, 2 * 36000, 0, 3 * 36000);
+     * const currentLine = drawing.GetLine();
+     * if (currentLine) {
+     * 	worksheet.GetRange("A1").SetValue("Outline width (EMU): " + currentLine.GetWidth());
+     * }
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetLine/
      */
     GetLine(): ApiStroke | null;
@@ -15750,6 +16352,25 @@ export namespace Cell {
      * Returns whether the aspect ratio of the drawing is locked.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Return whether the aspect ratio of the drawing is locked in a spreadsheet.
+     *
+     * // Useful for checking the lock aspect ratio state of a shape in a spreadsheet.
+     *
+     * // Create a shape, lock its aspect ratio and display the result.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = worksheet.AddShape("triangle", 60 * 36000, 35 * 36000, fill, stroke, 0, 2 * 36000, 0, 3 * 36000);
+     * drawing.SetSize(120 * 36000, 70 * 36000);
+     * drawing.SetPosition(0, 2 * 36000, 1, 3 * 36000);
+     * drawing.SetLockAspect(true);
+     * let lockAspect = drawing.GetLockAspect();
+     * worksheet.GetRange("A1").SetValue("Aspect ratio locked: " + lockAspect);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetLockAspect/
      */
@@ -15842,6 +16463,23 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the horizontal position of a shape in a spreadsheet.
+     *
+     * // How do I find the left edge coordinate of a drawing in a spreadsheet?
+     *
+     * // Read and display the X position of a shape in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = worksheet.AddShape("flowChartOnlineStorage", 60 * 36000, 35 * 36000, fill, stroke, 0, 2 * 36000, 0, 3 * 36000);
+     * drawing.SetPosition(2, 5 * 36000, 3, 2 * 36000);
+     * let posX = drawing.GetPosX();
+     * worksheet.GetRange("A1").SetValue("Drawing X position: " + posX + " EMU");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetPosX/
      */
     GetPosX(): EMU;
@@ -15850,6 +16488,23 @@ export namespace Cell {
      * Returns the y position of the current drawing on the worksheet.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the vertical position of a shape in a spreadsheet.
+     *
+     * // How do I find the top edge coordinate of a drawing in a spreadsheet?
+     *
+     * // Read and display the Y position of a shape in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = worksheet.AddShape("flowChartOnlineStorage", 60 * 36000, 35 * 36000, fill, stroke, 0, 2 * 36000, 0, 3 * 36000);
+     * drawing.SetPosition(2, 5 * 36000, 3, 2 * 36000);
+     * let posY = drawing.GetPosY();
+     * worksheet.GetRange("A1").SetValue("Drawing Y position: " + posY + " EMU");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetPosY/
      */
@@ -15860,6 +16515,24 @@ export namespace Cell {
      *
      * @returns returns null for an absolutely positioned drawing.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the cell anchor of a drawing in a spreadsheet.
+     *
+     * // How do I check where a shape was placed after SetPosition in a spreadsheet?
+     *
+     * // Get the anchor column, row and offsets of a shape and display them in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = worksheet.AddShape("flowChartOnlineStorage", 60 * 36000, 35 * 36000, fill, stroke, 0, 2 * 36000, 0, 3 * 36000);
+     * drawing.SetPosition(2, 5 * 36000, 3, 2 * 36000);
+     * let position = drawing.GetPosition();
+     * worksheet.GetRange("A1").SetValue("Column: " + position.fromCol + ", offset: " + position.colOffset);
+     * worksheet.GetRange("A2").SetValue("Row: " + position.fromRow + ", offset: " + position.rowOffset);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetPosition/
      */
@@ -15896,6 +16569,24 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the shadow of a drawing and reuse it in a spreadsheet.
+     *
+     * // Retrieve the shadow applied to one shape and apply the same shadow to another.
+     *
+     * // Set a shadow on the first shape, read it with GetShadow, and apply it to a second shape.
+     *
+     * const worksheet = Api.GetActiveSheet();
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 213, 191));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = worksheet.AddShape("rect", 100 * 36000, 50 * 36000, fill, stroke, 2, 0, 2, 0);
+     * shape.SetShadow(Api.CreateShadow({ color: Api.RGB(0, 0, 0), transparency: 0.4, offsetX: 3, offsetY: 3 }));
+     * const shadow = shape.GetShadow();
+     * const shape2 = worksheet.AddShape("ellipse", 100 * 36000, 50 * 36000, fill, stroke, 2, 0, 6, 0);
+     * shape2.SetShadow(shadow);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetShadow/
      */
     GetShadow(): ApiShadow | null;
@@ -15906,6 +16597,27 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the whole text of a drawing on a worksheet through a text range.
+     *
+     * // The range covers the entire text body of the drawing, so no positions have to be given.
+     *
+     * // Read the text covered by the range and put it into a cell.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 150 * 36000, 65 * 36000, fill, stroke, 0, 2 * 36000, 2, 3 * 36000);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = shape.GetTextRange();
+     * worksheet.GetRange("A1").SetValue(range.GetText());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetTextRange/
      */
     GetTextRange(): ApiTextRange | null;
@@ -15915,6 +16627,24 @@ export namespace Cell {
      *
      * @returns The title of the current drawing, or null if not set.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the title of a drawing in a spreadsheet.
+     *
+     * // Needed when reading the alternative text title of a drawing.
+     *
+     * // Create a drawing, set its title, and read it back.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = worksheet.AddShape("cube", 60 * 36000, 35 * 36000, fill, stroke, 0, 2 * 36000, 0, 3 * 36000);
+     * drawing.SetTitle("My Drawing Title");
+     * let title = drawing.GetTitle();
+     * worksheet.SetColumnWidth(0, 25);
+     * worksheet.GetRange("A1").SetValue("Drawing title: " + title);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/GetTitle/
      */
@@ -15947,6 +16677,26 @@ export namespace Cell {
      * Checks whether the current drawing has a text body.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Check whether a drawing on a worksheet can carry text before working with it.
+     *
+     * // Images and tables have no text body, so the check tells a text drawing from the others.
+     *
+     * // Write the answer into cells before and after the text body is created.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 150 * 36000, 65 * 36000, fill, stroke, 0, 2 * 36000, 2, 3 * 36000);
+     *
+     * worksheet.GetRange("A1").SetValue("before: " + shape.HasTextContent());
+     *
+     * shape.GetTextRange().SetText("Sample");
+     *
+     * worksheet.GetRange("A2").SetValue("after: " + shape.HasTextContent());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/HasTextContent/
      */
@@ -15992,6 +16742,24 @@ export namespace Cell {
      * @returns Returns true if the operation is successful, false otherwise.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the description of a drawing in a spreadsheet.
+     *
+     * // Useful for assigning the alternative text of a drawing.
+     *
+     * // Create a drawing and set its description.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = worksheet.AddShape("cube", 60 * 36000, 35 * 36000, fill, stroke, 0, 2 * 36000, 0, 3 * 36000);
+     * drawing.SetDescription("My Drawing Description");
+     * let description = drawing.GetDescription();
+     * worksheet.SetColumnWidth(0, 30);
+     * worksheet.GetRange("A1").SetValue("Drawing description: " + description);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/SetDescription/
      */
     SetDescription(description: string): boolean;
@@ -16002,6 +16770,37 @@ export namespace Cell {
      * @param fill - The fill type used to fill the graphic object.
      * @returns returns false if param is invalid or not supported for the current graphic object.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the fill formatting properties to a shape and an image in a spreadsheet.
+     *
+     * // SetFill applies an ApiFill to any drawing object added to a worksheet, not only shapes.
+     *
+     * // Fill a shape with a solid color and an image with a semi-transparent overlay.
+     *
+     * const worksheet = Api.GetActiveSheet();
+     * const noFill = Api.CreateNoFill();
+     * const stroke = Api.CreateStroke(0, noFill);
+     * const shape = worksheet.AddShape(
+     * 	'rect',
+     * 	Api.MillimetersToEmus(60), Api.MillimetersToEmus(40),
+     * 	noFill, stroke,
+     * 	1, 0, 1, 0
+     * );
+     * const shapeFill = Api.CreateSolidFill(Api.RGB(96, 125, 139));
+     * shape.SetFill(shapeFill);
+     * worksheet.GetRange('A1').SetValue('Shape fill changed to blue-grey.');
+     *
+     * const image = worksheet.AddImage(
+     * 	'https://static.onlyoffice.com/assets/docs/samples/img/onlyoffice_logo.png',
+     * 	Api.MillimetersToEmus(40), Api.MillimetersToEmus(40),
+     * 	8, 0, 1, 0
+     * );
+     * const imageFill = Api.CreateSolidFill(Api.RGBA(38, 50, 56, 180));
+     * image.SetFill(imageFill);
+     * worksheet.GetRange('H1').SetValue('Image with semi-transparent fill overlay.');
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/SetFill/
      */
@@ -16062,11 +16861,57 @@ export namespace Cell {
     SetFlipV(bFlip: boolean): boolean;
 
     /**
+     * Sets the outline properties to the current graphic object.
+     *
+     * @param stroke - The stroke used to create the graphic object outline.
+     * @returns returns false if param is invalid or not supported for the current graphic object.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the outline of a drawing object through the base ApiDrawing interface in a spreadsheet.
+     *
+     * // SetLine is the base method for the outline and works for any drawing object added to a worksheet, not only shapes.
+     *
+     * // Add a shape to a worksheet and give it a dark solid outline.
+     *
+     * const worksheet = Api.GetActiveSheet();
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const noStroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const drawing = worksheet.AddShape("rect", 90 * 36000, 27 * 36000, fill, noStroke, 0, 2 * 36000, 0, 3 * 36000);
+     * const outline = Api.CreateStroke(36000, Api.CreateSolidFill(Api.RGB(51, 51, 51)));
+     * drawing.SetLine(outline);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/SetLine/
+     */
+    SetLine(stroke: ApiStroke): boolean;
+
+    /**
      * Sets whether the aspect ratio of the drawing is locked.
      *
      * @param bAspect - Specifies whether the aspect ratio of this drawing is locked.
      * @returns Returns `true` if the lock aspect was successfully set, otherwise returns `false`.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set whether the aspect ratio of the drawing is locked in a spreadsheet.
+     *
+     * // Useful for locking the aspect ratio of a shape in a spreadsheet.
+     *
+     * // Create a shape, lock its aspect ratio and display the result.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = worksheet.AddShape("triangle", 60 * 36000, 35 * 36000, fill, stroke, 0, 2 * 36000, 0, 3 * 36000);
+     * drawing.SetSize(120 * 36000, 70 * 36000);
+     * drawing.SetPosition(0, 2 * 36000, 1, 3 * 36000);
+     * drawing.SetLockAspect(true);
+     * let lockAspect = drawing.GetLockAspect();
+     * worksheet.GetRange("A1").SetValue("Aspect ratio locked: " + lockAspect);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/SetLockAspect/
      */
@@ -16173,11 +17018,11 @@ export namespace Cell {
      * the specified column and row cells only. If this value exceeds the cell width or height, another
      * vertical/horizontal position will be set.
      *
-     * @param nFromCol - The number of the column where the beginning of the drawing object will be placed.
-     * @param nColOffset - The offset from the nFromCol column to the left part of the drawing object measured in English
+     * @param fromCol - The number of the column where the beginning of the drawing object will be placed.
+     * @param colOffset - The offset from the fromCol column to the left part of the drawing object measured in English
      *   measure units.
-     * @param nFromRow - The number of the row where the beginning of the drawing object will be placed.
-     * @param nRowOffset - The offset from the nFromRow row to the upper part of the drawing object measured in English
+     * @param fromRow - The number of the row where the beginning of the drawing object will be placed.
+     * @param rowOffset - The offset from the fromRow row to the upper part of the drawing object measured in English
      *   measure units.
      *
      * @example
@@ -16196,7 +17041,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/SetPosition/
      */
-    SetPosition(nFromCol: number, nColOffset: EMU, nFromRow: number, nRowOffset: EMU): void;
+    SetPosition(fromCol: number, colOffset: EMU, fromRow: number, rowOffset: EMU): void;
 
     /**
      * Sets the rotation angle to the current drawing object.
@@ -16232,6 +17077,21 @@ export namespace Cell {
      * @returns returns false if the graphic object does not support shadow.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Apply an outer shadow to a drawing in a spreadsheet.
+     *
+     * // Give a shape a soft offset shadow so it appears lifted off the sheet.
+     *
+     * // Create a shape, build a shadow, and set it on the drawing with SetShadow.
+     *
+     * const worksheet = Api.GetActiveSheet();
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 213, 191));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = worksheet.AddShape("rect", 120 * 36000, 60 * 36000, fill, stroke, 2, 0, 2, 0);
+     * shape.SetShadow(Api.CreateShadow({ color: Api.RGB(64, 64, 64), transparency: 0.3, offsetX: 4, offsetY: 4 }));
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/SetShadow/
      */
     SetShadow(shadow: ApiShadow | null): boolean;
@@ -16239,8 +17099,8 @@ export namespace Cell {
     /**
      * Sets a size of the object (image, shape, chart) bounding box.
      *
-     * @param nWidth - The object width measured in English measure units.
-     * @param nHeight - The object height measured in English measure units.
+     * @param width - The object width measured in English measure units.
+     * @param height - The object height measured in English measure units.
      *
      * @example
      * ```js
@@ -16258,7 +17118,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/SetSize/
      */
-    SetSize(nWidth: EMU, nHeight: EMU): void;
+    SetSize(width: EMU, height: EMU): void;
 
     /**
      * Sets the title of the current drawing.
@@ -16266,6 +17126,24 @@ export namespace Cell {
      * @param title - The title to set for the current drawing.
      * @returns Returns true if the operation is successful, false otherwise.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the title of a drawing in a spreadsheet.
+     *
+     * // Useful for assigning the alternative text title of a drawing.
+     *
+     * // Create a drawing and set its title.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = worksheet.AddShape("cube", 60 * 36000, 35 * 36000, fill, stroke, 0, 2 * 36000, 0, 3 * 36000);
+     * drawing.SetTitle("My Drawing Title");
+     * let title = drawing.GetTitle();
+     * worksheet.SetColumnWidth(0, 25);
+     * worksheet.GetRange("A1").SetValue("Drawing title: " + title);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiDrawing/Methods/SetTitle/
      */
@@ -16305,14 +17183,6 @@ export namespace Cell {
   }
 
   /**
-   * Class representing a drop cap. A drop cap is a large initial letter that is split off from a
-   * paragraph into a
-   * separate framed paragraph.
-   */
-  export interface ApiDropCap {
-  }
-
-  /**
    * Class representing a base class for fill.
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFill/
@@ -16348,6 +17218,24 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the color back from the fill of a shape in a spreadsheet.
+     *
+     * // How do I find out which color a shape is filled with in a spreadsheet?
+     *
+     * // Inspect the color of a solid fill on a worksheet in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 120 * 36000, 70 * 36000, fill, stroke, 0, 2 * 36000, 0, 3 * 36000);
+     * let content = shape.GetContent();
+     * let paragraph = content.GetElement(0);
+     * let color = shape.GetFill().GetColor();
+     * paragraph.AddText("Solid fill color: " + color.GetHex());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFill/Methods/GetColor/
      */
     GetColor(): ApiColor | null;
@@ -16357,6 +17245,26 @@ export namespace Cell {
      *
      * @returns The transparency value, from 0 (fully opaque) to 1 (fully transparent).
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read back the transparency of a shape's fill in a spreadsheet.
+     *
+     * // Find out how transparent a shape's fill is in a spreadsheet.
+     *
+     * // Check the transparency that was applied to a shape's fill on a worksheet in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * fill.SetTransparent(0.4);
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 120 * 36000, 70 * 36000, fill, stroke, 0, 2 * 36000, 0, 3 * 36000);
+     *
+     * let content = shape.GetContent();
+     * let paragraph = content.GetElement(0);
+     * let appliedFill = shape.GetFill();
+     * paragraph.AddText("Fill transparency: " + appliedFill.GetTransparent());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFill/Methods/GetTransparent/
      */
@@ -16406,6 +17314,21 @@ export namespace Cell {
      *
      * @param transparent - The transparency value, from 0 (fully opaque) to 1 (fully transparent).
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Make a shape's fill semi-transparent in a spreadsheet.
+     *
+     * // Adjust how see-through a shape's fill is in a spreadsheet.
+     *
+     * // Fade a shape's solid fill on a worksheet so the cells behind it show through in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * fill.SetTransparent(0.4);
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 120 * 36000, 70 * 36000, fill, stroke, 0, 2 * 36000, 0, 3 * 36000);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFill/Methods/SetTransparent/
      */
@@ -17519,9 +18442,9 @@ export namespace Cell {
     GetOperator(): XlFormatConditionOperator;
 
     /**
-     * Returns the pivot table condition object.
+     * Returns whether the conditional formatting rule is applied to a pivot table.
      *
-     * @returns The pivot table condition object.
+     * @returns Returns true if the rule is applied to a pivot table, otherwise null.
      * @since 9.1.0
      *
      * @example
@@ -17554,7 +18477,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetPTCondition/
      */
-    GetPTCondition(): PTCondition | null;
+    GetPTCondition(): boolean | null;
 
     /**
      * Returns the parent range object of the current format condition.
@@ -17671,6 +18594,34 @@ export namespace Cell {
      * to true.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Check whether a conditional formatting rule prevents the lower priority rules from being applied in a spreadsheet.
+     *
+     * // How do I find out if a formatting rule stops the evaluation of the other rules in a spreadsheet?
+     *
+     * // Read the "stop if true" flag of a highlight rule in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     *
+     * worksheet.GetRange("A1").SetValue("Sales Data");
+     * worksheet.GetRange("A2").SetValue(100);
+     * worksheet.GetRange("A3").SetValue(250);
+     * worksheet.GetRange("A4").SetValue(150);
+     * worksheet.GetRange("A5").SetValue(300);
+     * worksheet.GetRange("A6").SetValue(75);
+     *
+     * let dataRange = worksheet.GetRange("A2:A6");
+     * let formatConditions = dataRange.GetFormatConditions();
+     *
+     * let condition = formatConditions.Add("xlCellValue", "xlGreater", "200");
+     * condition.SetFillColor(Api.RGB(255, 0, 0));
+     * condition.SetStopIfTrue(true);
+     *
+     * worksheet.GetRange("C1").SetValue("Stop if true:");
+     * worksheet.GetRange("C2").SetValue(condition.GetStopIfTrue() ? "Yes" : "No");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetStopIfTrue/
      */
@@ -18228,6 +19179,38 @@ export namespace Cell {
      * @param StopIfTrue - True to stop evaluating additional rules.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Stop the evaluation of the lower priority formatting rules when a rule is fulfilled in a spreadsheet.
+     *
+     * // How do I prevent the other conditional formatting rules from being applied to the cells which are already highlighted in a spreadsheet?
+     *
+     * // Keep the number format of the cells greater than 200 untouched by the second rule in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     *
+     * worksheet.GetRange("A1").SetValue("Sales Data");
+     * worksheet.GetRange("A2").SetValue(100);
+     * worksheet.GetRange("A3").SetValue(250);
+     * worksheet.GetRange("A4").SetValue(150);
+     * worksheet.GetRange("A5").SetValue(300);
+     * worksheet.GetRange("A6").SetValue(75);
+     *
+     * let dataRange = worksheet.GetRange("A2:A6");
+     * let formatConditions = dataRange.GetFormatConditions();
+     *
+     * let condition1 = formatConditions.Add("xlCellValue", "xlGreater", "200");
+     * let condition2 = formatConditions.Add("xlCellValue", "xlGreater", "20");
+     *
+     * condition1.SetFillColor(Api.RGB(255, 0, 0));
+     * condition1.SetStopIfTrue(true);
+     *
+     * condition2.SetFillColor(Api.RGB(0, 255, 0));
+     * condition2.SetNumberFormat("0.00");
+     *
+     * worksheet.GetRange("C1").SetValue("The cells greater than 200 keep the general number format");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/SetStopIfTrue/
      */
     SetStopIfTrue(StopIfTrue: boolean): void;
@@ -18325,7 +19308,7 @@ export namespace Cell {
      * Adds a new format condition to the collection.
      *
      * @param Type - The format condition type.
-     * @param Operator - The format condition operator.
+     * @param Operator - The format condition operator; for the "xlTimePeriod" type, the time period.
      * @param Formula1 - The first formula.
      * @param Formula2 - The second formula.
      * @returns The created format condition, or null if the operation failed.
@@ -18358,7 +19341,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatConditions/Methods/Add/
      */
-    Add(Type: XlFormatConditionType, Operator?: XlFormatConditionOperator, Formula1?: string | number | ApiRange, Formula2?: string | number | ApiRange): ApiFormatCondition | null;
+    Add(Type: XlFormatConditionType, Operator?: XlFormatConditionOperator | XlTimePeriods, Formula1?: string | number | ApiRange, Formula2?: string | number | ApiRange): ApiFormatCondition | null;
 
     /**
      * Adds a new above average conditional formatting rule to the collection.
@@ -19371,6 +20354,31 @@ export namespace Cell {
      *   ungrouped, or when called in the document builder.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Group two shapes on the sheet, copy the group beside the original, then ungroup the copy in a spreadsheet.
+     *
+     * // Keep the original group intact and split its copy into shapes to compare grouped and ungrouped side by side.
+     *
+     * // Ungroup the copy so its shapes become individually editable next to the untouched original group.
+     *
+     * const worksheet = Api.GetActiveSheet();
+     *
+     * const fill1 = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const fill2 = Api.CreateSolidFill(Api.RGB(61, 155, 255));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     *
+     * const shape1 = worksheet.AddShape("rect", 60 * 36000, 40 * 36000, fill1, stroke, 0, 0, 0, 0);
+     * const shape2 = worksheet.AddShape("ellipse", 60 * 36000, 40 * 36000, fill2, stroke, 0, 0, 3, 0);
+     *
+     * const group = worksheet.GroupDrawings([shape1, shape2]);
+     * if (group) {
+     * 	const copy = group.Copy();
+     * 	worksheet.AddDrawing(copy, 4, 0, 0, 0);
+     * 	copy.Ungroup();
+     * }
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiGroup/Methods/Ungroup/
      */
     Ungroup(): ApiDrawing[] | null;
@@ -19388,6 +20396,23 @@ export namespace Cell {
      * @returns The section text (may contain formatting codes such as &P, &D).
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the text of a header or footer section in a spreadsheet.
+     *
+     * // How do I find out what text is in the even-pages center header in a spreadsheet?
+     *
+     * // Check the current text (including formatting codes) of a header/footer section in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetOddAndEvenPagesHeaderFooter(true);
+     * let centerHeader = pageSetup.GetEvenPage().GetCenterHeader();
+     * centerHeader.SetText("Even page &P");
+     * let text = centerHeader.GetText();
+     * worksheet.GetRange("A1").SetValue("Even center header: " + text);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiHeaderFooter/Methods/GetText/
      */
     GetText(): string;
@@ -19398,6 +20423,21 @@ export namespace Cell {
      * @param sText - The section text (may contain formatting codes such as &P, &D).
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the text of a header or footer section when printing in a spreadsheet.
+     *
+     * // How do I put the page number in the even-pages center header in a spreadsheet?
+     *
+     * // Give a header/footer section its own text (with formatting codes) when printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetOddAndEvenPagesHeaderFooter(true);
+     * let centerHeader = pageSetup.GetEvenPage().GetCenterHeader();
+     * centerHeader.SetText("Even page &P");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiHeaderFooter/Methods/SetText/
      */
@@ -19413,12 +20453,45 @@ export namespace Cell {
     /**
      * Deletes the hyperlink.
      *
+     * @example
+     * ```js
+     * // Delete a hyperlink from a cell.
+     *
+     * // Useful for removing a hyperlink while keeping the cell text.
+     *
+     * // Delete a hyperlink.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.SetHyperlink("A1", "https://onlyoffice.com", null, "ONLYOFFICE", "Visit ONLYOFFICE");
+     *
+     * let hyperlink = worksheet.GetHyperlinks()[0];
+     * hyperlink.Delete();
+     *
+     * worksheet.GetRange("A3").SetValue("Hyperlinks count after delete: " + worksheet.GetHyperlinks().length);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiHyperlink/Methods/Delete/
      */
     Delete(): void;
 
     /**
      * Returns the address of the target document.
+     *
+     * @example
+     * ```js
+     * // Get the address of a hyperlink.
+     *
+     * // Needed when reading the URL of a hyperlink in a cell.
+     *
+     * // Get the address of a hyperlink.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.SetHyperlink("A1", "https://onlyoffice.com", null, "ONLYOFFICE", "Visit ONLYOFFICE");
+     *
+     * let hyperlink = worksheet.GetHyperlinks()[0];
+     *
+     * worksheet.GetRange("A3").SetValue("Address: " + hyperlink.GetAddress());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiHyperlink/Methods/GetAddress/
      */
@@ -19567,6 +20640,22 @@ export namespace Cell {
     /**
      * Returns the name of the hyperlink.
      *
+     * @example
+     * ```js
+     * // Get the name of a hyperlink.
+     *
+     * // Needed when reading the name of a hyperlink in a cell.
+     *
+     * // Get the name of a hyperlink.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.SetHyperlink("A1", "https://onlyoffice.com", null, "ONLYOFFICE", "Visit ONLYOFFICE");
+     *
+     * let hyperlink = worksheet.GetHyperlinks()[0];
+     *
+     * worksheet.GetRange("A3").SetValue("Hyperlink name: " + hyperlink.GetName());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiHyperlink/Methods/GetName/
      */
     GetName(): string;
@@ -19574,12 +20663,45 @@ export namespace Cell {
     /**
      * Returns the range the hyperlink is attached to.
      *
+     * @example
+     * ```js
+     * // Get the range a hyperlink is attached to.
+     *
+     * // Useful for getting the cell range of a hyperlink.
+     *
+     * // Get the range of a hyperlink.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.SetHyperlink("B2", "https://onlyoffice.com", null, "ONLYOFFICE", "Visit ONLYOFFICE");
+     *
+     * let hyperlink = worksheet.GetHyperlinks()[0];
+     * let range = hyperlink.GetRange();
+     *
+     * worksheet.GetRange("A4").SetValue("Hyperlink range address: " + range.GetAddress());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiHyperlink/Methods/GetRange/
      */
     GetRange(): ApiRange;
 
     /**
      * Returns the screen tip text for the hyperlink.
+     *
+     * @example
+     * ```js
+     * // Get the screen tip text of a hyperlink.
+     *
+     * // Needed when reading the tooltip of a hyperlink in a cell.
+     *
+     * // Get the screen tip text of a hyperlink.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.SetHyperlink("A1", "https://onlyoffice.com", null, "ONLYOFFICE website", "Visit ONLYOFFICE");
+     *
+     * let hyperlink = worksheet.GetHyperlinks()[0];
+     *
+     * worksheet.GetRange("A3").SetValue("Screen tip: " + hyperlink.GetScreenTip());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiHyperlink/Methods/GetScreenTip/
      */
@@ -19622,6 +20744,22 @@ export namespace Cell {
     /**
      * Returns the subaddress of the target document.
      *
+     * @example
+     * ```js
+     * // Get the subaddress of a hyperlink.
+     *
+     * // Needed when reading the internal location of a hyperlink in a cell.
+     *
+     * // Get the subaddress of a hyperlink.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.SetHyperlink("A1", "", "Sheet1!B5", "Go to B5", "Internal link");
+     *
+     * let hyperlink = worksheet.GetHyperlinks()[0];
+     *
+     * worksheet.GetRange("A3").SetValue("SubAddress: " + hyperlink.GetSubAddress());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiHyperlink/Methods/GetSubAddress/
      */
     GetSubAddress(): string;
@@ -19636,6 +20774,27 @@ export namespace Cell {
      * @returns returns null if the hyperlink is not attached to the document or the specified range is empty.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Make the text of a hyperlink in a shape on a worksheet italic through a text range.
+     *
+     * // A hyperlink keeps its own runs, and the range covers exactly the text of the link.
+     *
+     * // Take the range of the whole hyperlink text and apply italic to it.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 150 * 36000, 65 * 36000, fill, stroke, 0, 2 * 36000, 2, 3 * 36000);
+     *
+     * let docContent = shape.GetContent();
+     * docContent.GetElement(0).AddText("Open ONLYOFFICE website");
+     * let hyperlink = shape.GetTextRange().GetRange(5, 23).AddHyperlink("https://www.onlyoffice.com", "ONLYOFFICE website");
+     *
+     * let range = hyperlink.GetTextRange();
+     * range.SetItalic(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiHyperlink/Methods/GetTextRange/
      */
     GetTextRange(start?: number, end?: number): ApiTextRange | null;
@@ -19643,12 +20802,44 @@ export namespace Cell {
     /**
      * Returns the text displayed for the hyperlink.
      *
+     * @example
+     * ```js
+     * // Get the display text of a hyperlink.
+     *
+     * // Needed when reading the text shown in a cell for a hyperlink.
+     *
+     * // Get the display text of a hyperlink.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.SetHyperlink("A1", "https://onlyoffice.com", null, "ONLYOFFICE", "Visit ONLYOFFICE");
+     *
+     * let hyperlink = worksheet.GetHyperlinks()[0];
+     *
+     * worksheet.GetRange("A3").SetValue("Text to display: " + hyperlink.GetTextToDisplay());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiHyperlink/Methods/GetTextToDisplay/
      */
     GetTextToDisplay(): string;
 
     /**
      * Returns the type of the hyperlink.
+     *
+     * @example
+     * ```js
+     * // Get the type of a hyperlink.
+     *
+     * // Useful for checking the type of a hyperlink attached to a cell range.
+     *
+     * // Get the type of a hyperlink.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.SetHyperlink("A1", "https://onlyoffice.com", null, "ONLYOFFICE", "Visit ONLYOFFICE");
+     *
+     * let hyperlink = worksheet.GetHyperlinks()[0];
+     *
+     * worksheet.GetRange("A3").SetValue("Hyperlink type: " + hyperlink.GetType());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiHyperlink/Methods/GetType/
      */
@@ -19658,6 +20849,23 @@ export namespace Cell {
      * Sets the address of the target document.
      *
      * @param sAddress - The hyperlink address.
+     *
+     * @example
+     * ```js
+     * // Set a new address for a hyperlink.
+     *
+     * // Useful for changing the URL of an existing hyperlink in a cell.
+     *
+     * // Set a new address for a hyperlink.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.SetHyperlink("A1", "https://onlyoffice.com", null, "ONLYOFFICE", "Visit ONLYOFFICE");
+     *
+     * let hyperlink = worksheet.GetHyperlinks()[0];
+     * hyperlink.SetAddress("https://helpcenter.onlyoffice.com");
+     *
+     * worksheet.GetRange("A3").SetValue("New address: " + hyperlink.GetAddress());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiHyperlink/Methods/SetAddress/
      */
@@ -19706,6 +20914,23 @@ export namespace Cell {
      *
      * @param sScreenTip - The screen tip text.
      *
+     * @example
+     * ```js
+     * // Set a new screen tip text for a hyperlink.
+     *
+     * // Useful for changing the tooltip of an existing hyperlink in a cell.
+     *
+     * // Set a new screen tip for a hyperlink.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.SetHyperlink("A1", "https://onlyoffice.com", null, "ONLYOFFICE website", "Visit ONLYOFFICE");
+     *
+     * let hyperlink = worksheet.GetHyperlinks()[0];
+     * hyperlink.SetScreenTip("Go to ONLYOFFICE Help Center");
+     *
+     * worksheet.GetRange("A3").SetValue("New screen tip: " + hyperlink.GetScreenTip());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiHyperlink/Methods/SetScreenTip/
      */
     SetScreenTip(sScreenTip: string): void;
@@ -19753,6 +20978,23 @@ export namespace Cell {
      *
      * @param sSubAddress - The subaddress in "Sheet1!A1" format.
      *
+     * @example
+     * ```js
+     * // Set a new subaddress for a hyperlink.
+     *
+     * // Useful for changing the internal location of an existing hyperlink in a cell.
+     *
+     * // Set a new subaddress for a hyperlink.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.SetHyperlink("A1", "", "Sheet1!B5", "Go to B5", "Internal link");
+     *
+     * let hyperlink = worksheet.GetHyperlinks()[0];
+     * hyperlink.SetSubAddress("Sheet1!D10");
+     *
+     * worksheet.GetRange("A3").SetValue("New subaddress: " + hyperlink.GetSubAddress());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiHyperlink/Methods/SetSubAddress/
      */
     SetSubAddress(sSubAddress: string): void;
@@ -19761,6 +21003,23 @@ export namespace Cell {
      * Sets the text to be displayed for the hyperlink.
      *
      * @param sText - The text to display.
+     *
+     * @example
+     * ```js
+     * // Set a new display text for a hyperlink.
+     *
+     * // Useful for changing the text shown in a cell for a hyperlink.
+     *
+     * // Set a new display text for a hyperlink.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.SetHyperlink("A1", "https://onlyoffice.com", null, "ONLYOFFICE", "Visit ONLYOFFICE");
+     *
+     * let hyperlink = worksheet.GetHyperlinks()[0];
+     * hyperlink.SetTextToDisplay("Go to ONLYOFFICE");
+     *
+     * worksheet.GetRange("A3").SetValue("New display text: " + hyperlink.GetTextToDisplay());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiHyperlink/Methods/SetTextToDisplay/
      */
@@ -20083,7 +21342,7 @@ export namespace Cell {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiIconSetCondition/
    */
-  export interface ApiIconSetCondition extends ApiFormatCondition {
+  export interface ApiIconSetCondition extends Omit<ApiFormatCondition, "GetAppliesTo"> {
     /**
      * Deletes the current format condition.
      *
@@ -20127,7 +21386,7 @@ export namespace Cell {
     /**
      * Returns the range of cells to which the current conditional formatting rule applies.
      *
-     * @returns The range of cells affected by the current condition, or null if no range is set.
+     * @returns The range of cells affected by the current condition.
      * @since 9.1.0
      *
      * @example
@@ -20158,9 +21417,9 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(appliedRange.GetAddress());
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetAppliesTo/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiIconSetCondition/Methods/GetAppliesTo/
      */
-    GetAppliesTo(): ApiRange | null;
+    GetAppliesTo(): ApiRange;
 
     /**
      * Returns the date operator for time period conditions.
@@ -20549,9 +21808,9 @@ export namespace Cell {
     GetOperator(): XlFormatConditionOperator;
 
     /**
-     * Returns the pivot table condition object.
+     * Returns whether the conditional formatting rule is applied to a pivot table.
      *
-     * @returns The pivot table condition object.
+     * @returns Returns true if the rule is applied to a pivot table, otherwise null.
      * @since 9.1.0
      *
      * @example
@@ -20582,9 +21841,9 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(ptCondition ? "Found" : "None");
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetPTCondition/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiIconSetCondition/Methods/GetPTCondition/
      */
-    GetPTCondition(): PTCondition | null;
+    GetPTCondition(): boolean | null;
 
     /**
      * Returns the parent range object of the current format condition.
@@ -20615,7 +21874,7 @@ export namespace Cell {
      * worksheet.GetRange('C2').SetValue(parentRange.GetAddress());
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetParent/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiIconSetCondition/Methods/GetParent/
      */
     GetParent(): ApiRange;
 
@@ -20688,7 +21947,7 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(priority);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetPriority/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiIconSetCondition/Methods/GetPriority/
      */
     GetPriority(): number;
 
@@ -20760,7 +22019,7 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(scopeType);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetScopeType/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiIconSetCondition/Methods/GetScopeType/
      */
     GetScopeType(): XlPivotConditionScope;
 
@@ -20800,10 +22059,38 @@ export namespace Cell {
     /**
      * Returns whether the editor will stop evaluating additional formatting rules if this rule evaluates
      * to true.
+     * This rule type cannot stop the evaluation, so the value can be changed only by opening a file where
+     * it is set.
      *
      * @since 10.0.0
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetStopIfTrue/
+     * @example
+     * ```js
+     * // Check whether an icon set rule prevents the lower priority rules from being applied in a spreadsheet.
+     *
+     * // How do I find out if an icon set rule stops the evaluation of the other rules in a spreadsheet?
+     *
+     * // Read the "stop if true" flag of an icon set rule in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     *
+     * worksheet.GetRange("A1").SetValue("Sales Data");
+     * worksheet.GetRange("A2").SetValue(100);
+     * worksheet.GetRange("A3").SetValue(250);
+     * worksheet.GetRange("A4").SetValue(150);
+     * worksheet.GetRange("A5").SetValue(300);
+     * worksheet.GetRange("A6").SetValue(75);
+     *
+     * let dataRange = worksheet.GetRange("A2:A6");
+     * let formatConditions = dataRange.GetFormatConditions();
+     *
+     * let iconSet = formatConditions.AddIconSetCondition();
+     *
+     * worksheet.GetRange("C1").SetValue("Stop if true:");
+     * worksheet.GetRange("C2").SetValue(iconSet.GetStopIfTrue() ? "Yes" : "No");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiIconSetCondition/Methods/GetStopIfTrue/
      */
     GetStopIfTrue(): boolean;
 
@@ -21668,10 +22955,6 @@ export namespace Cell {
 
   /** Class representing a container for the paragraph elements. */
   export interface ApiInlineLvlSdt {
-  }
-
-  /** Class representing a slide layout. */
-  export interface ApiLayout {
   }
 
   /**
@@ -22931,8 +24214,8 @@ export namespace Cell {
      * Sets the display name of the table.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
-     * @param sDisplayName - The new display name for the table.
-     * @returns Returns false if the name is invalid or already used by another table.
+     * @param displayName - The new display name for the table.
+     * @returns Returns false if the name is invalid or already used by another table or defined name.
      *
      * @example
      * ```js
@@ -22956,7 +24239,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiListObject/Methods/SetDisplayName/
      */
-    SetDisplayName(sDisplayName: string): boolean;
+    SetDisplayName(displayName: string): boolean;
 
     /**
      * Sets the name of the table.
@@ -22965,7 +24248,7 @@ export namespace Cell {
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @param name - The new name for the table.
-     * @returns Returns false if the name is invalid or already used by another table.
+     * @returns Returns false if the name is invalid or already used by another table or defined name.
      *
      * @example
      * ```js
@@ -23463,10 +24746,6 @@ export namespace Cell {
     GetRange(): ApiRange | null;
   }
 
-  /** Class representing a slide master. */
-  export interface ApiMaster {
-  }
-
   /**
    * Class representing a mathematical equation.
    *
@@ -23475,6 +24754,30 @@ export namespace Cell {
   export interface ApiMath {
     /**
      * Returns a type of the ApiMath class.
+     *
+     * @example
+     * ```js
+     * // Identify the object type of a math equation in a spreadsheet.
+     *
+     * // Find out what kind of object a formula is in a spreadsheet.
+     *
+     * // Confirm the category a math equation belongs to in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 60 * 36000, 35 * 36000, fill, stroke, 0, 2 * 36000, 0, 3 * 36000);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * let math = Api.CreateMath("x^2 + y^2 = z^2", "unicode");
+     * paragraph.AddElement(math);
+     * let classType = math.GetClassType();
+     *
+     * let paragraph2 = Api.CreateParagraph();
+     * paragraph2.AddText("Class Type = " + classType);
+     * docContent.Push(paragraph2);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiMath/Methods/GetClassType/
      */
@@ -23485,6 +24788,31 @@ export namespace Cell {
      *
      * @param format - The format the text should be returned in.
      * @default format = "unicode"
+     *
+     * @example
+     * ```js
+     * // Read the text representation of a math equation, either as unicode linear text or as LaTeX, in a spreadsheet.
+     *
+     * // Get the formula of an equation back as plain text or as LaTeX in a spreadsheet.
+     *
+     * // Build a fraction equation, then read it back both as unicode text and as LaTeX.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 60 * 36000, 35 * 36000, fill, stroke, 0, 2 * 36000, 0, 3 * 36000);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * let math = Api.CreateMath("dx/dy", "unicode");
+     * paragraph.AddElement(math);
+     * let unicodeText = math.GetText("unicode");
+     * let latexText = math.GetText("latex");
+     *
+     * let paragraph2 = Api.CreateParagraph();
+     * paragraph2.AddText("Unicode: " + unicodeText + ", LaTeX: " + latexText);
+     * docContent.Push(paragraph2);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiMath/Methods/GetText/
      */
@@ -23641,18 +24969,6 @@ export namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiName/Methods/SetRefersTo/
      */
     SetRefersTo(sRef: string): boolean;
-  }
-
-  /** Class representing a notes page. */
-  export interface ApiNotesPage {
-  }
-
-  /** Class representing the numbering properties. */
-  export interface ApiNumbering {
-  }
-
-  /** Class representing a reference to a specified level of the numbering. */
-  export interface ApiNumberingLevel {
   }
 
   /**
@@ -23864,6 +25180,21 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the center footer section of a specific page type (even or first) in a spreadsheet.
+     *
+     * // How do I set the center footer for even pages in a spreadsheet?
+     *
+     * // Access the even pages' center footer to give it its own text when printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetOddAndEvenPagesHeaderFooter(true);
+     * let section = pageSetup.GetEvenPage().GetCenterFooter();
+     * section.SetText("Page &P of &N");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPage/Methods/GetCenterFooter/
      */
     GetCenterFooter(): ApiHeaderFooter;
@@ -23872,6 +25203,22 @@ export namespace Cell {
      * Returns the center header section of this page type.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the center header section of a specific page type (even or first) in a spreadsheet.
+     *
+     * // How do I set the centered header for even pages in a spreadsheet?
+     *
+     * // Access the even pages' center header to give it its own text when printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetOddAndEvenPagesHeaderFooter(true);
+     * let evenPage = pageSetup.GetEvenPage();
+     * let centerHeader = evenPage.GetCenterHeader();
+     * centerHeader.SetText("Even page &P");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPage/Methods/GetCenterHeader/
      */
@@ -23882,6 +25229,21 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the left footer section of a specific page type (even or first) in a spreadsheet.
+     *
+     * // How do I set the left footer for even pages in a spreadsheet?
+     *
+     * // Access the even pages' left footer to give it its own text when printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetOddAndEvenPagesHeaderFooter(true);
+     * let section = pageSetup.GetEvenPage().GetLeftFooter();
+     * section.SetText("&A");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPage/Methods/GetLeftFooter/
      */
     GetLeftFooter(): ApiHeaderFooter;
@@ -23890,6 +25252,21 @@ export namespace Cell {
      * Returns the left header section of this page type.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the left header section of a specific page type (even or first) in a spreadsheet.
+     *
+     * // How do I set the left header for even pages in a spreadsheet?
+     *
+     * // Access the even pages' left header to give it its own text when printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetOddAndEvenPagesHeaderFooter(true);
+     * let section = pageSetup.GetEvenPage().GetLeftHeader();
+     * section.SetText("Confidential");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPage/Methods/GetLeftHeader/
      */
@@ -23900,6 +25277,21 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the right footer section of a specific page type (even or first) in a spreadsheet.
+     *
+     * // How do I set the right footer for even pages in a spreadsheet?
+     *
+     * // Access the even pages' right footer to give it its own text when printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetOddAndEvenPagesHeaderFooter(true);
+     * let section = pageSetup.GetEvenPage().GetRightFooter();
+     * section.SetText("&T");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPage/Methods/GetRightFooter/
      */
     GetRightFooter(): ApiHeaderFooter;
@@ -23908,6 +25300,21 @@ export namespace Cell {
      * Returns the right header section of this page type.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the right header section of a specific page type (even or first) in a spreadsheet.
+     *
+     * // How do I set the right header for even pages in a spreadsheet?
+     *
+     * // Access the even pages' right header to give it its own text when printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetOddAndEvenPagesHeaderFooter(true);
+     * let section = pageSetup.GetEvenPage().GetRightHeader();
+     * section.SetText("&D");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPage/Methods/GetRightHeader/
      */
@@ -23925,6 +25332,21 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Check whether the header and footer are aligned with the page margins in a spreadsheet.
+     *
+     * // How do I find out if the header and footer line up with the page margins in a spreadsheet?
+     *
+     * // Read the current header and footer margin alignment setting before printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetAlignMarginsHeaderFooter(true);
+     * let isAligned = pageSetup.GetAlignMarginsHeaderFooter();
+     * worksheet.GetRange("A1").SetValue("Align header/footer with margins: " + isAligned);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetAlignMarginsHeaderFooter/
      */
     GetAlignMarginsHeaderFooter(): boolean;
@@ -23934,6 +25356,21 @@ export namespace Cell {
      *
      * @returns The bottom margin size measured in millimeters.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the bottom page margin of a sheet and display it in a cell in a spreadsheet.
+     *
+     * // How do I find out the current bottom margin of a worksheet in a spreadsheet?
+     *
+     * // Check the spacing below the printed content before printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetBottomMargin(25.4);
+     * let bottomMargin = pageSetup.GetBottomMargin();
+     * worksheet.GetRange("A1").SetValue("Bottom margin: " + bottomMargin + " mm");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetBottomMargin/
      */
@@ -23945,6 +25382,21 @@ export namespace Cell {
      * @returns The center footer text (may contain formatting codes such as &P, &D).
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the centered footer text of a sheet and display it in a cell in a spreadsheet.
+     *
+     * // How do I find out what is printed in the center of the footer in a spreadsheet?
+     *
+     * // Check the current center footer (including its formatting codes) before printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetCenterFooter("Page &P of &N");
+     * let centerFooter = pageSetup.GetCenterFooter();
+     * worksheet.GetRange("A1").SetValue("Center footer: " + centerFooter);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetCenterFooter/
      */
     GetCenterFooter(): string;
@@ -23955,6 +25407,21 @@ export namespace Cell {
      * @returns The center header text (may contain formatting codes such as &P, &D).
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the center header text of a sheet and display it in a cell in a spreadsheet.
+     *
+     * // How do I find out what is printed on the center of the header in a spreadsheet?
+     *
+     * // Check the current center header (including its formatting codes) before printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetCenterHeader("&A");
+     * let value = pageSetup.GetCenterHeader();
+     * worksheet.GetRange("A1").SetValue("CenterHeader: " + value);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetCenterHeader/
      */
     GetCenterHeader(): string;
@@ -23963,6 +25430,21 @@ export namespace Cell {
      * Returns whether the worksheet is centered horizontally on the page when printed.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Check whether the printed content is centered horizontally on the page in a spreadsheet.
+     *
+     * // How do I find out if the worksheet is horizontally centered when printing in a spreadsheet?
+     *
+     * // Read the horizontal centering setting before printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetCenterHorizontally(true);
+     * let isCentered = pageSetup.GetCenterHorizontally();
+     * worksheet.GetRange("A1").SetValue("Centered horizontally: " + isCentered);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetCenterHorizontally/
      */
@@ -23973,6 +25455,21 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Check whether the printed content is centered vertically on the page in a spreadsheet.
+     *
+     * // How do I find out if the worksheet is vertically centered when printing in a spreadsheet?
+     *
+     * // Read the vertical centering setting before printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetCenterVertically(true);
+     * let isCentered = pageSetup.GetCenterVertically();
+     * worksheet.GetRange("A1").SetValue("Centered vertically: " + isCentered);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetCenterVertically/
      */
     GetCenterVertically(): boolean;
@@ -23981,6 +25478,21 @@ export namespace Cell {
      * Returns whether a different header and footer is used on the first printed page.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Check whether the first printed page uses a different header and footer in a spreadsheet.
+     *
+     * // How do I find out if the first page has its own header/footer in a spreadsheet?
+     *
+     * // Read the different-first-page header/footer setting before printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetDifferentFirstPageHeaderFooter(true);
+     * let isDifferent = pageSetup.GetDifferentFirstPageHeaderFooter();
+     * worksheet.GetRange("A1").SetValue("Different first page header/footer: " + isDifferent);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetDifferentFirstPageHeaderFooter/
      */
@@ -23993,6 +25505,21 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the even-page header/footer object to customize printing in a spreadsheet.
+     *
+     * // How do I set a separate header or footer for even pages in a spreadsheet?
+     *
+     * // Access the even pages' header and footer to give them their own content in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetOddAndEvenPagesHeaderFooter(true);
+     * let evenPage = pageSetup.GetEvenPage();
+     * evenPage.GetCenterHeader().SetText("Even page &P");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetEvenPage/
      */
     GetEvenPage(): ApiPage;
@@ -24004,6 +25531,21 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the first-page header/footer object to customize printing in a spreadsheet.
+     *
+     * // How do I set a separate header or footer for the first page in a spreadsheet?
+     *
+     * // Access the first page's header and footer to give them their own content in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetDifferentFirstPageHeaderFooter(true);
+     * let firstPage = pageSetup.GetFirstPage();
+     * firstPage.GetCenterHeader().SetText("Report title");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetFirstPage/
      */
     GetFirstPage(): ApiPage;
@@ -24014,6 +25556,21 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the first page number used when printing a spreadsheet.
+     *
+     * // How do I find out what number the printed pages start from in a spreadsheet?
+     *
+     * // Check the starting page number before printing a spreadsheet (null means automatic).
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetFirstPageNumber(5);
+     * let firstPageNumber = pageSetup.GetFirstPageNumber();
+     * worksheet.GetRange("A1").SetValue("First page number: " + firstPageNumber);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetFirstPageNumber/
      */
     GetFirstPageNumber(): number | null;
@@ -24023,6 +25580,21 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read how many pages tall the printout is scaled to in a spreadsheet.
+     *
+     * // How do I find out the fit-to-pages-tall setting before printing in a spreadsheet?
+     *
+     * // Check the vertical fit-to-page scaling (0 means automatic) in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetFitToPagesTall(2);
+     * let tall = pageSetup.GetFitToPagesTall();
+     * worksheet.GetRange("A1").SetValue("Fit to pages tall: " + tall);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetFitToPagesTall/
      */
     GetFitToPagesTall(): number;
@@ -24031,6 +25603,21 @@ export namespace Cell {
      * Returns the number of pages wide the worksheet is scaled to when printed (0 means automatic).
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read how many pages wide the printout is scaled to in a spreadsheet.
+     *
+     * // How do I find out the fit-to-pages-wide setting before printing in a spreadsheet?
+     *
+     * // Check the horizontal fit-to-page scaling (0 means automatic) in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetFitToPagesWide(1);
+     * let wide = pageSetup.GetFitToPagesWide();
+     * worksheet.GetRange("A1").SetValue("Fit to pages wide: " + wide);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetFitToPagesWide/
      */
@@ -24042,6 +25629,21 @@ export namespace Cell {
      * @returns The footer margin size measured in millimeters.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the footer margin of a sheet and display it in a cell in a spreadsheet.
+     *
+     * // How do I find out the current footer margin (distance to the footer) in a spreadsheet?
+     *
+     * // Check the spacing reserved for the page footer before printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetFooterMargin(12.7);
+     * let footerMargin = pageSetup.GetFooterMargin();
+     * worksheet.GetRange("A1").SetValue("Footer margin: " + footerMargin + " mm");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetFooterMargin/
      */
     GetFooterMargin(): number;
@@ -24051,6 +25653,21 @@ export namespace Cell {
      *
      * @returns The header margin size measured in millimeters.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the header margin of a sheet and display it in a cell in a spreadsheet.
+     *
+     * // How do I find out the current header margin (distance to the header) in a spreadsheet?
+     *
+     * // Check the spacing reserved for the page header before printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetHeaderMargin(12.7);
+     * let headerMargin = pageSetup.GetHeaderMargin();
+     * worksheet.GetRange("A1").SetValue("Header margin: " + headerMargin + " mm");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetHeaderMargin/
      */
@@ -24062,6 +25679,21 @@ export namespace Cell {
      * @returns The left footer text (may contain formatting codes such as &P, &D).
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the left footer text of a sheet and display it in a cell in a spreadsheet.
+     *
+     * // How do I find out what is printed on the left of the footer in a spreadsheet?
+     *
+     * // Check the current left footer (including its formatting codes) before printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetLeftFooter("&D");
+     * let value = pageSetup.GetLeftFooter();
+     * worksheet.GetRange("A1").SetValue("LeftFooter: " + value);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetLeftFooter/
      */
     GetLeftFooter(): string;
@@ -24071,6 +25703,21 @@ export namespace Cell {
      *
      * @returns The left header text (may contain formatting codes such as &P, &D).
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the left header text of a sheet and display it in a cell in a spreadsheet.
+     *
+     * // How do I find out what is printed on the left of the header in a spreadsheet?
+     *
+     * // Check the current left header (including its formatting codes) before printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetLeftHeader("Confidential");
+     * let value = pageSetup.GetLeftHeader();
+     * worksheet.GetRange("A1").SetValue("LeftHeader: " + value);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetLeftHeader/
      */
@@ -24082,6 +25729,21 @@ export namespace Cell {
      * @returns The left margin size measured in millimeters.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the left page margin of a sheet and display it in a cell in a spreadsheet.
+     *
+     * // How do I find out the current left margin of a worksheet in a spreadsheet?
+     *
+     * // Check the left page margin before printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetLeftMargin(20);
+     * let margin = pageSetup.GetLeftMargin();
+     * worksheet.GetRange("A1").SetValue("Left margin: " + margin + " mm");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetLeftMargin/
      */
     GetLeftMargin(): number;
@@ -24090,6 +25752,21 @@ export namespace Cell {
      * Returns whether different headers and footers are used on odd and even printed pages.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Check whether odd and even pages use different headers and footers in a spreadsheet.
+     *
+     * // How do I find out if odd and even pages have separate headers/footers in a spreadsheet?
+     *
+     * // Read the odd/even page header/footer setting before printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetOddAndEvenPagesHeaderFooter(true);
+     * let isDifferent = pageSetup.GetOddAndEvenPagesHeaderFooter();
+     * worksheet.GetRange("A1").SetValue("Different odd/even headers and footers: " + isDifferent);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetOddAndEvenPagesHeaderFooter/
      */
@@ -24100,6 +25777,21 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the page orientation used when printing a spreadsheet.
+     *
+     * // How do I find out if a worksheet prints in portrait or landscape in a spreadsheet?
+     *
+     * // Check the current page orientation before printing a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetOrientation("xlLandscape");
+     * let orientation = pageSetup.GetOrientation();
+     * worksheet.GetRange("A1").SetValue("Orientation: " + orientation);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetOrientation/
      */
     GetOrientation(): PageOrientation;
@@ -24109,6 +25801,21 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the paper size used when printing a worksheet in a spreadsheet.
+     *
+     * // How do I find out the print paper size of a worksheet in a spreadsheet?
+     *
+     * // Check the current paper format before printing a worksheet in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetPaperSize("xlPaperA4");
+     * let paperSize = pageSetup.GetPaperSize();
+     * worksheet.GetRange("A1").SetValue("Paper size: " + paperSize);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetPaperSize/
      */
     GetPaperSize(): PaperSize;
@@ -24117,6 +25824,20 @@ export namespace Cell {
      * Returns the worksheet that owns this page setup.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the worksheet that a page setup belongs to in a spreadsheet.
+     *
+     * // How do I get back to the worksheet from its page setup object in a spreadsheet?
+     *
+     * // Access the parent worksheet of a page setup to read or change other sheet settings in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * let parent = pageSetup.GetParent();
+     * parent.GetRange("A1").SetValue("Parent sheet: " + parent.GetName());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetParent/
      */
@@ -24128,6 +25849,21 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the print area (the range that gets printed) of a worksheet in a spreadsheet.
+     *
+     * // How do I find out which range is set as the print area in a spreadsheet?
+     *
+     * // Check the current print area (empty means the whole sheet) before printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetPrintArea("A1:D20");
+     * let printArea = pageSetup.GetPrintArea();
+     * worksheet.GetRange("F1").SetValue("Print area: " + printArea);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetPrintArea/
      */
     GetPrintArea(): string;
@@ -24136,6 +25872,21 @@ export namespace Cell {
      * Returns whether cell gridlines are printed with the worksheet.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Check whether cell gridlines are printed with the worksheet in a spreadsheet.
+     *
+     * // How do I find out if gridlines will appear on the printout in a spreadsheet?
+     *
+     * // Read the print-gridlines setting before printing a worksheet in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetPrintGridlines(true);
+     * let value = pageSetup.GetPrintGridlines();
+     * worksheet.GetRange("A1").SetValue("Print gridlines: " + value);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetPrintGridlines/
      */
@@ -24146,6 +25897,21 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Check whether row and column headings are printed with the worksheet in a spreadsheet.
+     *
+     * // How do I find out if row numbers and column letters will appear on the printout in a spreadsheet?
+     *
+     * // Read the print-headings setting before printing a worksheet in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetPrintHeadings(true);
+     * let value = pageSetup.GetPrintHeadings();
+     * worksheet.GetRange("A1").SetValue("Print headings: " + value);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetPrintHeadings/
      */
     GetPrintHeadings(): boolean;
@@ -24155,6 +25921,21 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the columns repeated at the left of each printed page in a spreadsheet.
+     *
+     * // How do I find out which columns repeat on every printed page in a spreadsheet?
+     *
+     * // Check the print title columns before printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetPrintTitleColumns("$A:$A");
+     * let cols = pageSetup.GetPrintTitleColumns();
+     * worksheet.GetRange("D1").SetValue("Print title columns: " + cols);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetPrintTitleColumns/
      */
     GetPrintTitleColumns(): string;
@@ -24163,6 +25944,21 @@ export namespace Cell {
      * Returns the rows that are repeated at the top of each printed page, or an empty string if none.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the rows repeated at the top of each printed page in a spreadsheet.
+     *
+     * // How do I find out which rows repeat on every printed page in a spreadsheet?
+     *
+     * // Check the print title rows before printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetPrintTitleRows("$1:$1");
+     * let rows = pageSetup.GetPrintTitleRows();
+     * worksheet.GetRange("D1").SetValue("Print title rows: " + rows);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetPrintTitleRows/
      */
@@ -24174,6 +25970,21 @@ export namespace Cell {
      * @returns The right footer text (may contain formatting codes such as &P, &D).
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the right footer text of a sheet and display it in a cell in a spreadsheet.
+     *
+     * // How do I find out what is printed on the right of the footer in a spreadsheet?
+     *
+     * // Check the current right footer (including its formatting codes) before printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetRightFooter("Page &P");
+     * let value = pageSetup.GetRightFooter();
+     * worksheet.GetRange("A1").SetValue("RightFooter: " + value);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetRightFooter/
      */
     GetRightFooter(): string;
@@ -24183,6 +25994,21 @@ export namespace Cell {
      *
      * @returns The right header text (may contain formatting codes such as &P, &D).
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the right header text of a sheet and display it in a cell in a spreadsheet.
+     *
+     * // How do I find out what is printed on the right of the header in a spreadsheet?
+     *
+     * // Check the current right header (including its formatting codes) before printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetRightHeader("&D &T");
+     * let value = pageSetup.GetRightHeader();
+     * worksheet.GetRange("A1").SetValue("RightHeader: " + value);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetRightHeader/
      */
@@ -24194,6 +26020,21 @@ export namespace Cell {
      * @returns The right margin size measured in millimeters.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the right page margin of a sheet and display it in a cell in a spreadsheet.
+     *
+     * // How do I find out the current right margin of a worksheet in a spreadsheet?
+     *
+     * // Check the right page margin before printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetRightMargin(20);
+     * let margin = pageSetup.GetRightMargin();
+     * worksheet.GetRange("A1").SetValue("Right margin: " + margin + " mm");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetRightMargin/
      */
     GetRightMargin(): number;
@@ -24202,6 +26043,21 @@ export namespace Cell {
      * Returns whether the header and footer are scaled with the document when it is scaled for printing.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Check whether the header and footer are scaled with the document when printing in a spreadsheet.
+     *
+     * // How do I find out if the header/footer scales with the print scaling in a spreadsheet?
+     *
+     * // Read the scale-with-document header/footer setting before printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetScaleWithDocHeaderFooter(true);
+     * let value = pageSetup.GetScaleWithDocHeaderFooter();
+     * worksheet.GetRange("A1").SetValue("Scale header/footer with document: " + value);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetScaleWithDocHeaderFooter/
      */
@@ -24213,6 +26069,21 @@ export namespace Cell {
      * @returns The top margin size measured in millimeters.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the top page margin of a sheet and display it in a cell in a spreadsheet.
+     *
+     * // How do I find out the current top margin of a worksheet in a spreadsheet?
+     *
+     * // Check the top page margin before printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetTopMargin(20);
+     * let margin = pageSetup.GetTopMargin();
+     * worksheet.GetRange("A1").SetValue("Top margin: " + margin + " mm");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetTopMargin/
      */
     GetTopMargin(): number;
@@ -24222,6 +26093,21 @@ export namespace Cell {
      *
      * @returns The scaling factor measured in percent (10-400).
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the print scaling factor (zoom) of a worksheet in a spreadsheet.
+     *
+     * // How do I find out the print scaling percentage before printing in a spreadsheet?
+     *
+     * // Check the current print zoom level of a worksheet in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetZoom(80);
+     * let zoom = pageSetup.GetZoom();
+     * worksheet.GetRange("A1").SetValue("Print zoom: " + zoom + "%");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/GetZoom/
      */
@@ -24234,6 +26120,19 @@ export namespace Cell {
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Align the header and footer with the page margins for printing in a spreadsheet.
+     *
+     * // How do I make the header and footer line up with the left and right page margins in a spreadsheet?
+     *
+     * // Keep the header and footer aligned to the page margins instead of the printable area in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetAlignMarginsHeaderFooter(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetAlignMarginsHeaderFooter/
      */
     SetAlignMarginsHeaderFooter(bAlign: boolean): boolean;
@@ -24244,6 +26143,19 @@ export namespace Cell {
      * @param nMargin - The bottom margin size measured in millimeters.
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Define the bottom page margin for a sheet in a spreadsheet.
+     *
+     * // How do I set the bottom margin of a worksheet for printing in a spreadsheet?
+     *
+     * // Adjust the spacing below the printed content on each page in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetBottomMargin(25.4);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetBottomMargin/
      */
@@ -24256,6 +26168,19 @@ export namespace Cell {
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Add centered text to the page footer for printing in a spreadsheet.
+     *
+     * // How do I put the page number in the center of the footer in a spreadsheet?
+     *
+     * // Show a centered footer with the current page and total page count when printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetCenterFooter("Page &P of &N");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetCenterFooter/
      */
     SetCenterFooter(sText: string): boolean;
@@ -24266,6 +26191,19 @@ export namespace Cell {
      * @param sText - The center header text (may contain formatting codes such as &P, &D).
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Add center text to the page header for printing in a spreadsheet.
+     *
+     * // How do I put text on the center side of the header in a spreadsheet?
+     *
+     * // Show a center header when printing a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetCenterHeader("&A");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetCenterHeader/
      */
@@ -24278,6 +26216,19 @@ export namespace Cell {
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Center the printed content horizontally on the page in a spreadsheet.
+     *
+     * // How do I center the worksheet between the left and right margins when printing in a spreadsheet?
+     *
+     * // Make the printout horizontally centered on the page in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetCenterHorizontally(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetCenterHorizontally/
      */
     SetCenterHorizontally(bCenter: boolean): boolean;
@@ -24288,6 +26239,19 @@ export namespace Cell {
      * @param bCenter - Specifies whether the worksheet is centered vertically on the page.
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Center the printed content vertically on the page in a spreadsheet.
+     *
+     * // How do I center the worksheet between the top and bottom margins when printing in a spreadsheet?
+     *
+     * // Make the printout vertically centered on the page in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetCenterVertically(true);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetCenterVertically/
      */
@@ -24300,6 +26264,19 @@ export namespace Cell {
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Use a different header and footer on the first printed page in a spreadsheet.
+     *
+     * // How do I set a separate header/footer for the first page when printing in a spreadsheet?
+     *
+     * // Enable a distinct first-page header and footer for printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetDifferentFirstPageHeaderFooter(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetDifferentFirstPageHeaderFooter/
      */
     SetDifferentFirstPageHeaderFooter(bDifferent: boolean): boolean;
@@ -24310,6 +26287,19 @@ export namespace Cell {
      * @param nNumber - The first page number.
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the number printed on the first page of a spreadsheet.
+     *
+     * // How do I make page numbering start from a specific number when printing a spreadsheet?
+     *
+     * // Begin the printed page numbers at a custom value in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetFirstPageNumber(5);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetFirstPageNumber/
      */
@@ -24323,6 +26313,19 @@ export namespace Cell {
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Scale the printout to fit a given number of pages tall in a spreadsheet.
+     *
+     * // How do I fit all rows onto a fixed number of pages when printing in a spreadsheet?
+     *
+     * // Shrink the worksheet so it prints within a fixed number of pages vertically in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetFitToPagesTall(2);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetFitToPagesTall/
      */
     SetFitToPagesTall(nPages: number): boolean;
@@ -24335,6 +26338,19 @@ export namespace Cell {
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Scale the printout to fit a given number of pages wide in a spreadsheet.
+     *
+     * // How do I fit all columns onto one page wide when printing in a spreadsheet?
+     *
+     * // Shrink the worksheet so it prints within a fixed number of pages horizontally in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetFitToPagesWide(1);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetFitToPagesWide/
      */
     SetFitToPagesWide(nPages: number): boolean;
@@ -24345,6 +26361,19 @@ export namespace Cell {
      * @param nMargin - The footer margin size measured in millimeters.
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the distance from the bottom of the page to the footer for printing in a spreadsheet.
+     *
+     * // How do I change the footer margin (distance from the page edge to the footer) in a spreadsheet?
+     *
+     * // Move the footer closer to or further from the bottom edge of the printed page in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetFooterMargin(12.7);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetFooterMargin/
      */
@@ -24357,6 +26386,19 @@ export namespace Cell {
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the distance from the top of the page to the header for printing in a spreadsheet.
+     *
+     * // How do I change the header margin (distance from the page edge to the header) in a spreadsheet?
+     *
+     * // Move the header closer to or further from the top edge of the printed page in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetHeaderMargin(12.7);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetHeaderMargin/
      */
     SetHeaderMargin(nMargin: number): boolean;
@@ -24367,6 +26409,19 @@ export namespace Cell {
      * @param sText - The left footer text (may contain formatting codes such as &P, &D).
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Add left text to the page footer for printing in a spreadsheet.
+     *
+     * // How do I put text on the left side of the footer in a spreadsheet?
+     *
+     * // Show a left footer when printing a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetLeftFooter("&D");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetLeftFooter/
      */
@@ -24379,6 +26434,19 @@ export namespace Cell {
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Add left text to the page header for printing in a spreadsheet.
+     *
+     * // How do I put text on the left side of the header in a spreadsheet?
+     *
+     * // Show a left header when printing a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetLeftHeader("Confidential");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetLeftHeader/
      */
     SetLeftHeader(sText: string): boolean;
@@ -24389,6 +26457,19 @@ export namespace Cell {
      * @param nMargin - The left margin size measured in millimeters.
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Define the left page margin for a sheet in a spreadsheet.
+     *
+     * // How do I set the left margin of a worksheet for printing in a spreadsheet?
+     *
+     * // Adjust the spacing on the left side of the printed page in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetLeftMargin(20);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetLeftMargin/
      */
@@ -24401,6 +26482,20 @@ export namespace Cell {
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Use different headers and footers on odd and even pages in a spreadsheet.
+     *
+     * // How do I set separate headers/footers for odd and even pages when printing in a spreadsheet?
+     *
+     * // Enable distinct odd and even page headers and footers for printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetOddAndEvenPagesHeaderFooter(true);
+     * pageSetup.GetEvenPage().GetCenterHeader().SetText("Even page &P");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetOddAndEvenPagesHeaderFooter/
      */
     SetOddAndEvenPagesHeaderFooter(bDifferent: boolean): boolean;
@@ -24412,6 +26507,19 @@ export namespace Cell {
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the page orientation to landscape for printing in a spreadsheet.
+     *
+     * // How do I switch a worksheet to landscape orientation when printing in a spreadsheet?
+     *
+     * // Print the sheet sideways (landscape) instead of upright (portrait) in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetOrientation("xlLandscape");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetOrientation/
      */
     SetOrientation(sOrientation: PageOrientation): boolean;
@@ -24422,6 +26530,19 @@ export namespace Cell {
      * @param sPaperSize - The paper size (an xlPaperSize constant name, e.g. "xlPaperA4").
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the paper size used when printing a worksheet in a spreadsheet.
+     *
+     * // How do I switch the print paper size to A4 (or Letter, A3, ...) in a spreadsheet?
+     *
+     * // Choose the paper format for printing a worksheet in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetPaperSize("xlPaperA4");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetPaperSize/
      */
@@ -24436,6 +26557,19 @@ export namespace Cell {
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Limit printing to a specific range (print area) of a worksheet in a spreadsheet.
+     *
+     * // How do I print only a selected range instead of the whole sheet in a spreadsheet?
+     *
+     * // Define which cells get printed by setting the print area in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetPrintArea("A1:D20");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetPrintArea/
      */
     SetPrintArea(sRange: string): boolean;
@@ -24447,6 +26581,19 @@ export namespace Cell {
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Print cell gridlines together with the worksheet content in a spreadsheet.
+     *
+     * // How do I make gridlines appear on the printout in a spreadsheet?
+     *
+     * // Show the cell gridlines when printing a worksheet in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetPrintGridlines(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetPrintGridlines/
      */
     SetPrintGridlines(bPrint: boolean): boolean;
@@ -24457,6 +26604,19 @@ export namespace Cell {
      * @param bPrint - Specifies whether the row and column headings are printed.
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Print row and column headings together with the worksheet content in a spreadsheet.
+     *
+     * // How do I include row numbers and column letters on the printout in a spreadsheet?
+     *
+     * // Show the row and column headings when printing a worksheet in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetPrintHeadings(true);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetPrintHeadings/
      */
@@ -24470,6 +26630,19 @@ export namespace Cell {
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Repeat label columns at the left of every printed page in a spreadsheet.
+     *
+     * // How do I print the first column on every page in a spreadsheet?
+     *
+     * // Keep the left columns visible on each printed page in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetPrintTitleColumns("$A:$A");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetPrintTitleColumns/
      */
     SetPrintTitleColumns(sRange: string): boolean;
@@ -24480,6 +26653,19 @@ export namespace Cell {
      * @param sRange - The rows to repeat (e.g. "$1:$1"). Empty string clears the print title rows.
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Repeat header rows at the top of every printed page in a spreadsheet.
+     *
+     * // How do I print the header row on every page in a spreadsheet?
+     *
+     * // Keep the top rows visible on each printed page in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetPrintTitleRows("$1:$1");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetPrintTitleRows/
      */
@@ -24492,6 +26678,19 @@ export namespace Cell {
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Add right text to the page footer for printing in a spreadsheet.
+     *
+     * // How do I put text on the right side of the footer in a spreadsheet?
+     *
+     * // Show a right footer when printing a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetRightFooter("Page &P");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetRightFooter/
      */
     SetRightFooter(sText: string): boolean;
@@ -24502,6 +26701,19 @@ export namespace Cell {
      * @param sText - The right header text (may contain formatting codes such as &P, &D).
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Add right text to the page header for printing in a spreadsheet.
+     *
+     * // How do I put text on the right side of the header in a spreadsheet?
+     *
+     * // Show a right header when printing a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetRightHeader("&D &T");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetRightHeader/
      */
@@ -24514,6 +26726,19 @@ export namespace Cell {
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Define the right page margin for a sheet in a spreadsheet.
+     *
+     * // How do I set the right margin of a worksheet for printing in a spreadsheet?
+     *
+     * // Adjust the spacing on the right side of the printed page in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetRightMargin(20);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetRightMargin/
      */
     SetRightMargin(nMargin: number): boolean;
@@ -24524,6 +26749,19 @@ export namespace Cell {
      * @param bScale - Specifies whether the header and footer are scaled with the document.
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Scale the header and footer together with the worksheet when printing in a spreadsheet.
+     *
+     * // How do I keep the header/footer font size in sync with the print scaling in a spreadsheet?
+     *
+     * // Make the header and footer shrink or grow with the document scale when printing in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetScaleWithDocHeaderFooter(true);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetScaleWithDocHeaderFooter/
      */
@@ -24536,6 +26774,19 @@ export namespace Cell {
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Define the top page margin for a sheet in a spreadsheet.
+     *
+     * // How do I set the top margin of a worksheet for printing in a spreadsheet?
+     *
+     * // Adjust the spacing on the top side of the printed page in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetTopMargin(20);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetTopMargin/
      */
     SetTopMargin(nMargin: number): boolean;
@@ -24547,6 +26798,19 @@ export namespace Cell {
      * @param nZoom - The scaling factor measured in percent (10-400).
      * @returns Returns true if the operation is successful.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the print scaling factor (zoom) of a worksheet in a spreadsheet.
+     *
+     * // How do I shrink or enlarge the printout to a percentage of its size in a spreadsheet?
+     *
+     * // Scale the printed worksheet to a given percentage in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let pageSetup = worksheet.GetPageSetup();
+     * pageSetup.SetZoom(80);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPageSetup/Methods/SetZoom/
      */
@@ -25294,7 +27558,10 @@ export namespace Cell {
     AddLineBreak(): ApiRun;
 
     /**
-     * Adds a tab stop to the current paragraph.
+     * Adds a tab character to the end of the current paragraph.
+     * Use the AddText method with the "\t" character instead.
+     *
+     * @deprecated since 10.0.3 version.
      *
      * @example
      * ```js
@@ -25631,6 +27898,9 @@ export namespace Cell {
 
     /**
      * Returns an internal ID of the current paragraph.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
      *
      * @since 9.2.0
      *
@@ -26044,6 +28314,27 @@ export namespace Cell {
      * @returns returns null if the specified range is empty.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Underline a part of a paragraph of a shape on a worksheet through a text range.
+     *
+     * // Positions are counted from the beginning of the paragraph, the end position is excluded.
+     *
+     * // Take the range of the first five characters of the paragraph and underline it.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 150 * 36000, 65 * 36000, fill, stroke, 0, 2 * 36000, 2, 3 * 36000);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = paragraph.GetTextRange(0, 5);
+     * range.SetUnderline(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/GetTextRange/
      */
     GetTextRange(start?: number, end?: number): ApiTextRange | null;
@@ -26055,16 +28346,41 @@ export namespace Cell {
      * @param sPosition - The position where the text or paragraph will be inserted ("before" or "after" the paragraph
      *   specified).
      * @param beRNewPara - Defines if this method returns a new paragraph (true) or the current paragraph (false).
+     * @default sPosition = "after"
+     * @default beRNewPara = false
      * @returns returns null if param paragraph is invalid.
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/InsertParagraph/
      */
-    InsertParagraph(paragraph: string | ApiParagraph, sPosition: string, beRNewPara: boolean): ApiParagraph | null;
+    InsertParagraph(paragraph: string | ApiParagraph, sPosition?: string, beRNewPara?: boolean): ApiParagraph | null;
 
     /**
      * Returns true if the paragraph has no content elements (only the paragraph end mark).
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Check whether the current paragraph has no content elements.
+     *
+     * // Verify that a newly created paragraph reports as empty.
+     *
+     * // Confirm the empty state changes once text is added.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("flowChartOnlineStorage", 120 * 36000, 70 * 36000, fill, stroke, 0, 2 * 36000, 0, 3 * 36000);
+     * let content = shape.GetContent();
+     * let paragraph = Api.CreateParagraph();
+     * let emptyBefore = paragraph.IsEmpty();
+     * paragraph.AddText("This is a sample text.");
+     * let emptyAfter = paragraph.IsEmpty();
+     * content.Push(paragraph);
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("The paragraph was empty before adding text: " + emptyBefore + ". After adding text: " + emptyAfter + ".");
+     * content.Push(resultParagraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/IsEmpty/
      */
@@ -26108,11 +28424,30 @@ export namespace Cell {
     Last(): ParagraphContent | null;
 
     /**
+     * Moves the cursor to the end of the current paragraph.
+     *
+     * @since 9.4.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor to the start of the current paragraph.
+     *
+     * @since 9.4.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
+
+    /**
      * Adds an element to the current paragraph.
      *
-     * @param oElement - The document element which will be added at the current position. Returns false if the oElement
-     *   type is not supported by a paragraph.
-     * @returns Returns `false` if the type of `oElement` is not supported by paragraph content.
+     * @param oElement - The document element which will be added at the current position. A string is added as a new run
+     *   with the text properties of the last run with text.
+     * @returns Returns `false` if the type of `oElement` is not supported by paragraph content or the element
+     *   is already in the document.
      *
      * @example
      * ```js
@@ -26144,7 +28479,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/Push/
      */
-    Push(oElement: ParagraphContent): boolean;
+    Push(oElement: ParagraphContent | string): boolean;
 
     /**
      * Removes all the elements from the current paragraph.
@@ -26612,6 +28947,34 @@ export namespace Cell {
      *   Example: "en-CA". Pass _null_ to remove the language.
      * @returns returns null if the language identifier is not supported.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the spell-check language for a paragraph inside a shape in a spreadsheet.
+     *
+     * // How do I tell the editor which language to use when checking the text of a shape in a spreadsheet?
+     *
+     * // Set the language of the paragraph and print it in a spreadsheet.
+     *
+     * const worksheet = Api.GetActiveSheet();
+     * const fill = Api.CreateSolidFill(Api.RGB(160, 100, 110));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = worksheet.AddShape(
+     * 	'roundRect',
+     * 	Api.MillimetersToEmus(90), Api.MillimetersToEmus(40),
+     * 	fill, stroke,
+     * 	0, 0, 2, 0
+     * );
+     *
+     * const content = shape.GetContent();
+     * const paragraph = content.GetElement(0);
+     * paragraph.AddText('This is a paragraph with the spell-check language set.');
+     * paragraph.SetLanguage('en-CA');
+     *
+     * const resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText('Paragraph language: ' + shape.GetTextRange().GetTextPr().GetLanguage());
+     * content.Push(resultParagraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiParagraph/Methods/SetLanguage/
      */
@@ -32908,6 +35271,44 @@ export namespace Cell {
      *   would cover other cells, or other users are editing the document.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Group the dates of a pivot table field by months and years in a spreadsheet.
+     *
+     * // How do I show pivot table totals by month and year instead of by day in a spreadsheet?
+     *
+     * // Summarize daily sales by month within each year using date grouping in a pivot table.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     *
+     * worksheet.GetRange('B1:C1').SetValue([['Date', 'Amount']]);
+     * worksheet.GetRange('B2:C7').SetValue([
+     *     ['2024-01-15', 120],
+     *     ['2024-01-28', 80],
+     *     ['2024-02-10', 150],
+     *     ['2024-12-05', 60],
+     *     ['2025-01-20', 90],
+     *     ['2025-02-14', 110]
+     * ]);
+     *
+     * let dataRef = Api.GetRange("'Sheet1'!$B$1:$C$7");
+     * let pivotTable = Api.InsertPivotNewWorksheet(dataRef);
+     *
+     * pivotTable.AddFields({
+     *     rows: 'Date',
+     * });
+     *
+     * pivotTable.AddDataField('Amount');
+     *
+     * // The periods are seconds, minutes, hours, days, months, quarters and years, as in VBA.
+     * let pivotField = pivotTable.GetPivotFields('Date');
+     * let grouped = pivotField.Group(true, true, undefined, [false, false, false, false, true, false, true]);
+     *
+     * let pivotWorksheet = Api.GetActiveSheet();
+     * pivotWorksheet.GetRange('D1').SetValue('Grouped by months and years');
+     * pivotWorksheet.GetRange('E1').SetValue(grouped);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotField/Methods/Group/
      */
     Group(start?: boolean | number | Date, end?: boolean | number | Date, by?: number, periods?: boolean[]): boolean;
@@ -34889,9 +37290,8 @@ export namespace Cell {
     ClearTable(): void;
 
     /**
-     * Returns a collection that is currently displayed as column fields in the pivot table.
+     * Returns all the fields that are currently displayed as column fields in the pivot table.
      *
-     * @param field - The name or index of the field to be returned.
      * @since 8.2.0
      *
      * @example
@@ -34943,7 +37343,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetColumnFields/
      */
-    GetColumnFields(field?: number | string): ApiPivotField[];
+    GetColumnFields(): ApiPivotField[];
 
     /**
      * Returns the **Grand Totals** setting of the pivot table columns.
@@ -35424,6 +37824,50 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read whether the pivot table column widths are refitted on every update in a spreadsheet.
+     *
+     * // How do I check if a pivot table resizes its columns whenever it is refreshed in a spreadsheet?
+     *
+     * // Report the autofit column width setting of an existing pivot table in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     *
+     * worksheet.GetRange('B1').SetValue('Region');
+     * worksheet.GetRange('C1').SetValue('Style');
+     * worksheet.GetRange('D1').SetValue('Price');
+     *
+     * worksheet.GetRange('B2').SetValue('East');
+     * worksheet.GetRange('B3').SetValue('West');
+     * worksheet.GetRange('B4').SetValue('East');
+     * worksheet.GetRange('B5').SetValue('West');
+     *
+     * worksheet.GetRange('C2').SetValue('Fancy');
+     * worksheet.GetRange('C3').SetValue('Fancy');
+     * worksheet.GetRange('C4').SetValue('Tee');
+     * worksheet.GetRange('C5').SetValue('Tee');
+     *
+     * worksheet.GetRange('D2').SetValue(42.5);
+     * worksheet.GetRange('D3').SetValue(35.2);
+     * worksheet.GetRange('D4').SetValue(12.3);
+     * worksheet.GetRange('D5').SetValue(24.8);
+     *
+     * let dataRef = Api.GetRange("'Sheet1'!$B$1:$D$5");
+     * let pivotTable = Api.InsertPivotNewWorksheet(dataRef);
+     *
+     * pivotTable.AddDataField('Price');
+     *
+     * pivotTable.AddFields({
+     *     rows: 'Region',
+     *     columns: 'Style',
+     * });
+     *
+     * let pivotWorksheet = Api.GetActiveSheet();
+     * pivotWorksheet.GetRange('A9').SetValue('Has auto format');
+     * pivotWorksheet.GetRange('B9').SetValue(pivotTable.GetHasAutoFormat());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetHasAutoFormat/
      */
     GetHasAutoFormat(): boolean;
@@ -35535,10 +37979,8 @@ export namespace Cell {
     GetName(): string;
 
     /**
-     * Returns a collection that represents either a single pivot table page field
-     * or a collection of all visible page fields.
+     * Returns all the fields that are currently displayed as page fields in the pivot table.
      *
-     * @param field - The name or index of the field to be returned.
      * @since 8.2.0
      *
      * @example
@@ -35590,7 +38032,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetPageFields/
      */
-    GetPageFields(field?: number | string): ApiPivotField[];
+    GetPageFields(): ApiPivotField[];
 
     /**
      * Returns the parent object for the current pivot table.
@@ -35757,9 +38199,8 @@ export namespace Cell {
     GetPivotFields(field?: string | number): ApiPivotField[] | ApiPivotField | ApiPivotDataField | null;
 
     /**
-     * Returns a collection that is currently displayed as row fields in the pivot table.
+     * Returns all the fields that are currently displayed as row fields in the pivot table.
      *
-     * @param field - The name or index of the field to be returned.
      * @since 8.2.0
      *
      * @example
@@ -35811,7 +38252,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetRowFields/
      */
-    GetRowFields(field?: number | string): ApiPivotField[];
+    GetRowFields(): ApiPivotField[];
 
     /**
      * Returns the **Grand Totals** setting of the pivot table rows.
@@ -35912,6 +38353,15 @@ export namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetRowRange/
      */
     GetRowRange(): ApiRange | null;
+
+    /**
+     * Returns whether expand and collapse buttons are displayed in the pivot table.
+     *
+     * @since 10.0.1
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/GetShowDrillIndicators/
+     */
+    GetShowDrillIndicators(): boolean;
 
     /**
      * Returns the source range for the pivot table.
@@ -36967,6 +39417,55 @@ export namespace Cell {
      * @param hasAutoFormat - Specifies whether to format the pivot table automatically on every update.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Keep the pivot table column widths unchanged when the pivot table is updated in a spreadsheet.
+     *
+     * // How do I stop a pivot table from resizing its columns every time it is refreshed in a spreadsheet?
+     *
+     * // Turn off the autofit of column widths and set the widths by hand for a pivot table in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     *
+     * worksheet.GetRange('B1').SetValue('Region');
+     * worksheet.GetRange('C1').SetValue('Style');
+     * worksheet.GetRange('D1').SetValue('Price');
+     *
+     * worksheet.GetRange('B2').SetValue('East');
+     * worksheet.GetRange('B3').SetValue('West');
+     * worksheet.GetRange('B4').SetValue('East');
+     * worksheet.GetRange('B5').SetValue('West');
+     *
+     * worksheet.GetRange('C2').SetValue('Fancy');
+     * worksheet.GetRange('C3').SetValue('Fancy');
+     * worksheet.GetRange('C4').SetValue('Tee');
+     * worksheet.GetRange('C5').SetValue('Tee');
+     *
+     * worksheet.GetRange('D2').SetValue(42.5);
+     * worksheet.GetRange('D3').SetValue(35.2);
+     * worksheet.GetRange('D4').SetValue(12.3);
+     * worksheet.GetRange('D5').SetValue(24.8);
+     *
+     * let dataRef = Api.GetRange("'Sheet1'!$B$1:$D$5");
+     * let pivotTable = Api.InsertPivotNewWorksheet(dataRef);
+     *
+     * pivotTable.AddDataField('Price');
+     *
+     * pivotTable.AddFields({
+     *     rows: 'Region',
+     *     columns: 'Style',
+     * });
+     *
+     * pivotTable.SetHasAutoFormat(false);
+     *
+     * let pivotWorksheet = Api.GetActiveSheet();
+     * pivotWorksheet.GetRange('A1').SetColumnWidth(30);
+     * pivotTable.Update();
+     *
+     * pivotWorksheet.GetRange('A9').SetValue('Has auto format');
+     * pivotWorksheet.GetRange('B9').SetValue(pivotTable.GetHasAutoFormat());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetHasAutoFormat/
      */
     SetHasAutoFormat(hasAutoFormat: boolean): void;
@@ -37178,7 +39677,8 @@ export namespace Cell {
      * Sets the way the specified pivot table items appear — in table format or in outline format.
      *
      * @param type - The layout type of the pivot table report.
-     * @param compact - Specifies whether the pivot table items will be displayed in the compact form.
+     * @param compact - Specifies whether the pivot table items will be displayed in the compact form. If omitted, the
+     *   current compact setting is kept.
      * @since 8.2.0
      *
      * @example
@@ -37222,7 +39722,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetRowAxisLayout/
      */
-    SetRowAxisLayout(type: PivotLayoutType, compact: boolean): void;
+    SetRowAxisLayout(type: PivotLayoutType, compact?: boolean): void;
 
     /**
      * Sets the **Grand Totals** setting to the pivot table rows.
@@ -37277,6 +39777,16 @@ export namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetRowGrand/
      */
     SetRowGrand(show: boolean): void;
+
+    /**
+     * Sets whether expand and collapse buttons are displayed in the pivot table.
+     *
+     * @param show - Specifies whether to display expand and collapse buttons.
+     * @since 10.0.1
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/SetShowDrillIndicators/
+     */
+    SetShowDrillIndicators(show: boolean): void;
 
     /**
      * Sets the source range for the pivot table.
@@ -37813,14 +40323,6 @@ export namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiPivotTable/Methods/Update/
      */
     Update(): void;
-  }
-
-  /** Class representing a placeholder. */
-  export interface ApiPlaceholder {
-  }
-
-  /** Class representing a presentation. */
-  export interface ApiPresentation {
   }
 
   /**
@@ -38666,6 +41168,10 @@ export namespace Cell {
      * @param RefStyle - The reference style.
      * @param External - Defines if the range is in the current file or not.
      * @param RelativeTo - The range which the current range is relative to.
+     * @default RowAbs = false
+     * @default ColAbs = false
+     * @default RefStyle = "xlA1"
+     * @default External = false
      * @returns returns address of range as string.
      *
      * @example
@@ -38684,7 +41190,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetAddress/
      */
-    GetAddress(RowAbs: boolean, ColAbs: boolean, RefStyle: string, External: boolean, RelativeTo?: ApiRange): string | null;
+    GetAddress(RowAbs?: boolean, ColAbs?: boolean, RefStyle?: ReferenceStyle, External?: boolean, RelativeTo?: ApiRange): string;
 
     /**
      * Returns a collection of the ranges.
@@ -39166,11 +41672,29 @@ export namespace Cell {
     GetHidden(): boolean;
 
     /**
-     * Returns a collection of all the hyperlinks in the range.
+     * Returns an array of all the hyperlinks in the range.
+     *
+     * @example
+     * ```js
+     * // Get all the hyperlinks from the range.
+     *
+     * // Useful for retrieving hyperlinks within a specific cell range.
+     *
+     * // Get all hyperlinks from the range.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.SetHyperlink("A1", "https://onlyoffice.com", null, "ONLYOFFICE", "Visit ONLYOFFICE");
+     * worksheet.SetHyperlink("C1", "https://helpcenter.onlyoffice.com", null, "Help Center", "ONLYOFFICE Help");
+     *
+     * let hyperlinks = worksheet.GetRange("A1").GetHyperlinks();
+     *
+     * worksheet.GetRange("A3").SetValue("Hyperlinks in A1: " + hyperlinks.length);
+     * worksheet.GetRange("A4").SetValue("Address: " + hyperlinks[0].GetAddress());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetHyperlinks/
      */
-    GetHyperlinks(): ApiHyperlinks;
+    GetHyperlinks(): ApiHyperlink[];
 
     /**
      * Returns a value that represents the format code for the current range.
@@ -39198,6 +41722,9 @@ export namespace Cell {
     /**
      * Returns the current range angle.
      *
+     * @returns The text angle in degrees: from -90 to 90, or 255 for vertical text ("xlDownward" is -90,
+     *   "xlHorizontal" is 0, "xlUpward" is 90, "xlVertical" is 255).
+     *
      * @example
      * ```js
      * // How do I find out the current text orientation of a range in a spreadsheet?
@@ -39215,7 +41742,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetOrientation/
      */
-    GetOrientation(): Angle;
+    GetOrientation(): number;
 
     /**
      * Returns the ApiPivotTable object that represents the pivot table report containing the upper-left
@@ -39683,6 +42210,27 @@ export namespace Cell {
      *   has merged cells of different sizes, crosses a table, an array formula or a pivot table, or
      *   other users are editing the document.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Remove the rows that repeat the values of the chosen columns from a range in a spreadsheet.
+     *
+     * // How do I delete duplicate rows from a list and keep the first of each in a spreadsheet?
+     *
+     * // Clean up an order list by removing the repeated customer and product pairs in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange("A1:C6").SetValue([
+     *     ["Customer", "Product", "Qty"],
+     *     ["Anna", "Tea", 2],
+     *     ["Boris", "Coffee", 1],
+     *     ["Anna", "Tea", 5],
+     *     ["Clara", "Tea", 3],
+     *     ["Boris", "Coffee", 4]
+     * ]);
+     * let removed = worksheet.GetRange("A1:C6").RemoveDuplicates([1, 2], "xlYes");
+     * worksheet.GetRange("E1").SetValue("Removed rows: " + removed);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/RemoveDuplicates/
      */
@@ -40274,7 +42822,12 @@ export namespace Cell {
      * @param key3 - Third sort field.
      * @param sSortOrder3 - The sort order for the values specified in Key3.
      * @param sHeader - Specifies whether the first row contains header information.
-     * @param sOrientation - Specifies if the sort should be by row (default) or column.
+     * @param sOrientation - Specifies if the sort should be by column (default) or by row.
+     * @default sSortOrder1 = "xlAscending"
+     * @default sSortOrder2 = "xlAscending"
+     * @default sSortOrder3 = "xlAscending"
+     * @default sHeader = "xlNo"
+     * @default sOrientation = "xlSortColumns"
      *
      * @example
      * ```js
@@ -40303,7 +42856,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/SetSort/
      */
-    SetSort(key1: ApiRange | string, sSortOrder1: SortOrder, key2: ApiRange | string, sSortOrder2: SortOrder, key3: ApiRange | string, sSortOrder3: SortOrder, sHeader: SortHeader, sOrientation: SortOrientation): void;
+    SetSort(key1: ApiRange | string, sSortOrder1?: SortOrder, key2?: ApiRange | string, sSortOrder2?: SortOrder, key3?: ApiRange | string, sSortOrder3?: SortOrder, sHeader?: SortHeader, sOrientation?: SortOrientation): void;
 
     /**
      * Specifies that the contents of the cell / cell range are displayed with a single horizontal line
@@ -40361,7 +42914,7 @@ export namespace Cell {
      *
      * @param data - The general value for the cell or cell range.
      * @returns returns false if such a range does not exist or a formula was not accepted (the cell keeps its
-     *   content).
+     *   content). NaN and Infinity are written as the #NUM! error.
      *
      * @example
      * ```js
@@ -40474,11 +43027,13 @@ export namespace Cell {
      *
      * The method automatically calculates the font from the theme if the font was set via the theme.
      *
+     * @param fontSlot - The font slot. If this parameter is not specified, the "ascii" value is used.
+     * @default fontSlot = "ascii"
      * @since 8.1.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetFontFamily/
      */
-    GetFontFamily(): string | null;
+    GetFontFamily(fontSlot?: "ascii" | "eastAsia" | "hAnsi" | "cs"): string | null;
 
     /**
      * Gets the font size from the current text properties.
@@ -40497,6 +43052,15 @@ export namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetItalic/
      */
     GetItalic(): boolean | null;
+
+    /**
+     * Gets the language from the current text properties.
+     *
+     * @since 8.1.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetLanguage/
+     */
+    GetLanguage(): string | null;
 
     /**
      * Gets the text outline from the current text properties.
@@ -40536,15 +43100,6 @@ export namespace Cell {
     GetStrikeout(): boolean | null;
 
     /**
-     * Gets the text fill from the current text properties.
-     *
-     * @since 8.1.0
-     *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetTextFill/
-     */
-    GetTextFill(): ApiFill;
-
-    /**
      * Gets the underline property from the current text properties.
      *
      * @since 8.1.0
@@ -40573,6 +43128,17 @@ export namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/SetCaps/
      */
     SetCaps(isCaps: boolean): ApiTextPr;
+
+    /**
+     * Sets the text color to the current text run.
+     *
+     * @param color - The text color. Pass _null_ to remove the text color.
+     * @returns this text properties.
+     * @since 9.1.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/SetColor/
+     */
+    SetColor(color: ApiColor | null): ApiTextPr;
 
     /**
      * Specifies that the contents of the run are displayed with two horizontal lines through each
@@ -40628,6 +43194,19 @@ export namespace Cell {
     SetItalic(isItalic: boolean): ApiTextPr;
 
     /**
+     * Specifies the languages which will be used to check spelling and grammar (if requested) when
+     * processing
+     * the contents of the text run.
+     *
+     * @param langId - The possible value for this parameter is a language identifier as defined by RFC 4646/BCP 47.
+     *   Example: "en-CA". Pass _null_ to remove the language.
+     * @returns this text properties.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/SetLanguage/
+     */
+    SetLanguage(langId: string | null): ApiTextPr;
+
+    /**
      * Sets the text outline to the current text run.
      *
      * @param oStroke - The stroke used to create the text outline.
@@ -40672,16 +43251,6 @@ export namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/SetStrikeout/
      */
     SetStrikeout(isStrikeout: boolean): ApiTextPr;
-
-    /**
-     * Sets the text fill to the current text run.
-     *
-     * @param oApiFill - The color or pattern used to fill the text color.
-     * @returns this text properties.
-     *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/SetTextFill/
-     */
-    SetTextFill(oApiFill: ApiFill): ApiTextPr;
 
     /**
      * Specifies that the contents of the run are displayed along with a line appearing directly below the
@@ -40749,7 +43318,10 @@ export namespace Cell {
     AddLineBreak(): boolean;
 
     /**
-     * Adds a tab stop to the current run.
+     * Adds a tab character to the end of the current run.
+     * Use the AddText method with the "\t" character instead.
+     *
+     * @deprecated since 10.0.3 version.
      *
      * @example
      * ```js
@@ -41061,6 +43633,8 @@ export namespace Cell {
      *
      * The method automatically calculates the font from the theme if the font was set via the theme.
      *
+     * @param fontSlot - The font slot. If this parameter is not specified, the "ascii" value is used.
+     * @default fontSlot = "ascii"
      * @since 8.1.0
      *
      * @example
@@ -41090,7 +43664,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetFontFamily/
      */
-    GetFontFamily(): string | null;
+    GetFontFamily(fontSlot?: "ascii" | "eastAsia" | "hAnsi" | "cs"): string | null;
 
     /**
      * Returns all font names from all elements inside the current run.
@@ -41199,6 +43773,15 @@ export namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetItalic/
      */
     GetItalic(): boolean | null;
+
+    /**
+     * Gets the language from the current text properties.
+     *
+     * @since 8.1.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetLanguage/
+     */
+    GetLanguage(): string | null;
 
     /**
      * Gets the text outline from the current text properties.
@@ -41340,40 +43923,19 @@ export namespace Cell {
     GetStrikeout(): boolean | null;
 
     /**
-     * Gets the text fill from the current text properties.
+     * Returns a text from the text run.
      *
-     * @since 8.1.0
+     * @param options - Options for formatting the returned text.
+     * @param options.NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
+     *   used. The default separator is "\r".
+     * @param options.TabSymbol - Defines how the tab will be specified in the resulting string. Any symbol can be used. The
+     *   default symbol is "\t".
+     * @default options.NewLineSeparator = '\r'
+     * @default options.TabSymbol = '\t'
      *
-     * @example
-     * ```js
-     * // How do I find out what kind of fill is used to color text in a spreadsheet?
-     *
-     * // Retrieve the text fill object and identify whether it is a solid, gradient, or other fill in a spreadsheet.
-     *
-     * let worksheet = Api.GetActiveSheet();
-     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
-     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
-     * let shape = worksheet.AddShape("flowChartOnlineStorage", 120 * 36000, 70 * 36000, fill, stroke, 0, 2 * 36000, 0, 3 * 36000);
-     * let content = shape.GetContent();
-     * let paragraph = content.GetElement(0);
-     * let run = Api.CreateRun();
-     * run.AddText("This is just a sample text. ");
-     * run.AddText("The text properties are changed and the style is added to the paragraph. ");
-     * run.AddLineBreak();
-     * paragraph.AddElement(run);
-     * let textProps = run.GetTextPr();
-     * fill = Api.CreateSolidFill(Api.RGB(128, 128, 128));
-     * run.SetTextFill(fill);
-     * paragraph = Api.CreateParagraph();
-     * fill = textProps.GetTextFill();
-     * let type = fill.GetClassType();
-     * paragraph.AddText("Text fill type: " + type);
-     * content.Push(paragraph);
-     * ```
-     *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetTextFill/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRun/Methods/GetText/
      */
-    GetTextFill(): ApiFill;
+    GetText(options?: { NewLineSeparator?: string; TabSymbol?: string }): string;
 
     /**
      * Returns the text properties of the current run.
@@ -41411,6 +43973,29 @@ export namespace Cell {
      * @default start = 0
      * @returns returns null if the specified range is empty.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Colour a part of a text run of a shape on a worksheet through a text range.
+     *
+     * // Positions are counted from the beginning of the run, so the rest of the paragraph is untouched.
+     *
+     * // Take the range of the first word of the run and paint it red.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 150 * 36000, 65 * 36000, fill, stroke, 0, 2 * 36000, 2, 3 * 36000);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * let run = Api.CreateRun();
+     * run.AddText("Hello World");
+     * paragraph.AddElement(run);
+     *
+     * let range = run.GetTextRange(0, 5);
+     * range.SetColor(Api.RGB(255, 0, 0));
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRun/Methods/GetTextRange/
      */
@@ -41538,6 +44123,40 @@ export namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/SetCaps/
      */
     SetCaps(isCaps: boolean): ApiTextPr;
+
+    /**
+     * Sets the text color to the current text run.
+     *
+     * @param color - The text color. Pass _null_ to remove the text color.
+     * @returns this text properties.
+     * @since 9.1.0
+     *
+     * @example
+     * ```js
+     * // How do I set a specific color for text inside a shape in a spreadsheet?
+     *
+     * // Apply a custom hex color to a run to visually distinguish it from surrounding text in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape(
+     * 	'flowChartOnlineStorage',
+     * 	Api.MillimetersToEmus(120), Api.MillimetersToEmus(70),
+     * 	fill, stroke,
+     * 	0, Api.MillimetersToEmus(2), 0, Api.MillimetersToEmus(3)
+     * );
+     * let content = shape.GetContent();
+     * let paragraph = content.GetElement(0);
+     * let run = Api.CreateRun();
+     * run.AddText('This is a text run with the font color set to gray.');
+     * paragraph.AddElement(run);
+     * run.SetColor(Api.HexColor('#808080'));
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/SetColor/
+     */
+    SetColor(color: ApiColor | null): ApiTextPr;
 
     /**
      * Specifies that the contents of the run are displayed with two horizontal lines through each
@@ -41699,6 +44318,37 @@ export namespace Cell {
     SetItalic(isItalic: boolean): ApiTextPr;
 
     /**
+     * Specifies the languages which will be used to check spelling and grammar (if requested) when
+     * processing
+     * the contents of the text run.
+     *
+     * @param langId - The possible value for this parameter is a language identifier as defined by RFC 4646/BCP 47.
+     *   Example: "en-CA". Pass _null_ to remove the language.
+     * @returns this text properties.
+     *
+     * @example
+     * ```js
+     * // How do I set the proofreading language for a piece of text in a spreadsheet?
+     *
+     * // Mark text with a specific locale so the editor checks it against the right dictionary in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("flowChartOnlineStorage", 120 * 36000, 70 * 36000, fill, stroke, 0, 2 * 36000, 0, 3 * 36000);
+     * let content = shape.GetContent();
+     * let paragraph = content.GetElement(0);
+     * let run = Api.CreateRun();
+     * run.AddText("This is a text run with the text language set to English (Canada).");
+     * run.SetLanguage("en-CA");
+     * paragraph.AddElement(run);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/SetLanguage/
+     */
+    SetLanguage(langId: string | null): ApiTextPr;
+
+    /**
      * Sets the text outline to the current text run.
      *
      * @param oStroke - The stroke used to create the text outline.
@@ -41836,21 +44486,13 @@ export namespace Cell {
      * @returns The current run.
      * @since 10.0.0
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRun/Methods/SetText/
-     */
-    SetText(text: string | number[]): ApiRun;
-
-    /**
-     * Sets the text fill to the current text run.
-     *
-     * @param oApiFill - The color or pattern used to fill the text color.
-     * @returns this text properties.
-     *
      * @example
      * ```js
-     * // How do I change the color of text using a solid fill in a spreadsheet?
+     * // Replace the whole text of a run in one call in a spreadsheet.
      *
-     * // Paint the interior of letters with a chosen color to style text in a spreadsheet.
+     * // How do I replace the text of a run without losing its formatting in a spreadsheet?
+     *
+     * // Swap the wording of a run inside a shape while its formatting stays in place in a spreadsheet.
      *
      * let worksheet = Api.GetActiveSheet();
      * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
@@ -41859,18 +44501,16 @@ export namespace Cell {
      * let content = shape.GetContent();
      * let paragraph = content.GetElement(0);
      * let run = Api.CreateRun();
-     * let textProps = run.GetTextPr();
-     * textProps.SetFontSize(30);
-     * fill = Api.CreateSolidFill(Api.RGB(128, 128, 128));
-     * run.SetTextFill(fill);
-     * paragraph.SetJc("left");
-     * run.AddText("This is a text run with the gray text set using the text properties.");
+     * run.SetBold(true);
+     * run.SetFontSize(30);
+     * run.AddText("Draft wording.");
      * paragraph.AddElement(run);
+     * run.SetText("Final wording, still bold.");
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/SetTextFill/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRun/Methods/SetText/
      */
-    SetTextFill(oApiFill: ApiFill): ApiTextPr;
+    SetText(text: string | number[]): ApiRun;
 
     /**
      * Sets the text properties to the current run.
@@ -42016,14 +44656,6 @@ export namespace Cell {
     GetClassType(): "schemeColor";
   }
 
-  /** Class representing a document section. */
-  export interface ApiSection {
-  }
-
-  /** Class representing the selection in the presentation. */
-  export interface ApiSelection {
-  }
-
   /**
    * Class representing a shadow.
    *
@@ -42033,6 +44665,24 @@ export namespace Cell {
     /**
      * Returns a type of the ApiShadow class.
      *
+     * @example
+     * ```js
+     * // Get the class type of a shadow object in a spreadsheet.
+     *
+     * // Confirm that an object created by Api.CreateShadow reports itself as a shadow.
+     *
+     * // Create a shadow, apply it to a shape, and print the shadow class type inside the shape.
+     *
+     * const worksheet = Api.GetActiveSheet();
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 213, 191));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = worksheet.AddShape("rect", 120 * 36000, 60 * 36000, fill, stroke, 2, 0, 2, 0);
+     * const shadow = Api.CreateShadow({ color: Api.RGB(0, 0, 0), offsetX: 3, offsetY: 3 });
+     * shape.SetShadow(shadow);
+     * const classType = shadow.GetClassType();
+     * shape.GetContent().GetElement(0).AddText("Shadow class type: " + classType);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiShadow/Methods/GetClassType/
      */
     GetClassType(): "shadow";
@@ -42041,6 +44691,23 @@ export namespace Cell {
      * Returns the settings of the current shadow.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the settings of a shadow applied to a drawing in a spreadsheet.
+     *
+     * // Retrieve the shadow object and inspect its transparency, offset and size.
+     *
+     * // Set a shadow, read its settings with GetSettings, and print the values inside the shape.
+     *
+     * const worksheet = Api.GetActiveSheet();
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 213, 191));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = worksheet.AddShape("rect", 160 * 36000, 80 * 36000, fill, stroke, 2, 0, 2, 0);
+     * shape.SetShadow(Api.CreateShadow({ color: Api.RGB(0, 0, 0), transparency: 0.5, offsetX: 3, offsetY: 3 }));
+     * const settings = shape.GetShadow().GetSettings();
+     * shape.GetContent().GetElement(0).AddText("Shadow transparency " + settings.transparency + ", offset " + Math.round(settings.offsetX) + " x " + Math.round(settings.offsetY) + ", size " + settings.size + "%");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiShadow/Methods/GetSettings/
      */
@@ -42246,6 +44913,28 @@ export namespace Cell {
     /**
      * Gets the vertical alignment from the shape content where a paragraph or text runs can be inserted.
      *
+     * @example
+     * ```js
+     * // Read the vertical text alignment of a shape in a spreadsheet.
+     *
+     * // Useful for verifying vertical text placement before adjusting shape layout in a spreadsheet.
+     *
+     * // Retrieve the current vertical alignment of a shape's inner content in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("flowChartOnlineStorage", 60 * 36000, 50 * 36000, fill, stroke, 0, 2 * 36000, 0, 3 * 36000);
+     * let content = shape.GetContent();
+     * content.RemoveAllElements();
+     * shape.SetVerticalTextAlign("center");
+     * let verticalAlign = shape.GetVerticalTextAlign();
+     * let paragraph = Api.CreateParagraph();
+     * paragraph.SetJc("left");
+     * paragraph.AddText("The shape vertical text alignment is: " + verticalAlign);
+     * content.Push(paragraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiShape/Methods/GetVerticalTextAlign/
      */
     GetVerticalTextAlign(): VerticalTextAlign;
@@ -42376,53 +45065,11 @@ export namespace Cell {
   }
 
   /**
-   * Class representing the shading of text, a paragraph, a table or a table cell.
-   *
-   * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiShd/
-   */
-  export interface ApiShd {
-    /**
-     * Returns a type of the ApiShd class.
-     *
-     * @since 10.0.0
-     *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiShd/Methods/GetClassType/
-     */
-    GetClassType(): "shd";
-
-    /**
-     * Returns the shading color.
-     *
-     * @since 10.0.0
-     *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiShd/Methods/GetColor/
-     */
-    GetColor(): ApiColor | null;
-
-    /**
-     * Returns the shading type.
-     *
-     * @since 10.0.0
-     *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiShd/Methods/GetType/
-     */
-    GetType(): ShdType;
-  }
-
-  /**
    * Class representing a document picture form.
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiSignatureForm/
    */
   export interface ApiSignatureForm extends ApiFormBase {
-  }
-
-  /** Class representing a slide. */
-  export interface ApiSlide {
-  }
-
-  /** Class representing a slide show transition. */
-  export interface ApiSlideShowTransition {
   }
 
   /**
@@ -42627,7 +45274,8 @@ export namespace Cell {
     GetParent(): ApiListObject;
 
     /**
-     * Returns the data body range that the sort applies to.
+     * Returns the table range that the sort applies to, including the header row and excluding the totals
+     * row.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      *
@@ -42778,6 +45426,7 @@ export namespace Cell {
 
     /**
      * Sets the sort method.
+     * The value is stored in the sort settings, but it is not applied when sorting yet.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @param sortMethod - The sort method.
@@ -43237,7 +45886,7 @@ export namespace Cell {
      * @param SortOn - The value used as the sort criteria.
      * @param Order - The sort order.
      * @param CustomOrder - Reserved. Custom order sorting is not yet supported by the engine.
-     * @param DataOption - The data sort option.
+     * @param DataOption - Reserved. The data sort option is stored but not applied when sorting yet.
      * @default SortOn = "xlSortOnValues"
      * @default Order = "xlAscending"
      * @default CustomOrder = 0
@@ -43278,8 +45927,9 @@ export namespace Cell {
      * @param SortOn - The value used as the sort criteria.
      * @param Order - The sort order.
      * @param CustomOrder - Reserved. Custom order sorting is not yet supported by the engine.
-     * @param DataOption - The data sort option.
-     * @param SubField - Subfield name for linked data types (e.g. "Population", "Volume").
+     * @param DataOption - Reserved. The data sort option is stored but not applied when sorting yet.
+     * @param SubField - Reserved. Subfield name for linked data types (e.g. "Population", "Volume"); stored but not
+     *   applied when sorting yet.
      * @default SortOn = "xlSortOnValues"
      * @default Order = "xlAscending"
      * @default CustomOrder = 0
@@ -43458,6 +46108,24 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the beginning arrow of a shape border in a spreadsheet.
+     *
+     * // How do I find out which arrow is applied to the start of a shape's outline in a spreadsheet?
+     *
+     * // Apply a beginning arrow to a shape's stroke, then read back its type, width, and length in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(36000, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let shape = worksheet.AddShape("line", 60 * 36000, 40 * 36000, fill, stroke, 3, 0, 2, 2);
+     * let retrievedStroke = shape.GetLine();
+     * retrievedStroke.SetBeginArrow("triangle", "medium", "large");
+     * let arrow = retrievedStroke.GetBeginArrow();
+     * worksheet.GetRange("A1").SetValue("Begin arrow type: " + (arrow ? arrow.Type : "not set"));
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiStroke/Methods/GetBeginArrow/
      */
     GetBeginArrow(): { Type: LineEndType; Width: LineEndSize; Length: LineEndSize } | null;
@@ -43466,6 +46134,24 @@ export namespace Cell {
      * Returns the cap type of the stroke.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the cap type of a shape border in a spreadsheet.
+     *
+     * // Get the cap type to find out how the stroke ends are drawn.
+     *
+     * // Apply a round cap to a line's stroke, then read back its cap type in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(8 * 12700, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let line = worksheet.AddShape("line", 60 * 36000, 40 * 36000, fill, stroke, 3, 0, 2, 2);
+     * let retrievedStroke = line.GetLine();
+     * retrievedStroke.SetCapType("round");
+     * let capType = retrievedStroke.GetCapType();
+     * worksheet.GetRange("A1").SetValue("Cap type: " + capType);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiStroke/Methods/GetCapType/
      */
@@ -43526,6 +46212,24 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the ending arrow of a shape border in a spreadsheet.
+     *
+     * // How do I find out which arrow is applied to the end of a shape's outline in a spreadsheet?
+     *
+     * // Apply an ending arrow to a shape's stroke, then read back its type, width, and length in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(36000, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let shape = worksheet.AddShape("line", 60 * 36000, 40 * 36000, fill, stroke, 3, 0, 2, 2);
+     * let retrievedStroke = shape.GetLine();
+     * retrievedStroke.SetEndArrow("stealth", "medium", "large");
+     * let arrow = retrievedStroke.GetEndArrow();
+     * worksheet.GetRange("A1").SetValue("End arrow type: " + (arrow ? arrow.Type : "not set"));
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiStroke/Methods/GetEndArrow/
      */
     GetEndArrow(): { Type: LineEndType; Width: LineEndSize; Length: LineEndSize } | null;
@@ -43560,6 +46264,24 @@ export namespace Cell {
      * Returns the join type of the stroke.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the join type of a shape border in a spreadsheet.
+     *
+     * // Get the join type to find out how the stroke corners are drawn.
+     *
+     * // Apply a miter join to a rectangle's stroke, then read back its join type in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(8 * 12700, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let shape = worksheet.AddShape("rect", 60 * 36000, 40 * 36000, fill, stroke, 3, 0, 2, 2);
+     * let retrievedStroke = shape.GetLine();
+     * retrievedStroke.SetJoinType("miter");
+     * let joinType = retrievedStroke.GetJoinType();
+     * worksheet.GetRange("A1").SetValue("Join type: " + joinType);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiStroke/Methods/GetJoinType/
      */
@@ -43610,6 +46332,23 @@ export namespace Cell {
      * @default length = "medium"
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Add an arrowhead to the start of a shape border in a spreadsheet.
+     *
+     * // How do I set the beginning arrow of a shape's outline in a spreadsheet?
+     *
+     * // Create a shape, retrieve its stroke, and apply a triangle arrow to the start of the border line in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(36000, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let shape = worksheet.AddShape("line", 60 * 36000, 40 * 36000, fill, stroke, 3, 0, 2, 2);
+     * let retrievedStroke = shape.GetLine();
+     * let result = retrievedStroke.SetBeginArrow("triangle", "medium", "large");
+     * worksheet.GetRange("A1").SetValue("Begin arrow set: " + result);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiStroke/Methods/SetBeginArrow/
      */
     SetBeginArrow(type: LineEndType, width?: LineEndSize, length?: LineEndSize): boolean;
@@ -43619,6 +46358,23 @@ export namespace Cell {
      *
      * @param type - The cap type of the stroke.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set a square cap for the ends of a shape border in a spreadsheet.
+     *
+     * // Change the cap type to control how the stroke ends are drawn.
+     *
+     * // Create a line, retrieve its stroke, apply the square cap type, and display the result in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(8 * 12700, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let line = worksheet.AddShape("line", 60 * 36000, 40 * 36000, fill, stroke, 3, 0, 2, 2);
+     * let retrievedStroke = line.GetLine();
+     * let result = retrievedStroke.SetCapType("square");
+     * worksheet.GetRange("A1").SetValue("Cap type set: " + result);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiStroke/Methods/SetCapType/
      */
@@ -43634,6 +46390,23 @@ export namespace Cell {
      * @default length = "medium"
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Add an arrowhead to the end of a shape border in a spreadsheet.
+     *
+     * // How do I set the ending arrow of a shape's outline in a spreadsheet?
+     *
+     * // Create a shape, retrieve its stroke, and apply a stealth arrow to the end of the border line in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(36000, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let shape = worksheet.AddShape("line", 60 * 36000, 40 * 36000, fill, stroke, 3, 0, 2, 2);
+     * let retrievedStroke = shape.GetLine();
+     * let result = retrievedStroke.SetEndArrow("stealth", "medium", "large");
+     * worksheet.GetRange("A1").SetValue("End arrow set: " + result);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiStroke/Methods/SetEndArrow/
      */
     SetEndArrow(type: LineEndType, width?: LineEndSize, length?: LineEndSize): boolean;
@@ -43644,13 +46417,26 @@ export namespace Cell {
      * @param type - The join type of the stroke.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set a bevel join for the corners of a shape border in a spreadsheet.
+     *
+     * // Change the join type to control how the stroke corners are drawn.
+     *
+     * // Create a rectangle, retrieve its stroke, apply the bevel join type, and display the result in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(8 * 12700, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let shape = worksheet.AddShape("rect", 60 * 36000, 40 * 36000, fill, stroke, 3, 0, 2, 2);
+     * let retrievedStroke = shape.GetLine();
+     * let result = retrievedStroke.SetJoinType("bevel");
+     * worksheet.GetRange("A1").SetValue("Join type set: " + result);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiStroke/Methods/SetJoinType/
      */
     SetJoinType(type: LineJoinType): boolean;
-  }
-
-  /** Class representing a style. */
-  export interface ApiStyle {
   }
 
   /**
@@ -43679,18 +46465,6 @@ export namespace Cell {
     GetPosition(): DrawingCellAnchor | null;
   }
 
-  /** Class representing a table cell. */
-  export interface ApiTableCell {
-  }
-
-  /** Class representing the table cell properties. */
-  export interface ApiTableCellPr {
-  }
-
-  /** Class representing the table properties. */
-  export interface ApiTablePr {
-  }
-
   /** Class representing a table row. */
   export interface ApiTableRow extends ApiTableRowPr {
   }
@@ -43713,6 +46487,34 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Delete a custom table style from a workbook in a spreadsheet.
+     *
+     * // A formatted table that used the deleted style switches to the default table style of the workbook.
+     *
+     * // Apply a custom style to a table, delete the style and show the style the table uses afterwards in a spreadsheet.
+     *
+     * let workbook = Api.GetActiveWorkbook();
+     * let tableStyles = workbook.GetTableStyles();
+     * let customStyle = tableStyles.Add('Temporary Style');
+     * customStyle.GetTableStyleElements('xlHeaderRow').SetFillColor(Api.RGB(192, 0, 0));
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange('A1').SetValue('Product');
+     * worksheet.GetRange('B1').SetValue('Price');
+     * worksheet.GetRange('A2').SetValue('Apples');
+     * worksheet.GetRange('B2').SetValue(100);
+     * let table = worksheet.AddListObject('xlSrcRange', 'A1:B2');
+     * table.SetTableStyle(customStyle.GetName());
+     *
+     * customStyle.Delete();
+     * worksheet.GetRange('D1').SetValue('Style found after delete:');
+     * worksheet.GetRange('E1').SetValue(tableStyles.GetItem('Temporary Style') !== null);
+     * worksheet.GetRange('D2').SetValue('Table style now:');
+     * worksheet.GetRange('E2').SetValue(table.GetTableStyle());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/Delete/
      */
     Delete(): void;
@@ -43724,6 +46526,31 @@ export namespace Cell {
      *   (case-insensitive).
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Create a custom copy of a built-in table style in a spreadsheet.
+     *
+     * // The copy keeps all the formatting and gallery settings of the original and can be changed without affecting it.
+     *
+     * // Copy TableStyleMedium2, give the copy a dark red header and apply it to a formatted table in a spreadsheet.
+     *
+     * let workbook = Api.GetActiveWorkbook();
+     * let tableStyles = workbook.GetTableStyles();
+     * let copy = tableStyles.GetItem('TableStyleMedium2').Duplicate('Medium2 Red Header');
+     * copy.GetTableStyleElements('xlHeaderRow').SetFillColor(Api.RGB(128, 0, 0));
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange('A1').SetValue('Product');
+     * worksheet.GetRange('B1').SetValue('Price');
+     * worksheet.GetRange('A2').SetValue('Apples');
+     * worksheet.GetRange('B2').SetValue(100);
+     * worksheet.GetRange('A3').SetValue('Oranges');
+     * worksheet.GetRange('B3').SetValue(150);
+     *
+     * let table = worksheet.AddListObject('xlSrcRange', 'A1:B3');
+     * table.SetTableStyle(copy.GetName());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/Duplicate/
      */
     Duplicate(name: string): ApiTableStyle;
@@ -43732,6 +46559,26 @@ export namespace Cell {
      * Returns whether the table style is a built-in style.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Check whether a table style ships with the application or was created by the user in a spreadsheet.
+     *
+     * // A style added through the table styles collection is never built-in, while a preset style such as TableStyleMedium2 always is.
+     *
+     * // Compare the built-in flag of a custom style and a preset style in a spreadsheet.
+     *
+     * let workbook = Api.GetActiveWorkbook();
+     * let tableStyles = workbook.GetTableStyles();
+     * let customStyle = tableStyles.Add('HeaderBlue');
+     * let builtInStyle = tableStyles.GetItem('TableStyleMedium2');
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange('A1').SetValue('Custom style is built-in:');
+     * worksheet.GetRange('B1').SetValue(customStyle.GetBuiltIn());
+     * worksheet.GetRange('A2').SetValue('Preset style is built-in:');
+     * worksheet.GetRange('B2').SetValue(builtInStyle.GetBuiltIn());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/GetBuiltIn/
      */
@@ -43742,6 +46589,23 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the name of a custom table style in a spreadsheet.
+     *
+     * // The name is set once when the style is created and identifies it in the table styles collection.
+     *
+     * // Display the name of a newly created style in a cell in a spreadsheet.
+     *
+     * let workbook = Api.GetActiveWorkbook();
+     * let tableStyles = workbook.GetTableStyles();
+     * let customStyle = tableStyles.Add('HeaderBlue');
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange('A1').SetValue('Style name:');
+     * worksheet.GetRange('B1').SetValue(customStyle.GetName());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/GetName/
      */
     GetName(): string;
@@ -43751,6 +46615,23 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read whether a custom table style is offered when formatting a pivot table in a spreadsheet.
+     *
+     * // A newly added style starts hidden from the pivot table style gallery until it is explicitly shown.
+     *
+     * // Report the initial pivot table style visibility of a new custom style in a spreadsheet.
+     *
+     * let workbook = Api.GetActiveWorkbook();
+     * let tableStyles = workbook.GetTableStyles();
+     * let customStyle = tableStyles.Add('HeaderBlue');
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange('A1').SetValue('Available for pivot tables:');
+     * worksheet.GetRange('B1').SetValue(customStyle.GetShowAsAvailablePivotTableStyle());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/GetShowAsAvailablePivotTableStyle/
      */
     GetShowAsAvailablePivotTableStyle(): boolean;
@@ -43759,6 +46640,23 @@ export namespace Cell {
      * Returns whether the table style is shown in the table style gallery.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read whether a custom table style is offered when formatting a table in a spreadsheet.
+     *
+     * // A newly added style starts hidden from the table style gallery until it is explicitly shown.
+     *
+     * // Report the initial table style visibility of a new custom style in a spreadsheet.
+     *
+     * let workbook = Api.GetActiveWorkbook();
+     * let tableStyles = workbook.GetTableStyles();
+     * let customStyle = tableStyles.Add('HeaderBlue');
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange('A1').SetValue('Available for tables:');
+     * worksheet.GetRange('B1').SetValue(customStyle.GetShowAsAvailableTableStyle());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/GetShowAsAvailableTableStyle/
      */
@@ -43771,6 +46669,26 @@ export namespace Cell {
      * @param type - The table style element type to return instead of the whole collection.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the collection of formatting elements that make up a custom table style in a spreadsheet.
+     *
+     * // Each element controls one part of the table, such as the header row, the total row, or a banded stripe.
+     *
+     * // Look up the header row element of a new custom style in a spreadsheet.
+     *
+     * let workbook = Api.GetActiveWorkbook();
+     * let tableStyles = workbook.GetTableStyles();
+     * let customStyle = tableStyles.Add('HeaderBlue');
+     *
+     * let styleElements = customStyle.GetTableStyleElements();
+     * let headerRow = styleElements.GetItem('xlHeaderRow');
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange('A1').SetValue('Header row element found:');
+     * worksheet.GetRange('B1').SetValue(headerRow !== null);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/GetTableStyleElements/
      */
     GetTableStyleElements(type?: XlTableStyleElementType): ApiTableStyleElements | ApiTableStyleElement | null;
@@ -43781,6 +46699,53 @@ export namespace Cell {
      * @param show - Specifies whether the style is shown in the pivot table style gallery.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Show a custom table style in the pivot table style gallery in a spreadsheet.
+     *
+     * // Gallery visibility does not affect whether the style can be applied by name.
+     *
+     * // Turn on pivot table style visibility for a custom style and apply it to a pivot table in a spreadsheet.
+     *
+     * let workbook = Api.GetActiveWorkbook();
+     * let tableStyles = workbook.GetTableStyles();
+     * let customStyle = tableStyles.Add('HeaderBlue');
+     * customStyle.SetShowAsAvailablePivotTableStyle(true);
+     *
+     * let worksheet = Api.GetActiveSheet();
+     *
+     * worksheet.GetRange('B1').SetValue('Region');
+     * worksheet.GetRange('C1').SetValue('Style');
+     * worksheet.GetRange('D1').SetValue('Price');
+     *
+     * worksheet.GetRange('B2').SetValue('East');
+     * worksheet.GetRange('B3').SetValue('West');
+     * worksheet.GetRange('B4').SetValue('East');
+     * worksheet.GetRange('B5').SetValue('West');
+     *
+     * worksheet.GetRange('C2').SetValue('Fancy');
+     * worksheet.GetRange('C3').SetValue('Fancy');
+     * worksheet.GetRange('C4').SetValue('Tee');
+     * worksheet.GetRange('C5').SetValue('Tee');
+     *
+     * worksheet.GetRange('D2').SetValue(42.5);
+     * worksheet.GetRange('D3').SetValue(35.2);
+     * worksheet.GetRange('D4').SetValue(12.3);
+     * worksheet.GetRange('D5').SetValue(24.8);
+     *
+     * let dataRef = Api.GetRange("'Sheet1'!$B$1:$D$5");
+     * let pivotTable = Api.InsertPivotNewWorksheet(dataRef);
+     *
+     * pivotTable.AddFields({
+     *     rows: 'Region',
+     *     columns: 'Style',
+     * });
+     *
+     * pivotTable.AddDataField('Price');
+     *
+     * pivotTable.SetStyleName(customStyle.GetName());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/SetShowAsAvailablePivotTableStyle/
      */
     SetShowAsAvailablePivotTableStyle(show: boolean): void;
@@ -43790,6 +46755,25 @@ export namespace Cell {
      *
      * @param show - Specifies whether the style is shown in the table style gallery.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Show a custom table style in the table style gallery in a spreadsheet.
+     *
+     * // Making a style available lets users pick it from the gallery when formatting a table.
+     *
+     * // Turn on table style visibility for a custom style and confirm the change in a spreadsheet.
+     *
+     * let workbook = Api.GetActiveWorkbook();
+     * let tableStyles = workbook.GetTableStyles();
+     * let customStyle = tableStyles.Add('HeaderBlue');
+     *
+     * customStyle.SetShowAsAvailableTableStyle(true);
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange('A1').SetValue('Available for tables:');
+     * worksheet.GetRange('B1').SetValue(customStyle.GetShowAsAvailableTableStyle());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyle/Methods/SetShowAsAvailableTableStyle/
      */
@@ -43807,6 +46791,29 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Remove all formatting from a table style element in a spreadsheet.
+     *
+     * // Clearing removes explicit fill, border, and font formatting while preserving the stripe size.
+     *
+     * // Strip the header row formatting from a custom style and confirm it in a spreadsheet.
+     *
+     * let workbook = Api.GetActiveWorkbook();
+     * let tableStyles = workbook.GetTableStyles();
+     * let customStyle = tableStyles.Add('HeaderBlue');
+     * let styleElements = customStyle.GetTableStyleElements();
+     * let headerRow = styleElements.GetItem('xlHeaderRow');
+     *
+     * headerRow.SetFillColor(Api.RGB(31, 78, 121));
+     * headerRow.GetFont().SetBold(true);
+     * headerRow.Clear();
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange('A1').SetValue('Header row has format after clear:');
+     * worksheet.GetRange('B1').SetValue(headerRow.GetHasFormat());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElement/Methods/Clear/
      */
     Clear(): void;
@@ -43815,6 +46822,29 @@ export namespace Cell {
      * Returns the background color of the table style element. Returns 'No Fill' when no fill is set.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the background color of a table style element in a spreadsheet.
+     *
+     * // A style element with no fill assigned reports No Fill instead of a color.
+     *
+     * // Compare the header row fill before and after a color is assigned in a spreadsheet.
+     *
+     * let workbook = Api.GetActiveWorkbook();
+     * let tableStyles = workbook.GetTableStyles();
+     * let customStyle = tableStyles.Add('HeaderBlue');
+     * let styleElements = customStyle.GetTableStyleElements();
+     * let headerRow = styleElements.GetItem('xlHeaderRow');
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange('A1').SetValue('Header row fill before:');
+     * worksheet.GetRange('B1').SetValue(headerRow.GetFillColor());
+     *
+     * headerRow.SetFillColor(Api.RGB(68, 114, 196));
+     * worksheet.GetRange('A2').SetValue('Header row fill after:');
+     * worksheet.GetRange('B2').SetValue(headerRow.GetFillColor().GetHex());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElement/Methods/GetFillColor/
      */
@@ -43826,6 +46856,36 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Access the font of the header row element of a custom table style in a spreadsheet.
+     *
+     * // The font controls bold, italic, underline, strikethrough, and color; font size and family cannot be changed.
+     *
+     * // Make the header row text bold and white, then apply the style to a formatted table in a spreadsheet.
+     *
+     * let workbook = Api.GetActiveWorkbook();
+     * let tableStyles = workbook.GetTableStyles();
+     * let customStyle = tableStyles.Add('HeaderBlue');
+     * let styleElements = customStyle.GetTableStyleElements();
+     *
+     * let headerRow = styleElements.GetItem('xlHeaderRow');
+     * let headerFont = headerRow.GetFont();
+     * headerFont.SetBold(true);
+     * headerFont.SetColor(Api.RGB(255, 255, 255));
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange('A1').SetValue('Product');
+     * worksheet.GetRange('B1').SetValue('Price');
+     * worksheet.GetRange('A2').SetValue('Apples');
+     * worksheet.GetRange('B2').SetValue(100);
+     * worksheet.GetRange('A3').SetValue('Oranges');
+     * worksheet.GetRange('B3').SetValue(150);
+     *
+     * let table = worksheet.AddListObject('xlSrcRange', 'A1:B3');
+     * table.SetTableStyle(customStyle.GetName());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElement/Methods/GetFont/
      */
     GetFont(): ApiFont;
@@ -43835,6 +46895,30 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Check whether a table style element carries any formatting in a spreadsheet.
+     *
+     * // An element reports formatting when it carries an explicitly defined format; a new untouched element does not.
+     *
+     * // Compare a filled header row element against an untouched total row element in a spreadsheet.
+     *
+     * let workbook = Api.GetActiveWorkbook();
+     * let tableStyles = workbook.GetTableStyles();
+     * let customStyle = tableStyles.Add('HeaderBlue');
+     * let styleElements = customStyle.GetTableStyleElements();
+     *
+     * let headerRow = styleElements.GetItem('xlHeaderRow');
+     * let totalRow = styleElements.GetItem('xlTotalRow');
+     * headerRow.SetFillColor(Api.RGB(31, 78, 121));
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange('A1').SetValue('Header row has format:');
+     * worksheet.GetRange('B1').SetValue(headerRow.GetHasFormat());
+     * worksheet.GetRange('A2').SetValue('Total row has format:');
+     * worksheet.GetRange('B2').SetValue(totalRow.GetHasFormat());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElement/Methods/GetHasFormat/
      */
     GetHasFormat(): boolean;
@@ -43843,6 +46927,28 @@ export namespace Cell {
      * Returns the number of rows or columns in one stripe of the table style element.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read how many rows one stripe of a table style covers in a spreadsheet.
+     *
+     * // A stripe element that has never been sized covers one row or column.
+     *
+     * // Compare the first row stripe size before and after it is changed in a spreadsheet.
+     *
+     * let workbook = Api.GetActiveWorkbook();
+     * let tableStyles = workbook.GetTableStyles();
+     * let customStyle = tableStyles.Add('Wide Stripes');
+     * let rowStripe = customStyle.GetTableStyleElements('xlRowStripe1');
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange('A1').SetValue('Stripe size before:');
+     * worksheet.GetRange('B1').SetValue(rowStripe.GetStripeSize());
+     *
+     * rowStripe.SetStripeSize(3);
+     * worksheet.GetRange('A2').SetValue('Stripe size after:');
+     * worksheet.GetRange('B2').SetValue(rowStripe.GetStripeSize());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElement/Methods/GetStripeSize/
      */
@@ -43857,6 +46963,31 @@ export namespace Cell {
      * @param color - The color object which specifies the color to be set to the cell border.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Add grid borders to the whole table element of a custom table style in a spreadsheet.
+     *
+     * // Each side of the element takes its own line style and color, so outer edges and inner gridlines can differ.
+     *
+     * // Draw thin gray borders around and inside the table body in a spreadsheet.
+     *
+     * let workbook = Api.GetActiveWorkbook();
+     * let tableStyles = workbook.GetTableStyles();
+     * let customStyle = tableStyles.Add('HeaderBlue');
+     * let styleElements = customStyle.GetTableStyleElements();
+     * let wholeTable = styleElements.GetItem('xlWholeTable');
+     *
+     * let borderColor = Api.RGB(191, 191, 191);
+     * wholeTable.SetBorders('Top', 'Thin', borderColor);
+     * wholeTable.SetBorders('Bottom', 'Thin', borderColor);
+     * wholeTable.SetBorders('InsideHorizontal', 'Thin', borderColor);
+     * wholeTable.SetBorders('InsideVertical', 'Thin', borderColor);
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange('A1').SetValue('Whole table borders set:');
+     * worksheet.GetRange('B1').SetValue(wholeTable.GetHasFormat());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElement/Methods/SetBorders/
      */
     SetBorders(bordersIndex: BordersIndex, lineStyle: LineStyle, color: ApiColor): void;
@@ -43866,6 +46997,34 @@ export namespace Cell {
      *
      * @param color - The fill color, or null / 'No Fill' to remove the fill.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the background color of the header row element of a custom table style in a spreadsheet.
+     *
+     * // Passing null instead of a color clears the fill back to No Fill.
+     *
+     * // Paint the header row dark blue and apply the style to a formatted table in a spreadsheet.
+     *
+     * let workbook = Api.GetActiveWorkbook();
+     * let tableStyles = workbook.GetTableStyles();
+     * let customStyle = tableStyles.Add('HeaderBlue');
+     * let styleElements = customStyle.GetTableStyleElements();
+     * let headerRow = styleElements.GetItem('xlHeaderRow');
+     *
+     * headerRow.SetFillColor(Api.RGB(31, 78, 121));
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange('A1').SetValue('Product');
+     * worksheet.GetRange('B1').SetValue('Price');
+     * worksheet.GetRange('A2').SetValue('Apples');
+     * worksheet.GetRange('B2').SetValue(100);
+     * worksheet.GetRange('A3').SetValue('Oranges');
+     * worksheet.GetRange('B3').SetValue(150);
+     *
+     * let table = worksheet.AddListObject('xlSrcRange', 'A1:B3');
+     * table.SetTableStyle(customStyle.GetName());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElement/Methods/SetFillColor/
      */
@@ -43877,6 +47036,32 @@ export namespace Cell {
      *
      * @param size - An integer from 1 to 9.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Make each stripe of a custom table style cover several rows in a spreadsheet.
+     *
+     * // The size is an integer from 1 to 9; the first and second stripes alternate with their own sizes.
+     *
+     * // Band a formatted table as two plain rows followed by one shaded row in a spreadsheet.
+     *
+     * let workbook = Api.GetActiveWorkbook();
+     * let tableStyles = workbook.GetTableStyles();
+     * let customStyle = tableStyles.Add('Two Plus One');
+     * let elements = customStyle.GetTableStyleElements();
+     * elements.GetItem('xlRowStripe1').SetStripeSize(2);
+     * elements.GetItem('xlRowStripe2').SetFillColor(Api.RGB(221, 235, 247));
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange('A1').SetValue('Month');
+     * let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
+     * for (let i = 0; i < months.length; i++) {
+     *     worksheet.GetRange('A' + (i + 2)).SetValue(months[i]);
+     * }
+     *
+     * let table = worksheet.AddListObject('xlSrcRange', 'A1:A7');
+     * table.SetTableStyle(customStyle.GetName());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElement/Methods/SetStripeSize/
      */
@@ -43896,17 +47081,32 @@ export namespace Cell {
      * @param type - The table style element type.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Fetch one formatting element from a table style by its type in a spreadsheet.
+     *
+     * // The type is one of the table style element names, such as xlWholeTable, xlHeaderRow, or xlFirstColumn.
+     *
+     * // Retrieve the whole table element and the first column element of a custom style in a spreadsheet.
+     *
+     * let workbook = Api.GetActiveWorkbook();
+     * let tableStyles = workbook.GetTableStyles();
+     * let customStyle = tableStyles.Add('HeaderBlue');
+     * let styleElements = customStyle.GetTableStyleElements();
+     *
+     * let wholeTable = styleElements.GetItem('xlWholeTable');
+     * let firstColumn = styleElements.GetItem('xlFirstColumn');
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange('A1').SetValue('Whole table element found:');
+     * worksheet.GetRange('B1').SetValue(wholeTable !== null);
+     * worksheet.GetRange('A2').SetValue('First column element found:');
+     * worksheet.GetRange('B2').SetValue(firstColumn !== null);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyleElements/Methods/GetItem/
      */
     GetItem(type: XlTableStyleElementType): ApiTableStyleElement | null;
-  }
-
-  /**
-   * Class representing a set of formatting properties which shall be conditionally applied to the parts
-   * of a table
-   * which match the requirement specified on the `Type`.
-   */
-  export interface ApiTableStylePr {
   }
 
   /**
@@ -43922,6 +47122,30 @@ export namespace Cell {
      *   (case-insensitive).
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Create a new custom table style in a workbook in a spreadsheet.
+     *
+     * // A custom style starts blank, with no fill or border formatting on any of its elements, and is not marked as a built-in style.
+     *
+     * // Apply the new style to a formatted table by name in a spreadsheet.
+     *
+     * let workbook = Api.GetActiveWorkbook();
+     * let tableStyles = workbook.GetTableStyles();
+     * let customStyle = tableStyles.Add('ReportStyle');
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange('A1').SetValue('Product');
+     * worksheet.GetRange('B1').SetValue('Price');
+     * worksheet.GetRange('A2').SetValue('Apples');
+     * worksheet.GetRange('B2').SetValue(100);
+     * worksheet.GetRange('A3').SetValue('Oranges');
+     * worksheet.GetRange('B3').SetValue(150);
+     *
+     * let table = worksheet.AddListObject('xlSrcRange', 'A1:B3');
+     * table.SetTableStyle(customStyle.GetName());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyles/Methods/Add/
      */
     Add(name: string): ApiTableStyle;
@@ -43930,6 +47154,33 @@ export namespace Cell {
      * Returns the number of table styles in the workbook, built-in and custom.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Count the table styles available in a workbook in a spreadsheet.
+     *
+     * // The count includes the built-in table, pivot table and slicer styles and every custom style; custom styles come last in name order.
+     *
+     * // List the custom table styles of a workbook by their index in a spreadsheet.
+     *
+     * let workbook = Api.GetActiveWorkbook();
+     * let tableStyles = workbook.GetTableStyles();
+     * tableStyles.Add('Report Blue');
+     * tableStyles.Add('Report Green');
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange('A1').SetValue('Table styles:');
+     * worksheet.GetRange('B1').SetValue(tableStyles.GetCount());
+     *
+     * let row = 2;
+     * for (let i = 1; i <= tableStyles.GetCount(); i++) {
+     *     let style = tableStyles.GetItem(i);
+     *     if (!style.GetBuiltIn()) {
+     *         worksheet.GetRange('A' + row).SetValue(style.GetName());
+     *         row++;
+     *     }
+     * }
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyles/Methods/GetCount/
      */
@@ -43942,6 +47193,28 @@ export namespace Cell {
      * @param nameOrIndex - The table style name (case-insensitive; custom styles are searched before built-in ones) or its
      *   1-based index.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Look up a table style by name in a workbook in a spreadsheet.
+     *
+     * // The lookup matches the name regardless of case and finds both custom and built-in styles.
+     *
+     * // Search for a custom style and a built-in style, then report whether each one was found in a spreadsheet.
+     *
+     * let workbook = Api.GetActiveWorkbook();
+     * let tableStyles = workbook.GetTableStyles();
+     * tableStyles.Add('ReportStyle');
+     *
+     * let customStyle = tableStyles.GetItem('reportstyle');
+     * let builtInStyle = tableStyles.GetItem('TableStyleMedium2');
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange('A1').SetValue('Custom style found:');
+     * worksheet.GetRange('B1').SetValue(customStyle !== null);
+     * worksheet.GetRange('A2').SetValue('Built-in style found:');
+     * worksheet.GetRange('B2').SetValue(builtInStyle !== null);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTableStyles/Methods/GetItem/
      */
@@ -44133,6 +47406,8 @@ export namespace Cell {
      *
      * The method automatically calculates the font from the theme if the font was set via the theme.
      *
+     * @param fontSlot - The font slot. If this parameter is not specified, the "ascii" value is used.
+     * @default fontSlot = "ascii"
      * @since 8.1.0
      *
      * @example
@@ -44162,7 +47437,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetFontFamily/
      */
-    GetFontFamily(): string | null;
+    GetFontFamily(fontSlot?: "ascii" | "eastAsia" | "hAnsi" | "cs"): string | null;
 
     /**
      * Gets the font size from the current text properties.
@@ -44231,6 +47506,15 @@ export namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetItalic/
      */
     GetItalic(): boolean | null;
+
+    /**
+     * Gets the language from the current text properties.
+     *
+     * @since 8.1.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/GetLanguage/
+     */
+    GetLanguage(): string | null;
 
     /**
      * Gets the text outline from the current text properties.
@@ -44373,6 +47657,7 @@ export namespace Cell {
 
     /**
      * Gets the text fill from the current text properties.
+     * This method is the same as {@link ApiTextPr#GetFill}.
      *
      * @since 8.1.0
      *
@@ -44503,6 +47788,40 @@ export namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/SetCaps/
      */
     SetCaps(isCaps: boolean): ApiTextPr;
+
+    /**
+     * Sets the text color to the current text run.
+     *
+     * @param color - The text color. Pass _null_ to remove the text color.
+     * @returns this text properties.
+     * @since 9.1.0
+     *
+     * @example
+     * ```js
+     * // Set the font color through the text properties of a run in a spreadsheet.
+     *
+     * // How do I change the text color with text properties in a spreadsheet?
+     *
+     * // Get the text properties of a run inside a shape and apply a dark blue color to its characters in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("flowChartOnlineStorage", 120 * 36000, 70 * 36000, fill, stroke, 0, 2 * 36000, 0, 3 * 36000);
+     * let content = shape.GetContent();
+     * let paragraph = content.GetElement(0);
+     * let run = Api.CreateRun();
+     * let textProps = run.GetTextPr();
+     * textProps.SetFontSize(30);
+     * textProps.SetColor(Api.RGB(31, 56, 100));
+     * paragraph.SetJc("left");
+     * run.AddText("This is a sample text inside the shape with the font color set to dark blue using the text properties.");
+     * paragraph.AddElement(run);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/SetColor/
+     */
+    SetColor(color: ApiColor | null): ApiTextPr;
 
     /**
      * Specifies that the contents of the run are displayed with two horizontal lines through each
@@ -44661,6 +47980,42 @@ export namespace Cell {
     SetItalic(isItalic: boolean): ApiTextPr;
 
     /**
+     * Specifies the languages which will be used to check spelling and grammar (if requested) when
+     * processing
+     * the contents of the text run.
+     *
+     * @param langId - The possible value for this parameter is a language identifier as defined by RFC 4646/BCP 47.
+     *   Example: "en-CA". Pass _null_ to remove the language.
+     * @returns this text properties.
+     *
+     * @example
+     * ```js
+     * // Set the spell-check language through the text properties of a run in a spreadsheet.
+     *
+     * // How do I choose the proofing language with text properties in a spreadsheet?
+     *
+     * // Get the text properties of a run inside a shape and assign a language code so the text is checked against the matching dictionary in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("flowChartOnlineStorage", 120 * 36000, 70 * 36000, fill, stroke, 0, 2 * 36000, 0, 3 * 36000);
+     * let content = shape.GetContent();
+     * let paragraph = content.GetElement(0);
+     * let run = Api.CreateRun();
+     * let textProps = run.GetTextPr();
+     * textProps.SetFontSize(30);
+     * textProps.SetLanguage("en-CA");
+     * paragraph.SetJc("left");
+     * run.AddText("This is a sample text.");
+     * paragraph.AddElement(run);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/SetLanguage/
+     */
+    SetLanguage(langId: string | null): ApiTextPr;
+
+    /**
      * Sets the text outline to the current text run.
      *
      * @param oStroke - The stroke used to create the text outline.
@@ -44793,8 +48148,9 @@ export namespace Cell {
 
     /**
      * Sets the text fill to the current text run.
+     * This method is the same as {@link ApiTextPr#SetFill}.
      *
-     * @param oApiFill - The color or pattern used to fill the text color.
+     * @param fill - The color or pattern used to fill the text color.
      * @returns this text properties.
      *
      * @example
@@ -44821,7 +48177,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextPr/Methods/SetTextFill/
      */
-    SetTextFill(oApiFill: ApiFill): ApiTextPr;
+    SetTextFill(fill: ApiFill): ApiTextPr;
 
     /**
      * Specifies that the contents of the run are displayed along with a line appearing directly below the
@@ -44917,6 +48273,29 @@ export namespace Cell {
      * @returns returns null if the range spans more than one paragraph or the link is invalid.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Turn a fragment of text into a hyperlink in a shape on a worksheet.
+     *
+     * // The range must stay within a single paragraph, and besides a web address the link can point to a cell range in the workbook, for example, "#Sheet1!A1".
+     *
+     * // Turn the word "here" into a link to the ONLYOFFICE website.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Click here to learn more");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * let link = range.GetRange(6, 10);
+     * link.AddHyperlink("https://www.onlyoffice.com", "ONLYOFFICE");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/AddHyperlink/
      */
     AddHyperlink(link: string, screenTipText: string): ApiHyperlink | null;
@@ -44930,6 +48309,30 @@ export namespace Cell {
      * @returns returns true if the text was successfully added.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Add text to a text range in a shape on a worksheet.
+     *
+     * // The range grows to include the added text.
+     *
+     * // Append a word after the range.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * range.AddText(" World", "after");
+     *
+     * worksheet.GetRange("A1").SetValue("AddText: " + shape.GetTextRange().GetText());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/AddText/
      */
     AddText(text: string, position?: "after" | "before"): boolean;
@@ -44940,6 +48343,30 @@ export namespace Cell {
      * @returns returns false if the range is empty.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Delete the text covered by a text range in a shape on a worksheet.
+     *
+     * // Only the covered fragment is removed, the rest of the text stays.
+     *
+     * // Delete the middle word.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello cruel World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * range.GetRange(5, 11).Delete();
+     *
+     * worksheet.GetRange("A1").SetValue("Delete: " + shape.GetTextRange().GetText());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/Delete/
      */
     Delete(): boolean;
@@ -44949,6 +48376,33 @@ export namespace Cell {
      * changed.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Join two text ranges into one in a shape on a worksheet.
+     *
+     * // The union covers everything from the first start to the last end, including the text between them.
+     *
+     * // Join the first and the last word and make the whole fragment italic.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello brave World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * let first = range.GetRange(0, 5);
+     * let second = range.GetRange(12, 17);
+     * let united = first.ExpandTo(second);
+     * united.SetItalic(true);
+     *
+     * worksheet.GetRange("A1").SetValue("ExpandTo: " + united.GetText());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/ExpandTo/
      */
@@ -44967,6 +48421,31 @@ export namespace Cell {
      * @default wholeWords = false
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Find a word inside a text range in a shape on a worksheet.
+     *
+     * // The result is a range that covers exactly the match.
+     *
+     * // Paint the match red and report where it starts.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("alpha TARGET omega");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * let found = range.Find("TARGET");
+     * found.SetColor(Api.RGB(255, 0, 0));
+     *
+     * worksheet.GetRange("A1").SetValue("Find: " + found.GetStartPos());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/Find/
      */
     Find(findWhat: string, after?: number, matchCase?: boolean, wholeWords?: boolean): ApiTextRange | null;
@@ -44975,6 +48454,36 @@ export namespace Cell {
      * Returns all Paragraph objects within this range.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Take every paragraph covered by a text range in a shape on a worksheet.
+     *
+     * // Lets a single range be processed paragraph by paragraph.
+     *
+     * // Make the first of the covered paragraphs bold.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * docContent.GetElement(0).AddText("First paragraph");
+     * let secondPara = Api.CreateParagraph();
+     * secondPara.AddText("Second paragraph");
+     * docContent.Push(secondPara);
+     * let thirdPara = Api.CreateParagraph();
+     * thirdPara.AddText("Third paragraph");
+     * docContent.Push(thirdPara);
+     *
+     * let range = shape.GetTextRange();
+     *
+     * let paragraphs = range.GetAllParagraphs();
+     * paragraphs[0].SetBold(true);
+     *
+     * worksheet.GetRange("A1").SetValue("GetAllParagraphs: " + paragraphs.length);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/GetAllParagraphs/
      */
@@ -44985,6 +48494,30 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the class type of a text range in a shape on a worksheet.
+     *
+     * // Confirms the object type before calling the range methods on it.
+     *
+     * // Read the class type of a range covering the whole text.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * let classType = range.GetClassType();
+     *
+     * worksheet.GetRange("A1").SetValue("GetClassType: " + classType);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/GetClassType/
      */
     GetClassType(): "textRange";
@@ -44993,6 +48526,31 @@ export namespace Cell {
      * Returns the end position of the current range.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the end position of a text range in a shape on a worksheet.
+     *
+     * // The end position points right after the last character of the range.
+     *
+     * // Read where a sub-range covering the second word ends.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * let word = range.GetRange(6, 11);
+     * let end = word.GetEndPos();
+     *
+     * worksheet.GetRange("A1").SetValue("GetEndPos: " + end);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/GetEndPos/
      */
@@ -45004,6 +48562,35 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Take one paragraph covered by a text range in a shape on a worksheet.
+     *
+     * // A range may span several paragraphs, which are addressed by index.
+     *
+     * // Append text to the second paragraph of the range and make it bold.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * docContent.GetElement(0).AddText("First paragraph");
+     * let secondPara = Api.CreateParagraph();
+     * secondPara.AddText("Second paragraph");
+     * docContent.Push(secondPara);
+     * let thirdPara = Api.CreateParagraph();
+     * thirdPara.AddText("Third paragraph");
+     * docContent.Push(thirdPara);
+     *
+     * let range = shape.GetTextRange();
+     *
+     * let secondParagraph = range.GetParagraph(1);
+     * secondParagraph.AddText(" (edited)");
+     * secondParagraph.SetBold(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/GetParagraph/
      */
     GetParagraph(index: number): ApiParagraph | null;
@@ -45012,19 +48599,69 @@ export namespace Cell {
      * Returns a new ApiTextRange that represents a sub-range of the current range.
      *
      * @param start - Start offset (0-based) relative to the beginning of this range.
-     * @param rangeEnd - End offset relative to the beginning of this range. -1 means the end of this range.
+     * @param end - End offset relative to the beginning of this range. -1 means the end of this range.
      * @default start = 0
-     * @default rangeEnd = -1
+     * @default end = -1
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Take a sub-range of a text range in a shape on a worksheet.
+     *
+     * // Positions are counted from the beginning of the text body, not of the parent range.
+     *
+     * // Take the second word as a sub-range and make it bold.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * let part = range.GetRange(6, 11);
+     * part.SetBold(true);
+     *
+     * worksheet.GetRange("A1").SetValue("GetRange: " + part.GetText());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/GetRange/
      */
-    GetRange(start?: number, rangeEnd?: number): ApiTextRange | null;
+    GetRange(start?: number, end?: number): ApiTextRange | null;
 
     /**
      * Returns the start position of the current range.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the start position of a text range in a shape on a worksheet.
+     *
+     * // Positions are counted in characters from the beginning of the text body.
+     *
+     * // Read where a sub-range covering the second word starts.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * let word = range.GetRange(6, 11);
+     * let start = word.GetStartPos();
+     *
+     * worksheet.GetRange("A1").SetValue("GetStartPos: " + start);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/GetStartPos/
      */
@@ -45053,6 +48690,30 @@ export namespace Cell {
      * @default options.TabSymbol = '\t'
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the text covered by a text range in a shape on a worksheet.
+     *
+     * // The range of a whole text body returns every character it holds.
+     *
+     * // Read the text of the range.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * let text = range.GetText();
+     *
+     * worksheet.GetRange("A1").SetValue("GetText: " + text);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/GetText/
      */
     GetText(options?: { Math?: boolean; NewLineSeparator?: string; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string }): string;
@@ -45061,6 +48722,31 @@ export namespace Cell {
      * Returns the merged text properties of the entire range.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the text properties of a text range in a shape on a worksheet.
+     *
+     * // The properties describe the formatting of the text the range covers.
+     *
+     * // Read back the bold flag applied to the first word.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * range.GetRange(0, 5).SetBold(true);
+     * let textPr = range.GetRange(0, 5).GetTextPr();
+     *
+     * worksheet.GetRange("A1").SetValue("GetTextPr: " + textPr.GetBold());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/GetTextPr/
      */
@@ -45072,6 +48758,33 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Take the common part of two text ranges in a shape on a worksheet.
+     *
+     * // The result is null when the two ranges do not overlap.
+     *
+     * // Underline the fragment that belongs to both ranges.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * let first = range.GetRange(0, 8);
+     * let second = range.GetRange(4, 11);
+     * let common = first.IntersectWith(second);
+     * common.SetUnderline(true);
+     *
+     * worksheet.GetRange("A1").SetValue("IntersectWith: " + common.GetText());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/IntersectWith/
      */
     IntersectWith(range: ApiTextRange): ApiTextRange | null;
@@ -45082,6 +48795,28 @@ export namespace Cell {
      * @param pos - The desired cursor position.
      * @default pos = 0
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Move the cursor inside the text covered by a range in a shape on a worksheet.
+     *
+     * // Places the cursor precisely before further editing.
+     *
+     * // Move the cursor between the two words.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * range.MoveCursorToPos(6);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/MoveCursorToPos/
      */
@@ -45099,6 +48834,30 @@ export namespace Cell {
      * @returns this
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Replace every occurrence of a word inside a text range in a shape on a worksheet.
+     *
+     * // The replacement keeps the formatting of the text it replaces.
+     *
+     * // Replace every occurrence of "foo" with "bar".
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("foo bar foo");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * range.Replace("foo", "bar");
+     *
+     * worksheet.GetRange("A1").SetValue("Replace: " + shape.GetTextRange().GetText());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/Replace/
      */
     Replace(findWhat: string, replaceWith: string, matchCase?: boolean, wholeWords?: boolean): ApiTextRange;
@@ -45107,6 +48866,28 @@ export namespace Cell {
      * Selects the text range in the editor.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Select the text covered by a range in a shape on a worksheet.
+     *
+     * // The selection is made in the editor, as if the user had made it.
+     *
+     * // Select the second word.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * range.GetRange(6, 11).Select();
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/Select/
      */
@@ -45117,6 +48898,28 @@ export namespace Cell {
      *
      * @param isBold - Pass _null_ to remove the bold formatting.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Make the text of a range bold in a shape on a worksheet.
+     *
+     * // The formatting applies to the covered fragment only.
+     *
+     * // Make the first word bold.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * range.GetRange(0, 5).SetBold(true);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetBold/
      */
@@ -45130,6 +48933,28 @@ export namespace Cell {
      *   capitalization.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Display the text of a range in capitals in a shape on a worksheet.
+     *
+     * // The formatting applies to the covered fragment only.
+     *
+     * // Show the first word in capitals.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * range.GetRange(0, 5).SetCaps(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetCaps/
      */
     SetCaps(isCaps: boolean | null): ApiTextRange;
@@ -45139,6 +48964,28 @@ export namespace Cell {
      *
      * @param color - Pass _null_ to remove the text color.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Colour the text of a range in a shape on a worksheet.
+     *
+     * // The colour is passed as an ApiColor object and applies to the covered fragment only.
+     *
+     * // Paint the first word red.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * range.GetRange(0, 5).SetColor(Api.RGB(255, 0, 0));
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetColor/
      */
@@ -45151,6 +48998,28 @@ export namespace Cell {
      * @param isDoubleStrikeout - Pass _null_ to remove the double strikeout.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Strike out the text of a range with a double line in a shape on a worksheet.
+     *
+     * // The formatting applies to the covered fragment only.
+     *
+     * // Double strike out the first word.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * range.GetRange(0, 5).SetDoubleStrikeout(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetDoubleStrikeout/
      */
     SetDoubleStrikeout(isDoubleStrikeout: boolean | null): ApiTextRange;
@@ -45160,6 +49029,31 @@ export namespace Cell {
      *
      * @param pos - End position.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Move the end of a text range in a shape on a worksheet.
+     *
+     * // The range keeps its start and stops at the new position.
+     *
+     * // Cut the range down to the first word.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * let part = range.GetRange(0, 11);
+     * part.SetEndPos(5);
+     *
+     * worksheet.GetRange("A1").SetValue("SetEndPos: " + part.GetText());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetEndPos/
      */
@@ -45172,6 +49066,28 @@ export namespace Cell {
      *   the font family.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Change the font of a range in a shape on a worksheet.
+     *
+     * // The font applies to the covered fragment only.
+     *
+     * // Set a monospaced font on the first word.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * range.GetRange(0, 5).SetFontFamily("Courier New");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetFontFamily/
      */
     SetFontFamily(fontFamily?: string | null): ApiTextRange | null;
@@ -45183,6 +49099,28 @@ export namespace Cell {
      *   size.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Change the font size of a range in a shape on a worksheet.
+     *
+     * // The size is measured in half-points, so 40 means 20pt.
+     *
+     * // Enlarge the first word.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * range.GetRange(0, 5).SetFontSize(40);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetFontSize/
      */
     SetFontSize(fontSize: hps | null): ApiTextRange | null;
@@ -45193,6 +49131,28 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Highlight the text of a range with a named colour in a shape on a worksheet.
+     *
+     * // The highlight applies to the covered fragment only.
+     *
+     * // Highlight the first word in yellow.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * range.GetRange(0, 5).SetHighlight("yellow");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetHighlight/
      */
     SetHighlight(colorName: highlightColor): ApiTextRange | null;
@@ -45202,6 +49162,28 @@ export namespace Cell {
      *
      * @param isItalic - Pass _null_ to remove the italic formatting.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Make the text of a range italic in a shape on a worksheet.
+     *
+     * // The formatting applies to the covered fragment only.
+     *
+     * // Make the first word italic.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * range.GetRange(0, 5).SetItalic(true);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetItalic/
      */
@@ -45217,6 +49199,27 @@ export namespace Cell {
      * @returns returns null if the language identifier is not supported.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the spell-check language for a text range in a shape on a worksheet.
+     *
+     * // The language applies to the covered fragment only.
+     *
+     * // Set the language of the first word and print it.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let paragraph = shape.GetContent().GetElement(0);
+     * paragraph.AddText("This is a sample text.");
+     *
+     * let firstWord = shape.GetTextRange().GetRange(0, 4);
+     * firstWord.SetLanguage("en-CA");
+     * paragraph.AddText(" Language of the first word: " + firstWord.GetTextPr().GetLanguage());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetLanguage/
      */
     SetLanguage(langId: string | null): ApiTextRange | null;
@@ -45231,6 +49234,28 @@ export namespace Cell {
      *   not. Pass _null_ to remove the small capitals.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Display the text of a range in small capitals in a shape on a worksheet.
+     *
+     * // The formatting applies to the covered fragment only.
+     *
+     * // Show the first word in small capitals.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * range.GetRange(0, 5).SetSmallCaps(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetSmallCaps/
      */
     SetSmallCaps(isSmallCaps: boolean | null): ApiTextRange;
@@ -45242,6 +49267,28 @@ export namespace Cell {
      *   to remove the text spacing.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Change the character spacing of a range in a shape on a worksheet.
+     *
+     * // The spacing is measured in twentieths of a point.
+     *
+     * // Spread the letters of the first word apart.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * range.GetRange(0, 5).SetSpacing(150);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetSpacing/
      */
     SetSpacing(spacing: twips | null): ApiTextRange | null;
@@ -45251,6 +49298,31 @@ export namespace Cell {
      *
      * @param pos - Start position.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Move the start of a text range in a shape on a worksheet.
+     *
+     * // The range keeps its end and starts covering a shorter fragment.
+     *
+     * // Move the start of the range past the first word.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * let part = range.GetRange(0, 11);
+     * part.SetStartPos(6);
+     *
+     * worksheet.GetRange("A1").SetValue("SetStartPos: " + part.GetText());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetStartPos/
      */
@@ -45263,6 +49335,28 @@ export namespace Cell {
      * @param isStrikeout - Pass _null_ to remove the strikeout.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Strike out the text of a range in a shape on a worksheet.
+     *
+     * // The formatting applies to the covered fragment only.
+     *
+     * // Strike out the first word.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * range.GetRange(0, 5).SetStrikeout(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetStrikeout/
      */
     SetStrikeout(isStrikeout: boolean | null): ApiTextRange;
@@ -45274,6 +49368,30 @@ export namespace Cell {
      * @returns this
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Replace the text covered by a text range in a shape on a worksheet.
+     *
+     * // The new text takes the formatting of the text it replaces.
+     *
+     * // Replace the second word.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * range.GetRange(6, 11).SetText("Everyone");
+     *
+     * worksheet.GetRange("A1").SetValue("SetText: " + shape.GetTextRange().GetText());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetText/
      */
     SetText(text: string): ApiTextRange;
@@ -45283,6 +49401,31 @@ export namespace Cell {
      *
      * @param textPr - The text properties that will be applied to the current range.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Apply a set of text properties to a range at once in a shape on a worksheet.
+     *
+     * // One call replaces several separate formatting calls.
+     *
+     * // Apply bold and a larger font size in a single step.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * let textPr = Api.CreateRun().GetTextPr();
+     * textPr.SetBold(true);
+     * textPr.SetFontSize(32);
+     * range.GetRange(0, 5).SetTextPr(textPr);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetTextPr/
      */
@@ -45296,6 +49439,28 @@ export namespace Cell {
      * @param isUnderline - Specifies if the contents of the current Range are displayed underlined or not. Pass _null_ to
      *   remove the underline.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Underline the text of a range in a shape on a worksheet.
+     *
+     * // The formatting applies to the covered fragment only.
+     *
+     * // Underline the first word.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * range.GetRange(0, 5).SetUnderline(true);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetUnderline/
      */
@@ -45315,6 +49480,28 @@ export namespace Cell {
      *   alignment.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Raise the text of a range above the baseline in a shape on a worksheet.
+     *
+     * // Superscript and subscript are both set through this method.
+     *
+     * // Turn the trailing digit into a superscript.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let shape = worksheet.AddShape("rect", 200 * 36000, 80 * 36000, fill, stroke, 3, 0, 1, 0);
+     *
+     * let docContent = shape.GetContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("E=mc2");
+     *
+     * let range = shape.GetTextRange();
+     *
+     * range.GetRange(4, 5).SetVertAlign("superscript");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/SetVertAlign/
      */
     SetVertAlign(type: "baseline" | "subscript" | "superscript" | null): ApiTextRange | null;
@@ -45325,6 +49512,28 @@ export namespace Cell {
      * @param options - The HTML conversion options.
      * @default options = {}
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Export a part of a paragraph as an HTML string in a spreadsheet.
+     *
+     * // How do I get the HTML markup of only a fragment of the text in a spreadsheet?
+     *
+     * // Convert the end of a sentence with its bold words to HTML and write the markup to a cell in a spreadsheet.
+     *
+     * const worksheet = Api.GetActiveSheet();
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = worksheet.AddShape("rect", 120 * 36000, 70 * 36000, fill, stroke, 0, 2 * 36000, 2, 3 * 36000);
+     * const paragraph = shape.GetContent().GetElement(0);
+     * paragraph.AddText("Convert only ");
+     * const boldRun = paragraph.AddText("this part");
+     * boldRun.SetBold(true);
+     *
+     * const range = paragraph.GetTextRange(8, 22);
+     * const html = range.ToHtml({"RenderHTMLTags": true});
+     * worksheet.GetRange("A1").SetValue("HTML output: " + html.trim());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTextRange/Methods/ToHtml/
      */
@@ -45385,28 +49594,12 @@ export namespace Cell {
     GetName(): string;
   }
 
-  /** Class representing a theme color scheme. */
-  export interface ApiThemeColorScheme {
-  }
-
-  /** Class representing a theme font scheme. */
-  export interface ApiThemeFontScheme {
-  }
-
-  /** Class representing a theme format scheme. */
-  export interface ApiThemeFormatScheme {
-  }
-
-  /** Class representing animation timeline for a slide. */
-  export interface ApiTimeLine {
-  }
-
   /**
    * Class representing a top 10 conditional formatting rule.
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTop10/
    */
-  export interface ApiTop10 extends ApiFormatCondition {
+  export interface ApiTop10 extends Omit<ApiFormatCondition, "GetAppliesTo" | "GetFont" | "GetFillColor"> {
     /**
      * Deletes the current format condition.
      *
@@ -45450,7 +49643,7 @@ export namespace Cell {
     /**
      * Returns the range of cells to which the current conditional formatting rule applies.
      *
-     * @returns The range of cells affected by the current condition, or null if no range is set.
+     * @returns The range of cells affected by the current condition.
      * @since 9.1.0
      *
      * @example
@@ -45481,9 +49674,9 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(appliedRange.GetAddress());
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetAppliesTo/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTop10/Methods/GetAppliesTo/
      */
-    GetAppliesTo(): ApiRange | null;
+    GetAppliesTo(): ApiRange;
 
     /**
      * Returns the date operator for time period conditions.
@@ -45525,11 +49718,9 @@ export namespace Cell {
     GetDateOperator(): XlTimePeriods | null;
 
     /**
-     * Returns the background color for the format condition.
+     * Returns the fill color for the top 10 conditional formatting rule.
      *
-     * Returns 'No Fill' when the background color of the format condition is null.
-     *
-     * @returns The background color applied by the format condition, or 'No Fill' if none is set.
+     * @returns The background color applied by the format condition, or null if none is set.
      * @since 9.1.0
      *
      * @example
@@ -45561,15 +49752,14 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(currentColor === "No Fill" ? "No Fill" : "Color applied");
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetFillColor/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTop10/Methods/GetFillColor/
      */
-    GetFillColor(): ApiColor | 'No Fill';
+    GetFillColor(): ApiColor | null;
 
     /**
-     * Returns the font applied by the current format condition.
+     * Returns the font formatting for the top 10 conditional formatting rule.
      *
-     * @returns An ApiFont object representing the font applied by the format condition, or null if no font is
-     *   defined.
+     * @returns An ApiFont object representing the font applied by the format condition.
      * @since 9.1.0
      *
      * @example
@@ -45605,9 +49795,9 @@ export namespace Cell {
      * worksheet.GetRange("C3").SetValue("Size: " + (font ? font.Size : "default"));
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetFont/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTop10/Methods/GetFont/
      */
-    GetFont(): ApiFont | null;
+    GetFont(): ApiFont;
 
     /**
      * Returns the first formula used by the current conditional formatting rule.
@@ -45689,7 +49879,7 @@ export namespace Cell {
     GetFormula2(): string;
 
     /**
-     * Returns the number format applied to a cell when the conditional formatting rule evaluates to true.
+     * Returns the number format for the top 10 conditional formatting rule.
      *
      * @returns The number format.
      * @since 9.1.0
@@ -45723,7 +49913,7 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(numberFormat);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetNumberFormat/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTop10/Methods/GetNumberFormat/
      */
     GetNumberFormat(): string;
 
@@ -45766,9 +49956,9 @@ export namespace Cell {
     GetOperator(): XlFormatConditionOperator;
 
     /**
-     * Returns the pivot table condition object.
+     * Returns whether the conditional formatting rule is applied to a pivot table.
      *
-     * @returns The pivot table condition object.
+     * @returns Returns true if the rule is applied to a pivot table, otherwise null.
      * @since 9.1.0
      *
      * @example
@@ -45799,9 +49989,9 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(ptCondition ? "Found" : "None");
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetPTCondition/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTop10/Methods/GetPTCondition/
      */
-    GetPTCondition(): PTCondition | null;
+    GetPTCondition(): boolean | null;
 
     /**
      * Returns the parent range object of the current format condition.
@@ -45832,7 +50022,7 @@ export namespace Cell {
      * worksheet.GetRange('C2').SetValue(parentRange.GetAddress());
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetParent/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTop10/Methods/GetParent/
      */
     GetParent(): ApiRange;
 
@@ -45902,7 +50092,7 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(priority);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetPriority/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTop10/Methods/GetPriority/
      */
     GetPriority(): number;
 
@@ -45973,7 +50163,7 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(scopeType);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetScopeType/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTop10/Methods/GetScopeType/
      */
     GetScopeType(): XlPivotConditionScope;
 
@@ -45983,7 +50173,35 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetStopIfTrue/
+     * @example
+     * ```js
+     * // Check whether a top/bottom rule prevents the lower priority rules from being applied in a spreadsheet.
+     *
+     * // How do I find out if a top 10 rule stops the evaluation of the other rules in a spreadsheet?
+     *
+     * // Read the "stop if true" flag of a top/bottom rule in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     *
+     * worksheet.GetRange("A1").SetValue("Sales Data");
+     * worksheet.GetRange("A2").SetValue(100);
+     * worksheet.GetRange("A3").SetValue(250);
+     * worksheet.GetRange("A4").SetValue(150);
+     * worksheet.GetRange("A5").SetValue(300);
+     * worksheet.GetRange("A6").SetValue(75);
+     *
+     * let dataRange = worksheet.GetRange("A2:A6");
+     * let formatConditions = dataRange.GetFormatConditions();
+     *
+     * let top10 = formatConditions.AddTop10();
+     * top10.SetRank(2);
+     * top10.SetStopIfTrue(true);
+     *
+     * worksheet.GetRange("C1").SetValue("Stop if true:");
+     * worksheet.GetRange("C2").SetValue(top10.GetStopIfTrue() ? "Yes" : "No");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiTop10/Methods/GetStopIfTrue/
      */
     GetStopIfTrue(): boolean;
 
@@ -46647,6 +50865,38 @@ export namespace Cell {
      * @param StopIfTrue - True to stop evaluating additional rules.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Stop the evaluation of the lower priority formatting rules when a top/bottom rule is fulfilled in a spreadsheet.
+     *
+     * // How do I prevent the other formatting rules from being applied to the top values in a spreadsheet?
+     *
+     * // Keep the two greatest values formatted by the top 10 rule only in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     *
+     * worksheet.GetRange("A1").SetValue("Sales Data");
+     * worksheet.GetRange("A2").SetValue(100);
+     * worksheet.GetRange("A3").SetValue(250);
+     * worksheet.GetRange("A4").SetValue(150);
+     * worksheet.GetRange("A5").SetValue(300);
+     * worksheet.GetRange("A6").SetValue(75);
+     *
+     * let dataRange = worksheet.GetRange("A2:A6");
+     * let formatConditions = dataRange.GetFormatConditions();
+     *
+     * let top10 = formatConditions.AddTop10();
+     * let condition = formatConditions.Add("xlCellValue", "xlGreater", "20");
+     *
+     * top10.SetRank(2);
+     * top10.SetFillColor(Api.RGB(255, 0, 0));
+     * top10.SetStopIfTrue(true);
+     *
+     * condition.SetNumberFormat("0.00");
+     *
+     * worksheet.GetRange("C1").SetValue("The top 2 cells keep the general number format");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/SetStopIfTrue/
      */
     SetStopIfTrue(StopIfTrue: boolean): void;
@@ -46806,7 +51056,7 @@ export namespace Cell {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiUniqueValues/
    */
-  export interface ApiUniqueValues extends ApiFormatCondition {
+  export interface ApiUniqueValues extends Omit<ApiFormatCondition, "GetAppliesTo" | "GetFont" | "GetFillColor"> {
     /**
      * Deletes the current format condition.
      *
@@ -46850,7 +51100,7 @@ export namespace Cell {
     /**
      * Returns the range of cells to which the current conditional formatting rule applies.
      *
-     * @returns The range of cells affected by the current condition, or null if no range is set.
+     * @returns The range of cells affected by the current condition.
      * @since 9.1.0
      *
      * @example
@@ -46881,9 +51131,9 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(appliedRange.GetAddress());
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetAppliesTo/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiUniqueValues/Methods/GetAppliesTo/
      */
-    GetAppliesTo(): ApiRange | null;
+    GetAppliesTo(): ApiRange;
 
     /**
      * Returns the date operator for time period conditions.
@@ -46964,11 +51214,9 @@ export namespace Cell {
     GetDupeUnique(): XlDuplicateValues;
 
     /**
-     * Returns the background color for the format condition.
+     * Returns the fill color for the unique values conditional formatting rule.
      *
-     * Returns 'No Fill' when the background color of the format condition is null.
-     *
-     * @returns The background color applied by the format condition, or 'No Fill' if none is set.
+     * @returns The background color applied by the format condition, or null if none is set.
      * @since 9.1.0
      *
      * @example
@@ -47000,15 +51248,14 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(currentColor === "No Fill" ? "No Fill" : "Color applied");
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetFillColor/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiUniqueValues/Methods/GetFillColor/
      */
-    GetFillColor(): ApiColor | 'No Fill';
+    GetFillColor(): ApiColor | null;
 
     /**
-     * Returns the font applied by the current format condition.
+     * Returns the font formatting for the unique values conditional formatting rule.
      *
-     * @returns An ApiFont object representing the font applied by the format condition, or null if no font is
-     *   defined.
+     * @returns An ApiFont object representing the font applied by the format condition.
      * @since 9.1.0
      *
      * @example
@@ -47044,9 +51291,9 @@ export namespace Cell {
      * worksheet.GetRange("C3").SetValue("Size: " + (font ? font.Size : "default"));
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetFont/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiUniqueValues/Methods/GetFont/
      */
-    GetFont(): ApiFont | null;
+    GetFont(): ApiFont;
 
     /**
      * Returns the first formula used by the current conditional formatting rule.
@@ -47128,7 +51375,7 @@ export namespace Cell {
     GetFormula2(): string;
 
     /**
-     * Returns the number format applied to a cell when the conditional formatting rule evaluates to true.
+     * Returns the number format for the unique values conditional formatting rule.
      *
      * @returns The number format.
      * @since 9.1.0
@@ -47162,7 +51409,7 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(numberFormat);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetNumberFormat/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiUniqueValues/Methods/GetNumberFormat/
      */
     GetNumberFormat(): string;
 
@@ -47205,9 +51452,9 @@ export namespace Cell {
     GetOperator(): XlFormatConditionOperator;
 
     /**
-     * Returns the pivot table condition object.
+     * Returns whether the conditional formatting rule is applied to a pivot table.
      *
-     * @returns The pivot table condition object.
+     * @returns Returns true if the rule is applied to a pivot table, otherwise null.
      * @since 9.1.0
      *
      * @example
@@ -47238,9 +51485,9 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(ptCondition ? "Found" : "None");
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetPTCondition/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiUniqueValues/Methods/GetPTCondition/
      */
-    GetPTCondition(): PTCondition | null;
+    GetPTCondition(): boolean | null;
 
     /**
      * Returns the parent range object of the current format condition.
@@ -47271,7 +51518,7 @@ export namespace Cell {
      * worksheet.GetRange('C2').SetValue(parentRange.GetAddress());
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetParent/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiUniqueValues/Methods/GetParent/
      */
     GetParent(): ApiRange;
 
@@ -47309,7 +51556,7 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(priority);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetPriority/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiUniqueValues/Methods/GetPriority/
      */
     GetPriority(): number;
 
@@ -47348,7 +51595,7 @@ export namespace Cell {
      * worksheet.GetRange("C2").SetValue(scopeType);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetScopeType/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiUniqueValues/Methods/GetScopeType/
      */
     GetScopeType(): XlPivotConditionScope;
 
@@ -47358,7 +51605,35 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetStopIfTrue/
+     * @example
+     * ```js
+     * // Check whether a unique values rule prevents the lower priority rules from being applied in a spreadsheet.
+     *
+     * // How do I find out if a unique values rule stops the evaluation of the other rules in a spreadsheet?
+     *
+     * // Read the "stop if true" flag of a unique values rule in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     *
+     * worksheet.GetRange("A1").SetValue("Sales Data");
+     * worksheet.GetRange("A2").SetValue(100);
+     * worksheet.GetRange("A3").SetValue(250);
+     * worksheet.GetRange("A4").SetValue(150);
+     * worksheet.GetRange("A5").SetValue(300);
+     * worksheet.GetRange("A6").SetValue(75);
+     *
+     * let dataRange = worksheet.GetRange("A2:A6");
+     * let formatConditions = dataRange.GetFormatConditions();
+     *
+     * let uniqueValues = formatConditions.AddUniqueValues();
+     * uniqueValues.SetFillColor(Api.RGB(255, 0, 0));
+     * uniqueValues.SetStopIfTrue(true);
+     *
+     * worksheet.GetRange("C1").SetValue("Stop if true:");
+     * worksheet.GetRange("C2").SetValue(uniqueValues.GetStopIfTrue() ? "Yes" : "No");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiUniqueValues/Methods/GetStopIfTrue/
      */
     GetStopIfTrue(): boolean;
 
@@ -47948,6 +52223,37 @@ export namespace Cell {
      *
      * @param StopIfTrue - True to stop evaluating additional rules.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Stop the evaluation of the lower priority formatting rules when a unique values rule is fulfilled in a spreadsheet.
+     *
+     * // How do I prevent the other formatting rules from being applied to the unique cells in a spreadsheet?
+     *
+     * // Keep the unique cells formatted by the first rule only in a spreadsheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     *
+     * worksheet.GetRange("A1").SetValue("Sales Data");
+     * worksheet.GetRange("A2").SetValue(100);
+     * worksheet.GetRange("A3").SetValue(250);
+     * worksheet.GetRange("A4").SetValue(150);
+     * worksheet.GetRange("A5").SetValue(300);
+     * worksheet.GetRange("A6").SetValue(75);
+     *
+     * let dataRange = worksheet.GetRange("A2:A6");
+     * let formatConditions = dataRange.GetFormatConditions();
+     *
+     * let uniqueValues = formatConditions.AddUniqueValues();
+     * let condition = formatConditions.Add("xlCellValue", "xlGreater", "20");
+     *
+     * uniqueValues.SetFillColor(Api.RGB(255, 0, 0));
+     * uniqueValues.SetStopIfTrue(true);
+     *
+     * condition.SetNumberFormat("0.00");
+     *
+     * worksheet.GetRange("C1").SetValue("The unique cells keep the general number format");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/SetStopIfTrue/
      */
@@ -48632,10 +52938,6 @@ export namespace Cell {
     SetShowInput(ShowInput: boolean): void;
   }
 
-  /** Class representing the settings which are used to create a watermark. */
-  export interface ApiWatermarkSettings {
-  }
-
   /**
    * Class representing the currently active workbook
    *
@@ -48643,17 +52945,40 @@ export namespace Cell {
    */
   export interface ApiWorkbook {
     /**
-     * Breaks the link to the specified workbook: the formulas that refer to it are replaced with their
-     * current values, and the link is removed from the workbook.
+     * Breaks the link to the specified workbook: the formulas that refer to it, also through defined
+     * names, are replaced with their current values,
+     * the defined names that refer to it become #REF!, and the link is removed from the workbook.
      *
-     * @param sName - The path of the linked workbook as returned by the {@link ApiWorkbook#GetLinkSources} method.
-     * @returns Returns false if the workbook has no link with the specified path, or if a defined name refers
-     *   to that workbook; such a name has to be changed or deleted first.
+     * @param name - The path of the linked workbook as returned by the {@link ApiWorkbook#GetLinkSources} method, or
+     *   its file name.
+     * @returns Returns false if the workbook has no such link, or if the link is used outside cells and defined
+     *   names.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Break the links to other workbooks, replacing the formulas that use them with their values.
+     *
+     * // How do I remove external workbook links before sending a spreadsheet?
+     *
+     * // Break every link and report the ones a defined name still uses.
+     *
+     * let workbook = Api.GetActiveWorkbook();
+     * let worksheet = Api.GetActiveSheet();
+     * let sources = workbook.GetLinkSources();
+     * let kept = [];
+     * for (let i = 0; i < sources.length; i++) {
+     *     if (!workbook.BreakLink(sources[i])) {
+     *         kept.push(sources[i]);
+     *     }
+     * }
+     * worksheet.GetRange("A1").SetValue("Links broken: " + (sources.length - kept.length));
+     * worksheet.GetRange("A2").SetValue("Links kept: " + kept.join(", "));
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorkbook/Methods/BreakLink/
      */
-    BreakLink(sName: string): boolean;
+    BreakLink(name: string): boolean;
 
     /**
      * Recalculates the cells that need recalculation (changed, added or volatile) across the workbook.
@@ -48661,6 +52986,24 @@ export namespace Cell {
      * can be read within the same macro.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Recalculate the formulas that need recalculation across the workbook.
+     *
+     * // How do I read an up-to-date formula result inside a macro?
+     *
+     * // Force the recalculation and show the result in a spreadsheet.
+     *
+     * let workbook = Api.GetActiveWorkbook();
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange("A1").SetValue(10);
+     * worksheet.GetRange("B1").SetValue("=A1*2");
+     * workbook.Calculate();
+     * let value = worksheet.GetRange("B1").GetValue();
+     * worksheet.GetRange("A3").SetValue("Recalculated value of B1: ");
+     * worksheet.GetRange("B3").SetValue(value);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorkbook/Methods/Calculate/
      */
@@ -48846,6 +53189,23 @@ export namespace Cell {
      * @returns An empty array if the workbook has no links to other workbooks.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // List the other workbooks the current workbook is linked to.
+     *
+     * // How do I find which external workbooks a spreadsheet depends on?
+     *
+     * // Write the path of every linked workbook to the sheet.
+     *
+     * let workbook = Api.GetActiveWorkbook();
+     * let worksheet = Api.GetActiveSheet();
+     * let sources = workbook.GetLinkSources();
+     * worksheet.GetRange("A1").SetValue("Linked workbooks: " + sources.length);
+     * for (let i = 0; i < sources.length; i++) {
+     *     worksheet.GetRange("A" + (i + 2)).SetValue(sources[i]);
+     * }
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorkbook/Methods/GetLinkSources/
      */
     GetLinkSources(): string[];
@@ -48914,6 +53274,23 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the collection of table styles stored in a workbook in a spreadsheet.
+     *
+     * // The collection holds every built-in and custom table style available for tables and pivot tables in the workbook.
+     *
+     * // Add a new custom style to the collection and confirm its name in a spreadsheet.
+     *
+     * let workbook = Api.GetActiveWorkbook();
+     * let tableStyles = workbook.GetTableStyles();
+     * let customStyle = tableStyles.Add('ReportStyle');
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange('A1').SetValue('New style name:');
+     * worksheet.GetRange('B1').SetValue(customStyle.GetName());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorkbook/Methods/GetTableStyles/
      */
     GetTableStyles(): ApiTableStyles;
@@ -48961,6 +53338,24 @@ export namespace Cell {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Redraw the screen so the changes made so far become visible.
+     *
+     * // How do I show intermediate results while a macro is still running?
+     *
+     * // Write the data, force the recalculation and repaint the canvas.
+     *
+     * let workbook = Api.GetActiveWorkbook();
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.GetRange("A1").SetValue(10);
+     * worksheet.GetRange("B1").SetValue("=A1*2");
+     * workbook.Calculate();
+     * workbook.Redraw();
+     * worksheet.GetRange("A3").SetValue("The value of B1 is already on the screen: ");
+     * worksheet.GetRange("B3").SetValue(worksheet.GetRange("B1").GetValue());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorkbook/Methods/Redraw/
      */
     Redraw(): boolean;
@@ -49004,8 +53399,8 @@ export namespace Cell {
      * **Note:**
      * Values of _nStyleIndex_ outside **1 - 48** are interpreted as a chart style id from the
      * _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs
-     * Enterprise](https://www.onlyoffice.com/docs-enterprise-prices?from=api) and [ONLYOFFICE Docs
-     * Developer](https://www.onlyoffice.com/developer-edition-prices?from=api).
+     * Enterprise](https://www.onlyoffice.com/pricing?from=api) and [ONLYOFFICE Docs
+     * Developer](https://www.onlyoffice.com/pricing?from=api).
      *
      * @param sDataRange - The selected cell range which will be used to get the data for the chart, formed specifically
      *   and including the sheet name.
@@ -49060,6 +53455,7 @@ export namespace Cell {
      * @param sRef - Must contain the sheet name, followed by sign ! and a range of cells. Example:
      *   "Sheet1!$A$1:$B$2".
      * @param isHidden - Defines if the range name is hidden or not.
+     * @default isHidden = false
      * @returns returns false if sName or sRef are invalid.
      *
      * @example
@@ -49229,8 +53625,9 @@ export namespace Cell {
      * only. If this value exceeds the cell width or height, another vertical/horizontal position will be
      * set.
      *
-     * @param sType - The shape type which specifies the preset shape geometry. The "textRect" type creates a text box
-     *   as the editor inserts it: a light fill and a thin black outline.
+     * @param sType - The shape type which specifies the preset shape geometry. An unknown type is replaced with
+     *   "rect". The "textRect" type creates a text box with the "rect" geometry, as the editor inserts
+     *   it: a light fill and a thin black outline.
      * @param nWidth - The shape width in English measure units.
      * @param nHeight - The shape height in English measure units.
      * @param oFill - The color or pattern used to fill the shape. If not specified, the default shape style fill
@@ -49624,7 +54021,7 @@ export namespace Cell {
     /**
      * Returns the bottom margin of the sheet.
      *
-     * @returns The bottom margin size measured in points.
+     * @returns The bottom margin size measured in millimeters.
      *
      * @example
      * ```js
@@ -49806,11 +54203,30 @@ export namespace Cell {
     GetFreezePanes(): ApiFreezePanes;
 
     /**
-     * Returns a collection of all the hyperlinks on the worksheet.
+     * Returns an array of all the hyperlinks on the worksheet.
+     *
+     * @example
+     * ```js
+     * // Get all the hyperlinks from the worksheet.
+     *
+     * // Useful for retrieving all hyperlinks on a worksheet as an array.
+     *
+     * // Get all hyperlinks from the worksheet.
+     *
+     * let worksheet = Api.GetActiveSheet();
+     * worksheet.SetHyperlink("A1", "https://onlyoffice.com", null, "ONLYOFFICE", "Visit ONLYOFFICE");
+     * worksheet.SetHyperlink("A2", "https://helpcenter.onlyoffice.com", null, "Help Center", "ONLYOFFICE Help");
+     *
+     * let hyperlinks = worksheet.GetHyperlinks();
+     *
+     * worksheet.GetRange("A4").SetValue("Hyperlinks count: " + hyperlinks.length);
+     * worksheet.GetRange("A5").SetValue("First hyperlink address: " + hyperlinks[0].GetAddress());
+     * worksheet.GetRange("A6").SetValue("Second hyperlink address: " + hyperlinks[1].GetAddress());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GetHyperlinks/
      */
-    GetHyperlinks(): ApiHyperlinks;
+    GetHyperlinks(): ApiHyperlink[];
 
     /**
      * Returns a sheet index.
@@ -49833,7 +54249,7 @@ export namespace Cell {
     /**
      * Returns the left margin of the sheet.
      *
-     * @returns The left margin size measured in points.
+     * @returns The left margin size measured in millimeters.
      *
      * @example
      * ```js
@@ -50054,7 +54470,7 @@ export namespace Cell {
     /**
      * Returns the right margin of the sheet.
      *
-     * @returns The right margin size measured in points.
+     * @returns The right margin size measured in millimeters.
      *
      * @example
      * ```js
@@ -50184,7 +54600,7 @@ export namespace Cell {
     /**
      * Returns the top margin of the sheet.
      *
-     * @returns The top margin size measured in points.
+     * @returns The top margin size measured in millimeters.
      *
      * @example
      * ```js
@@ -50249,12 +54665,34 @@ export namespace Cell {
      * @returns Returns null if the drawings cannot be grouped or when called in the document builder.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Combine two shapes on the sheet into a single group in a spreadsheet.
+     *
+     * // Add two shapes and merge them so they can be moved and formatted as one object.
+     *
+     * // Group the shapes and report on the sheet whether the group was created.
+     *
+     * const worksheet = Api.GetActiveSheet();
+     *
+     * const fill1 = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const fill2 = Api.CreateSolidFill(Api.RGB(61, 155, 255));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     *
+     * const shape1 = worksheet.AddShape("rect", 50 * 36000, 30 * 36000, fill1, stroke, 0, 0, 0, 0);
+     * const shape2 = worksheet.AddShape("ellipse", 50 * 36000, 30 * 36000, fill2, stroke, 3, 0, 3, 0);
+     *
+     * const group = worksheet.GroupDrawings([shape1, shape2]);
+     * worksheet.GetRange("A10").SetValue(group ? "Group created" : "Group not created");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/GroupDrawings/
      */
     GroupDrawings(aDrawings: ApiDrawing[]): ApiGroup | null;
 
     /**
      * Moves the current sheet to another location in the workbook.
+     * Exactly one of the "before" or "after" parameters must be specified.
      *
      * @param before - The sheet before which the current sheet will be placed. You cannot specify "before" if you
      *   specify "after".
@@ -50275,7 +54713,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/Move/
      */
-    Move(before: ApiWorksheet, after?: ApiWorksheet): void;
+    Move(before?: ApiWorksheet, after?: ApiWorksheet): void;
 
     /**
      * Pastes the contents of the clipboard to the current sheet.
@@ -50392,7 +54830,7 @@ export namespace Cell {
     /**
      * Sets the bottom margin of the sheet.
      *
-     * @param nPoints - The bottom margin size measured in points.
+     * @param margin - The bottom margin size measured in millimeters.
      * @returns returns true if the bottom margin was set successfully.
      *
      * @example
@@ -50409,7 +54847,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetBottomMargin/
      */
-    SetBottomMargin(nPoints: number): boolean;
+    SetBottomMargin(margin: number): boolean;
 
     /**
      * Sets the width of the specified column.
@@ -50417,7 +54855,7 @@ export namespace Cell {
      * One unit of column width is equal to the width of one character in the Normal style.
      * For proportional fonts, the width of the character 0 (zero) is used.
      *
-     * @param nColumn - The number of the column to set the width to.
+     * @param column - The number of the column to set the width to, or the column letter(s), e.g. "B" or "B:D".
      * @param nWidth - The width of the column divided by 7 pixels.
      * @param bWithotPaddings - Specifies whether nWidth will be set without standard paddings.
      * @default bWithotPaddings = false
@@ -50436,7 +54874,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetColumnWidth/
      */
-    SetColumnWidth(nColumn: number, nWidth: number, bWithotPaddings?: boolean): boolean;
+    SetColumnWidth(column: number | string, nWidth: number, bWithotPaddings?: boolean): boolean;
 
     /**
      * Specifies whether the current sheet gridlines must be displayed or not.
@@ -50510,7 +54948,7 @@ export namespace Cell {
     /**
      * Sets the left margin of the sheet.
      *
-     * @param nPoints - The left margin size measured in points.
+     * @param margin - The left margin size measured in millimeters.
      * @returns returns true if the left margin was set successfully.
      *
      * @example
@@ -50527,7 +54965,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetLeftMargin/
      */
-    SetLeftMargin(nPoints: number): boolean;
+    SetLeftMargin(margin: number): boolean;
 
     /**
      * Sets a name to the current sheet.
@@ -50620,7 +55058,7 @@ export namespace Cell {
     /**
      * Sets the right margin of the sheet.
      *
-     * @param nPoints - The right margin size measured in points.
+     * @param margin - The right margin size measured in millimeters.
      * @returns returns true if the right margin was set successfully.
      *
      * @example
@@ -50637,7 +55075,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetRightMargin/
      */
-    SetRightMargin(nPoints: number): boolean;
+    SetRightMargin(margin: number): boolean;
 
     /**
      * Sets the height of the specified row measured in points.
@@ -50665,7 +55103,7 @@ export namespace Cell {
     /**
      * Sets the top margin of the sheet.
      *
-     * @param nPoints - The top margin size measured in points.
+     * @param margin - The top margin size measured in millimeters.
      * @returns returns true if the top margin was set successfully.
      *
      * @example
@@ -50682,7 +55120,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheet/Methods/SetTopMargin/
      */
-    SetTopMargin(nPoints: number): boolean;
+    SetTopMargin(margin: number): boolean;
 
     /**
      * Sets the state of sheet visibility.
@@ -51225,14 +55663,14 @@ export namespace Cell {
      * Finds the average (arithmetic mean) for the cells specified by a given set of conditions or
      * criteria.
      *
-     * @param arg1 - The range of cells which will be evaluated.
-     * @param arg2 - The first condition or criteria in the form of a number, expression, or text that defines which
+     * @param arg1 - The actual cells to be used to find the average.
+     * @param arg2 - The first range of cells which will be evaluated for the specific condition.
+     * @param arg3 - The first condition or criteria in the form of a number, expression, or text that defines which
      *   cells will be used to find the average.
-     * @param arg3 - The actual cells to be used to find the average. If omitted, the cells in the range are used.
-     * @param arg4 - Up to 127 additional conditions or criteria in the form of a number, expression, or text that
-     *   defines which cells will be used to find the average. These arguments are optional.
-     * @param arg5 - Up to 127 actual ranges to be used to find the average. If omitted, the cells in the range are
-     *   used. These arguments are optional.
+     * @param arg4 - Up to 126 additional ranges which will be evaluated for the specific conditions. These arguments
+     *   are optional.
+     * @param arg5 - Up to 126 additional conditions or criteria for the corresponding ranges. These arguments are
+     *   optional.
      *
      * @example
      * ```js
@@ -51264,7 +55702,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/AVERAGEIFS/
      */
-    AVERAGEIFS(arg1: ApiRange | ApiName, arg2: ApiRange | ApiName | number | string, arg3?: ApiRange | ApiName, arg4?: ApiRange | ApiName | number | string, arg5?: ApiRange | ApiName): number;
+    AVERAGEIFS(arg1: ApiRange | ApiName, arg2: ApiRange | ApiName, arg3: ApiRange | ApiName | number | string, arg4?: ApiRange | ApiName, arg5?: ApiRange | ApiName | number | string): number;
 
     /**
      * Converts a number into a text representation with the given radix (base).
@@ -51288,7 +55726,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/BASE/
      */
-    BASE(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number, arg3?: ApiRange | ApiName | number): number;
+    BASE(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number, arg3?: ApiRange | ApiName | number): string;
 
     /**
      * Returns the modified Bessel function In(x).
@@ -51515,7 +55953,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/BIN2HEX/
      */
-    BIN2HEX(arg1: ApiRange | ApiName | number, arg2?: ApiRange | ApiName | number): number;
+    BIN2HEX(arg1: ApiRange | ApiName | number, arg2?: ApiRange | ApiName | number): string;
 
     /**
      * Converts a binary number to octal.
@@ -51536,7 +55974,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/BIN2OCT/
      */
-    BIN2OCT(arg1: ApiRange | ApiName | number, arg2?: ApiRange | ApiName | number): number;
+    BIN2OCT(arg1: ApiRange | ApiName | number, arg2?: ApiRange | ApiName | number): string;
 
     /**
      * Returns the individual term binomial distribution probability.
@@ -52164,7 +56602,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/COMPLEX/
      */
-    COMPLEX(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number, arg3?: ApiRange | ApiName | string): number;
+    COMPLEX(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number, arg3?: ApiRange | ApiName | string): string;
 
     /**
      * Combines multiple text strings into one text string.
@@ -53121,7 +57559,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/DEC2BIN/
      */
-    DEC2BIN(arg1: ApiRange | ApiName | number, arg2?: ApiRange | ApiName | number): number;
+    DEC2BIN(arg1: ApiRange | ApiName | number, arg2?: ApiRange | ApiName | number): string;
 
     /**
      * Converts a decimal number to hexadecimal.
@@ -53142,7 +57580,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/DEC2HEX/
      */
-    DEC2HEX(arg1: ApiRange | ApiName | number, arg2?: ApiRange | ApiName | number): number;
+    DEC2HEX(arg1: ApiRange | ApiName | number, arg2?: ApiRange | ApiName | number): string;
 
     /**
      * Converts a decimal number to octal.
@@ -53163,7 +57601,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/DEC2OCT/
      */
-    DEC2OCT(arg1: ApiRange | ApiName | number, arg2?: ApiRange | ApiName | number): number;
+    DEC2OCT(arg1: ApiRange | ApiName | number, arg2?: ApiRange | ApiName | number): string;
 
     /**
      * Converts a text representation of a number in a given base into a decimal number.
@@ -54544,8 +58982,10 @@ export namespace Cell {
     FORECAST_ETS_STAT(arg1: ApiRange | ApiName | number[], arg2: ApiRange | ApiName, arg3: ApiRange | ApiName | number, arg4?: ApiRange | ApiName | number, arg5?: ApiRange | ApiName | number, arg6?: ApiRange | ApiName | number): number;
 
     /**
-     * Calculates how often values occur within a range of values and then returns the first value of the
-     * returned vertical array of numbers.
+     * Calculates how often values occur within a range of values and then returns a vertical array of
+     * numbers.
+     * The returned array contains one more element than the array of intervals: the last element is the
+     * number of values above the highest interval.
      *
      * @param arg1 - An array of values or the selected range for which the frequencies will be counted (blanks and
      *   text are ignored).
@@ -54586,7 +59026,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/FREQUENCY/
      */
-    FREQUENCY(arg1: ApiRange | ApiName | number[], arg2: ApiRange | ApiName | number[]): number;
+    FREQUENCY(arg1: ApiRange | ApiName | number[], arg2: ApiRange | ApiName | number[]): number[][];
 
     /**
      * Returns the future value of an investment based on periodic, constant payments and a constant
@@ -55046,7 +59486,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/GROWTH/
      */
-    GROWTH(arg1: ApiRange | ApiName | number[], arg2?: ApiRange | ApiName | number[], arg3?: ApiRange | ApiName | number[], arg4?: ApiRange | ApiName | boolean): number;
+    GROWTH(arg1: ApiRange | ApiName | number[], arg2?: ApiRange | ApiName | number[], arg3?: ApiRange | ApiName | number[], arg4?: ApiRange | ApiName | boolean): number[][];
 
     /**
      * Returns the harmonic mean of a data set of positive numbers: the reciprocal of the arithmetic mean
@@ -55090,7 +59530,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/HEX2BIN/
      */
-    HEX2BIN(arg1: ApiRange | ApiName | number, arg2?: ApiRange | ApiName | number): number;
+    HEX2BIN(arg1: ApiRange | ApiName | number | string, arg2?: ApiRange | ApiName | number): string;
 
     /**
      * Converts a hexadecimal number to decimal.
@@ -55110,7 +59550,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/HEX2DEC/
      */
-    HEX2DEC(arg1: ApiRange | ApiName | number): number;
+    HEX2DEC(arg1: ApiRange | ApiName | number | string): number;
 
     /**
      * Converts a hexadecimal number to octal.
@@ -55131,7 +59571,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/HEX2OCT/
      */
-    HEX2OCT(arg1: ApiRange | ApiName | number, arg2?: ApiRange | ApiName | number): number;
+    HEX2OCT(arg1: ApiRange | ApiName | number | string, arg2?: ApiRange | ApiName | number): string;
 
     /**
      * Looks for a value in the top row of a table or array of values and returns the value in the same
@@ -55392,7 +59832,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMABS/
      */
-    IMABS(arg1: ApiRange | ApiName | number): number;
+    IMABS(arg1: ApiRange | ApiName | number | string): number;
 
     /**
      * Returns the imaginary coefficient of a complex number.
@@ -55412,7 +59852,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMAGINARY/
      */
-    IMAGINARY(arg1: ApiRange | ApiName | number): number;
+    IMAGINARY(arg1: ApiRange | ApiName | number | string): number;
 
     /**
      * Returns the argument Theta, an angle expressed in radians.
@@ -55432,7 +59872,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMARGUMENT/
      */
-    IMARGUMENT(arg1: ApiRange | ApiName | number): number;
+    IMARGUMENT(arg1: ApiRange | ApiName | number | string): number;
 
     /**
      * Returns the complex conjugate of a complex number.
@@ -55452,7 +59892,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMCONJUGATE/
      */
-    IMCONJUGATE(arg1: ApiRange | ApiName | number): number;
+    IMCONJUGATE(arg1: ApiRange | ApiName | number | string): string;
 
     /**
      * Returns the cosine of a complex number.
@@ -55472,7 +59912,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMCOS/
      */
-    IMCOS(arg1: ApiRange | ApiName | number): number;
+    IMCOS(arg1: ApiRange | ApiName | number | string): string;
 
     /**
      * Returns the hyperbolic cosine of a complex number.
@@ -55492,7 +59932,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMCOSH/
      */
-    IMCOSH(arg1: ApiRange | ApiName | number): number;
+    IMCOSH(arg1: ApiRange | ApiName | number | string): string;
 
     /**
      * Returns the cotangent of a complex number.
@@ -55512,7 +59952,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMCOT/
      */
-    IMCOT(arg1: ApiRange | ApiName | number): number;
+    IMCOT(arg1: ApiRange | ApiName | number | string): string;
 
     /**
      * Returns the cosecant of a complex number.
@@ -55532,7 +59972,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMCSC/
      */
-    IMCSC(arg1: ApiRange | ApiName | number): number;
+    IMCSC(arg1: ApiRange | ApiName | number | string): string;
 
     /**
      * Returns the hyperbolic cosecant of a complex number.
@@ -55552,7 +59992,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMCSCH/
      */
-    IMCSCH(arg1: ApiRange | ApiName | number): number;
+    IMCSCH(arg1: ApiRange | ApiName | number | string): string;
 
     /**
      * Returns the quotient of two complex numbers.
@@ -55573,7 +60013,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMDIV/
      */
-    IMDIV(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number): number;
+    IMDIV(arg1: ApiRange | ApiName | number | string, arg2: ApiRange | ApiName | number | string): string;
 
     /**
      * Returns the exponential of a complex number.
@@ -55593,7 +60033,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMEXP/
      */
-    IMEXP(arg1: ApiRange | ApiName | number): number;
+    IMEXP(arg1: ApiRange | ApiName | number | string): string;
 
     /**
      * Returns the natural logarithm of a complex number.
@@ -55613,7 +60053,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMLN/
      */
-    IMLN(arg1: ApiRange | ApiName | number): number;
+    IMLN(arg1: ApiRange | ApiName | number | string): string;
 
     /**
      * Returns the base-10 logarithm of a complex number.
@@ -55633,7 +60073,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMLOG10/
      */
-    IMLOG10(arg1: ApiRange | ApiName | number): number;
+    IMLOG10(arg1: ApiRange | ApiName | number | string): string;
 
     /**
      * Returns the base-2 logarithm of a complex number.
@@ -55653,7 +60093,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMLOG2/
      */
-    IMLOG2(arg1: ApiRange | ApiName | number): number;
+    IMLOG2(arg1: ApiRange | ApiName | number | string): string;
 
     /**
      * Returns a complex number raised to an integer power.
@@ -55674,7 +60114,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMPOWER/
      */
-    IMPOWER(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number): number;
+    IMPOWER(arg1: ApiRange | ApiName | number | string, arg2: ApiRange | ApiName | number): string;
 
     /**
      * Returns the product of the specified complex numbers.
@@ -55694,7 +60134,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMPRODUCT/
      */
-    IMPRODUCT(args: ApiRange | ApiName | string): number;
+    IMPRODUCT(args: ApiRange | ApiName | number | string): string;
 
     /**
      * Returns the real coefficient of a complex number.
@@ -55714,7 +60154,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMREAL/
      */
-    IMREAL(arg1: ApiRange | ApiName | number): number;
+    IMREAL(arg1: ApiRange | ApiName | number | string): number;
 
     /**
      * Returns the secant of a complex number.
@@ -55734,7 +60174,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMSEC/
      */
-    IMSEC(arg1: ApiRange | ApiName | number): number;
+    IMSEC(arg1: ApiRange | ApiName | number | string): string;
 
     /**
      * Returns the hyperbolic secant of a complex number.
@@ -55754,7 +60194,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMSECH/
      */
-    IMSECH(arg1: ApiRange | ApiName | number): number;
+    IMSECH(arg1: ApiRange | ApiName | number | string): string;
 
     /**
      * Returns the sine of a complex number.
@@ -55774,7 +60214,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMSIN/
      */
-    IMSIN(arg1: ApiRange | ApiName | number): number;
+    IMSIN(arg1: ApiRange | ApiName | number | string): string;
 
     /**
      * Returns the hyperbolic sine of a complex number.
@@ -55794,7 +60234,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMSINH/
      */
-    IMSINH(arg1: ApiRange | ApiName | number): number;
+    IMSINH(arg1: ApiRange | ApiName | number | string): string;
 
     /**
      * Returns the square root of a complex number.
@@ -55814,7 +60254,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMSQRT/
      */
-    IMSQRT(arg1: ApiRange | ApiName | number): number;
+    IMSQRT(arg1: ApiRange | ApiName | number | string): string;
 
     /**
      * Returns the difference of two complex numbers expressed in the *x + yi* or *x + yj* form.
@@ -55835,7 +60275,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMSUB/
      */
-    IMSUB(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number): number;
+    IMSUB(arg1: ApiRange | ApiName | number | string, arg2: ApiRange | ApiName | number | string): string;
 
     /**
      * Returns the sum of the specified complex numbers.
@@ -55855,7 +60295,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMSUM/
      */
-    IMSUM(args: ApiRange | ApiName | string): number;
+    IMSUM(args: ApiRange | ApiName | number | string): string;
 
     /**
      * Returns the tangent of a complex number.
@@ -55875,7 +60315,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/IMTAN/
      */
-    IMTAN(arg1: ApiRange | ApiName | number): number;
+    IMTAN(arg1: ApiRange | ApiName | number | string): string;
 
     /**
      * Returns a value or reference of the cell at the intersection of a particular row and column, in a
@@ -56556,7 +60996,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/LINEST/
      */
-    LINEST(arg1: ApiRange | ApiName, arg2?: ApiRange | ApiName, arg3?: ApiRange | ApiName | boolean, arg4?: ApiRange | ApiName | boolean): number;
+    LINEST(arg1: ApiRange | ApiName | number[], arg2?: ApiRange | ApiName | number[], arg3?: ApiRange | ApiName | boolean, arg4?: ApiRange | ApiName | boolean): number[][];
 
     /**
      * Returns the natural logarithm of a number.
@@ -56665,7 +61105,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/LOGEST/
      */
-    LOGEST(arg1: ApiRange | ApiName | ApiRange, arg2?: ApiRange | ApiName | ApiRange, arg3?: ApiRange | ApiName | boolean, arg4?: ApiRange | ApiName | boolean): number;
+    LOGEST(arg1: ApiRange | ApiName | number[], arg2?: ApiRange | ApiName | number[], arg3?: ApiRange | ApiName | boolean, arg4?: ApiRange | ApiName | boolean): number[][];
 
     /**
      * Returns the inverse of the lognormal cumulative distribution function of x, where ln(x) is normally
@@ -57273,7 +61713,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/MUNIT/
      */
-    MUNIT(arg1: ApiRange | ApiName | number): number;
+    MUNIT(arg1: ApiRange | ApiName | number): number[][];
 
     /**
      * Converts a value to a number, dates to serial numbers, **true** to 1, error to
@@ -57832,7 +62272,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/OCT2BIN/
      */
-    OCT2BIN(arg1: ApiRange | ApiName | number, arg2?: ApiRange | ApiName | number): number;
+    OCT2BIN(arg1: ApiRange | ApiName | number, arg2?: ApiRange | ApiName | number): string;
 
     /**
      * Converts an octal number to decimal.
@@ -57873,7 +62313,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/OCT2HEX/
      */
-    OCT2HEX(arg1: ApiRange | ApiName | number, arg2?: ApiRange | ApiName | number): number;
+    OCT2HEX(arg1: ApiRange | ApiName | number, arg2?: ApiRange | ApiName | number): string;
 
     /**
      * Rounds a positive number up and negative number down to the nearest odd integer.
@@ -57961,12 +62401,12 @@ export namespace Cell {
      * @param arg1 - The security settlement date, expressed as a serial date number.
      * @param arg2 - The maturity date of the security, expressed as a serial date number.
      * @param arg3 - The last coupon date of the security, expressed as a serial date number.
-     * @param arg5 - The interest rate of the security.
-     * @param arg5_2 - The annual yield of the security.
+     * @param arg4 - The interest rate of the security.
+     * @param arg5 - The annual yield of the security.
      * @param arg6 - The redemption value of the security, per $100 par value.
-     * @param arg8 - The number of interest payments per year. The possible values are: 1 for annual payments, 2 for
+     * @param arg7 - The number of interest payments per year. The possible values are: 1 for annual payments, 2 for
      *   semiannual payments, 4 for quarterly payments.
-     * @param arg9 - The day count basis to use: **0** or omitted - US (NASD) 30/360; **1** - Actual/actual; **2** -
+     * @param arg8 - The day count basis to use: **0** or omitted - US (NASD) 30/360; **1** - Actual/actual; **2** -
      *   Actual/360; **3** - Actual/365; **4** - European 30/360.
      *
      * @example
@@ -57982,7 +62422,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/ODDLPRICE/
      */
-    ODDLPRICE(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number, arg3: ApiRange | ApiName | number, arg5: ApiRange | ApiName | number, arg5_2: ApiRange | ApiName | number, arg6: ApiRange | ApiName | number, arg8: ApiRange | ApiName | number, arg9?: ApiRange | ApiName | number): number;
+    ODDLPRICE(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number, arg3: ApiRange | ApiName | number, arg4: ApiRange | ApiName | number, arg5: ApiRange | ApiName | number, arg6: ApiRange | ApiName | number, arg7: ApiRange | ApiName | number, arg8?: ApiRange | ApiName | number): number;
 
     /**
      * Returns the yield of a security with an odd last period.
@@ -57990,12 +62430,12 @@ export namespace Cell {
      * @param arg1 - The security settlement date, expressed as a serial date number.
      * @param arg2 - The maturity date of the security, expressed as a serial date number.
      * @param arg3 - The last coupon date of the security, expressed as a serial date number.
-     * @param arg5 - The interest rate of the security.
-     * @param arg6 - The purchase price of the security, per $100 par value.
-     * @param arg6_2 - The redemption value of the security, per $100 par value.
-     * @param arg8 - The number of interest payments per year. The possible values are: 1 for annual payments, 2 for
+     * @param arg4 - The interest rate of the security.
+     * @param arg5 - The purchase price of the security, per $100 par value.
+     * @param arg6 - The redemption value of the security, per $100 par value.
+     * @param arg7 - The number of interest payments per year. The possible values are: 1 for annual payments, 2 for
      *   semiannual payments, 4 for quarterly payments.
-     * @param arg9 - The day count basis to use: **0** or omitted - US (NASD) 30/360; **1** - Actual/actual; **2** -
+     * @param arg8 - The day count basis to use: **0** or omitted - US (NASD) 30/360; **1** - Actual/actual; **2** -
      *   Actual/360; **3** - Actual/365; **4** - European 30/360.
      *
      * @example
@@ -58011,7 +62451,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/ODDLYIELD/
      */
-    ODDLYIELD(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number, arg3: ApiRange | ApiName | number, arg5: ApiRange | ApiName | number, arg6: ApiRange | ApiName | number, arg6_2: ApiRange | ApiName | number, arg8: ApiRange | ApiName | number, arg9?: ApiRange | ApiName | number): number;
+    ODDLYIELD(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number, arg3: ApiRange | ApiName | number, arg4: ApiRange | ApiName | number, arg5: ApiRange | ApiName | number, arg6: ApiRange | ApiName | number, arg7: ApiRange | ApiName | number, arg8?: ApiRange | ApiName | number): number;
 
     /**
      * Checks whether any of the arguments are **true**.
@@ -60098,14 +64538,14 @@ export namespace Cell {
     /**
      * Adds the cells specified by a given set of conditions or criteria.
      *
-     * @param arg1 - The range of cells to be evaluated.
-     * @param arg2 - The first condition or criteria in the form of a number, expression, or text that defines which
+     * @param arg1 - The actual cells to sum.
+     * @param arg2 - The first range of cells which will be evaluated for the specific condition.
+     * @param arg3 - The first condition or criteria in the form of a number, expression, or text that defines which
      *   cells will be added.
-     * @param arg3 - The first range to sum. If omitted, the cells in range are used.
-     * @param arg4 - Up to 127 additional conditions or criteria in the form of a number, expression, or text that
-     *   defines which cells will be added. These arguments are optional.
-     * @param arg5 - Up to 127 actual ranges to be used to be added. If omitted, the cells in the range are used.
-     *   These arguments are optional.
+     * @param arg4 - Up to 126 additional ranges which will be evaluated for the specific conditions. These arguments
+     *   are optional.
+     * @param arg5 - Up to 126 additional conditions or criteria for the corresponding ranges. These arguments are
+     *   optional.
      *
      * @example
      * ```js
@@ -60137,8 +64577,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/SUMIFS/
      */
-    SUMIFS(arg1: ApiRange | ApiName, arg2: ApiRange | ApiName | number | string, arg4: ApiRange | ApiName | number | string): number;
-    SUMIFS(arg1: ApiRange | ApiName, arg2: ApiRange | ApiName | number | string, arg3: ApiRange | ApiName, arg4: ApiRange | ApiName | number | string, arg5?: ApiRange | ApiName): number;
+    SUMIFS(arg1: ApiRange | ApiName, arg2: ApiRange | ApiName, arg3: ApiRange | ApiName | number | string, arg4?: ApiRange | ApiName, arg5?: ApiRange | ApiName | number | string): number;
 
     /**
      * Returns the sum of the squares of the arguments.
@@ -60475,7 +64914,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/TRANSPOSE/
      */
-    TRANSPOSE(arg1: ApiRange | ApiName | (number | string | boolean)[]): ApiRange;
+    TRANSPOSE(arg1: ApiRange | ApiName | (number | string | boolean)[]): (number | string | boolean)[][];
 
     /**
      * Returns numbers in a linear trend matching known data points, using the least squares method.
@@ -60513,7 +64952,7 @@ export namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/TREND/
      */
-    TREND(arg1: ApiRange | ApiName | number[], arg2?: ApiRange | ApiName | number[], arg3?: ApiRange | ApiName | number[], arg4?: ApiRange | ApiName | boolean): number;
+    TREND(arg1: ApiRange | ApiName | number[], arg2?: ApiRange | ApiName | number[], arg3?: ApiRange | ApiName | number[], arg4?: ApiRange | ApiName | boolean): number[][];
 
     /**
      * Removes all spaces from a text string except for single spaces between words.
@@ -61544,10 +65983,6 @@ export namespace Cell {
     Z_TEST(arg1: number[] | ApiRange, arg2: ApiRange | ApiName | number, arg3?: ApiRange | ApiName | number): number;
   }
 
-  /** Class representing an animation effect. */
-  export interface g_nApiEffectIdCounter {
-  }
-
   /**
    * Maps every `GetClassType()` return value to the class that returns it.
    *
@@ -61599,7 +66034,6 @@ export namespace Cell {
     "schemeColor": ApiSchemeColor;
     "shadow": ApiShadow;
     "shape": ApiShape;
-    "shd": ApiShd;
     "smartArt": ApiSmartArt;
     "stroke": ApiStroke;
     "textPr": ApiRangeTextPr | ApiTextPr;

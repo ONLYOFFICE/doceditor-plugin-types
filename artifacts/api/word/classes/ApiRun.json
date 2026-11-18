@@ -70,11 +70,13 @@
         {
           "description": "The screen tip text.",
           "name": "screenTipText",
+          "optional": true,
           "type": "string"
         },
         {
           "description": "name of a bookmark",
           "name": "bookmarkName",
+          "optional": true,
           "type": "string"
         }
       ],
@@ -82,7 +84,7 @@
         "description": "returns false if params are invalid.",
         "type": "ApiHyperlink | null"
       },
-      "signature": "AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink | null"
+      "signature": "AddHyperlink(link: string, screenTipText?: string, bookmarkName?: string): ApiHyperlink | null"
     },
     "AddLineBreak": {
       "description": "Adds a line break to the current run position and starts the next element from a new line.",
@@ -103,7 +105,8 @@
       "signature": "AddPageBreak(): boolean"
     },
     "AddTabStop": {
-      "description": "Adds a tab stop to the current run.",
+      "deprecated": "since 10.0.3 version.",
+      "description": "Adds a tab character to the end of the current run.\nUse the AddText method with the \"\\t\" character instead.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRun/Methods/AddTabStop/",
       "params": [],
       "returns": {
@@ -211,11 +214,18 @@
     "GetFontFamily": {
       "description": "Returns the font family from the current text properties.\n\nThe method automatically calculates the font from the theme if the font was set via the theme.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetFontFamily/",
-      "params": [],
+      "params": [
+        {
+          "description": "The font slot.\rIf this parameter is not specified, the \"ascii\" value is used.",
+          "name": "fontSlot",
+          "optional": true,
+          "type": "\"ascii\" | \"eastAsia\" | \"hAnsi\" | \"cs\""
+        }
+      ],
       "returns": {
         "type": "string | null"
       },
-      "signature": "GetFontFamily(): string | null",
+      "signature": "GetFontFamily(fontSlot?: \"ascii\" | \"eastAsia\" | \"hAnsi\" | \"cs\"): string | null",
       "since": "8.1.0"
     },
     "GetFontNames": {
@@ -475,6 +485,16 @@
       "signature": "GetVertAlign(): string | null",
       "since": "8.1.0"
     },
+    "MoveCursorToEnd": {
+      "description": "Moves the cursor to the end of the current run.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRun/Methods/MoveCursorToEnd/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "MoveCursorToEnd(): boolean",
+      "since": "10.0.3"
+    },
     "MoveCursorToPos": {
       "description": "Moves a cursor to a specified position of the current text run.\n\nIf the current run is not assigned to any document part, then **false** is returned. Otherwise, this method returns **true**.\nIf there is any selection in the document, it will be removed.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRun/Methods/MoveCursorToPos/",
@@ -491,6 +511,16 @@
       },
       "signature": "MoveCursorToPos(nPos?: number): boolean",
       "since": "8.2.0"
+    },
+    "MoveCursorToStart": {
+      "description": "Moves the cursor to the start of the current run.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRun/Methods/MoveCursorToStart/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "MoveCursorToStart(): boolean",
+      "since": "10.0.3"
     },
     "RemoveAllElements": {
       "description": "Removes all the elements from the current run.",

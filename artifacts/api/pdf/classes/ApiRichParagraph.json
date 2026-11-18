@@ -50,6 +50,16 @@
       },
       "signature": "Copy(): ApiRichParagraph"
     },
+    "Delete": {
+      "description": "Deletes the current paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParagraph/Methods/Delete/",
+      "params": [],
+      "returns": {
+        "description": "returns false if paragraph haven't parent.",
+        "type": "boolean"
+      },
+      "signature": "Delete(): boolean"
+    },
     "GetClassType": {
       "description": "Returns a type of the ApiRichParagraph class.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParagraph/Methods/GetClassType/",
@@ -74,6 +84,34 @@
       },
       "signature": "GetElement(pos: number): ApiRichRun | null"
     },
+    "GetElementsCount": {
+      "description": "Returns a number of elements in the current paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParagraph/Methods/GetElementsCount/",
+      "params": [],
+      "returns": {
+        "type": "number"
+      },
+      "signature": "GetElementsCount(): number"
+    },
+    "GetJc": {
+      "description": "Returns the rich paragraph contents justification.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParaPr/Methods/GetJc/",
+      "params": [],
+      "returns": {
+        "type": "HorTextAlign"
+      },
+      "signature": "GetJc(): HorTextAlign"
+    },
+    "GetLastRunWithText": {
+      "description": "Returns the last Run with text in the current paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParagraph/Methods/GetLastRunWithText/",
+      "params": [],
+      "returns": {
+        "type": "ApiRun"
+      },
+      "signature": "GetLastRunWithText(): ApiRun",
+      "since": "10.0.0"
+    },
     "GetNext": {
       "description": "Returns the next paragraph.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParagraph/Methods/GetNext/",
@@ -93,6 +131,16 @@
       },
       "signature": "GetParaPr(): ApiRichParaPr"
     },
+    "GetPosInParent": {
+      "description": "Returns the paragraph position within its parent element.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParagraph/Methods/GetPosInParent/",
+      "params": [],
+      "returns": {
+        "description": "returns -1 if the paragraph parent doesn't exist.",
+        "type": "number"
+      },
+      "signature": "GetPosInParent(): number"
+    },
     "GetPrevious": {
       "description": "Returns the previous paragraph.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParagraph/Methods/GetPrevious/",
@@ -102,6 +150,22 @@
         "type": "ApiRichParagraph | null"
       },
       "signature": "GetPrevious(): ApiRichParagraph | null"
+    },
+    "GetText": {
+      "description": "Returns the paragraph text.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParagraph/Methods/GetText/",
+      "params": [
+        {
+          "description": "Options for formatting the returned text.",
+          "name": "options",
+          "optional": true,
+          "type": "{ NewLineSeparator?: string; TabSymbol?: string }"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetText(options?: { NewLineSeparator?: string; TabSymbol?: string }): string"
     },
     "Last": {
       "description": "Returns the last element of the paragraph.",
@@ -126,6 +190,45 @@
         "type": "boolean"
       },
       "signature": "Push(richRun: ParagraphContent): boolean"
+    },
+    "RemoveAllElements": {
+      "description": "Removes all the elements from the current paragraph.\n\n**Note:**\nWhen all the elements are removed from the paragraph, a new empty run is automatically created.\n",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParagraph/Methods/RemoveAllElements/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "RemoveAllElements(): boolean"
+    },
+    "RemoveElement": {
+      "description": "Removes an element using the position specified.\n\n**Note:**\nIf the element you remove is the last paragraph element (i.e. all the elements are removed from the paragraph),\na new empty run is automatically created.\n",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParagraph/Methods/RemoveElement/",
+      "params": [
+        {
+          "description": "The element position which we want to remove from the paragraph.",
+          "name": "pos",
+          "type": "number"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "RemoveElement(pos: number): boolean"
+    },
+    "SetJc": {
+      "description": "Sets the rich paragraph contents justification.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParaPr/Methods/SetJc/",
+      "params": [
+        {
+          "description": "The justification type that will be applied to the rich paragraph contents.",
+          "name": "jc",
+          "type": "HorTextAlign"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetJc(jc: HorTextAlign): boolean"
     },
     "SetParaPr": {
       "description": "Sets the paragraph properties.",

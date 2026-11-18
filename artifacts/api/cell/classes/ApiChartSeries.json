@@ -18,7 +18,7 @@
       "signature": "ChangeChartType(sType: ChartType): boolean"
     },
     "GetChartType": {
-      "description": "Returns a chart type of the current series.",
+      "description": "Returns a chart type of the current series using the legacy chart type names. To get a chart type name that can be passed to the ChangeChartType method, use the GetType method.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChartSeries/Methods/GetChartType/",
       "params": [],
       "returns": {
@@ -36,7 +36,7 @@
       "signature": "GetClassType(): \"chartSeries\""
     },
     "GetType": {
-      "description": "Returns a chart type of the current series using the chart type names from the {@link ChartType} enumeration.",
+      "description": "Returns a chart type of the current series using the chart type names from the {@link global#ChartType} enumeration.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiChartSeries/Methods/GetType/",
       "params": [],
       "returns": {

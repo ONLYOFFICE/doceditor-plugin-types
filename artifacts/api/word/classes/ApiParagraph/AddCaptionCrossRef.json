@@ -9,7 +9,7 @@
     },
     {
       "description": "The text or numeric value of a caption reference you want to insert.",
-      "name": "sRefType",
+      "name": "sRefTo",
       "type": "captionRefTo"
     },
     {
@@ -24,7 +24,7 @@
       "type": "boolean"
     },
     {
-      "description": "Specifies if the above/below words indicating the position of the reference should be included (used only with the \"pageNum\" sRefType).",
+      "description": "Specifies if the above/below words indicating the position of the reference should be included (used only with the \"pageNum\" sRefTo).",
       "name": "bAboveBelow",
       "optional": true,
       "type": "boolean"
@@ -33,5 +33,5 @@
   "returns": {
     "type": "boolean"
   },
-  "signature": "AddCaptionCrossRef(sCaption: CaptionLabel | string, sRefType: captionRefTo, oParaTo: ApiParagraph, bLink?: boolean, bAboveBelow?: boolean): boolean"
+  "signature": "AddCaptionCrossRef(sCaption: CaptionLabel | string, sRefTo: captionRefTo, oParaTo: ApiParagraph, bLink?: boolean, bAboveBelow?: boolean): boolean"
 }

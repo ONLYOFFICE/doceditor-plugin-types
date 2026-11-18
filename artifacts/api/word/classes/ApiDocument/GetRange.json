@@ -5,16 +5,18 @@
     {
       "description": "Start position index in the current element.",
       "name": "Start",
+      "optional": true,
       "type": "number"
     },
     {
       "description": "End position index in the current element.",
       "name": "End",
+      "optional": true,
       "type": "number"
     }
   ],
   "returns": {
     "type": "ApiRange"
   },
-  "signature": "GetRange(Start: number, End: number): ApiRange"
+  "signature": "GetRange(Start?: number, End?: number): ApiRange"
 }

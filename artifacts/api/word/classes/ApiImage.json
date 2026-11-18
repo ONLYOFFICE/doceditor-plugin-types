@@ -27,13 +27,14 @@
       "signature": "AddBreak(breakType: number, position: string): boolean"
     },
     "Copy": {
-      "description": "Copies the current graphic object.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/Copy/",
+      "description": "Creates a copy of the current image.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiImage/Methods/Copy/",
       "params": [],
       "returns": {
-        "type": "ApiDrawing | null"
+        "type": "ApiImage | null"
       },
-      "signature": "Copy(): ApiDrawing | null"
+      "signature": "Copy(): ApiImage | null",
+      "since": "9.4.0"
     },
     "Delete": {
       "description": "Deletes the current graphic object.",
@@ -370,6 +371,26 @@
       },
       "signature": "InsertParagraph(paragraph: string | ApiParagraph, sPosition?: string, beRNewPara?: boolean): ApiParagraph | ApiDrawing"
     },
+    "MoveCursorToEnd": {
+      "description": "Moves the cursor after the current drawing.\nTo move the cursor into the text of a shape, use the MoveCursorToStart or MoveCursorToEnd method of the content returned by GetDocContent.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/MoveCursorToEnd/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "MoveCursorToEnd(): boolean",
+      "since": "10.0.3"
+    },
+    "MoveCursorToStart": {
+      "description": "Moves the cursor before the current drawing.\nTo move the cursor into the text of a shape, use the MoveCursorToStart or MoveCursorToEnd method of the content returned by GetDocContent.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/MoveCursorToStart/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "MoveCursorToStart(): boolean",
+      "since": "10.0.3"
+    },
     "ScaleHeight": {
       "description": "Scales the height of the figure using the specified coefficient.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/ScaleHeight/",
@@ -496,6 +517,23 @@
       },
       "signature": "SetDrawingPrFromDrawing(oAnotherDrawing: ApiDrawing): boolean"
     },
+    "SetFill": {
+      "description": "Sets the fill formatting properties to the current graphic object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetFill/",
+      "params": [
+        {
+          "description": "The fill type used to fill the graphic object.",
+          "name": "oFill",
+          "type": "ApiFill"
+        }
+      ],
+      "returns": {
+        "description": "returns false if param is invalid or not supported for the current graphic object.",
+        "type": "boolean"
+      },
+      "signature": "SetFill(oFill: ApiFill): boolean",
+      "since": "10.0.0"
+    },
     "SetFlipH": {
       "description": "Sets the horizontal flip of the current drawing.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetFlipH/",
@@ -578,7 +616,7 @@
           "type": "RelFromH"
         },
         {
-          "description": "The distance from the right side of the document element to the floating object. Use EMU for absolute distance or a number for percent (1 = 1%) when bPercent=true.",
+          "description": "The distance from the left edge of the document element to the left edge of the floating object. Use EMU for absolute distance or a number for percent (1 = 1%) when bPercent=true.",
           "name": "nDistance",
           "type": "EMU | number"
         },
@@ -593,6 +631,23 @@
         "type": "boolean"
       },
       "signature": "SetHorPosition(sRelativeFrom: RelFromH, nDistance: EMU | number, bPercent?: boolean): boolean"
+    },
+    "SetLine": {
+      "description": "Sets the outline properties to the current graphic object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetLine/",
+      "params": [
+        {
+          "description": "The stroke used to create the graphic object outline.",
+          "name": "stroke",
+          "type": "ApiStroke"
+        }
+      ],
+      "returns": {
+        "description": "returns false if param is invalid or not supported for the current graphic object.",
+        "type": "boolean"
+      },
+      "signature": "SetLine(stroke: ApiStroke): boolean",
+      "since": "10.0.0"
     },
     "SetLockAspect": {
       "description": "Sets whether the aspect ratio of the drawing is locked.",
@@ -812,7 +867,7 @@
           "type": "RelFromV"
         },
         {
-          "description": "The distance from the bottom part of the document element to the floating object. Use EMU for absolute units or a number (1 = 1%) when bPercent=true for percent relative positioning.",
+          "description": "The distance from the top edge of the document element to the top edge of the floating object. Use EMU for absolute units or a number (1 = 1%) when bPercent=true for percent relative positioning.",
           "name": "nDistance",
           "type": "EMU | number"
         },

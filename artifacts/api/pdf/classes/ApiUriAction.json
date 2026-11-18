@@ -1,6 +1,9 @@
 {
   "description": "Class representing a uri action.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiUriAction/",
+  "extends": [
+    "ApiBaseAction"
+  ],
   "methods": {
     "GetClassType": {
       "description": "Returns a type of the ApiUriAction class.",
@@ -12,6 +15,16 @@
       "signature": "GetClassType(): \"uriAction\"",
       "since": "10.0.0"
     },
+    "GetNext": {
+      "description": "Returns next action.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAction/Methods/GetNext/",
+      "params": [],
+      "returns": {
+        "type": "ApiBaseAction"
+      },
+      "signature": "GetNext(): ApiBaseAction",
+      "since": "10.0.0"
+    },
     "GetUri": {
       "description": "Gets uri string",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiUriAction/Methods/GetUri/",
@@ -20,6 +33,22 @@
         "type": "string"
       },
       "signature": "GetUri(): string",
+      "since": "10.0.0"
+    },
+    "SetNext": {
+      "description": "Sets next action.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAction/Methods/SetNext/",
+      "params": [
+        {
+          "name": "action",
+          "type": "ApiBaseAction"
+        }
+      ],
+      "returns": {
+        "description": "returns next action",
+        "type": "ApiBaseAction"
+      },
+      "signature": "SetNext(action: ApiBaseAction): ApiBaseAction",
       "since": "10.0.0"
     },
     "SetUri": {

@@ -4,7 +4,7 @@
   "params": [
     {
       "description": "The text or numeric value of a footnote reference you want to insert.",
-      "name": "sRefType",
+      "name": "sRefTo",
       "type": "footnoteRefTo"
     },
     {
@@ -19,7 +19,7 @@
       "type": "boolean"
     },
     {
-      "description": "Specifies if the above/below words indicating the position of the reference should be included (don't used with the \"aboveBelow\" sRefType).",
+      "description": "Specifies if the above/below words indicating the position of the reference should be included (don't used with the \"aboveBelow\" sRefTo).",
       "name": "bAboveBelow",
       "optional": true,
       "type": "boolean"
@@ -28,5 +28,5 @@
   "returns": {
     "type": "boolean"
   },
-  "signature": "AddFootnoteCrossRef(sRefType: footnoteRefTo, oParaTo: ApiParagraph, bLink?: boolean, bAboveBelow?: boolean): boolean"
+  "signature": "AddFootnoteCrossRef(sRefTo: footnoteRefTo, oParaTo: ApiParagraph, bLink?: boolean, bAboveBelow?: boolean): boolean"
 }

@@ -19,13 +19,13 @@
       "type": "boolean"
     },
     {
-      "description": "Specifies if the above/below words indicating the position of the reference should be included (don't used with the \"text\" and \"aboveBelow\" sRefType).",
+      "description": "Specifies if the above/below words indicating the position of the reference should be included (don't used with the \"text\" and \"aboveBelow\" sRefTo).",
       "name": "bAboveBelow",
       "optional": true,
       "type": "boolean"
     },
     {
-      "description": "A number separator (used only with the \"fullCtxParaNum\" sRefType).",
+      "description": "A number separator (used only with the \"fullCtxParaNum\" sRefTo).",
       "name": "sSepWith",
       "optional": true,
       "type": "string"

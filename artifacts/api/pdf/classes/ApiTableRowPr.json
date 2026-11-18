@@ -1,3 +1,54 @@
 {
-  "description": "Class representing the table row properties."
+  "description": "Class representing the table row properties.",
+  "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableRowPr/",
+  "methods": {
+    "GetClassType": {
+      "description": "Returns a type of the ApiTableRowPr class.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableRowPr/Methods/GetClassType/",
+      "params": [],
+      "returns": {
+        "type": "\"tableRowPr\""
+      },
+      "signature": "GetClassType(): \"tableRowPr\"",
+      "since": "10.0.0"
+    },
+    "SetHeight": {
+      "description": "Sets the height to the current table row within the current table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableRowPr/Methods/SetHeight/",
+      "params": [
+        {
+          "description": "The rule to apply the height value to the current table row or ignore it.",
+          "name": "sHRule",
+          "type": "\"auto\" | \"atLeast\""
+        },
+        {
+          "description": "The height for the current table row measured in twentieths of a point (1/1440 of an inch).",
+          "name": "nValue",
+          "optional": true,
+          "type": "twips"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetHeight(sHRule: \"auto\" | \"atLeast\", nValue?: twips): boolean",
+      "since": "10.0.0"
+    },
+    "SetTableHeader": {
+      "description": "Specifies that the current table row will be repeated at the top of each new page wherever this table is displayed.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTableRowPr/Methods/SetTableHeader/",
+      "params": [
+        {
+          "description": "The true value means that the current table row will be repeated at the top of each new page.",
+          "name": "isHeader",
+          "type": "boolean"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetTableHeader(isHeader: boolean): boolean",
+      "since": "10.0.0"
+    }
+  }
 }

@@ -351,6 +351,7 @@
         {
           "description": "The number the first numbered paragraph will start with.",
           "name": "startAt",
+          "optional": true,
           "type": "number"
         }
       ],
@@ -358,7 +359,7 @@
         "description": "returns null if numType is not one of the BulletType values.",
         "type": "ApiBullet | null"
       },
-      "signature": "CreateNumbering(numType: BulletType, startAt: number): ApiBullet | null"
+      "signature": "CreateNumbering(numType: BulletType, startAt?: number): ApiBullet | null"
     },
     "CreateParagraph": {
       "description": "Creates a new paragraph.",
@@ -508,28 +509,6 @@
       "signature": "CreateShadow(settings: ShadowSettings): ApiShadow",
       "since": "10.0.0"
     },
-    "CreateShd": {
-      "description": "Creates the shading which can be applied to text, a paragraph, a table or a table cell.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateShd/",
-      "params": [
-        {
-          "description": "The shading type: **\"nil\"** - no shading, **\"clear\"** - solid fill.",
-          "name": "type",
-          "type": "ShdType"
-        },
-        {
-          "description": "The shading color. Required for the **\"clear\"** type.",
-          "name": "color",
-          "optional": true,
-          "type": "ApiColor"
-        }
-      ],
-      "returns": {
-        "type": "ApiShd"
-      },
-      "signature": "CreateShd(type: ShdType, color?: ApiColor): ApiShd",
-      "since": "10.0.0"
-    },
     "CreateSolidFill": {
       "description": "Creates a solid fill to apply to the object using a selected solid color as the object background.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/CreateSolidFill/",
@@ -671,7 +650,7 @@
       "since": "8.2.0"
     },
     "GetByInternalId": {
-      "description": "Returns an object by its internal ID.",
+      "description": "Returns an object by its internal ID.\nInternal IDs are valid only for the current editing session: they stay the same while the spreadsheet is open,\nbut they are not saved to the file and can be different after the spreadsheet is reopened.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/GetByInternalId/",
       "params": [
         {
@@ -978,13 +957,13 @@
           "description": "A new worksheet name.",
           "name": "newSheetName",
           "optional": true,
-          "type": "ApiRange"
+          "type": "string"
         }
       ],
       "returns": {
         "type": "ApiPivotTable"
       },
-      "signature": "InsertPivotNewWorksheet(dataRef: ApiRange, newSheetName?: ApiRange): ApiPivotTable",
+      "signature": "InsertPivotNewWorksheet(dataRef: ApiRange, newSheetName?: string): ApiPivotTable",
       "since": "8.2.0"
     },
     "Intersect": {
@@ -1328,6 +1307,7 @@
         }
       ],
       "returns": {
+        "description": "Returns true if the formulas were recalculated, false if there is no workbook.",
         "type": "boolean"
       },
       "signature": "RecalculateAllFormulas(fLogger?: (...args: unknown[]) => unknown): boolean"

@@ -10,6 +10,30 @@
         "type": "\"richParaPr\""
       },
       "signature": "GetClassType(): \"richParaPr\""
+    },
+    "GetJc": {
+      "description": "Returns the rich paragraph contents justification.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParaPr/Methods/GetJc/",
+      "params": [],
+      "returns": {
+        "type": "HorTextAlign"
+      },
+      "signature": "GetJc(): HorTextAlign"
+    },
+    "SetJc": {
+      "description": "Sets the rich paragraph contents justification.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiRichParaPr/Methods/SetJc/",
+      "params": [
+        {
+          "description": "The justification type that will be applied to the rich paragraph contents.",
+          "name": "jc",
+          "type": "HorTextAlign"
+        }
+      ],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SetJc(jc: HorTextAlign): boolean"
     }
   }
 }

@@ -487,8 +487,11 @@ export namespace Word {
     rotateWithShape?: boolean;
   }
 
-  /** This type specifies the preset shape geometry that will be used for a shape. */
-  export type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "textRect" | "trapezoid" | "triangle" | "upArrowCallout" | "upDownArrow" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
+  /**
+   * This type specifies the preset shape geometry that will be used for a shape. Unknown values are
+   * replaced with "rect". The "textRect" value means a text box with the "rect" geometry.
+   */
+  export type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "textRect" | "trapezoid" | "triangle" | "upArrow" | "upArrowCallout" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
 
   /**
    * The operation used to merge shapes.
@@ -562,20 +565,19 @@ export namespace Word {
    * - **"topRightCell"** - specifies that the table formatting is applied to the top right cell.
    * - **"bottomLeftCell"** - specifies that the table formatting is applied to the bottom left cell.
    * - **"bottomRightCell"** - specifies that the table formatting is applied to the bottom right cell.
-   * - **"firstRow"** - specifies that the table formatting is applied to the first row.
+   * - **"firstRow"** - specifies that the table formatting is applied to the first row. Any subsequent
+   * row which is in *table header* will also use this conditional format.
    * - **"lastRow"** - specifies that the table formatting is applied to the last row.
-   * - **"firstColumn"** - specifies that the table formatting is applied to the first column. Any
-   * subsequent row which is in *table header* ({@link ApiTableRowPr#SetTableHeader}) will also use this
-   * conditional format.
+   * - **"firstColumn"** - specifies that the table formatting is applied to the first column.
    * - **"lastColumn"** - specifies that the table formatting is applied to the last column.
    * - **"bandedColumn"** - specifies that the table formatting is applied to odd numbered groupings of
-   * rows.
+   * columns.
    * - **"bandedColumnEven"** - specifies that the table formatting is applied to even numbered groupings
-   * of rows.
+   * of columns.
    * - **"bandedRow"** - specifies that the table formatting is applied to odd numbered groupings of
-   * columns.
+   * rows.
    * - **"bandedRowEven"** - specifies that the table formatting is applied to even numbered groupings of
-   * columns.
+   * rows.
    * - **"wholeTable"** - specifies that the conditional formatting is applied to the whole table.
    */
   export type TableStyleOverrideType = "topLeftCell" | "topRightCell" | "bottomLeftCell" | "bottomRightCell" | "firstRow" | "lastRow" | "firstColumn" | "lastColumn" | "bandedColumn" | "bandedColumnEven" | "bandedRow" | "bandedRowEven" | "wholeTable";
@@ -1255,8 +1257,8 @@ export namespace Word {
      * **Note:**
      * Values of _styleIndex_ outside **1 - 48** are interpreted as a chart style id from the
      * _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs
-     * Enterprise](https://www.onlyoffice.com/docs-enterprise-prices?from=api) and [ONLYOFFICE Docs
-     * Developer](https://www.onlyoffice.com/developer-edition-prices?from=api).
+     * Enterprise](https://www.onlyoffice.com/pricing?from=api) and [ONLYOFFICE Docs
+     * Developer](https://www.onlyoffice.com/pricing?from=api).
      *
      * @param chartType - The chart type used for the chart display.
      * @param series - The array of the data used to build the chart from.
@@ -1270,6 +1272,7 @@ export namespace Word {
      * @param numFormats - Numeric formats which will be applied to the series (can be custom formats). The default numeric
      *   format is "General".
      * @default chartType = "ColumnClustered"
+     * @default styleIndex = 2
      * @returns returns null if the chart type is not supported.
      *
      * @example
@@ -1293,8 +1296,8 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/CreateChart/
      */
-    CreateChart(series: number[][], seriesNames: number[] | string[], catNames: number[] | string[], width: EMU, height: EMU, styleIndex: number, numFormats: NumFormat[] | string[]): ApiChart | null;
-    CreateChart(chartType: ChartType, series: number[][], seriesNames: number[] | string[], catNames: number[] | string[], width: EMU, height: EMU, styleIndex: number, numFormats: NumFormat[] | string[]): ApiChart | null;
+    CreateChart(series: number[][], seriesNames: number[] | string[], catNames: number[] | string[], width: EMU, height: EMU): ApiChart | null;
+    CreateChart(chartType: ChartType, series: number[][], seriesNames: number[] | string[], catNames: number[] | string[], width: EMU, height: EMU, styleIndex?: number, numFormats?: NumFormat[] | string[]): ApiChart | null;
 
     /**
      * Creates a checkbox content control.
@@ -1571,6 +1574,7 @@ export namespace Word {
 
     /**
      * Groups an array of drawings.
+     *
      * **Note:**
      * The drawings must not be added to the document. To group the drawings which are already in the
      * document, use the {@link ApiDocument#GroupDrawings} method.
@@ -1713,6 +1717,20 @@ export namespace Word {
      * @param format - The format of the specified linear representation.
      * @default format = "unicode"
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Build a math equation object and insert it into a paragraph like a text run in a document.
+     *
+     * // Create the equation from a Unicode math expression string before attaching it to the paragraph.
+     *
+     * // Produce a reusable equation object and place it into paragraph content in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let math = Api.CreateMath("x^2 + y^2 = z^2", "unicode");
+     * paragraph.AddElement(math);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/CreateMath/
      */
@@ -2046,7 +2064,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/CreateRange/
      */
-    CreateRange(element: unknown, start: unknown, end: unknown): ApiRange | null;
+    CreateRange(element: ApiParagraph | ApiHyperlink | ApiRun | ApiTable | ApiDocumentContent | ApiDocument | ApiInlineLvlSdt | ApiBlockLvlSdt, start?: number, end?: number): ApiRange | null;
 
     /**
      * Creates a new smaller text block to be inserted to the current paragraph or table.
@@ -2097,6 +2115,27 @@ export namespace Word {
      * @param settings - The shadow properties.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Create a shadow and apply it to a shape in a document.
+     *
+     * // Build an outer shadow with a color, transparency and offset, then attach it to a drawing.
+     *
+     * // Create a shape, create the shadow via Api.CreateShadow, and apply it with SetShadow.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = doc.GetElement(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 213, 191));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 120 * 36000, 60 * 36000, fill, stroke);
+     * paragraph.AddDrawing(shape);
+     * shape.SetWrappingStyle("inFront");
+     * shape.SetHorPosition("page", 30 * 36000);
+     * shape.SetVerPosition("page", 30 * 36000);
+     * const shadow = Api.CreateShadow({ color: Api.RGB(0, 0, 0), transparency: 0.4, offsetX: 3, offsetY: 3 });
+     * shape.SetShadow(shadow);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/CreateShadow/
      */
     CreateShadow(settings: ShadowSettings): ApiShadow;
@@ -2104,8 +2143,9 @@ export namespace Word {
     /**
      * Creates a shape with the parameters specified.
      *
-     * @param shapeType - The shape type which specifies the preset shape geometry. The "textRect" type creates a text box
-     *   as the editor inserts it: a light fill and a thin black outline.
+     * @param shapeType - The shape type which specifies the preset shape geometry. An unknown type is replaced with
+     *   "rect". The "textRect" type creates a text box with the "rect" geometry, as the editor inserts
+     *   it: a light fill and a thin black outline.
      * @param width - The shape width in English measure units.
      * @param height - The shape height in English measure units.
      * @param fill - The color or pattern used to fill the shape. If not specified, the default shape style fill
@@ -2142,6 +2182,21 @@ export namespace Word {
      * @param type - The shading type: **"nil"** - no shading, **"clear"** - solid fill.
      * @param color - The shading color. Required for the **"clear"** type.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Create a shading object and apply it to a paragraph in a document.
+     *
+     * // Build the shading once with Api.CreateShd and pass it to the SetShd method in a document.
+     *
+     * // Shade a paragraph with a light yellow background in a document.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = doc.GetElement(0);
+     * paragraph.AddText('This paragraph has a light yellow shading.');
+     * const shd = Api.CreateShd('clear', Api.Color('#FFF2CC'));
+     * paragraph.SetShd(shd);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/CreateShd/
      */
@@ -2199,6 +2254,7 @@ export namespace Word {
 
     /**
      * Creates a new table with a specified number of rows and columns.
+     * The table is created empty, without any settings: it has no style, no borders and no width.
      *
      * **Breaking Change:**
      * Starting from version 9.4.0, the parameter order has been changed from `Api.CreateTable(cols, rows)`
@@ -2522,7 +2578,10 @@ export namespace Word {
     FromJSON(message: string): ApiBlockLvlSdt | ApiDocumentContent | ApiDrawing | ApiHyperlink | ApiInlineLvlSdt | ApiParagraph | ApiRun | ApiSection | ApiTable | null;
 
     /**
-     * Returns the object by it's internal ID.
+     * Returns the object by its internal ID.
+     * Internal IDs are valid only for the current editing session: they stay the same while the document
+     * is open,
+     * but they are not saved to the file and can be different after the document is reopened.
      *
      * @param id - The object internal ID.
      * @since 9.0.4
@@ -2848,6 +2907,25 @@ export namespace Word {
      *   spreadsheet document builder.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Merge two overlapping shapes into a single shape in a document.
+     *
+     * // Build a custom shape from simple shapes with the union operation.
+     *
+     * // Unite a rectangle and an ellipse into one shape filled with the color of the rectangle.
+     *
+     * let doc = Api.GetDocument();
+     * let fill1 = Api.CreateSolidFill(Api.Color(255, 111, 61));
+     * let fill2 = Api.CreateSolidFill(Api.Color(51, 51, 51));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let rectangle = Api.CreateShape("rect", 60 * 36000, 40 * 36000, fill1, stroke);
+     * let ellipse = Api.CreateShape("ellipse", 40 * 36000, 40 * 36000, fill2, stroke);
+     * doc.AddDrawingToPage(rectangle, 0, 30 * 36000, 40 * 36000);
+     * doc.AddDrawingToPage(ellipse, 0, 70 * 36000, 40 * 36000);
+     * Api.MergeShapes([rectangle, ellipse], "union");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/MergeShapes/
      */
     MergeShapes(drawings: Drawing[], operation: ShapesMergeOperation): Drawing[] | null;
@@ -2955,6 +3033,23 @@ export namespace Word {
      * Converts pixels to EMUs (English Metric Units).
      *
      * @param px - The number of pixels to convert to EMUs.
+     *
+     * @example
+     * ```js
+     * // Convert a pixel value to English metric units and display the result in a document.
+     *
+     * // How do I find the English metric unit equivalent of a pixel measurement in a document?
+     *
+     * // Show the English metric unit value that matches a given number of pixels in a document.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = Api.CreateParagraph();
+     *
+     * const pixels = 1080;
+     * const emus = Api.PixelsToEmus(pixels);
+     * paragraph.AddText(pixels + ' pixels are equal to ' + emus + ' english metric units.');
+     * doc.Push(paragraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/Api/Methods/PixelsToEmus/
      */
@@ -3748,7 +3843,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiBlockLvlSdt/Methods/GetAllTablesOnPage/
      */
-    GetAllTablesOnPage(page: unknown): ApiTable[];
+    GetAllTablesOnPage(page: number): ApiTable[];
 
     /**
      * Gets the visualization of the content control.
@@ -3853,6 +3948,37 @@ export namespace Word {
     GetClassType(): "blockLvlSdt";
 
     /**
+     * Returns the tag color of the content control.
+     *
+     * @returns Returns the tag color, or _null_ if no color is set.
+     * @since 9.4.0
+     *
+     * @example
+     * ```js
+     * // Read the highlight color of a content control in a document.
+     *
+     * // How do I get the color assigned to a content control in a document?
+     *
+     * // Check what color a content control has and display its hex value in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let blockLvlSdt = Api.CreateBlockLvlSdt();
+     * blockLvlSdt.SetColor(Api.RGB(0, 0, 255));
+     * let color = blockLvlSdt.GetColor();
+     * blockLvlSdt.GetContent().GetElement(0).AddText("Color: " + (color ? color.GetHex() : "none"));
+     * doc.AddElement(0, blockLvlSdt);
+     *
+     * blockLvlSdt = Api.CreateBlockLvlSdt();
+     * color = blockLvlSdt.GetColor();
+     * blockLvlSdt.GetContent().GetElement(0).AddText("Color: " + (color ? color.GetHex() : "none"));
+     * doc.AddElement(1, blockLvlSdt);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiBlockLvlSdt/Methods/GetColor/
+     */
+    GetColor(): ApiColor | null;
+
+    /**
      * Returns the content of the current container.
      *
      * @example
@@ -3879,6 +4005,35 @@ export namespace Word {
      *
      * @returns Returns the data binding of the content control if it exists, otherwise `null`.
      * @since 9.0.0
+     *
+     * @example
+     * ```js
+     * // Read the XML data binding linked to a content control in a document.
+     *
+     * // Get the XML data binding attached to a content control in a document.
+     *
+     * // Inspect which XML source a content control is connected to and display its ID in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let xmlManager = doc.GetCustomXmlParts();
+     * let xmlText = `
+     * <?xml version="1.0" encoding="UTF-8"?>
+     * <pic:documentData xmlns:pic="http://example.com/picture">
+     *   <pic:text>123</pic:text>
+     * </pic:documentData>`;
+     * let partId = xmlManager.Add(xmlText).GetId();
+     * let contentControl = Api.CreateBlockLvlSdt();
+     * doc.Push(contentControl);
+     * contentControl.SetDataBinding({
+     *   prefixMapping : "xmlns:pic='http://example.com/picture'",
+     *   storeItemID : partId,
+     *   xpath : "/pic:documentData/pic:text"
+     * });
+     * let dataBinding = contentControl.GetDataBinding();
+     * let paragraph = Api.CreateParagraph();
+     * paragraph.AddText(dataBinding.storeItemID);
+     * doc.Push(paragraph);
+     * ```
      */
     GetDataBinding(): XmlMapping | null;
 
@@ -3918,6 +4073,8 @@ export namespace Word {
 
     /**
      * Returns a unique ID for the current content control.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiBlockLvlSdt#GetInternalId} method.
      *
      * @since 8.3.2
      *
@@ -3941,10 +4098,14 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiBlockLvlSdt/Methods/GetId/
      */
-    GetId(): string;
+    GetId(): number;
 
     /**
-     * Returns an internal id of the current content control.
+     * Returns an internal ID of the current content control.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
+     * To get the ID which is saved to the file, use the {@link ApiBlockLvlSdt#GetId} method.
      *
      * @example
      * ```js
@@ -4015,6 +4176,23 @@ export namespace Word {
      * @returns returns the main document, a document part (table cell, header/footer, footnote, etc.), or null
      *   if the content control has no parent.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Access the document content that contains a block content control.
+     *
+     * // The parent is the document content that holds the block-level content control.
+     *
+     * // Navigate from a block content control up to its parent and count its elements.
+     *
+     * let doc = Api.GetDocument();
+     * let blockSdt = Api.CreateBlockLvlSdt();
+     * doc.Push(blockSdt);
+     * let parent = blockSdt.GetParent();
+     * let report = Api.CreateParagraph();
+     * report.AddText("The parent holds " + parent.GetElementsCount() + " elements.");
+     * doc.Push(report);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiBlockLvlSdt/Methods/GetParent/
      */
@@ -4266,6 +4444,64 @@ export namespace Word {
     MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
+     * Moves the cursor to the end of the current content control.
+     * The cursor is placed inside the content control. To place it before or after the content control,
+     * use the MoveCursorOutside method.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the end of a block content control in a document.
+     *
+     * // The cursor is placed inside the content control. Use the MoveCursorOutside method to place it before or after the control.
+     *
+     * // Insert text at the end of the last paragraph in the content control.
+     *
+     * let doc = Api.GetDocument();
+     * let blockLvlSdt = Api.CreateBlockLvlSdt();
+     * let content = blockLvlSdt.GetContent();
+     * content.GetElement(0).AddText("First paragraph in the content control.");
+     * let paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Last paragraph in the content control.");
+     * content.Push(paragraph);
+     * doc.AddElement(0, blockLvlSdt);
+     * blockLvlSdt.MoveCursorToEnd();
+     * doc.EnterText(" New text.");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiBlockLvlSdt/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor to the start of the current content control.
+     * The cursor is placed inside the content control. To place it before or after the content control,
+     * use the MoveCursorOutside method.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the start of a block content control in a document.
+     *
+     * // The cursor is placed inside the content control. Use the MoveCursorOutside method to place it before or after the control.
+     *
+     * // Insert text at the beginning of the first paragraph in the content control.
+     *
+     * let doc = Api.GetDocument();
+     * let blockLvlSdt = Api.CreateBlockLvlSdt();
+     * blockLvlSdt.GetContent().GetElement(0).AddText("Existing text in the content control.");
+     * doc.AddElement(0, blockLvlSdt);
+     * blockLvlSdt.MoveCursorToStart();
+     * doc.EnterText("New text. ");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiBlockLvlSdt/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
+
+    /**
      * Pushes a paragraph or a table or a block content control to actually add it to the current
      * container.
      *
@@ -4346,6 +4582,7 @@ export namespace Word {
      * @param text - Search string, or a regular expression to match. When a RegExp is passed, the isMatchCase
      *   parameter is ignored (control case sensitivity with the "i" flag instead).
      * @param isMatchCase - Case sensitive or not.
+     * @default isMatchCase = false
      *
      * @example
      * ```js
@@ -4484,6 +4721,31 @@ export namespace Word {
     SetBorderColor(color?: ApiColor): boolean;
 
     /**
+     * Sets the tag color of the content control.
+     *
+     * @param color - The tag color. Pass _null_ to remove the color.
+     * @since 9.4.0
+     *
+     * @example
+     * ```js
+     * // Set the tag color of a content control in a document.
+     *
+     * // How do I change the tag color of a content control in a document?
+     *
+     * // Color-code a content control tag to categorize or identify it visually in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let blockLvlSdt = Api.CreateBlockLvlSdt();
+     * blockLvlSdt.SetColor(Api.RGB(0, 0, 255));
+     * blockLvlSdt.GetContent().GetElement(0).AddText("This is a block text content control with a blue tag color.");
+     * doc.AddElement(0, blockLvlSdt);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiBlockLvlSdt/Methods/SetColor/
+     */
+    SetColor(color: ApiColor | null): boolean;
+
+    /**
      * Sets the data binding for the content control.
      *
      * @param xmlMapping - The data binding to associate with the content control.
@@ -4518,6 +4780,8 @@ export namespace Word {
 
     /**
      * Specifies a unique ID for the current content control.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiBlockLvlSdt#GetInternalId} method.
      *
      * @param id - The numerical ID which will be specified for the current content control.
      * @since 8.3.2
@@ -4903,6 +5167,60 @@ export namespace Word {
     GoTo(): boolean;
 
     /**
+     * Moves the cursor to the end of the current bookmark.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the end of a bookmark in a document.
+     *
+     * // The cursor is placed at the end of the bookmarked text without selecting it.
+     *
+     * // Insert a word where the bookmarked text ends.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("ONLYOFFICE Builder");
+     * let range = doc.Search("ONLYOFFICE")[0];
+     * range.AddBookmark("Company");
+     * let bookmark = doc.GetBookmark("Company");
+     * bookmark.MoveCursorToEnd();
+     * doc.EnterText(" Document");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiBookmark/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor to the start of the current bookmark.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the start of a bookmark in a document.
+     *
+     * // The cursor is placed at the start of the bookmarked text without selecting it.
+     *
+     * // Insert a word where the bookmarked text starts.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("ONLYOFFICE Builder");
+     * let range = doc.Search("Builder")[0];
+     * range.AddBookmark("Product");
+     * let bookmark = doc.GetBookmark("Product");
+     * bookmark.MoveCursorToStart();
+     * doc.EnterText("Document ");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiBookmark/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
+
+    /**
      * Selects the current bookmark.
      *
      * @since 8.3.0
@@ -4983,16 +5301,12 @@ export namespace Word {
     SetText(sText: string): boolean;
   }
 
-  /** Class representing a paragraph bullet. */
-  export interface ApiBullet {
-  }
-
   /**
    * Class representing a chart.
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/
    */
-  export interface ApiChart extends Omit<ApiDrawing, "GetClassType" | "SetTitle"> {
+  export interface ApiChart extends Omit<ApiDrawing, "Copy" | "GetClassType" | "SetTitle"> {
     /**
      * Inserts a break at the specified location in the main document.
      *
@@ -5052,10 +5366,12 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/ApplyChartStyle/
      */
-    ApplyChartStyle(nStyleId: unknown): boolean;
+    ApplyChartStyle(nStyleId: number): boolean;
 
     /**
-     * Copies the current graphic object.
+     * Creates a copy of the current chart.
+     *
+     * @since 9.4.0
      *
      * @example
      * ```js
@@ -5075,9 +5391,9 @@ export namespace Word {
      * paragraph.AddDrawing(copyChart);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/Copy/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/Copy/
      */
-    Copy(): ApiDrawing | null;
+    Copy(): ApiChart | null;
 
     /**
      * Deletes the current graphic object.
@@ -5185,7 +5501,8 @@ export namespace Word {
     GetAllowOverlap(): boolean;
 
     /**
-     * Returns a type of the chart object.
+     * Returns a type of the chart object using the legacy chart type names. To get a chart type name that
+     * can be used to create a chart, use the GetType method.
      *
      * @example
      * ```js
@@ -5843,8 +6160,34 @@ export namespace Word {
     GetTitle(): string | null;
 
     /**
-     * Returns a type of the chart object using the chart type names from the {@link ChartType}
+     * Returns a type of the chart object using the chart type names from the {@link global#ChartType}
      * enumeration.
+     *
+     * @example
+     * ```js
+     * // Read the chart type using the chart type name in a document.
+     *
+     * // Useful for confirming a chart's type before applying type-specific formatting in a document.
+     *
+     * // Confirm a chart's type at runtime by showing its name in the chart title in a document.
+     *
+     * const doc = Api.GetDocument();
+     * const firstParagraph = doc.GetElement(0);
+     *
+     * const chart = Api.CreateChart('3DColumnClustered', [
+     * 	[200, 240, 280],
+     * 	[250, 260, 280]
+     * ], ['Projected Revenue', 'Estimated Costs'], [2014, 2015, 2016], 4051300, 2347595, 24);
+     *
+     * const solidGrey = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const solidOrange = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * chart.SetSeriesFill(solidGrey, 0, false);
+     * chart.SetSeriesFill(solidOrange, 1, false);
+     * const chartType = chart.GetType();
+     * chart.SetTitle('This chart is of the ' + chartType + ' type', 28);
+     *
+     * firstParagraph.AddDrawing(chart);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/GetType/
      */
@@ -5920,6 +6263,8 @@ export namespace Word {
      * @param sPosition - The position where the text or paragraph will be inserted ("before" or "after" the drawing
      *   specified).
      * @param beRNewPara - Defines if this method returns a new paragraph (true) or the current ApiDrawing (false).
+     * @default sPosition = "after"
+     * @default beRNewPara = false
      * @returns returns null if parent paragraph doesn't exist.
      *
      * @example
@@ -5943,6 +6288,28 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/InsertParagraph/
      */
     InsertParagraph(paragraph: string | ApiParagraph, sPosition?: string, beRNewPara?: boolean): ApiParagraph | ApiDrawing;
+
+    /**
+     * Moves the cursor after the current drawing.
+     * To move the cursor into the text of a shape, use the MoveCursorToStart or MoveCursorToEnd method of
+     * the content returned by GetDocContent.
+     *
+     * @since 10.0.3
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor before the current drawing.
+     * To move the cursor into the text of a shape, use the MoveCursorToStart or MoveCursorToEnd method of
+     * the content returned by GetDocContent.
+     *
+     * @since 10.0.3
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
 
     /**
      * Removes the specified series from the current chart.
@@ -6090,6 +6457,28 @@ export namespace Word {
      * @param sFormat - Numeric format (can be custom format).
      * @param sAxisPos - Axis position in the chart.
      *
+     * @example
+     * ```js
+     * // Format the numbers displayed on a chart axis in a document.
+     *
+     * // How do I control how axis values are formatted on a chart in a document?
+     *
+     * // Display axis labels with a fixed decimal precision to improve chart readability in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let chart = Api.CreateChart("3DColumnClustered", [
+     * 	[200, 240, 280],
+     * 	[250, 260, 280]
+     * ], ["Projected Revenue", "Estimated Costs"], [2014, 2015, 2016], 4051300, 2347595, 24);
+     * let fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * chart.SetSeriesFill(fill, 0, false);
+     * fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * chart.SetSeriesFill(fill, 1, false);
+     * chart.SetAxisNumFormat("0.00", "left");
+     * paragraph.AddDrawing(chart);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/SetAxisNumFormat/
      */
     SetAxisNumFormat(sFormat: NumFormat | string, sAxisPos: AxisPos): boolean;
@@ -6130,6 +6519,35 @@ export namespace Word {
      * @param textPr - The text properties to apply to the data labels.
      * @returns Returns true if the text properties were applied successfully, false otherwise.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the text properties for all chart data labels in a document.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = doc.GetElement(0);
+     *
+     * const chart = Api.CreateChart('bar3D', [
+     * 	[200, 240, 280],
+     * 	[250, 260, 280]
+     * ], ['Projected Revenue', 'Estimated Costs'], [2014, 2015, 2016], 4051300, 2347595, 24);
+     * chart.SetSeriesFill(Api.CreateSolidFill(Api.RGB(55, 71, 79)), 0, false);
+     * chart.SetSeriesFill(Api.CreateSolidFill(Api.RGB(21, 101, 131)), 1, false);
+     * chart.SetVerAxisTitle('USD In Hundred Thousands', 20);
+     * chart.SetHorAxisTitle('Year', 22);
+     * chart.SetLegendPos('bottom');
+     * chart.SetShowDataLabels(false, false, true, false);
+     * chart.SetTitle('Financial Overview', 26);
+     *
+     * const textPr = Api.CreateTextPr();
+     * textPr.SetFontSize(18);
+     * textPr.SetBold(true);
+     * textPr.SetFontFamily('Arial');
+     * textPr.SetColor(Api.RGB(25, 80, 150));
+     * chart.SetDataLabelsTextPr(textPr);
+     *
+     * paragraph.AddDrawing(chart);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/SetDataLabelsTextPr/
      */
@@ -6339,6 +6757,17 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetDrawingPrFromDrawing/
      */
     SetDrawingPrFromDrawing(oAnotherDrawing: ApiDrawing): boolean;
+
+    /**
+     * Sets the fill formatting properties to the current graphic object.
+     *
+     * @param oFill - The fill type used to fill the graphic object.
+     * @returns returns false if param is invalid or not supported for the current graphic object.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetFill/
+     */
+    SetFill(oFill: ApiFill): boolean;
 
     /**
      * Sets the horizontal flip of the current drawing.
@@ -6651,7 +7080,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/SetHorAxisTitle/
      */
-    SetHorAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean;
+    SetHorAxisTitle(sTitle: string, fontSize?: hps, bIsBold?: boolean): boolean;
 
     /**
      * Flips the current drawing horizontally.
@@ -6683,8 +7112,8 @@ export namespace Word {
      *
      * @param sRelativeFrom - The document element which will be taken as a countdown point for the object horizontal
      *   alignment.
-     * @param nDistance - The distance from the right side of the document element to the floating object. Use EMU for
-     *   absolute distance or a number for percent (1 = 1%) when bPercent=true.
+     * @param nDistance - The distance from the left edge of the document element to the left edge of the floating object.
+     *   Use EMU for absolute distance or a number for percent (1 = 1%) when bPercent=true.
      * @param bPercent - The option defining whether the horizontal alignment offset is specified in percent.
      * @default bPercent = false
      *
@@ -6854,6 +7283,17 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/SetLegendPos/
      */
     SetLegendPos(sLegendPos: "left" | "top" | "right" | "bottom" | "none"): boolean;
+
+    /**
+     * Sets the outline properties to the current graphic object.
+     *
+     * @param stroke - The stroke used to create the graphic object outline.
+     * @returns returns false if param is invalid or not supported for the current graphic object.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetLine/
+     */
+    SetLine(stroke: ApiStroke): boolean;
 
     /**
      * Sets whether the aspect ratio of the drawing is locked.
@@ -7237,6 +7677,42 @@ export namespace Word {
      * @returns Returns true if the text properties were applied successfully, false otherwise.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the text properties for a specific chart point data label in a document.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = doc.GetElement(0);
+     *
+     * const chart = Api.CreateChart(
+     * 	'bar3D',
+     * 	[
+     * 		[200, 240, 280],
+     * 		[250, 260, 280]
+     * 	],
+     * 	['Projected Revenue', 'Estimated Costs'],
+     * 	[2014, 2015, 2016],
+     * 	4051300, 2347595, 24
+     * );
+     * chart.SetSeriesFill(Api.CreateSolidFill(Api.RGB(69, 90, 100)), 0, false);
+     * chart.SetSeriesFill(Api.CreateSolidFill(Api.RGB(38, 80, 109)), 1, false);
+     * chart.SetVerAxisTitle('USD In Hundred Thousands', 20);
+     * chart.SetHorAxisTitle('Year', 22);
+     * chart.SetLegendPos('bottom');
+     * chart.SetShowDataLabels(false, false, true, false);
+     * chart.SetTitle('Financial Overview', 26);
+     *
+     * const textPr = Api.CreateTextPr();
+     * textPr.SetFontSize(24);
+     * textPr.SetBold(true);
+     * textPr.SetItalic(true);
+     * textPr.SetFontFamily('Arial');
+     * textPr.SetColor(Api.RGB(210, 105, 30));
+     * chart.SetPointDataLabelTextPr(1, 0, textPr);
+     *
+     * paragraph.AddDrawing(chart);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/SetPointDataLabelTextPr/
      */
     SetPointDataLabelTextPr(seriesIndex: number, pointIndex: number, textPr: ApiTextPr): boolean;
@@ -7563,6 +8039,31 @@ export namespace Word {
      * @default bShowKeys = false
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Display the data table beneath a chart in a document.
+     *
+     * // Add the source values as a grid below the plot area, including the legend keys.
+     *
+     * // Turn on the data table with legend keys for a 3D bar chart in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let chart = Api.CreateChart("3DColumnClustered", [
+     * 	[200, 240, 280],
+     * 	[250, 260, 280]
+     * ], ["Projected Revenue", "Estimated Costs"], [2014, 2015, 2016], 4051300, 2347595, 24);
+     * let fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * chart.SetSeriesFill(fill, 0, false);
+     * fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * chart.SetSeriesFill(fill, 1, false);
+     * chart.SetVerAxisTitle("USD In Hundred Thousands", 20);
+     * chart.SetHorAxisTitle("Year", 22);
+     * chart.SetShowDataTable(true, true);
+     * chart.SetTitle("Financial Overview", 26);
+     * paragraph.AddDrawing(chart);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/SetShowDataTable/
      */
     SetShowDataTable(bShow: boolean, bShowKeys?: boolean): boolean;
@@ -7674,7 +8175,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/SetTitle/
      */
-    SetTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean;
+    SetTitle(sTitle: string, fontSize?: hps, bIsBold?: boolean): boolean;
 
     /**
      * Sets the fill to the chart title.
@@ -7841,14 +8342,15 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChart/Methods/SetVerAxisTitle/
      */
-    SetVerAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean;
+    SetVerAxisTitle(sTitle: string, fontSize?: hps, bIsBold?: boolean): boolean;
 
     /**
      * Sets the absolute measurement for the vertical positioning of the floating object.
      *
      * @param sRelativeFrom - The document element which will be taken as a countdown point for the object vertical alignment.
-     * @param nDistance - The distance from the bottom part of the document element to the floating object. Use EMU for
-     *   absolute units or a number (1 = 1%) when bPercent=true for percent relative positioning.
+     * @param nDistance - The distance from the top edge of the document element to the top edge of the floating object.
+     *   Use EMU for absolute units or a number (1 = 1%) when bPercent=true for percent relative
+     *   positioning.
      * @param bPercent - The option defining whether the vertical alignment offset is specified in percent.
      * @default bPercent = false
      *
@@ -8260,7 +8762,8 @@ export namespace Word {
     ChangeChartType(sType: ChartType): boolean;
 
     /**
-     * Returns a chart type of the current series.
+     * Returns a chart type of the current series using the legacy chart type names. To get a chart type
+     * name that can be passed to the ChangeChartType method, use the GetType method.
      *
      * @example
      * ```js
@@ -8332,8 +8835,39 @@ export namespace Word {
     GetClassType(): "chartSeries";
 
     /**
-     * Returns a chart type of the current series using the chart type names from the {@link ChartType}
-     * enumeration.
+     * Returns a chart type of the current series using the chart type names from the
+     * {@link global#ChartType} enumeration.
+     *
+     * @example
+     * ```js
+     * // Read the chart type name of a specific data series in a document.
+     *
+     * // Useful for confirming which chart type a specific data series uses in a document.
+     *
+     * // Verify the type assigned to a series before deciding whether to change it in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let chart = Api.CreateChart("ComboColumnClusteredLine", [
+     * 	[200, 240, 280],
+     * 	[250, 260, 280]
+     * ], ["Projected Revenue", "Estimated Costs"], [2014, 2015, 2016], 4051300, 2347595, 24);
+     * let fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * chart.SetSeriesFill(fill, 0, false);
+     * fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * chart.SetSeriesFill(fill, 1, false);
+     * chart.SetVerAxisTitle("USD In Hundred Thousands", 20);
+     * chart.SetHorAxisTitle("Year", 22);
+     * chart.SetLegendPos("bottom");
+     * chart.SetShowDataLabels(false, false, true, false);
+     * chart.SetTitle("Financial Overview", 26);
+     * paragraph.AddDrawing(chart);
+     * let series = chart.GetSeries(0);
+     * let seriesType = series.GetType();
+     * paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Series Type = " + seriesType);
+     * doc.Push(paragraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiChartSeries/Methods/GetType/
      */
@@ -8398,6 +8932,7 @@ export namespace Word {
      * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
+     * @default keepContent = false
      * @returns returns false if form wasn't added to the document.
      * @since 9.2.0
      *
@@ -8646,7 +9181,42 @@ export namespace Word {
     GetGroupValue(): string;
 
     /**
-     * Returns an internal id of the current form.
+     * Returns a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @since 10.0.1
+     *
+     * @example
+     * ```js
+     * // Read the ID assigned to a checkbox form in a document.
+     *
+     * // Check the ID that was set for a checkbox form with the SetId method in a document.
+     *
+     * // Display the checkbox form ID that is saved to the file and stays the same after the document is reopened.
+     *
+     * let doc = Api.GetDocument();
+     * let checkBoxForm = Api.CreateCheckBoxForm({"key": "Marital status", "tip": "Specify your marital status", "required": true, "placeholder": "Marital status", "radio": true});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(checkBoxForm);
+     * paragraph.AddText(" Married");
+     * checkBoxForm.SetId(1001);
+     * let formId = checkBoxForm.GetId();
+     * paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Form ID: " + formId);
+     * doc.Push(paragraph);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetId/
+     */
+    GetId(): number;
+
+    /**
+     * Returns an internal ID of the current form.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
+     * To get the ID which is saved to the file, use the {@link ApiFormBase#GetId} method.
      *
      * @since 9.2.0
      *
@@ -9175,6 +9745,62 @@ export namespace Word {
     MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
+     * Moves the cursor to the end of the current form.
+     * The cursor is placed inside the form. To place it before or after the form, use the
+     * MoveCursorOutside method.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the end of a checkbox form in a document.
+     *
+     * // The cursor is placed inside the checkbox form. Use the MoveCursorOutside method to place it before or after the form.
+     *
+     * // Place the cursor after the checkbox symbol.
+     *
+     * let doc = Api.GetDocument();
+     * let checkBoxForm = Api.CreateCheckBoxForm({"key": "Marital status", "tip": "Specify your marital status", "placeholder": "Marital status", "radio": false});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(checkBoxForm);
+     * paragraph.AddText(" Married");
+     * checkBoxForm.SetChecked(true);
+     * checkBoxForm.MoveCursorToEnd();
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor to the start of the current form.
+     * The cursor is placed inside the form. To place it before or after the form, use the
+     * MoveCursorOutside method.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the start of a checkbox form in a document.
+     *
+     * // The cursor is placed inside the checkbox form. Use the MoveCursorOutside method to place it before or after the form.
+     *
+     * // Place the cursor before the checkbox symbol.
+     *
+     * let doc = Api.GetDocument();
+     * let checkBoxForm = Api.CreateCheckBoxForm({"key": "Marital status", "tip": "Specify your marital status", "placeholder": "Marital status", "radio": false});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(checkBoxForm);
+     * paragraph.AddText(" Married");
+     * checkBoxForm.SetChecked(true);
+     * checkBoxForm.MoveCursorToStart();
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
+
+    /**
      * Sets the background color to the current form.
      *
      * @param color - The background color.
@@ -9374,6 +10000,38 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCheckBoxForm/Methods/SetGroupValue/
      */
     SetGroupValue(value: string): boolean;
+
+    /**
+     * Specifies a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @param id - The numerical ID which will be specified for the current form.
+     * @since 10.0.1
+     *
+     * @example
+     * ```js
+     * // Assign a unique ID to a checkbox form in a document.
+     *
+     * // Set a custom ID for a checkbox form to tell it apart from other forms in a document.
+     *
+     * // Give a checkbox form an ID that is saved to the file, unlike the internal ID which can change after reopening.
+     *
+     * let doc = Api.GetDocument();
+     * let checkBoxForm = Api.CreateCheckBoxForm({"key": "Marital status", "tip": "Specify your marital status", "required": true, "placeholder": "Marital status", "radio": true});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(checkBoxForm);
+     * paragraph.AddText(" Married");
+     * checkBoxForm.SetId(1001);
+     * let formId = checkBoxForm.GetId();
+     * paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Form ID: " + formId);
+     * doc.Push(paragraph);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/SetId/
+     */
+    SetId(id: number): boolean;
 
     /**
      * Sets the label for the current check box.
@@ -9680,6 +10338,7 @@ export namespace Word {
      * @param height - The wrapper shape height measured in twentieths of a point (1/1440 of an inch).
      * @param keepPosition - Save position on the page (it can be a little bit slow, because it runs the document
      *   calculation).
+     * @default keepPosition = false
      *
      * @example
      * ```js
@@ -9954,6 +10613,25 @@ export namespace Word {
      * @returns The shift from -1 (the darkest shade) to 1 (the lightest tint), 0 when the color is not shifted.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the luminance shift stored in a theme color in a document.
+     *
+     * // A theme color may be lightened or darkened; the shift is kept next to the theme name.
+     *
+     * // Write the shift and the resulting color of a lightened accent into the document.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = doc.GetElement(0);
+     *
+     * const lighter = Api.ThemeColor("accent1", 0.4);
+     * paragraph.AddText("Tint: " + lighter.GetTintAndShade() + ", color: " + lighter.GetHex());
+     * paragraph.AddLineBreak();
+     *
+     * const plain = Api.ThemeColor("accent1");
+     * paragraph.AddText("Without a shift: " + plain.GetTintAndShade() + ", color: " + plain.GetHex());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiColor/Methods/GetTintAndShade/
      */
     GetTintAndShade(): number;
@@ -10108,6 +10786,7 @@ export namespace Word {
      * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
+     * @default keepContent = false
      * @returns returns false if form wasn't added to the document.
      * @since 9.2.0
      *
@@ -10245,7 +10924,41 @@ export namespace Word {
     GetFormType(): FormType;
 
     /**
-     * Returns an internal id of the current form.
+     * Returns a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @since 10.0.1
+     *
+     * @example
+     * ```js
+     * // Read the ID assigned to a combo box form in a document.
+     *
+     * // Check the ID that was set for a combo box form with the SetId method in a document.
+     *
+     * // Display the combo box form ID that is saved to the file and stays the same after the document is reopened.
+     *
+     * let doc = Api.GetDocument();
+     * let comboBoxForm = Api.CreateComboBoxForm({"key": "Personal information", "tip": "Choose your country", "required": true, "placeholder": "Country", "editable": false, "autoFit": false, "items": ["Latvia", "USA", "UK"]});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(comboBoxForm);
+     * comboBoxForm.SetId(1001);
+     * let formId = comboBoxForm.GetId();
+     * paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Form ID: " + formId);
+     * doc.Push(paragraph);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetId/
+     */
+    GetId(): number;
+
+    /**
+     * Returns an internal ID of the current form.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
+     * To get the ID which is saved to the file, use the {@link ApiFormBase#GetId} method.
      *
      * @since 9.2.0
      *
@@ -10711,6 +11424,60 @@ export namespace Word {
     MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
+     * Moves the cursor to the end of the current form.
+     * The cursor is placed inside the form. To place it before or after the form, use the
+     * MoveCursorOutside method.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the end of a combo box form in a document.
+     *
+     * // The cursor is placed inside the combo box form. Use the MoveCursorOutside method to place it before or after the form.
+     *
+     * // Place the cursor after the last character of the selected list value.
+     *
+     * let doc = Api.GetDocument();
+     * let comboBoxForm = Api.CreateComboBoxForm({"key": "Personal information", "tip": "Choose your country", "placeholder": "Country", "editable": false, "autoFit": false, "items": ["Latvia", "USA", "UK"]});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(comboBoxForm);
+     * comboBoxForm.SelectListValue("Latvia");
+     * comboBoxForm.MoveCursorToEnd();
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor to the start of the current form.
+     * The cursor is placed inside the form. To place it before or after the form, use the
+     * MoveCursorOutside method.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the start of a combo box form in a document.
+     *
+     * // The cursor is placed inside the combo box form. Use the MoveCursorOutside method to place it before or after the form.
+     *
+     * // Place the cursor before the first character of the selected list value.
+     *
+     * let doc = Api.GetDocument();
+     * let comboBoxForm = Api.CreateComboBoxForm({"key": "Personal information", "tip": "Choose your country", "placeholder": "Country", "editable": false, "autoFit": false, "items": ["Latvia", "USA", "UK"]});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(comboBoxForm);
+     * comboBoxForm.SelectListValue("Latvia");
+     * comboBoxForm.MoveCursorToStart();
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
+
+    /**
      * Selects the specified value from the combo box list values.
      *
      * @param sValue - The combo box list value that will be selected.
@@ -10803,6 +11570,37 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/SetFormKey/
      */
     SetFormKey(sKey: string): boolean;
+
+    /**
+     * Specifies a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @param id - The numerical ID which will be specified for the current form.
+     * @since 10.0.1
+     *
+     * @example
+     * ```js
+     * // Assign a unique ID to a combo box form in a document.
+     *
+     * // Set a custom ID for a combo box form to tell it apart from other forms in a document.
+     *
+     * // Give a combo box form an ID that is saved to the file, unlike the internal ID which can change after reopening.
+     *
+     * let doc = Api.GetDocument();
+     * let comboBoxForm = Api.CreateComboBoxForm({"key": "Personal information", "tip": "Choose your country", "required": true, "placeholder": "Country", "editable": false, "autoFit": false, "items": ["Latvia", "USA", "UK"]});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(comboBoxForm);
+     * comboBoxForm.SetId(1001);
+     * let formId = comboBoxForm.GetId();
+     * paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Form ID: " + formId);
+     * doc.Push(paragraph);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/SetId/
+     */
+    SetId(id: number): boolean;
 
     /**
      * Sets the list values to the current combo box.
@@ -11100,6 +11898,7 @@ export namespace Word {
      * @param height - The wrapper shape height measured in twentieths of a point (1/1440 of an inch).
      * @param keepPosition - Save position on the page (it can be a little bit slow, because it runs the document
      *   calculation).
+     * @default keepPosition = false
      *
      * @example
      * ```js
@@ -11493,6 +12292,58 @@ export namespace Word {
     IsSolved(): boolean;
 
     /**
+     * Moves the cursor to the end of the text the current comment is attached to.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the end of the commented text in a document.
+     *
+     * // The cursor is placed where the text the comment is attached to ends.
+     *
+     * // Insert a word where the commented text ends.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("ONLYOFFICE Builder");
+     * let range = doc.Search("ONLYOFFICE")[0];
+     * let comment = range.AddComment("Check this word.", "John Smith");
+     * comment.MoveCursorToEnd();
+     * doc.EnterText(" Document");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor to the start of the text the current comment is attached to.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the start of the commented text in a document.
+     *
+     * // The cursor is placed where the text the comment is attached to begins.
+     *
+     * // Insert a word where the commented text starts.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("ONLYOFFICE Builder");
+     * let range = doc.Search("Builder")[0];
+     * let comment = range.AddComment("Check this word.", "John Smith");
+     * comment.MoveCursorToStart();
+     * doc.EnterText("Document ");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
+
+    /**
      * Removes the specified comment replies.
      *
      * @param nPos - The position of the first comment reply to remove.
@@ -11607,7 +12458,7 @@ export namespace Word {
     /**
      * Sets the timestamp of the comment creation in the current time zone format.
      *
-     * @param nTimeStamp - The timestamp of the comment creation in the current time zone format.
+     * @param timeStamp - The timestamp of the comment creation in the current time zone format.
      * @returns this
      *
      * @example
@@ -11630,12 +12481,12 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/SetTime/
      */
-    SetTime(nTimeStamp: number | string): ApiComment;
+    SetTime(timeStamp: number | string): ApiComment;
 
     /**
      * Sets the timestamp of the comment creation in UTC format.
      *
-     * @param nTimeStamp - The timestamp of the comment creation in UTC format.
+     * @param timeStamp - The timestamp of the comment creation in UTC format.
      * @returns this
      *
      * @example
@@ -11658,7 +12509,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/SetTimeUTC/
      */
-    SetTimeUTC(nTimeStamp: number | string): ApiComment;
+    SetTimeUTC(timeStamp: number | string): ApiComment;
 
     /**
      * Sets the user ID to the comment author.
@@ -11993,6 +12844,7 @@ export namespace Word {
      * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
+     * @default keepContent = false
      * @returns returns false if form wasn't added to the document.
      * @since 9.2.0
      *
@@ -12130,7 +12982,41 @@ export namespace Word {
     GetFormType(): FormType;
 
     /**
-     * Returns an internal id of the current form.
+     * Returns a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @since 10.0.1
+     *
+     * @example
+     * ```js
+     * // Read the ID assigned to a complex form in a document.
+     *
+     * // Check the ID that was set for a complex form with the SetId method in a document.
+     *
+     * // Display the complex form ID that is saved to the file and stays the same after the document is reopened.
+     *
+     * let doc = Api.GetDocument();
+     * let complexForm = Api.CreateComplexForm({"key": "Complex", "tip": "Insert here other forms"});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(complexForm);
+     * complexForm.SetId(1001);
+     * let formId = complexForm.GetId();
+     * paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Form ID: " + formId);
+     * doc.Push(paragraph);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetId/
+     */
+    GetId(): number;
+
+    /**
+     * Returns an internal ID of the current form.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
+     * To get the ID which is saved to the file, use the {@link ApiFormBase#GetId} method.
      *
      * @since 9.2.0
      *
@@ -12573,6 +13459,62 @@ export namespace Word {
     MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
+     * Moves the cursor to the end of the current form.
+     * The cursor is placed inside the form. To place it before or after the form, use the
+     * MoveCursorOutside method.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the end of a complex form in a document.
+     *
+     * // The cursor is placed inside the complex form. Use the MoveCursorOutside method to place it before or after the form.
+     *
+     * // Place the cursor at the end of the email form, after the domain name.
+     *
+     * let doc = Api.GetDocument();
+     * let complexForm = Api.CreateComplexForm({"key": "Email", "tip": "Email", "placeholder": "Start to fill complex form"});
+     * complexForm.Add(Api.CreateTextForm());
+     * complexForm.Add("@onlyoffice.com");
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(complexForm);
+     * complexForm.MoveCursorToEnd();
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor to the start of the current form.
+     * The cursor is placed inside the form. To place it before or after the form, use the
+     * MoveCursorOutside method.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the start of a complex form in a document.
+     *
+     * // The cursor is placed inside the complex form. Use the MoveCursorOutside method to place it before or after the form.
+     *
+     * // Place the cursor at the start of the email form that consists of a text form and a domain name.
+     *
+     * let doc = Api.GetDocument();
+     * let complexForm = Api.CreateComplexForm({"key": "Email", "tip": "Email", "placeholder": "Start to fill complex form"});
+     * complexForm.Add(Api.CreateTextForm());
+     * complexForm.Add("@onlyoffice.com");
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(complexForm);
+     * complexForm.MoveCursorToStart();
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
+
+    /**
      * Sets the background color to the current form.
      *
      * @param color - The background color.
@@ -12643,6 +13585,37 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/SetFormKey/
      */
     SetFormKey(sKey: string): boolean;
+
+    /**
+     * Specifies a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @param id - The numerical ID which will be specified for the current form.
+     * @since 10.0.1
+     *
+     * @example
+     * ```js
+     * // Assign a unique ID to a complex form in a document.
+     *
+     * // Set a custom ID for a complex form to tell it apart from other forms in a document.
+     *
+     * // Give a complex form an ID that is saved to the file, unlike the internal ID which can change after reopening.
+     *
+     * let doc = Api.GetDocument();
+     * let complexForm = Api.CreateComplexForm({"key": "Complex", "tip": "Insert here other forms"});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(complexForm);
+     * complexForm.SetId(1001);
+     * let formId = complexForm.GetId();
+     * paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Form ID: " + formId);
+     * doc.Push(paragraph);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/SetId/
+     */
+    SetId(id: number): boolean;
 
     /**
      * Sets the lock state of the current form.
@@ -12889,6 +13862,7 @@ export namespace Word {
      * @param height - The wrapper shape height measured in twentieths of a point (1/1440 of an inch).
      * @param keepPosition - Save position on the page (it can be a little bit slow, because it runs the document
      *   calculation).
+     * @default keepPosition = false
      *
      * @example
      * ```js
@@ -15545,6 +16519,7 @@ export namespace Word {
      * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
+     * @default keepContent = false
      * @returns returns false if form wasn't added to the document.
      * @since 9.2.0
      *
@@ -15735,7 +16710,41 @@ export namespace Word {
     GetFormat(): string;
 
     /**
-     * Returns an internal id of the current form.
+     * Returns a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @since 10.0.1
+     *
+     * @example
+     * ```js
+     * // Read the ID assigned to a date form in a document.
+     *
+     * // Check the ID that was set for a date form with the SetId method in a document.
+     *
+     * // Display the date form ID that is saved to the file and stays the same after the document is reopened.
+     *
+     * let doc = Api.GetDocument();
+     * let dateForm = Api.CreateDateForm({"key": "Nowadays", "tip": "Enter current date", "required": true, "placeholder": "Your date here", "format": "mm.dd.yyyy", "lang": "en-US"});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(dateForm);
+     * dateForm.SetId(1001);
+     * let formId = dateForm.GetId();
+     * paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Form ID: " + formId);
+     * doc.Push(paragraph);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetId/
+     */
+    GetId(): number;
+
+    /**
+     * Returns an internal ID of the current form.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
+     * To get the ID which is saved to the file, use the {@link ApiFormBase#GetId} method.
      *
      * @since 9.2.0
      *
@@ -16199,6 +17208,60 @@ export namespace Word {
     MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
+     * Moves the cursor to the end of the current form.
+     * The cursor is placed inside the form. To place it before or after the form, use the
+     * MoveCursorOutside method.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the end of a date form in a document.
+     *
+     * // The cursor is placed inside the date form. Use the MoveCursorOutside method to place it before or after the form.
+     *
+     * // Place the cursor after the last character of the date.
+     *
+     * let doc = Api.GetDocument();
+     * let dateForm = Api.CreateDateForm({"key": "Nowadays", "tip": "Enter current date", "placeholder": "Your date here", "format": "mm.dd.yyyy", "lang": "en-US"});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(dateForm);
+     * dateForm.SetDate(new Date());
+     * dateForm.MoveCursorToEnd();
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor to the start of the current form.
+     * The cursor is placed inside the form. To place it before or after the form, use the
+     * MoveCursorOutside method.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the start of a date form in a document.
+     *
+     * // The cursor is placed inside the date form. Use the MoveCursorOutside method to place it before or after the form.
+     *
+     * // Place the cursor before the first character of the date.
+     *
+     * let doc = Api.GetDocument();
+     * let dateForm = Api.CreateDateForm({"key": "Nowadays", "tip": "Enter current date", "placeholder": "Your date here", "format": "mm.dd.yyyy", "lang": "en-US"});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(dateForm);
+     * dateForm.SetDate(new Date());
+     * dateForm.MoveCursorToStart();
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
+
+    /**
      * Sets the background color to the current form.
      *
      * @param color - The background color.
@@ -16323,6 +17386,37 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDateForm/Methods/SetFormat/
      */
     SetFormat(sFormat: string): boolean;
+
+    /**
+     * Specifies a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @param id - The numerical ID which will be specified for the current form.
+     * @since 10.0.1
+     *
+     * @example
+     * ```js
+     * // Assign a unique ID to a date form in a document.
+     *
+     * // Set a custom ID for a date form to tell it apart from other forms in a document.
+     *
+     * // Give a date form an ID that is saved to the file, unlike the internal ID which can change after reopening.
+     *
+     * let doc = Api.GetDocument();
+     * let dateForm = Api.CreateDateForm({"key": "Nowadays", "tip": "Enter current date", "required": true, "placeholder": "Your date here", "format": "mm.dd.yyyy", "lang": "en-US"});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(dateForm);
+     * dateForm.SetId(1001);
+     * let formId = dateForm.GetId();
+     * paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Form ID: " + formId);
+     * doc.Push(paragraph);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/SetId/
+     */
+    SetId(id: number): boolean;
 
     /**
      * Sets the date language to the current form.
@@ -16624,6 +17718,7 @@ export namespace Word {
      * @param height - The wrapper shape height measured in twentieths of a point (1/1440 of an inch).
      * @param keepPosition - Save position on the page (it can be a little bit slow, because it runs the document
      *   calculation).
+     * @default keepPosition = false
      *
      * @example
      * ```js
@@ -16687,7 +17782,7 @@ export namespace Word {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/
    */
-  export interface ApiDocument extends Omit<ApiDocumentContent, "GetClassType" | "ToJSON"> {
+  export interface ApiDocument extends Omit<ApiDocumentContent, "GetClassType" | "GetRange" | "ToJSON"> {
     /**
      * Accepts all changes made in review mode.
      *
@@ -16737,7 +17832,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/AddCheckBoxContentControl/
      */
-    AddCheckBoxContentControl(checkBoxPr: ContentControlCheckBoxPr): ApiInlineLvlSdt;
+    AddCheckBoxContentControl(checkBoxPr?: ContentControlCheckBoxPr): ApiInlineLvlSdt;
 
     /**
      * Adds a new combo box content control to the document.
@@ -17284,6 +18379,7 @@ export namespace Word {
 
     /**
      * Creates a new table with a specified number of rows and columns.
+     * The table is created empty, without any settings: it has no style, no borders and no width.
      *
      * @param rows - Number of rows.
      * @param cols - Number of columns.
@@ -17344,6 +18440,28 @@ export namespace Word {
      * Return current table from the current document.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Retrieve the table that currently contains the cursor in a document.
+     *
+     * // GetActiveTable returns an ApiTable object when the cursor is inside a table, or null otherwise.
+     *
+     * // Create a table, move the cursor into it, then get the active table to read its row count.
+     *
+     * let doc = Api.GetDocument();
+     * let tableStyle = doc.CreateStyle("CustomTableStyle", "table");
+     * tableStyle.SetBasedOn(doc.GetStyle("Bordered"));
+     * let table = Api.CreateTable(3, 3);
+     * table.SetWidth("percent", 100);
+     * table.SetStyle(tableStyle);
+     * doc.Push(table);
+     * doc.MoveCursorDown(1);
+     * let activeTable = doc.GetActiveTable();
+     * let paragraph = Api.CreateParagraph();
+     * paragraph.AddText(activeTable ? "Active table rows: " + activeTable.GetRowsCount() : "No active table.");
+     * doc.Push(paragraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetActiveTable/
      */
@@ -19079,6 +20197,9 @@ export namespace Word {
 
     /**
      * Returns an internal ID of the current document content.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
      *
      * @since 9.0.4
      *
@@ -19151,7 +20272,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetRange/
      */
-    GetRange(Start: number, End: number): ApiRange;
+    GetRange(Start?: number, End?: number): ApiRange;
 
     /**
      * Returns a range object by the current selection.
@@ -19401,6 +20522,27 @@ export namespace Word {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Return the collection of all tables of contents in the document.
+     *
+     * // Build a heading and insert a table of contents into the document.
+     *
+     * // Get the tables of contents collection and read how many it holds.
+     *
+     * let doc = Api.GetDocument();
+     * let style = doc.GetStyle("Heading 1");
+     * let paragraph = doc.GetElement(0);
+     * paragraph.SetStyle(style);
+     * paragraph.AddText("Chapter 1");
+     * let tablesOfContents = doc.GetTablesOfContents();
+     * tablesOfContents.Add({"BuildFrom": {"OutlineLvls": 9}});
+     * let count = tablesOfContents.GetCount();
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Tables of contents count: " + count);
+     * doc.Push(resultParagraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetTablesOfContents/
      */
     GetTablesOfContents(): ApiTablesOfContents;
@@ -19410,6 +20552,26 @@ export namespace Word {
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Return the collection of all tables of figures in the document.
+     *
+     * // Add a captioned figure and an anchor paragraph where the table of figures appears.
+     *
+     * // Get the tables of figures collection and add a table of figures replacing the anchor range.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Figure 1");
+     * paragraph.AddCaption(" - Sample figure", "Figure", false, "Arabic", false, undefined, "hyphen");
+     * let anchor = Api.CreateParagraph();
+     * anchor.AddText("Table of figures goes here");
+     * doc.Push(anchor);
+     * let tablesOfFigures = doc.GetTablesOfFigures();
+     * let range = anchor.GetRange();
+     * let tof = tablesOfFigures.Add({"ShowPageNums": true, "RightAlgn": true, "LeaderType": "dot", "FormatAsLinks": true, "BuildFrom": "Figure", "LabelNumber": true, "TofStyle": "distinctive"}, range);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/GetTablesOfFigures/
      */
@@ -19651,13 +20813,13 @@ export namespace Word {
     /**
      * Inserts an array of elements into the current position of the document.
      * The array may contain a mix of element types:
-     * - {@link DocumentElement} elements are inserted as-is.
-     * - {@link ParagraphContent} elements are automatically grouped into paragraphs: consecutive
-     * paragraph-level elements
-     * share one new paragraph.
+     * - {@link global#DocumentElement} elements are inserted as-is.
+     * - {@link global#ParagraphContent} elements are automatically grouped into paragraphs: consecutive
+     * paragraph-level elements share one new paragraph.
      * - Plain strings and numbers are wrapped in a new run and added to the current paragraph (same
-     * grouping rules as {@link ParagraphContent}).
-     * - {@link ApiDrawing} elements are wrapped in a new run and added to the current paragraph.
+     * grouping rules as {@link global#ParagraphContent}).
+     * - ApiDrawing elements are wrapped in a new run and added to the current paragraph.
+     *
      * Elements that are already in use in a document are skipped.
      *
      * @param content - An array of elements to insert.
@@ -19936,6 +21098,49 @@ export namespace Word {
     MoveCursorRight(count?: number, addToSelect?: boolean, byWords?: boolean): boolean;
 
     /**
+     * Moves the cursor to the start or end of the specified element.
+     * It is the same as calling the MoveCursorToStart or MoveCursorToEnd method of the element.
+     *
+     * The cursor is placed inside the element: for a table, at the start of its first cell or at the end
+     * of its last cell;
+     * for a content control, inside the control. For a drawing, the cursor is placed before or after it.
+     * If there is any selection in the document, it will be removed.
+     * The element must be attached to the document.
+     *
+     * @param element - The element to move the cursor to.
+     * @param isStart - Specifies whether to move the cursor to the start (**true**) or end (**false**) of the element.
+     * @default isStart = true
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the start or end of any supported element in a document.
+     *
+     * // Pass a table, paragraph, run, content control, drawing, comment, bookmark or another element; the cursor moves to its start by default.
+     *
+     * // Place the cursor at the end of a table and then at the start of a content control, entering text at each position.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("The cursor is moved to elements of different types.");
+     * let table = Api.CreateTable(2, 2);
+     * table.SetWidth("percent", 100);
+     * table.SetStyle(doc.GetStyle("Bordered"));
+     * doc.Push(table);
+     * let blockLvlSdt = Api.CreateBlockLvlSdt();
+     * blockLvlSdt.GetContent().GetElement(0).AddText("Text inside the content control.");
+     * doc.Push(blockLvlSdt);
+     * doc.MoveCursorToElement(table, false);
+     * doc.EnterText("End of the table");
+     * doc.MoveCursorToElement(blockLvlSdt);
+     * doc.EnterText("Start of the content control. ");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/MoveCursorToElement/
+     */
+    MoveCursorToElement(element: DocumentElement | ParagraphContent | ApiDocument | ApiDocumentContent | ApiTableRow | ApiTableCell | ApiDrawing | ApiBookmark | ApiComment | ApiRange, isStart?: boolean): boolean;
+
+    /**
      * Moves a cursor to the end of the document.
      *
      * @since 9.0.4
@@ -19969,6 +21174,19 @@ export namespace Word {
      * @param page - The page number. If not specified, the current page is used.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Move the cursor into the footer of the current page and type text there.
+     *
+     * // Switch the document into the footer editing mode so the following input goes to the footer.
+     *
+     * // Enter text that appears in the page footer instead of the main document body.
+     *
+     * const doc = Api.GetDocument();
+     * doc.MoveCursorToFooter();
+     * doc.EnterText('Text in the page footer.');
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/MoveCursorToFooter/
      */
     MoveCursorToFooter(page?: number): boolean;
@@ -19980,6 +21198,19 @@ export namespace Word {
      * @param page - The page number. If not specified, the current page is used.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Move the cursor into the header of the current page and type text there.
+     *
+     * // Switch the document into the header editing mode so the following input goes to the header.
+     *
+     * // Enter text that appears in the page header instead of the main document body.
+     *
+     * const doc = Api.GetDocument();
+     * doc.MoveCursorToHeader();
+     * doc.EnterText('Text in the page header.');
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/MoveCursorToHeader/
      */
     MoveCursorToHeader(page?: number): boolean;
@@ -19989,6 +21220,22 @@ export namespace Word {
      * document content on the current page.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Return the cursor from the header or footer back to the main document content.
+     *
+     * // Leave the header/footer editing mode after adding text so the next input goes to the document body.
+     *
+     * // Enter text into the main document again once the cursor has left the footer.
+     *
+     * const doc = Api.GetDocument();
+     * doc.MoveCursorToFooter();
+     * doc.EnterText('Text in the page footer.');
+     *
+     * doc.MoveCursorToMainDocument();
+     * doc.EnterText('Text in the main document.');
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/MoveCursorToMainDocument/
      */
@@ -20107,6 +21354,23 @@ export namespace Word {
      * @returns returns false if the cursor isn't currently inside a table cell.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Move the cursor to the next cell of a table in a document.
+     *
+     * // Navigate between adjacent table cells without selecting a cell directly.
+     *
+     * // Add text at the cursor position after moving to the next cell in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let table = Api.CreateTable(2, 2);
+     * doc.InsertContent([table]);
+     * let cell = table.Cells[0][0];
+     * cell.GetContent().GetRange(0, 0).MoveCursorToPos(0);
+     * doc.MoveToNextCell();
+     * doc.EnterText("Next cell");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/MoveToNextCell/
      */
     MoveToNextCell(count?: number): boolean;
@@ -20118,6 +21382,23 @@ export namespace Word {
      * @default count = 1
      * @returns returns false if the cursor isn't currently inside a table cell.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the previous cell of a table in a document.
+     *
+     * // Navigate between adjacent table cells without selecting a cell directly.
+     *
+     * // Add text at the cursor position after moving back to the previous cell in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let table = Api.CreateTable(3, 3);
+     * doc.InsertContent([table]);
+     * let cell = table.Cells[0][2];
+     * cell.GetContent().GetRange(0, 0).MoveCursorToPos(0);
+     * doc.MoveToPrevCell();
+     * doc.EnterText("Prev cell");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/MoveToPrevCell/
      */
@@ -20448,6 +21729,7 @@ export namespace Word {
      * @param sText - Search string, or a regular expression to match. When a RegExp is passed, the isMatchCase
      *   parameter is ignored (control case sensitivity with the "i" flag instead).
      * @param isMatchCase - Case sensitive or not.
+     * @default isMatchCase = false
      *
      * @example
      * ```js
@@ -20472,11 +21754,12 @@ export namespace Word {
     /**
      * Finds and replaces the text.
      *
-     * @param oProperties - The properties to find and replace.
-     * @param oProperties.searchString - Search string.
-     * @param oProperties.replaceString - Replacement string.
-     * @param oProperties.matchCase - Case sensitive or not.
-     * @default oProperties.matchCase = true
+     * @param props - The properties to find and replace.
+     * @param props.searchString - Search string.
+     * @param props.replaceString - Replacement string.
+     * @param props.matchCase - Case sensitive or not.
+     * @default props.matchCase = true
+     * @returns The number of replacements made. Returns 0 if nothing was found.
      *
      * @example
      * ```js
@@ -20492,7 +21775,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/SearchAndReplace/
      */
-    SearchAndReplace(oProperties: { searchString: string; replaceString: string; matchCase?: string }): boolean;
+    SearchAndReplace(props: { searchString: string; replaceString: string; matchCase?: boolean }): number;
 
     /**
      * Selects the current sentence if it is possible.
@@ -20560,9 +21843,18 @@ export namespace Word {
 
     /**
      * Enables or disables AI-assisted change tracking in the document.
+     * Only the change tracking of the current user is turned on: the document setting is not changed.
+     * Calls can be
+     * nested: the previous state is restored when every call with isTrack set to true is matched by a call
+     * with isTrack
+     * set to false. While it is enabled, {@link ApiDocument#SetTrackRevisions} does nothing and returns
+     * false.
      *
      * @param isTrack - Specifies whether the change tracking mode is set or not.
-     * @param assistantName - The AI assistant name.
+     * @param assistantName - The AI assistant name used as the author of the tracked changes. Required when isTrack is true;
+     *   if it is not a non-empty string, "Anonymous" is used. Not used when isTrack is false. Ignored by
+     *   nested calls.
+     * @returns Returns false if isTrack is false and AI-assisted change tracking is not enabled.
      *
      * @example
      * ```js
@@ -20813,7 +22105,7 @@ export namespace Word {
     /**
      * Shows a comment by its ID.
      *
-     * @param commentId - The comment ID.
+     * @param commentId - The comment ID or an array of comment IDs.
      * @since 9.0.4
      *
      * @example
@@ -21677,6 +22969,27 @@ export namespace Word {
      * @returns returns -1 if the element is not a direct child of the current document content.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Determine the index of an element within the document content.
+     *
+     * // The index reflects the position of a specific element inside the document content.
+     *
+     * // Locate a paragraph within the document content and report its index.
+     *
+     * let doc = Api.GetDocument();
+     * let first = Api.CreateParagraph();
+     * first.AddText("First paragraph");
+     * doc.Push(first);
+     * let second = Api.CreateParagraph();
+     * second.AddText("Second paragraph");
+     * doc.Push(second);
+     * let index = doc.GetElementIndex(second);
+     * let report = Api.CreateParagraph();
+     * report.AddText("The second paragraph is at index " + index + ".");
+     * doc.Push(report);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/GetElementIndex/
      */
     GetElementIndex(element: DocumentElement): number;
@@ -21711,6 +23024,9 @@ export namespace Word {
 
     /**
      * Returns an internal ID of the current document content.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
      *
      * @since 9.0.4
      *
@@ -21877,6 +23193,34 @@ export namespace Word {
     IsFootnote(): boolean;
 
     /**
+     * Moves the cursor to the end of the current document content.
+     * For example, the content of a header, footer, footnote, table cell or shape.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the end of the footnote content in a document.
+     *
+     * // The cursor is placed after the last character of the footnote text.
+     *
+     * // Append more text to the footnote at the cursor position.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("ONLYOFFICE Document Builder");
+     * paragraph.MoveCursorToEnd();
+     * let footnote = doc.AddFootnote();
+     * footnote.GetElement(0).AddText("Footnote text.");
+     * footnote.MoveCursorToEnd();
+     * doc.EnterText(" More text added at the end of the footnote.");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
      * Moves the cursor to the reference of this footnote/endnote in the main document.
      *
      * If this document content is not a footnote/endnote, does nothing.
@@ -21888,6 +23232,32 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/MoveCursorToNoteReference/
      */
     MoveCursorToNoteReference(isBefore: boolean): boolean;
+
+    /**
+     * Moves the cursor to the start of the current document content.
+     * For example, the content of a header, footer, footnote, table cell or shape.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the start of the header content in a document.
+     *
+     * // The method works for any document content, such as a header, footer, footnote, table cell or shape content.
+     *
+     * // Insert a label before the existing header text.
+     *
+     * let doc = Api.GetDocument();
+     * let section = doc.GetFinalSection();
+     * let header = section.GetHeader("default", true);
+     * header.GetElement(0).AddText("ONLYOFFICE Document Builder");
+     * header.MoveCursorToStart();
+     * doc.EnterText("Header: ");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentContent/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
 
     /**
      * Pushes a paragraph or a table to actually add it to the document.
@@ -22087,14 +23457,871 @@ export namespace Word {
    */
   export interface ApiDocumentVisitor {
     /**
+     * A hook called when the traversal enters a block content control.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param contentControl - The content control.
+     * @param start - With a selection traversal of a partly selected content control, the index of the first selected
+     *   element of the content control (a paragraph, a table, a block content control); undefined when
+     *   the whole content control is traversed.
+     * @param end - With a selection traversal of a partly selected content control, the index of the last selected
+     *   element of the content control, inclusive; undefined when the whole content control is
+     *   traversed.
+     * @returns Return true to skip the content of the content control; the BlockLevelSdtEnd hook is not called
+     *   then.
+     * @since 9.1.0
+     *
+     * @example
+     * ```js
+     * // List the tags of the block content controls in a document with a document visitor.
+     *
+     * // The BlockLevelSdt hook receives each block content control, and returning true skips its content.
+     *
+     * // Add two tagged content controls and write their tags into a new paragraph.
+     *
+     * const doc = Api.GetDocument();
+     * const address = Api.CreateBlockLvlSdt();
+     * address.SetTag("address");
+     * address.GetContent().GetElement(0).AddText("Company address");
+     * doc.Push(address);
+     * const phone = Api.CreateBlockLvlSdt();
+     * phone.SetTag("phone");
+     * phone.GetContent().GetElement(0).AddText("Phone number");
+     * doc.Push(phone);
+     *
+     * const tags = [];
+     * const visitor = doc.GetDocumentVisitor();
+     * visitor.BlockLevelSdt = function (contentControl) {
+     * 	tags.push(contentControl.GetTag());
+     * 	return true;
+     * };
+     * visitor.Traverse();
+     *
+     * const result = Api.CreateParagraph();
+     * result.AddText("Content control tags: " + tags.join(", "));
+     * doc.Push(result);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/BlockLevelSdt/
+     */
+    BlockLevelSdt(contentControl: ApiBlockLvlSdt, start?: number, end?: number): boolean;
+
+    /**
+     * A hook called when the traversal leaves a block content control.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param contentControl - The content control.
+     * @param start - With a selection traversal of a partly selected content control, the index of the first selected
+     *   element of the content control (a paragraph, a table, a block content control); undefined when
+     *   the whole content control is traversed.
+     * @param end - With a selection traversal of a partly selected content control, the index of the last selected
+     *   element of the content control, inclusive; undefined when the whole content control is
+     *   traversed.
+     * @since 9.1.0
+     *
+     * @example
+     * ```js
+     * // Count the paragraphs inside and outside block content controls with a document visitor.
+     *
+     * // The BlockLevelSdt and BlockLevelSdtEnd hooks enclose the content of a content control.
+     *
+     * // Add a plain paragraph and a content control with two paragraphs, then write both counts into a new paragraph.
+     *
+     * const doc = Api.GetDocument();
+     * doc.GetElement(0).AddText("A plain paragraph.");
+     * const contentControl = Api.CreateBlockLvlSdt();
+     * contentControl.GetContent().GetElement(0).AddText("The first paragraph in the content control.");
+     * const second = Api.CreateParagraph();
+     * second.AddText("The second paragraph in the content control.");
+     * contentControl.GetContent().Push(second);
+     * doc.Push(contentControl);
+     *
+     * let depth = 0;
+     * let inside = 0;
+     * let outside = 0;
+     * const visitor = doc.GetDocumentVisitor();
+     * visitor.BlockLevelSdt = function () {
+     * 	depth += 1;
+     * 	return false;
+     * };
+     * visitor.BlockLevelSdtEnd = function () {
+     * 	depth -= 1;
+     * };
+     * visitor.Paragraph = function () {
+     * 	if (depth > 0)
+     * 		inside += 1;
+     * 	else
+     * 		outside += 1;
+     * 	return true;
+     * };
+     * visitor.Traverse();
+     *
+     * const result = Api.CreateParagraph();
+     * result.AddText("Paragraphs inside content controls: " + inside + ", outside: " + outside);
+     * doc.Push(result);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/BlockLevelSdtEnd/
+     */
+    BlockLevelSdtEnd(contentControl: ApiBlockLvlSdt, start?: number, end?: number): boolean;
+
+    /**
+     * A hook called for a form. The traversal does not go inside forms, and there is no hook for leaving a
+     * form.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param form - The form.
+     * @param start - With a selection traversal of a partly selected inline form, the index of the first selected
+     *   element inside the form; undefined when the whole form is traversed and for a fixed-size form.
+     * @param end - With a selection traversal of a partly selected inline form, the index of the last selected
+     *   element inside the form, inclusive; undefined when the whole form is traversed and for a
+     *   fixed-size form.
+     * @since 9.1.0
+     *
+     * @example
+     * ```js
+     * // List the keys and types of the forms in a document with a document visitor.
+     *
+     * // The Form hook is called once for each form, and the traversal does not go inside forms.
+     *
+     * // Add a text form and a check box form, then write their keys and types into a new paragraph.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = doc.GetElement(0);
+     * const nameForm = Api.CreateTextForm({"key": "Name", "tip": "Enter your name", "placeholder": "Your name"});
+     * paragraph.AddElement(nameForm);
+     * const agreementForm = Api.CreateCheckBoxForm({"key": "Agreement", "tip": "Accept the terms"});
+     * paragraph.AddElement(agreementForm);
+     *
+     * const forms = [];
+     * const visitor = doc.GetDocumentVisitor();
+     * visitor.Form = function (form) {
+     * 	forms.push(form.GetFormKey() + " (" + form.GetFormType() + ")");
+     * };
+     * visitor.Traverse();
+     *
+     * const result = Api.CreateParagraph();
+     * result.AddText("Forms: " + forms.join(", "));
+     * doc.Push(result);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/Form/
+     */
+    Form(form: ApiFormBase, start?: number, end?: number): boolean;
+
+    /**
+     * A hook called when the traversal enters an inline content control.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param contentControl - The content control.
+     * @param start - With a selection traversal of a partly selected content control, the index of the first selected
+     *   element inside the content control (a run, a hyperlink...); undefined when the whole content
+     *   control is traversed.
+     * @param end - With a selection traversal of a partly selected content control, the index of the last selected
+     *   element inside the content control, inclusive; undefined when the whole content control is
+     *   traversed.
+     * @returns Return true to skip the content of the content control; the InlineLevelSdtEnd hook is not called
+     *   then.
+     * @since 9.1.0
+     *
+     * @example
+     * ```js
+     * // List the tags of the inline content controls in a document with a document visitor.
+     *
+     * // The InlineLevelSdt hook receives each inline content control inside a paragraph.
+     *
+     * // Add two tagged inline content controls to a paragraph and write their tags into a new paragraph.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = doc.GetElement(0);
+     * paragraph.AddText("Dear ");
+     * const name = Api.CreateInlineLvlSdt();
+     * name.SetTag("name");
+     * name.AddText("John Smith");
+     * paragraph.AddInlineLvlSdt(name);
+     * paragraph.AddText(", your order ");
+     * const order = Api.CreateInlineLvlSdt();
+     * order.SetTag("order");
+     * order.AddText("No. 1024");
+     * paragraph.AddInlineLvlSdt(order);
+     * paragraph.AddText(" has been shipped.");
+     *
+     * const tags = [];
+     * const visitor = doc.GetDocumentVisitor();
+     * visitor.InlineLevelSdt = function (contentControl) {
+     * 	tags.push(contentControl.GetTag());
+     * 	return true;
+     * };
+     * visitor.Traverse();
+     *
+     * const result = Api.CreateParagraph();
+     * result.AddText("Inline content control tags: " + tags.join(", "));
+     * doc.Push(result);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/InlineLevelSdt/
+     */
+    InlineLevelSdt(contentControl: ApiInlineLvlSdt, start?: number, end?: number): boolean;
+
+    /**
+     * A hook called when the traversal leaves an inline content control.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param contentControl - The content control.
+     * @param start - With a selection traversal of a partly selected content control, the index of the first selected
+     *   element inside the content control (a run, a hyperlink...); undefined when the whole content
+     *   control is traversed.
+     * @param end - With a selection traversal of a partly selected content control, the index of the last selected
+     *   element inside the content control, inclusive; undefined when the whole content control is
+     *   traversed.
+     * @since 9.1.0
+     *
+     * @example
+     * ```js
+     * // Collect the text of each inline content control with a document visitor.
+     *
+     * // The InlineLevelSdtEnd hook is called after all the text inside an inline content control has been visited.
+     *
+     * // Add two inline content controls and write the tag and text of each one into a new paragraph.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = doc.GetElement(0);
+     * paragraph.AddText("Invoice for ");
+     * const customer = Api.CreateInlineLvlSdt();
+     * customer.SetTag("customer");
+     * customer.AddText("ONLYOFFICE");
+     * paragraph.AddInlineLvlSdt(customer);
+     * paragraph.AddText(", total ");
+     * const total = Api.CreateInlineLvlSdt();
+     * total.SetTag("total");
+     * total.AddText("$250");
+     * paragraph.AddInlineLvlSdt(total);
+     *
+     * const entries = [];
+     * let text = "";
+     * const visitor = doc.GetDocumentVisitor();
+     * visitor.InlineLevelSdt = function () {
+     * 	text = "";
+     * 	return false;
+     * };
+     * visitor.Text = function (piece) {
+     * 	text += piece;
+     * };
+     * visitor.InlineLevelSdtEnd = function (contentControl) {
+     * 	entries.push(contentControl.GetTag() + " = " + text);
+     * };
+     * visitor.Traverse();
+     *
+     * const result = Api.CreateParagraph();
+     * result.AddText(entries.join("; "));
+     * doc.Push(result);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/InlineLevelSdtEnd/
+     */
+    InlineLevelSdtEnd(contentControl: ApiInlineLvlSdt, start?: number, end?: number): boolean;
+
+    /**
+     * A hook called when the traversal enters a paragraph. Assign a function to it to process paragraphs.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param paragraph - The paragraph.
+     * @param start - With a selection traversal of a partly selected paragraph, the index of the first selected
+     *   element of the paragraph (a run, a hyperlink, an inline content control...); undefined when the
+     *   whole paragraph is traversed.
+     * @param end - With a selection traversal of a partly selected paragraph, the index of the last selected
+     *   element of the paragraph, inclusive; undefined when the whole paragraph is traversed.
+     * @returns Return true to skip the content of the paragraph; the ParagraphEnd hook is not called then.
+     * @since 9.1.0
+     *
+     * @example
+     * ```js
+     * // Make every paragraph that starts with "Note" bold with a document visitor.
+     *
+     * // The Paragraph hook receives each paragraph of the document, including the paragraphs inside table cells.
+     *
+     * // Add three paragraphs and make bold the ones whose text starts with "Note".
+     *
+     * const doc = Api.GetDocument();
+     * doc.GetElement(0).AddText("Note: the meeting starts at 10:00.");
+     * const details = Api.CreateParagraph();
+     * details.AddText("The agenda will be sent later.");
+     * doc.Push(details);
+     * const reminder = Api.CreateParagraph();
+     * reminder.AddText("Note: bring the quarterly report.");
+     * doc.Push(reminder);
+     *
+     * const visitor = doc.GetDocumentVisitor();
+     * visitor.Paragraph = function (paragraph) {
+     * 	if (paragraph.GetText().indexOf("Note") === 0)
+     * 		paragraph.SetBold(true);
+     * 	return true;
+     * };
+     * visitor.Traverse();
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/Paragraph/
+     */
+    Paragraph(paragraph: ApiParagraph, start?: number, end?: number): boolean;
+
+    /**
+     * A hook called when the traversal leaves a paragraph.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param paragraph - The paragraph.
+     * @param start - With a selection traversal of a partly selected paragraph, the index of the first selected
+     *   element of the paragraph (a run, a hyperlink, an inline content control...); undefined when the
+     *   whole paragraph is traversed.
+     * @param end - With a selection traversal of a partly selected paragraph, the index of the last selected
+     *   element of the paragraph, inclusive; undefined when the whole paragraph is traversed.
+     * @since 9.1.0
+     *
+     * @example
+     * ```js
+     * // Count the characters of every paragraph with the Text and ParagraphEnd hooks of a document visitor.
+     *
+     * // The ParagraphEnd hook is called after all the text of a paragraph has been visited.
+     *
+     * // Add two paragraphs, count the characters of each one and write the counts into a new paragraph.
+     *
+     * const doc = Api.GetDocument();
+     * doc.GetElement(0).AddText("Short line.");
+     * const second = Api.CreateParagraph();
+     * second.AddText("A slightly longer line of text.");
+     * doc.Push(second);
+     *
+     * const counts = [];
+     * let characters = 0;
+     * const visitor = doc.GetDocumentVisitor();
+     * visitor.Paragraph = function () {
+     * 	characters = 0;
+     * 	return false;
+     * };
+     * visitor.Text = function (text) {
+     * 	characters += text.length;
+     * };
+     * visitor.ParagraphEnd = function () {
+     * 	counts.push(characters);
+     * };
+     * visitor.Traverse();
+     *
+     * const result = Api.CreateParagraph();
+     * result.AddText("Characters per paragraph: " + counts.join(", "));
+     * doc.Push(result);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/ParagraphEnd/
+     */
+    ParagraphEnd(paragraph: ApiParagraph, start?: number, end?: number): boolean;
+
+    /**
+     * A hook called when the traversal enters a text run. A run that contains only the paragraph mark is
+     * skipped.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param run - The run.
+     * @param start - With a selection traversal of a partly selected run, the position of the first selected run
+     *   element (a character, a space, a tab, a line break, a drawing...); undefined when the whole run
+     *   is traversed.
+     * @param end - With a selection traversal of a partly selected run, the position after the last selected run
+     *   element, exclusive; undefined when the whole run is traversed.
+     * @returns Return true to skip the text of the run; the Text and RunEnd hooks are not called for it then.
+     * @since 9.1.0
+     *
+     * @example
+     * ```js
+     * // Highlight the bold runs of a document with a document visitor.
+     *
+     * // The Run hook receives each text run with its formatting, and returning true skips the text of the run.
+     *
+     * // Add a paragraph with regular and bold runs and highlight the bold ones in yellow.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = doc.GetElement(0);
+     * paragraph.AddText("Submit the report ");
+     * const deadline = Api.CreateRun();
+     * deadline.AddText("before Friday");
+     * deadline.SetBold(true);
+     * paragraph.AddElement(deadline);
+     * const rest = Api.CreateRun();
+     * rest.AddText(" and send a copy to the team.");
+     * paragraph.AddElement(rest);
+     *
+     * const visitor = doc.GetDocumentVisitor();
+     * visitor.Run = function (run) {
+     * 	if (run.GetTextPr().GetBold())
+     * 		run.SetHighlight("yellow");
+     * 	return true;
+     * };
+     * visitor.Traverse();
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/Run/
+     */
+    Run(run: ApiRun, start?: number, end?: number): boolean;
+
+    /**
+     * A hook called when the traversal leaves a text run.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param run - The run.
+     * @param start - With a selection traversal of a partly selected run, the position of the first selected run
+     *   element (a character, a space, a tab, a line break, a drawing...); undefined when the whole run
+     *   is traversed.
+     * @param end - With a selection traversal of a partly selected run, the position after the last selected run
+     *   element, exclusive; undefined when the whole run is traversed.
+     * @since 9.1.0
+     *
+     * @example
+     * ```js
+     * // Find the longest text run of a document with a document visitor.
+     *
+     * // The RunEnd hook is called after all the text of a run has been visited.
+     *
+     * // Add a paragraph with three runs, measure the text of each one and make the longest run italic.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = doc.GetElement(0);
+     * const texts = ["Short. ", "This run has the longest text. ", "Medium run."];
+     * for (let i = 0; i < texts.length; ++i) {
+     * 	const run = Api.CreateRun();
+     * 	run.AddText(texts[i]);
+     * 	paragraph.AddElement(run);
+     * }
+     *
+     * let length = 0;
+     * let maxLength = -1;
+     * let longest = null;
+     * const visitor = doc.GetDocumentVisitor();
+     * visitor.Run = function () {
+     * 	length = 0;
+     * 	return false;
+     * };
+     * visitor.Text = function (text) {
+     * 	length += text.length;
+     * };
+     * visitor.RunEnd = function (run) {
+     * 	if (length > maxLength) {
+     * 		maxLength = length;
+     * 		longest = run;
+     * 	}
+     * };
+     * visitor.Traverse();
+     *
+     * longest.SetItalic(true);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/RunEnd/
+     */
+    RunEnd(run: ApiRun, start?: number, end?: number): boolean;
+
+    /**
      * Stops the traversal. No further hooks are called after the current one returns.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Find the first paragraph that mentions a word and stop the document visitor there.
+     *
+     * // How do I stop walking a document as soon as the first match is found?
+     *
+     * // Add three paragraphs, stop at the first one containing the search word, make it bold and report how many paragraphs were visited.
+     *
+     * const doc = Api.GetDocument();
+     * const agenda = doc.GetElement(0);
+     * agenda.AddText("Agenda for the quarterly meeting");
+     * const overview = Api.CreateParagraph();
+     * overview.AddText("Budget overview for the next quarter");
+     * doc.Push(overview);
+     * const summary = Api.CreateParagraph();
+     * summary.AddText("Budget summary and open questions");
+     * doc.Push(summary);
+     *
+     * let found = null;
+     * let visited = 0;
+     * const visitor = doc.GetDocumentVisitor();
+     * visitor.Paragraph = function (paragraph) {
+     * 	visited += 1;
+     * 	if (paragraph.GetText().indexOf("Budget") !== -1) {
+     * 		found = paragraph;
+     * 		visitor.Stop();
+     * 	}
+     * 	return true;
+     * };
+     * visitor.Traverse(false);
+     *
+     * found.SetBold(true);
+     * const result = Api.CreateParagraph();
+     * result.AddText("Paragraphs visited before stopping: " + visited);
+     * doc.Push(result);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/Stop/
      */
     Stop(): boolean;
+
+    /**
+     * A hook called when the traversal enters a table.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param table - The table.
+     * @returns Return true to skip the rows of the table; the TableEnd hook is not called then.
+     * @since 9.1.0
+     *
+     * @example
+     * ```js
+     * // Report the number of rows of every table in a document with a document visitor.
+     *
+     * // The Table hook receives each table, and returning true skips its rows, cells and text.
+     *
+     * // Add two tables and write the row count of each table into a new paragraph.
+     *
+     * const doc = Api.GetDocument();
+     * const small = Api.CreateTable(2, 2);
+     * small.SetStyle(doc.GetStyle("Bordered"));
+     * doc.Push(small);
+     * const large = Api.CreateTable(4, 3);
+     * large.SetStyle(doc.GetStyle("Bordered"));
+     * doc.Push(large);
+     *
+     * const rows = [];
+     * const visitor = doc.GetDocumentVisitor();
+     * visitor.Table = function (table) {
+     * 	rows.push(table.GetRowsCount());
+     * 	return true;
+     * };
+     * visitor.Traverse();
+     *
+     * const result = Api.CreateParagraph();
+     * result.AddText("Rows per table: " + rows.join(", "));
+     * doc.Push(result);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/Table/
+     */
+    Table(table: ApiTable): boolean;
+
+    /**
+     * A hook called when the traversal enters a table cell.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param cell - The table cell.
+     * @param start - With a selection traversal of a partly selected cell, the index of the first selected element of
+     *   the cell content (a paragraph, a table, a block content control); undefined when the whole cell
+     *   is traversed.
+     * @param end - With a selection traversal of a partly selected cell, the index of the last selected element of
+     *   the cell content, inclusive; undefined when the whole cell is traversed.
+     * @returns Return true to skip the content of the cell; the TableCellEnd hook is not called then.
+     * @since 9.1.0
+     *
+     * @example
+     * ```js
+     * // Shade the table cells that contain a word with a document visitor.
+     *
+     * // The TableCell hook receives each cell before its content is visited.
+     *
+     * // Fill a table with task states and shade the cells with the "Done" text.
+     *
+     * const doc = Api.GetDocument();
+     * const table = Api.CreateTable(2, 2);
+     * table.SetStyle(doc.GetStyle("Bordered"));
+     * doc.Push(table);
+     * table.GetCell(0, 0).GetContent().GetElement(0).AddText("Design");
+     * table.GetCell(0, 1).GetContent().GetElement(0).AddText("Done");
+     * table.GetCell(1, 0).GetContent().GetElement(0).AddText("Testing");
+     * table.GetCell(1, 1).GetContent().GetElement(0).AddText("In progress");
+     *
+     * const visitor = doc.GetDocumentVisitor();
+     * visitor.TableCell = function (cell) {
+     * 	if (cell.GetContent().GetElement(0).GetText().indexOf("Done") !== -1)
+     * 		cell.SetShd(Api.CreateShd("clear", Api.Color("#E2EFDA")));
+     * 	return true;
+     * };
+     * visitor.Traverse();
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/TableCell/
+     */
+    TableCell(cell: ApiTableCell, start?: number, end?: number): boolean;
+
+    /**
+     * A hook called when the traversal leaves a table cell.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param cell - The table cell.
+     * @param start - With a selection traversal of a partly selected cell, the index of the first selected element of
+     *   the cell content (a paragraph, a table, a block content control); undefined when the whole cell
+     *   is traversed.
+     * @param end - With a selection traversal of a partly selected cell, the index of the last selected element of
+     *   the cell content, inclusive; undefined when the whole cell is traversed.
+     * @since 9.1.0
+     *
+     * @example
+     * ```js
+     * // Find the table cell with the longest text with a document visitor.
+     *
+     * // The TableCellEnd hook is called after all the text of a cell has been visited.
+     *
+     * // Fill a table, measure the text of each cell and make the longest one bold.
+     *
+     * const doc = Api.GetDocument();
+     * const table = Api.CreateTable(2, 2);
+     * table.SetStyle(doc.GetStyle("Bordered"));
+     * doc.Push(table);
+     * table.GetCell(0, 0).GetContent().GetElement(0).AddText("Plan");
+     * table.GetCell(0, 1).GetContent().GetElement(0).AddText("Review the quarterly results");
+     * table.GetCell(1, 0).GetContent().GetElement(0).AddText("Budget");
+     * table.GetCell(1, 1).GetContent().GetElement(0).AddText("Approve");
+     *
+     * let length = 0;
+     * let maxLength = -1;
+     * let longest = null;
+     * const visitor = doc.GetDocumentVisitor();
+     * visitor.TableCell = function () {
+     * 	length = 0;
+     * 	return false;
+     * };
+     * visitor.Text = function (text) {
+     * 	length += text.length;
+     * };
+     * visitor.TableCellEnd = function (cell) {
+     * 	if (length > maxLength) {
+     * 		maxLength = length;
+     * 		longest = cell;
+     * 	}
+     * };
+     * visitor.Traverse();
+     *
+     * longest.GetContent().GetElement(0).SetBold(true);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/TableCellEnd/
+     */
+    TableCellEnd(cell: ApiTableCell, start?: number, end?: number): boolean;
+
+    /**
+     * A hook called when the traversal leaves a table.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param table - The table.
+     * @since 9.1.0
+     *
+     * @example
+     * ```js
+     * // Find the deepest level of nested tables in a document with a document visitor.
+     *
+     * // The Table and TableEnd hooks enclose the rows of a table, so they can track how deep the current table is.
+     *
+     * // Put a table inside a table cell and write the maximum nesting level into a new paragraph.
+     *
+     * const doc = Api.GetDocument();
+     * const outer = Api.CreateTable(2, 2);
+     * outer.SetStyle(doc.GetStyle("Bordered"));
+     * const inner = Api.CreateTable(2, 2);
+     * inner.SetStyle(doc.GetStyle("Bordered"));
+     * outer.GetCell(0, 0).GetContent().Push(inner);
+     * doc.Push(outer);
+     *
+     * let depth = 0;
+     * let maxDepth = 0;
+     * const visitor = doc.GetDocumentVisitor();
+     * visitor.Table = function () {
+     * 	depth += 1;
+     * 	maxDepth = Math.max(maxDepth, depth);
+     * 	return false;
+     * };
+     * visitor.TableEnd = function () {
+     * 	depth -= 1;
+     * };
+     * visitor.Traverse();
+     *
+     * const result = Api.CreateParagraph();
+     * result.AddText("Maximum table nesting level: " + maxDepth);
+     * doc.Push(result);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/TableEnd/
+     */
+    TableEnd(table: ApiTable): boolean;
+
+    /**
+     * A hook called when the traversal enters a table row.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param row - The table row.
+     * @returns Return true to skip the cells of the row; the TableRowEnd hook is not called then.
+     * @since 9.1.0
+     *
+     * @example
+     * ```js
+     * // Number the rows of every table in a document with a document visitor.
+     *
+     * // The TableRow hook is called for each row before its cells are visited.
+     *
+     * // Add a table and write the row number into the first cell of each row.
+     *
+     * const doc = Api.GetDocument();
+     * const table = Api.CreateTable(3, 2);
+     * table.SetStyle(doc.GetStyle("Bordered"));
+     * doc.Push(table);
+     *
+     * const visitor = doc.GetDocumentVisitor();
+     * visitor.TableRow = function (row) {
+     * 	row.GetCell(0).GetContent().GetElement(0).AddText("Row " + (row.GetIndex() + 1));
+     * 	return true;
+     * };
+     * visitor.Traverse();
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/TableRow/
+     */
+    TableRow(row: ApiTableRow): boolean;
+
+    /**
+     * A hook called when the traversal leaves a table row.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param row - The table row.
+     * @since 9.1.0
+     *
+     * @example
+     * ```js
+     * // Count the filled cells of each table row with a document visitor.
+     *
+     * // The TableRowEnd hook is called after all the cells of a row have been visited.
+     *
+     * // Fill some cells of a table, count the filled cells per row and write the counts into a new paragraph.
+     *
+     * const doc = Api.GetDocument();
+     * const table = Api.CreateTable(2, 3);
+     * table.SetStyle(doc.GetStyle("Bordered"));
+     * doc.Push(table);
+     * table.GetCell(0, 0).GetContent().GetElement(0).AddText("Name");
+     * table.GetCell(0, 1).GetContent().GetElement(0).AddText("Role");
+     * table.GetCell(1, 2).GetContent().GetElement(0).AddText("Remote");
+     *
+     * const counts = [];
+     * let filled = 0;
+     * const visitor = doc.GetDocumentVisitor();
+     * visitor.TableRow = function () {
+     * 	filled = 0;
+     * 	return false;
+     * };
+     * visitor.TableCell = function (cell) {
+     * 	if (cell.GetContent().GetElement(0).GetText().trim() !== "")
+     * 		filled += 1;
+     * 	return true;
+     * };
+     * visitor.TableRowEnd = function () {
+     * 	counts.push(filled);
+     * };
+     * visitor.Traverse();
+     *
+     * const result = Api.CreateParagraph();
+     * result.AddText("Filled cells per row: " + counts.join(", "));
+     * doc.Push(result);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/TableRowEnd/
+     */
+    TableRowEnd(row: ApiTableRow): boolean;
+
+    /**
+     * A hook called with the text of a run. Letters, spaces, tabs ("\t") and line breaks ("\n") that
+     * follow one another come as one string; any other run element splits the text into separate calls.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param text - The text.
+     * @since 9.1.0
+     *
+     * @example
+     * ```js
+     * // Count the words of a document with a document visitor.
+     *
+     * // The Text hook receives the text of runs in pieces, so the pieces are joined before counting.
+     *
+     * // Add two paragraphs, count their words and write the result into a new paragraph.
+     *
+     * const doc = Api.GetDocument();
+     * doc.GetElement(0).AddText("The quarterly report is ready.");
+     * const second = Api.CreateParagraph();
+     * second.AddText("Please review it before the meeting.");
+     * doc.Push(second);
+     *
+     * let text = "";
+     * const visitor = doc.GetDocumentVisitor();
+     * visitor.Text = function (piece) {
+     * 	text += piece;
+     * };
+     * visitor.ParagraphEnd = function () {
+     * 	text += " ";
+     * };
+     * visitor.Traverse();
+     *
+     * const words = text.split(/\s+/).filter(function (word) {
+     * 	return word !== "";
+     * });
+     * const result = Api.CreateParagraph();
+     * result.AddText("Words: " + words.length);
+     * doc.Push(result);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/Text/
+     */
+    Text(text: string): boolean;
+
+    /**
+     * Traverses the document content the visitor was created from and calls the assigned hooks for every
+     * node.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param isSelection - Traverse only the selected part of the content instead of the whole content.
+     * @default isSelection = false
+     * @since 9.1.0
+     *
+     * @example
+     * ```js
+     * // Traverse a document with a document visitor and count its paragraphs, tables and characters.
+     *
+     * // The visitor calls the assigned hooks for every paragraph, table and piece of text, including the content of table cells.
+     *
+     * // Add a paragraph and a table, count what the visitor finds and write the result into a new paragraph.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = doc.GetElement(0);
+     * paragraph.AddText("This is a sample text.");
+     * const table = Api.CreateTable(2, 2);
+     * table.GetCell(0, 0).GetContent().GetElement(0).AddText("Cell 1");
+     * table.GetCell(1, 1).GetContent().GetElement(0).AddText("Cell 4");
+     * doc.Push(table);
+     *
+     * let paragraphs = 0;
+     * let tables = 0;
+     * let characters = 0;
+     * const visitor = doc.GetDocumentVisitor();
+     * visitor.Paragraph = function (paragraph) {
+     * 	paragraphs += 1;
+     * 	return false;
+     * };
+     * visitor.Table = function (table) {
+     * 	tables += 1;
+     * 	return false;
+     * };
+     * visitor.Text = function (text) {
+     * 	characters += text.length;
+     * };
+     * visitor.Traverse();
+     *
+     * const result = Api.CreateParagraph();
+     * result.AddText("Paragraphs: " + paragraphs + ", tables: " + tables + ", characters: " + characters);
+     * doc.Push(result);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocumentVisitor/Methods/Traverse/
+     */
+    Traverse(isSelection?: boolean): boolean;
   }
 
   /**
@@ -22219,6 +24446,29 @@ export namespace Word {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Return whether the drawing is allowed to overlap other drawing objects in a document.
+     *
+     * // Useful for getting the allow overlap state of a shape in a text document.
+     *
+     * // Create a shape, enable overlap and display the result.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = Api.CreateShape("rect", 3212465, 963295, fill, stroke);
+     * drawing.SetWrappingStyle("square");
+     * paragraph.AddDrawing(drawing);
+     * drawing.SetAllowOverlap(true);
+     * let docContent = drawing.GetContent();
+     * let allowOverlap = drawing.GetAllowOverlap();
+     * let innerParagraph = Api.CreateParagraph();
+     * innerParagraph.AddText("Allow overlap: " + allowOverlap);
+     * docContent.AddElement(0, innerParagraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetAllowOverlap/
      */
     GetAllowOverlap(): boolean;
@@ -22282,6 +24532,27 @@ export namespace Word {
      * @returns The description of the current drawing, or null if not set.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the description of a drawing in a document.
+     *
+     * // Needed when reading the alternative text of a drawing.
+     *
+     * // Create a drawing, set its description, and read it back.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = Api.CreateShape("cube", 3212465, 963295, fill, stroke);
+     * paragraph.AddDrawing(drawing);
+     * drawing.SetDescription("My Drawing Description");
+     * let description = drawing.GetDescription();
+     * paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Drawing description: " + description);
+     * doc.AddElement(0, paragraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetDescription/
      */
     GetDescription(): string | null;
@@ -22290,6 +24561,28 @@ export namespace Word {
      * Gets the fill formatting properties from the current graphic object.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the fill formatting properties from a drawing object through the base ApiDrawing interface in a document.
+     *
+     * // GetFill returns the ApiFill applied to any graphic object, or null when the object has no fill.
+     *
+     * // Read back the fill type of a filled rectangle and write it into the document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(96, 125, 139));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = Api.CreateShape("rect", 3212465, 963295, fill, stroke);
+     * paragraph.AddDrawing(drawing);
+     * let currentFill = drawing.GetFill();
+     * if (currentFill) {
+     * 	let resultParagraph = Api.CreateParagraph();
+     * 	resultParagraph.AddText("Drawing fill type: " + currentFill.GetType());
+     * 	doc.Push(resultParagraph);
+     * }
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetFill/
      */
@@ -22387,6 +24680,28 @@ export namespace Word {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the outline of a drawing object through the base ApiDrawing interface in a document.
+     *
+     * // GetLine returns the ApiStroke applied to any graphic object, or null when no outline is set.
+     *
+     * // Read back the outline width of a drawing and write it into the document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(36000, Api.CreateSolidFill(Api.RGB(51, 51, 51)));
+     * let drawing = Api.CreateShape("rect", 3212465, 963295, fill, stroke);
+     * paragraph.AddDrawing(drawing);
+     * let currentLine = drawing.GetLine();
+     * if (currentLine) {
+     * 	let resultParagraph = Api.CreateParagraph();
+     * 	resultParagraph.AddText("Drawing outline width (EMU): " + currentLine.GetWidth());
+     * 	doc.Push(resultParagraph);
+     * }
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetLine/
      */
     GetLine(): ApiStroke | null;
@@ -22395,6 +24710,28 @@ export namespace Word {
      * Returns whether the aspect ratio of the drawing is locked.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Return whether the aspect ratio of the drawing is locked in a document.
+     *
+     * // Useful for getting the lock aspect ratio state of a shape in a text document.
+     *
+     * // Create a shape, lock its aspect ratio and display the result.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = Api.CreateShape("rect", 3212465, 963295, fill, stroke);
+     * drawing.SetLockAspect(true);
+     * paragraph.AddDrawing(drawing);
+     * let docContent = drawing.GetContent();
+     * let lockAspect = drawing.GetLockAspect();
+     * let innerParagraph = Api.CreateParagraph();
+     * innerParagraph.AddText("Aspect ratio locked: " + lockAspect);
+     * docContent.AddElement(0, innerParagraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetLockAspect/
      */
@@ -22670,6 +25007,33 @@ export namespace Word {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the shadow of a drawing and reuse it in a document.
+     *
+     * // Retrieve the shadow applied to one shape and apply the same shadow to another.
+     *
+     * // Set a shadow on the first shape, read it with GetShadow, and apply it to a second shape.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = doc.GetElement(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 213, 191));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 100 * 36000, 50 * 36000, fill, stroke);
+     * paragraph.AddDrawing(shape);
+     * shape.SetWrappingStyle("inFront");
+     * shape.SetHorPosition("page", 30 * 36000);
+     * shape.SetVerPosition("page", 30 * 36000);
+     * shape.SetShadow(Api.CreateShadow({ color: Api.RGB(0, 0, 0), transparency: 0.4, offsetX: 3, offsetY: 3 }));
+     * const shadow = shape.GetShadow();
+     * const shape2 = Api.CreateShape("ellipse", 100 * 36000, 50 * 36000, fill, stroke);
+     * paragraph.AddDrawing(shape2);
+     * shape2.SetWrappingStyle("inFront");
+     * shape2.SetHorPosition("page", 30 * 36000);
+     * shape2.SetVerPosition("page", 90 * 36000);
+     * shape2.SetShadow(shadow);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetShadow/
      */
     GetShadow(): ApiShadow | null;
@@ -22680,6 +25044,25 @@ export namespace Word {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the range covering the whole text of a shape and make it bold in a document.
+     *
+     * // Returns null for drawings that are not shapes, such as images or charts.
+     *
+     * // Add a shape with text, get its text range, then apply bold formatting to it.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = doc.GetElement(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const drawing = Api.CreateShape("rect", 3212465, 963295, fill, stroke);
+     * paragraph.AddDrawing(drawing);
+     * drawing.GetContent().GetElement(0).AddText("ONLYOFFICE Document Builder");
+     * const range = drawing.GetTextRange();
+     * range.SetBold(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetTextRange/
      */
     GetTextRange(): ApiRange | null;
@@ -22689,6 +25072,27 @@ export namespace Word {
      *
      * @returns The title of the current drawing, or null if not set.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the title of a drawing in a document.
+     *
+     * // Needed when reading the alternative text title of a drawing.
+     *
+     * // Create a drawing, set its title, and read it back.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = Api.CreateShape("cube", 3212465, 963295, fill, stroke);
+     * paragraph.AddDrawing(drawing);
+     * drawing.SetTitle("My Drawing Title");
+     * let title = drawing.GetTitle();
+     * paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Drawing title: " + title);
+     * doc.AddElement(0, paragraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/GetTitle/
      */
@@ -22727,6 +25131,29 @@ export namespace Word {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Check whether a shape has an associated text body before and after adding text in a document.
+     *
+     * // Returns true if the shape already contains a text body, false otherwise.
+     *
+     * // Add a shape, check HasTextContent, add text to the shape and check it again.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = doc.GetElement(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const drawing = Api.CreateShape("rect", 3212465, 963295, fill, stroke);
+     * paragraph.AddDrawing(drawing);
+     * const hasTextContentBefore = drawing.HasTextContent();
+     * drawing.GetContent().GetElement(0).AddText("Sample");
+     * const resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Before adding text: HasTextContent() === " + hasTextContentBefore);
+     * resultParagraph.AddLineBreak();
+     * resultParagraph.AddText("After adding text: HasTextContent() === " + drawing.HasTextContent());
+     * doc.Push(resultParagraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/HasTextContent/
      */
     HasTextContent(): boolean;
@@ -22764,6 +25191,8 @@ export namespace Word {
      * @param sPosition - The position where the text or paragraph will be inserted ("before" or "after" the drawing
      *   specified).
      * @param beRNewPara - Defines if this method returns a new paragraph (true) or the current ApiDrawing (false).
+     * @default sPosition = "after"
+     * @default beRNewPara = false
      * @returns returns null if parent paragraph doesn't exist.
      *
      * @example
@@ -22787,6 +25216,65 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/InsertParagraph/
      */
     InsertParagraph(paragraph: string | ApiParagraph, sPosition?: string, beRNewPara?: boolean): ApiParagraph | ApiDrawing;
+
+    /**
+     * Moves the cursor after the current drawing.
+     * To move the cursor into the text of a shape, use the MoveCursorToStart or MoveCursorToEnd method of
+     * the content returned by GetDocContent.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor after a drawing in a document.
+     *
+     * // To move the cursor into the shape text, call the MoveCursorToEnd method of the content returned by GetDocContent.
+     *
+     * // Enter text right after the inline shape.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Text before the shape. ");
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = Api.CreateShape("rect", 1908000, 540000, fill, stroke);
+     * paragraph.AddDrawing(drawing);
+     * drawing.MoveCursorToEnd();
+     * doc.EnterText(" Text after the shape.");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor before the current drawing.
+     * To move the cursor into the text of a shape, use the MoveCursorToStart or MoveCursorToEnd method of
+     * the content returned by GetDocContent.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor before a drawing in a document.
+     *
+     * // To move the cursor into the shape text, call the MoveCursorToStart method of the content returned by GetDocContent.
+     *
+     * // Enter text right before the inline shape.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = Api.CreateShape("rect", 1908000, 540000, fill, stroke);
+     * paragraph.AddDrawing(drawing);
+     * drawing.MoveCursorToStart();
+     * doc.EnterText("Text before the shape. ");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
 
     /**
      * Scales the height of the figure using the specified coefficient.
@@ -22893,6 +25381,29 @@ export namespace Word {
      * @param bOverlap - Specifies whether this drawing object can overlap other drawing objects.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set whether the drawing is allowed to overlap other drawing objects in a document.
+     *
+     * // Useful for allowing a drawing to overlap other drawings in a text document.
+     *
+     * // Create a shape, enable overlap and display the result.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = Api.CreateShape("rect", 3212465, 963295, fill, stroke);
+     * drawing.SetWrappingStyle("square");
+     * paragraph.AddDrawing(drawing);
+     * drawing.SetAllowOverlap(true);
+     * let docContent = drawing.GetContent();
+     * let allowOverlap = drawing.GetAllowOverlap();
+     * let innerParagraph = Api.CreateParagraph();
+     * innerParagraph.AddText("Allow overlap: " + allowOverlap);
+     * docContent.AddElement(0, innerParagraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetAllowOverlap/
      */
     SetAllowOverlap(bOverlap: boolean): void;
@@ -22906,6 +25417,27 @@ export namespace Word {
      * @param description - The description to set for the current drawing.
      * @returns Returns true if the operation is successful, false otherwise.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the description of a drawing in a document.
+     *
+     * // Useful for assigning the alternative text of a drawing.
+     *
+     * // Create a drawing and set its description.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = Api.CreateShape("cube", 3212465, 963295, fill, stroke);
+     * paragraph.AddDrawing(drawing);
+     * drawing.SetDescription("My Drawing Description");
+     * let description = drawing.GetDescription();
+     * paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Drawing description: " + description);
+     * doc.AddElement(0, paragraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetDescription/
      */
@@ -23004,6 +25536,34 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetDrawingPrFromDrawing/
      */
     SetDrawingPrFromDrawing(oAnotherDrawing: ApiDrawing): boolean;
+
+    /**
+     * Sets the fill formatting properties to the current graphic object.
+     *
+     * @param oFill - The fill type used to fill the graphic object.
+     * @returns returns false if param is invalid or not supported for the current graphic object.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set a solid fill on a drawing object through the base ApiDrawing interface in a document.
+     *
+     * // The SetFill method works for any graphic object, including images and groups, not only shapes.
+     *
+     * // Add a rectangle to a document and fill it with a solid blue-grey color.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = Api.CreateShape("rect", 3212465, 963295, Api.CreateNoFill(), stroke);
+     * paragraph.AddDrawing(drawing);
+     * let fill = Api.CreateSolidFill(Api.RGB(96, 125, 139));
+     * drawing.SetFill(fill);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetFill/
+     */
+    SetFill(oFill: ApiFill): boolean;
 
     /**
      * Sets the horizontal flip of the current drawing.
@@ -23144,8 +25704,8 @@ export namespace Word {
      *
      * @param sRelativeFrom - The document element which will be taken as a countdown point for the object horizontal
      *   alignment.
-     * @param nDistance - The distance from the right side of the document element to the floating object. Use EMU for
-     *   absolute distance or a number for percent (1 = 1%) when bPercent=true.
+     * @param nDistance - The distance from the left edge of the document element to the left edge of the floating object.
+     *   Use EMU for absolute distance or a number for percent (1 = 1%) when bPercent=true.
      * @param bPercent - The option defining whether the horizontal alignment offset is specified in percent.
      * @default bPercent = false
      *
@@ -23192,11 +25752,62 @@ export namespace Word {
     SetHorPosition(sRelativeFrom: RelFromH, nDistance: EMU | number, bPercent?: boolean): boolean;
 
     /**
+     * Sets the outline properties to the current graphic object.
+     *
+     * @param stroke - The stroke used to create the graphic object outline.
+     * @returns returns false if param is invalid or not supported for the current graphic object.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the outline of a drawing object through the base ApiDrawing interface in a document.
+     *
+     * // SetLine is the base method for the outline and works for any graphic object, not only shapes.
+     *
+     * // Add a rectangle to a document and give it a dark solid outline.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = Api.CreateShape("rect", 3212465, 963295, fill, stroke);
+     * paragraph.AddDrawing(drawing);
+     * let outline = Api.CreateStroke(36000, Api.CreateSolidFill(Api.RGB(51, 51, 51)));
+     * drawing.SetLine(outline);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetLine/
+     */
+    SetLine(stroke: ApiStroke): boolean;
+
+    /**
      * Sets whether the aspect ratio of the drawing is locked.
      *
      * @param bAspect - Specifies whether the aspect ratio of this drawing is locked.
      * @returns Returns `true` if the lock aspect was successfully set, otherwise returns `false`.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set whether the aspect ratio of the drawing is locked in a document.
+     *
+     * // Useful for locking the aspect ratio of a shape in a text document.
+     *
+     * // Create a shape, lock its aspect ratio and display the result.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = Api.CreateShape("rect", 3212465, 963295, fill, stroke);
+     * drawing.SetLockAspect(true);
+     * paragraph.AddDrawing(drawing);
+     * let docContent = drawing.GetContent();
+     * let lockAspect = drawing.GetLockAspect();
+     * let innerParagraph = Api.CreateParagraph();
+     * innerParagraph.AddText("Aspect ratio locked: " + lockAspect);
+     * docContent.AddElement(0, innerParagraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetLockAspect/
      */
@@ -23411,6 +26022,26 @@ export namespace Word {
      * @returns returns false if the graphic object does not support shadow.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Apply an outer shadow to a drawing in a document.
+     *
+     * // Give a shape a soft offset shadow so it appears lifted off the page.
+     *
+     * // Create a shape, build a shadow, and set it on the drawing with SetShadow.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = doc.GetElement(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 213, 191));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 120 * 36000, 60 * 36000, fill, stroke);
+     * paragraph.AddDrawing(shape);
+     * shape.SetWrappingStyle("inFront");
+     * shape.SetHorPosition("page", 30 * 36000);
+     * shape.SetVerPosition("page", 30 * 36000);
+     * shape.SetShadow(Api.CreateShadow({ color: Api.RGB(64, 64, 64), transparency: 0.3, offsetX: 4, offsetY: 4 }));
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetShadow/
      */
     SetShadow(shadow: ApiShadow | null): boolean;
@@ -23457,6 +26088,27 @@ export namespace Word {
      * @returns Returns true if the operation is successful, false otherwise.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the title of a drawing in a document.
+     *
+     * // Useful for assigning the alternative text title of a drawing.
+     *
+     * // Create a drawing and set its title.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = Api.CreateShape("cube", 3212465, 963295, fill, stroke);
+     * paragraph.AddDrawing(drawing);
+     * drawing.SetTitle("My Drawing Title");
+     * let title = drawing.GetTitle();
+     * paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Drawing title: " + title);
+     * doc.AddElement(0, paragraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetTitle/
      */
     SetTitle(title: string): boolean;
@@ -23502,8 +26154,9 @@ export namespace Word {
      * Sets the absolute measurement for the vertical positioning of the floating object.
      *
      * @param sRelativeFrom - The document element which will be taken as a countdown point for the object vertical alignment.
-     * @param nDistance - The distance from the bottom part of the document element to the floating object. Use EMU for
-     *   absolute units or a number (1 = 1%) when bPercent=true for percent relative positioning.
+     * @param nDistance - The distance from the top edge of the document element to the top edge of the floating object.
+     *   Use EMU for absolute units or a number (1 = 1%) when bPercent=true for percent relative
+     *   positioning.
      * @param bPercent - The option defining whether the vertical alignment offset is specified in percent.
      * @default bPercent = false
      *
@@ -23703,6 +26356,22 @@ export namespace Word {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Remove a drop cap and merge its letter back into the paragraph in a document.
+     *
+     * // Remove the drop cap of a paragraph and restore its original text in a document.
+     *
+     * // Delete the drop cap of a paragraph and merge the decorative letter back into the text in a document.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Once upon a time, there was a paragraph that started with a large decorative letter.');
+     * doc.Push(paragraph);
+     * const dropCap = paragraph.SetDropCap('drop');
+     * dropCap.Clear();
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDropCap/Methods/Clear/
      */
     Clear(): boolean;
@@ -23711,6 +26380,25 @@ export namespace Word {
      * Returns the type of the ApiDropCap class.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the class type of a drop cap object in a document.
+     *
+     * // Determine the class type of a drop cap object in a document.
+     *
+     * // Read the "dropCap" class type from a drop cap created for a paragraph in a document.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Once upon a time, there was a paragraph that started with a large decorative letter.');
+     * doc.Push(paragraph);
+     * const dropCap = paragraph.SetDropCap('drop');
+     * const classType = dropCap.GetClassType();
+     * const result = Api.CreateParagraph();
+     * result.AddText('The ApiDropCap class type: ' + classType);
+     * doc.Push(result);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDropCap/Methods/GetClassType/
      */
@@ -23723,6 +26411,26 @@ export namespace Word {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the distance between a drop cap and the paragraph text in a document.
+     *
+     * // Find out the gap between a drop cap and the paragraph text in a document.
+     *
+     * // Retrieve the horizontal distance between the drop cap and the paragraph text in a document.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Once upon a time, there was a paragraph that started with a large decorative letter.');
+     * doc.Push(paragraph);
+     * const dropCap = paragraph.SetDropCap('drop');
+     * dropCap.SetDistanceFromText(72);
+     * const distance = dropCap.GetDistanceFromText();
+     * const result = Api.CreateParagraph();
+     * result.AddText('The distance between the drop cap and the text: ' + distance + ' twips');
+     * doc.Push(result);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDropCap/Methods/GetDistanceFromText/
      */
     GetDistanceFromText(): twips;
@@ -23731,6 +26439,26 @@ export namespace Word {
      * Returns the number of lines that the drop cap occupies.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the number of lines a drop cap spans in a document.
+     *
+     * // Find out how many lines the drop cap of a paragraph drops down in a document.
+     *
+     * // Retrieve the line count that the drop cap of a paragraph occupies in a document.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Once upon a time, there was a paragraph that started with a large decorative letter.');
+     * doc.Push(paragraph);
+     * const dropCap = paragraph.SetDropCap('drop');
+     * dropCap.SetLinesToDrop(3);
+     * const lines = dropCap.GetLinesToDrop();
+     * const result = Api.CreateParagraph();
+     * result.AddText('The drop cap spans ' + lines + ' lines');
+     * doc.Push(result);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDropCap/Methods/GetLinesToDrop/
      */
@@ -23742,6 +26470,23 @@ export namespace Word {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Access the parent paragraph from which the drop cap was created in a document.
+     *
+     * // Format the parent paragraph, such as its text color, in a document.
+     *
+     * // Get the parent paragraph and set its text color to red in a document.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Once upon a time, there was a paragraph that started with a large decorative letter.');
+     * doc.Push(paragraph);
+     * const dropCap = paragraph.SetDropCap('drop');
+     * const parent = dropCap.GetParent();
+     * parent.SetColor(Api.RGB(255, 0, 0));
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDropCap/Methods/GetParent/
      */
     GetParent(): ApiParagraph;
@@ -23750,6 +26495,25 @@ export namespace Word {
      * Returns the drop cap type.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the type of a drop cap in a document.
+     *
+     * // Check whether a drop cap is placed in the text or in the margin in a document.
+     *
+     * // Retrieve the current drop cap type from a paragraph drop cap in a document.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Once upon a time, there was a paragraph that started with a large decorative letter.');
+     * doc.Push(paragraph);
+     * const dropCap = paragraph.SetDropCap('margin');
+     * const type = dropCap.GetPosition();
+     * const result = Api.CreateParagraph();
+     * result.AddText('The drop cap type: ' + type);
+     * doc.Push(result);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDropCap/Methods/GetPosition/
      */
@@ -23763,6 +26527,22 @@ export namespace Word {
      * @param distance - The distance between the drop cap and the paragraph text. Must be a non-negative number.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the distance between a drop cap and the paragraph text in a document.
+     *
+     * // Add spacing between a drop cap and the surrounding paragraph text in a document.
+     *
+     * // Increase the horizontal gap between the decorative initial letter and the paragraph text in a document.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Once upon a time, there was a paragraph that started with a large decorative letter.');
+     * doc.Push(paragraph);
+     * const dropCap = paragraph.SetDropCap('drop');
+     * dropCap.SetDistanceFromText(72);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDropCap/Methods/SetDistanceFromText/
      */
     SetDistanceFromText(distance: twips): ApiDropCap;
@@ -23774,6 +26554,22 @@ export namespace Word {
      *   family.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the font family of a drop cap letter in a document.
+     *
+     * // Use a different font for the drop cap letter of a paragraph in a document.
+     *
+     * // Apply a specific font family to the decorative initial letter of a paragraph in a document.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Once upon a time, there was a paragraph that started with a large decorative letter.');
+     * doc.Push(paragraph);
+     * const dropCap = paragraph.SetDropCap('drop');
+     * dropCap.SetFontFamily('Times New Roman');
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDropCap/Methods/SetFontFamily/
      */
     SetFontFamily(fontFamily?: string | null): ApiDropCap;
@@ -23783,6 +26579,22 @@ export namespace Word {
      *
      * @param lines - The number of lines that the drop cap occupies. Must be a number greater than 0.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the number of lines a drop cap spans in a document.
+     *
+     * // Control how many lines the drop cap of a paragraph drops down in a document.
+     *
+     * // Resize the decorative initial letter so that it occupies the specified number of text lines in a document.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Once upon a time, there was a paragraph that started with a large decorative letter.');
+     * doc.Push(paragraph);
+     * const dropCap = paragraph.SetDropCap('drop');
+     * dropCap.SetLinesToDrop(4);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDropCap/Methods/SetLinesToDrop/
      */
@@ -23795,6 +26607,22 @@ export namespace Word {
      *   places it in the margin.
      * @returns Returns null if the drop cap was removed with "none".
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Change the type of a drop cap between in-text and in-margin in a document.
+     *
+     * // Move a drop cap from the text into the margin in a document.
+     *
+     * // Switch an existing in-text drop cap to an in-margin drop cap in a document.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Once upon a time, there was a paragraph that started with a large decorative letter.');
+     * doc.Push(paragraph);
+     * const dropCap = paragraph.SetDropCap('drop');
+     * dropCap.SetPosition('margin');
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDropCap/Methods/SetPosition/
      */
@@ -23839,6 +26667,33 @@ export namespace Word {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the color back from the fill of a shape in a document.
+     *
+     * // How do I find out which color a shape is filled with in a document?
+     *
+     * // Inspect the color of a solid fill and tell it apart from a gradient, which has no single color, in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     *
+     * let solidFill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let shape1 = Api.CreateShape("rect", 50 * 36000, 30 * 36000, solidFill, stroke);
+     * paragraph.AddDrawing(shape1);
+     * let color = shape1.GetFill().GetColor();
+     * paragraph.AddText("Solid fill color: " + color.GetHex());
+     * paragraph.AddLineBreak();
+     *
+     * let gs1 = Api.CreateGradientStop(Api.RGB(255, 213, 191), 0);
+     * let gs2 = Api.CreateGradientStop(Api.RGB(255, 111, 61), 100000);
+     * let gradientFill = Api.CreateLinearGradientFill([gs1, gs2], 5400000);
+     * let shape2 = Api.CreateShape("rect", 50 * 36000, 30 * 36000, gradientFill, stroke);
+     * paragraph.AddDrawing(shape2);
+     * paragraph.AddText("Gradient fill color: " + shape2.GetFill().GetColor());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFill/Methods/GetColor/
      */
     GetColor(): ApiColor | null;
@@ -23848,6 +26703,27 @@ export namespace Word {
      *
      * @returns The transparency value, from 0 (fully opaque) to 1 (fully transparent).
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read back the transparency of a shape's fill in a document.
+     *
+     * // Find out how transparent a shape's fill is in a document.
+     *
+     * // Check the transparency that was applied to a shape's fill in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     *
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * fill.SetTransparent(0.4);
+     * let shape = Api.CreateShape("rect", 50 * 36000, 30 * 36000, fill, stroke);
+     * paragraph.AddDrawing(shape);
+     *
+     * let appliedFill = shape.GetFill();
+     * paragraph.AddText("Fill transparency: " + appliedFill.GetTransparent());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFill/Methods/GetTransparent/
      */
@@ -23903,6 +26779,24 @@ export namespace Word {
      *
      * @param transparent - The transparency value, from 0 (fully opaque) to 1 (fully transparent).
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Make a shape's fill semi-transparent in a document.
+     *
+     * // Adjust how see-through a shape's fill is in a document.
+     *
+     * // Fade a shape's solid fill so the content behind it shows through in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     *
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * fill.SetTransparent(0.4);
+     * let shape = Api.CreateShape("rect", 50 * 36000, 30 * 36000, fill, stroke);
+     * paragraph.AddDrawing(shape);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFill/Methods/SetTransparent/
      */
@@ -23992,6 +26886,7 @@ export namespace Word {
      * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
+     * @default keepContent = false
      * @returns returns false if form wasn't added to the document.
      * @since 9.2.0
      *
@@ -24127,7 +27022,41 @@ export namespace Word {
     GetFormType(): FormType;
 
     /**
-     * Returns an internal id of the current form.
+     * Returns a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @since 10.0.1
+     *
+     * @example
+     * ```js
+     * // Read the ID assigned to a form in a document.
+     *
+     * // Check the ID that was set for a form with the SetId method in a document.
+     *
+     * // Display the form ID that is saved to the file and stays the same after the document is reopened.
+     *
+     * let doc = Api.GetDocument();
+     * let textForm = Api.CreateTextForm({"key": "Personal information", "tip": "Enter your first name", "required": true, "placeholder": "First name", "comb": true, "maxCharacters": 10, "cellWidth": 3, "multiLine": false, "autoFit": false});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(textForm);
+     * textForm.SetId(1001);
+     * let formId = textForm.GetId();
+     * paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Form ID: " + formId);
+     * doc.Push(paragraph);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetId/
+     */
+    GetId(): number;
+
+    /**
+     * Returns an internal ID of the current form.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
+     * To get the ID which is saved to the file, use the {@link ApiFormBase#GetId} method.
      *
      * @since 9.2.0
      *
@@ -24184,6 +27113,22 @@ export namespace Word {
      * @returns returns null if the form has no parent.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Access the element that directly contains a form.
+     *
+     * // The parent is the paragraph that directly contains the form.
+     *
+     * // Navigate from a text form up to its parent paragraph and make it bold.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let form = Api.CreateTextForm({ "key": "Name", "placeholder": "Enter text" });
+     * paragraph.Push(form);
+     * let parent = form.GetParent();
+     * parent.SetBold(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetParent/
      */
     GetParent(): ParagraphLikeContainer | null;
@@ -24219,6 +27164,25 @@ export namespace Word {
      *
      * @returns returns -1 if the form has no parent.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Determine the index of a form within its parent element.
+     *
+     * // The position is the form's index within its parent paragraph.
+     *
+     * // Read a form's position within its paragraph and report it back.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Field: ");
+     * let form = Api.CreateTextForm({ "key": "Name", "placeholder": "Enter text" });
+     * paragraph.Push(form);
+     * let position = form.GetPosInParent();
+     * let report = Api.CreateParagraph();
+     * report.AddText("The form is at position " + position + ".");
+     * doc.Push(report);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetPosInParent/
      */
@@ -24538,6 +27502,60 @@ export namespace Word {
     MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
+     * Moves the cursor to the end of the current form.
+     * The cursor is placed inside the form. To place it before or after the form, use the
+     * MoveCursorOutside method.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the end of a form in a document.
+     *
+     * // The cursor is placed inside the form. Use the MoveCursorOutside method to place it before or after the form.
+     *
+     * // Place the cursor after the last character of the text form value.
+     *
+     * let doc = Api.GetDocument();
+     * let textForm = Api.CreateTextForm({"key": "Personal information", "tip": "Enter your first name", "placeholder": "First name"});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(textForm);
+     * textForm.SetText("The cursor will be placed at the end of the current form.");
+     * textForm.MoveCursorToEnd();
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor to the start of the current form.
+     * The cursor is placed inside the form. To place it before or after the form, use the
+     * MoveCursorOutside method.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the start of a form in a document.
+     *
+     * // The cursor is placed inside the form. Use the MoveCursorOutside method to place it before or after the form.
+     *
+     * // Place the cursor before the first character of the text form value.
+     *
+     * let doc = Api.GetDocument();
+     * let textForm = Api.CreateTextForm({"key": "Personal information", "tip": "Enter your first name", "placeholder": "First name"});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(textForm);
+     * textForm.SetText("The cursor will be placed at the start of the current form.");
+     * textForm.MoveCursorToStart();
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
+
+    /**
      * Sets the background color to the current form.
      *
      * @param color - The background color.
@@ -24608,6 +27626,37 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/SetFormKey/
      */
     SetFormKey(sKey: string): boolean;
+
+    /**
+     * Specifies a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @param id - The numerical ID which will be specified for the current form.
+     * @since 10.0.1
+     *
+     * @example
+     * ```js
+     * // Assign a unique ID to a form in a document.
+     *
+     * // Set a custom ID for a form to tell it apart from other forms in a document.
+     *
+     * // Give a form an ID that is saved to the file, unlike the internal ID which can change after reopening.
+     *
+     * let doc = Api.GetDocument();
+     * let textForm = Api.CreateTextForm({"key": "Personal information", "tip": "Enter your first name", "required": true, "placeholder": "First name", "comb": true, "maxCharacters": 10, "cellWidth": 3, "multiLine": false, "autoFit": false});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(textForm);
+     * textForm.SetId(1001);
+     * let formId = textForm.GetId();
+     * paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Form ID: " + formId);
+     * doc.Push(paragraph);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/SetId/
+     */
+    SetId(id: number): boolean;
 
     /**
      * Sets the lock state of the current form.
@@ -24854,6 +27903,7 @@ export namespace Word {
      * @param height - The wrapper shape height measured in twentieths of a point (1/1440 of an inch).
      * @param keepPosition - Save position on the page (it can be a little bit slow, because it runs the document
      *   calculation).
+     * @default keepPosition = false
      *
      * @example
      * ```js
@@ -25424,7 +28474,7 @@ export namespace Word {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiGroup/
    */
-  export interface ApiGroup extends Omit<ApiDrawing, "GetClassType"> {
+  export interface ApiGroup extends Omit<ApiDrawing, "Copy" | "GetClassType"> {
     /**
      * Inserts a break at the specified location in the main document.
      *
@@ -25454,7 +28504,9 @@ export namespace Word {
     AddBreak(breakType: number, position: string): boolean;
 
     /**
-     * Copies the current graphic object.
+     * Creates a copy of the current group.
+     *
+     * @since 9.4.0
      *
      * @example
      * ```js
@@ -25477,9 +28529,9 @@ export namespace Word {
      * paragraph.AddDrawing(copyGroup);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/Copy/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiGroup/Methods/Copy/
      */
-    Copy(): ApiDrawing | null;
+    Copy(): ApiGroup | null;
 
     /**
      * Deletes the current graphic object.
@@ -26101,6 +29153,8 @@ export namespace Word {
      * @param sPosition - The position where the text or paragraph will be inserted ("before" or "after" the drawing
      *   specified).
      * @param beRNewPara - Defines if this method returns a new paragraph (true) or the current ApiDrawing (false).
+     * @default sPosition = "after"
+     * @default beRNewPara = false
      * @returns returns null if parent paragraph doesn't exist.
      *
      * @example
@@ -26124,6 +29178,28 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/InsertParagraph/
      */
     InsertParagraph(paragraph: string | ApiParagraph, sPosition?: string, beRNewPara?: boolean): ApiParagraph | ApiDrawing;
+
+    /**
+     * Moves the cursor after the current drawing.
+     * To move the cursor into the text of a shape, use the MoveCursorToStart or MoveCursorToEnd method of
+     * the content returned by GetDocContent.
+     *
+     * @since 10.0.3
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor before the current drawing.
+     * To move the cursor into the text of a shape, use the MoveCursorToStart or MoveCursorToEnd method of
+     * the content returned by GetDocContent.
+     *
+     * @since 10.0.3
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
 
     /**
      * Scales the height of the figure using the specified coefficient.
@@ -26340,6 +29416,17 @@ export namespace Word {
     SetDrawingPrFromDrawing(oAnotherDrawing: ApiDrawing): boolean;
 
     /**
+     * Sets the fill formatting properties to the current graphic object.
+     *
+     * @param oFill - The fill type used to fill the graphic object.
+     * @returns returns false if param is invalid or not supported for the current graphic object.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetFill/
+     */
+    SetFill(oFill: ApiFill): boolean;
+
+    /**
      * Sets the horizontal flip of the current drawing.
      *
      * @param bFlip - Specifies if the figure will be flipped horizontally or not.
@@ -26478,8 +29565,8 @@ export namespace Word {
      *
      * @param sRelativeFrom - The document element which will be taken as a countdown point for the object horizontal
      *   alignment.
-     * @param nDistance - The distance from the right side of the document element to the floating object. Use EMU for
-     *   absolute distance or a number for percent (1 = 1%) when bPercent=true.
+     * @param nDistance - The distance from the left edge of the document element to the left edge of the floating object.
+     *   Use EMU for absolute distance or a number for percent (1 = 1%) when bPercent=true.
      * @param bPercent - The option defining whether the horizontal alignment offset is specified in percent.
      * @default bPercent = false
      *
@@ -26524,6 +29611,17 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetHorPosition/
      */
     SetHorPosition(sRelativeFrom: RelFromH, nDistance: EMU | number, bPercent?: boolean): boolean;
+
+    /**
+     * Sets the outline properties to the current graphic object.
+     *
+     * @param stroke - The stroke used to create the graphic object outline.
+     * @returns returns false if param is invalid or not supported for the current graphic object.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetLine/
+     */
+    SetLine(stroke: ApiStroke): boolean;
 
     /**
      * Sets whether the aspect ratio of the drawing is locked.
@@ -26836,8 +29934,9 @@ export namespace Word {
      * Sets the absolute measurement for the vertical positioning of the floating object.
      *
      * @param sRelativeFrom - The document element which will be taken as a countdown point for the object vertical alignment.
-     * @param nDistance - The distance from the bottom part of the document element to the floating object. Use EMU for
-     *   absolute units or a number (1 = 1%) when bPercent=true for percent relative positioning.
+     * @param nDistance - The distance from the top edge of the document element to the top edge of the floating object.
+     *   Use EMU for absolute units or a number (1 = 1%) when bPercent=true for percent relative
+     *   positioning.
      * @param bPercent - The option defining whether the vertical alignment offset is specified in percent.
      * @default bPercent = false
      *
@@ -27212,6 +30311,22 @@ export namespace Word {
      * @returns returns null if the hyperlink has no parent.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Access the element that directly contains a hyperlink.
+     *
+     * // The parent is the paragraph that directly contains the hyperlink.
+     *
+     * // Navigate from a hyperlink up to its parent paragraph and make it bold.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Visit our website");
+     * let hyperlink = paragraph.AddHyperlink("https://www.example.com", "Example");
+     * let parent = hyperlink.GetParent();
+     * parent.SetBold(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiHyperlink/Methods/GetParent/
      */
     GetParent(): ParagraphLikeContainer | null;
@@ -27221,6 +30336,24 @@ export namespace Word {
      *
      * @returns returns -1 if the hyperlink has no parent.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Determine the index of a hyperlink within its parent element.
+     *
+     * // The position is the hyperlink's index within its parent paragraph.
+     *
+     * // Read a hyperlink's position within its paragraph and report it back.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Visit our website");
+     * let hyperlink = paragraph.AddHyperlink("https://www.example.com", "Example");
+     * let position = hyperlink.GetPosInParent();
+     * let report = Api.CreateParagraph();
+     * report.AddText("The hyperlink is at position " + position + " in its parent.");
+     * doc.Push(report);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiHyperlink/Methods/GetPosInParent/
      */
@@ -27275,6 +30408,56 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiHyperlink/Methods/GetScreenTipText/
      */
     GetScreenTipText(): string;
+
+    /**
+     * Moves the cursor to the end of the current hyperlink.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the end of a hyperlink in a document.
+     *
+     * // Text entered at this position becomes part of the hyperlink.
+     *
+     * // Complete the hyperlink text by adding words after it.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("ONLYOFFICE");
+     * let hyperlink = paragraph.AddHyperlink("https://api.onlyoffice.com", "ONLYOFFICE for developers");
+     * hyperlink.MoveCursorToEnd();
+     * doc.EnterText(" for developers");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiHyperlink/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor to the start of the current hyperlink.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the start of a hyperlink in a document.
+     *
+     * // Text entered at this position becomes part of the hyperlink.
+     *
+     * // Complete the hyperlink text by adding a word before it.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("website");
+     * let hyperlink = paragraph.AddHyperlink("https://www.onlyoffice.com", "ONLYOFFICE website");
+     * hyperlink.MoveCursorToStart();
+     * doc.EnterText("ONLYOFFICE ");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiHyperlink/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
 
     /**
      * Sets the default hyperlink style.
@@ -27406,7 +30589,7 @@ export namespace Word {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiImage/
    */
-  export interface ApiImage extends Omit<ApiDrawing, "GetClassType"> {
+  export interface ApiImage extends Omit<ApiDrawing, "Copy" | "GetClassType"> {
     /**
      * Inserts a break at the specified location in the main document.
      *
@@ -27436,7 +30619,9 @@ export namespace Word {
     AddBreak(breakType: number, position: string): boolean;
 
     /**
-     * Copies the current graphic object.
+     * Creates a copy of the current image.
+     *
+     * @since 9.4.0
      *
      * @example
      * ```js
@@ -27453,9 +30638,9 @@ export namespace Word {
      * paragraph.AddDrawing(copyImage);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/Copy/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiImage/Methods/Copy/
      */
-    Copy(): ApiDrawing | null;
+    Copy(): ApiImage | null;
 
     /**
      * Deletes the current graphic object.
@@ -28138,6 +31323,8 @@ export namespace Word {
      * @param sPosition - The position where the text or paragraph will be inserted ("before" or "after" the drawing
      *   specified).
      * @param beRNewPara - Defines if this method returns a new paragraph (true) or the current ApiDrawing (false).
+     * @default sPosition = "after"
+     * @default beRNewPara = false
      * @returns returns null if parent paragraph doesn't exist.
      *
      * @example
@@ -28161,6 +31348,28 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/InsertParagraph/
      */
     InsertParagraph(paragraph: string | ApiParagraph, sPosition?: string, beRNewPara?: boolean): ApiParagraph | ApiDrawing;
+
+    /**
+     * Moves the cursor after the current drawing.
+     * To move the cursor into the text of a shape, use the MoveCursorToStart or MoveCursorToEnd method of
+     * the content returned by GetDocContent.
+     *
+     * @since 10.0.3
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor before the current drawing.
+     * To move the cursor into the text of a shape, use the MoveCursorToStart or MoveCursorToEnd method of
+     * the content returned by GetDocContent.
+     *
+     * @since 10.0.3
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
 
     /**
      * Scales the height of the figure using the specified coefficient.
@@ -28377,6 +31586,17 @@ export namespace Word {
     SetDrawingPrFromDrawing(oAnotherDrawing: ApiDrawing): boolean;
 
     /**
+     * Sets the fill formatting properties to the current graphic object.
+     *
+     * @param oFill - The fill type used to fill the graphic object.
+     * @returns returns false if param is invalid or not supported for the current graphic object.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetFill/
+     */
+    SetFill(oFill: ApiFill): boolean;
+
+    /**
      * Sets the horizontal flip of the current drawing.
      *
      * @param bFlip - Specifies if the figure will be flipped horizontally or not.
@@ -28515,8 +31735,8 @@ export namespace Word {
      *
      * @param sRelativeFrom - The document element which will be taken as a countdown point for the object horizontal
      *   alignment.
-     * @param nDistance - The distance from the right side of the document element to the floating object. Use EMU for
-     *   absolute distance or a number for percent (1 = 1%) when bPercent=true.
+     * @param nDistance - The distance from the left edge of the document element to the left edge of the floating object.
+     *   Use EMU for absolute distance or a number for percent (1 = 1%) when bPercent=true.
      * @param bPercent - The option defining whether the horizontal alignment offset is specified in percent.
      * @default bPercent = false
      *
@@ -28561,6 +31781,17 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetHorPosition/
      */
     SetHorPosition(sRelativeFrom: RelFromH, nDistance: EMU | number, bPercent?: boolean): boolean;
+
+    /**
+     * Sets the outline properties to the current graphic object.
+     *
+     * @param stroke - The stroke used to create the graphic object outline.
+     * @returns returns false if param is invalid or not supported for the current graphic object.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetLine/
+     */
+    SetLine(stroke: ApiStroke): boolean;
 
     /**
      * Sets whether the aspect ratio of the drawing is locked.
@@ -28873,8 +32104,9 @@ export namespace Word {
      * Sets the absolute measurement for the vertical positioning of the floating object.
      *
      * @param sRelativeFrom - The document element which will be taken as a countdown point for the object vertical alignment.
-     * @param nDistance - The distance from the bottom part of the document element to the floating object. Use EMU for
-     *   absolute units or a number (1 = 1%) when bPercent=true for percent relative positioning.
+     * @param nDistance - The distance from the top edge of the document element to the top edge of the floating object.
+     *   Use EMU for absolute units or a number (1 = 1%) when bPercent=true for percent relative
+     *   positioning.
      * @param bPercent - The option defining whether the vertical alignment offset is specified in percent.
      * @default bPercent = false
      *
@@ -29561,6 +32793,27 @@ export namespace Word {
      * @returns returns -1 if the element is not a direct child of the current inline content control.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Determine the index of an element inside an inline content control.
+     *
+     * // The index reflects the position of a run within the inline content control.
+     *
+     * // Locate a run placed inside an inline content control and report its index.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let inlineSdt = Api.CreateInlineLvlSdt();
+     * paragraph.AddInlineLvlSdt(inlineSdt);
+     * let run = Api.CreateRun();
+     * run.AddText("nested run");
+     * inlineSdt.AddElement(run);
+     * let index = inlineSdt.GetElementIndex(run);
+     * let report = Api.CreateParagraph();
+     * report.AddText("The nested run is at index " + index + ".");
+     * doc.Push(report);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/GetElementIndex/
      */
     GetElementIndex(element: ParagraphContent): number;
@@ -29605,6 +32858,8 @@ export namespace Word {
 
     /**
      * Returns a unique ID for the current content control.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiInlineLvlSdt#GetInternalId} method.
      *
      * @since 8.3.2
      *
@@ -29630,10 +32885,14 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/GetId/
      */
-    GetId(): string;
+    GetId(): number;
 
     /**
      * Returns an internal ID of the current content control.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
+     * To get the ID which is saved to the file, use the {@link ApiInlineLvlSdt#GetId} method.
      *
      * @example
      * ```js
@@ -29721,6 +32980,23 @@ export namespace Word {
      *
      * @returns returns null if the content control has no parent.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Access the element that directly contains an inline content control.
+     *
+     * // The parent is the paragraph that directly contains the inline content control.
+     *
+     * // Navigate from an inline content control up to its parent paragraph and make it bold.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let inlineSdt = Api.CreateInlineLvlSdt();
+     * inlineSdt.AddText("Inline control");
+     * paragraph.AddInlineLvlSdt(inlineSdt);
+     * let parent = inlineSdt.GetParent();
+     * parent.SetBold(true);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/GetParent/
      */
@@ -29872,6 +33148,26 @@ export namespace Word {
      *
      * @returns returns -1 if the content control has no parent.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Determine the index of an inline content control within its parent.
+     *
+     * // The position is the inline content control's index within its parent paragraph.
+     *
+     * // Read an inline content control's position within its paragraph and report it.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Before ");
+     * let inlineSdt = Api.CreateInlineLvlSdt();
+     * inlineSdt.AddText("control");
+     * paragraph.AddInlineLvlSdt(inlineSdt);
+     * let position = inlineSdt.GetPosInParent();
+     * let report = Api.CreateParagraph();
+     * report.AddText("The inline control is at position " + position + ".");
+     * doc.Push(report);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/GetPosInParent/
      */
@@ -30124,6 +33420,64 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/MoveCursorOutside/
      */
     MoveCursorOutside(isAfter?: boolean | null): boolean;
+
+    /**
+     * Moves the cursor to the end of the current content control.
+     * The cursor is placed inside the content control. To place it before or after the content control,
+     * use the MoveCursorOutside method.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the end of an inline content control in a document.
+     *
+     * // The cursor is placed inside the content control. Use the MoveCursorOutside method to place it before or after the control.
+     *
+     * // Insert text at the end of the content control.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Text before the content control. ");
+     * let inlineLvlSdt = Api.CreateInlineLvlSdt();
+     * inlineLvlSdt.AddText("Content control text");
+     * paragraph.AddInlineLvlSdt(inlineLvlSdt);
+     * inlineLvlSdt.MoveCursorToEnd();
+     * doc.EnterText(" added at the end");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor to the start of the current content control.
+     * The cursor is placed inside the content control. To place it before or after the content control,
+     * use the MoveCursorOutside method.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the start of an inline content control in a document.
+     *
+     * // The cursor is placed inside the content control. Use the MoveCursorOutside method to place it before or after the control.
+     *
+     * // Insert text at the beginning of the content control.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Text before the content control. ");
+     * let inlineLvlSdt = Api.CreateInlineLvlSdt();
+     * inlineLvlSdt.AddText("content control text");
+     * paragraph.AddInlineLvlSdt(inlineLvlSdt);
+     * inlineLvlSdt.MoveCursorToStart();
+     * doc.EnterText("Start of the ");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
 
     /**
      * Adds an element to the end of inline text content control.
@@ -30517,6 +33871,8 @@ export namespace Word {
 
     /**
      * Specifies a unique ID for the current content control.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiInlineLvlSdt#GetInternalId} method.
      *
      * @param id - The numerical ID which will be specified for the current content control.
      * @since 8.3.2
@@ -30822,6 +34178,24 @@ export namespace Word {
     /**
      * Returns a type of the ApiMath class.
      *
+     * @example
+     * ```js
+     * // Identify the object type of a math equation in a document.
+     *
+     * // Find out what kind of object a formula is in a document.
+     *
+     * // Confirm the category a math equation belongs to in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let math = Api.CreateMath("x^2 + y^2 = z^2", "unicode");
+     * paragraph.AddElement(math);
+     * let classType = math.GetClassType();
+     * paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Class Type = " + classType);
+     * doc.Push(paragraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiMath/Methods/GetClassType/
      */
     GetClassType(): "math";
@@ -30833,6 +34207,23 @@ export namespace Word {
      * @returns returns null if the math element has no parent.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Access the element that directly contains a math equation.
+     *
+     * // The parent is the paragraph that directly contains the math equation.
+     *
+     * // Navigate from a math equation up to its parent paragraph and make it italic.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Equation: ");
+     * let math = Api.CreateMath("a^2 + b^2 = c^2");
+     * paragraph.AddElement(math);
+     * let parent = math.GetParent();
+     * parent.SetItalic(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiMath/Methods/GetParent/
      */
     GetParent(): ParagraphLikeContainer | null;
@@ -30842,6 +34233,25 @@ export namespace Word {
      *
      * @returns returns -1 if the math element has no parent.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Determine the index of a math equation within its parent element.
+     *
+     * // The position is the math equation's index within its parent paragraph.
+     *
+     * // Read a math equation's position within its paragraph and report it back.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Equation: ");
+     * let math = Api.CreateMath("a^2 + b^2 = c^2");
+     * paragraph.AddElement(math);
+     * let position = math.GetPosInParent();
+     * let report = Api.CreateParagraph();
+     * report.AddText("The math equation is at position " + position + ".");
+     * doc.Push(report);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiMath/Methods/GetPosInParent/
      */
@@ -30853,9 +34263,80 @@ export namespace Word {
      * @param format - The format the text should be returned in.
      * @default format = "unicode"
      *
+     * @example
+     * ```js
+     * // Read the text representation of a math equation, either as unicode linear text or as LaTeX, in a document.
+     *
+     * // Get the formula of an equation back as plain text or as LaTeX in a document.
+     *
+     * // Build a fraction equation, then read it back both as unicode text and as LaTeX.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let math = Api.CreateMath("dx/dy", "unicode");
+     * paragraph.AddElement(math);
+     * let unicodeText = math.GetText("unicode");
+     * let latexText = math.GetText("latex");
+     * paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Unicode: " + unicodeText + ", LaTeX: " + latexText);
+     * doc.Push(paragraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiMath/Methods/GetText/
      */
     GetText(format?: "unicode" | "latex"): string;
+
+    /**
+     * Moves the cursor to the end of the current math equation.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the end of a math equation in a document.
+     *
+     * // The cursor is placed inside the equation, after its last character.
+     *
+     * // Add a term at the end of the equation.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Equation: ");
+     * let math = Api.CreateMath("a + b");
+     * paragraph.AddElement(math);
+     * math.MoveCursorToEnd();
+     * doc.EnterText(" = c");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiMath/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor to the start of the current math equation.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the start of a math equation in a document.
+     *
+     * // The cursor is placed inside the equation, before its first character.
+     *
+     * // Add a term at the beginning of the equation.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Equation: ");
+     * let math = Api.CreateMath("b + c");
+     * paragraph.AddElement(math);
+     * math.MoveCursorToStart();
+     * doc.EnterText("a + ");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiMath/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
   }
 
   /**
@@ -31366,7 +34847,7 @@ export namespace Word {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiOleObject/
    */
-  export interface ApiOleObject extends Omit<ApiDrawing, "GetClassType"> {
+  export interface ApiOleObject extends Omit<ApiDrawing, "Copy" | "GetClassType"> {
     /**
      * Inserts a break at the specified location in the main document.
      *
@@ -31396,7 +34877,9 @@ export namespace Word {
     AddBreak(breakType: number, position: string): boolean;
 
     /**
-     * Copies the current graphic object.
+     * Creates a copy of the current OLE object.
+     *
+     * @since 9.4.0
      *
      * @example
      * ```js
@@ -31418,9 +34901,9 @@ export namespace Word {
      * paragraph.AddDrawing(copyOle);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/Copy/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiOleObject/Methods/Copy/
      */
-    Copy(): ApiDrawing | null;
+    Copy(): ApiOleObject | null;
 
     /**
      * Deletes the current graphic object.
@@ -32087,6 +35570,8 @@ export namespace Word {
      * @param sPosition - The position where the text or paragraph will be inserted ("before" or "after" the drawing
      *   specified).
      * @param beRNewPara - Defines if this method returns a new paragraph (true) or the current ApiDrawing (false).
+     * @default sPosition = "after"
+     * @default beRNewPara = false
      * @returns returns null if parent paragraph doesn't exist.
      *
      * @example
@@ -32110,6 +35595,28 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/InsertParagraph/
      */
     InsertParagraph(paragraph: string | ApiParagraph, sPosition?: string, beRNewPara?: boolean): ApiParagraph | ApiDrawing;
+
+    /**
+     * Moves the cursor after the current drawing.
+     * To move the cursor into the text of a shape, use the MoveCursorToStart or MoveCursorToEnd method of
+     * the content returned by GetDocContent.
+     *
+     * @since 10.0.3
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor before the current drawing.
+     * To move the cursor into the text of a shape, use the MoveCursorToStart or MoveCursorToEnd method of
+     * the content returned by GetDocContent.
+     *
+     * @since 10.0.3
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
 
     /**
      * Scales the height of the figure using the specified coefficient.
@@ -32380,6 +35887,17 @@ export namespace Word {
     SetDrawingPrFromDrawing(oAnotherDrawing: ApiDrawing): boolean;
 
     /**
+     * Sets the fill formatting properties to the current graphic object.
+     *
+     * @param oFill - The fill type used to fill the graphic object.
+     * @returns returns false if param is invalid or not supported for the current graphic object.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetFill/
+     */
+    SetFill(oFill: ApiFill): boolean;
+
+    /**
      * Sets the horizontal flip of the current drawing.
      *
      * @param bFlip - Specifies if the figure will be flipped horizontally or not.
@@ -32518,8 +36036,8 @@ export namespace Word {
      *
      * @param sRelativeFrom - The document element which will be taken as a countdown point for the object horizontal
      *   alignment.
-     * @param nDistance - The distance from the right side of the document element to the floating object. Use EMU for
-     *   absolute distance or a number for percent (1 = 1%) when bPercent=true.
+     * @param nDistance - The distance from the left edge of the document element to the left edge of the floating object.
+     *   Use EMU for absolute distance or a number for percent (1 = 1%) when bPercent=true.
      * @param bPercent - The option defining whether the horizontal alignment offset is specified in percent.
      * @default bPercent = false
      *
@@ -32564,6 +36082,17 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetHorPosition/
      */
     SetHorPosition(sRelativeFrom: RelFromH, nDistance: EMU | number, bPercent?: boolean): boolean;
+
+    /**
+     * Sets the outline properties to the current graphic object.
+     *
+     * @param stroke - The stroke used to create the graphic object outline.
+     * @returns returns false if param is invalid or not supported for the current graphic object.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetLine/
+     */
+    SetLine(stroke: ApiStroke): boolean;
 
     /**
      * Sets whether the aspect ratio of the drawing is locked.
@@ -32876,8 +36405,9 @@ export namespace Word {
      * Sets the absolute measurement for the vertical positioning of the floating object.
      *
      * @param sRelativeFrom - The document element which will be taken as a countdown point for the object vertical alignment.
-     * @param nDistance - The distance from the bottom part of the document element to the floating object. Use EMU for
-     *   absolute units or a number (1 = 1%) when bPercent=true for percent relative positioning.
+     * @param nDistance - The distance from the top edge of the document element to the top edge of the floating object.
+     *   Use EMU for absolute units or a number (1 = 1%) when bPercent=true for percent relative
+     *   positioning.
      * @param bPercent - The option defining whether the vertical alignment offset is specified in percent.
      * @default bPercent = false
      *
@@ -34626,8 +38156,8 @@ export namespace Word {
      * @param sBookmarkName - The name of the bookmark to be referred to (must be in the document).
      * @param bLink - Specifies if the reference will be inserted as a hyperlink.
      * @param bAboveBelow - Specifies if the above/below words indicating the position of the reference should be included
-     *   (don't used with the "text" and "aboveBelow" sRefType).
-     * @param sSepWith - A number separator (used only with the "fullCtxParaNum" sRefType).
+     *   (don't used with the "text" and "aboveBelow" sRefTo).
+     * @param sSepWith - A number separator (used only with the "fullCtxParaNum" sRefTo).
      * @default bLink = true
      * @default bAboveBelow = false
      * @default sSepWith = ""
@@ -34706,11 +38236,11 @@ export namespace Word {
      * This paragraph must be in the document.
      *
      * @param sCaption - The caption label ("Equation", "Figure", "Table", or another caption label).
-     * @param sRefType - The text or numeric value of a caption reference you want to insert.
+     * @param sRefTo - The text or numeric value of a caption reference you want to insert.
      * @param oParaTo - The caption paragraph to be referred to (must be in the document).
      * @param bLink - Specifies if the reference will be inserted as a hyperlink.
      * @param bAboveBelow - Specifies if the above/below words indicating the position of the reference should be included
-     *   (used only with the "pageNum" sRefType).
+     *   (used only with the "pageNum" sRefTo).
      * @default bLink = true
      * @default bAboveBelow = false
      *
@@ -34739,7 +38269,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/AddCaptionCrossRef/
      */
-    AddCaptionCrossRef(sCaption: CaptionLabel | string, sRefType: captionRefTo, oParaTo: ApiParagraph, bLink?: boolean, bAboveBelow?: boolean): boolean;
+    AddCaptionCrossRef(sCaption: CaptionLabel | string, sRefTo: captionRefTo, oParaTo: ApiParagraph, bLink?: boolean, bAboveBelow?: boolean): boolean;
 
     /**
      * Adds a column break to the current position and starts the next element from a new column.
@@ -34858,11 +38388,11 @@ export namespace Word {
      * **Note:**
      * This paragraph must be in the document.
      *
-     * @param sRefType - The text or numeric value of an endnote reference you want to insert.
+     * @param sRefTo - The text or numeric value of an endnote reference you want to insert.
      * @param oParaTo - The first paragraph from an endnote to be referred to (must be in the document).
      * @param bLink - Specifies if the reference will be inserted as a hyperlink.
      * @param bAboveBelow - Specifies if the above/below words indicating the position of the reference should be included
-     *   (don't used with the "aboveBelow" sRefType).
+     *   (don't used with the "aboveBelow" sRefTo).
      * @default bLink = true
      * @default bAboveBelow = false
      *
@@ -34886,7 +38416,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/AddEndnoteCrossRef/
      */
-    AddEndnoteCrossRef(sRefType: endnoteRefTo, oParaTo: ApiParagraph, bLink?: boolean, bAboveBelow?: boolean): boolean;
+    AddEndnoteCrossRef(sRefTo: endnoteRefTo, oParaTo: ApiParagraph, bLink?: boolean, bAboveBelow?: boolean): boolean;
 
     /**
      * Adds a footnote cross-reference to the current paragraph.
@@ -34894,11 +38424,11 @@ export namespace Word {
      * **Note:**
      * This paragraph must be in the document.
      *
-     * @param sRefType - The text or numeric value of a footnote reference you want to insert.
+     * @param sRefTo - The text or numeric value of a footnote reference you want to insert.
      * @param oParaTo - The first paragraph from a footnote to be referred to (must be in the document).
      * @param bLink - Specifies if the reference will be inserted as a hyperlink.
      * @param bAboveBelow - Specifies if the above/below words indicating the position of the reference should be included
-     *   (don't used with the "aboveBelow" sRefType).
+     *   (don't used with the "aboveBelow" sRefTo).
      * @default bLink = true
      * @default bAboveBelow = false
      *
@@ -34922,7 +38452,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/AddFootnoteCrossRef/
      */
-    AddFootnoteCrossRef(sRefType: footnoteRefTo, oParaTo: ApiParagraph, bLink?: boolean, bAboveBelow?: boolean): boolean;
+    AddFootnoteCrossRef(sRefTo: footnoteRefTo, oParaTo: ApiParagraph, bLink?: boolean, bAboveBelow?: boolean): boolean;
 
     /**
      * Adds a heading cross-reference to the current paragraph.
@@ -34930,11 +38460,11 @@ export namespace Word {
      * **Note:**
      * This paragraph must be in the document.
      *
-     * @param sRefType - The text or numeric value of a heading reference you want to insert.
+     * @param sRefTo - The text or numeric value of a heading reference you want to insert.
      * @param oParaTo - The heading paragraph to be referred to (must be in the document).
      * @param bLink - Specifies if the reference will be inserted as a hyperlink.
      * @param bAboveBelow - Specifies if the above/below words indicating the position of the reference should be included
-     *   (don't used with the "text" and "aboveBelow" sRefType).
+     *   (don't used with the "text" and "aboveBelow" sRefTo).
      * @default bLink = true
      * @default bAboveBelow = false
      *
@@ -34958,7 +38488,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/AddHeadingCrossRef/
      */
-    AddHeadingCrossRef(sRefType: headingRefTo, oParaTo: ApiParagraph, bLink?: boolean, bAboveBelow?: boolean): boolean;
+    AddHeadingCrossRef(sRefTo: headingRefTo, oParaTo: ApiParagraph, bLink?: boolean, bAboveBelow?: boolean): boolean;
 
     /**
      * Adds a hyperlink to a paragraph.
@@ -34966,6 +38496,7 @@ export namespace Word {
      * @param link - The link address.
      * @param screenTipText - The screen tip text.
      * @param bookmarkName - name of a bookmark
+     * @default screenTipText = ""
      * @returns returns null if params are invalid.
      *
      * @example
@@ -34984,7 +38515,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/AddHyperlink/
      */
-    AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink | null;
+    AddHyperlink(link: string, screenTipText?: string, bookmarkName?: string): ApiHyperlink | null;
 
     /**
      * Adds an inline container.
@@ -35038,12 +38569,12 @@ export namespace Word {
      * **Note:**
      * This paragraph must be in the document.
      *
-     * @param sRefType - The text or numeric value of a numbered reference you want to insert.
+     * @param sRefTo - The text or numeric value of a numbered reference you want to insert.
      * @param oParaTo - The numbered paragraph to be referred to (must be in the document).
      * @param bLink - Specifies if the reference will be inserted as a hyperlink.
      * @param bAboveBelow - Specifies if the above/below words indicating the position of the reference should be included
-     *   (don't used with the "text" and "aboveBelow" sRefType).
-     * @param sSepWith - A number separator (used only with the "fullCtxParaNum" sRefType).
+     *   (don't used with the "text" and "aboveBelow" sRefTo).
+     * @param sSepWith - A number separator (used only with the "fullCtxParaNum" sRefTo).
      * @default bLink = true
      * @default bAboveBelow = false
      * @default sSepWith = ""
@@ -35079,7 +38610,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/AddNumberedCrossRef/
      */
-    AddNumberedCrossRef(sRefType: numberedRefTo, oParaTo: ApiParagraph, bLink?: boolean, bAboveBelow?: boolean, sSepWith?: string): boolean;
+    AddNumberedCrossRef(sRefTo: numberedRefTo, oParaTo: ApiParagraph, bLink?: boolean, bAboveBelow?: boolean, sSepWith?: string): boolean;
 
     /**
      * Adds a page break and starts the next element from the next page.
@@ -35171,7 +38702,10 @@ export namespace Word {
     AddPagesCount(): ApiRun;
 
     /**
-     * Adds a tab stop to the current paragraph.
+     * Adds a tab character to the end of the current paragraph.
+     * Use the AddText method with the "\t" character instead.
+     *
+     * @deprecated since 10.0.3 version.
      *
      * @example
      * ```js
@@ -35572,6 +39106,23 @@ export namespace Word {
      * @returns The drop cap, or null if the paragraph has no drop cap.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the drop cap of a paragraph to adjust its settings in a document.
+     *
+     * // How do I access an existing drop cap of a paragraph to change its settings in a document?
+     *
+     * // Retrieve the drop cap object of a paragraph and change the number of lines it spans in a document.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Once upon a time, there was a paragraph that started with a large decorative letter.');
+     * doc.Push(paragraph);
+     * paragraph.SetDropCap('drop');
+     * const dropCap = paragraph.GetDropCap();
+     * dropCap.SetLinesToDrop(2);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/GetDropCap/
      */
     GetDropCap(): ApiDropCap | null;
@@ -35614,6 +39165,28 @@ export namespace Word {
      * @param element - The inline element (run, inline content control, form, etc.) whose index will be returned.
      * @returns returns -1 if the element is not a direct child of the current paragraph.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Determine the index of an inline element inside a paragraph.
+     *
+     * // The index reflects the position of a specific run within its paragraph.
+     *
+     * // Locate a run inside a paragraph and report its index back into the document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Start ");
+     * let run = Api.CreateRun();
+     * run.AddText("target run");
+     * paragraph.AddElement(run);
+     * paragraph.AddText(" end");
+     * doc.Push(paragraph);
+     * let index = paragraph.GetElementIndex(run);
+     * let report = Api.CreateParagraph();
+     * report.AddText("The target run is at index " + index + ".");
+     * doc.Push(report);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/GetElementIndex/
      */
@@ -35771,6 +39344,9 @@ export namespace Word {
 
     /**
      * Returns an internal ID of the current paragraph.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
      *
      * @since 9.2.0
      *
@@ -36166,6 +39742,24 @@ export namespace Word {
      *   if the paragraph has no parent.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Access the document content that contains a paragraph.
+     *
+     * // The parent is the document content that holds the paragraph.
+     *
+     * // Navigate from a paragraph up to its parent and count the elements the parent holds.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = Api.CreateParagraph();
+     * paragraph.AddText("This is a sample paragraph.");
+     * doc.Push(paragraph);
+     * let parent = paragraph.GetParent();
+     * let report = Api.CreateParagraph();
+     * report.AddText("The parent holds " + parent.GetElementsCount() + " elements.");
+     * doc.Push(report);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/GetParent/
      */
     GetParent(): ApiDocument | ApiDocumentContent | null;
@@ -36340,7 +39934,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/GetRange/
      */
-    GetRange(Start: number, End: number): ApiRange | null;
+    GetRange(Start?: number, End?: number): ApiRange | null;
 
     /**
      * Returns the right border of the current paragraph.
@@ -36736,6 +40330,8 @@ export namespace Word {
      * @param sPosition - The position where the text or paragraph will be inserted ("before" or "after" the paragraph
      *   specified).
      * @param beRNewPara - Defines if this method returns a new paragraph (true) or the current paragraph (false).
+     * @default sPosition = "after"
+     * @default beRNewPara = false
      * @returns returns null if param paragraph is invalid.
      *
      * @example
@@ -36754,12 +40350,31 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/InsertParagraph/
      */
-    InsertParagraph(paragraph: string | ApiParagraph, sPosition: string, beRNewPara: boolean): ApiParagraph | null;
+    InsertParagraph(paragraph: string | ApiParagraph, sPosition?: string, beRNewPara?: boolean): ApiParagraph | null;
 
     /**
      * Returns true if the paragraph has no content elements (only the paragraph end mark).
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Check whether the current paragraph has no content elements.
+     *
+     * // Verify that a newly created paragraph reports as empty.
+     *
+     * // Confirm the empty state changes once text is added.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = Api.CreateParagraph();
+     * let emptyBefore = paragraph.IsEmpty();
+     * paragraph.AddText("This is a sample text.");
+     * let emptyAfter = paragraph.IsEmpty();
+     * doc.Push(paragraph);
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("The paragraph was empty before adding text: " + emptyBefore + ". After adding text: " + emptyAfter + ".");
+     * doc.Push(resultParagraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/IsEmpty/
      */
@@ -36791,9 +40406,8 @@ export namespace Word {
     Last(): ParagraphContent | null;
 
     /**
-     * Moves the cursor to the end of the paragraph.
+     * Moves the cursor to the end of the current paragraph.
      *
-     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 9.4.0
      *
      * @example
@@ -36813,9 +40427,8 @@ export namespace Word {
     MoveCursorToEnd(): boolean;
 
     /**
-     * Moves the cursor to the start of the paragraph.
+     * Moves the cursor to the start of the current paragraph.
      *
-     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 9.4.0
      *
      * @example
@@ -36837,9 +40450,10 @@ export namespace Word {
     /**
      * Adds an element to the current paragraph.
      *
-     * @param oElement - The document element which will be added at the current position. Returns false if the oElement
-     *   type is not supported by a paragraph.
-     * @returns Returns `false` if the type of `oElement` is not supported by paragraph content.
+     * @param oElement - The document element which will be added at the current position. A string is added as a new run
+     *   with the text properties of the last run with text.
+     * @returns Returns `false` if the type of `oElement` is not supported by paragraph content or the element
+     *   is already in the document.
      *
      * @example
      * ```js
@@ -36863,7 +40477,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/Push/
      */
-    Push(oElement: ParagraphContent): boolean;
+    Push(oElement: ParagraphContent | string): boolean;
 
     /**
      * Removes all the elements from the current paragraph.
@@ -36969,6 +40583,7 @@ export namespace Word {
      * @param sText - Search string, or a regular expression to match. When a RegExp is passed, the isMatchCase
      *   parameter is ignored (control case sensitivity with the "i" flag instead).
      * @param isMatchCase - Case sensitive or not.
+     * @default isMatchCase = false
      *
      * @example
      * ```js
@@ -37230,6 +40845,22 @@ export namespace Word {
      *   places it in the margin.
      * @returns The created drop cap, or null if the drop cap could not be created or was removed.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Turn the first letter of a paragraph into a drop cap in a document.
+     *
+     * // How do I make the first letter of a paragraph a large drop cap in a document?
+     *
+     * // Split the first letter into a decorative initial and adjust its size through the returned drop cap object.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText('Once upon a time, there was a paragraph that started with a large decorative letter.');
+     * doc.Push(paragraph);
+     * const dropCap = paragraph.SetDropCap('drop');
+     * dropCap.SetLinesToDrop(4);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/SetDropCap/
      */
@@ -37583,6 +41214,23 @@ export namespace Word {
      * @returns returns null if the language identifier is not supported.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the spell-check language for all text in a paragraph in a document.
+     *
+     * // How do I tell the editor which language to use when checking a whole paragraph in a document?
+     *
+     * // Set the language of the paragraph and print it in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("This is a paragraph with the spell-check language set.");
+     * paragraph.SetLanguage("en-CA");
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Paragraph language: " + paragraph.GetRange().GetTextPr().GetLanguage());
+     * doc.Push(resultParagraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/SetLanguage/
      */
     SetLanguage(langId: string | null): ApiParagraph | null;
@@ -37663,6 +41311,26 @@ export namespace Word {
      *
      * @param numberingLevel - The numbering level which will be used for assigning the numbers to the paragraph, or
      *   _undefined_/_null_ to remove numbering.
+     *
+     * @example
+     * ```js
+     * // Apply a bullet or numbered list style to paragraphs in a document.
+     *
+     * // How do I create a multi-level bulleted list from a set of paragraphs in a document?
+     *
+     * // Turn plain paragraphs into an ordered or unordered list in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let numbering = doc.CreateNumbering("bullet");
+     * for (let lvl = 0; lvl < 8; ++lvl) {
+     * 	let numLvl = numbering.GetLevel(lvl);
+     * 	let paragraph = Api.CreateParagraph();
+     * 	paragraph.AddText("Default bullet lvl " + (lvl + 1));
+     * 	paragraph.SetNumbering(numLvl);
+     * 	paragraph.SetContextualSpacing(true);
+     * 	doc.Push(paragraph);
+     * }
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/SetNumbering/
      */
@@ -39547,6 +43215,7 @@ export namespace Word {
      * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
+     * @default keepContent = false
      * @returns returns false if form wasn't added to the document.
      * @since 9.2.0
      *
@@ -39685,6 +43354,37 @@ export namespace Word {
     GetFormType(): FormType;
 
     /**
+     * Returns a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @since 10.0.1
+     *
+     * @example
+     * ```js
+     * // Read the ID assigned to a picture form in a document.
+     *
+     * // Check the ID that was set for a picture form with the SetId method in a document.
+     *
+     * // Display the picture form ID that is saved to the file and stays the same after the document is reopened.
+     *
+     * let doc = Api.GetDocument();
+     * let pictureForm = Api.CreatePictureForm({"key": "Personal information", "tip": "Upload your photo", "required": true, "placeholder": "Photo", "scaleFlag": "tooBig", "lockAspectRatio": true, "respectBorders": false, "shiftX": 50, "shiftY": 50});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(pictureForm);
+     * pictureForm.SetImage("https://static.onlyoffice.com/assets/docs/samples/img/onlyoffice_logo.png", Api.MillimetersToEmus(70), Api.MillimetersToEmus(80));
+     * pictureForm.SetId(1001);
+     * let formId = pictureForm.GetId();
+     * paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Form ID: " + formId);
+     * doc.Push(paragraph);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetId/
+     */
+    GetId(): number;
+
+    /**
      * Returns an image in the base64 format from the current picture form.
      *
      * @example
@@ -39708,7 +43408,11 @@ export namespace Word {
     GetImage(): Base64Img;
 
     /**
-     * Returns an internal id of the current form.
+     * Returns an internal ID of the current form.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
+     * To get the ID which is saved to the file, use the {@link ApiFormBase#GetId} method.
      *
      * @since 9.2.0
      *
@@ -40225,6 +43929,60 @@ export namespace Word {
     MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
+     * Moves the cursor to the end of the current form.
+     * The cursor is placed inside the form. To place it before or after the form, use the
+     * MoveCursorOutside method.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the end of a picture form in a document.
+     *
+     * // The cursor is placed inside the picture form. Use the MoveCursorOutside method to place it before or after the form.
+     *
+     * // Place the cursor after the image inside the picture form.
+     *
+     * let doc = Api.GetDocument();
+     * let pictureForm = Api.CreatePictureForm({"key": "Personal information", "tip": "Upload your photo", "placeholder": "Photo", "scaleFlag": "tooBig", "lockAspectRatio": true, "respectBorders": false, "shiftX": 50, "shiftY": 50});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(pictureForm);
+     * pictureForm.SetImage("https://static.onlyoffice.com/assets/docs/samples/img/onlyoffice_logo.png", Api.MillimetersToEmus(70), Api.MillimetersToEmus(80));
+     * pictureForm.MoveCursorToEnd();
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor to the start of the current form.
+     * The cursor is placed inside the form. To place it before or after the form, use the
+     * MoveCursorOutside method.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the start of a picture form in a document.
+     *
+     * // The cursor is placed inside the picture form. Use the MoveCursorOutside method to place it before or after the form.
+     *
+     * // Place the cursor before the image inside the picture form.
+     *
+     * let doc = Api.GetDocument();
+     * let pictureForm = Api.CreatePictureForm({"key": "Personal information", "tip": "Upload your photo", "placeholder": "Photo", "scaleFlag": "tooBig", "lockAspectRatio": true, "respectBorders": false, "shiftX": 50, "shiftY": 50});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(pictureForm);
+     * pictureForm.SetImage("https://static.onlyoffice.com/assets/docs/samples/img/onlyoffice_logo.png", Api.MillimetersToEmus(70), Api.MillimetersToEmus(80));
+     * pictureForm.MoveCursorToStart();
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
+
+    /**
      * Sets the background color to the current form.
      *
      * @param color - The background color.
@@ -40295,6 +44053,38 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/SetFormKey/
      */
     SetFormKey(sKey: string): boolean;
+
+    /**
+     * Specifies a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @param id - The numerical ID which will be specified for the current form.
+     * @since 10.0.1
+     *
+     * @example
+     * ```js
+     * // Assign a unique ID to a picture form in a document.
+     *
+     * // Set a custom ID for a picture form to tell it apart from other forms in a document.
+     *
+     * // Give a picture form an ID that is saved to the file, unlike the internal ID which can change after reopening.
+     *
+     * let doc = Api.GetDocument();
+     * let pictureForm = Api.CreatePictureForm({"key": "Personal information", "tip": "Upload your photo", "required": true, "placeholder": "Photo", "scaleFlag": "tooBig", "lockAspectRatio": true, "respectBorders": false, "shiftX": 50, "shiftY": 50});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(pictureForm);
+     * pictureForm.SetImage("https://static.onlyoffice.com/assets/docs/samples/img/onlyoffice_logo.png", Api.MillimetersToEmus(70), Api.MillimetersToEmus(80));
+     * pictureForm.SetId(1001);
+     * let formId = pictureForm.GetId();
+     * paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Form ID: " + formId);
+     * doc.Push(paragraph);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/SetId/
+     */
+    SetId(id: number): boolean;
 
     /**
      * Sets an image to the current picture form.
@@ -40685,6 +44475,7 @@ export namespace Word {
      * @param height - The wrapper shape height measured in twentieths of a point (1/1440 of an inch).
      * @param keepPosition - Save position on the page (it can be a little bit slow, because it runs the document
      *   calculation).
+     * @default keepPosition = false
      *
      * @example
      * ```js
@@ -41038,6 +44829,7 @@ export namespace Word {
      * @param link - The link address.
      * @param screenTipText - The screen tip text.
      * @param bookmarkName - name of a bookmark
+     * @default screenTipText = ""
      * @returns returns null if range contains more than one paragraph or sLink is invalid.
      *
      * @example
@@ -41055,7 +44847,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/AddHyperlink/
      */
-    AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink | null;
+    AddHyperlink(link: string, screenTipText?: string, bookmarkName?: string): ApiHyperlink | null;
 
     /**
      * Adds a text to the specified position.
@@ -41273,10 +45065,10 @@ export namespace Word {
     /**
      * Returns a Range object that represents the document part contained in the specified range.
      *
-     * @param Start - Start position index in the current range.
-     * @param End - End position index in the current range (if <= 0, then the range is taken to the end).
-     * @default Start = 0
-     * @default End = -1
+     * @param nStart - Start position index in the current range.
+     * @param nEnd - End position index in the current range (if <= 0, then the range is taken to the end).
+     * @default nStart = 0
+     * @default nEnd = -1
      *
      * @example
      * ```js
@@ -41295,7 +45087,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/GetRange/
      */
-    GetRange(Start?: number, End?: number): ApiRange;
+    GetRange(nStart?: number, nEnd?: number): ApiRange;
 
     /**
      * Returns the start page number of the current range.
@@ -41469,6 +45261,31 @@ export namespace Word {
     IntersectWith(oRange: ApiRange): ApiRange | null;
 
     /**
+     * Moves the cursor to the end of the current range.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the end of a text range in a document.
+     *
+     * // The selection is removed and the cursor is placed after the last character of the range.
+     *
+     * // Insert a word right after the found range.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("ONLYOFFICE Builder");
+     * let range = doc.Search("ONLYOFFICE")[0];
+     * range.MoveCursorToEnd();
+     * doc.EnterText(" Document");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
      * Moves a cursor to a specified position of the current range object.
      *
      * If there is any selection in the document, it will be removed.
@@ -41496,6 +45313,31 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/MoveCursorToPos/
      */
     MoveCursorToPos(nPos?: number): boolean;
+
+    /**
+     * Moves the cursor to the start of the current range.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the start of a text range in a document.
+     *
+     * // The selection is removed and the cursor is placed before the first character of the range.
+     *
+     * // Insert a word right before the found range.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("ONLYOFFICE Builder");
+     * let range = doc.Search("Builder")[0];
+     * range.MoveCursorToStart();
+     * doc.EnterText("Document ");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
 
     /**
      * Sets the selection to the specified range.
@@ -41749,6 +45591,24 @@ export namespace Word {
      *   Example: "en-CA". Pass _null_ to remove the language.
      * @returns returns null if the language identifier is not supported or the language can't be set.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the spell-check language for a range of text in a document.
+     *
+     * // How do I tell the editor which language to use when checking part of a paragraph in a document?
+     *
+     * // Set the language of the first word and print it in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("This is a sample text.");
+     * let range = paragraph.GetRange(0, 4);
+     * range.SetLanguage("en-CA");
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Language of the first word: " + range.GetTextPr().GetLanguage());
+     * doc.Push(resultParagraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/SetLanguage/
      */
@@ -42249,6 +46109,8 @@ export namespace Word {
      *
      * The method automatically calculates the font from the theme if the font was set via the theme.
      *
+     * @param fontSlot - The font slot. If this parameter is not specified, the "ascii" value is used.
+     * @default fontSlot = "ascii"
      * @since 8.1.0
      *
      * @example
@@ -42281,7 +46143,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetFontFamily/
      */
-    GetFontFamily(): string | null;
+    GetFontFamily(fontSlot?: "ascii" | "eastAsia" | "hAnsi" | "cs"): string | null;
 
     /**
      * Gets the font size from the current text properties.
@@ -43477,6 +47339,7 @@ export namespace Word {
      * @param link - The link address.
      * @param screenTipText - The screen tip text.
      * @param bookmarkName - name of a bookmark
+     * @default screenTipText = ""
      * @returns returns false if params are invalid.
      *
      * @example
@@ -43495,7 +47358,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRun/Methods/AddHyperlink/
      */
-    AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink | null;
+    AddHyperlink(link: string, screenTipText?: string, bookmarkName?: string): ApiHyperlink | null;
 
     /**
      * Adds a line break to the current run position and starts the next element from a new line.
@@ -43544,7 +47407,10 @@ export namespace Word {
     AddPageBreak(): boolean;
 
     /**
-     * Adds a tab stop to the current run.
+     * Adds a tab character to the end of the current run.
+     * Use the AddText method with the "\t" character instead.
+     *
+     * @deprecated since 10.0.3 version.
      *
      * @example
      * ```js
@@ -43847,6 +47713,8 @@ export namespace Word {
      *
      * The method automatically calculates the font from the theme if the font was set via the theme.
      *
+     * @param fontSlot - The font slot. If this parameter is not specified, the "ascii" value is used.
+     * @default fontSlot = "ascii"
      * @since 8.1.0
      *
      * @example
@@ -43879,7 +47747,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetFontFamily/
      */
-    GetFontFamily(): string | null;
+    GetFontFamily(fontSlot?: "ascii" | "eastAsia" | "hAnsi" | "cs"): string | null;
 
     /**
      * Returns all font names from all elements inside the current run.
@@ -44104,6 +47972,23 @@ export namespace Word {
      * @returns returns null if the run has no parent.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Access the element that directly contains a text run.
+     *
+     * // The parent is the paragraph that directly contains the text run.
+     *
+     * // Navigate from a run to its parent and apply italic formatting through it.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let run = Api.CreateRun();
+     * run.AddText("Example run");
+     * paragraph.AddElement(run);
+     * let parent = run.GetParent();
+     * parent.SetItalic(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRun/Methods/GetParent/
      */
     GetParent(): ParagraphLikeContainer | null;
@@ -44235,6 +48120,26 @@ export namespace Word {
      *
      * @returns returns -1 if the run has no parent.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Determine the index of a text run within its parent element.
+     *
+     * // The position is the text run's index within its containing element.
+     *
+     * // Read a run's position within its paragraph and write it into the document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Intro ");
+     * let run = Api.CreateRun();
+     * run.AddText("measured run");
+     * paragraph.AddElement(run);
+     * let position = run.GetPosInParent();
+     * let report = Api.CreateParagraph();
+     * report.AddText("The run is at position " + position + " in its parent.");
+     * doc.Push(report);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRun/Methods/GetPosInParent/
      */
@@ -44671,6 +48576,35 @@ export namespace Word {
     GetVertAlign(): string | null;
 
     /**
+     * Moves the cursor to the end of the current run.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the end of a text run in a document.
+     *
+     * // The cursor is placed after the last character of the run, even if the run is in the middle of a paragraph.
+     *
+     * // Insert text at the end of the bold run.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Regular text. ");
+     * let run = Api.CreateRun();
+     * run.SetBold(true);
+     * run.AddText("Bold text.");
+     * paragraph.AddElement(run);
+     * paragraph.AddText(" Regular text again.");
+     * run.MoveCursorToEnd();
+     * doc.EnterText(" End of the run.");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRun/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
      * Moves a cursor to a specified position of the current text run.
      *
      * If the current run is not assigned to any document part, then **false** is returned. Otherwise, this
@@ -44696,6 +48630,35 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRun/Methods/MoveCursorToPos/
      */
     MoveCursorToPos(nPos?: number): boolean;
+
+    /**
+     * Moves the cursor to the start of the current run.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the start of a text run in a document.
+     *
+     * // The cursor is placed before the first character of the run, even if the run is in the middle of a paragraph.
+     *
+     * // Insert text at the beginning of the bold run.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Regular text. ");
+     * let run = Api.CreateRun();
+     * run.SetBold(true);
+     * run.AddText("Bold text.");
+     * paragraph.AddElement(run);
+     * paragraph.AddText(" Regular text again.");
+     * run.MoveCursorToStart();
+     * doc.EnterText("Start of the run. ");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRun/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
 
     /**
      * Removes all the elements from the current run.
@@ -45222,6 +49185,24 @@ export namespace Word {
      * @param text - The new text of the run, as a string or as an array of character codes.
      * @returns The current run.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Replace the whole text of a run in one call in a document.
+     *
+     * // How do I replace the text of a run without losing its formatting in a document?
+     *
+     * // Swap the wording of a run while its bold, size and color stay in place in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let run = Api.CreateRun();
+     * run.SetBold(true);
+     * run.SetFontSize(28);
+     * run.AddText("Draft wording.");
+     * paragraph.AddElement(run);
+     * run.SetText("Final wording, still bold and still 14 points.");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRun/Methods/SetText/
      */
@@ -46404,6 +50385,29 @@ export namespace Word {
     /**
      * Returns a type of the ApiShadow class.
      *
+     * @example
+     * ```js
+     * // Get the class type of a shadow object in a document.
+     *
+     * // Confirm that an object created by Api.CreateShadow reports itself as a shadow.
+     *
+     * // Create a shadow, apply it to a shape, and print the shadow class type inside the shape.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = doc.GetElement(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 213, 191));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 120 * 36000, 60 * 36000, fill, stroke);
+     * paragraph.AddDrawing(shape);
+     * shape.SetWrappingStyle("inFront");
+     * shape.SetHorPosition("page", 30 * 36000);
+     * shape.SetVerPosition("page", 30 * 36000);
+     * const shadow = Api.CreateShadow({ color: Api.RGB(0, 0, 0), offsetX: 3, offsetY: 3 });
+     * shape.SetShadow(shadow);
+     * const classType = shadow.GetClassType();
+     * shape.GetContent().GetElement(0).AddText("Shadow class type: " + classType);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiShadow/Methods/GetClassType/
      */
     GetClassType(): "shadow";
@@ -46412,6 +50416,28 @@ export namespace Word {
      * Returns the settings of the current shadow.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the settings of a shadow applied to a drawing in a document.
+     *
+     * // Retrieve the shadow object and inspect its transparency, offset and size.
+     *
+     * // Set a shadow, read its settings with GetSettings, and print the values inside the shape.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = doc.GetElement(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 213, 191));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 160 * 36000, 80 * 36000, fill, stroke);
+     * paragraph.AddDrawing(shape);
+     * shape.SetWrappingStyle("inFront");
+     * shape.SetHorPosition("page", 30 * 36000);
+     * shape.SetVerPosition("page", 30 * 36000);
+     * shape.SetShadow(Api.CreateShadow({ color: Api.RGB(0, 0, 0), transparency: 0.5, offsetX: 3, offsetY: 3 }));
+     * const settings = shape.GetShadow().GetSettings();
+     * shape.GetContent().GetElement(0).AddText("Shadow transparency " + settings.transparency + ", offset " + Math.round(settings.offsetX) + " x " + Math.round(settings.offsetY) + ", size " + settings.size + "%");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiShadow/Methods/GetSettings/
      */
@@ -46423,7 +50449,7 @@ export namespace Word {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiShape/
    */
-  export interface ApiShape extends Omit<ApiDrawing, "GetClassType"> {
+  export interface ApiShape extends Omit<ApiDrawing, "Copy" | "GetClassType"> {
     /**
      * Inserts a break at the specified location in the main document.
      *
@@ -46453,7 +50479,9 @@ export namespace Word {
     AddBreak(breakType: number, position: string): boolean;
 
     /**
-     * Copies the current graphic object.
+     * Creates a copy of the current shape.
+     *
+     * @since 9.4.0
      *
      * @example
      * ```js
@@ -46472,9 +50500,9 @@ export namespace Word {
      * paragraph.AddDrawing(copyShape);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/Copy/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiShape/Methods/Copy/
      */
-    Copy(): ApiDrawing | null;
+    Copy(): ApiShape | null;
 
     /**
      * Deletes the current graphic object.
@@ -47174,6 +51202,28 @@ export namespace Word {
     /**
      * Gets the vertical alignment from the shape content where a paragraph or text runs can be inserted.
      *
+     * @example
+     * ```js
+     * // Read the vertical text alignment of a shape in a document.
+     *
+     * // Useful for verifying vertical text placement before adjusting shape layout in a document.
+     *
+     * // Retrieve the current vertical alignment of a shape's inner content in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = Api.CreateShape("rect", 3212465, 963295, fill, stroke);
+     * paragraph.AddDrawing(drawing);
+     * drawing.SetVerticalTextAlign("center");
+     * let verticalAlign = drawing.GetVerticalTextAlign();
+     * let docContent = drawing.GetContent();
+     * paragraph = Api.CreateParagraph();
+     * paragraph.AddText("The shape vertical text alignment is: " + verticalAlign);
+     * docContent.AddElement(0, paragraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiShape/Methods/GetVerticalTextAlign/
      */
     GetVerticalTextAlign(): VerticalTextAlign;
@@ -47248,6 +51298,8 @@ export namespace Word {
      * @param sPosition - The position where the text or paragraph will be inserted ("before" or "after" the drawing
      *   specified).
      * @param beRNewPara - Defines if this method returns a new paragraph (true) or the current ApiDrawing (false).
+     * @default sPosition = "after"
+     * @default beRNewPara = false
      * @returns returns null if parent paragraph doesn't exist.
      *
      * @example
@@ -47271,6 +51323,28 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/InsertParagraph/
      */
     InsertParagraph(paragraph: string | ApiParagraph, sPosition?: string, beRNewPara?: boolean): ApiParagraph | ApiDrawing;
+
+    /**
+     * Moves the cursor after the current drawing.
+     * To move the cursor into the text of a shape, use the MoveCursorToStart or MoveCursorToEnd method of
+     * the content returned by GetDocContent.
+     *
+     * @since 10.0.3
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor before the current drawing.
+     * To move the cursor into the text of a shape, use the MoveCursorToStart or MoveCursorToEnd method of
+     * the content returned by GetDocContent.
+     *
+     * @since 10.0.3
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
 
     /**
      * Scales the height of the figure using the specified coefficient.
@@ -47691,8 +51765,8 @@ export namespace Word {
      *
      * @param sRelativeFrom - The document element which will be taken as a countdown point for the object horizontal
      *   alignment.
-     * @param nDistance - The distance from the right side of the document element to the floating object. Use EMU for
-     *   absolute distance or a number for percent (1 = 1%) when bPercent=true.
+     * @param nDistance - The distance from the left edge of the document element to the left edge of the floating object.
+     *   Use EMU for absolute distance or a number for percent (1 = 1%) when bPercent=true.
      * @param bPercent - The option defining whether the horizontal alignment offset is specified in percent.
      * @default bPercent = false
      *
@@ -48110,8 +52184,9 @@ export namespace Word {
      * Sets the absolute measurement for the vertical positioning of the floating object.
      *
      * @param sRelativeFrom - The document element which will be taken as a countdown point for the object vertical alignment.
-     * @param nDistance - The distance from the bottom part of the document element to the floating object. Use EMU for
-     *   absolute units or a number (1 = 1%) when bPercent=true for percent relative positioning.
+     * @param nDistance - The distance from the top edge of the document element to the top edge of the floating object.
+     *   Use EMU for absolute units or a number (1 = 1%) when bPercent=true for percent relative
+     *   positioning.
      * @param bPercent - The option defining whether the vertical alignment offset is specified in percent.
      * @default bPercent = false
      *
@@ -48338,6 +52413,20 @@ export namespace Word {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Retrieve the class type of a paragraph shading in a document.
+     *
+     * // Confirm that the object returned by GetShd is an ApiShd object in a document.
+     *
+     * // Shade a paragraph and write the class type of its shading into the paragraph.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = doc.GetElement(0);
+     * paragraph.SetShd(Api.CreateShd('clear', Api.Color('#DDEBF7')));
+     * paragraph.AddText('Class type of the paragraph shading: ' + paragraph.GetShd().GetClassType());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiShd/Methods/GetClassType/
      */
     GetClassType(): "shd";
@@ -48347,6 +52436,20 @@ export namespace Word {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Retrieve the color of a paragraph shading in a document.
+     *
+     * // Read back the theme color used for a paragraph shading in a document.
+     *
+     * // Shade a paragraph with the accent2 theme color and write the color name into the paragraph.
+     *
+     * const doc = Api.GetDocument();
+     * const paragraph = doc.GetElement(0);
+     * paragraph.SetShd(Api.CreateShd('clear', Api.Color('accent2')));
+     * paragraph.AddText('Theme color of the paragraph shading: ' + paragraph.GetShd().GetColor().GetThemeName());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiShd/Methods/GetColor/
      */
     GetColor(): ApiColor | null;
@@ -48355,6 +52458,24 @@ export namespace Word {
      * Returns the shading type.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Retrieve the type of a paragraph shading in a document.
+     *
+     * // Compare a shaded paragraph with a paragraph whose shading is removed in a document.
+     *
+     * // Write the shading type of each paragraph into its text.
+     *
+     * const doc = Api.GetDocument();
+     * const shaded = doc.GetElement(0);
+     * shaded.SetShd(Api.CreateShd('clear', Api.Color('#E2EFDA')));
+     * shaded.AddText('Shading type of this paragraph: ' + shaded.GetShd().GetType());
+     * const plain = Api.CreateParagraph();
+     * plain.SetShd(Api.CreateShd('nil'));
+     * plain.AddText('Shading type of this paragraph: ' + plain.GetShd().GetType());
+     * doc.Push(plain);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiShd/Methods/GetType/
      */
@@ -48419,6 +52540,7 @@ export namespace Word {
      * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
+     * @default keepContent = false
      * @returns returns false if form wasn't added to the document.
      * @since 9.2.0
      *
@@ -48453,6 +52575,32 @@ export namespace Word {
      * Returns the background color of the current form.
      *
      * @since 9.1.0
+     *
+     * @example
+     * ```js
+     * // Read the background color applied to a signature field in a document.
+     *
+     * // How do I find out what background color a signature field has in a document?
+     *
+     * // Inspect the fill color behind a signature field to use or display the value in a document.
+     *
+     * let doc = Api.GetDocument();
+     *
+     * const signatureForm = Api.CreateSignatureForm({
+     * 	'key': 'Signature',
+     * 	'tip': 'Please sign here',
+     * 	'placeholder': 'Signature',
+     * });
+     *
+     * const themeColor = Api.RGB(0, 255, 255);
+     * signatureForm.SetBackgroundColor(themeColor);
+     * const backgroundColor = signatureForm.GetBackgroundColor();
+     *
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText('Background color HEX: ' + backgroundColor.GetHex());
+     * paragraph.AddLineBreak();
+     * paragraph.AddElement(signatureForm);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetBackgroundColor/
      */
@@ -48556,7 +52704,66 @@ export namespace Word {
     GetFormType(): FormType;
 
     /**
-     * Returns an internal id of the current form.
+     * Returns a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @since 10.0.1
+     *
+     * @example
+     * ```js
+     * // Read the ID assigned to a signature form in a document.
+     *
+     * // Check the ID that was set for a signature form with the SetId method in a document.
+     *
+     * // Display the signature form ID that is saved to the file and stays the same after the document is reopened.
+     *
+     * let doc = Api.GetDocument();
+     * let signatureForm = Api.CreateSignatureForm({"key": "Signature", "tip": "Please sign here", "placeholder": "Signature"});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(signatureForm);
+     * signatureForm.SetId(1001);
+     * let formId = signatureForm.GetId();
+     * paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Form ID: " + formId);
+     * doc.Push(paragraph);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetId/
+     */
+    GetId(): number;
+
+    /**
+     * Returns an image in the base64 format from the current signature form.
+     *
+     * @example
+     * ```js
+     * // Extract the image stored inside a signature form in a document.
+     *
+     * // How do I retrieve the picture placed in a signature form in a document?
+     *
+     * // Pull the embedded image out of a signature form to reuse it in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let signatureForm = Api.CreateSignatureForm({"key": "Signature", "tip": "Please sign here", "placeholder": "Signature"});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(signatureForm);
+     * signatureForm.SetImage("https://static.onlyoffice.com/assets/docs/samples/img/onlyoffice_logo.png");
+     * let base64img = signatureForm.GetImage();
+     * let drawing = Api.CreateImage(base64img, 60 * 36000, 35 * 36000);
+     * paragraph.AddDrawing(drawing);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiSignatureForm/Methods/GetImage/
+     */
+    GetImage(): Base64Img;
+
+    /**
+     * Returns an internal ID of the current form.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
+     * To get the ID which is saved to the file, use the {@link ApiFormBase#GetId} method.
      *
      * @since 9.2.0
      *
@@ -48967,6 +53174,58 @@ export namespace Word {
     MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
+     * Moves the cursor to the end of the current form.
+     * The cursor is placed inside the form. To place it before or after the form, use the
+     * MoveCursorOutside method.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the end of a signature form in a document.
+     *
+     * // The cursor is placed inside the signature form. Use the MoveCursorOutside method to place it before or after the form.
+     *
+     * // Place the cursor at the end of the empty signature form.
+     *
+     * let doc = Api.GetDocument();
+     * let signatureForm = Api.CreateSignatureForm({"key": "Signature", "tip": "Please sign here", "placeholder": "Signature"});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(signatureForm);
+     * signatureForm.MoveCursorToEnd();
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor to the start of the current form.
+     * The cursor is placed inside the form. To place it before or after the form, use the
+     * MoveCursorOutside method.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the start of a signature form in a document.
+     *
+     * // The cursor is placed inside the signature form. Use the MoveCursorOutside method to place it before or after the form.
+     *
+     * // Place the cursor at the start of the empty signature form.
+     *
+     * let doc = Api.GetDocument();
+     * let signatureForm = Api.CreateSignatureForm({"key": "Signature", "tip": "Please sign here", "placeholder": "Signature"});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(signatureForm);
+     * signatureForm.MoveCursorToStart();
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
+
+    /**
      * Sets the background color to the current form.
      *
      * @param color - The background color.
@@ -49037,6 +53296,63 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/SetFormKey/
      */
     SetFormKey(sKey: string): boolean;
+
+    /**
+     * Specifies a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @param id - The numerical ID which will be specified for the current form.
+     * @since 10.0.1
+     *
+     * @example
+     * ```js
+     * // Assign a unique ID to a signature form in a document.
+     *
+     * // Set a custom ID for a signature form to tell it apart from other forms in a document.
+     *
+     * // Give a signature form an ID that is saved to the file, unlike the internal ID which can change after reopening.
+     *
+     * let doc = Api.GetDocument();
+     * let signatureForm = Api.CreateSignatureForm({"key": "Signature", "tip": "Please sign here", "placeholder": "Signature"});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(signatureForm);
+     * signatureForm.SetId(1001);
+     * let formId = signatureForm.GetId();
+     * paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Form ID: " + formId);
+     * doc.Push(paragraph);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/SetId/
+     */
+    SetId(id: number): boolean;
+
+    /**
+     * Sets an image to the current picture form.
+     *
+     * @param imageSrc - The image source where the image to be inserted should be taken from (currently, only internet
+     *   URL or base64 encoded images are supported).
+     * @since 9.4.0
+     *
+     * @example
+     * ```js
+     * // Place an image inside a signature field to represent a handwritten signature in a document.
+     *
+     * // How do I fill a signature field with a picture of a signature in a document?
+     *
+     * // Populate a signature field with an image from a URL to complete the signing process in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let signatureForm = Api.CreateSignatureForm({"key": "Signature", "tip": "Please sign here", "required": true, "placeholder": "Signature"});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(signatureForm);
+     * signatureForm.SetImage("https://static.onlyoffice.com/assets/docs/samples/img/onlyoffice_logo.png");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiSignatureForm/Methods/SetImage/
+     */
+    SetImage(imageSrc: string): boolean;
 
     /**
      * Sets the lock state of the current form.
@@ -49283,6 +53599,7 @@ export namespace Word {
      * @param height - The wrapper shape height measured in twentieths of a point (1/1440 of an inch).
      * @param keepPosition - Save position on the page (it can be a little bit slow, because it runs the document
      *   calculation).
+     * @default keepPosition = false
      *
      * @example
      * ```js
@@ -49990,6 +54307,8 @@ export namespace Word {
      * @param sPosition - The position where the text or paragraph will be inserted ("before" or "after" the drawing
      *   specified).
      * @param beRNewPara - Defines if this method returns a new paragraph (true) or the current ApiDrawing (false).
+     * @default sPosition = "after"
+     * @default beRNewPara = false
      * @returns returns null if parent paragraph doesn't exist.
      *
      * @example
@@ -50013,6 +54332,28 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/InsertParagraph/
      */
     InsertParagraph(paragraph: string | ApiParagraph, sPosition?: string, beRNewPara?: boolean): ApiParagraph | ApiDrawing;
+
+    /**
+     * Moves the cursor after the current drawing.
+     * To move the cursor into the text of a shape, use the MoveCursorToStart or MoveCursorToEnd method of
+     * the content returned by GetDocContent.
+     *
+     * @since 10.0.3
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor before the current drawing.
+     * To move the cursor into the text of a shape, use the MoveCursorToStart or MoveCursorToEnd method of
+     * the content returned by GetDocContent.
+     *
+     * @since 10.0.3
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
 
     /**
      * Scales the height of the figure using the specified coefficient.
@@ -50229,6 +54570,17 @@ export namespace Word {
     SetDrawingPrFromDrawing(oAnotherDrawing: ApiDrawing): boolean;
 
     /**
+     * Sets the fill formatting properties to the current graphic object.
+     *
+     * @param oFill - The fill type used to fill the graphic object.
+     * @returns returns false if param is invalid or not supported for the current graphic object.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetFill/
+     */
+    SetFill(oFill: ApiFill): boolean;
+
+    /**
      * Sets the horizontal flip of the current drawing.
      *
      * @param bFlip - Specifies if the figure will be flipped horizontally or not.
@@ -50367,8 +54719,8 @@ export namespace Word {
      *
      * @param sRelativeFrom - The document element which will be taken as a countdown point for the object horizontal
      *   alignment.
-     * @param nDistance - The distance from the right side of the document element to the floating object. Use EMU for
-     *   absolute distance or a number for percent (1 = 1%) when bPercent=true.
+     * @param nDistance - The distance from the left edge of the document element to the left edge of the floating object.
+     *   Use EMU for absolute distance or a number for percent (1 = 1%) when bPercent=true.
      * @param bPercent - The option defining whether the horizontal alignment offset is specified in percent.
      * @default bPercent = false
      *
@@ -50413,6 +54765,17 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetHorPosition/
      */
     SetHorPosition(sRelativeFrom: RelFromH, nDistance: EMU | number, bPercent?: boolean): boolean;
+
+    /**
+     * Sets the outline properties to the current graphic object.
+     *
+     * @param stroke - The stroke used to create the graphic object outline.
+     * @returns returns false if param is invalid or not supported for the current graphic object.
+     * @since 10.0.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/SetLine/
+     */
+    SetLine(stroke: ApiStroke): boolean;
 
     /**
      * Sets whether the aspect ratio of the drawing is locked.
@@ -50725,8 +55088,9 @@ export namespace Word {
      * Sets the absolute measurement for the vertical positioning of the floating object.
      *
      * @param sRelativeFrom - The document element which will be taken as a countdown point for the object vertical alignment.
-     * @param nDistance - The distance from the bottom part of the document element to the floating object. Use EMU for
-     *   absolute units or a number (1 = 1%) when bPercent=true for percent relative positioning.
+     * @param nDistance - The distance from the top edge of the document element to the top edge of the floating object.
+     *   Use EMU for absolute units or a number (1 = 1%) when bPercent=true for percent relative
+     *   positioning.
      * @param bPercent - The option defining whether the vertical alignment offset is specified in percent.
      * @default bPercent = false
      *
@@ -50924,6 +55288,26 @@ export namespace Word {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the beginning arrow of a shape border in a document.
+     *
+     * // How do I find out which arrow is applied to the start of a shape's outline in a document?
+     *
+     * // Apply a beginning arrow to a shape's stroke, then read back its type, width, and length in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(36000, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let shape = Api.CreateShape("line", 100 * 36000, 50 * 36000, fill, stroke);
+     * paragraph.AddDrawing(shape);
+     * let retrievedStroke = shape.GetLine();
+     * retrievedStroke.SetBeginArrow("triangle", "medium", "large");
+     * let arrow = retrievedStroke.GetBeginArrow();
+     * paragraph.AddText("Begin arrow type: " + (arrow ? arrow.Type : "not set"));
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStroke/Methods/GetBeginArrow/
      */
     GetBeginArrow(): { Type: LineEndType; Width: LineEndSize; Length: LineEndSize } | null;
@@ -50932,6 +55316,26 @@ export namespace Word {
      * Returns the cap type of the stroke.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the cap type of a shape border in a document.
+     *
+     * // Get the cap type to find out how the stroke ends are drawn.
+     *
+     * // Apply a round cap to a line's stroke, then read back its cap type in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(8 * 12700, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let line = Api.CreateShape("line", 100 * 36000, 50 * 36000, fill, stroke);
+     * paragraph.AddDrawing(line);
+     * let retrievedStroke = line.GetLine();
+     * retrievedStroke.SetCapType("round");
+     * let capType = retrievedStroke.GetCapType();
+     * paragraph.AddText("Cap type: " + capType);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStroke/Methods/GetCapType/
      */
@@ -50995,6 +55399,26 @@ export namespace Word {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the ending arrow of a shape border in a document.
+     *
+     * // How do I find out which arrow is applied to the end of a shape's outline in a document?
+     *
+     * // Apply an ending arrow to a shape's stroke, then read back its type, width, and length in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(36000, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let shape = Api.CreateShape("line", 100 * 36000, 50 * 36000, fill, stroke);
+     * paragraph.AddDrawing(shape);
+     * let retrievedStroke = shape.GetLine();
+     * retrievedStroke.SetEndArrow("stealth", "medium", "large");
+     * let arrow = retrievedStroke.GetEndArrow();
+     * paragraph.AddText("End arrow type: " + (arrow ? arrow.Type : "not set"));
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStroke/Methods/GetEndArrow/
      */
     GetEndArrow(): { Type: LineEndType; Width: LineEndSize; Length: LineEndSize } | null;
@@ -51032,6 +55456,26 @@ export namespace Word {
      * Returns the join type of the stroke.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the join type of a shape border in a document.
+     *
+     * // Get the join type to find out how the stroke corners are drawn.
+     *
+     * // Apply a miter join to a rectangle's stroke, then read back its join type in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(8 * 12700, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let shape = Api.CreateShape("rect", 100 * 36000, 50 * 36000, fill, stroke);
+     * paragraph.AddDrawing(shape);
+     * let retrievedStroke = shape.GetLine();
+     * retrievedStroke.SetJoinType("miter");
+     * let joinType = retrievedStroke.GetJoinType();
+     * paragraph.AddText("Join type: " + joinType);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStroke/Methods/GetJoinType/
      */
@@ -51088,6 +55532,25 @@ export namespace Word {
      * @default length = "medium"
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Add an arrowhead to the start of a shape border in a document.
+     *
+     * // How do I set the beginning arrow of a shape's outline in a document?
+     *
+     * // Create a shape, retrieve its stroke, and apply a triangle arrow to the start of the border line in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(36000, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let shape = Api.CreateShape("line", 100 * 36000, 50 * 36000, fill, stroke);
+     * paragraph.AddDrawing(shape);
+     * let retrievedStroke = shape.GetLine();
+     * let result = retrievedStroke.SetBeginArrow("triangle", "medium", "large");
+     * paragraph.AddText("Begin arrow set: " + result);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStroke/Methods/SetBeginArrow/
      */
     SetBeginArrow(type: LineEndType, width?: LineEndSize, length?: LineEndSize): boolean;
@@ -51097,6 +55560,25 @@ export namespace Word {
      *
      * @param type - The cap type of the stroke.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set a square cap for the ends of a shape border in a document.
+     *
+     * // Change the cap type to control how the stroke ends are drawn.
+     *
+     * // Create a line, retrieve its stroke, apply the square cap type, and display the result in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(8 * 12700, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let line = Api.CreateShape("line", 100 * 36000, 50 * 36000, fill, stroke);
+     * paragraph.AddDrawing(line);
+     * let retrievedStroke = line.GetLine();
+     * let result = retrievedStroke.SetCapType("square");
+     * paragraph.AddText("Cap type set: " + result);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStroke/Methods/SetCapType/
      */
@@ -51112,6 +55594,25 @@ export namespace Word {
      * @default length = "medium"
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Add an arrowhead to the end of a shape border in a document.
+     *
+     * // How do I set the ending arrow of a shape's outline in a document?
+     *
+     * // Create a shape, retrieve its stroke, and apply a stealth arrow to the end of the border line in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(36000, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let shape = Api.CreateShape("line", 100 * 36000, 50 * 36000, fill, stroke);
+     * paragraph.AddDrawing(shape);
+     * let retrievedStroke = shape.GetLine();
+     * let result = retrievedStroke.SetEndArrow("stealth", "medium", "large");
+     * paragraph.AddText("End arrow set: " + result);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStroke/Methods/SetEndArrow/
      */
     SetEndArrow(type: LineEndType, width?: LineEndSize, length?: LineEndSize): boolean;
@@ -51121,6 +55622,25 @@ export namespace Word {
      *
      * @param type - The join type of the stroke.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set a bevel join for the corners of a shape border in a document.
+     *
+     * // Change the join type to control how the stroke corners are drawn.
+     *
+     * // Create a rectangle, retrieve its stroke, apply the bevel join type, and display the result in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(8 * 12700, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let shape = Api.CreateShape("rect", 100 * 36000, 50 * 36000, fill, stroke);
+     * paragraph.AddDrawing(shape);
+     * let retrievedStroke = shape.GetLine();
+     * let result = retrievedStroke.SetJoinType("bevel");
+     * paragraph.AddText("Join type set: " + result);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiStroke/Methods/SetJoinType/
      */
@@ -52097,6 +56617,24 @@ export namespace Word {
      * @param columnIndex - The zero-based column index.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the width of a specific table column in a document.
+     *
+     * // Read a column width value measured in English measure units.
+     *
+     * // Create a table, set the first column width and read it back.
+     *
+     * let doc = Api.GetDocument();
+     * let table = Api.CreateTable(3, 3);
+     * table.SetWidth("percent", 100);
+     * doc.Push(table);
+     * table.SetColumnWidth(0, Api.MillimetersToEmus(40));
+     * let columnWidth = table.GetColumnWidth(0);
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Column width: " + columnWidth);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTable/Methods/GetColumnWidth/
      */
     GetColumnWidth(columnIndex: number): EMU | null;
@@ -52106,12 +56644,41 @@ export namespace Word {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Count the total number of columns in a table in a document.
+     *
+     * // How do I find out how many columns a table contains in a document?
+     *
+     * // Display the column count before and after adding a column to a table in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("We create a 2x2 table and add a new column, so that it becomes 3 columns wide:");
+     * let tableStyle = doc.CreateStyle("CustomTableStyle", "table");
+     * tableStyle.SetBasedOn(doc.GetStyle("Bordered"));
+     * let table = Api.CreateTable(2, 2);
+     * table.SetWidth("percent", 100);
+     * table.SetStyle(tableStyle);
+     * doc.Push(table);
+     * let columnsCountBefore = table.GetColumnsCount();
+     * table.AddColumn();
+     * let columnsCountAfter = table.GetColumnsCount();
+     * paragraph = Api.CreateParagraph();
+     * paragraph.AddText("The table above had " + columnsCountBefore + " columns before we added a new one. ");
+     * paragraph.AddText("Now this table has " + columnsCountAfter + " columns.");
+     * doc.Push(paragraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTable/Methods/GetColumnsCount/
      */
     GetColumnsCount(): number;
 
     /**
      * Returns an internal ID of the current table.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
      *
      * @since 9.2.0
      *
@@ -52144,6 +56711,23 @@ export namespace Word {
      * @returns returns the main document, a document part (table cell, header/footer, footnote, etc.), or null
      *   if the table has no parent.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Access the document content that contains a table.
+     *
+     * // The parent is the document content that holds the table.
+     *
+     * // Navigate from a table up to its parent and add a caption paragraph next to it.
+     *
+     * let doc = Api.GetDocument();
+     * let table = Api.CreateTable(2, 2);
+     * doc.Push(table);
+     * let parent = table.GetParent();
+     * let caption = Api.CreateParagraph();
+     * caption.AddText("The parent holds " + parent.GetElementsCount() + " elements.");
+     * doc.Push(caption);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTable/Methods/GetParent/
      */
@@ -52368,6 +56952,29 @@ export namespace Word {
      * @returns An array of the currently selected cells (empty if there is no cell selection).
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Retrieve the currently selected cells from a table in a document.
+     *
+     * // GetSelectedCells returns an array of ApiTableCell objects for the active selection.
+     *
+     * // Create a table, select a range of cells, then count how many were selected in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let tableStyle = doc.CreateStyle("CustomTableStyle", "table");
+     * tableStyle.SetBasedOn(doc.GetStyle("Bordered"));
+     * let table = Api.CreateTable(3, 3);
+     * table.SetWidth("percent", 100);
+     * table.SetStyle(tableStyle);
+     * doc.Push(table);
+     * doc.MoveCursorDown(1);
+     * doc.MoveCursorRight(3, true);
+     * let selectedCells = table.GetSelectedCells();
+     * let paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Selected cells: " + selectedCells.length);
+     * doc.Push(paragraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTable/Methods/GetSelectedCells/
      */
     GetSelectedCells(): ApiTableCell[];
@@ -52380,6 +56987,29 @@ export namespace Word {
      * @returns An array of all cells from the columns that contain selected cells.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Retrieve all cells from the columns that contain selected cells in a document.
+     *
+     * // GetSelectedColumnsCells returns every cell in each column that has at least one selected cell.
+     *
+     * // Create a table, select a range of cells, then get all cells from the affected columns in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let tableStyle = doc.CreateStyle("CustomTableStyle", "table");
+     * tableStyle.SetBasedOn(doc.GetStyle("Bordered"));
+     * let table = Api.CreateTable(4, 3);
+     * table.SetWidth("percent", 100);
+     * table.SetStyle(tableStyle);
+     * doc.Push(table);
+     * doc.MoveCursorDown(1);
+     * doc.MoveCursorRight(3, true);
+     * let columnCells = table.GetSelectedColumnsCells();
+     * let paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Cells in selected columns: " + columnCells.length);
+     * doc.Push(paragraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTable/Methods/GetSelectedColumnsCells/
      */
     GetSelectedColumnsCells(): ApiTableCell[];
@@ -52390,6 +57020,29 @@ export namespace Word {
      *
      * @returns An array of table row objects that contain at least one selected cell.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Retrieve all rows that contain currently selected cells in a document.
+     *
+     * // GetSelectedRows returns an array of ApiTableRow objects for rows with an active selection.
+     *
+     * // Create a table, select cells across two rows, then get those rows in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let tableStyle = doc.CreateStyle("CustomTableStyle", "table");
+     * tableStyle.SetBasedOn(doc.GetStyle("Bordered"));
+     * let table = Api.CreateTable(3, 3);
+     * table.SetWidth("percent", 100);
+     * table.SetStyle(tableStyle);
+     * doc.Push(table);
+     * doc.MoveCursorDown(1);
+     * doc.MoveCursorDown(1, true);
+     * let selectedRows = table.GetSelectedRows();
+     * let paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Selected rows: " + selectedRows.length);
+     * doc.Push(paragraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTable/Methods/GetSelectedRows/
      */
@@ -52423,6 +57076,23 @@ export namespace Word {
 
     /**
      * Gets table look properties
+     *
+     * @example
+     * ```js
+     * // Read which table style formatting bands and highlights are applied in a document.
+     *
+     * // Useful for checking which formatting bands and highlights apply to a table before changing its style in a document.
+     *
+     * // Retrieve the banded rows, banded columns, and corner highlight flags of a table in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * let table = Api.CreateTable(3, 3);
+     * table.SetTableLook(true, true, true, true, true, true);
+     * let tableLook = table.GetTableLook();
+     * paragraph.AddText("Table look — first row: " + tableLook.firstRow + ", banded columns: " + tableLook.bandVer);
+     * doc.Push(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTable/Methods/GetTableLook/
      */
@@ -52541,6 +57211,60 @@ export namespace Word {
     MergeCells(aCells: ApiTableCell[]): ApiTableCell | null;
 
     /**
+     * Moves the cursor to the end of the current table.
+     * The cursor is placed at the end of the last cell.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the end of a table in a document.
+     *
+     * // The cursor is placed at the end of the last cell.
+     *
+     * // Enter text into the last cell of the table.
+     *
+     * let doc = Api.GetDocument();
+     * let table = Api.CreateTable(3, 3);
+     * table.SetWidth("percent", 100);
+     * table.SetStyle(doc.GetStyle("Bordered"));
+     * doc.Push(table);
+     * table.MoveCursorToEnd();
+     * doc.EnterText("Last cell");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTable/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor to the start of the current table.
+     * The cursor is placed at the start of the first cell.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the start of a table in a document.
+     *
+     * // The cursor is placed at the start of the first cell.
+     *
+     * // Enter text into the first cell of the table.
+     *
+     * let doc = Api.GetDocument();
+     * let table = Api.CreateTable(3, 3);
+     * table.SetWidth("percent", 100);
+     * table.SetStyle(doc.GetStyle("Bordered"));
+     * doc.Push(table);
+     * table.MoveCursorToStart();
+     * doc.EnterText("First cell");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTable/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
+
+    /**
      * Removes a table column with a specified cell.
      *
      * @param cell - The cell which is placed in the column that will be removed.
@@ -52632,6 +57356,7 @@ export namespace Word {
      * @param sText - Search string, or a regular expression to match. When a RegExp is passed, the isMatchCase
      *   parameter is ignored (control case sensitivity with the "i" flag instead).
      * @param isMatchCase - Case sensitive or not.
+     * @default isMatchCase = false
      *
      * @example
      * ```js
@@ -52689,6 +57414,23 @@ export namespace Word {
      * @param endRowIndex - The end row index.
      * @param endCellIndex - The end cell index within the end row.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Select a rectangular range of cells in a table in a document.
+     *
+     * // Highlight a block of cells spanning several rows and columns for further editing.
+     *
+     * // Select the cells from the first cell of the first row to the second cell of the third row.
+     *
+     * let doc = Api.GetDocument();
+     * let table = Api.CreateTable(3, 3);
+     * table.SetWidth("percent", 100);
+     * doc.Push(table);
+     * table.GetCell(0, 0).SetText("Start of the selected range.");
+     * table.GetCell(2, 1).SetText("End of the selected range.");
+     * table.SelectRange(0, 0, 2, 1);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTable/Methods/SelectRange/
      */
@@ -52757,6 +57499,21 @@ export namespace Word {
      * @returns Returns the actual column width set (in EMU), or null if the column index is invalid.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the width of a specific table column in a document.
+     *
+     * // Apply a width value measured in English measure units to a single column.
+     *
+     * // Create a 3x3 table and widen its first column to 40 millimeters.
+     *
+     * let doc = Api.GetDocument();
+     * let table = Api.CreateTable(3, 3);
+     * table.SetWidth("percent", 100);
+     * doc.Push(table);
+     * table.SetColumnWidth(0, Api.MillimetersToEmus(40));
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTable/Methods/SetColumnWidth/
      */
     SetColumnWidth(columnIndex: number, width: EMU): EMU | null;
@@ -52795,6 +57552,21 @@ export namespace Word {
      * @param nValue - The table height in English measure units.
      * @returns Returns the requested height (in EMU), or null if the table has no rows.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the total height of a table in a document.
+     *
+     * // Distribute the requested height proportionally among the table rows.
+     *
+     * // Create a table and set its overall height to 60 millimeters.
+     *
+     * let doc = Api.GetDocument();
+     * let table = Api.CreateTable(3, 3);
+     * table.SetWidth("percent", 100);
+     * doc.Push(table);
+     * table.SetHeight(Api.MillimetersToEmus(60));
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTable/Methods/SetHeight/
      */
@@ -53968,7 +58740,10 @@ export namespace Word {
     GetIndex(): number;
 
     /**
-     * Returns an internal id of the current table cell.
+     * Returns an internal ID of the current table cell.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
      *
      * @since 9.2.0
      *
@@ -54171,6 +58946,62 @@ export namespace Word {
     GetText(pr?: { Numbering?: boolean; Math?: boolean; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string; NewLineSeparator?: string }): string;
 
     /**
+     * Moves the cursor to the end of the current table cell.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the end of a table cell in a document.
+     *
+     * // The cursor is placed after the existing text of the cell.
+     *
+     * // Insert new text after the cell text.
+     *
+     * let doc = Api.GetDocument();
+     * let table = Api.CreateTable(3, 3);
+     * table.SetWidth("percent", 100);
+     * table.SetStyle(doc.GetStyle("Bordered"));
+     * doc.Push(table);
+     * let cell = table.GetCell(1, 1);
+     * cell.GetContent().GetElement(0).AddText("Existing text.");
+     * cell.MoveCursorToEnd();
+     * doc.EnterText(" New text.");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor to the start of the current table cell.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the start of a table cell in a document.
+     *
+     * // The cursor is placed before the existing text of the cell.
+     *
+     * // Insert new text before the cell text.
+     *
+     * let doc = Api.GetDocument();
+     * let table = Api.CreateTable(3, 3);
+     * table.SetWidth("percent", 100);
+     * table.SetStyle(doc.GetStyle("Bordered"));
+     * doc.Push(table);
+     * let cell = table.GetCell(1, 1);
+     * cell.GetContent().GetElement(0).AddText("Existing text.");
+     * cell.MoveCursorToStart();
+     * doc.EnterText("New text. ");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableCell/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
+
+    /**
      * Removes a column containing the current cell.
      *
      * @returns returns false if table doen't exist
@@ -54232,6 +59063,7 @@ export namespace Word {
      * @param sText - Search string, or a regular expression to match. When a RegExp is passed, the isMatchCase
      *   parameter is ignored (control case sensitivity with the "i" flag instead).
      * @param isMatchCase - Case sensitive or not.
+     * @default isMatchCase = false
      *
      * @example
      * ```js
@@ -55402,6 +60234,23 @@ export namespace Word {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Remove a table of contents from the document.
+     *
+     * // Insert a table of contents built from the document headings.
+     *
+     * // Delete the table of contents together with its container.
+     *
+     * let doc = Api.GetDocument();
+     * let style = doc.GetStyle("Heading 1");
+     * let paragraph = doc.GetElement(0);
+     * paragraph.SetStyle(style);
+     * paragraph.AddText("Chapter 1");
+     * let toc = doc.AddTableOfContents({"BuildFrom": {"OutlineLvls": 9}});
+     * toc.Delete();
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/Delete/
      */
     Delete(): boolean;
@@ -55411,6 +60260,26 @@ export namespace Word {
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the class type of a table of contents object.
+     *
+     * // Insert a table of contents built from the document headings.
+     *
+     * // Read the class type string that identifies the table of contents.
+     *
+     * let doc = Api.GetDocument();
+     * let style = doc.GetStyle("Heading 1");
+     * let paragraph = doc.GetElement(0);
+     * paragraph.SetStyle(style);
+     * paragraph.AddText("Chapter 1");
+     * let toc = doc.AddTableOfContents({"BuildFrom": {"OutlineLvls": 9}});
+     * let classType = toc.GetClassType();
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Class type: " + classType);
+     * doc.Push(resultParagraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/GetClassType/
      */
@@ -55422,6 +60291,26 @@ export namespace Word {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Check whether a table of contents shows page numbers.
+     *
+     * // Insert a table of contents built from the document headings.
+     *
+     * // Read whether page numbers are included in the table of contents entries.
+     *
+     * let doc = Api.GetDocument();
+     * let style = doc.GetStyle("Heading 1");
+     * let paragraph = doc.GetElement(0);
+     * paragraph.SetStyle(style);
+     * paragraph.AddText("Chapter 1");
+     * let toc = doc.AddTableOfContents({"BuildFrom": {"OutlineLvls": 9}});
+     * let isInclude = toc.GetIncludePageNumbers();
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Page numbers included: " + isInclude);
+     * doc.Push(resultParagraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/GetIncludePageNumbers/
      */
     GetIncludePageNumbers(): boolean;
@@ -55431,6 +60320,26 @@ export namespace Word {
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the lowest heading level included in a table of contents.
+     *
+     * // Insert a table of contents that spans the heading levels 1 through 3.
+     *
+     * // Read the lower (innermost) heading level of the table of contents.
+     *
+     * let doc = Api.GetDocument();
+     * let style = doc.GetStyle("Heading 1");
+     * let paragraph = doc.GetElement(0);
+     * paragraph.SetStyle(style);
+     * paragraph.AddText("Chapter 1");
+     * let toc = doc.AddTableOfContents({"BuildFrom": {"OutlineLvlStart": 1, "OutlineLvls": 3}});
+     * let lowerLevel = toc.GetLowerHeadingLevel();
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Lower heading level: " + lowerLevel);
+     * doc.Push(resultParagraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/GetLowerHeadingLevel/
      */
@@ -55442,6 +60351,26 @@ export namespace Word {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the document that contains a table of contents.
+     *
+     * // Insert a table of contents built from the document headings.
+     *
+     * // Return the parent document of the table of contents.
+     *
+     * 	let doc = Api.GetDocument();
+     * 	let style = doc.GetStyle("Heading 1");
+     * 	let paragraph = doc.GetElement(0);
+     * 	paragraph.SetStyle(style);
+     * 	paragraph.AddText("Chapter 1");
+     * 	let toc = doc.AddTableOfContents({"BuildFrom": {"OutlineLvls": 9}});
+     * 	let parent = toc.GetParent();
+     * 	let resultParagraph = Api.CreateParagraph();
+     * 	resultParagraph.AddText("Parent class type: " + parent.GetClassType());
+     * 	doc.Push(resultParagraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/GetParent/
      */
     GetParent(): ApiDocument | null;
@@ -55451,6 +60380,26 @@ export namespace Word {
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get a range that covers an entire table of contents.
+     *
+     * // Insert a table of contents built from the document headings.
+     *
+     * // Obtain the range spanning the whole table of contents.
+     *
+     * let doc = Api.GetDocument();
+     * let style = doc.GetStyle("Heading 1");
+     * let paragraph = doc.GetElement(0);
+     * paragraph.SetStyle(style);
+     * paragraph.AddText("Chapter 1");
+     * let toc = doc.AddTableOfContents({"BuildFrom": {"OutlineLvls": 9}});
+     * let range = toc.GetRange();
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Range class type: " + range.GetClassType());
+     * doc.Push(resultParagraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/GetRange/
      */
@@ -55462,6 +60411,26 @@ export namespace Word {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Check whether page numbers are right-aligned in a table of contents.
+     *
+     * // Insert a table of contents built from the document headings.
+     *
+     * // Read whether the page numbers are aligned to the right margin.
+     *
+     * let doc = Api.GetDocument();
+     * let style = doc.GetStyle("Heading 1");
+     * let paragraph = doc.GetElement(0);
+     * paragraph.SetStyle(style);
+     * paragraph.AddText("Chapter 1");
+     * let toc = doc.AddTableOfContents({"BuildFrom": {"OutlineLvls": 9}});
+     * let isRightAlign = toc.GetRightAlignPageNumbers();
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Page numbers right-aligned: " + isRightAlign);
+     * doc.Push(resultParagraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/GetRightAlignPageNumbers/
      */
     GetRightAlignPageNumbers(): boolean;
@@ -55471,6 +60440,26 @@ export namespace Word {
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the highest heading level included in a table of contents.
+     *
+     * // Insert a table of contents that spans the heading levels 2 through 4.
+     *
+     * // Read the upper (outermost) heading level of the table of contents.
+     *
+     * let doc = Api.GetDocument();
+     * let style = doc.GetStyle("Heading 1");
+     * let paragraph = doc.GetElement(0);
+     * paragraph.SetStyle(style);
+     * paragraph.AddText("Chapter 1");
+     * let toc = doc.AddTableOfContents({"BuildFrom": {"OutlineLvlStart": 2, "OutlineLvls": 4}});
+     * let upperLevel = toc.GetUpperHeadingLevel();
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Upper heading level: " + upperLevel);
+     * doc.Push(resultParagraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/GetUpperHeadingLevel/
      */
@@ -55482,6 +60471,26 @@ export namespace Word {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Check whether the table of contents entries are formatted as hyperlinks.
+     *
+     * // Insert a table of contents built from the document headings.
+     *
+     * // Read whether the entries link to their target headings.
+     *
+     * let doc = Api.GetDocument();
+     * let style = doc.GetStyle("Heading 1");
+     * let paragraph = doc.GetElement(0);
+     * paragraph.SetStyle(style);
+     * paragraph.AddText("Chapter 1");
+     * let toc = doc.AddTableOfContents({"BuildFrom": {"OutlineLvls": 9}});
+     * let isUseHyperlinks = toc.GetUseHyperlinks();
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Entries use hyperlinks: " + isUseHyperlinks);
+     * doc.Push(resultParagraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/GetUseHyperlinks/
      */
     GetUseHyperlinks(): boolean;
@@ -55492,6 +60501,23 @@ export namespace Word {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Hide the page numbers in a table of contents.
+     *
+     * // Insert a table of contents built from the document headings.
+     *
+     * // Turn page numbers off for the table of contents entries.
+     *
+     * let doc = Api.GetDocument();
+     * let style = doc.GetStyle("Heading 1");
+     * let paragraph = doc.GetElement(0);
+     * paragraph.SetStyle(style);
+     * paragraph.AddText("Chapter 1");
+     * let toc = doc.AddTableOfContents({"BuildFrom": {"OutlineLvls": 9}});
+     * toc.SetIncludePageNumbers(false);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/SetIncludePageNumbers/
      */
     SetIncludePageNumbers(isInclude: boolean): boolean;
@@ -55501,6 +60527,23 @@ export namespace Word {
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the lowest heading level included in a table of contents.
+     *
+     * // Insert a table of contents built from the document headings.
+     *
+     * // Limit the outline depth by ending the heading range at level 3.
+     *
+     * let doc = Api.GetDocument();
+     * let style = doc.GetStyle("Heading 1");
+     * let paragraph = doc.GetElement(0);
+     * paragraph.SetStyle(style);
+     * paragraph.AddText("Chapter 1");
+     * let toc = doc.AddTableOfContents({"BuildFrom": {"OutlineLvls": 9}});
+     * toc.SetLowerHeadingLevel(3);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/SetLowerHeadingLevel/
      */
@@ -55513,6 +60556,23 @@ export namespace Word {
      * @param oTocPr - Table of contents properties.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Apply table of contents properties to an existing table of contents.
+     *
+     * // Insert a table of contents built from the document headings.
+     *
+     * // Update the page numbers, leader, outline range, and style of the table of contents at once.
+     *
+     * let doc = Api.GetDocument();
+     * let style = doc.GetStyle("Heading 1");
+     * let paragraph = doc.GetElement(0);
+     * paragraph.SetStyle(style);
+     * paragraph.AddText("Chapter 1");
+     * let toc = doc.AddTableOfContents({"BuildFrom": {"OutlineLvls": 9}});
+     * toc.SetPr({"ShowPageNums": true, "RightAlgn": true, "LeaderType": "dash", "FormatAsLinks": true, "BuildFrom": {"OutlineLvlStart": 1, "OutlineLvls": 3}, "TocStyle": "modern"});
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/SetPr/
      */
     SetPr(oTocPr: TocPr): boolean;
@@ -55522,6 +60582,23 @@ export namespace Word {
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Place the page numbers right after the entry text in a table of contents.
+     *
+     * // Insert a table of contents built from the document headings.
+     *
+     * // Disable right alignment so page numbers follow the entry text directly.
+     *
+     * let doc = Api.GetDocument();
+     * let style = doc.GetStyle("Heading 1");
+     * let paragraph = doc.GetElement(0);
+     * paragraph.SetStyle(style);
+     * paragraph.AddText("Chapter 1");
+     * let toc = doc.AddTableOfContents({"BuildFrom": {"OutlineLvls": 9}});
+     * toc.SetRightAlignPageNumbers(false);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/SetRightAlignPageNumbers/
      */
@@ -55533,6 +60610,23 @@ export namespace Word {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the highest heading level included in a table of contents.
+     *
+     * // Insert a table of contents built from the document headings.
+     *
+     * // Skip the top heading level by starting the outline range at level 2.
+     *
+     * let doc = Api.GetDocument();
+     * let style = doc.GetStyle("Heading 1");
+     * let paragraph = doc.GetElement(0);
+     * paragraph.SetStyle(style);
+     * paragraph.AddText("Chapter 1");
+     * let toc = doc.AddTableOfContents({"BuildFrom": {"OutlineLvls": 9}});
+     * toc.SetUpperHeadingLevel(2);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/SetUpperHeadingLevel/
      */
     SetUpperHeadingLevel(nLevel: number): boolean;
@@ -55542,6 +60636,23 @@ export namespace Word {
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Format the table of contents entries as hyperlinks.
+     *
+     * // Insert a table of contents built from the document headings.
+     *
+     * // Enable hyperlinks so each entry links to its heading.
+     *
+     * let doc = Api.GetDocument();
+     * let style = doc.GetStyle("Heading 1");
+     * let paragraph = doc.GetElement(0);
+     * paragraph.SetStyle(style);
+     * paragraph.AddText("Chapter 1");
+     * let toc = doc.AddTableOfContents({"BuildFrom": {"OutlineLvls": 9}});
+     * toc.SetUseHyperlinks(true);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/SetUseHyperlinks/
      */
@@ -55553,6 +60664,23 @@ export namespace Word {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @default bOnlyPageNumbers = false
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Refresh a table of contents after the document content changes.
+     *
+     * // Insert a table of contents built from the document headings.
+     *
+     * // Rebuild the table of contents so it reflects the current headings and page numbers.
+     *
+     * let doc = Api.GetDocument();
+     * let style = doc.GetStyle("Heading 1");
+     * let paragraph = doc.GetElement(0);
+     * paragraph.SetStyle(style);
+     * paragraph.AddText("Chapter 1");
+     * let toc = doc.AddTableOfContents({"BuildFrom": {"OutlineLvls": 9}});
+     * toc.Update();
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfContents/Methods/Update/
      */
@@ -55571,6 +60699,22 @@ export namespace Word {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Remove a table of figures from the document.
+     *
+     * // Add a captioned figure and a table of figures built from the "Figure" label.
+     *
+     * // Delete the table of figures together with its container.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Figure 1");
+     * paragraph.AddCaption(" - Sample figure", "Figure", false, "Arabic", false, undefined, "hyphen");
+     * let tof = doc.AddTableOfFigures({"BuildFrom": "Figure", "LabelNumber": true});
+     * tof.Delete();
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/Delete/
      */
     Delete(): boolean;
@@ -55580,6 +60724,25 @@ export namespace Word {
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the caption label that a table of figures is built from.
+     *
+     * // Add a captioned figure and a table of figures built from the "Figure" label.
+     *
+     * // Read the caption label that the table of figures collects its entries by.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Figure 1");
+     * paragraph.AddCaption(" - Sample figure", "Figure", false, "Arabic", false, undefined, "hyphen");
+     * let tof = doc.AddTableOfFigures({"BuildFrom": "Figure", "LabelNumber": true});
+     * let caption = tof.GetCaption();
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Caption label: " + caption);
+     * doc.Push(resultParagraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/GetCaption/
      */
@@ -55591,6 +60754,25 @@ export namespace Word {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the class type of a table of figures object.
+     *
+     * // Add a captioned figure and a table of figures built from the "Figure" label.
+     *
+     * // Read the class type string that identifies the table of figures.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Figure 1");
+     * paragraph.AddCaption(" - Sample figure", "Figure", false, "Arabic", false, undefined, "hyphen");
+     * let tof = doc.AddTableOfFigures({"BuildFrom": "Figure", "LabelNumber": true});
+     * let classType = tof.GetClassType();
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Class type: " + classType);
+     * doc.Push(resultParagraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/GetClassType/
      */
     GetClassType(): "tableOfFigures";
@@ -55600,6 +60782,25 @@ export namespace Word {
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Check whether a table of figures includes the caption label and number.
+     *
+     * // Add a captioned figure and a table of figures built from the "Figure" label.
+     *
+     * // Read whether the caption label and number are shown in the table of figures entries.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Figure 1");
+     * paragraph.AddCaption(" - Sample figure", "Figure", false, "Arabic", false, undefined, "hyphen");
+     * let tof = doc.AddTableOfFigures({"BuildFrom": "Figure", "LabelNumber": true});
+     * let isIncludeLabel = tof.GetIncludeLabel();
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Caption label included: " + isIncludeLabel);
+     * doc.Push(resultParagraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/GetIncludeLabel/
      */
@@ -55611,6 +60812,25 @@ export namespace Word {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Check whether a table of figures shows page numbers.
+     *
+     * // Add a captioned figure and a table of figures built from the "Figure" label.
+     *
+     * // Read whether page numbers are included in the table of figures entries.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Figure 1");
+     * paragraph.AddCaption(" - Sample figure", "Figure", false, "Arabic", false, undefined, "hyphen");
+     * let tof = doc.AddTableOfFigures({"BuildFrom": "Figure", "LabelNumber": true});
+     * let isInclude = tof.GetIncludePageNumbers();
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Page numbers included: " + isInclude);
+     * doc.Push(resultParagraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/GetIncludePageNumbers/
      */
     GetIncludePageNumbers(): boolean;
@@ -55620,6 +60840,25 @@ export namespace Word {
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the document that contains a table of figures.
+     *
+     * // Add a captioned figure and a table of figures built from the "Figure" label.
+     *
+     * // Return the parent document of the table of figures.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Figure 1");
+     * paragraph.AddCaption(" - Sample figure", "Figure", false, "Arabic", false, undefined, "hyphen");
+     * let tof = doc.AddTableOfFigures({"BuildFrom": "Figure", "LabelNumber": true});
+     * let parent = tof.GetParent();
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Parent class type: " + parent.GetClassType());
+     * doc.Push(resultParagraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/GetParent/
      */
@@ -55631,6 +60870,25 @@ export namespace Word {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get a range that covers an entire table of figures.
+     *
+     * // Add a captioned figure and a table of figures built from the "Figure" label.
+     *
+     * // Obtain the range spanning the whole table of figures.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Figure 1");
+     * paragraph.AddCaption(" - Sample figure", "Figure", false, "Arabic", false, undefined, "hyphen");
+     * let tof = doc.AddTableOfFigures({"BuildFrom": "Figure", "LabelNumber": true});
+     * let range = tof.GetRange();
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Range class type: " + range.GetClassType());
+     * doc.Push(resultParagraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/GetRange/
      */
     GetRange(): ApiRange | null;
@@ -55641,6 +60899,25 @@ export namespace Word {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Check whether page numbers are right-aligned in a table of figures.
+     *
+     * // Add a captioned figure and a table of figures built from the "Figure" label.
+     *
+     * // Read whether the page numbers are aligned to the right margin.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Figure 1");
+     * paragraph.AddCaption(" - Sample figure", "Figure", false, "Arabic", false, undefined, "hyphen");
+     * let tof = doc.AddTableOfFigures({"BuildFrom": "Figure", "LabelNumber": true});
+     * let isRightAlign = tof.GetRightAlignPageNumbers();
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Page numbers right-aligned: " + isRightAlign);
+     * doc.Push(resultParagraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/GetRightAlignPageNumbers/
      */
     GetRightAlignPageNumbers(): boolean;
@@ -55650,6 +60927,25 @@ export namespace Word {
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Check whether the table of figures entries are formatted as hyperlinks.
+     *
+     * // Add a captioned figure and a table of figures built from the "Figure" label.
+     *
+     * // Read whether the entries link to their target captions.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Figure 1");
+     * paragraph.AddCaption(" - Sample figure", "Figure", false, "Arabic", false, undefined, "hyphen");
+     * let tof = doc.AddTableOfFigures({"BuildFrom": "Figure", "LabelNumber": true});
+     * let isUseHyperlinks = tof.GetUseHyperlinks();
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Entries use hyperlinks: " + isUseHyperlinks);
+     * doc.Push(resultParagraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/GetUseHyperlinks/
      */
@@ -55662,6 +60958,22 @@ export namespace Word {
      * @param sCaption - The caption label.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Change the caption label that a table of figures is built from.
+     *
+     * // Add a captioned table and a table of figures built from the "Figure" label.
+     *
+     * // Rebuild the table of figures so it collects entries by the "Table" caption label instead.
+     *
+     * let doc = Api.GetDocument();
+     * let table = Api.CreateTable(2, 2);
+     * doc.Push(table);
+     * table.AddCaption(" - Sample tables", "Table", false, "Arabic", false, undefined, "hyphen");
+     * let tof = doc.AddTableOfFigures({"BuildFrom": "Figure", "LabelNumber": true});
+     * tof.SetCaption("Table");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/SetCaption/
      */
     SetCaption(sCaption: string): boolean;
@@ -55672,6 +60984,22 @@ export namespace Word {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Exclude the caption label and number from a table of figures entries.
+     *
+     * // Add a captioned figure and a table of figures built from the "Figure" label.
+     *
+     * // Rebuild the table of figures so the entries show only the caption text.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Figure 1");
+     * paragraph.AddCaption(" - Sample figure", "Figure", false, "Arabic", false, undefined, "hyphen");
+     * let tof = doc.AddTableOfFigures({"BuildFrom": "Figure", "LabelNumber": true});
+     * tof.SetIncludeLabel(false);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/SetIncludeLabel/
      */
     SetIncludeLabel(isInclude: boolean): boolean;
@@ -55681,6 +61009,22 @@ export namespace Word {
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Hide the page numbers in a table of figures.
+     *
+     * // Add a captioned figure and a table of figures built from the "Figure" label.
+     *
+     * // Turn page numbers off for the table of figures entries.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Figure 1");
+     * paragraph.AddCaption(" - Sample figure", "Figure", false, "Arabic", false, undefined, "hyphen");
+     * let tof = doc.AddTableOfFigures({"BuildFrom": "Figure", "LabelNumber": true});
+     * tof.SetIncludePageNumbers(false);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/SetIncludePageNumbers/
      */
@@ -55693,6 +61037,22 @@ export namespace Word {
      * @param oTofPr - Table of figures properties.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Apply table of figures properties to an existing table of figures.
+     *
+     * // Add a captioned figure and a table of figures built from the "Figure" label.
+     *
+     * // Update the page numbers, leader, caption label, and style of the table of figures at once.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Figure 1");
+     * paragraph.AddCaption(" - Sample figure", "Figure", false, "Arabic", false, undefined, "hyphen");
+     * let tof = doc.AddTableOfFigures({"BuildFrom": "Figure", "LabelNumber": true});
+     * tof.SetPr({"ShowPageNums": true, "RightAlgn": true, "LeaderType": "dash", "FormatAsLinks": true, "BuildFrom": "Figure", "LabelNumber": false, "TofStyle": "classic"});
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/SetPr/
      */
     SetPr(oTofPr: TofPr): boolean;
@@ -55702,6 +61062,22 @@ export namespace Word {
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Place the page numbers right after the entry text in a table of figures.
+     *
+     * // Add a captioned figure and a table of figures built from the "Figure" label.
+     *
+     * // Disable right alignment so page numbers follow the entry text directly.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Figure 1");
+     * paragraph.AddCaption(" - Sample figure", "Figure", false, "Arabic", false, undefined, "hyphen");
+     * let tof = doc.AddTableOfFigures({"BuildFrom": "Figure", "LabelNumber": true});
+     * tof.SetRightAlignPageNumbers(false);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/SetRightAlignPageNumbers/
      */
@@ -55713,6 +61089,22 @@ export namespace Word {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Format the table of figures entries as hyperlinks.
+     *
+     * // Add a captioned figure and a table of figures built from the "Figure" label.
+     *
+     * // Enable hyperlinks so each entry links to its caption.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Figure 1");
+     * paragraph.AddCaption(" - Sample figure", "Figure", false, "Arabic", false, undefined, "hyphen");
+     * let tof = doc.AddTableOfFigures({"BuildFrom": "Figure", "LabelNumber": true});
+     * tof.SetUseHyperlinks(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/SetUseHyperlinks/
      */
     SetUseHyperlinks(isUseHyperlinks: boolean): boolean;
@@ -55723,6 +61115,22 @@ export namespace Word {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @default bOnlyPageNumbers = false
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Refresh a table of figures after the document content changes.
+     *
+     * // Add a captioned figure and a table of figures built from the "Figure" label.
+     *
+     * // Rebuild the table of figures so it reflects the current captions and page numbers.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Figure 1");
+     * paragraph.AddCaption(" - Sample figure", "Figure", false, "Arabic", false, undefined, "hyphen");
+     * let tof = doc.AddTableOfFigures({"BuildFrom": "Figure", "LabelNumber": true});
+     * tof.Update();
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableOfFigures/Methods/Update/
      */
@@ -56668,6 +62076,25 @@ export namespace Word {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the computed height of a table row in a document.
+     *
+     * // Read the actual row height value measured in English measure units.
+     *
+     * // Create a table, set a row height and read the resulting value back.
+     *
+     * let doc = Api.GetDocument();
+     * let table = Api.CreateTable(2, 3);
+     * table.SetWidth("percent", 100);
+     * doc.Push(table);
+     * let row = table.GetRow(0);
+     * row.SetHeight("atLeast", 720);
+     * let rowHeight = row.GetHeight();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Row height: " + rowHeight);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/Methods/GetHeight/
      */
     GetHeight(): EMU | null;
@@ -56697,7 +62124,10 @@ export namespace Word {
     GetIndex(): number;
 
     /**
-     * Returns an internal id of the current table row.
+     * Returns an internal ID of the current table row.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
      *
      * @since 9.2.0
      *
@@ -56831,6 +62261,62 @@ export namespace Word {
     MergeCells(): ApiTableCell | null;
 
     /**
+     * Moves the cursor to the end of the current table row.
+     * The cursor is placed at the end of the last cell of the row.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the end of a table row in a document.
+     *
+     * // The cursor is placed at the end of the last cell in the row.
+     *
+     * // Enter text into the last cell of the second row.
+     *
+     * let doc = Api.GetDocument();
+     * let table = Api.CreateTable(3, 3);
+     * table.SetWidth("percent", 100);
+     * table.SetStyle(doc.GetStyle("Bordered"));
+     * doc.Push(table);
+     * let row = table.GetRow(1);
+     * row.MoveCursorToEnd();
+     * doc.EnterText("Row 2, last cell");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor to the start of the current table row.
+     * The cursor is placed at the start of the first cell of the row.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the start of a table row in a document.
+     *
+     * // The cursor is placed at the start of the first cell in the row.
+     *
+     * // Enter text into the first cell of the second row.
+     *
+     * let doc = Api.GetDocument();
+     * let table = Api.CreateTable(3, 3);
+     * table.SetWidth("percent", 100);
+     * table.SetStyle(doc.GetStyle("Bordered"));
+     * doc.Push(table);
+     * let row = table.GetRow(1);
+     * row.MoveCursorToStart();
+     * doc.EnterText("Row 2, first cell");
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
+
+    /**
      * Removes the current table row.
      *
      * @returns return false if parent table doesn't exist.
@@ -56864,6 +62350,7 @@ export namespace Word {
      * @param sText - Search string, or a regular expression to match. When a RegExp is passed, the isMatchCase
      *   parameter is ignored (control case sensitivity with the "i" flag instead).
      * @param isMatchCase - Case sensitive or not.
+     * @default isMatchCase = false
      *
      * @example
      * ```js
@@ -56887,7 +62374,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/Methods/Search/
      */
-    Search(sText: string | RegExp, isMatchCase: boolean): ApiRange[];
+    Search(sText: string | RegExp, isMatchCase?: boolean): ApiRange[];
 
     /**
      * Sets the background color to all cells in the current table row.
@@ -56953,6 +62440,27 @@ export namespace Word {
      *
      * @param oApiTableRowPr - The table row properties.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the formatting properties for a table row in a document.
+     *
+     * // SetRowPr applies an ApiTableRowPr object to configure row appearance such as height.
+     *
+     * // Create a table, build row properties with a fixed minimum height, and apply them to the first row in a document.
+     *
+     * let doc = Api.GetDocument();
+     * let tableStyle = doc.CreateStyle("CustomTableStyle", "table");
+     * tableStyle.SetBasedOn(doc.GetStyle("Bordered"));
+     * let table = Api.CreateTable(3, 3);
+     * table.SetWidth("percent", 100);
+     * table.SetStyle(tableStyle);
+     * doc.Push(table);
+     * let row = table.GetRow(0);
+     * let rowPr = Api.CreateTableRowPr();
+     * rowPr.SetHeight("atLeast", 720);
+     * row.SetRowPr(rowPr);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTableRow/Methods/SetRowPr/
      */
@@ -57615,6 +63123,27 @@ export namespace Word {
      * @default oTocPr = {}
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Insert a new table of contents that replaces a specified range in the document.
+     *
+     * // Build the heading outline, then place an anchor paragraph where the table of contents should appear.
+     *
+     * // Add the table of contents to the collection, replacing the anchor range, and return it.
+     *
+     * let doc = Api.GetDocument();
+     * let style = doc.GetStyle("Heading 1");
+     * let paragraph = doc.GetElement(0);
+     * paragraph.SetStyle(style);
+     * paragraph.AddText("Chapter 1");
+     * let anchor = Api.CreateParagraph();
+     * anchor.AddText("Table of contents goes here");
+     * doc.Push(anchor);
+     * let tablesOfContents = doc.GetTablesOfContents();
+     * let range = anchor.GetRange();
+     * let toc = tablesOfContents.Add({"ShowPageNums": true, "RightAlgn": true, "LeaderType": "dot", "FormatAsLinks": true, "BuildFrom": {"OutlineLvlStart": 1, "OutlineLvls": 9}, "TocStyle": "standard"}, range);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablesOfContents/Methods/Add/
      */
     Add(oTocPr?: TocPr, oRange?: ApiRange): ApiTableOfContents | null;
@@ -57625,6 +63154,22 @@ export namespace Word {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the class type of the tables of contents collection.
+     *
+     * // Obtain the tables of contents collection from the current document.
+     *
+     * // Read the class type string that identifies the collection.
+     *
+     * let doc = Api.GetDocument();
+     * let tablesOfContents = doc.GetTablesOfContents();
+     * let classType = tablesOfContents.GetClassType();
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Class type: " + classType);
+     * doc.Push(resultParagraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablesOfContents/Methods/GetClassType/
      */
     GetClassType(): "tablesOfContents";
@@ -57634,6 +63179,27 @@ export namespace Word {
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Count how many tables of contents the document contains.
+     *
+     * // Add a table of contents built from the document headings to the collection.
+     *
+     * // Read the number of tables of contents currently present in the document.
+     *
+     * let doc = Api.GetDocument();
+     * let style = doc.GetStyle("Heading 1");
+     * let paragraph = doc.GetElement(0);
+     * paragraph.SetStyle(style);
+     * paragraph.AddText("Chapter 1");
+     * let tablesOfContents = doc.GetTablesOfContents();
+     * tablesOfContents.Add({"BuildFrom": {"OutlineLvls": 9}});
+     * let count = tablesOfContents.GetCount();
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Tables of contents count: " + count);
+     * doc.Push(resultParagraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablesOfContents/Methods/GetCount/
      */
@@ -57646,6 +63212,27 @@ export namespace Word {
      * @param nIndex - The position (zero-based) of the table of contents.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get a table of contents by its index from the document collection.
+     *
+     * // Add a table of contents built from the document headings to the collection.
+     *
+     * // Retrieve the first table of contents from the collection by its zero-based index.
+     *
+     * let doc = Api.GetDocument();
+     * let style = doc.GetStyle("Heading 1");
+     * let paragraph = doc.GetElement(0);
+     * paragraph.SetStyle(style);
+     * paragraph.AddText("Chapter 1");
+     * let tablesOfContents = doc.GetTablesOfContents();
+     * tablesOfContents.Add({"BuildFrom": {"OutlineLvls": 9}});
+     * let toc = tablesOfContents.GetItem(0);
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Item class type: " + toc.GetClassType());
+     * doc.Push(resultParagraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablesOfContents/Methods/GetItem/
      */
     GetItem(nIndex: number): ApiTableOfContents | null;
@@ -57655,6 +63242,22 @@ export namespace Word {
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the document that owns the tables of contents collection.
+     *
+     * // Obtain the tables of contents collection from the current document.
+     *
+     * // Return the parent document that the collection belongs to.
+     *
+     * let doc = Api.GetDocument();
+     * let tablesOfContents = doc.GetTablesOfContents();
+     * let parent = tablesOfContents.GetParent();
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Parent class type: " + parent.GetClassType());
+     * doc.Push(resultParagraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablesOfContents/Methods/GetParent/
      */
@@ -57677,6 +63280,26 @@ export namespace Word {
      * @default oTofPr = {}
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Insert a new table of figures that replaces a specified range in the document.
+     *
+     * // Add a captioned figure, then place an anchor paragraph where the table of figures should appear.
+     *
+     * // Add the table of figures to the collection, replacing the anchor range, and return it.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Figure 1");
+     * paragraph.AddCaption(" - Sample figure", "Figure", false, "Arabic", false, undefined, "hyphen");
+     * let anchor = Api.CreateParagraph();
+     * anchor.AddText("Table of figures goes here");
+     * doc.Push(anchor);
+     * let tablesOfFigures = doc.GetTablesOfFigures();
+     * let range = anchor.GetRange();
+     * let tof = tablesOfFigures.Add({"ShowPageNums": true, "RightAlgn": true, "LeaderType": "dot", "FormatAsLinks": true, "BuildFrom": "Figure", "LabelNumber": true, "TofStyle": "distinctive"}, range);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablesOfFigures/Methods/Add/
      */
     Add(oTofPr?: TofPr, oRange?: ApiRange): ApiTableOfFigures | null;
@@ -57687,6 +63310,22 @@ export namespace Word {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the class type of the tables of figures collection.
+     *
+     * // Obtain the tables of figures collection from the current document.
+     *
+     * // Read the class type string that identifies the collection.
+     *
+     * let doc = Api.GetDocument();
+     * let tablesOfFigures = doc.GetTablesOfFigures();
+     * let classType = tablesOfFigures.GetClassType();
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Class type: " + classType);
+     * doc.Push(resultParagraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablesOfFigures/Methods/GetClassType/
      */
     GetClassType(): "tablesOfFigures";
@@ -57696,6 +63335,26 @@ export namespace Word {
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Count how many tables of figures the document contains.
+     *
+     * // Add a captioned figure and a table of figures built from the "Figure" label.
+     *
+     * // Read the number of tables of figures currently present in the document.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Figure 1");
+     * paragraph.AddCaption(" - Sample figure", "Figure", false, "Arabic", false, undefined, "hyphen");
+     * let tablesOfFigures = doc.GetTablesOfFigures();
+     * tablesOfFigures.Add({"BuildFrom": "Figure", "LabelNumber": true});
+     * let count = tablesOfFigures.GetCount();
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Tables of figures count: " + count);
+     * doc.Push(resultParagraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablesOfFigures/Methods/GetCount/
      */
@@ -57708,6 +63367,26 @@ export namespace Word {
      * @param nIndex - The position (zero-based) of the table of figures.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get a table of figures by its index from the document collection.
+     *
+     * // Add a captioned figure and a table of figures built from the "Figure" label.
+     *
+     * // Retrieve the first table of figures from the collection by its zero-based index.
+     *
+     * let doc = Api.GetDocument();
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText("Figure 1");
+     * paragraph.AddCaption(" - Sample figure", "Figure", false, "Arabic", false, undefined, "hyphen");
+     * let tablesOfFigures = doc.GetTablesOfFigures();
+     * tablesOfFigures.Add({"BuildFrom": "Figure", "LabelNumber": true});
+     * let tof = tablesOfFigures.GetItem(0);
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Item class type: " + tof.GetClassType());
+     * doc.Push(resultParagraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablesOfFigures/Methods/GetItem/
      */
     GetItem(nIndex: number): ApiTableOfFigures | null;
@@ -57717,6 +63396,22 @@ export namespace Word {
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the document that owns the tables of figures collection.
+     *
+     * // Obtain the tables of figures collection from the current document.
+     *
+     * // Return the parent document that the collection belongs to.
+     *
+     * let doc = Api.GetDocument();
+     * let tablesOfFigures = doc.GetTablesOfFigures();
+     * let parent = tablesOfFigures.GetParent();
+     * let resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Parent class type: " + parent.GetClassType());
+     * doc.Push(resultParagraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTablesOfFigures/Methods/GetParent/
      */
@@ -57781,6 +63476,7 @@ export namespace Word {
      * If keepContent is true, the content is not deleted.
      *
      * @param keepContent - Specifies if the content will be deleted or not.
+     * @default keepContent = false
      * @returns returns false if form wasn't added to the document.
      * @since 9.2.0
      *
@@ -57837,6 +63533,40 @@ export namespace Word {
      * Returns the background color of the current form.
      *
      * @since 9.1.0
+     *
+     * @example
+     * ```js
+     * // Read the background color applied to a text field in a document.
+     *
+     * // How do I retrieve the fill color of a text entry area in a document?
+     *
+     * // Inspect the color used behind a text field to verify its appearance in a document.
+     *
+     * let doc = Api.GetDocument();
+     *
+     * const textForm = Api.CreateTextForm({
+     * 	'key': 'Personal information',
+     * 	'tip': 'Enter your first name',
+     * 	'required': true,
+     * 	'placeholder': 'First name',
+     * 	'comb': true,
+     * 	'maxCharacters': 10,
+     * 	'cellWidth': 3,
+     * 	'multiLine': false,
+     * 	'autoFit': false
+     * });
+     *
+     * const themeColor = Api.ThemeColor('accent3');
+     * textForm.SetBackgroundColor(themeColor);
+     * const backgroundColor = textForm.GetBackgroundColor();
+     *
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddText('Is background color a theme color? -> ' + backgroundColor.IsThemeColor());
+     * paragraph.AddLineBreak();
+     * paragraph.AddText('Background color HEX (for current theme): ' + backgroundColor.GetHex());
+     * paragraph.AddLineBreak();
+     * paragraph.AddElement(textForm);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetBackgroundColor/
      */
@@ -57989,7 +63719,41 @@ export namespace Word {
     GetFormat(): TextFormFormat;
 
     /**
-     * Returns an internal id of the current form.
+     * Returns a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @since 10.0.1
+     *
+     * @example
+     * ```js
+     * // Read the ID assigned to a text form in a document.
+     *
+     * // Check the ID that was set for a text form with the SetId method in a document.
+     *
+     * // Display the text form ID that is saved to the file and stays the same after the document is reopened.
+     *
+     * let doc = Api.GetDocument();
+     * let textForm = Api.CreateTextForm({"key": "Personal information", "tip": "Enter your first name", "required": true, "placeholder": "First name", "comb": true, "maxCharacters": 10, "cellWidth": 3, "multiLine": false, "autoFit": false});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(textForm);
+     * textForm.SetId(1001);
+     * let formId = textForm.GetId();
+     * paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Form ID: " + formId);
+     * doc.Push(paragraph);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/GetId/
+     */
+    GetId(): number;
+
+    /**
+     * Returns an internal ID of the current form.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
+     * To get the ID which is saved to the file, use the {@link ApiFormBase#GetId} method.
      *
      * @since 9.2.0
      *
@@ -58471,6 +64235,60 @@ export namespace Word {
     MoveCursorOutside(isAfter?: boolean | null): boolean;
 
     /**
+     * Moves the cursor to the end of the current form.
+     * The cursor is placed inside the form. To place it before or after the form, use the
+     * MoveCursorOutside method.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the end of a text form in a document.
+     *
+     * // The cursor is placed inside the text form. Use the MoveCursorOutside method to place it before or after the form.
+     *
+     * // Place the cursor after the last character of the text form value.
+     *
+     * let doc = Api.GetDocument();
+     * let textForm = Api.CreateTextForm({"key": "Personal information", "tip": "Enter your first name", "placeholder": "First name"});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(textForm);
+     * textForm.SetText("The cursor will be placed at the end of the current text form.");
+     * textForm.MoveCursorToEnd();
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor to the start of the current form.
+     * The cursor is placed inside the form. To place it before or after the form, use the
+     * MoveCursorOutside method.
+     *
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the start of a text form in a document.
+     *
+     * // The cursor is placed inside the text form. Use the MoveCursorOutside method to place it before or after the form.
+     *
+     * // Place the cursor before the first character of the text form value.
+     *
+     * let doc = Api.GetDocument();
+     * let textForm = Api.CreateTextForm({"key": "Personal information", "tip": "Enter your first name", "placeholder": "First name"});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(textForm);
+     * textForm.SetText("The cursor will be placed at the start of the current text form.");
+     * textForm.MoveCursorToStart();
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
+
+    /**
      * Sets the allowed symbols for the current text field.
      *
      * Only the specified characters will be accepted as input.
@@ -58699,6 +64517,37 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextForm/Methods/SetFormat/
      */
     SetFormat(format: TextFormFormat): boolean;
+
+    /**
+     * Specifies a unique ID for the current form.
+     * This ID is saved to the file, unlike the internal ID returned by the
+     * {@link ApiFormBase#GetInternalId} method.
+     *
+     * @param id - The numerical ID which will be specified for the current form.
+     * @since 10.0.1
+     *
+     * @example
+     * ```js
+     * // Assign a unique ID to a text form in a document.
+     *
+     * // Set a custom ID for a text form to tell it apart from other forms in a document.
+     *
+     * // Give a text form an ID that is saved to the file, unlike the internal ID which can change after reopening.
+     *
+     * let doc = Api.GetDocument();
+     * let textForm = Api.CreateTextForm({"key": "Personal information", "tip": "Enter your first name", "required": true, "placeholder": "First name", "comb": true, "maxCharacters": 10, "cellWidth": 3, "multiLine": false, "autoFit": false});
+     * let paragraph = doc.GetElement(0);
+     * paragraph.AddElement(textForm);
+     * textForm.SetId(1001);
+     * let formId = textForm.GetId();
+     * paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Form ID: " + formId);
+     * doc.Push(paragraph);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiFormBase/Methods/SetId/
+     */
+    SetId(id: number): boolean;
 
     /**
      * Sets the lock state of the current form.
@@ -58995,6 +64844,7 @@ export namespace Word {
      * @param height - The wrapper shape height measured in twentieths of a point (1/1440 of an inch).
      * @param keepPosition - Save position on the page (it can be a little bit slow, because it runs the document
      *   calculation).
+     * @default keepPosition = false
      *
      * @example
      * ```js
@@ -59241,6 +65091,8 @@ export namespace Word {
      *
      * The method automatically calculates the font from the theme if the font was set via the theme.
      *
+     * @param fontSlot - The font slot. If this parameter is not specified, the "ascii" value is used.
+     * @default fontSlot = "ascii"
      * @since 8.1.0
      *
      * @example
@@ -59273,7 +65125,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/GetFontFamily/
      */
-    GetFontFamily(): string | null;
+    GetFontFamily(fontSlot?: "ascii" | "eastAsia" | "hAnsi" | "cs"): string | null;
 
     /**
      * Gets the font size from the current text properties.
@@ -60365,10 +66217,6 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiTextPr/Methods/ToJSON/
      */
     ToJSON(bWriteStyles: boolean): string;
-  }
-
-  /** Class representing a text range within a presentation shape's text frame. */
-  export interface ApiTextRange {
   }
 
   /**

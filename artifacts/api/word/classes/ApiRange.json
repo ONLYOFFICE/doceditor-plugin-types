@@ -74,11 +74,13 @@
         {
           "description": "The screen tip text.",
           "name": "screenTipText",
+          "optional": true,
           "type": "string"
         },
         {
           "description": "name of a bookmark",
           "name": "bookmarkName",
+          "optional": true,
           "type": "string"
         }
       ],
@@ -86,7 +88,7 @@
         "description": "returns null if range contains more than one paragraph or sLink is invalid.",
         "type": "ApiHyperlink | null"
       },
-      "signature": "AddHyperlink(link: string, screenTipText: string, bookmarkName: string): ApiHyperlink | null"
+      "signature": "AddHyperlink(link: string, screenTipText?: string, bookmarkName?: string): ApiHyperlink | null"
     },
     "AddText": {
       "description": "Adds a text to the specified position.",
@@ -196,13 +198,13 @@
       "params": [
         {
           "description": "Start position index in the current range.",
-          "name": "Start",
+          "name": "nStart",
           "optional": true,
           "type": "number"
         },
         {
           "description": "End position index in the current range (if <= 0, then the range is taken to the end).",
-          "name": "End",
+          "name": "nEnd",
           "optional": true,
           "type": "number"
         }
@@ -210,7 +212,7 @@
       "returns": {
         "type": "ApiRange"
       },
-      "signature": "GetRange(Start?: number, End?: number): ApiRange"
+      "signature": "GetRange(nStart?: number, nEnd?: number): ApiRange"
     },
     "GetStartPage": {
       "description": "Returns the start page number of the current range.",
@@ -275,6 +277,16 @@
       },
       "signature": "IntersectWith(oRange: ApiRange): ApiRange | null"
     },
+    "MoveCursorToEnd": {
+      "description": "Moves the cursor to the end of the current range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/MoveCursorToEnd/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "MoveCursorToEnd(): boolean",
+      "since": "10.0.3"
+    },
     "MoveCursorToPos": {
       "description": "Moves a cursor to a specified position of the current range object.\n\nIf there is any selection in the document, it will be removed.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/MoveCursorToPos/",
@@ -291,6 +303,16 @@
       },
       "signature": "MoveCursorToPos(nPos?: number): boolean",
       "since": "9.0.0"
+    },
+    "MoveCursorToStart": {
+      "description": "Moves the cursor to the start of the current range.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiRange/Methods/MoveCursorToStart/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "MoveCursorToStart(): boolean",
+      "since": "10.0.3"
     },
     "Select": {
       "description": "Sets the selection to the specified range.",

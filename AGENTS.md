@@ -92,7 +92,7 @@ three channels, and confusing them is the most common source of broken plugin co
   in the JSDoc of the corresponding member in the `.d.ts`, and every member that has one also has a
   `docsUrl`; carrying them in both places duplicated 4.5 MB of identical text.
 
-  It lives in git, **not in the npm package** — at 4.88 MB it was 37% of an install that most
+  It lives in git, **not in the npm package** — at 5.11 MB it was 37% of an install that most
   consumers make for editor completion alone. If you have no network, fall back to the `.d.ts`: the
   same facts are in each member's JSDoc (`@since`, `@see`, `@requires` for paid members), and
   `<Editor>PaidMethodName` types the paid `executeMethod` names.
@@ -113,8 +113,8 @@ three channels, and confusing them is the most common source of broken plugin co
 
   Rule of thumb for which half to search: `<editor>/…` answers what you do *inside* a `callCommand`
   body; `runtime.json` answers how you write the plugin around it.
-- **Check `requires` before recommending a member.** 230 members need ONLYOFFICE Docs Developer
-  Edition and are not present in a Community Edition build: 22 `executeMethod` names and 208
+- **Check `requires` before recommending a member.** 281 members need ONLYOFFICE Docs Developer
+  Edition and are not present in a Community Edition build: 22 `executeMethod` names and 259
   object-model methods (`ApiTableOfContents`, `ApiListObject`, `ApiSort`, ...). They carry a `requires` field in `artifacts/api/`, and each editor's `index.json` lists them
   outright - `paidExecuteMethods` and `paidMethods` - so a single read answers it. The executeMethod
   names are also typed as `<Editor>PaidMethodName`. Suggesting one to a Community Edition
@@ -129,7 +129,7 @@ three channels, and confusing them is the most common source of broken plugin co
   member".
 - `artifacts/ambient/` holds five flattened no-import `.d.ts` bundles, one per editor:
   `onlyoffice-doceditor-plugin-types.<editor>.ambient.d.ts` for `word`, `cell`, `slide`, `pdf`, `forms`. Each
-  is self-contained (0.56-2.52 MB) - load exactly one, since the five declare the same globals with
+  is self-contained (0.57-2.75 MB) - load exactly one, since the five declare the same globals with
   different types. Written for editors that take a single global-scope blob (a Monaco
   `addExtraLib()`), and useful here for a different reason - see below. Not shipped in the npm
   package (those consumers take the modular sources instead) - fetch from git:
@@ -160,7 +160,7 @@ The modular package checks the same things if `npm install` is available, but ne
 one editor entry point in `files` and a separate program per editor - the four editors declare the
 same global `Api`, so two in one program is a TS2403 collision.
 
-Do not put a bundle in your context: `word` alone is ~2.6M characters. It is something to run, not
+Do not put a bundle in your context: `word` alone is ~2.9M characters. It is something to run, not
 to read - `artifacts/api/` is the surface meant for reading, and it carries what the JSDoc does not
 express in machine-readable form (`requires` for paid members, `since`, a verified `docsUrl`).
 
@@ -185,6 +185,11 @@ npm run generate         # regenerate src/generated from sdkjs + rebuild artifac
 `generate` also needs `DOCS_PATH` - a checkout (clone or unpacked archive) of the api.onlyoffice.com
 documentation site, which supplies every runnable `@example`. sdkjs's JSDoc carries only a `@see`
 path to those files, not the code.
+
+`OFFICE_JS_API_PATH` (or `--office-js-api`) is optional and fills that source's gaps: the docs site
+releases on its own cycle, so members added in the current editor release usually have no page there
+yet, while office-js-api is branched per editor release. It is never preferred over the site - a
+member documented there keeps that example - so the two cannot fight over the same member.
 
 `generate` needs local checkouts of the editor sources (`SDKJS_PATH` env or `--sdkjs`, plus its
 siblings), which are not publicly available. The exact expected source

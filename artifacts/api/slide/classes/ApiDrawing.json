@@ -110,7 +110,7 @@
       "signature": "GetHyperlink(): ApiHyperlink | null"
     },
     "GetInternalId": {
-      "description": "Returns an internal ID of the current drawing object.",
+      "description": "Returns an internal ID of the current drawing object.\nThe internal ID is valid only for the current editing session: it stays the same while the presentation is open,\nbut it is not saved to the file and can be different after the presentation is reopened.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetInternalId/",
       "params": [],
       "returns": {
@@ -350,6 +350,23 @@
       "signature": "SetDescription(description: string): boolean",
       "since": "10.0.0"
     },
+    "SetFill": {
+      "description": "Sets the fill formatting properties to the current graphic object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/SetFill/",
+      "params": [
+        {
+          "description": "The fill type used to fill the graphic object.",
+          "name": "oFill",
+          "type": "ApiFill"
+        }
+      ],
+      "returns": {
+        "description": "returns false if param is invalid or not supported for the current graphic object.",
+        "type": "boolean"
+      },
+      "signature": "SetFill(oFill: ApiFill): boolean",
+      "since": "10.0.0"
+    },
     "SetFlipH": {
       "description": "Sets the horizontal flip of the current drawing.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/SetFlipH/",
@@ -399,6 +416,23 @@
         "type": "boolean"
       },
       "signature": "SetHyperlink(hyperlink: ApiHyperlink | null): boolean"
+    },
+    "SetLine": {
+      "description": "Sets the outline properties to the current graphic object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/SetLine/",
+      "params": [
+        {
+          "description": "The stroke used to create the graphic object outline.",
+          "name": "stroke",
+          "type": "ApiStroke"
+        }
+      ],
+      "returns": {
+        "description": "returns false if param is invalid or not supported for the current graphic object.",
+        "type": "boolean"
+      },
+      "signature": "SetLine(stroke: ApiStroke): boolean",
+      "since": "10.0.0"
     },
     "SetLockAspect": {
       "description": "Sets whether the aspect ratio of the drawing is locked.",
@@ -523,19 +557,19 @@
       "params": [
         {
           "description": "The distance from the left side of the slide to the left side of the drawing measured in English measure units.",
-          "name": "nPosX",
+          "name": "posX",
           "type": "EMU"
         },
         {
           "description": "The distance from the top side of the slide to the upper side of the drawing measured in English measure units.",
-          "name": "nPosY",
+          "name": "posY",
           "type": "EMU"
         }
       ],
       "returns": {
         "type": "void"
       },
-      "signature": "SetPosition(nPosX: EMU, nPosY: EMU): void"
+      "signature": "SetPosition(posX: EMU, posY: EMU): void"
     },
     "SetRotation": {
       "description": "Sets the rotation angle to the current drawing object.",

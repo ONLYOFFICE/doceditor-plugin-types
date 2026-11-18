@@ -191,6 +191,16 @@
       "signature": "GetDrawingsByPlaceholderType(sType: PlaceholderType): Drawing[]",
       "since": "8.2.0"
     },
+    "GetInternalId": {
+      "description": "Returns an internal ID of the current slide master.\nThe internal ID is valid only for the current editing session: it stays the same while the presentation is open,\nbut it is not saved to the file and can be different after the presentation is reopened.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiMaster/Methods/GetInternalId/",
+      "params": [],
+      "returns": {
+        "type": "string"
+      },
+      "signature": "GetInternalId(): string",
+      "since": "9.2.0"
+    },
     "GetLayout": {
       "description": "Returns a layout of the specified slide master by its position.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiMaster/Methods/GetLayout/",

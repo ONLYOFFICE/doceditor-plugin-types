@@ -722,14 +722,14 @@
         "description": "Optional parameters.",
         "name": "pr",
         "optional": true,
-        "type": "{ lockScroll?: boolean; keepSelection?: boolean }"
+        "type": "{ lockScroll?: boolean; keepSelection?: boolean; changesHighlightColor?: string | object }"
       }
     ],
     "requires": "ONLYOFFICE Docs Developer Edition. This method is not present in Community Edition builds.",
     "returns": {
       "type": "unknown"
     },
-    "signature": "executeMethod(\"StartGroupActions\", [pr?: { lockScroll?: boolean; keepSelection?: boolean }], callback?): unknown",
+    "signature": "executeMethod(\"StartGroupActions\", [pr?: { lockScroll?: boolean; keepSelection?: boolean; changesHighlightColor?: string | object }], callback?): unknown",
     "since": "10.0.0"
   },
   "UnShowInputHelper": {

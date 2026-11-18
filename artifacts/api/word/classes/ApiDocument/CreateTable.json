@@ -1,5 +1,5 @@
 {
-  "description": "Creates a new table with a specified number of rows and columns.",
+  "description": "Creates a new table with a specified number of rows and columns.\nThe table is created empty, without any settings: it has no style, no borders and no width.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/CreateTable/",
   "params": [
     {

@@ -1,31 +1,153 @@
 {
   "word": {
-    "classes": 73,
+    "classes": 71,
+    "orphanedClasses": [
+      "ApiBullet",
+      "ApiTextRange"
+    ],
     "typedefs": 108,
+    "examples": {
+      "docs": 1868,
+      "officeJsApi": 225
+    },
     "unresolvedTypes": [],
     "anyOccurrences": 0
   },
   "cell": {
-    "classes": 125,
+    "classes": 95,
+    "orphanedClasses": [
+      "ApiAnimationEffect",
+      "ApiAnimationSequence",
+      "ApiBlockLvlSdt",
+      "ApiBookmark",
+      "ApiContentControlList",
+      "ApiContentControlListEntry",
+      "ApiDropCap",
+      "ApiLayout",
+      "ApiMaster",
+      "ApiNotesPage",
+      "ApiNumbering",
+      "ApiNumberingLevel",
+      "ApiPlaceholder",
+      "ApiPresentation",
+      "ApiSection",
+      "ApiSelection",
+      "ApiShd",
+      "ApiSlide",
+      "ApiSlideShowTransition",
+      "ApiStyle",
+      "ApiTableCell",
+      "ApiTableCellPr",
+      "ApiTablePr",
+      "ApiTableStylePr",
+      "ApiThemeColorScheme",
+      "ApiThemeFontScheme",
+      "ApiThemeFormatScheme",
+      "ApiTimeLine",
+      "ApiWatermarkSettings",
+      "g_nApiEffectIdCounter"
+    ],
     "typedefs": 177,
+    "examples": {
+      "docs": 1709,
+      "officeJsApi": 220
+    },
     "unresolvedTypes": [],
     "anyOccurrences": 0
   },
   "slide": {
-    "classes": 85,
+    "classes": 73,
+    "orphanedClasses": [
+      "ApiBlockLvlSdt",
+      "ApiBookmark",
+      "ApiContentControlList",
+      "ApiContentControlListEntry",
+      "ApiDropCap",
+      "ApiNumbering",
+      "ApiNumberingLevel",
+      "ApiRange",
+      "ApiSection",
+      "ApiTableCellPr",
+      "ApiWatermarkSettings",
+      "g_nApiEffectIdCounter"
+    ],
     "typedefs": 112,
+    "examples": {
+      "docs": 840,
+      "officeJsApi": 231
+    },
     "unresolvedTypes": [],
     "anyOccurrences": 0
   },
   "forms": {
-    "classes": 69,
+    "classes": 40,
+    "orphanedClasses": [
+      "ApiBookmark",
+      "ApiBullet",
+      "ApiChartSeries",
+      "ApiComment",
+      "ApiCommentReply",
+      "ApiContentControlList",
+      "ApiContentControlListEntry",
+      "ApiCore",
+      "ApiCustomProperties",
+      "ApiCustomXmlNode",
+      "ApiCustomXmlPart",
+      "ApiCustomXmlParts",
+      "ApiDropCap",
+      "ApiFill",
+      "ApiGeometry",
+      "ApiGradientStop",
+      "ApiNumbering",
+      "ApiNumberingLevel",
+      "ApiPath",
+      "ApiPathCommand",
+      "ApiRange",
+      "ApiSection",
+      "ApiShadow",
+      "ApiShd",
+      "ApiStroke",
+      "ApiStyle",
+      "ApiTableStylePr",
+      "ApiTextRange",
+      "ApiWatermarkSettings"
+    ],
     "typedefs": 116,
+    "examples": {
+      "docs": 354,
+      "officeJsApi": 0
+    },
     "unresolvedTypes": [],
     "anyOccurrences": 0
   },
   "pdf": {
-    "classes": 112,
-    "typedefs": 148,
+    "classes": 93,
+    "orphanedClasses": [
+      "ApiBookmark",
+      "ApiComment",
+      "ApiCommentReply",
+      "ApiContentControlList",
+      "ApiContentControlListEntry",
+      "ApiCore",
+      "ApiCustomProperties",
+      "ApiCustomXmlNode",
+      "ApiCustomXmlPart",
+      "ApiCustomXmlParts",
+      "ApiDropCap",
+      "ApiNumbering",
+      "ApiNumberingLevel",
+      "ApiRange",
+      "ApiSection",
+      "ApiTableCellPr",
+      "ApiTablePr",
+      "ApiTableStylePr",
+      "ApiWatermarkSettings"
+    ],
+    "typedefs": 150,
+    "examples": {
+      "docs": 1183,
+      "officeJsApi": 289
+    },
     "unresolvedTypes": [],
     "anyOccurrences": 0
   }

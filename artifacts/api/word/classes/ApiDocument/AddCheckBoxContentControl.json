@@ -5,6 +5,7 @@
     {
       "description": "The configuration object for the checkbox.",
       "name": "checkBoxPr",
+      "optional": true,
       "type": "ContentControlCheckBoxPr"
     }
   ],
@@ -12,6 +13,6 @@
     "description": "An instance of the ApiInlineLvlSdt object representing the checkbox content control.",
     "type": "ApiInlineLvlSdt"
   },
-  "signature": "AddCheckBoxContentControl(checkBoxPr: ContentControlCheckBoxPr): ApiInlineLvlSdt",
+  "signature": "AddCheckBoxContentControl(checkBoxPr?: ContentControlCheckBoxPr): ApiInlineLvlSdt",
   "since": "9.0.0"
 }

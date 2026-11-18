@@ -2,38 +2,38 @@
   "agents": "https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/master/AGENTS.md",
   "editors": {
     "cell": {
-      "classes": 125,
+      "classes": 95,
       "events": 1,
       "executeMethods": 48,
-      "methods": 2002,
+      "methods": 2010,
       "typedefs": 177
     },
     "forms": {
-      "classes": 69,
+      "classes": 40,
       "events": 1,
       "executeMethods": 51,
-      "methods": 379,
+      "methods": 397,
       "typedefs": 116
     },
     "pdf": {
-      "classes": 112,
+      "classes": 93,
       "events": 2,
       "executeMethods": 32,
-      "methods": 1514,
-      "typedefs": 148
+      "methods": 1622,
+      "typedefs": 150
     },
     "slide": {
-      "classes": 85,
+      "classes": 73,
       "events": 5,
       "executeMethods": 63,
-      "methods": 1066,
+      "methods": 1140,
       "typedefs": 112
     },
     "word": {
-      "classes": 73,
+      "classes": 71,
       "events": 19,
       "executeMethods": 114,
-      "methods": 2129,
+      "methods": 2233,
       "typedefs": 108
     }
   },
@@ -46,5 +46,5 @@
     "Read https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/master/AGENTS.md before working from this tree: it is what the \"agents\" field on this file, each editor index and runtime.json points at."
   ],
   "package": "@onlyoffice/doceditor-plugin-types",
-  "version": "10.0.0"
+  "version": "10.0.3"
 }

@@ -1,6 +1,6 @@
 {
   "generator": {
-    "packageVersion": "10.0.0",
+    "packageVersion": "10.0.3",
     "jsdoc": "4.0.5",
     "typescript": "5.9.3"
   },
@@ -12,18 +12,18 @@
       "version": "9.2.0"
     },
     "sdkjs": {
-      "commit": "3990700ae21dfc4ab51528ec52c54b5567a429c8",
-      "describe": "v10.0.0.159",
+      "commit": "1bb8821e82c920d90d9d684dcac968d8fe373297",
+      "describe": "v10.0.3.58",
       "dirty": false
     },
     "sdkjsExt": {
-      "commit": "fe3d724b8119a12bf50b132c4516ecf64d3bbfbb",
-      "describe": "v10.0.0.173",
+      "commit": "5d432f50f8a29d43963d13b74f743f67e9a14abf",
+      "describe": "v10.0.3.44",
       "dirty": false
     },
     "sdkjsForms": {
-      "commit": "0148c8ed3f799136431be49d4d83b4064fbafd01",
-      "describe": "v10.0.0.156",
+      "commit": "eb51d98b18e95382ba4a38c846f9d576c3b24ac9",
+      "describe": "v10.0.3.30",
       "dirty": false
     }
   },
@@ -31,7 +31,7 @@
     {
       "repository": "sdkjs",
       "path": "word/apiBuilder.js",
-      "sha256": "42bd8bb13a0de2943bfb25b70770e5ad29504882874966859e5c84a8f340b19a"
+      "sha256": "b000ec1348c0eca93488b60452fc641893c990be333e78fc81dcb9089de985e3"
     },
     {
       "repository": "sdkjs",
@@ -46,7 +46,7 @@
     {
       "repository": "sdkjs",
       "path": "../sdkjs-ext/js-api/word/api-document-visitor.js",
-      "sha256": "e47205c37a81d352c0e976576e739f3044822a200f2ef30620b2a5345c24a230"
+      "sha256": "1fb64375211bc58b1bb6266d896c5cbe7a9c33bc094f8b52978793d40305e0fd"
     },
     {
       "repository": "sdkjs",
@@ -61,7 +61,7 @@
     {
       "repository": "sdkjs",
       "path": "../sdkjs-ext/js-api/word/api-paragraph.js",
-      "sha256": "c6e315d4b96e2a0375e10ccfaeb855b02ceb365b375b1d9077e0fbbe7af75ed6"
+      "sha256": "e72f7e9e581678bfbcf620b6a697c6caf219bf21ad59a5e28a5a934db812c619"
     },
     {
       "repository": "sdkjs",
@@ -91,17 +91,17 @@
     {
       "repository": "sdkjs",
       "path": "../sdkjs-ext/word/api_plugins.js",
-      "sha256": "022c9a0388c320cf6b6c0ca7f6ccda6ce81d79da409eaa737411b58d8bc927de"
+      "sha256": "38f4a9cc29107e9cfa4830c45da251bcb155d6167f53416cd204454d75dd8fae"
     },
     {
       "repository": "sdkjs",
       "path": "slide/apiBuilder.js",
-      "sha256": "2830cccd1e5c4a478ec2b66c916c61d1fa9a27a73d8054504feb22d2fde6d33d"
+      "sha256": "b3fc22ba98290502b25e08f8771add4902bf5d180a0cceebd40e190fdbb35d0d"
     },
     {
       "repository": "sdkjs",
       "path": "cell/apiBuilder.js",
-      "sha256": "85e3d95fc01fd1c84b975290348aabd3bf7a31a0e0a8efc9c434ee23b9319d06"
+      "sha256": "935966e986883194389e349cb9614a3f36cf0a9a6e389e1bb9dab92af5c8c568"
     },
     {
       "repository": "sdkjs",
@@ -131,17 +131,17 @@
     {
       "repository": "sdkjs",
       "path": "../sdkjs-ext/js-api/cell/api-list-column.js",
-      "sha256": "16e1c8318578f26cb87d5ed6533b75fb8b85131e9850fe9a21322b3842f972e4"
+      "sha256": "b2a85ff9ccafe5ce8da7fd5a27c5c5f5c6e6a33dbab1f52df36a45f206f42f72"
     },
     {
       "repository": "sdkjs",
       "path": "../sdkjs-ext/js-api/cell/api-list-object.js",
-      "sha256": "67d6058ecf4dc054d2feb73c8d4401d948bb4bbf9de665bf9a0705534e6f8268"
+      "sha256": "bc3ae6c5816ce43ab88f1ac51a092f9a8199ab2b7cdb002d571856ce24b5dcd5"
     },
     {
       "repository": "sdkjs",
       "path": "../sdkjs-ext/js-api/cell/api-list-row.js",
-      "sha256": "41376a0febec7be4cd2992cfdad9e0d5a510f85edc8453e69fd223b3b390d1d2"
+      "sha256": "f7fd0d192d48e7007394d3866c91320602c137e07d1160e3394a468ecfe19a1b"
     },
     {
       "repository": "sdkjs",
@@ -166,7 +166,7 @@
     {
       "repository": "sdkjs",
       "path": "../sdkjs-ext/js-api/cell/api-sort.js",
-      "sha256": "d3e4502dc939ce25b2ff470d0d0d5c80a0c523d6d1c64454d5b0c499026eab92"
+      "sha256": "5d1529d2eb6fea0d820419b0e2c727efb5afb374a930a9fa3bd7959bba3e7d54"
     },
     {
       "repository": "sdkjs",
@@ -206,7 +206,7 @@
     {
       "repository": "sdkjs",
       "path": "../sdkjs-ext/js-api/slide/api-presentation-visitor.js",
-      "sha256": "cacd536fb6c81302eef47830982c02b784c6ed6fb50dd1b0543e16beb3a113f8"
+      "sha256": "db0c7965912dad1e00c5174b3fadeb5faa8a712186e124e0cf04e53e344ab919"
     },
     {
       "repository": "sdkjs",
@@ -236,7 +236,7 @@
     {
       "repository": "sdkjs-forms",
       "path": "apiBuilder.js",
-      "sha256": "d4b469caacc982083d79cefb3d88200770c8268d69f59e522881df35d5502d2b"
+      "sha256": "2d468993c970bb4717e56ac6d6fbc7d7243e5b7608f693393d9f9aa828792cfe"
     },
     {
       "repository": "sdkjs-forms",
@@ -246,7 +246,7 @@
     {
       "repository": "sdkjs",
       "path": "pdf/apiBuilder.js",
-      "sha256": "2a38860f69e20ae2b7a833df58e81d0fb46c62571305426eb00a6ac12e520446"
+      "sha256": "57f3f8c198c54a194a49e0eb5fc3ced138586ce0c1cd871260edc7572961f0a1"
     },
     {
       "repository": "sdkjs",
@@ -261,7 +261,7 @@
     {
       "repository": "sdkjs",
       "path": "../sdkjs-ext/js-api/pdf/api-base-field.js",
-      "sha256": "a302a4f812a47802a58506f9b38557ec82c3bcc289304f334d01d8f0940a8ac4"
+      "sha256": "c772870bdb3ffd36f410337ccfb50c91462f95e3dbb70e313acf275f738adb1c"
     },
     {
       "repository": "sdkjs",
@@ -298,7 +298,7 @@
     {
       "repository": "sdkjs-ext",
       "path": "common/apiBase_plugins.js",
-      "sha256": "34028b4906b7aa718b13dcc54f16dd5c4f43613ed2edacf6559b5972aa8e79b6"
+      "sha256": "3bbcc0c2f9af6a23b6958d2b1963f5c4525ac6684f8e40aa30c5e94dc6425bfd"
     },
     {
       "repository": "sdkjs-ext",
@@ -308,7 +308,7 @@
     {
       "repository": "sdkjs-ext",
       "path": "word/api_plugins.js",
-      "sha256": "022c9a0388c320cf6b6c0ca7f6ccda6ce81d79da409eaa737411b58d8bc927de"
+      "sha256": "38f4a9cc29107e9cfa4830c45da251bcb155d6167f53416cd204454d75dd8fae"
     }
   ]
 }

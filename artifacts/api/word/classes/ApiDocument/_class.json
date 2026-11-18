@@ -4,6 +4,6 @@
   "extends": [
     "ApiDocumentContent"
   ],
-  "methodCount": 148,
+  "methodCount": 149,
   "sharded": true
 }

@@ -1,5 +1,5 @@
 {
-  "description": "Enables or disables AI-assisted change tracking in the document.",
+  "description": "Enables or disables AI-assisted change tracking in the document.\nOnly the change tracking of the current user is turned on: the document setting is not changed. Calls can be\nnested: the previous state is restored when every call with isTrack set to true is matched by a call with isTrack\nset to false. While it is enabled, {@link ApiDocument#SetTrackRevisions} does nothing and returns false.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDocument/Methods/SetAssistantTrackRevisions/",
   "params": [
     {
@@ -8,13 +8,14 @@
       "type": "boolean"
     },
     {
-      "description": "The AI assistant name.",
+      "description": "The AI assistant name used as the author of the tracked changes. Required when isTrack is true; if it is not a non-empty string, \"Anonymous\" is used. Not used when isTrack is false. Ignored by nested calls.",
       "name": "assistantName",
       "optional": true,
       "type": "string"
     }
   ],
   "returns": {
+    "description": "Returns false if isTrack is false and AI-assisted change tracking is not enabled.",
     "type": "boolean"
   },
   "signature": "SetAssistantTrackRevisions(isTrack: boolean, assistantName?: string): boolean"

@@ -2,6 +2,299 @@
   "description": "Class representing a presentation visitor. It walks slides, layouts, masters, speaker notes, drawings (including\nthe drawings nested in groups, table cells and chart titles) and the paragraphs and runs of their text.\nAssign functions to the hooks to be notified; return true from a hook to skip the subtree of that node.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/",
   "methods": {
+    "Drawing": {
+      "description": "A hook called when the traversal enters a drawing (a shape, an image, a chart, a group, a table...).",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/Drawing/",
+      "params": [
+        {
+          "description": "The drawing.",
+          "name": "drawing",
+          "type": "ApiDrawing"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "Return true to skip the content of the drawing; the DrawingEnd hook is not called then.",
+        "type": "boolean"
+      },
+      "signature": "Drawing(drawing: ApiDrawing): boolean",
+      "since": "10.0.0"
+    },
+    "DrawingEnd": {
+      "description": "A hook called when the traversal leaves a drawing (a shape, an image, a chart, a group, a table...).",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/DrawingEnd/",
+      "params": [
+        {
+          "description": "The drawing.",
+          "name": "drawing",
+          "type": "ApiDrawing"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "DrawingEnd(drawing: ApiDrawing): boolean",
+      "since": "10.0.0"
+    },
+    "Layout": {
+      "description": "A hook called when the traversal enters a slide layout.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/Layout/",
+      "params": [
+        {
+          "description": "The slide layout.",
+          "name": "layout",
+          "type": "ApiLayout"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "Return true to skip the content of the slide layout; the LayoutEnd hook is not called then.",
+        "type": "boolean"
+      },
+      "signature": "Layout(layout: ApiLayout): boolean",
+      "since": "10.0.0"
+    },
+    "LayoutEnd": {
+      "description": "A hook called when the traversal leaves a slide layout.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/LayoutEnd/",
+      "params": [
+        {
+          "description": "The slide layout.",
+          "name": "layout",
+          "type": "ApiLayout"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "LayoutEnd(layout: ApiLayout): boolean",
+      "since": "10.0.0"
+    },
+    "Master": {
+      "description": "A hook called when the traversal enters a slide master.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/Master/",
+      "params": [
+        {
+          "description": "The slide master.",
+          "name": "master",
+          "type": "ApiMaster"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "Return true to skip the content of the slide master; the MasterEnd hook is not called then.",
+        "type": "boolean"
+      },
+      "signature": "Master(master: ApiMaster): boolean",
+      "since": "10.0.0"
+    },
+    "MasterEnd": {
+      "description": "A hook called when the traversal leaves a slide master.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/MasterEnd/",
+      "params": [
+        {
+          "description": "The slide master.",
+          "name": "master",
+          "type": "ApiMaster"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "MasterEnd(master: ApiMaster): boolean",
+      "since": "10.0.0"
+    },
+    "Notes": {
+      "description": "A hook called when the traversal enters a speaker notes page.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/Notes/",
+      "params": [
+        {
+          "description": "The speaker notes page.",
+          "name": "notesPage",
+          "type": "ApiNotesPage"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "Return true to skip the content of the speaker notes page; the NotesEnd hook is not called then.",
+        "type": "boolean"
+      },
+      "signature": "Notes(notesPage: ApiNotesPage): boolean",
+      "since": "10.0.0"
+    },
+    "NotesEnd": {
+      "description": "A hook called when the traversal leaves a speaker notes page.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/NotesEnd/",
+      "params": [
+        {
+          "description": "The speaker notes page.",
+          "name": "notesPage",
+          "type": "ApiNotesPage"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "NotesEnd(notesPage: ApiNotesPage): boolean",
+      "since": "10.0.0"
+    },
+    "Paragraph": {
+      "description": "A hook called when the traversal enters a paragraph. Assign a function to it to process paragraphs.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/Paragraph/",
+      "params": [
+        {
+          "description": "The paragraph.",
+          "name": "paragraph",
+          "type": "ApiParagraph"
+        },
+        {
+          "description": "With a selection traversal of a partly selected paragraph, the index of the first selected element of the paragraph (a run, a hyperlink, an inline content control...); undefined when the whole paragraph is traversed.",
+          "name": "start",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "With a selection traversal of a partly selected paragraph, the index of the last selected element of the paragraph, inclusive; undefined when the whole paragraph is traversed.",
+          "name": "end",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "Return true to skip the content of the paragraph; the ParagraphEnd hook is not called then.",
+        "type": "boolean"
+      },
+      "signature": "Paragraph(paragraph: ApiParagraph, start?: number, end?: number): boolean",
+      "since": "10.0.0"
+    },
+    "ParagraphEnd": {
+      "description": "A hook called when the traversal leaves a paragraph.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/ParagraphEnd/",
+      "params": [
+        {
+          "description": "The paragraph.",
+          "name": "paragraph",
+          "type": "ApiParagraph"
+        },
+        {
+          "description": "With a selection traversal of a partly selected paragraph, the index of the first selected element of the paragraph (a run, a hyperlink, an inline content control...); undefined when the whole paragraph is traversed.",
+          "name": "start",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "With a selection traversal of a partly selected paragraph, the index of the last selected element of the paragraph, inclusive; undefined when the whole paragraph is traversed.",
+          "name": "end",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "ParagraphEnd(paragraph: ApiParagraph, start?: number, end?: number): boolean",
+      "since": "10.0.0"
+    },
+    "Run": {
+      "description": "A hook called when the traversal enters a text run. A run that contains only the paragraph mark is skipped.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/Run/",
+      "params": [
+        {
+          "description": "The run.",
+          "name": "run",
+          "type": "ApiRun"
+        },
+        {
+          "description": "With a selection traversal of a partly selected run, the position of the first selected run element (a character, a space, a tab, a line break, a drawing...); undefined when the whole run is traversed.",
+          "name": "start",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "With a selection traversal of a partly selected run, the position after the last selected run element, exclusive; undefined when the whole run is traversed.",
+          "name": "end",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "Return true to skip the text of the run; the Text and RunEnd hooks are not called for it then.",
+        "type": "boolean"
+      },
+      "signature": "Run(run: ApiRun, start?: number, end?: number): boolean",
+      "since": "10.0.0"
+    },
+    "RunEnd": {
+      "description": "A hook called when the traversal leaves a text run.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/RunEnd/",
+      "params": [
+        {
+          "description": "The run.",
+          "name": "run",
+          "type": "ApiRun"
+        },
+        {
+          "description": "With a selection traversal of a partly selected run, the position of the first selected run element (a character, a space, a tab, a line break, a drawing...); undefined when the whole run is traversed.",
+          "name": "start",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "With a selection traversal of a partly selected run, the position after the last selected run element, exclusive; undefined when the whole run is traversed.",
+          "name": "end",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "RunEnd(run: ApiRun, start?: number, end?: number): boolean",
+      "since": "10.0.0"
+    },
+    "Slide": {
+      "description": "A hook called when the traversal enters a slide.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/Slide/",
+      "params": [
+        {
+          "description": "The slide.",
+          "name": "slide",
+          "type": "ApiSlide"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "Return true to skip the content of the slide; the SlideEnd hook is not called then.",
+        "type": "boolean"
+      },
+      "signature": "Slide(slide: ApiSlide): boolean",
+      "since": "10.0.0"
+    },
+    "SlideEnd": {
+      "description": "A hook called when the traversal leaves a slide.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/SlideEnd/",
+      "params": [
+        {
+          "description": "The slide.",
+          "name": "slide",
+          "type": "ApiSlide"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "SlideEnd(slide: ApiSlide): boolean",
+      "since": "10.0.0"
+    },
     "Stop": {
       "description": "Stops the traversal. No further hooks are called after the current one returns.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/Stop/",
@@ -11,6 +304,152 @@
         "type": "boolean"
       },
       "signature": "Stop(): boolean",
+      "since": "10.0.0"
+    },
+    "Table": {
+      "description": "A hook called when the traversal enters a table. It is called after the Drawing hook for the same table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/Table/",
+      "params": [
+        {
+          "description": "The table.",
+          "name": "table",
+          "type": "ApiTable"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "Return true to skip the rows of the table; the TableEnd hook is not called then.",
+        "type": "boolean"
+      },
+      "signature": "Table(table: ApiTable): boolean",
+      "since": "10.0.0"
+    },
+    "TableCell": {
+      "description": "A hook called when the traversal enters a table cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/TableCell/",
+      "params": [
+        {
+          "description": "The table cell.",
+          "name": "cell",
+          "type": "ApiTableCell"
+        },
+        {
+          "description": "With a selection traversal of a partly selected cell, the index of the first selected element of the cell content (a paragraph, a table, a block content control); undefined when the whole cell is traversed.",
+          "name": "start",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "With a selection traversal of a partly selected cell, the index of the last selected element of the cell content, inclusive; undefined when the whole cell is traversed.",
+          "name": "end",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "Return true to skip the content of the cell; the TableCellEnd hook is not called then.",
+        "type": "boolean"
+      },
+      "signature": "TableCell(cell: ApiTableCell, start?: number, end?: number): boolean",
+      "since": "10.0.0"
+    },
+    "TableCellEnd": {
+      "description": "A hook called when the traversal leaves a table cell.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/TableCellEnd/",
+      "params": [
+        {
+          "description": "The table cell.",
+          "name": "cell",
+          "type": "ApiTableCell"
+        },
+        {
+          "description": "With a selection traversal of a partly selected cell, the index of the first selected element of the cell content (a paragraph, a table, a block content control); undefined when the whole cell is traversed.",
+          "name": "start",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "description": "With a selection traversal of a partly selected cell, the index of the last selected element of the cell content, inclusive; undefined when the whole cell is traversed.",
+          "name": "end",
+          "optional": true,
+          "type": "number"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "TableCellEnd(cell: ApiTableCell, start?: number, end?: number): boolean",
+      "since": "10.0.0"
+    },
+    "TableEnd": {
+      "description": "A hook called when the traversal leaves a table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/TableEnd/",
+      "params": [
+        {
+          "description": "The table.",
+          "name": "table",
+          "type": "ApiTable"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "TableEnd(table: ApiTable): boolean",
+      "since": "10.0.0"
+    },
+    "TableRow": {
+      "description": "A hook called when the traversal enters a table row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/TableRow/",
+      "params": [
+        {
+          "description": "The table row.",
+          "name": "row",
+          "type": "ApiTableRow"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "Return true to skip the cells of the row; the TableRowEnd hook is not called then.",
+        "type": "boolean"
+      },
+      "signature": "TableRow(row: ApiTableRow): boolean",
+      "since": "10.0.0"
+    },
+    "TableRowEnd": {
+      "description": "A hook called when the traversal leaves a table row.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/TableRowEnd/",
+      "params": [
+        {
+          "description": "The table row.",
+          "name": "row",
+          "type": "ApiTableRow"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "TableRowEnd(row: ApiTableRow): boolean",
+      "since": "10.0.0"
+    },
+    "Text": {
+      "description": "A hook called with the text of a run. Letters, spaces, tabs (\"\\t\") and line breaks (\"\\n\") that follow one another come as one string; any other run element splits the text into separate calls.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/Text/",
+      "params": [
+        {
+          "description": "The text.",
+          "name": "text",
+          "type": "string"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "Text(text: string): boolean",
       "since": "10.0.0"
     },
     "Traverse": {

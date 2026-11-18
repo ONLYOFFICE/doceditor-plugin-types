@@ -4,12 +4,13 @@
   "params": [
     {
       "description": "The properties to find and replace.",
-      "name": "oProperties",
-      "type": "{ searchString: string; replaceString: string; matchCase?: string }"
+      "name": "props",
+      "type": "{ searchString: string; replaceString: string; matchCase?: boolean }"
     }
   ],
   "returns": {
-    "type": "boolean"
+    "description": "The number of replacements made. Returns 0 if nothing was found.",
+    "type": "number"
   },
-  "signature": "SearchAndReplace(oProperties: { searchString: string; replaceString: string; matchCase?: string }): boolean"
+  "signature": "SearchAndReplace(props: { searchString: string; replaceString: string; matchCase?: boolean }): number"
 }

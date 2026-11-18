@@ -151,13 +151,14 @@
         {
           "description": "Properties for inserting a text field.",
           "name": "formPr",
+          "optional": true,
           "type": "TextFormInsertPr"
         }
       ],
       "returns": {
         "type": "ApiTextForm"
       },
-      "signature": "InsertTextForm(formPr: TextFormInsertPr): ApiTextForm"
+      "signature": "InsertTextForm(formPr?: TextFormInsertPr): ApiTextForm"
     },
     "SetFormsData": {
       "description": "Sets the data to the specified forms.",

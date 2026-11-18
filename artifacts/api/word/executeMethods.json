@@ -1371,14 +1371,15 @@
     "params": [
       {
         "description": "An object which contains the search and replacement strings.",
-        "name": "oProperties",
+        "name": "props",
         "type": "{ searchString?: string; replaceString?: string; matchCase?: boolean }"
       }
     ],
     "returns": {
-      "type": "unknown"
+      "description": "The number of replacements made. Returns 0 if nothing was found.",
+      "type": "number"
     },
-    "signature": "executeMethod(\"SearchAndReplace\", [oProperties: { searchString?: string; replaceString?: string; matchCase?: boolean }], callback?): unknown"
+    "signature": "executeMethod(\"SearchAndReplace\", [props: { searchString?: string; replaceString?: string; matchCase?: boolean }], callback?): number"
   },
   "SearchNext": {
     "description": "Finds and selects the next occurrence of the text starting at the current position.",
@@ -1727,14 +1728,14 @@
         "description": "Optional parameters.",
         "name": "pr",
         "optional": true,
-        "type": "{ lockScroll?: boolean; keepSelection?: boolean }"
+        "type": "{ lockScroll?: boolean; keepSelection?: boolean; changesHighlightColor?: string | object }"
       }
     ],
     "requires": "ONLYOFFICE Docs Developer Edition. This method is not present in Community Edition builds.",
     "returns": {
       "type": "unknown"
     },
-    "signature": "executeMethod(\"StartGroupActions\", [pr?: { lockScroll?: boolean; keepSelection?: boolean }], callback?): unknown",
+    "signature": "executeMethod(\"StartGroupActions\", [pr?: { lockScroll?: boolean; keepSelection?: boolean; changesHighlightColor?: string | object }], callback?): unknown",
     "since": "10.0.0"
   },
   "UnShowInputHelper": {

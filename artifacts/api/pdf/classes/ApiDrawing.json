@@ -21,6 +21,23 @@
       },
       "signature": "Delete(): boolean"
     },
+    "Fill": {
+      "description": "Sets the fill formatting properties to the current graphic object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/Fill/",
+      "params": [
+        {
+          "description": "The fill type used to fill the graphic object.",
+          "name": "fill",
+          "type": "ApiFill"
+        }
+      ],
+      "returns": {
+        "description": "returns false if param is invalid or not supported for the current graphic object.",
+        "type": "boolean"
+      },
+      "signature": "Fill(fill: ApiFill): boolean",
+      "since": "10.0.0"
+    },
     "GetClassType": {
       "description": "Returns the type of the ApiDrawing class.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/GetClassType/",
@@ -379,6 +396,23 @@
         "type": "boolean"
       },
       "signature": "SetName(name: string): boolean",
+      "since": "10.0.0"
+    },
+    "SetOutLine": {
+      "description": "Sets the outline properties to the current graphic object.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiDrawing/Methods/SetOutLine/",
+      "params": [
+        {
+          "description": "The stroke used to create the graphic object outline.",
+          "name": "stroke",
+          "type": "ApiStroke"
+        }
+      ],
+      "returns": {
+        "description": "returns false if param is invalid or not supported for the current graphic object.",
+        "type": "boolean"
+      },
+      "signature": "SetOutLine(stroke: ApiStroke): boolean",
       "since": "10.0.0"
     },
     "SetPosX": {

@@ -94,9 +94,9 @@
       "params": [],
       "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
       "returns": {
-        "type": "boolean"
+        "type": "string | null"
       },
-      "signature": "GetTooltip(): boolean",
+      "signature": "GetTooltip(): string | null",
       "since": "9.4.0"
     },
     "GetValue": {
@@ -144,7 +144,7 @@
       "signature": "SetFullName(name: string): boolean"
     },
     "SetPartialName": {
-      "description": "Sets new field partial name.",
+      "description": "Sets new field partial name.\n\n**Note:**\nThe name parameter must not contain a dot.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseField/Methods/SetPartialName/",
       "params": [
         {

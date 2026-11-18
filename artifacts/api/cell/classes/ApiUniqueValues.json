@@ -17,13 +17,13 @@
     },
     "GetAppliesTo": {
       "description": "Returns the range of cells to which the current conditional formatting rule applies.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetAppliesTo/",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiUniqueValues/Methods/GetAppliesTo/",
       "params": [],
       "returns": {
-        "description": "The range of cells affected by the current condition, or null if no range is set.",
-        "type": "ApiRange | null"
+        "description": "The range of cells affected by the current condition.",
+        "type": "ApiRange"
       },
-      "signature": "GetAppliesTo(): ApiRange | null",
+      "signature": "GetAppliesTo(): ApiRange",
       "since": "9.1.0"
     },
     "GetDateOperator": {
@@ -49,25 +49,25 @@
       "since": "9.1.0"
     },
     "GetFillColor": {
-      "description": "Returns the background color for the format condition.\n\nReturns 'No Fill' when the background color of the format condition is null.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetFillColor/",
+      "description": "Returns the fill color for the unique values conditional formatting rule.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiUniqueValues/Methods/GetFillColor/",
       "params": [],
       "returns": {
-        "description": "The background color applied by the format condition, or 'No Fill' if none is set.",
-        "type": "ApiColor | 'No Fill'"
+        "description": "The background color applied by the format condition, or null if none is set.",
+        "type": "ApiColor | null"
       },
-      "signature": "GetFillColor(): ApiColor | 'No Fill'",
+      "signature": "GetFillColor(): ApiColor | null",
       "since": "9.1.0"
     },
     "GetFont": {
-      "description": "Returns the font applied by the current format condition.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetFont/",
+      "description": "Returns the font formatting for the unique values conditional formatting rule.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiUniqueValues/Methods/GetFont/",
       "params": [],
       "returns": {
-        "description": "An ApiFont object representing the font applied by the format condition, or null if no font is defined.",
-        "type": "ApiFont | null"
+        "description": "An ApiFont object representing the font applied by the format condition.",
+        "type": "ApiFont"
       },
-      "signature": "GetFont(): ApiFont | null",
+      "signature": "GetFont(): ApiFont",
       "since": "9.1.0"
     },
     "GetFormula1": {
@@ -93,8 +93,8 @@
       "since": "9.1.0"
     },
     "GetNumberFormat": {
-      "description": "Returns the number format applied to a cell when the conditional formatting rule evaluates to true.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetNumberFormat/",
+      "description": "Returns the number format for the unique values conditional formatting rule.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiUniqueValues/Methods/GetNumberFormat/",
       "params": [],
       "returns": {
         "description": "The number format.",
@@ -115,19 +115,19 @@
       "since": "9.1.0"
     },
     "GetPTCondition": {
-      "description": "Returns the pivot table condition object.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetPTCondition/",
+      "description": "Returns whether the conditional formatting rule is applied to a pivot table.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiUniqueValues/Methods/GetPTCondition/",
       "params": [],
       "returns": {
-        "description": "The pivot table condition object.",
-        "type": "PTCondition | null"
+        "description": "Returns true if the rule is applied to a pivot table, otherwise null.",
+        "type": "boolean | null"
       },
-      "signature": "GetPTCondition(): PTCondition | null",
+      "signature": "GetPTCondition(): boolean | null",
       "since": "9.1.0"
     },
     "GetParent": {
       "description": "Returns the parent range object of the current format condition.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetParent/",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiUniqueValues/Methods/GetParent/",
       "params": [],
       "returns": {
         "description": "The parent range object.",
@@ -138,7 +138,7 @@
     },
     "GetPriority": {
       "description": "Returns the priority value of the conditional formatting rule.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetPriority/",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiUniqueValues/Methods/GetPriority/",
       "params": [],
       "returns": {
         "description": "The priority value of the conditional formatting rule.",
@@ -149,7 +149,7 @@
     },
     "GetScopeType": {
       "description": "Returns the scope type of the conditional formatting rule.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetScopeType/",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiUniqueValues/Methods/GetScopeType/",
       "params": [],
       "returns": {
         "description": "Returns \"xlSelectionScope\" for normal ranges, \"xlDataFieldScope\" for entire worksheet, \"xlFieldsScope\" for pivot tables.",
@@ -160,7 +160,7 @@
     },
     "GetStopIfTrue": {
       "description": "Returns whether the editor will stop evaluating additional formatting rules if this rule evaluates to true.",
-      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiFormatCondition/Methods/GetStopIfTrue/",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiUniqueValues/Methods/GetStopIfTrue/",
       "params": [],
       "returns": {
         "type": "boolean"

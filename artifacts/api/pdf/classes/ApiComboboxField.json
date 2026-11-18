@@ -93,9 +93,9 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiComboboxField/Methods/GetRegularExp/",
       "params": [],
       "returns": {
-        "type": "boolean"
+        "type": "string | null"
       },
-      "signature": "GetRegularExp(): boolean",
+      "signature": "GetRegularExp(): string | null",
       "since": "10.0.0"
     },
     "GetValueIndexes": {
@@ -281,14 +281,14 @@
       "params": [
         {
           "description": "field placeholder",
-          "name": "sPlaceholder",
+          "name": "sText",
           "type": "string"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetPlaceholder(sPlaceholder: string): boolean",
+      "signature": "SetPlaceholder(sText: string): boolean",
       "since": "10.0.0"
     },
     "SetRegularExp": {

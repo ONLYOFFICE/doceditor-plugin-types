@@ -164,7 +164,7 @@
         },
         {
           "description": "End offset relative to the beginning of this range. -1 means the end of this range.",
-          "name": "rangeEnd",
+          "name": "end",
           "optional": true,
           "type": "number"
         }
@@ -172,7 +172,7 @@
       "returns": {
         "type": "ApiTextRange | null"
       },
-      "signature": "GetRange(start?: number, rangeEnd?: number): ApiTextRange | null",
+      "signature": "GetRange(start?: number, end?: number): ApiTextRange | null",
       "since": "10.0.0"
     },
     "GetStartPos": {

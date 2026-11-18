@@ -5,6 +5,16 @@
     "ApiDrawing"
   ],
   "methods": {
+    "Copy": {
+      "description": "Creates a copy of the current image.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiImage/Methods/Copy/",
+      "params": [],
+      "returns": {
+        "type": "ApiImage"
+      },
+      "signature": "Copy(): ApiImage",
+      "since": "9.4.0"
+    },
     "GetClassType": {
       "description": "Returns the type of the ApiImage class.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiImage/Methods/GetClassType/",

@@ -1,5 +1,5 @@
 {
-  "description": "Calculates how often values occur within a range of values and then returns the first value of the returned vertical array of numbers.",
+  "description": "Calculates how often values occur within a range of values and then returns a vertical array of numbers.\nThe returned array contains one more element than the array of intervals: the last element is the number of values above the highest interval.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiWorksheetFunction/Methods/FREQUENCY/",
   "params": [
     {
@@ -14,7 +14,7 @@
     }
   ],
   "returns": {
-    "type": "number"
+    "type": "number[][]"
   },
-  "signature": "FREQUENCY(arg1: ApiRange | ApiName | number[], arg2: ApiRange | ApiName | number[]): number"
+  "signature": "FREQUENCY(arg1: ApiRange | ApiName | number[], arg2: ApiRange | ApiName | number[]): number[][]"
 }

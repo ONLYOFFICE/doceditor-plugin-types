@@ -285,21 +285,25 @@
         {
           "description": "Defines if the link to the row is absolute or not.",
           "name": "RowAbs",
+          "optional": true,
           "type": "boolean"
         },
         {
           "description": "Defines if the link to the column is absolute or not.",
           "name": "ColAbs",
+          "optional": true,
           "type": "boolean"
         },
         {
           "description": "The reference style.",
           "name": "RefStyle",
-          "type": "string"
+          "optional": true,
+          "type": "ReferenceStyle"
         },
         {
           "description": "Defines if the range is in the current file or not.",
           "name": "External",
+          "optional": true,
           "type": "boolean"
         },
         {
@@ -311,9 +315,9 @@
       ],
       "returns": {
         "description": "returns address of range as string.",
-        "type": "string | null"
+        "type": "string"
       },
-      "signature": "GetAddress(RowAbs: boolean, ColAbs: boolean, RefStyle: string, External: boolean, RelativeTo?: ApiRange): string | null"
+      "signature": "GetAddress(RowAbs?: boolean, ColAbs?: boolean, RefStyle?: ReferenceStyle, External?: boolean, RelativeTo?: ApiRange): string"
     },
     "GetAreas": {
       "description": "Returns a collection of the ranges.",
@@ -539,13 +543,13 @@
       "signature": "GetHidden(): boolean"
     },
     "GetHyperlinks": {
-      "description": "Returns a collection of all the hyperlinks in the range.",
+      "description": "Returns an array of all the hyperlinks in the range.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetHyperlinks/",
       "params": [],
       "returns": {
-        "type": "ApiHyperlinks"
+        "type": "ApiHyperlink[]"
       },
-      "signature": "GetHyperlinks(): ApiHyperlinks"
+      "signature": "GetHyperlinks(): ApiHyperlink[]"
     },
     "GetNumberFormat": {
       "description": "Returns a value that represents the format code for the current range.",
@@ -562,9 +566,10 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiRange/Methods/GetOrientation/",
       "params": [],
       "returns": {
-        "type": "Angle"
+        "description": "The text angle in degrees: from -90 to 90, or 255 for vertical text (\"xlDownward\" is -90, \"xlHorizontal\" is 0, \"xlUpward\" is 90, \"xlVertical\" is 255).",
+        "type": "number"
       },
-      "signature": "GetOrientation(): Angle"
+      "signature": "GetOrientation(): number"
     },
     "GetPivotTable": {
       "description": "Returns the ApiPivotTable object that represents the pivot table report containing the upper-left corner of the specified range.",
@@ -1245,43 +1250,50 @@
         {
           "description": "The sort order for the values specified in Key1.",
           "name": "sSortOrder1",
+          "optional": true,
           "type": "SortOrder"
         },
         {
           "description": "Second sort field.",
           "name": "key2",
+          "optional": true,
           "type": "ApiRange | string"
         },
         {
           "description": "The sort order for the values specified in Key2.",
           "name": "sSortOrder2",
+          "optional": true,
           "type": "SortOrder"
         },
         {
           "description": "Third sort field.",
           "name": "key3",
+          "optional": true,
           "type": "ApiRange | string"
         },
         {
           "description": "The sort order for the values specified in Key3.",
           "name": "sSortOrder3",
+          "optional": true,
           "type": "SortOrder"
         },
         {
           "description": "Specifies whether the first row contains header information.",
           "name": "sHeader",
+          "optional": true,
           "type": "SortHeader"
         },
         {
-          "description": "Specifies if the sort should be by row (default) or column.",
+          "description": "Specifies if the sort should be by column (default) or by row.",
           "name": "sOrientation",
+          "optional": true,
           "type": "SortOrientation"
         }
       ],
       "returns": {
         "type": "void"
       },
-      "signature": "SetSort(key1: ApiRange | string, sSortOrder1: SortOrder, key2: ApiRange | string, sSortOrder2: SortOrder, key3: ApiRange | string, sSortOrder3: SortOrder, sHeader: SortHeader, sOrientation: SortOrientation): void"
+      "signature": "SetSort(key1: ApiRange | string, sSortOrder1?: SortOrder, key2?: ApiRange | string, sSortOrder2?: SortOrder, key3?: ApiRange | string, sSortOrder3?: SortOrder, sHeader?: SortHeader, sOrientation?: SortOrientation): void"
     },
     "SetStrikeout": {
       "description": "Specifies that the contents of the cell / cell range are displayed with a single horizontal line through the center of the contents.",
@@ -1326,7 +1338,7 @@
         }
       ],
       "returns": {
-        "description": "returns false if such a range does not exist or a formula was not accepted (the cell keeps its content).",
+        "description": "returns false if such a range does not exist or a formula was not accepted (the cell keeps its content). NaN and Infinity are written as the #NUM! error.",
         "type": "boolean"
       },
       "signature": "SetValue(data: string | boolean | number | (string | boolean | number)[] | (string | boolean | number)[][]): boolean"

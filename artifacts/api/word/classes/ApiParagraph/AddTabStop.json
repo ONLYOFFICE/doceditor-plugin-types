@@ -1,5 +1,6 @@
 {
-  "description": "Adds a tab stop to the current paragraph.",
+  "deprecated": "since 10.0.3 version.",
+  "description": "Adds a tab character to the end of the current paragraph.\nUse the AddText method with the \"\\t\" character instead.",
   "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiParagraph/Methods/AddTabStop/",
   "params": [],
   "returns": {

@@ -425,8 +425,11 @@ export namespace Slide {
     rotateWithShape?: boolean;
   }
 
-  /** This type specifies the preset shape geometry that will be used for a shape. */
-  export type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "textRect" | "trapezoid" | "triangle" | "upArrowCallout" | "upDownArrow" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
+  /**
+   * This type specifies the preset shape geometry that will be used for a shape. Unknown values are
+   * replaced with "rect". The "textRect" value means a text box with the "rect" geometry.
+   */
+  export type ShapeType = "accentBorderCallout1" | "accentBorderCallout2" | "accentBorderCallout3" | "accentCallout1" | "accentCallout2" | "accentCallout3" | "actionButtonBackPrevious" | "actionButtonBeginning" | "actionButtonBlank" | "actionButtonDocument" | "actionButtonEnd" | "actionButtonForwardNext" | "actionButtonHelp" | "actionButtonHome" | "actionButtonInformation" | "actionButtonMovie" | "actionButtonReturn" | "actionButtonSound" | "arc" | "bentArrow" | "bentConnector2" | "bentConnector3" | "bentConnector4" | "bentConnector5" | "bentUpArrow" | "bevel" | "blockArc" | "borderCallout1" | "borderCallout2" | "borderCallout3" | "bracePair" | "bracketPair" | "callout1" | "callout2" | "callout3" | "can" | "chartPlus" | "chartStar" | "chartX" | "chevron" | "chord" | "circularArrow" | "cloud" | "cloudCallout" | "corner" | "cornerTabs" | "cube" | "curvedConnector2" | "curvedConnector3" | "curvedConnector4" | "curvedConnector5" | "curvedDownArrow" | "curvedLeftArrow" | "curvedRightArrow" | "curvedUpArrow" | "decagon" | "diagStripe" | "diamond" | "dodecagon" | "donut" | "doubleWave" | "downArrow" | "downArrowCallout" | "ellipse" | "ellipseRibbon" | "ellipseRibbon2" | "flowChartAlternateProcess" | "flowChartCollate" | "flowChartConnector" | "flowChartDecision" | "flowChartDelay" | "flowChartDisplay" | "flowChartDocument" | "flowChartExtract" | "flowChartInputOutput" | "flowChartInternalStorage" | "flowChartMagneticDisk" | "flowChartMagneticDrum" | "flowChartMagneticTape" | "flowChartManualInput" | "flowChartManualOperation" | "flowChartMerge" | "flowChartMultidocument" | "flowChartOfflineStorage" | "flowChartOffpageConnector" | "flowChartOnlineStorage" | "flowChartOr" | "flowChartPredefinedProcess" | "flowChartPreparation" | "flowChartProcess" | "flowChartPunchedCard" | "flowChartPunchedTape" | "flowChartSort" | "flowChartSummingJunction" | "flowChartTerminator" | "foldedCorner" | "frame" | "funnel" | "gear6" | "gear9" | "halfFrame" | "heart" | "heptagon" | "hexagon" | "homePlate" | "horizontalScroll" | "irregularSeal1" | "irregularSeal2" | "leftArrow" | "leftArrowCallout" | "leftBrace" | "leftBracket" | "leftCircularArrow" | "leftRightArrow" | "leftRightArrowCallout" | "leftRightCircularArrow" | "leftRightRibbon" | "leftRightUpArrow" | "leftUpArrow" | "lightningBolt" | "line" | "lineInv" | "mathDivide" | "mathEqual" | "mathMinus" | "mathMultiply" | "mathNotEqual" | "mathPlus" | "moon" | "nonIsoscelesTrapezoid" | "noSmoking" | "notchedRightArrow" | "octagon" | "parallelogram" | "pentagon" | "pie" | "pieWedge" | "plaque" | "plaqueTabs" | "plus" | "quadArrow" | "quadArrowCallout" | "rect" | "ribbon" | "ribbon2" | "rightArrow" | "rightArrowCallout" | "rightBrace" | "rightBracket" | "round1Rect" | "round2DiagRect" | "round2SameRect" | "roundRect" | "rtTriangle" | "smileyFace" | "snip1Rect" | "snip2DiagRect" | "snip2SameRect" | "snipRoundRect" | "squareTabs" | "star10" | "star12" | "star16" | "star24" | "star32" | "star4" | "star5" | "star6" | "star7" | "star8" | "straightConnector1" | "stripedRightArrow" | "sun" | "swooshArrow" | "teardrop" | "textRect" | "trapezoid" | "triangle" | "upArrow" | "upArrowCallout" | "upDownArrow" | "upDownArrowCallout" | "uturnArrow" | "verticalScroll" | "wave" | "wedgeEllipseCallout" | "wedgeRectCallout" | "wedgeRoundRectCallout";
 
   /**
    * The operation used to merge shapes.
@@ -500,20 +503,19 @@ export namespace Slide {
    * - **"topRightCell"** - specifies that the table formatting is applied to the top right cell.
    * - **"bottomLeftCell"** - specifies that the table formatting is applied to the bottom left cell.
    * - **"bottomRightCell"** - specifies that the table formatting is applied to the bottom right cell.
-   * - **"firstRow"** - specifies that the table formatting is applied to the first row.
+   * - **"firstRow"** - specifies that the table formatting is applied to the first row. Any subsequent
+   * row which is in *table header* will also use this conditional format.
    * - **"lastRow"** - specifies that the table formatting is applied to the last row.
-   * - **"firstColumn"** - specifies that the table formatting is applied to the first column. Any
-   * subsequent row which is in *table header* ({@link ApiTableRowPr#SetTableHeader}) will also use this
-   * conditional format.
+   * - **"firstColumn"** - specifies that the table formatting is applied to the first column.
    * - **"lastColumn"** - specifies that the table formatting is applied to the last column.
    * - **"bandedColumn"** - specifies that the table formatting is applied to odd numbered groupings of
-   * rows.
+   * columns.
    * - **"bandedColumnEven"** - specifies that the table formatting is applied to even numbered groupings
-   * of rows.
+   * of columns.
    * - **"bandedRow"** - specifies that the table formatting is applied to odd numbered groupings of
-   * columns.
+   * rows.
    * - **"bandedRowEven"** - specifies that the table formatting is applied to even numbered groupings of
-   * columns.
+   * rows.
    * - **"wholeTable"** - specifies that the conditional formatting is applied to the whole table.
    */
   export type TableStyleOverrideType = "topLeftCell" | "topRightCell" | "bottomLeftCell" | "bottomRightCell" | "firstRow" | "lastRow" | "firstColumn" | "lastColumn" | "bandedColumn" | "bandedColumnEven" | "bandedRow" | "bandedRowEven" | "wholeTable";
@@ -1043,8 +1045,8 @@ export namespace Slide {
      * **Note:**
      * Values of _nStyleIndex_ outside **1 - 48** are interpreted as a chart style id from the
      * _cs:chartStyle_ element (e.g. 201, 215, 284) and are available only for [ONLYOFFICE Docs
-     * Enterprise](https://www.onlyoffice.com/docs-enterprise-prices?from=api) and [ONLYOFFICE Docs
-     * Developer](https://www.onlyoffice.com/developer-edition-prices?from=api).
+     * Enterprise](https://www.onlyoffice.com/pricing?from=api) and [ONLYOFFICE Docs
+     * Developer](https://www.onlyoffice.com/pricing?from=api).
      *
      * @param sType - The chart type used for the chart display.
      * @param aSeries - The array of the data used to build the chart from.
@@ -1058,6 +1060,7 @@ export namespace Slide {
      * @param aNumFormats - Numeric formats which will be applied to the series (can be custom formats). The default numeric
      *   format is "General".
      * @default sType = "ColumnClustered"
+     * @default nStyleIndex = 2
      * @returns returns null if the chart type is not supported.
      *
      * @example
@@ -1086,8 +1089,8 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/CreateChart/
      */
-    CreateChart(aSeries: number[][], aSeriesNames: number[] | string[], aCatNames: number[] | string[], nWidth: EMU, nHeight: EMU, nStyleIndex: number, aNumFormats: NumFormat[] | string[]): ApiChart | null;
-    CreateChart(sType: ChartType, aSeries: number[][], aSeriesNames: number[] | string[], aCatNames: number[] | string[], nWidth: EMU, nHeight: EMU, nStyleIndex: number, aNumFormats: NumFormat[] | string[]): ApiChart | null;
+    CreateChart(aSeries: number[][], aSeriesNames: number[] | string[], aCatNames: number[] | string[], nWidth: EMU, nHeight: EMU): ApiChart | null;
+    CreateChart(sType: ChartType, aSeries: number[][], aSeriesNames: number[] | string[], aCatNames: number[] | string[], nWidth: EMU, nHeight: EMU, nStyleIndex?: number, aNumFormats?: NumFormat[] | string[]): ApiChart | null;
 
     /**
      * Creates a new custom geometry.
@@ -1273,6 +1276,7 @@ export namespace Slide {
 
     /**
      * Creates a group of drawings.
+     *
      * **Note:**
      * The drawings must not be added to the presentation. To group the drawings which are already in the
      * presentation, use the {@link ApiSlide#GroupDrawings} method.
@@ -1337,7 +1341,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/CreateHyperlink/
      */
-    CreateHyperlink(link: string, tooltip: string): ApiHyperlink;
+    CreateHyperlink(link: string, tooltip?: string): ApiHyperlink;
 
     /**
      * Creates an image with the parameters specified.
@@ -1484,6 +1488,29 @@ export namespace Slide {
      * @default format = "unicode"
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Build a math equation object and insert it into a shape's paragraph like a text run in a presentation.
+     *
+     * // Insert a formula into a shape as if it were a run of text in a presentation.
+     *
+     * // Produce a reusable equation object and place it into a shape's paragraph content in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 100 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * slide.AddObject(shape);
+     *
+     * const paragraph = shape.GetDocContent().GetElement(0);
+     * const math = Api.CreateMath("x^2 + y^2 = z^2", "unicode");
+     * paragraph.AddElement(math);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/CreateMath/
      */
     CreateMath(text: string, format?: "unicode" | "latex" | "mathml"): ApiMath;
@@ -1551,7 +1578,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/CreateNumbering/
      */
-    CreateNumbering(numType: BulletType, startAt: number): ApiBullet | null;
+    CreateNumbering(numType: BulletType, startAt?: number): ApiBullet | null;
 
     /**
      * Creates an OLE object with the parameters specified.
@@ -1652,6 +1679,7 @@ export namespace Slide {
      *
      * @param sType - The placeholder type ("body", "chart", "clipArt", "ctrTitle", "diagram", "date", "footer",
      *   "header", "media", "object", "picture", "sldImage", "sldNumber", "subTitle", "table", "title").
+     * @default sType = "body"
      *
      * @example
      * ```js
@@ -1675,7 +1703,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/CreatePlaceholder/
      */
-    CreatePlaceholder(sType: string): ApiPlaceholder;
+    CreatePlaceholder(sType?: string): ApiPlaceholder;
 
     /**
      * Creates a color selecting it from one of the available color presets.
@@ -1870,6 +1898,26 @@ export namespace Slide {
      * @param settings - The shadow properties.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Create a shadow and apply it to a shape in a presentation.
+     *
+     * // Build an outer shadow with a color, transparency and offset, then attach it to a drawing.
+     *
+     * // Create a shape, create the shadow via Api.CreateShadow, and apply it with SetShadow.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 213, 191));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 120 * 36000, 60 * 36000, fill, stroke);
+     * shape.SetPosition(40 * 36000, 40 * 36000);
+     * slide.AddObject(shape);
+     * const shadow = Api.CreateShadow({ color: Api.RGB(0, 0, 0), transparency: 0.4, offsetX: 3, offsetY: 3 });
+     * shape.SetShadow(shadow);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/CreateShadow/
      */
     CreateShadow(settings: ShadowSettings): ApiShadow;
@@ -1877,8 +1925,9 @@ export namespace Slide {
     /**
      * Creates a shape with the parameters specified.
      *
-     * @param sType - The shape type which specifies the preset shape geometry. The "textRect" type creates a text
-     *   box: it has no fill and no outline, uses the theme text color, and its height follows the text.
+     * @param sType - The shape type which specifies the preset shape geometry. An unknown type is replaced with
+     *   "rect". The "textRect" type creates a text box with the "rect" geometry: it has no fill and no
+     *   outline, uses the theme text color, and its height follows the text.
      * @param nWidth - The shape width in English measure units.
      * @param nHeight - The shape height in English measure units.
      * @param oFill - The color or pattern used to fill the shape. If not specified, the default shape style fill
@@ -1929,6 +1978,28 @@ export namespace Slide {
      * @param type - The shading type: **"nil"** - no shading, **"clear"** - solid fill.
      * @param color - The shading color. Required for the **"clear"** type.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Create a shading object and apply it to table cells on a slide.
+     *
+     * // Build the shading once with Api.CreateShd and reuse it for several table cells on a slide.
+     *
+     * // Shade the first row of a new table with the accent1 theme color on a slide.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     *
+     * const table = Api.CreateTable(2, 3);
+     * const shd = Api.CreateShd('clear', Api.Color('accent1'));
+     * const row = table.GetRow(0);
+     * for (let i = 0; i < 3; i++) {
+     *     row.GetCell(i).SetShd(shd);
+     * }
+     *
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/CreateShd/
      */
@@ -2072,12 +2143,32 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/CreateTable/
      */
-    CreateTable(rows: unknown, cols: unknown): ApiTable | null;
+    CreateTable(rows: number, cols: number): ApiTable | null;
 
     /**
      * Creates the empty table properties.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Create a reusable table properties object in a presentation.
+     *
+     * // The new object holds empty table properties that can be filled and applied to a table style.
+     *
+     * // Build table properties with a dark gray grid and apply them to the style of a table.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const style = presentation.GetStyle("Medium Style 2 - Accent 1");
+     * table.SetStyle(style);
+     * const tablePr = Api.CreateTablePr();
+     * tablePr.SetTableBorderAll("single", 0.5, Api.CreateSolidFill(Api.RGB(51, 51, 51)));
+     * style.SetTablePr(tablePr);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/CreateTablePr/
      */
@@ -2087,6 +2178,26 @@ export namespace Slide {
      * Creates the empty table row properties.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Create a reusable table row properties object in a presentation.
+     *
+     * // The new object holds empty row properties that can be filled once and applied to several rows.
+     *
+     * // Build row properties with a minimum height and apply the same object to every row of a table on a slide.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const rowPr = Api.CreateTableRowPr();
+     * rowPr.SetHeight("atLeast", 1000);
+     * for (let i = 0; i < 3; i++) {
+     * 	table.GetRow(i).SetRowPr(rowPr);
+     * }
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/CreateTableRowPr/
      */
@@ -2355,8 +2466,8 @@ export namespace Slide {
      * @default nRotAngle = 0
      * @default nWidth = 1828800
      * @default nHeight = 1828800
-     * @default nIndLeft = ApiPresentation.GetWidth() / 2
-     * @default nIndTop = ApiPresentation.GetHeight() / 2
+     * @default nIndLeft = (ApiPresentation.GetWidth() - nWidth) / 2
+     * @default nIndTop = (ApiPresentation.GetHeight() - nHeight) / 2
      *
      * @example
      * ```js
@@ -2491,6 +2602,44 @@ export namespace Slide {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/FromJSON/
      */
     FromJSON(sMessage: string): void;
+
+    /**
+     * Returns an object by its internal ID.
+     * Internal IDs are valid only for the current editing session: they stay the same while the
+     * presentation is open,
+     * but they are not saved to the file and can be different after the presentation is reopened.
+     *
+     * @param id - The internal ID of the object.
+     * @since 9.2.0
+     *
+     * @example
+     * ```js
+     * // Look up a shape by its internal ID and display its class type in a presentation.
+     *
+     * // Pass the ID returned by GetInternalId to get the same shape back in a presentation.
+     *
+     * // Find a shape by an internal ID that stays valid only while the presentation is open.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.HexColor('#FADBD8'));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape('rect', Api.MillimetersToEmus(300), Api.MillimetersToEmus(130), fill, stroke);
+     * shape.SetPosition(Api.MillimetersToEmus(20), Api.MillimetersToEmus(35));
+     * slide.AddObject(shape);
+     *
+     * const internalId = shape.GetInternalId();
+     * const found = Api.GetByInternalId(internalId);
+     *
+     * const paragraph = found.GetDocContent().GetElement(0);
+     * paragraph.AddText('Found object class type: ' + found.GetClassType());
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/GetByInternalId/
+     */
+    GetByInternalId(id: string): Drawing | ApiDocumentContent | ApiParagraph | ApiMaster | null;
 
     /**
      * Returns the first slide of the presentation.
@@ -2778,6 +2927,29 @@ export namespace Slide {
      *   spreadsheet document builder.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Merge two overlapping shapes into a single shape on a slide.
+     *
+     * // Build a custom shape from simple shapes with the union operation.
+     *
+     * // Unite a rectangle and an ellipse on the first slide into one shape filled with the color of the rectangle.
+     *
+     * let presentation = Api.GetPresentation();
+     * let slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     * let fill1 = Api.CreateSolidFill(Api.Color(255, 111, 61));
+     * let fill2 = Api.CreateSolidFill(Api.Color(51, 51, 51));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let rectangle = Api.CreateShape("rect", 80 * 36000, 50 * 36000, fill1, stroke);
+     * let ellipse = Api.CreateShape("ellipse", 50 * 36000, 50 * 36000, fill2, stroke);
+     * rectangle.SetPosition(40 * 36000, 40 * 36000);
+     * ellipse.SetPosition(100 * 36000, 40 * 36000);
+     * slide.AddObject(rectangle);
+     * slide.AddObject(ellipse);
+     * Api.MergeShapes([rectangle, ellipse], "union");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/MergeShapes/
      */
     MergeShapes(drawings: Drawing[], operation: ShapesMergeOperation): Drawing[] | null;
@@ -2913,6 +3085,30 @@ export namespace Slide {
      * Converts pixels to EMUs (English Metric Units).
      *
      * @param px - The number of pixels to convert to EMUs.
+     *
+     * @example
+     * ```js
+     * // Convert pixels to english metric units in a presentation.
+     *
+     * // Convert measurement units using the Api object.
+     *
+     * // Display the conversion result in a shape on the slide.
+     *
+     * const pixels = 1080;
+     * const emus = Api.PixelsToEmus(pixels);
+     *
+     * const rgb = Api.RGB(50, 150, 250);
+     * const fill = Api.CreateSolidFill(rgb);
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape('rect', 300 * 36000, 150 * 36000, fill, stroke);
+     * const paragraph = shape.GetContent().GetElement(0);
+     * paragraph.AddText(pixels + ' pixels are equal to ' + emus + ' english metric units.');
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(shape);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/Api/Methods/PixelsToEmus/
      */
@@ -4378,14 +4574,6 @@ export namespace Slide {
     RemoveAllEffects(): boolean;
   }
 
-  /** Class representing a container for the document content. */
-  export interface ApiBlockLvlSdt {
-  }
-
-  /** Class representing a bookmark in the document. */
-  export interface ApiBookmark {
-  }
-
   /**
    * Class representing a paragraph bullet.
    *
@@ -4431,6 +4619,33 @@ export namespace Slide {
     /**
      * Converts the ApiBullet object into the JSON object.
      *
+     * @example
+     * ```js
+     * // Convert a bullet to its JSON representation in a presentation.
+     *
+     * // ToJSON serializes an ApiBullet created with Api.CreateBullet so it can be stored or transferred.
+     *
+     * // Create a character bullet, apply it to a paragraph, and write its JSON string into the shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("flowChartMagneticTape", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * const bullet = Api.CreateBullet("-");
+     * paragraph.SetBullet(bullet);
+     * paragraph.AddText(" Bulleted paragraph.");
+     * const json = bullet.ToJSON();
+     * const newParagraph = Api.CreateParagraph();
+     * newParagraph.AddText("Bullet JSON: " + json);
+     * docContent.Push(newParagraph);
+     * slide.AddObject(shape);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiBullet/Methods/ToJSON/
      */
     ToJSON(): string;
@@ -4441,7 +4656,7 @@ export namespace Slide {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/
    */
-  export interface ApiChart extends Omit<ApiDrawing, "GetClassType" | "SetTitle"> {
+  export interface ApiChart extends Omit<ApiDrawing, "GetClassType" | "SetTitle" | "Copy"> {
     /**
      * Sets a style to the current chart by style ID.
      *
@@ -4479,7 +4694,38 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/ApplyChartStyle/
      */
-    ApplyChartStyle(nStyleId: unknown): boolean;
+    ApplyChartStyle(nStyleId: number): boolean;
+
+    /**
+     * Creates a copy of the current chart.
+     *
+     * @since 9.4.0
+     *
+     * @example
+     * ```js
+     * // How do I make a copy of a chart in a presentation?
+     *
+     * // Clone a chart and add the duplicate to a new slide in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const chart = Api.CreateChart("bar3D", [
+     *     [200, 240, 280],
+     *     [250, 260, 280]
+     * ], ["Projected Revenue", "Estimated Costs"], [2014, 2015, 2016], 4051300, 2347595);
+     * slide.AddObject(chart);
+     *
+     * const copyChart = chart.Copy();
+     * const newSlide = Api.CreateSlide();
+     * presentation.AddSlide(newSlide);
+     * newSlide.AddObject(copyChart);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/Copy/
+     */
+    Copy(): ApiChart;
 
     /**
      * Returns all series from the chart space.
@@ -4526,7 +4772,8 @@ export namespace Slide {
     GetAllSeries(): ApiChartSeries[];
 
     /**
-     * Returns a type of the chart object.
+     * Returns a type of the chart object using the legacy chart type names. To get a chart type name that
+     * can be used to create a chart, use the GetType method.
      *
      * @example
      * ```js
@@ -4635,6 +4882,9 @@ export namespace Slide {
 
     /**
      * Returns an internal ID of the current drawing object.
+     * The internal ID is valid only for the current editing session: it stays the same while the
+     * presentation is open,
+     * but it is not saved to the file and can be different after the presentation is reopened.
      *
      * @example
      * ```js
@@ -4986,8 +5236,38 @@ export namespace Slide {
     GetTitle(): string | null;
 
     /**
-     * Returns a type of the chart object using the chart type names from the {@link ChartType}
+     * Returns a type of the chart object using the chart type names from the {@link global#ChartType}
      * enumeration.
+     *
+     * @example
+     * ```js
+     * // Identify the chart type using the chart type name in a presentation.
+     *
+     * // Useful for confirming a chart's type before applying type-specific formatting in a presentation.
+     *
+     * // Determine the chart type and display it as the title in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     *
+     * const chartWidth = 4051300;
+     * const chartHeight = 2347595;
+     * const chart = Api.CreateChart('3DColumnClustered', [
+     * 	[200, 240, 280],
+     * 	[250, 260, 280]
+     * ], ['Projected Revenue', 'Estimated Costs'], [2014, 2015, 2016], chartWidth, chartHeight, 24);
+     *
+     * const solidGrey = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const solidOrange = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * chart.SetSeriesFill(solidGrey, 0, false);
+     * chart.SetSeriesFill(solidOrange, 1, false);
+     * const chartType = chart.GetType();
+     * chart.SetTitle('This chart is of the ' + chartType + ' type', 28);
+     * chart.SetPosition((presentation.GetWidth() - chartWidth) / 2, (presentation.GetHeight() - chartHeight) / 2);
+     *
+     * slide.RemoveAllObjects();
+     * slide.AddObject(chart);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/GetType/
      */
@@ -5078,6 +5358,32 @@ export namespace Slide {
      * @param sFormat - Numeric format (can be custom format).
      * @param sAxisPos - Axis position in the chart.
      *
+     * @example
+     * ```js
+     * // Format the numbers shown on a chart's axis in a presentation.
+     *
+     * // How do I change the number format for the axis labels in a presentation?
+     *
+     * // Create a chart and apply a decimal format to its axis values in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const chart = Api.CreateChart("3DColumnClustered", [
+     * 	[200, 240, 280],
+     * 	[250, 260, 280]
+     * ], ["Projected Revenue", "Estimated Costs"], [2014, 2015, 2016], 4051300, 2347595, 24, ["0", "0.00"]);
+     * chart.SetSize(300 * 36000, 130 * 36000);
+     * chart.SetPosition(608400, 1267200);
+     * chart.SetAxisNumFormat("0.00", "left");
+     * let fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * chart.SetSeriesFill(fill, 0, false);
+     * fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * chart.SetSeriesFill(fill, 1, false);
+     * slide.AddObject(chart);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/SetAxisNumFormat/
      */
     SetAxisNumFormat(sFormat: NumFormat | string, sAxisPos: AxisPos): boolean;
@@ -5123,6 +5429,38 @@ export namespace Slide {
      * @param textPr - The text properties to apply to the data labels.
      * @returns Returns true if the text properties were applied successfully, false otherwise.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the text properties for all chart data labels in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const chart = Api.CreateChart('bar3D', [
+     * 	[200, 240, 280],
+     * 	[250, 260, 280]
+     * ], ['Projected Revenue', 'Estimated Costs'], [2014, 2015, 2016], 4051300, 2347595, 24);
+     * chart.SetVerAxisTitle('USD In Hundred Thousands', 20);
+     * chart.SetHorAxisTitle('Year', 22);
+     * chart.SetLegendPos('bottom');
+     * chart.SetShowDataLabels(false, false, true, false);
+     * chart.SetTitle('Financial Overview', 26);
+     * chart.SetSize(Api.MillimetersToEmus(300), Api.MillimetersToEmus(130));
+     * chart.SetPosition(608400, 1267200);
+     * chart.SetSeriesFill(Api.CreateSolidFill(Api.RGB(55, 71, 79)), 0, false);
+     * chart.SetSeriesFill(Api.CreateSolidFill(Api.RGB(21, 101, 131)), 1, false);
+     *
+     * const textPr = Api.CreateTextPr();
+     * textPr.SetFontSize(48);
+     * textPr.SetBold(true);
+     * textPr.SetFontFamily('Arial');
+     * textPr.SetColor(Api.ThemeColor('accent1'));
+     * chart.SetDataLabelsTextPr(textPr);
+     *
+     * slide.AddObject(chart);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/SetDataLabelsTextPr/
      */
@@ -5479,7 +5817,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/SetHorAxisTitle/
      */
-    SetHorAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean;
+    SetHorAxisTitle(sTitle: string, fontSize?: hps, bIsBold?: boolean): boolean;
 
     /**
      * Sets a hyperlink to the current drawing object (shape or image).
@@ -6010,6 +6348,39 @@ export namespace Slide {
      * @returns Returns true if the text properties were applied successfully, false otherwise.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the text properties for a specific chart point data label in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const chart = Api.CreateChart('bar3D', [
+     * 	[200, 240, 280],
+     * 	[250, 260, 280]
+     * ], ['Projected Revenue', 'Estimated Costs'], [2014, 2015, 2016], 4051300, 2347595, 24);
+     * chart.SetVerAxisTitle('USD In Hundred Thousands', 20);
+     * chart.SetHorAxisTitle('Year', 22);
+     * chart.SetLegendPos('bottom');
+     * chart.SetShowDataLabels(false, false, true, false);
+     * chart.SetTitle('Financial Overview', 26);
+     * chart.SetSize(Api.MillimetersToEmus(300), Api.MillimetersToEmus(130));
+     * chart.SetPosition(608400, 1267200);
+     * chart.SetSeriesFill(Api.CreateSolidFill(Api.RGB(69, 90, 100)), 0, false);
+     * chart.SetSeriesFill(Api.CreateSolidFill(Api.RGB(38, 80, 109)), 1, false);
+     *
+     * const textPr = Api.CreateTextPr();
+     * textPr.SetFontSize(96);
+     * textPr.SetBold(true);
+     * textPr.SetItalic(true);
+     * textPr.SetFontFamily('Arial');
+     * textPr.SetColor(Api.RGB(210, 105, 30));
+     * chart.SetPointDataLabelTextPr(1, 0, textPr);
+     *
+     * slide.AddObject(chart);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/SetPointDataLabelTextPr/
      */
     SetPointDataLabelTextPr(seriesIndex: number, pointIndex: number, textPr: ApiTextPr): boolean;
@@ -6083,9 +6454,9 @@ export namespace Slide {
     /**
      * Sets the position of the drawing on the slide.
      *
-     * @param nPosX - The distance from the left side of the slide to the left side of the drawing measured in English
+     * @param posX - The distance from the left side of the slide to the left side of the drawing measured in English
      *   measure units.
-     * @param nPosY - The distance from the top side of the slide to the upper side of the drawing measured in English
+     * @param posY - The distance from the top side of the slide to the upper side of the drawing measured in English
      *   measure units.
      *
      * @example
@@ -6115,7 +6486,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/SetPosition/
      */
-    SetPosition(nPosX: EMU, nPosY: EMU): void;
+    SetPosition(posX: EMU, posY: EMU): void;
 
     /**
      * Sets a name to the specified chart series.
@@ -6354,6 +6725,37 @@ export namespace Slide {
      * @default bShowKeys = false
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Display the data table beneath a chart in a presentation.
+     *
+     * // Place the chart's values in a grid below the plot area, including the legend keys.
+     *
+     * // Switch on the data table with legend keys for a 3D bar chart in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const chart = Api.CreateChart("3DColumnClustered", [
+     * 	[200, 240, 280],
+     * 	[250, 260, 280]
+     * ], ["Projected Revenue", "Estimated Costs"], [2014, 2015, 2016], 4051300, 2347595, 24);
+     * chart.SetVerAxisTitle("USD In Hundred Thousands", 20);
+     * chart.SetHorAxisTitle("Year", 22);
+     * chart.SetLegendPos("bottom");
+     * chart.SetShowDataTable(true, true);
+     * chart.SetTitle("Financial Overview", 26);
+     * chart.SetSize(300 * 36000, 130 * 36000);
+     * chart.SetPosition(608400, 1267200);
+     *
+     * let fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * chart.SetSeriesFill(fill, 0, false);
+     * fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * chart.SetSeriesFill(fill, 1, false);
+     * slide.AddObject(chart);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/SetShowDataTable/
      */
     SetShowDataTable(bShow: boolean, bShowKeys?: boolean): boolean;
@@ -6440,7 +6842,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/SetTitle/
      */
-    SetTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean;
+    SetTitle(sTitle: string, fontSize?: hps, bIsBold?: boolean): boolean;
 
     /**
      * Sets the fill to the chart title.
@@ -6589,7 +6991,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChart/Methods/SetVerAxisTitle/
      */
-    SetVerAxisTitle(sTitle: string, fontSize: hps, bIsBold?: boolean): boolean;
+    SetVerAxisTitle(sTitle: string, fontSize?: hps, bIsBold?: boolean): boolean;
 
     /**
      * Specifies font size for labels of the vertical axis.
@@ -6844,7 +7246,8 @@ export namespace Slide {
     ChangeChartType(sType: ChartType): boolean;
 
     /**
-     * Returns a chart type of the current series.
+     * Returns a chart type of the current series using the legacy chart type names. To get a chart type
+     * name that can be passed to the ChangeChartType method, use the GetType method.
      *
      * @example
      * ```js
@@ -6923,8 +7326,44 @@ export namespace Slide {
     GetClassType(): "chartSeries";
 
     /**
-     * Returns a chart type of the current series using the chart type names from the {@link ChartType}
-     * enumeration.
+     * Returns a chart type of the current series using the chart type names from the
+     * {@link global#ChartType} enumeration.
+     *
+     * @example
+     * ```js
+     * // Retrieve the chart type name of a series from a combo chart in a presentation.
+     *
+     * // Extract and display the chart series type information in a presentation.
+     *
+     * // Get the chart type of the first series and show it as slide title text.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const chart = Api.CreateChart("ComboColumnClusteredLine", [
+     * 	[200, 240, 280],
+     * 	[250, 260, 280]
+     * ], ["Projected Revenue", "Estimated Costs"], [2014, 2015, 2016], 4051300, 2347595, 24);
+     * chart.SetVerAxisTitle("USD In Hundred Thousands", 20);
+     * chart.SetHorAxisTitle("Year", 22);
+     * chart.SetLegendPos("bottom");
+     * chart.SetShowDataLabels(false, false, true, false);
+     *
+     * const series = chart.GetSeries(0);
+     * const seriesType = series.GetType();
+     * const title = "Series Type = " + seriesType + "\n";
+     * chart.SetTitle(title, 40);
+     * const chartWidth = 300 * 36000;
+     * const chartHeight = 130 * 36000;
+     * chart.SetSize(chartWidth, chartHeight);
+     * chart.SetPosition((presentation.GetWidth() - chartWidth) / 2, (presentation.GetHeight() - chartHeight) / 2);
+     * let fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * chart.SetSeriesFill(fill, 0, false);
+     * fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * chart.SetSeriesFill(fill, 1, false);
+     * slide.AddObject(chart);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiChartSeries/Methods/GetType/
      */
@@ -7163,6 +7602,30 @@ export namespace Slide {
      *
      * @returns The shift from -1 (the darkest shade) to 1 (the lightest tint), 0 when the color is not shifted.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the luminance shift stored in a theme color in a presentation.
+     *
+     * // A lightened theme color keeps both its theme name and the size of the shift.
+     *
+     * // Fill a shape with a lightened accent and show the shift in a second shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const accent = Api.ThemeColor("accent1", 0.4);
+     * const shape = Api.CreateShape("rect", 300 * 36000, 100 * 36000, Api.CreateSolidFill(accent), stroke);
+     * shape.SetPosition(608400, 1267200);
+     * slide.AddObject(shape);
+     *
+     * const report = Api.CreateShape("rect", 300 * 36000, 80 * 36000, Api.CreateSolidFill(Api.RGB(240, 240, 240)), stroke);
+     * report.SetPosition(608400, 4000000);
+     * report.GetDocContent().GetElement(0).AddText("Tint: " + accent.GetTintAndShade() + ", color: " + accent.GetHex());
+     * slide.AddObject(report);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiColor/Methods/GetTintAndShade/
      */
@@ -7520,6 +7983,16 @@ export namespace Slide {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiComment/Methods/GetRepliesCount/
      */
     GetRepliesCount(): number | null;
+
+    /**
+     * Returns the specified comment reply.
+     *
+     * @param nIndex - The comment reply index.
+     * @default nIndex = 0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiComment/Methods/GetReply/
+     */
+    GetReply(nIndex?: number): ApiCommentReply | null;
 
     /**
      * Returns the comment text.
@@ -7909,7 +8382,7 @@ export namespace Slide {
     /**
      * Sets the timestamp of the comment creation in the current time zone format.
      *
-     * @param nTimeStamp - The timestamp of the comment creation in the current time zone format.
+     * @param timeStamp - The timestamp of the comment creation in the current time zone format.
      * @returns this
      *
      * @example
@@ -7943,12 +8416,12 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiComment/Methods/SetTime/
      */
-    SetTime(nTimeStamp: number | string): ApiComment;
+    SetTime(timeStamp: number | string): ApiComment;
 
     /**
      * Sets the timestamp of the comment creation in UTC format.
      *
-     * @param nTimeStamp - The timestamp of the comment creation in UTC format.
+     * @param timeStamp - The timestamp of the comment creation in UTC format.
      * @returns this
      *
      * @example
@@ -7982,7 +8455,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiComment/Methods/SetTimeUTC/
      */
-    SetTimeUTC(nTimeStamp: number | string): ApiComment;
+    SetTimeUTC(timeStamp: number | string): ApiComment;
 
     /**
      * Sets the user ID to the comment author.
@@ -8140,6 +8613,13 @@ export namespace Slide {
     GetText(): string;
 
     /**
+     * Returns the user ID of the comment reply author.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiCommentReply/Methods/GetUserId/
+     */
+    GetUserId(): string;
+
+    /**
      * Sets the comment reply author's name.
      *
      * @param authorName - The comment reply author's name.
@@ -8266,14 +8746,6 @@ export namespace Slide {
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiComplexForm/
    */
   export interface ApiComplexForm extends ApiFormBase {
-  }
-
-  /** Class representing a list of values of the combo box / drop-down list content control. */
-  export interface ApiContentControlList {
-  }
-
-  /** Class representing an entry of the combo box / drop-down list content control. */
-  export interface ApiContentControlListEntry {
   }
 
   /**
@@ -10947,6 +11419,9 @@ export namespace Slide {
 
     /**
      * Returns an internal ID of the current document content.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
      *
      * @since 9.0.4
      *
@@ -11327,6 +11802,9 @@ export namespace Slide {
 
     /**
      * Returns an internal ID of the current document content.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
      *
      * @since 9.0.4
      *
@@ -11417,6 +11895,32 @@ export namespace Slide {
      * @default start = 0
      * @returns returns null if the specified range is empty.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Take a text range over the whole text of a shape on a slide and make it bold.
+     *
+     * // The text of a shape is addressed by character positions, so a range can cover any part of it.
+     *
+     * // Get the range of the shape text body and apply bold to the first word.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * slide.AddObject(shape);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = docContent.GetTextRange(0, 5);
+     * range.SetBold(true);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDocumentContent/Methods/GetTextRange/
      */
@@ -11712,6 +12216,30 @@ export namespace Slide {
      * @returns The description of the current drawing, or null if not set.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the description of a drawing in a presentation.
+     *
+     * // Needed when reading the alternative text of a drawing.
+     *
+     * // Create a drawing, set its description, and read it back.
+     *
+     * let presentation = Api.GetPresentation();
+     * let slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = Api.CreateShape("cube", 300 * 36000, 130 * 36000, fill, stroke);
+     * drawing.SetPosition(608400, 1267200);
+     * slide.AddObject(drawing);
+     * drawing.SetDescription("My Drawing Description");
+     * let description = drawing.GetDescription();
+     * let docContent = drawing.GetDocContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.SetJc("left");
+     * paragraph.AddText("Drawing description: " + description);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetDescription/
      */
     GetDescription(): string | null;
@@ -11720,6 +12248,27 @@ export namespace Slide {
      * Gets the fill formatting properties from the current graphic object.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the fill formatting properties from a drawing object through the base ApiDrawing interface in a presentation.
+     *
+     * // GetFill returns the ApiFill applied to any graphic object on a slide, or null when the object has no fill.
+     *
+     * // Read back the fill type of a filled rectangle and show it inside the shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(96, 125, 139));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const drawing = Api.CreateShape("rect", 150 * 36000, 80 * 36000, fill, stroke);
+     * drawing.SetPosition(608400, 1267200);
+     * slide.AddObject(drawing);
+     * const currentFill = drawing.GetFill();
+     * if (currentFill) {
+     * 	drawing.GetContent().GetElement(0).AddText("Fill type: " + currentFill.GetType());
+     * }
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetFill/
      */
@@ -11860,6 +12409,9 @@ export namespace Slide {
 
     /**
      * Returns an internal ID of the current drawing object.
+     * The internal ID is valid only for the current editing session: it stays the same while the
+     * presentation is open,
+     * but it is not saved to the file and can be different after the presentation is reopened.
      *
      * @example
      * ```js
@@ -11893,6 +12445,27 @@ export namespace Slide {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the outline of a drawing object through the base ApiDrawing interface in a presentation.
+     *
+     * // GetLine returns the ApiStroke applied to any graphic object on a slide, or null when no outline is set.
+     *
+     * // Read back the outline width of a drawing and show it inside the shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(36000, Api.CreateSolidFill(Api.RGB(51, 51, 51)));
+     * const drawing = Api.CreateShape("rect", 150 * 36000, 80 * 36000, fill, stroke);
+     * drawing.SetPosition(608400, 1267200);
+     * slide.AddObject(drawing);
+     * const currentLine = drawing.GetLine();
+     * if (currentLine) {
+     * 	drawing.GetContent().GetElement(0).AddText("Outline width (EMU): " + currentLine.GetWidth());
+     * }
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetLine/
      */
     GetLine(): ApiStroke | null;
@@ -11901,6 +12474,29 @@ export namespace Slide {
      * Returns whether the aspect ratio of the drawing is locked.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Return whether the aspect ratio of the drawing is locked in a presentation.
+     *
+     * // Useful for getting the lock aspect ratio state of a shape in a presentation.
+     *
+     * // Create a shape, lock its aspect ratio and display the result.
+     *
+     * let presentation = Api.GetPresentation();
+     * let slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * drawing.SetPosition(608400, 1267200);
+     * drawing.SetLockAspect(true);
+     * let docContent = drawing.GetContent();
+     * let lockAspect = drawing.GetLockAspect();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Aspect ratio locked: " + lockAspect);
+     * slide.AddObject(drawing);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetLockAspect/
      */
@@ -12242,6 +12838,30 @@ export namespace Slide {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the shadow of a drawing and reuse it in a presentation.
+     *
+     * // Retrieve the shadow applied to one shape and apply the same shadow to another.
+     *
+     * // Set a shadow on the first shape, read it with GetShadow, and apply it to a second shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 213, 191));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 100 * 36000, 50 * 36000, fill, stroke);
+     * shape.SetPosition(40 * 36000, 40 * 36000);
+     * slide.AddObject(shape);
+     * shape.SetShadow(Api.CreateShadow({ color: Api.RGB(0, 0, 0), transparency: 0.4, offsetX: 3, offsetY: 3 }));
+     * const shadow = shape.GetShadow();
+     * const shape2 = Api.CreateShape("ellipse", 100 * 36000, 50 * 36000, fill, stroke);
+     * shape2.SetPosition(40 * 36000, 110 * 36000);
+     * slide.AddObject(shape2);
+     * shape2.SetShadow(shadow);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetShadow/
      */
     GetShadow(): ApiShadow | null;
@@ -12251,6 +12871,24 @@ export namespace Slide {
      * Creates a text body if the shape does not yet have one.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the full text range of a shape and use it to set formatted text.
+     *
+     * // Creates a text body if the shape does not have one yet; returns null for drawings that are not shapes.
+     *
+     * // Create a shape, get its text range, then set the text and make it bold.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const shape = Api.CreateShape("rect", 3000000, 1000000);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(shape);
+     * const range = shape.GetTextRange();
+     * range.SetText("Hello World");
+     * range.SetBold(true);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetTextRange/
      */
@@ -12262,6 +12900,30 @@ export namespace Slide {
      * @returns The title of the current drawing, or null if not set.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the title of a drawing in a presentation.
+     *
+     * // Needed when reading the alternative text title of a drawing.
+     *
+     * // Create a drawing, set its title, and read it back.
+     *
+     * let presentation = Api.GetPresentation();
+     * let slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = Api.CreateShape("cube", 300 * 36000, 130 * 36000, fill, stroke);
+     * drawing.SetPosition(608400, 1267200);
+     * slide.AddObject(drawing);
+     * drawing.SetTitle("My Drawing Title");
+     * let title = drawing.GetTitle();
+     * let docContent = drawing.GetDocContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.SetJc("left");
+     * paragraph.AddText("Drawing title: " + title);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetTitle/
      */
     GetTitle(): string | null;
@@ -12272,6 +12934,43 @@ export namespace Slide {
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the text of every shape inside a group with a drawing visitor.
+     *
+     * // How do I get the text of grouped shapes in a presentation without ungrouping them?
+     *
+     * // Group two shapes with text and collect the text of the group's children.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const first = Api.CreateShape("rect", 120 * 36000, 60 * 36000, fill, stroke);
+     * first.SetPosition(608400, 1267200);
+     * first.GetDocContent().GetElement(0).AddText("Left");
+     * const second = Api.CreateShape("rect", 120 * 36000, 60 * 36000, fill, stroke);
+     * second.SetPosition(6000000, 1267200);
+     * second.GetDocContent().GetElement(0).AddText("Right");
+     * const group = Api.CreateGroup([first, second]);
+     * slide.AddObject(group);
+     *
+     * const found = [];
+     * const visitor = group.GetVisitor();
+     * visitor.Text = function (text) {
+     * 	found.push(text);
+     * 	return false;
+     * };
+     * visitor.Traverse();
+     *
+     * const result = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * result.SetPosition(608400, 3600000);
+     * result.GetDocContent().GetElement(0).AddText("Grouped text: " + found.join(", "));
+     * slide.AddObject(result);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetVisitor/
      */
@@ -12310,6 +13009,27 @@ export namespace Slide {
      * Checks whether the drawing has an associated text body.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Check whether a shape has an associated text body before and after adding text.
+     *
+     * // Returns true if the shape already contains a text body, false otherwise.
+     *
+     * // Create two shapes, use one to display results, and verify HasTextContent changes after GetTextRange sets text.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const shape = Api.CreateShape("rect", 1000000, 500000);
+     * const shapeForDesc = Api.CreateShape("rect", 8000000, 3000000);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(shape);
+     * slide.AddObject(shapeForDesc);
+     * const paragraph = shapeForDesc.GetContent().GetElement(0);
+     * paragraph.AddText('Before add text shape.HasTextContent() === ' + shape.HasTextContent());
+     * shape.GetTextRange().SetText("Sample");
+     * paragraph.AddText('\nAfter add text shape.HasTextContent() === ' + shape.HasTextContent());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/HasTextContent/
      */
@@ -12398,9 +13118,62 @@ export namespace Slide {
      * @returns Returns true if the operation is successful, false otherwise.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the description of a drawing in a presentation.
+     *
+     * // Useful for assigning the alternative text of a drawing.
+     *
+     * // Create a drawing and set its description.
+     *
+     * let presentation = Api.GetPresentation();
+     * let slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = Api.CreateShape("cube", 300 * 36000, 130 * 36000, fill, stroke);
+     * drawing.SetPosition(608400, 1267200);
+     * slide.AddObject(drawing);
+     * drawing.SetDescription("My Drawing Description");
+     * let description = drawing.GetDescription();
+     * let docContent = drawing.GetDocContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.SetJc("left");
+     * paragraph.AddText("Drawing description: " + description);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/SetDescription/
      */
     SetDescription(description: string): boolean;
+
+    /**
+     * Sets the fill formatting properties to the current graphic object.
+     *
+     * @param oFill - The fill type used to fill the graphic object.
+     * @returns returns false if param is invalid or not supported for the current graphic object.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set a solid fill on a drawing object through the base ApiDrawing interface in a presentation.
+     *
+     * // The SetFill method works for any graphic object on a slide, including images and groups, not only shapes.
+     *
+     * // Add a rectangle to a slide and fill it with a solid blue-grey color.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const drawing = Api.CreateShape("rect", 150 * 36000, 80 * 36000, Api.CreateNoFill(), stroke);
+     * drawing.SetPosition(608400, 1267200);
+     * slide.AddObject(drawing);
+     * const fill = Api.CreateSolidFill(Api.RGB(96, 125, 139));
+     * drawing.SetFill(fill);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/SetFill/
+     */
+    SetFill(oFill: ApiFill): boolean;
 
     /**
      * Sets the horizontal flip of the current drawing.
@@ -12511,11 +13284,64 @@ export namespace Slide {
     SetHyperlink(hyperlink: ApiHyperlink | null): boolean;
 
     /**
+     * Sets the outline properties to the current graphic object.
+     *
+     * @param stroke - The stroke used to create the graphic object outline.
+     * @returns returns false if param is invalid or not supported for the current graphic object.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the outline of a drawing object through the base ApiDrawing interface in a presentation.
+     *
+     * // SetLine is the base method for the outline and works for any graphic object on a slide, not only shapes.
+     *
+     * // Add a rectangle to a slide and give it a dark solid outline.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const drawing = Api.CreateShape("rect", 150 * 36000, 80 * 36000, fill, stroke);
+     * drawing.SetPosition(608400, 1267200);
+     * slide.AddObject(drawing);
+     * const outline = Api.CreateStroke(36000, Api.CreateSolidFill(Api.RGB(51, 51, 51)));
+     * drawing.SetLine(outline);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/SetLine/
+     */
+    SetLine(stroke: ApiStroke): boolean;
+
+    /**
      * Sets whether the aspect ratio of the drawing is locked.
      *
      * @param bAspect - Specifies whether the aspect ratio of this drawing is locked.
      * @returns Returns `true` if the lock aspect was successfully set, otherwise returns `false`.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set whether the aspect ratio of the drawing is locked in a presentation.
+     *
+     * // Useful for locking the aspect ratio of a shape in a presentation.
+     *
+     * // Create a shape, lock its aspect ratio and display the result.
+     *
+     * let presentation = Api.GetPresentation();
+     * let slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * drawing.SetPosition(608400, 1267200);
+     * drawing.SetLockAspect(true);
+     * let docContent = drawing.GetContent();
+     * let lockAspect = drawing.GetLockAspect();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Aspect ratio locked: " + lockAspect);
+     * slide.AddObject(drawing);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/SetLockAspect/
      */
@@ -12718,9 +13544,9 @@ export namespace Slide {
     /**
      * Sets the position of the drawing on the slide.
      *
-     * @param nPosX - The distance from the left side of the slide to the left side of the drawing measured in English
+     * @param posX - The distance from the left side of the slide to the left side of the drawing measured in English
      *   measure units.
-     * @param nPosY - The distance from the top side of the slide to the upper side of the drawing measured in English
+     * @param posY - The distance from the top side of the slide to the upper side of the drawing measured in English
      *   measure units.
      *
      * @example
@@ -12750,7 +13576,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/SetPosition/
      */
-    SetPosition(nPosX: EMU, nPosY: EMU): void;
+    SetPosition(posX: EMU, posY: EMU): void;
 
     /**
      * Sets the rotation angle to the current drawing object.
@@ -12791,6 +13617,25 @@ export namespace Slide {
      * @param shadow - The shadow to apply, or null to remove the current shadow.
      * @returns returns false if the graphic object does not support shadow.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Apply an outer shadow to a drawing in a presentation.
+     *
+     * // Give a shape a soft offset shadow so it appears lifted off the slide.
+     *
+     * // Create a shape, build a shadow, and set it on the drawing with SetShadow.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 213, 191));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 120 * 36000, 60 * 36000, fill, stroke);
+     * shape.SetPosition(40 * 36000, 40 * 36000);
+     * slide.AddObject(shape);
+     * shape.SetShadow(Api.CreateShadow({ color: Api.RGB(64, 64, 64), transparency: 0.3, offsetX: 4, offsetY: 4 }));
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/SetShadow/
      */
@@ -12837,6 +13682,30 @@ export namespace Slide {
      * @param title - The title to set for the current drawing.
      * @returns Returns true if the operation is successful, false otherwise.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the title of a drawing in a presentation.
+     *
+     * // Useful for assigning the alternative text title of a drawing.
+     *
+     * // Create a drawing and set its title.
+     *
+     * let presentation = Api.GetPresentation();
+     * let slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * let stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * let drawing = Api.CreateShape("cube", 300 * 36000, 130 * 36000, fill, stroke);
+     * drawing.SetPosition(608400, 1267200);
+     * slide.AddObject(drawing);
+     * drawing.SetTitle("My Drawing Title");
+     * let title = drawing.GetTitle();
+     * let docContent = drawing.GetDocContent();
+     * let paragraph = docContent.GetElement(0);
+     * paragraph.SetJc("left");
+     * paragraph.AddText("Drawing title: " + title);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/SetTitle/
      */
@@ -12910,14 +13779,6 @@ export namespace Slide {
   }
 
   /**
-   * Class representing a drop cap. A drop cap is a large initial letter that is split off from a
-   * paragraph into a
-   * separate framed paragraph.
-   */
-  export interface ApiDropCap {
-  }
-
-  /**
    * Class representing a base class for fill.
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiFill/
@@ -12961,6 +13822,30 @@ export namespace Slide {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the color back from the fill of a shape in a presentation.
+     *
+     * // How do I find out which color a shape is filled with in a presentation?
+     *
+     * // Inspect the color of a solid fill on a slide in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("flowChartMagneticTape", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * slide.AddObject(shape);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * const color = shape.GetFill().GetColor();
+     * paragraph.AddText("Solid fill color: " + color.GetHex());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiFill/Methods/GetColor/
      */
     GetColor(): ApiColor | null;
@@ -12970,6 +13855,31 @@ export namespace Slide {
      *
      * @returns The transparency value, from 0 (fully opaque) to 1 (fully transparent).
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read back the transparency of a shape's fill on a slide in a presentation.
+     *
+     * // Find out how transparent a shape's fill is in a presentation.
+     *
+     * // Check the transparency that was applied to a shape's fill on a slide in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * fill.SetTransparent(0.4);
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("flowChartMagneticTape", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * slide.AddObject(shape);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * const appliedFill = shape.GetFill();
+     * paragraph.AddText("Fill transparency: " + appliedFill.GetTransparent());
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiFill/Methods/GetTransparent/
      */
@@ -13032,6 +13942,26 @@ export namespace Slide {
      *
      * @param transparent - The transparency value, from 0 (fully opaque) to 1 (fully transparent).
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Make a shape's fill semi-transparent on a slide in a presentation.
+     *
+     * // Adjust how see-through a shape's fill is in a presentation.
+     *
+     * // Fade a shape's solid fill on a slide so the background shows through in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * fill.SetTransparent(0.4);
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("flowChartMagneticTape", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * slide.AddObject(shape);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiFill/Methods/SetTransparent/
      */
@@ -13547,7 +14477,41 @@ export namespace Slide {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiGroup/
    */
-  export interface ApiGroup extends Omit<ApiDrawing, "GetClassType"> {
+  export interface ApiGroup extends Omit<ApiDrawing, "Copy" | "GetClassType"> {
+    /**
+     * Creates a copy of the current group.
+     *
+     * @since 9.4.0
+     *
+     * @example
+     * ```js
+     * // How do I make a copy of a grouped set of objects in a presentation?
+     *
+     * // Create an exact duplicate of a group and place it on another slide.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape1 = Api.CreateShape("rect", 100 * 36000, 100 * 36000, fill, stroke);
+     * shape1.SetPosition(608400, 1267200);
+     * const shape2 = Api.CreateShape("ellipse", 100 * 36000, 100 * 36000, fill, stroke);
+     * shape2.SetPosition(2100000, 1267200);
+     * const group = Api.CreateGroup([shape1, shape2]);
+     * slide.AddObject(group);
+     *
+     * const copyGroup = group.Copy();
+     * const newSlide = Api.CreateSlide();
+     * presentation.AddSlide(newSlide);
+     * newSlide.AddObject(copyGroup);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiGroup/Methods/Copy/
+     */
+    Copy(): ApiGroup;
+
     /**
      * Returns a type of the ApiGroup class.
      *
@@ -13633,6 +14597,9 @@ export namespace Slide {
 
     /**
      * Returns an internal ID of the current drawing object.
+     * The internal ID is valid only for the current editing session: it stays the same while the
+     * presentation is open,
+     * but it is not saved to the file and can be different after the presentation is reopened.
      *
      * @example
      * ```js
@@ -14082,9 +15049,9 @@ export namespace Slide {
     /**
      * Sets the position of the drawing on the slide.
      *
-     * @param nPosX - The distance from the left side of the slide to the left side of the drawing measured in English
+     * @param posX - The distance from the left side of the slide to the left side of the drawing measured in English
      *   measure units.
-     * @param nPosY - The distance from the top side of the slide to the upper side of the drawing measured in English
+     * @param posY - The distance from the top side of the slide to the upper side of the drawing measured in English
      *   measure units.
      *
      * @example
@@ -14114,7 +15081,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/SetPosition/
      */
-    SetPosition(nPosX: EMU, nPosY: EMU): void;
+    SetPosition(posX: EMU, posY: EMU): void;
 
     /**
      * Ungroups the current group of drawings.
@@ -14401,6 +15368,32 @@ export namespace Slide {
      * @returns returns null if the hyperlink is not attached to the document or the specified range is empty.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Make the text of a hyperlink in a shape on a slide italic through a text range.
+     *
+     * // A hyperlink keeps its own runs, and the range covers exactly the text of the link.
+     *
+     * // Take the range of the whole hyperlink text and apply italic to it.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * slide.AddObject(shape);
+     *
+     * const docContent = shape.GetDocContent();
+     * docContent.GetElement(0).AddText("Open ONLYOFFICE website");
+     * const hyperlink = shape.GetTextRange().GetRange(5, 23).AddHyperlink("https://www.onlyoffice.com", "ONLYOFFICE website");
+     *
+     * const range = hyperlink.GetTextRange();
+     * range.SetItalic(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiHyperlink/Methods/GetTextRange/
      */
     GetTextRange(start?: number, end?: number): ApiTextRange | null;
@@ -14494,7 +15487,35 @@ export namespace Slide {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiImage/
    */
-  export interface ApiImage extends Omit<ApiDrawing, "GetClassType"> {
+  export interface ApiImage extends Omit<ApiDrawing, "Copy" | "GetClassType"> {
+    /**
+     * Creates a copy of the current image.
+     *
+     * @since 9.4.0
+     *
+     * @example
+     * ```js
+     * // How do I make a copy of an image in a presentation?
+     *
+     * // Create an exact duplicate of an image and add it to a new slide in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const image = Api.CreateImage('https://static.onlyoffice.com/assets/docs/samples/img/onlyoffice_logo.png', 60 * 36000, 60 * 36000);
+     * slide.AddObject(image);
+     *
+     * const copyImage = image.Copy();
+     * const newSlide = Api.CreateSlide();
+     * presentation.AddSlide(newSlide);
+     * newSlide.AddObject(copyImage);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiImage/Methods/Copy/
+     */
+    Copy(): ApiImage;
+
     /**
      * Returns the type of the ApiImage class.
      *
@@ -14574,6 +15595,9 @@ export namespace Slide {
 
     /**
      * Returns an internal ID of the current drawing object.
+     * The internal ID is valid only for the current editing session: it stays the same while the
+     * presentation is open,
+     * but it is not saved to the file and can be different after the presentation is reopened.
      *
      * @example
      * ```js
@@ -15023,9 +16047,9 @@ export namespace Slide {
     /**
      * Sets the position of the drawing on the slide.
      *
-     * @param nPosX - The distance from the left side of the slide to the left side of the drawing measured in English
+     * @param posX - The distance from the left side of the slide to the left side of the drawing measured in English
      *   measure units.
-     * @param nPosY - The distance from the top side of the slide to the upper side of the drawing measured in English
+     * @param posY - The distance from the top side of the slide to the upper side of the drawing measured in English
      *   measure units.
      *
      * @example
@@ -15055,7 +16079,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/SetPosition/
      */
-    SetPosition(nPosX: EMU, nPosY: EMU): void;
+    SetPosition(posX: EMU, posY: EMU): void;
   }
 
   /** Class representing a container for the paragraph elements. */
@@ -15518,6 +16542,39 @@ export namespace Slide {
      * @returns returns null if the slide layout doesn't exist or has no background fill.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Return the background of the current slide layout.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const master = presentation.GetMaster(0);
+     * const layout = master.GetLayout(0);
+     *
+     * const gs1 = Api.CreateGradientStop(Api.RGB(70, 50, 90), 0);
+     * const gs2 = Api.CreateGradientStop(Api.RGB(40, 80, 100), 100000);
+     * const fill = Api.CreateLinearGradientFill([gs1, gs2], 5400000);
+     * layout.SetBackground(fill);
+     *
+     * const bgFill = layout.GetBackground();
+     * const classType = bgFill.GetClassType();
+     *
+     * slide.RemoveAllObjects();
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape(
+     * 	'rect',
+     * 	Api.MillimetersToEmus(120), Api.MillimetersToEmus(40),
+     * 	Api.CreateSolidFill(Api.RGB(50, 50, 65)),
+     * 	stroke
+     * );
+     * shape.SetPosition(Api.MillimetersToEmus(30), Api.MillimetersToEmus(30));
+     *
+     * const content = shape.GetContent();
+     * const paragraph = content.GetElement(0);
+     * paragraph.AddText('Layout background fill class type: ' + classType);
+     * slide.AddObject(shape);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiLayout/Methods/GetBackground/
      */
     GetBackground(): ApiFill | null;
@@ -15689,6 +16746,35 @@ export namespace Slide {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // List the names of all drawings on a slide layout with a layout visitor.
+     *
+     * // How do I enumerate the placeholders and shapes of a slide layout, including grouped ones?
+     *
+     * // Take the first layout of the first master and collect the names of its drawings.
+     *
+     * const presentation = Api.GetPresentation();
+     * const layout = presentation.GetMaster(0).GetLayout(0);
+     *
+     * const names = [];
+     * const visitor = layout.GetVisitor();
+     * visitor.Drawing = function (drawing) {
+     * 	names.push(drawing.GetName() || drawing.GetClassType());
+     * 	return false;
+     * };
+     * visitor.Traverse();
+     *
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     * const fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const result = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * result.SetPosition(608400, 1267200);
+     * result.GetDocContent().GetElement(0).AddText("Layout drawings: " + names.join(", "));
+     * slide.AddObject(result);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiLayout/Methods/GetVisitor/
      */
     GetVisitor(): ApiPresentationVisitor;
@@ -15822,6 +16908,27 @@ export namespace Slide {
      * @default isMatchCase = false
      * @default isWholeWords = false
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Find every occurrence of a word on a slide layout and make the first match bold.
+     *
+     * // Search is scoped to this layout, returning each match as a text range.
+     *
+     * // Add a shape to the layout, search it for a keyword, and embolden the first result.
+     *
+     * const presentation = Api.GetPresentation();
+     * const master = presentation.GetMaster(0);
+     * const layout = master.GetLayout(0);
+     *
+     * const shape = Api.CreateShape("rect", 300 * 36000, 100 * 36000);
+     * shape.SetPosition(608400, 1267200);
+     * layout.AddObject(shape);
+     * shape.GetTextRange().SetText("Preliminary layout draft and preliminary review.");
+     *
+     * const results = layout.Search("preliminary");
+     * results[0].SetBold(true);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiLayout/Methods/Search/
      */
@@ -16446,6 +17553,35 @@ export namespace Slide {
      * @returns returns null if the slide master doesn't exist or has no background fill.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Return the background of the current slide master.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const master = presentation.GetMaster(0);
+     * const fill = Api.CreateSolidFill(Api.RGB(100, 60, 80));
+     * master.SetBackground(fill);
+     *
+     * const bgFill = master.GetBackground();
+     * const classType = bgFill.GetClassType();
+     *
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape(
+     * 	'rect',
+     * 	Api.MillimetersToEmus(120), Api.MillimetersToEmus(40),
+     * 	Api.CreateSolidFill(Api.RGB(45, 45, 60)), stroke
+     * );
+     * shape.SetPosition(Api.MillimetersToEmus(30), Api.MillimetersToEmus(30));
+     *
+     * const content = shape.GetContent();
+     * const paragraph = content.GetElement(0);
+     * paragraph.AddText('Master background fill class type: ' + classType);
+     * slide.AddObject(shape);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiMaster/Methods/GetBackground/
      */
     GetBackground(): ApiFill | null;
@@ -16506,6 +17642,42 @@ export namespace Slide {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiMaster/Methods/GetDrawingsByPlaceholderType/
      */
     GetDrawingsByPlaceholderType(sType: PlaceholderType): Drawing[];
+
+    /**
+     * Returns an internal ID of the current slide master.
+     * The internal ID is valid only for the current editing session: it stays the same while the
+     * presentation is open,
+     * but it is not saved to the file and can be different after the presentation is reopened.
+     *
+     * @since 9.2.0
+     *
+     * @example
+     * ```js
+     * // Get the internal identifier of a slide master in a presentation.
+     *
+     * // Identify a specific slide master by the ID that the editor assigns to it in a presentation.
+     *
+     * // Display the internal ID of the first slide master, which stays valid only while the presentation is open.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const master = presentation.GetMaster(0);
+     * const internalId = master.GetInternalId();
+     *
+     * const fill = Api.CreateSolidFill(Api.HexColor('#FADBD8'));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape('rect', Api.MillimetersToEmus(300), Api.MillimetersToEmus(130), fill, stroke);
+     * shape.SetPosition(Api.MillimetersToEmus(20), Api.MillimetersToEmus(35));
+     * const paragraph = shape.GetDocContent().GetElement(0);
+     * paragraph.AddText('Slide master internal ID: ' + internalId);
+     * slide.AddObject(shape);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiMaster/Methods/GetInternalId/
+     */
+    GetInternalId(): string;
 
     /**
      * Returns a layout of the specified slide master by its position.
@@ -16659,6 +17831,32 @@ export namespace Slide {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Make every text run of a slide master and its layouts bold with a master visitor.
+     *
+     * // How do I apply the same formatting to all text on a slide master and its layouts?
+     *
+     * // Get the first master, add a shape with text to it and set bold for all its runs.
+     *
+     * const presentation = Api.GetPresentation();
+     * const master = presentation.GetMaster(0);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(80, 80, 80));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 6000000);
+     * shape.GetDocContent().GetElement(0).AddText("Company confidential");
+     * master.AddObject(shape);
+     *
+     * const visitor = master.GetVisitor();
+     * visitor.Run = function (run) {
+     * 	run.SetBold(true);
+     * 	return true;
+     * };
+     * visitor.Traverse({layouts: true});
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiMaster/Methods/GetVisitor/
      */
     GetVisitor(): ApiPresentationVisitor;
@@ -16792,6 +17990,26 @@ export namespace Slide {
      * @default isMatchCase = false
      * @default isWholeWords = false
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Find every occurrence of a word on a slide master and make the first match bold.
+     *
+     * // Search is scoped to this master, returning each match as a text range.
+     *
+     * // Add a shape to the master, search it for a keyword, and embolden the first result.
+     *
+     * const presentation = Api.GetPresentation();
+     * const master = presentation.GetMaster(0);
+     *
+     * const shape = Api.CreateShape("rect", 300 * 36000, 100 * 36000);
+     * shape.SetPosition(608400, 1267200);
+     * master.AddObject(shape);
+     * shape.GetTextRange().SetText("Quarterly summary and quarterly outlook.");
+     *
+     * const results = master.Search("quarterly");
+     * results[0].SetBold(true);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiMaster/Methods/Search/
      */
@@ -16935,6 +18153,35 @@ export namespace Slide {
     /**
      * Returns a type of the ApiMath class.
      *
+     * @example
+     * ```js
+     * // Identify the object type of a math equation in a presentation.
+     *
+     * // Find out what kind of object a formula is in a presentation.
+     *
+     * // Confirm the category a math equation belongs to in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 100 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * slide.AddObject(shape);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * const math = Api.CreateMath("x^2 + y^2 = z^2", "unicode");
+     * paragraph.AddElement(math);
+     * const classType = math.GetClassType();
+     *
+     * const paragraph2 = Api.CreateParagraph();
+     * paragraph2.AddText("Class Type = " + classType);
+     * docContent.Push(paragraph2);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiMath/Methods/GetClassType/
      */
     GetClassType(): "math";
@@ -16944,6 +18191,36 @@ export namespace Slide {
      *
      * @param format - The format the text should be returned in.
      * @default format = "unicode"
+     *
+     * @example
+     * ```js
+     * // Read the text representation of a math equation, either as unicode linear text or as LaTeX, in a presentation.
+     *
+     * // Get the formula of an equation back as plain text or as LaTeX in a presentation.
+     *
+     * // Build a fraction equation, then read it back both as unicode text and as LaTeX.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 100 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * slide.AddObject(shape);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * const math = Api.CreateMath("dx/dy", "unicode");
+     * paragraph.AddElement(math);
+     * const unicodeText = math.GetText("unicode");
+     * const latexText = math.GetText("latex");
+     *
+     * const paragraph2 = Api.CreateParagraph();
+     * paragraph2.AddText("Unicode: " + unicodeText + ", LaTeX: " + latexText);
+     * docContent.Push(paragraph2);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiMath/Methods/GetText/
      */
@@ -17112,17 +18389,44 @@ export namespace Slide {
      * @returns Returns null if the notes page master or theme doesn't exist.
      * @since 9.3.0
      *
+     * @example
+     * ```js
+     * // Access the theme that styles the notes page of a slide in a presentation.
+     *
+     * // Identify the theme source shared between the notes page and its slide master.
+     *
+     * // Retrieve the notes page theme and display its class type in a shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const notesPage = slide.GetNotesPage();
+     *
+     * let message = 'No notes page available.';
+     *
+     * if (notesPage) {
+     * 	const theme = notesPage.GetTheme();
+     * 	if (theme) {
+     * 		message = 'Notes page theme type: ' + theme.GetClassType();
+     * 	} else {
+     * 		message = 'No theme available.';
+     * 	}
+     * }
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(100, 150, 200));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape('rect', 300 * 36000, 150 * 36000, fill, stroke);
+     * shape.SetPosition(0, 3 * 36000);
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText(message);
+     *
+     * slide.RemoveAllObjects();
+     * slide.AddObject(shape);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiNotesPage/Methods/GetTheme/
      */
     GetTheme(): ApiTheme | null;
-  }
-
-  /** Class representing the numbering properties. */
-  export interface ApiNumbering {
-  }
-
-  /** Class representing a reference to a specified level of the numbering. */
-  export interface ApiNumberingLevel {
   }
 
   /**
@@ -17130,7 +18434,40 @@ export namespace Slide {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiOleObject/
    */
-  export interface ApiOleObject extends Omit<ApiDrawing, "GetClassType"> {
+  export interface ApiOleObject extends Omit<ApiDrawing, "Copy" | "GetClassType"> {
+    /**
+     * Creates a copy of the current OLE object.
+     *
+     * @since 9.4.0
+     *
+     * @example
+     * ```js
+     * // How do I make a copy of an OLE object in a presentation?
+     *
+     * // Create an exact duplicate of an OLE object and add it to a new slide in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const oleObject = Api.CreateOleObject(
+     * 	'https://static.onlyoffice.com/assets/docs/samples/img/onlyoffice_logo.png',
+     * 	150 * 36000, 150 * 36000,
+     * 	'https://youtu.be/SKGz4pmnpgY',
+     * 	'asc.{38E022EA-AD92-45FC-B22B-49DF39746DB4}'
+     * );
+     * slide.AddObject(oleObject);
+     *
+     * const copyOle = oleObject.Copy();
+     * const newSlide = Api.CreateSlide();
+     * presentation.AddSlide(newSlide);
+     * newSlide.AddObject(copyOle);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiOleObject/Methods/Copy/
+     */
+    Copy(): ApiOleObject;
+
     /**
      * Returns the application ID from the current OLE object.
      *
@@ -17292,6 +18629,9 @@ export namespace Slide {
 
     /**
      * Returns an internal ID of the current drawing object.
+     * The internal ID is valid only for the current editing session: it stays the same while the
+     * presentation is open,
+     * but it is not saved to the file and can be different after the presentation is reopened.
      *
      * @example
      * ```js
@@ -17802,9 +19142,9 @@ export namespace Slide {
     /**
      * Sets the position of the drawing on the slide.
      *
-     * @param nPosX - The distance from the left side of the slide to the left side of the drawing measured in English
+     * @param posX - The distance from the left side of the slide to the left side of the drawing measured in English
      *   measure units.
-     * @param nPosY - The distance from the top side of the slide to the upper side of the drawing measured in English
+     * @param posY - The distance from the top side of the slide to the upper side of the drawing measured in English
      *   measure units.
      *
      * @example
@@ -17834,7 +19174,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/SetPosition/
      */
-    SetPosition(nPosX: EMU, nPosY: EMU): void;
+    SetPosition(posX: EMU, posY: EMU): void;
   }
 
   /**
@@ -18771,7 +20111,10 @@ export namespace Slide {
     AddLineBreak(): ApiRun;
 
     /**
-     * Adds a tab stop to the current paragraph.
+     * Adds a tab character to the end of the current paragraph.
+     * Use the AddText method with the "\t" character instead.
+     *
+     * @deprecated since 10.0.3 version.
      *
      * @example
      * ```js
@@ -19209,6 +20552,9 @@ export namespace Slide {
 
     /**
      * Returns an internal ID of the current paragraph.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
      *
      * @since 9.2.0
      *
@@ -19718,6 +21064,32 @@ export namespace Slide {
      * @returns returns null if the specified range is empty.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Underline a part of a paragraph of a shape on a slide through a text range.
+     *
+     * // Positions are counted from the beginning of the paragraph, the end position is excluded.
+     *
+     * // Take the range of the first five characters of the paragraph and underline it.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * slide.AddObject(shape);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = paragraph.GetTextRange(0, 5);
+     * range.SetUnderline(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParagraph/Methods/GetTextRange/
      */
     GetTextRange(start?: number, end?: number): ApiTextRange | null;
@@ -19729,6 +21101,8 @@ export namespace Slide {
      * @param sPosition - The position where the text or paragraph will be inserted ("before" or "after" the paragraph
      *   specified).
      * @param beRNewPara - Defines if this method returns a new paragraph (true) or the current paragraph (false).
+     * @default sPosition = "after"
+     * @default beRNewPara = false
      * @returns returns null if param paragraph is invalid.
      *
      * @example
@@ -19757,12 +21131,42 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParagraph/Methods/InsertParagraph/
      */
-    InsertParagraph(paragraph: string | ApiParagraph, sPosition: string, beRNewPara: boolean): ApiParagraph | null;
+    InsertParagraph(paragraph: string | ApiParagraph, sPosition?: string, beRNewPara?: boolean): ApiParagraph | null;
 
     /**
      * Returns true if the paragraph has no content elements (only the paragraph end mark).
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Check whether the current paragraph has no content elements.
+     *
+     * // Verify that a newly created paragraph reports as empty.
+     *
+     * // Confirm the empty state changes once text is added.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const gs1 = Api.CreateGradientStop(Api.RGB(255, 213, 191), 0);
+     * const gs2 = Api.CreateGradientStop(Api.RGB(255, 111, 61), 100000);
+     * const fill = Api.CreateRadialGradientFill([gs1, gs2]);
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("flowChartMagneticTape", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * const docContent = shape.GetDocContent();
+     * const paragraph = Api.CreateParagraph();
+     * const emptyBefore = paragraph.IsEmpty();
+     * paragraph.AddText("This is a sample text.");
+     * const emptyAfter = paragraph.IsEmpty();
+     * docContent.Push(paragraph);
+     * const resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("The paragraph was empty before adding text: " + emptyBefore + ". After adding text: " + emptyAfter + ".");
+     * docContent.Push(resultParagraph);
+     * slide.AddObject(shape);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParagraph/Methods/IsEmpty/
      */
@@ -19807,11 +21211,30 @@ export namespace Slide {
     Last(): ParagraphContent | null;
 
     /**
+     * Moves the cursor to the end of the current paragraph.
+     *
+     * @since 9.4.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParagraph/Methods/MoveCursorToEnd/
+     */
+    MoveCursorToEnd(): boolean;
+
+    /**
+     * Moves the cursor to the start of the current paragraph.
+     *
+     * @since 9.4.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParagraph/Methods/MoveCursorToStart/
+     */
+    MoveCursorToStart(): boolean;
+
+    /**
      * Adds an element to the current paragraph.
      *
-     * @param oElement - The document element which will be added at the current position. Returns false if the oElement
-     *   type is not supported by a paragraph.
-     * @returns Returns `false` if the type of `oElement` is not supported by paragraph content.
+     * @param oElement - The document element which will be added at the current position. A string is added as a new run
+     *   with the text properties of the last run with text.
+     * @returns Returns `false` if the type of `oElement` is not supported by paragraph content or the element
+     *   is already in the document.
      *
      * @example
      * ```js
@@ -19844,7 +21267,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParagraph/Methods/Push/
      */
-    Push(oElement: ParagraphContent): boolean;
+    Push(oElement: ParagraphContent | string): boolean;
 
     /**
      * Removes all the elements from the current paragraph.
@@ -20406,6 +21829,34 @@ export namespace Slide {
      *   Example: "en-CA". Pass _null_ to remove the language.
      * @returns returns null if the language identifier is not supported.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the spell-check language for a paragraph in a presentation.
+     *
+     * // How do I tell the editor which language to use when checking a slide paragraph in a presentation?
+     *
+     * // Set the language of the paragraph and print it in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.HexColor('#FF6F3D'));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape('roundRect', Api.MillimetersToEmus(300), Api.MillimetersToEmus(130), fill, stroke);
+     * shape.SetPosition(Api.MillimetersToEmus(20), Api.MillimetersToEmus(35));
+     * slide.AddObject(shape);
+     *
+     * const docContent = shape.GetContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText('This is a paragraph with the spell-check language set.');
+     * paragraph.SetLanguage('en-CA');
+     *
+     * const resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText('Paragraph language: ' + shape.GetTextRange().GetTextPr().GetLanguage());
+     * docContent.Push(resultParagraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiParagraph/Methods/SetLanguage/
      */
@@ -22357,6 +23808,25 @@ export namespace Slide {
      * @param text - The text to add to document.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Insert text at the current cursor position within a shape text range.
+     *
+     * // The cursor must be positioned first using MoveCursorToPos before calling EnterText.
+     *
+     * // Create a shape, place the cursor mid-text, and insert a word at that position.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const shape = Api.CreateShape("rect", 3000000, 1000000);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(shape);
+     * const range = shape.GetTextRange();
+     * range.SetText("Hello World");
+     * range.MoveCursorToPos(6);
+     * presentation.EnterText("Beautiful ");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/EnterText/
      */
     EnterText(text: string): boolean;
@@ -22367,6 +23837,34 @@ export namespace Slide {
      * @returns The active shape object if exactly one shape is selected or being edited; otherwise, null.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Select a shape and retrieve it as the active shape to apply a fill change.
+     *
+     * // GetActiveShape returns the shape currently selected or being edited in the presentation.
+     *
+     * // Add two shapes to the slide, select the first, and recolor it using the returned active shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 153, 204));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("heart", 38 * 36000, 38 * 36000, fill, stroke);
+     * shape.SetPosition(184 * 36000, 0);
+     * slide.AddObject(shape);
+     *
+     * const fill2 = Api.CreateSolidFill(Api.RGB(255, 153, 204));
+     * const shape2 = Api.CreateShape("heart", 38 * 36000, 38 * 36000, fill2, stroke);
+     * shape2.SetPosition(100 * 36000, 50 * 36000);
+     * slide.AddObject(shape2);
+     *
+     * shape.Select(true);
+     * const activeShape = presentation.GetActiveShape();
+     * activeShape.SetFill(Api.CreateSolidFill(Api.RGB(255, 0, 0)));
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/GetActiveShape/
      */
     GetActiveShape(): ApiShape | null;
@@ -22376,6 +23874,30 @@ export namespace Slide {
      *
      * @returns The active table object if exactly one table is selected or being edited; otherwise, null.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Select a table and retrieve it as the active table to apply a background color.
+     *
+     * // The active table is the one currently selected or being edited in the presentation.
+     *
+     * // Add two tables to the slide, select the first, and color it using the returned active table.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     * const table = Api.CreateTable(3, 3);
+     * table.SetSize(4320000, 2160000);
+     * table.SetPosition(0, 0);
+     * slide.AddObject(table);
+     * const table2 = Api.CreateTable(3, 3);
+     * table2.SetSize(4320000, 2160000);
+     * table2.SetPosition(100 * 36000, 100 * 36000);
+     * slide.AddObject(table2);
+     * table.Select();
+     * const activeTable = presentation.GetActiveTable();
+     * activeTable.SetBackgroundColor(Api.RGB(255, 0, 0));
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/GetActiveTable/
      */
@@ -22925,6 +24447,33 @@ export namespace Slide {
      * @returns returns an empty string if the cursor is not in the text or some text is selected.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the sentence at the cursor in a presentation.
+     *
+     * // How do I get the full sentence the cursor is placed within in a presentation?
+     *
+     * // Place the cursor inside the second sentence of a shape and show the sentence in a second paragraph of the shape in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * slide.AddObject(shape);
+     *
+     * shape.GetTextRange().SetText("Slides tell a story. Every slide makes one point. Keep the text short.");
+     * shape.GetTextRange().MoveCursorToPos(25);
+     *
+     * const sentence = presentation.GetCurrentSentence();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("The current sentence: " + sentence);
+     * shape.GetDocContent().Push(paragraph);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/GetCurrentSentence/
      */
     GetCurrentSentence(part?: "before" | "after"): string;
@@ -22991,6 +24540,35 @@ export namespace Slide {
      * @param part - The part of the word to return. If omitted, the whole word is returned.
      * @returns returns an empty string if the cursor is not in the text or some text is selected.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the word at the cursor, including the part before or after the cursor, in a presentation.
+     *
+     * // How do I get the word the cursor is currently placed on in a presentation?
+     *
+     * // Place the cursor inside a word of a shape and show the whole word and its parts in a second paragraph of the shape in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * slide.AddObject(shape);
+     *
+     * shape.GetTextRange().SetText("The quick brown fox jumps over the lazy dog");
+     * shape.GetTextRange().MoveCursorToPos(18);
+     *
+     * const word = presentation.GetCurrentWord();
+     * const before = presentation.GetCurrentWord("before");
+     * const after = presentation.GetCurrentWord("after");
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Word: " + word + ", before the cursor: " + before + ", after the cursor: " + after);
+     * shape.GetDocContent().Push(paragraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/GetCurrentWord/
      */
@@ -23303,6 +24881,45 @@ export namespace Slide {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 9.4.0
      *
+     * @example
+     * ```js
+     * // Get the current selection from the presentation object.
+     *
+     * // Add two shapes to the slide and select the second one.
+     *
+     * // The selected shape is filled with orange and labeled.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     *
+     * const shape1 = Api.CreateShape(
+     * 	'rect',
+     * 	Api.MillimetersToEmus(100), Api.MillimetersToEmus(50),
+     * 	Api.CreateSolidFill(Api.RGB(150, 150, 150)), stroke
+     * );
+     * shape1.SetPosition(Api.MillimetersToEmus(60), Api.MillimetersToEmus(70));
+     * slide.AddObject(shape1);
+     *
+     * const shape2 = Api.CreateShape(
+     * 	'rect',
+     * 	Api.MillimetersToEmus(100), Api.MillimetersToEmus(50),
+     * 	Api.CreateSolidFill(Api.RGB(150, 150, 150)), stroke
+     * );
+     * shape2.SetPosition(Api.MillimetersToEmus(180), Api.MillimetersToEmus(70));
+     * slide.AddObject(shape2);
+     * shape2.Select();
+     *
+     * const selection = presentation.GetSelection();
+     * const selectedShapes = selection.GetShapes();
+     * for (let i = 0; i < selectedShapes.length; i++) {
+     * 	selectedShapes[i].SetFill(Api.CreateSolidFill(Api.RGB(255, 111, 61)));
+     * 	selectedShapes[i].GetDocContent().GetElement(0).AddText('Selected shape');
+     * }
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/GetSelection/
      */
     GetSelection(): ApiSelection;
@@ -23412,6 +25029,26 @@ export namespace Slide {
      * @param sStyleName - The name of the table style to look up.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get a named table style, rename it, and apply it to a table.
+     *
+     * // A built-in table style can be retrieved by name and then customized.
+     *
+     * // Fetch "Dark Style 1 - Accent 2", rename it, and apply it to a 3×3 table.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const style = presentation.GetStyle("Dark Style 1 - Accent 2");
+     * style.SetName("My Custom Table Style");
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("New style name: " + style.GetName());
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/GetStyle/
      */
     GetStyle(sStyleName: string): ApiStyle | null;
@@ -23422,6 +25059,45 @@ export namespace Slide {
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Count the text runs of a presentation with a presentation visitor.
+     *
+     * // How do I walk through every drawing and text run in a presentation, including grouped shapes?
+     *
+     * // Create two shapes on the first slide and count their runs with a visitor.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     *
+     * const first = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * first.SetPosition(608400, 1267200);
+     * first.GetDocContent().GetElement(0).AddText("First shape");
+     * slide.AddObject(first);
+     *
+     * const second = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * second.SetPosition(608400, 3600000);
+     * second.GetDocContent().GetElement(0).AddText("Second shape");
+     * slide.AddObject(second);
+     *
+     * let runCount = 0;
+     * const visitor = presentation.GetVisitor();
+     * visitor.Run = function () {
+     * 	runCount += 1;
+     * 	return false;
+     * };
+     * visitor.Traverse();
+     *
+     * const result = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * result.SetPosition(608400, 5000000);
+     * result.GetDocContent().GetElement(0).AddText("Text runs found: " + runCount);
+     * slide.AddObject(result);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/GetVisitor/
      */
@@ -23481,6 +25157,26 @@ export namespace Slide {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Insert a paragraph break at the current cursor position within a shape.
+     *
+     * // Splits the text at the cursor into two separate paragraphs.
+     *
+     * // Create a shape, position the cursor after the first word, and insert a paragraph break.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const shape = Api.CreateShape("rect", 3000000, 1500000);
+     * const range = shape.GetTextRange();
+     * range.SetText("Hello World");
+     * range.SetColor(Api.RGB(0, 0, 0));
+     * range.MoveCursorToPos(5);
+     * presentation.InsertParagraphBreak();
+     * slide.RemoveAllObjects();
+     * slide.AddObject(shape);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/InsertParagraphBreak/
      */
     InsertParagraphBreak(): boolean;
@@ -23493,6 +25189,27 @@ export namespace Slide {
      * @default count = 1
      * @default addToSelect = false
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Move the text cursor down one line within a multi-line shape text range.
+     *
+     * // Advances the cursor from the current line to the corresponding position on the next line.
+     *
+     * // Set up a two-line shape, position the cursor on the first line, then move it down.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const shape = Api.CreateShape("rect", 3000000, 1500000);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(shape);
+     * const range = shape.GetTextRange();
+     * range.SetText("First line\nSecond line");
+     * range.SetColor(Api.RGB(0, 0, 0));
+     * range.MoveCursorToPos(0);
+     * presentation.MoveCursorDown(1, false);
+     * presentation.EnterText("[cursor] ");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/MoveCursorDown/
      */
@@ -23509,6 +25226,27 @@ export namespace Slide {
      * @default byWords = false
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Move the text cursor one position to the left within a shape text range.
+     *
+     * // Cursor movement methods allow precise text navigation in interactive or plugin mode.
+     *
+     * // Position the cursor at the end, move it left, then insert text at the earlier location.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const shape = Api.CreateShape("rect", 3000000, 1000000);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(shape);
+     * const range = shape.GetTextRange();
+     * range.SetText("Hello World");
+     * range.SetColor(Api.RGB(0, 0, 0));
+     * range.MoveCursorToPos(range.GetEndPos());
+     * presentation.MoveCursorLeft(5, false, false);
+     * presentation.EnterText("Beautiful ");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/MoveCursorLeft/
      */
     MoveCursorLeft(count?: number, addToSelect?: boolean, byWords?: boolean): boolean;
@@ -23524,6 +25262,25 @@ export namespace Slide {
      * @default byWords = false
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Move the text cursor one position to the right within a shape text range.
+     *
+     * // Cursor movement methods allow precise text navigation in interactive or plugin mode.
+     *
+     * // Position the cursor mid-word, move it right, then insert text at the new location.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const shape = Api.CreateShape("rect", 3000000, 1000000);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(shape);
+     * shape.GetTextRange().SetText("Hello World");
+     * shape.GetTextRange().MoveCursorToPos(5);
+     * presentation.MoveCursorRight(1, false, false);
+     * presentation.EnterText("Beautiful ");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/MoveCursorRight/
      */
     MoveCursorRight(count?: number, addToSelect?: boolean, byWords?: boolean): boolean;
@@ -23537,6 +25294,25 @@ export namespace Slide {
      * @default addToSelect = false
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Move the text cursor up one line within a multi-line shape text range.
+     *
+     * // Advances the cursor from the current line to the corresponding position on the previous line.
+     *
+     * // Set up a two-line shape, position the cursor on the last line, then move it up.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const shape = Api.CreateShape("rect", 3000000, 1500000);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(shape);
+     * shape.GetTextRange().SetText("First line\nSecond line");
+     * shape.GetTextRange().MoveCursorToPos(22);
+     * presentation.MoveCursorUp(1, false);
+     * presentation.EnterText("[cursor] ");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/MoveCursorUp/
      */
     MoveCursorUp(count?: number, addToSelect?: boolean): boolean;
@@ -23549,6 +25325,24 @@ export namespace Slide {
      * @returns returns false if the cursor isn't currently inside a table cell.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Move the cursor to the next cell of a table on a slide.
+     *
+     * // Navigate between adjacent table cells without selecting a cell directly.
+     *
+     * // Add text to the next cell after moving the cursor to it on a slide.
+     *
+     * let presentation = Api.GetPresentation();
+     * let slide = presentation.GetSlideByIndex(0);
+     * let table = Api.CreateTable(2, 2);
+     * slide.AddObject(table);
+     * table.Cells[0][0].Select();
+     * presentation.EnterText("First cell");
+     * presentation.MoveToNextCell();
+     * presentation.EnterText("Second cell");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/MoveToNextCell/
      */
     MoveToNextCell(count?: number): boolean;
@@ -23560,6 +25354,24 @@ export namespace Slide {
      * @default count = 1
      * @returns returns false if the cursor isn't currently inside a table cell.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Move the cursor to the previous cell of a table on a slide.
+     *
+     * // Navigate between adjacent table cells without selecting a cell directly.
+     *
+     * // Add text to the previous cell after moving the cursor back to it on a slide.
+     *
+     * let presentation = Api.GetPresentation();
+     * let slide = presentation.GetSlideByIndex(0);
+     * let table = Api.CreateTable(2, 2);
+     * slide.AddObject(table);
+     * table.Cells[0][1].Select();
+     * presentation.EnterText("First selected cell");
+     * presentation.MoveToPrevCell();
+     * presentation.EnterText("Previous cell");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/MoveToPrevCell/
      */
@@ -23688,6 +25500,30 @@ export namespace Slide {
      * @returns returns false if the cursor is not in the text or some text is selected.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Replace the sentence at the cursor with new text in a presentation.
+     *
+     * // How do I substitute a whole sentence based on the cursor position in a presentation?
+     *
+     * // Place the cursor inside the second sentence of a shape and replace the sentence with a new one in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * slide.AddObject(shape);
+     *
+     * shape.GetTextRange().SetText("Slides tell a story. Every slide makes one point. Keep the text short.");
+     * shape.GetTextRange().MoveCursorToPos(25);
+     *
+     * presentation.ReplaceCurrentSentence("Every slide answers one question.");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/ReplaceCurrentSentence/
      */
     ReplaceCurrentSentence(text: string, part?: "before" | "after"): boolean;
@@ -23699,6 +25535,30 @@ export namespace Slide {
      * @param part - The part of the word to replace. If omitted, the whole word is replaced.
      * @returns returns false if there is no word at the cursor or some text is selected.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Replace the word at the cursor with another word in a presentation.
+     *
+     * // How do I overwrite a single word based on where the cursor is placed in a presentation?
+     *
+     * // Place the cursor inside a word of a shape and swap the word without retyping the rest of the text in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * slide.AddObject(shape);
+     *
+     * shape.GetTextRange().SetText("The quick brown cat jumps over the lazy dog");
+     * shape.GetTextRange().MoveCursorToPos(17);
+     *
+     * presentation.ReplaceCurrentWord("fox");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/ReplaceCurrentWord/
      */
@@ -23716,6 +25576,31 @@ export namespace Slide {
      * @default isWholeWords = false
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Find text in a presentation by a string and by a regular expression, then bold the matches.
+     *
+     * // Combine a presentation-wide keyword lookup with a RegExp that matches every numbered label.
+     *
+     * // Add a shape with repeated text, bold the last keyword match, then bold each label found by the /№\d+/g expression.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const shape = Api.CreateShape("rect", 300 * 36000, 100 * 36000);
+     * shape.SetPosition(608400, 1267200);
+     * slide.AddObject(shape);
+     * shape.GetTextRange().SetText("Sample item №1, sample item №2 and one more sample.");
+     *
+     * const byKeyword = presentation.Search("sample", false);
+     * byKeyword[byKeyword.length - 1].SetBold(true);
+     *
+     * const byRegExp = presentation.Search(/№\d+/g);
+     * for (let index = 0; index < byRegExp.length; index++)
+     * 	byRegExp[index].SetBold(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/Search/
      */
     Search(text: string | RegExp, isMatchCase?: boolean, isWholeWords?: boolean): ApiTextRange[];
@@ -23732,6 +25617,31 @@ export namespace Slide {
      * @default properties.wholeWords = false
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Replace a word across a presentation while keeping an untouched copy of the source shape for comparison.
+     *
+     * // The copy is duplicated before the replacement and added to the slide afterwards, so it keeps the original text.
+     *
+     * // Add a shape, copy it aside, replace "first" with "final", then place the untouched copy above the replaced result.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const shape = Api.CreateShape("rect", 8000000, 900000);
+     * shape.SetPosition(600000, 3200000);
+     * slide.AddObject(shape);
+     * shape.GetTextRange().SetText("The first draft. The first review. The first release.");
+     *
+     * const original = shape.Copy();
+     *
+     * presentation.SearchAndReplace({"searchString": "first", "replaceString": "final"});
+     *
+     * original.SetPosition(600000, 1000000);
+     * slide.AddObject(original);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/SearchAndReplace/
      */
     SearchAndReplace(properties: { searchString: string; replaceString: string; matchCase?: boolean; wholeWords?: boolean }): boolean;
@@ -23742,6 +25652,31 @@ export namespace Slide {
      * @returns returns false if there is no sentence at the cursor.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Select the sentence at the cursor in a presentation.
+     *
+     * // How do I select a whole sentence from the cursor position in a presentation?
+     *
+     * // Place the cursor inside the second sentence of a shape, select the sentence and make it bold in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * slide.AddObject(shape);
+     *
+     * shape.GetTextRange().SetText("Slides tell a story. Every slide makes one point. Keep the text short.");
+     * shape.GetTextRange().MoveCursorToPos(25);
+     *
+     * presentation.SelectCurrentSentence();
+     * Api.GetSelection().GetTextRange().SetBold(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/SelectCurrentSentence/
      */
     SelectCurrentSentence(): boolean;
@@ -23751,6 +25686,31 @@ export namespace Slide {
      *
      * @returns returns false if there is no word at the cursor.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Select the word at the cursor in a presentation.
+     *
+     * // How do I select a whole word from the cursor position in a presentation?
+     *
+     * // Place the cursor inside a word of a shape, select the word and make it bold in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * slide.AddObject(shape);
+     *
+     * shape.GetTextRange().SetText("The quick brown fox jumps over the lazy dog");
+     * shape.GetTextRange().MoveCursorToPos(12);
+     *
+     * presentation.SelectCurrentWord();
+     * Api.GetSelection().GetTextRange().SetBold(true);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentation/Methods/SelectCurrentWord/
      */
@@ -23954,14 +25914,1171 @@ export namespace Slide {
    */
   export interface ApiPresentationVisitor {
     /**
+     * A hook called when the traversal enters a drawing (a shape, an image, a chart, a group, a table...).
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param drawing - The drawing.
+     * @returns Return true to skip the content of the drawing; the DrawingEnd hook is not called then.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // List the types of the drawings on a slide with a presentation visitor.
+     *
+     * // The Drawing hook receives every drawing, including the drawings inside groups.
+     *
+     * // Add a shape and a table to a slide and write the class types of the drawings into a shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * shape.GetDocContent().GetElement(0).AddText("Agenda");
+     * slide.AddObject(shape);
+     * const table = Api.CreateTable(2, 2);
+     * table.SetPosition(608400, 5400000);
+     * slide.AddObject(table);
+     *
+     * const types = [];
+     * const visitor = slide.GetVisitor();
+     * visitor.Drawing = function (drawing) {
+     * 	types.push(drawing.GetClassType());
+     * 	return true;
+     * };
+     * visitor.Traverse();
+     *
+     * const result = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * result.SetPosition(608400, 3600000);
+     * result.GetDocContent().GetElement(0).AddText("Drawing types: " + types.join(", "));
+     * slide.AddObject(result);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/Drawing/
+     */
+    Drawing(drawing: ApiDrawing): boolean;
+
+    /**
+     * A hook called when the traversal leaves a drawing (a shape, an image, a chart, a group, a table...).
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param drawing - The drawing.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Count the paragraphs of every drawing on a slide with a presentation visitor.
+     *
+     * // The DrawingEnd hook is called after all the text of a drawing has been visited.
+     *
+     * // Add two named shapes with different numbers of paragraphs and write the count for each shape into a new shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const title = Api.CreateShape("rect", 140 * 36000, 60 * 36000, fill, stroke);
+     * title.SetPosition(608400, 1267200);
+     * title.SetName("Title");
+     * title.GetDocContent().GetElement(0).AddText("Project plan");
+     * slide.AddObject(title);
+     * const steps = Api.CreateShape("rect", 140 * 36000, 60 * 36000, fill, stroke);
+     * steps.SetPosition(608400 + 160 * 36000, 1267200);
+     * steps.SetName("Steps");
+     * const content = steps.GetDocContent();
+     * content.GetElement(0).AddText("Design");
+     * const build = Api.CreateParagraph();
+     * build.AddText("Build");
+     * content.Push(build);
+     * slide.AddObject(steps);
+     *
+     * const counts = [];
+     * let paragraphs = 0;
+     * const visitor = slide.GetVisitor();
+     * visitor.Drawing = function () {
+     * 	paragraphs = 0;
+     * 	return false;
+     * };
+     * visitor.Paragraph = function () {
+     * 	paragraphs += 1;
+     * 	return true;
+     * };
+     * visitor.DrawingEnd = function (drawing) {
+     * 	counts.push(drawing.GetName() + ": " + paragraphs);
+     * };
+     * visitor.Traverse();
+     *
+     * const result = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * result.SetPosition(608400, 3600000);
+     * result.GetDocContent().GetElement(0).AddText("Paragraphs per drawing: " + counts.join(", "));
+     * slide.AddObject(result);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/DrawingEnd/
+     */
+    DrawingEnd(drawing: ApiDrawing): boolean;
+
+    /**
+     * A hook called when the traversal enters a slide layout.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param layout - The slide layout.
+     * @returns Return true to skip the content of the slide layout; the LayoutEnd hook is not called then.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // List the names of the slide layouts with a presentation visitor.
+     *
+     * // The Layout hook is called for each slide layout when the traversal runs with the layouts option.
+     *
+     * // Traverse the layouts of the presentation and write their names into a shape on the first slide.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     *
+     * const names = [];
+     * const visitor = presentation.GetVisitor();
+     * visitor.Slide = function () {
+     * 	return true;
+     * };
+     * visitor.Layout = function (layout) {
+     * 	names.push(layout.GetName());
+     * 	return true;
+     * };
+     * visitor.Traverse({layouts: true});
+     *
+     * const result = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * result.SetPosition(608400, 3600000);
+     * result.GetDocContent().GetElement(0).AddText("Layouts: " + names.join(", "));
+     * slide.AddObject(result);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/Layout/
+     */
+    Layout(layout: ApiLayout): boolean;
+
+    /**
+     * A hook called when the traversal leaves a slide layout.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param layout - The slide layout.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Count the drawings on every slide layout with a presentation visitor.
+     *
+     * // The LayoutEnd hook is called after all the drawings of a layout have been visited.
+     *
+     * // Traverse the layouts, count the drawings of each one and write the counts into a shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     *
+     * const counts = [];
+     * let drawings = 0;
+     * const visitor = presentation.GetVisitor();
+     * visitor.Slide = function () {
+     * 	return true;
+     * };
+     * visitor.Layout = function () {
+     * 	drawings = 0;
+     * 	return false;
+     * };
+     * visitor.Drawing = function () {
+     * 	drawings += 1;
+     * 	return true;
+     * };
+     * visitor.LayoutEnd = function (layout) {
+     * 	counts.push(layout.GetName() + ": " + drawings);
+     * };
+     * visitor.Traverse({layouts: true});
+     *
+     * const result = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * result.SetPosition(608400, 3600000);
+     * result.GetDocContent().GetElement(0).AddText(counts.join(", "));
+     * slide.AddObject(result);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/LayoutEnd/
+     */
+    LayoutEnd(layout: ApiLayout): boolean;
+
+    /**
+     * A hook called when the traversal enters a slide master.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param master - The slide master.
+     * @returns Return true to skip the content of the slide master; the MasterEnd hook is not called then.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Report the number of layouts of every slide master with a presentation visitor.
+     *
+     * // The Master hook is called for each slide master when the traversal runs with the masters option.
+     *
+     * // Traverse the masters of the presentation and write their layout counts into a shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     *
+     * const counts = [];
+     * const visitor = presentation.GetVisitor();
+     * visitor.Slide = function () {
+     * 	return true;
+     * };
+     * visitor.Master = function (master) {
+     * 	counts.push(master.GetLayoutsCount());
+     * 	return true;
+     * };
+     * visitor.Traverse({masters: true});
+     *
+     * const result = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * result.SetPosition(608400, 3600000);
+     * result.GetDocContent().GetElement(0).AddText("Layouts per master: " + counts.join(", "));
+     * slide.AddObject(result);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/Master/
+     */
+    Master(master: ApiMaster): boolean;
+
+    /**
+     * A hook called when the traversal leaves a slide master.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param master - The slide master.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Count the drawings of every slide master together with its layouts with a presentation visitor.
+     *
+     * // With the layouts option, the MasterEnd hook is called after the drawings of the master and of all its layouts have been visited.
+     *
+     * // Traverse the masters and layouts, count all their drawings and write the totals into a shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     *
+     * const totals = [];
+     * let drawings = 0;
+     * const visitor = presentation.GetVisitor();
+     * visitor.Slide = function () {
+     * 	return true;
+     * };
+     * visitor.Master = function () {
+     * 	drawings = 0;
+     * 	return false;
+     * };
+     * visitor.Drawing = function () {
+     * 	drawings += 1;
+     * 	return true;
+     * };
+     * visitor.MasterEnd = function () {
+     * 	totals.push(drawings);
+     * };
+     * visitor.Traverse({masters: true, layouts: true});
+     *
+     * const result = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * result.SetPosition(608400, 3600000);
+     * result.GetDocContent().GetElement(0).AddText("Drawings per master with its layouts: " + totals.join(", "));
+     * slide.AddObject(result);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/MasterEnd/
+     */
+    MasterEnd(master: ApiMaster): boolean;
+
+    /**
+     * A hook called when the traversal enters a speaker notes page.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param notesPage - The speaker notes page.
+     * @returns Return true to skip the content of the speaker notes page; the NotesEnd hook is not called then.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Collect the speaker notes of every slide with a presentation visitor.
+     *
+     * // The Notes hook is called for the notes page of each slide when the traversal runs with the notes option.
+     *
+     * // Add notes to two slides and write the notes text of each slide into a shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * slide.AddNotesText("Greet the audience.");
+     * const second = Api.CreateSlide();
+     * presentation.AddSlide(second);
+     * second.AddNotesText("Show the budget chart.");
+     *
+     * const notesTexts = [];
+     * let slideNumber = 0;
+     * const visitor = presentation.GetVisitor();
+     * visitor.Slide = function (currentSlide) {
+     * 	slideNumber = currentSlide.GetSlideIndex() + 1;
+     * 	return false;
+     * };
+     * visitor.Notes = function (notesPage) {
+     * 	const body = notesPage.GetBodyShape();
+     * 	if (body)
+     * 		notesTexts.push("slide " + slideNumber + ": " + body.GetDocContent().GetElement(0).GetText().trim());
+     * 	return true;
+     * };
+     * visitor.Traverse({notes: true});
+     *
+     * const result = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * result.SetPosition(608400, 3600000);
+     * result.GetDocContent().GetElement(0).AddText(notesTexts.join("; "));
+     * slide.AddObject(result);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/Notes/
+     */
+    Notes(notesPage: ApiNotesPage): boolean;
+
+    /**
+     * A hook called when the traversal leaves a speaker notes page.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param notesPage - The speaker notes page.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Count the characters of slides and speaker notes separately with a presentation visitor.
+     *
+     * // The Notes and NotesEnd hooks enclose the notes page, so the Text hook can tell where the text comes from.
+     *
+     * // Add a shape and notes to a slide, count the characters of each part and write the counts into a shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * shape.GetDocContent().GetElement(0).AddText("Quarterly results");
+     * slide.AddObject(shape);
+     * slide.AddNotesText("Mention the growth in the second quarter.");
+     *
+     * let inNotes = false;
+     * let slideCharacters = 0;
+     * let notesCharacters = 0;
+     * const visitor = presentation.GetVisitor();
+     * visitor.Notes = function () {
+     * 	inNotes = true;
+     * 	return false;
+     * };
+     * visitor.NotesEnd = function () {
+     * 	inNotes = false;
+     * };
+     * visitor.Text = function (text) {
+     * 	if (inNotes)
+     * 		notesCharacters += text.length;
+     * 	else
+     * 		slideCharacters += text.length;
+     * };
+     * visitor.Traverse({notes: true});
+     *
+     * const result = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * result.SetPosition(608400, 3600000);
+     * result.GetDocContent().GetElement(0).AddText("Slide characters: " + slideCharacters + ", notes characters: " + notesCharacters);
+     * slide.AddObject(result);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/NotesEnd/
+     */
+    NotesEnd(notesPage: ApiNotesPage): boolean;
+
+    /**
+     * A hook called when the traversal enters a paragraph. Assign a function to it to process paragraphs.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param paragraph - The paragraph.
+     * @param start - With a selection traversal of a partly selected paragraph, the index of the first selected
+     *   element of the paragraph (a run, a hyperlink, an inline content control...); undefined when the
+     *   whole paragraph is traversed.
+     * @param end - With a selection traversal of a partly selected paragraph, the index of the last selected
+     *   element of the paragraph, inclusive; undefined when the whole paragraph is traversed.
+     * @returns Return true to skip the content of the paragraph; the ParagraphEnd hook is not called then.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Make every paragraph that mentions a word bold in a presentation with a presentation visitor.
+     *
+     * // The Paragraph hook receives the paragraphs of shapes, tables and other drawings on all slides.
+     *
+     * // Add shapes to two slides and make bold the paragraphs that contain the word "Deadline".
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const plan = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * plan.SetPosition(608400, 1267200);
+     * plan.GetDocContent().GetElement(0).AddText("Deadline: March 31");
+     * slide.AddObject(plan);
+     * const second = Api.CreateSlide();
+     * presentation.AddSlide(second);
+     * const tasks = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * tasks.SetPosition(608400, 1267200);
+     * const content = tasks.GetDocContent();
+     * content.GetElement(0).AddText("Collect the feedback");
+     * const deadline = Api.CreateParagraph();
+     * deadline.AddText("Deadline: April 15");
+     * content.Push(deadline);
+     * second.AddObject(tasks);
+     *
+     * const visitor = presentation.GetVisitor();
+     * visitor.Paragraph = function (paragraph) {
+     * 	if (paragraph.GetText().indexOf("Deadline") !== -1)
+     * 		paragraph.SetBold(true);
+     * 	return true;
+     * };
+     * visitor.Traverse();
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/Paragraph/
+     */
+    Paragraph(paragraph: ApiParagraph, start?: number, end?: number): boolean;
+
+    /**
+     * A hook called when the traversal leaves a paragraph.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param paragraph - The paragraph.
+     * @param start - With a selection traversal of a partly selected paragraph, the index of the first selected
+     *   element of the paragraph (a run, a hyperlink, an inline content control...); undefined when the
+     *   whole paragraph is traversed.
+     * @param end - With a selection traversal of a partly selected paragraph, the index of the last selected
+     *   element of the paragraph, inclusive; undefined when the whole paragraph is traversed.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Find the longest paragraph of a presentation with a presentation visitor.
+     *
+     * // The ParagraphEnd hook is called after all the text of a paragraph has been visited.
+     *
+     * // Add a shape with three paragraphs, measure the text of each one and make the longest paragraph italic.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * const content = shape.GetDocContent();
+     * content.GetElement(0).AddText("Goals");
+     * const texts = ["Increase the sales in all regions", "Hire staff"];
+     * for (let i = 0; i < texts.length; ++i) {
+     * 	const paragraph = Api.CreateParagraph();
+     * 	paragraph.AddText(texts[i]);
+     * 	content.Push(paragraph);
+     * }
+     * slide.AddObject(shape);
+     *
+     * let length = 0;
+     * let maxLength = -1;
+     * let longest = null;
+     * const visitor = presentation.GetVisitor();
+     * visitor.Paragraph = function () {
+     * 	length = 0;
+     * 	return false;
+     * };
+     * visitor.Text = function (text) {
+     * 	length += text.length;
+     * };
+     * visitor.ParagraphEnd = function (paragraph) {
+     * 	if (length > maxLength) {
+     * 		maxLength = length;
+     * 		longest = paragraph;
+     * 	}
+     * };
+     * visitor.Traverse();
+     *
+     * longest.SetItalic(true);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/ParagraphEnd/
+     */
+    ParagraphEnd(paragraph: ApiParagraph, start?: number, end?: number): boolean;
+
+    /**
+     * A hook called when the traversal enters a text run. A run that contains only the paragraph mark is
+     * skipped.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param run - The run.
+     * @param start - With a selection traversal of a partly selected run, the position of the first selected run
+     *   element (a character, a space, a tab, a line break, a drawing...); undefined when the whole run
+     *   is traversed.
+     * @param end - With a selection traversal of a partly selected run, the position after the last selected run
+     *   element, exclusive; undefined when the whole run is traversed.
+     * @returns Return true to skip the text of the run; the Text and RunEnd hooks are not called for it then.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Underline the bold runs of a presentation with a presentation visitor.
+     *
+     * // The Run hook receives each text run with its formatting, and returning true skips the text of the run.
+     *
+     * // Add a shape with regular and bold runs and underline the bold ones.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * const paragraph = shape.GetDocContent().GetElement(0);
+     * paragraph.AddText("Submit the report ");
+     * const deadline = Api.CreateRun();
+     * deadline.AddText("before Friday");
+     * deadline.SetBold(true);
+     * paragraph.AddElement(deadline);
+     * slide.AddObject(shape);
+     *
+     * const visitor = presentation.GetVisitor();
+     * visitor.Run = function (run) {
+     * 	if (run.GetTextPr().GetBold())
+     * 		run.SetUnderline(true);
+     * 	return true;
+     * };
+     * visitor.Traverse();
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/Run/
+     */
+    Run(run: ApiRun, start?: number, end?: number): boolean;
+
+    /**
+     * A hook called when the traversal leaves a text run.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param run - The run.
+     * @param start - With a selection traversal of a partly selected run, the position of the first selected run
+     *   element (a character, a space, a tab, a line break, a drawing...); undefined when the whole run
+     *   is traversed.
+     * @param end - With a selection traversal of a partly selected run, the position after the last selected run
+     *   element, exclusive; undefined when the whole run is traversed.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Find the longest text run of a presentation with a presentation visitor.
+     *
+     * // The RunEnd hook is called after all the text of a run has been visited.
+     *
+     * // Add a shape with three runs, measure the text of each one and make the longest run italic.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * const paragraph = shape.GetDocContent().GetElement(0);
+     * const texts = ["Short. ", "This run has the longest text. ", "Medium run."];
+     * for (let i = 0; i < texts.length; ++i) {
+     * 	const run = Api.CreateRun();
+     * 	run.AddText(texts[i]);
+     * 	paragraph.AddElement(run);
+     * }
+     * slide.AddObject(shape);
+     *
+     * let length = 0;
+     * let maxLength = -1;
+     * let longest = null;
+     * const visitor = presentation.GetVisitor();
+     * visitor.Run = function () {
+     * 	length = 0;
+     * 	return false;
+     * };
+     * visitor.Text = function (text) {
+     * 	length += text.length;
+     * };
+     * visitor.RunEnd = function (run) {
+     * 	if (length > maxLength) {
+     * 		maxLength = length;
+     * 		longest = run;
+     * 	}
+     * };
+     * visitor.Traverse();
+     *
+     * longest.SetItalic(true);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/RunEnd/
+     */
+    RunEnd(run: ApiRun, start?: number, end?: number): boolean;
+
+    /**
+     * A hook called when the traversal enters a slide.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param slide - The slide.
+     * @returns Return true to skip the content of the slide; the SlideEnd hook is not called then.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Count the drawings on every slide of a presentation with a presentation visitor.
+     *
+     * // The Slide hook receives each slide, and returning true skips the drawings and text of the slide.
+     *
+     * // Add a second slide with two shapes and write the number of drawings on each slide into a shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const title = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * title.SetPosition(608400, 1267200);
+     * title.GetDocContent().GetElement(0).AddText("Overview");
+     * slide.AddObject(title);
+     * const second = Api.CreateSlide();
+     * presentation.AddSlide(second);
+     * for (let i = 0; i < 2; ++i) {
+     * 	const shape = Api.CreateShape("rect", 140 * 36000, 60 * 36000, fill, stroke);
+     * 	shape.SetPosition(608400 + i * 160 * 36000, 1267200);
+     * 	shape.GetDocContent().GetElement(0).AddText("Item " + (i + 1));
+     * 	second.AddObject(shape);
+     * }
+     *
+     * const counts = [];
+     * const visitor = presentation.GetVisitor();
+     * visitor.Slide = function (currentSlide) {
+     * 	counts.push("slide " + (currentSlide.GetSlideIndex() + 1) + ": " + currentSlide.GetAllDrawings().length);
+     * 	return true;
+     * };
+     * visitor.Traverse();
+     *
+     * const result = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * result.SetPosition(608400, 3600000);
+     * result.GetDocContent().GetElement(0).AddText("Drawings per slide: " + counts.join(", "));
+     * slide.AddObject(result);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/Slide/
+     */
+    Slide(slide: ApiSlide): boolean;
+
+    /**
+     * A hook called when the traversal leaves a slide.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param slide - The slide.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Count the paragraphs of every slide with a presentation visitor.
+     *
+     * // The SlideEnd hook is called after all the drawings and text of a slide have been visited.
+     *
+     * // Add shapes to two slides, count the paragraphs of each slide and write the counts into a shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const intro = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * intro.SetPosition(608400, 1267200);
+     * intro.GetDocContent().GetElement(0).AddText("Introduction");
+     * slide.AddObject(intro);
+     * const second = Api.CreateSlide();
+     * presentation.AddSlide(second);
+     * const list = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * list.SetPosition(608400, 1267200);
+     * const content = list.GetDocContent();
+     * content.GetElement(0).AddText("Goals");
+     * const next = Api.CreateParagraph();
+     * next.AddText("Timeline");
+     * content.Push(next);
+     * second.AddObject(list);
+     *
+     * const counts = [];
+     * let paragraphs = 0;
+     * const visitor = presentation.GetVisitor();
+     * visitor.Slide = function () {
+     * 	paragraphs = 0;
+     * 	return false;
+     * };
+     * visitor.Paragraph = function () {
+     * 	paragraphs += 1;
+     * 	return true;
+     * };
+     * visitor.SlideEnd = function () {
+     * 	counts.push(paragraphs);
+     * };
+     * visitor.Traverse();
+     *
+     * const result = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * result.SetPosition(608400, 3600000);
+     * result.GetDocContent().GetElement(0).AddText("Paragraphs per slide: " + counts.join(", "));
+     * slide.AddObject(result);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/SlideEnd/
+     */
+    SlideEnd(slide: ApiSlide): boolean;
+
+    /**
      * Stops the traversal. No further hooks are called after the current one returns.
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Find the first slide that mentions a word and stop the presentation visitor there.
+     *
+     * // How do I stop walking a presentation as soon as the first match is found?
+     *
+     * // Add text to two slides, then stop at the first paragraph containing the search word.
+     *
+     * const presentation = Api.GetPresentation();
+     * const first = presentation.GetSlideByIndex(0);
+     * first.RemoveAllObjects();
+     * const second = Api.CreateSlide();
+     * presentation.AddSlide(second);
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const agenda = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * agenda.SetPosition(608400, 1267200);
+     * agenda.GetDocContent().GetElement(0).AddText("Agenda");
+     * first.AddObject(agenda);
+     * const budget = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * budget.SetPosition(608400, 1267200);
+     * budget.GetDocContent().GetElement(0).AddText("Budget overview");
+     * second.AddObject(budget);
+     *
+     * let slideNumber = 0;
+     * let foundOn = -1;
+     * const visitor = presentation.GetVisitor();
+     * visitor.Slide = function () {
+     * 	slideNumber += 1;
+     * 	return false;
+     * };
+     * visitor.Paragraph = function (paragraph) {
+     * 	if (paragraph.GetText().indexOf("Budget") !== -1) {
+     * 		foundOn = slideNumber;
+     * 		visitor.Stop();
+     * 	}
+     * 	return true;
+     * };
+     * visitor.Traverse();
+     *
+     * const result = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * result.SetPosition(608400, 3600000);
+     * result.GetDocContent().GetElement(0).AddText("Budget is first mentioned on slide " + foundOn);
+     * first.AddObject(result);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/Stop/
      */
     Stop(): boolean;
+
+    /**
+     * A hook called when the traversal enters a table. It is called after the Drawing hook for the same
+     * table.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param table - The table.
+     * @returns Return true to skip the rows of the table; the TableEnd hook is not called then.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Report the size of every table in a presentation with a presentation visitor.
+     *
+     * // The Table hook is called right after the Drawing hook for the same table, and returning true skips the table rows.
+     *
+     * // Add two tables to a slide and write the number of rows and columns of each table into a shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const small = Api.CreateTable(2, 2);
+     * small.SetPosition(608400, 1267200);
+     * slide.AddObject(small);
+     * const large = Api.CreateTable(3, 4);
+     * large.SetPosition(608400 + 160 * 36000, 1267200);
+     * slide.AddObject(large);
+     *
+     * const sizes = [];
+     * const visitor = presentation.GetVisitor();
+     * visitor.Table = function (table) {
+     * 	sizes.push(table.GetRowsCount() + "x" + table.GetRow(0).GetCellsCount());
+     * 	return true;
+     * };
+     * visitor.Traverse();
+     *
+     * const result = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * result.SetPosition(608400, 3600000);
+     * result.GetDocContent().GetElement(0).AddText("Table sizes (rows x columns): " + sizes.join(", "));
+     * slide.AddObject(result);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/Table/
+     */
+    Table(table: ApiTable): boolean;
+
+    /**
+     * A hook called when the traversal enters a table cell.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param cell - The table cell.
+     * @param start - With a selection traversal of a partly selected cell, the index of the first selected element of
+     *   the cell content (a paragraph, a table, a block content control); undefined when the whole cell
+     *   is traversed.
+     * @param end - With a selection traversal of a partly selected cell, the index of the last selected element of
+     *   the cell content, inclusive; undefined when the whole cell is traversed.
+     * @returns Return true to skip the content of the cell; the TableCellEnd hook is not called then.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Shade the table cells that contain a word in a presentation with a presentation visitor.
+     *
+     * // The TableCell hook receives each table cell before its content is visited.
+     *
+     * // Fill a table with task states and shade the cells with the "Done" text.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const table = Api.CreateTable(2, 2);
+     * table.SetPosition(608400, 1267200);
+     * slide.AddObject(table);
+     * table.GetCell(0, 0).GetContent().GetElement(0).AddText("Design");
+     * table.GetCell(0, 1).GetContent().GetElement(0).AddText("Done");
+     * table.GetCell(1, 0).GetContent().GetElement(0).AddText("Testing");
+     * table.GetCell(1, 1).GetContent().GetElement(0).AddText("In progress");
+     *
+     * const visitor = presentation.GetVisitor();
+     * visitor.TableCell = function (cell) {
+     * 	if (cell.GetContent().GetElement(0).GetText().indexOf("Done") !== -1)
+     * 		cell.SetShd(Api.CreateShd("clear", Api.Color("#E2EFDA")));
+     * 	return true;
+     * };
+     * visitor.Traverse();
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/TableCell/
+     */
+    TableCell(cell: ApiTableCell, start?: number, end?: number): boolean;
+
+    /**
+     * A hook called when the traversal leaves a table cell.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param cell - The table cell.
+     * @param start - With a selection traversal of a partly selected cell, the index of the first selected element of
+     *   the cell content (a paragraph, a table, a block content control); undefined when the whole cell
+     *   is traversed.
+     * @param end - With a selection traversal of a partly selected cell, the index of the last selected element of
+     *   the cell content, inclusive; undefined when the whole cell is traversed.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Find the table cell with the longest text in a presentation with a presentation visitor.
+     *
+     * // The TableCellEnd hook is called after all the text of a table cell has been visited.
+     *
+     * // Fill a table, measure the text of each cell and make the longest one bold.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const table = Api.CreateTable(2, 2);
+     * table.SetPosition(608400, 1267200);
+     * slide.AddObject(table);
+     * table.GetCell(0, 0).GetContent().GetElement(0).AddText("Plan");
+     * table.GetCell(0, 1).GetContent().GetElement(0).AddText("Review the quarterly results");
+     * table.GetCell(1, 0).GetContent().GetElement(0).AddText("Budget");
+     * table.GetCell(1, 1).GetContent().GetElement(0).AddText("Approve");
+     *
+     * let length = 0;
+     * let maxLength = -1;
+     * let longest = null;
+     * const visitor = presentation.GetVisitor();
+     * visitor.TableCell = function () {
+     * 	length = 0;
+     * 	return false;
+     * };
+     * visitor.Text = function (text) {
+     * 	length += text.length;
+     * };
+     * visitor.TableCellEnd = function (cell) {
+     * 	if (length > maxLength) {
+     * 		maxLength = length;
+     * 		longest = cell;
+     * 	}
+     * };
+     * visitor.Traverse();
+     *
+     * longest.GetContent().GetElement(0).SetBold(true);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/TableCellEnd/
+     */
+    TableCellEnd(cell: ApiTableCell, start?: number, end?: number): boolean;
+
+    /**
+     * A hook called when the traversal leaves a table.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param table - The table.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Count the cells of every table in a presentation with a presentation visitor.
+     *
+     * // The TableEnd hook is called after all the rows and cells of a table have been visited.
+     *
+     * // Add two tables to a slide, count their cells and write the counts into a shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const small = Api.CreateTable(2, 2);
+     * small.SetPosition(608400, 1267200);
+     * slide.AddObject(small);
+     * const large = Api.CreateTable(3, 4);
+     * large.SetPosition(608400 + 160 * 36000, 1267200);
+     * slide.AddObject(large);
+     *
+     * const counts = [];
+     * let cells = 0;
+     * const visitor = presentation.GetVisitor();
+     * visitor.Table = function () {
+     * 	cells = 0;
+     * 	return false;
+     * };
+     * visitor.TableCell = function () {
+     * 	cells += 1;
+     * 	return true;
+     * };
+     * visitor.TableEnd = function () {
+     * 	counts.push(cells);
+     * };
+     * visitor.Traverse();
+     *
+     * const result = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * result.SetPosition(608400, 3600000);
+     * result.GetDocContent().GetElement(0).AddText("Cells per table: " + counts.join(", "));
+     * slide.AddObject(result);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/TableEnd/
+     */
+    TableEnd(table: ApiTable): boolean;
+
+    /**
+     * A hook called when the traversal enters a table row.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param row - The table row.
+     * @returns Return true to skip the cells of the row; the TableRowEnd hook is not called then.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Number the rows of every table in a presentation with a presentation visitor.
+     *
+     * // The TableRow hook is called for each table row before its cells are visited.
+     *
+     * // Add a table to a slide and write the row number into the first cell of each row.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const table = Api.CreateTable(3, 2);
+     * table.SetPosition(608400, 1267200);
+     * slide.AddObject(table);
+     *
+     * const visitor = presentation.GetVisitor();
+     * visitor.TableRow = function (row) {
+     * 	row.GetCell(0).GetContent().GetElement(0).AddText("Row " + (row.GetIndex() + 1));
+     * 	return true;
+     * };
+     * visitor.Traverse();
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/TableRow/
+     */
+    TableRow(row: ApiTableRow): boolean;
+
+    /**
+     * A hook called when the traversal leaves a table row.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param row - The table row.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Count the filled cells of each table row in a presentation with a presentation visitor.
+     *
+     * // The TableRowEnd hook is called after all the cells of a row have been visited.
+     *
+     * // Fill some cells of a table, count the filled cells per row and write the counts into a shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const table = Api.CreateTable(2, 3);
+     * table.SetPosition(608400, 1267200);
+     * slide.AddObject(table);
+     * table.GetCell(0, 0).GetContent().GetElement(0).AddText("Name");
+     * table.GetCell(0, 1).GetContent().GetElement(0).AddText("Role");
+     * table.GetCell(1, 2).GetContent().GetElement(0).AddText("Remote");
+     *
+     * const counts = [];
+     * let filled = 0;
+     * const visitor = presentation.GetVisitor();
+     * visitor.TableRow = function () {
+     * 	filled = 0;
+     * 	return false;
+     * };
+     * visitor.TableCell = function (cell) {
+     * 	if (cell.GetContent().GetElement(0).GetText().trim() !== "")
+     * 		filled += 1;
+     * 	return true;
+     * };
+     * visitor.TableRowEnd = function () {
+     * 	counts.push(filled);
+     * };
+     * visitor.Traverse();
+     *
+     * const result = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * result.SetPosition(608400, 3600000);
+     * result.GetDocContent().GetElement(0).AddText("Filled cells per row: " + counts.join(", "));
+     * slide.AddObject(result);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/TableRowEnd/
+     */
+    TableRowEnd(row: ApiTableRow): boolean;
+
+    /**
+     * A hook called with the text of a run. Letters, spaces, tabs ("\t") and line breaks ("\n") that
+     * follow one another come as one string; any other run element splits the text into separate calls.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param text - The text.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Count the words of a presentation, including speaker notes, with a presentation visitor.
+     *
+     * // The Text hook receives the text of all runs, and with the notes option it also receives the text of the speaker notes.
+     *
+     * // Add a shape and notes to a slide, count their words and write the result into a shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * shape.GetDocContent().GetElement(0).AddText("The quarterly report is ready.");
+     * slide.AddObject(shape);
+     * slide.AddNotesText("Please review it before the meeting.");
+     *
+     * let text = "";
+     * const visitor = presentation.GetVisitor();
+     * visitor.Text = function (piece) {
+     * 	text += piece;
+     * };
+     * visitor.ParagraphEnd = function () {
+     * 	text += " ";
+     * };
+     * visitor.Traverse({notes: true});
+     *
+     * const words = text.split(/\s+/).filter(function (word) {
+     * 	return word !== "";
+     * });
+     * const result = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * result.SetPosition(608400, 3600000);
+     * result.GetDocContent().GetElement(0).AddText("Words: " + words.length);
+     * slide.AddObject(result);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/Text/
+     */
+    Text(text: string): boolean;
 
     /**
      * Traverses the object the visitor was created from and calls the assigned hooks for every node.
@@ -23978,6 +27095,38 @@ export namespace Slide {
      * @default options.masters = false
      * @default options.layouts = false
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Replace a word everywhere in a presentation, including notes and masters, keeping the formatting.
+     *
+     * // How do I replace text on slides, speaker notes, layouts and masters without losing run formatting?
+     *
+     * // Traverse with all options enabled and rewrite each run that contains the word being replaced.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * shape.GetDocContent().GetElement(0).AddText("Draft agenda");
+     * slide.AddObject(shape);
+     * slide.AddNotesText("Draft speaker notes");
+     *
+     * const visitor = presentation.GetVisitor();
+     * visitor.Run = function (run) {
+     * 	const text = run.GetText();
+     * 	if (text.indexOf("Draft") === -1)
+     * 		return true;
+     * 	run.ClearContent();
+     * 	run.AddText(text.split("Draft").join("Final"));
+     * 	return true;
+     * };
+     * visitor.Traverse({notes: true, masters: true, layouts: true});
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiPresentationVisitor/Methods/Traverse/
      */
@@ -24066,13 +27215,6 @@ export namespace Slide {
     GetClassType(): "rgbColor";
   }
 
-  /**
-   * Class representing a continuous region in a document.
-   * Each Range object is determined by the position of the start and end characters.
-   */
-  export interface ApiRange {
-  }
-
   /** @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/ */
   export interface ApiRangeTextPr extends ApiTextPr {
     /**
@@ -24123,11 +27265,13 @@ export namespace Slide {
      *
      * The method automatically calculates the font from the theme if the font was set via the theme.
      *
+     * @param fontSlot - The font slot. If this parameter is not specified, the "ascii" value is used.
+     * @default fontSlot = "ascii"
      * @since 8.1.0
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetFontFamily/
      */
-    GetFontFamily(): string | null;
+    GetFontFamily(fontSlot?: "ascii" | "eastAsia" | "hAnsi" | "cs"): string | null;
 
     /**
      * Gets the font size from the current text properties.
@@ -24155,6 +27299,15 @@ export namespace Slide {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetItalic/
      */
     GetItalic(): boolean | null;
+
+    /**
+     * Gets the language from the current text properties.
+     *
+     * @since 8.1.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetLanguage/
+     */
+    GetLanguage(): string | null;
 
     /**
      * Gets the text outline from the current text properties.
@@ -24194,15 +27347,6 @@ export namespace Slide {
     GetStrikeout(): boolean | null;
 
     /**
-     * Gets the text fill from the current text properties.
-     *
-     * @since 8.1.0
-     *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetTextFill/
-     */
-    GetTextFill(): ApiFill;
-
-    /**
      * Gets the underline property from the current text properties.
      *
      * @since 8.1.0
@@ -24231,6 +27375,17 @@ export namespace Slide {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetCaps/
      */
     SetCaps(isCaps: boolean): ApiTextPr;
+
+    /**
+     * Sets the text color to the current text run.
+     *
+     * @param color - The text color. Pass _null_ to remove the text color.
+     * @returns this text properties.
+     * @since 9.1.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetColor/
+     */
+    SetColor(color: ApiColor | null): ApiTextPr;
 
     /**
      * Specifies that the contents of the run are displayed with two horizontal lines through each
@@ -24296,6 +27451,19 @@ export namespace Slide {
     SetItalic(isItalic: boolean): ApiTextPr;
 
     /**
+     * Specifies the languages which will be used to check spelling and grammar (if requested) when
+     * processing
+     * the contents of the text run.
+     *
+     * @param langId - The possible value for this parameter is a language identifier as defined by RFC 4646/BCP 47.
+     *   Example: "en-CA". Pass _null_ to remove the language.
+     * @returns this text properties.
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetLanguage/
+     */
+    SetLanguage(langId: string | null): ApiTextPr;
+
+    /**
      * Sets the text outline to the current text run.
      *
      * @param oStroke - The stroke used to create the text outline.
@@ -24340,16 +27508,6 @@ export namespace Slide {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetStrikeout/
      */
     SetStrikeout(isStrikeout: boolean): ApiTextPr;
-
-    /**
-     * Sets the text fill to the current text run.
-     *
-     * @param oApiFill - The color or pattern used to fill the text color.
-     * @returns this text properties.
-     *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetTextFill/
-     */
-    SetTextFill(oApiFill: ApiFill): ApiTextPr;
 
     /**
      * Specifies that the contents of the run are displayed along with a line appearing directly below the
@@ -24423,7 +27581,10 @@ export namespace Slide {
     AddLineBreak(): boolean;
 
     /**
-     * Adds a tab stop to the current run.
+     * Adds a tab character to the end of the current run.
+     * Use the AddText method with the "\t" character instead.
+     *
+     * @deprecated since 10.0.3 version.
      *
      * @example
      * ```js
@@ -24805,6 +27966,8 @@ export namespace Slide {
      *
      * The method automatically calculates the font from the theme if the font was set via the theme.
      *
+     * @param fontSlot - The font slot. If this parameter is not specified, the "ascii" value is used.
+     * @default fontSlot = "ascii"
      * @since 8.1.0
      *
      * @example
@@ -24842,7 +28005,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetFontFamily/
      */
-    GetFontFamily(): string | null;
+    GetFontFamily(fontSlot?: "ascii" | "eastAsia" | "hAnsi" | "cs"): string | null;
 
     /**
      * Returns all font names from all elements inside the current run.
@@ -25016,6 +28179,15 @@ export namespace Slide {
     GetItalic(): boolean | null;
 
     /**
+     * Gets the language from the current text properties.
+     *
+     * @since 8.1.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetLanguage/
+     */
+    GetLanguage(): string | null;
+
+    /**
      * Gets the text outline from the current text properties.
      *
      * @since 8.1.0
@@ -25183,47 +28355,19 @@ export namespace Slide {
     GetStrikeout(): boolean | null;
 
     /**
-     * Gets the text fill from the current text properties.
+     * Returns a text from the text run.
      *
-     * @since 8.1.0
+     * @param options - Options for formatting the returned text.
+     * @param options.NewLineSeparator - Defines how the line separator will be specified in the resulting string. Any symbol can be
+     *   used. The default separator is "\r".
+     * @param options.TabSymbol - Defines how the tab will be specified in the resulting string. Any symbol can be used. The
+     *   default symbol is "\t".
+     * @default options.NewLineSeparator = '\r'
+     * @default options.TabSymbol = '\t'
      *
-     * @example
-     * ```js
-     * // How do I check what color is applied to text in a presentation?
-     *
-     * // Get the fill property of text to retrieve the color or fill style in a presentation.
-     *
-     * const presentation = Api.GetPresentation();
-     * const slide = presentation.GetSlideByIndex(0);
-     * slide.RemoveAllObjects();
-     *
-     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
-     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
-     * const shape = Api.CreateShape("flowChartMagneticTape", 300 * 36000, 130 * 36000, fill, stroke);
-     * shape.SetPosition(608400, 1267200);
-     *
-     * const docContent = shape.GetDocContent();
-     * let paragraph = docContent.GetElement(0);
-     * const run = Api.CreateRun();
-     * run.AddText("This is just a sample text. ");
-     * run.AddText("The text properties are changed and the style is added to the paragraph. ");
-     * run.AddLineBreak();
-     * paragraph.AddElement(run);
-     * const textPr = run.GetTextPr();
-     * fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
-     * textPr.SetTextFill(fill);
-     * slide.AddObject(shape);
-     *
-     * paragraph = Api.CreateParagraph();
-     * fill = textPr.GetTextFill();
-     * const type = fill.GetClassType();
-     * paragraph.AddText("Text fill type: " + type);
-     * docContent.Push(paragraph);
-     * ```
-     *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetTextFill/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiRun/Methods/GetText/
      */
-    GetTextFill(): ApiFill;
+    GetText(options?: { NewLineSeparator?: string; TabSymbol?: string }): string;
 
     /**
      * Returns the text properties of the current run.
@@ -25267,6 +28411,34 @@ export namespace Slide {
      * @default start = 0
      * @returns returns null if the specified range is empty.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Colour a part of a text run of a shape on a slide through a text range.
+     *
+     * // Positions are counted from the beginning of the run, so the rest of the paragraph is untouched.
+     *
+     * // Take the range of the first word of the run and paint it red.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * slide.AddObject(shape);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * const run = Api.CreateRun();
+     * run.AddText("Hello World");
+     * paragraph.AddElement(run);
+     *
+     * const range = run.GetTextRange(0, 5);
+     * range.SetColor(Api.RGB(255, 0, 0));
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiRun/Methods/GetTextRange/
      */
@@ -25421,6 +28593,45 @@ export namespace Slide {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetCaps/
      */
     SetCaps(isCaps: boolean): ApiTextPr;
+
+    /**
+     * Sets the text color to the current text run.
+     *
+     * @param color - The text color. Pass _null_ to remove the text color.
+     * @returns this text properties.
+     * @since 9.1.0
+     *
+     * @example
+     * ```js
+     * // What colors can be applied to text in a presentation?
+     *
+     * // Change the font color of text runs in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.HexColor('#5B9BD5'));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape(
+     * 	'rect',
+     * 	Api.MillimetersToEmus(120), Api.MillimetersToEmus(40),
+     * 	fill, stroke
+     * );
+     * shape.SetPosition(Api.MillimetersToEmus(10), Api.MillimetersToEmus(20));
+     *
+     * const content = shape.GetContent();
+     * const paragraph = content.GetElement(0);
+     * const run = Api.CreateRun();
+     * run.AddText('This is a text run with the font color set to light blue.');
+     * paragraph.AddElement(run);
+     * run.SetColor(Api.HexColor('#aad3ff'));
+     * slide.AddObject(shape);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetColor/
+     */
+    SetColor(color: ApiColor | null): ApiTextPr;
 
     /**
      * Specifies that the contents of the run are displayed with two horizontal lines through each
@@ -25651,6 +28862,43 @@ export namespace Slide {
     SetItalic(isItalic: boolean): ApiTextPr;
 
     /**
+     * Specifies the languages which will be used to check spelling and grammar (if requested) when
+     * processing
+     * the contents of the text run.
+     *
+     * @param langId - The possible value for this parameter is a language identifier as defined by RFC 4646/BCP 47.
+     *   Example: "en-CA". Pass _null_ to remove the language.
+     * @returns this text properties.
+     *
+     * @example
+     * ```js
+     * // Configure the language for grammar checking on text content in a presentation.
+     *
+     * // Create a text run and assign a language code for grammar processing.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("flowChartMagneticTape", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * const run = Api.CreateRun();
+     * run.AddText("This is a text run with the text language set to English (Canada).");
+     * paragraph.AddElement(run);
+     * run.SetLanguage("en-CA");
+     * slide.AddObject(shape);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetLanguage/
+     */
+    SetLanguage(langId: string | null): ApiTextPr;
+
+    /**
      * Sets the text outline to the current text run.
      *
      * @param oStroke - The stroke used to create the text outline.
@@ -25815,27 +29063,19 @@ export namespace Slide {
      * @returns The current run.
      * @since 10.0.0
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiRun/Methods/SetText/
-     */
-    SetText(text: string | number[]): ApiRun;
-
-    /**
-     * Sets the text fill to the current text run.
-     *
-     * @param oApiFill - The color or pattern used to fill the text color.
-     * @returns this text properties.
-     *
      * @example
      * ```js
-     * // What fill colors can be applied to text in a presentation?
+     * // Replace the whole text of a run in one call in a presentation.
      *
-     * // Set the solid color that fills the text characters in a presentation.
+     * // How do I replace the text of a run without losing its formatting in a presentation?
+     *
+     * // Swap the wording of a run on a slide while its formatting stays in place in a presentation.
      *
      * const presentation = Api.GetPresentation();
      * const slide = presentation.GetSlideByIndex(0);
      * slide.RemoveAllObjects();
      *
-     * let fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
      * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
      * const shape = Api.CreateShape("flowChartMagneticTape", 300 * 36000, 130 * 36000, fill, stroke);
      * shape.SetPosition(608400, 1267200);
@@ -25843,19 +29083,17 @@ export namespace Slide {
      * const docContent = shape.GetDocContent();
      * const paragraph = docContent.GetElement(0);
      * const run = Api.CreateRun();
-     * const textPr = run.GetTextPr();
-     * textPr.SetFontSize(50);
-     * fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
-     * textPr.SetTextFill(fill);
-     * paragraph.SetJc("left");
-     * run.AddText("This is a sample text inside the shape with the black text fill set using the text properties.");
+     * run.SetBold(true);
+     * run.SetFontSize(30);
+     * run.AddText("Draft wording.");
      * paragraph.AddElement(run);
+     * run.SetText("Final wording, still bold.");
      * slide.AddObject(shape);
      * ```
      *
-     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetTextFill/
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiRun/Methods/SetText/
      */
-    SetTextFill(oApiFill: ApiFill): ApiTextPr;
+    SetText(text: string | number[]): ApiRun;
 
     /**
      * Sets the text properties to the current run.
@@ -26032,10 +29270,6 @@ export namespace Slide {
     GetClassType(): "schemeColor";
   }
 
-  /** Class representing a document section. */
-  export interface ApiSection {
-  }
-
   /**
    * Class representing the selection in the presentation.
    *
@@ -26127,6 +29361,35 @@ export namespace Slide {
      *
      * @returns returns null if the selection is not in the text of a shape, a table cell or the speaker notes.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the selected text of a shape as a text range in a presentation.
+     *
+     * // How do I work with exactly the text the user has selected in a presentation?
+     *
+     * // Select a word of a shape, make the selected text bold and show it in a second paragraph of the shape in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Only the selected word becomes bold");
+     * slide.AddObject(shape);
+     *
+     * paragraph.GetTextRange(9, 17).Select();
+     * const range = Api.GetSelection().GetTextRange();
+     * range.SetBold(true);
+     * const resultParagraph = Api.CreateParagraph();
+     * resultParagraph.AddText("Selected text: " + range.GetText());
+     * docContent.Push(resultParagraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiSelection/Methods/GetTextRange/
      */
@@ -26226,6 +29489,28 @@ export namespace Slide {
     /**
      * Returns a type of the ApiShadow class.
      *
+     * @example
+     * ```js
+     * // Get the class type of a shadow object in a presentation.
+     *
+     * // Confirm that an object created by Api.CreateShadow reports itself as a shadow.
+     *
+     * // Create a shadow, apply it to a shape, and print the shadow class type inside the shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 213, 191));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 120 * 36000, 60 * 36000, fill, stroke);
+     * shape.SetPosition(40 * 36000, 40 * 36000);
+     * slide.AddObject(shape);
+     * const shadow = Api.CreateShadow({ color: Api.RGB(0, 0, 0), offsetX: 3, offsetY: 3 });
+     * shape.SetShadow(shadow);
+     * const classType = shadow.GetClassType();
+     * shape.GetContent().GetElement(0).AddText("Shadow class type: " + classType);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShadow/Methods/GetClassType/
      */
     GetClassType(): "shadow";
@@ -26234,6 +29519,27 @@ export namespace Slide {
      * Returns the settings of the current shadow.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the settings of a shadow applied to a drawing in a presentation.
+     *
+     * // Retrieve the shadow object and inspect its transparency, offset and size.
+     *
+     * // Set a shadow, read its settings with GetSettings, and print the values inside the shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 213, 191));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 160 * 36000, 80 * 36000, fill, stroke);
+     * shape.SetPosition(40 * 36000, 40 * 36000);
+     * slide.AddObject(shape);
+     * shape.SetShadow(Api.CreateShadow({ color: Api.RGB(0, 0, 0), transparency: 0.5, offsetX: 3, offsetY: 3 }));
+     * const settings = shape.GetShadow().GetSettings();
+     * shape.GetContent().GetElement(0).AddText("Shadow transparency " + settings.transparency + ", offset " + Math.round(settings.offsetX) + " x " + Math.round(settings.offsetY) + ", size " + settings.size + "%");
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShadow/Methods/GetSettings/
      */
@@ -26245,7 +29551,38 @@ export namespace Slide {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShape/
    */
-  export interface ApiShape extends Omit<ApiDrawing, "GetClassType"> {
+  export interface ApiShape extends Omit<ApiDrawing, "Copy" | "GetClassType"> {
+    /**
+     * Creates a copy of the current shape.
+     *
+     * @since 9.4.0
+     *
+     * @example
+     * ```js
+     * // How do I make a copy of a shape in a presentation?
+     *
+     * // Create an exact duplicate of a shape and add it to a new slide in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("flowChartMagneticTape", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * slide.AddObject(shape);
+     *
+     * const copyShape = shape.Copy();
+     * const newSlide = Api.CreateSlide();
+     * presentation.AddSlide(newSlide);
+     * newSlide.AddObject(copyShape);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShape/Methods/Copy/
+     */
+    Copy(): ApiShape;
+
     /**
      * Returns the type of the ApiShape class.
      *
@@ -26440,6 +29777,9 @@ export namespace Slide {
 
     /**
      * Returns an internal ID of the current drawing object.
+     * The internal ID is valid only for the current editing session: it stays the same while the
+     * presentation is open,
+     * but it is not saved to the file and can be different after the presentation is reopened.
      *
      * @example
      * ```js
@@ -26746,12 +30086,69 @@ export namespace Slide {
      * @returns The text autofit type.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the text autofit type currently applied to a shape.
+     *
+     * // Apply an autofit type with SetTextFit, then retrieve it back.
+     *
+     * // The retrieved value is added to the shape as text and equals "autoFit".
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(60, 50, 80));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     *
+     * const shape = Api.CreateShape(
+     * 	'rect',
+     * 	Api.MillimetersToEmus(100), Api.MillimetersToEmus(40),
+     * 	fill, stroke
+     * );
+     * shape.SetPosition(Api.MillimetersToEmus(50), Api.MillimetersToEmus(50));
+     * shape.SetTextFit('autoFit');
+     * slide.AddObject(shape);
+     *
+     * const fitType = shape.GetTextFit();
+     * const paragraph = shape.GetContent().GetElement(0);
+     * paragraph.AddText('Current text fit: ' + fitType);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShape/Methods/GetTextFit/
      */
     GetTextFit(): TextFitType;
 
     /**
      * Gets the vertical alignment from the shape content where a paragraph or text runs can be inserted.
+     *
+     * @example
+     * ```js
+     * // Read the vertical text alignment of a shape in a presentation.
+     *
+     * // Useful for verifying vertical text placement before adjusting shape layout in a presentation.
+     *
+     * // Retrieve the current vertical alignment of a shape's inner content in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * presentation.SetSizes(254 * 36000, 190 * 36000);
+     * const slide = presentation.GetCurrentSlide();
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("flowChartOnlineStorage", 200 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * shape.SetVerticalTextAlign("center");
+     * const verticalAlign = shape.GetVerticalTextAlign();
+     * const docContent = shape.GetDocContent();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.SetJc("left");
+     * paragraph.AddText("The shape vertical text alignment is: " + verticalAlign);
+     * docContent.Push(paragraph);
+     * slide.AddObject(shape);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShape/Methods/GetVerticalTextAlign/
      */
@@ -26778,6 +30175,46 @@ export namespace Slide {
      *
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 9.4.0
+     *
+     * @example
+     * ```js
+     * // Recalculate the text autofit of shapes after their text is changed.
+     *
+     * // Set the autofit types to empty shapes and then add a long text to them.
+     *
+     * // After the script is executed, the first shape is resized to fit the text and the text of the second shape is shrunk to fit the shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const longText = 'This long text is added to the shape after its autofit type is set, so the autofit is recalculated for the new text.';
+     *
+     * const shape1 = Api.CreateShape(
+     * 	'rect',
+     * 	Api.MillimetersToEmus(100), Api.MillimetersToEmus(20),
+     * 	Api.CreateSolidFill(Api.RGB(60, 50, 80)), stroke
+     * );
+     * shape1.SetPosition(Api.MillimetersToEmus(60), Api.MillimetersToEmus(40));
+     * shape1.SetTextFit('autoFit');
+     * slide.AddObject(shape1);
+     *
+     * const shape2 = Api.CreateShape(
+     * 	'rect',
+     * 	Api.MillimetersToEmus(100), Api.MillimetersToEmus(20),
+     * 	Api.CreateSolidFill(Api.RGB(75, 55, 55)), stroke
+     * );
+     * shape2.SetPosition(Api.MillimetersToEmus(180), Api.MillimetersToEmus(40));
+     * shape2.SetTextFit('normAutoFit');
+     * slide.AddObject(shape2);
+     *
+     * shape1.GetDocContent().GetElement(0).AddText('autoFit: ' + longText);
+     * shape2.GetDocContent().GetElement(0).AddText('normAutoFit: ' + longText);
+     *
+     * shape1.RecalculateAutoFit();
+     * shape2.RecalculateAutoFit();
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShape/Methods/RecalculateAutoFit/
      */
@@ -27096,9 +30533,9 @@ export namespace Slide {
     /**
      * Sets the position of the drawing on the slide.
      *
-     * @param nPosX - The distance from the left side of the slide to the left side of the drawing measured in English
+     * @param posX - The distance from the left side of the slide to the left side of the drawing measured in English
      *   measure units.
-     * @param nPosY - The distance from the top side of the slide to the upper side of the drawing measured in English
+     * @param posY - The distance from the top side of the slide to the upper side of the drawing measured in English
      *   measure units.
      *
      * @example
@@ -27128,7 +30565,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/SetPosition/
      */
-    SetPosition(nPosX: EMU, nPosY: EMU): void;
+    SetPosition(posX: EMU, posY: EMU): void;
 
     /**
      * Sets the text autofit type to the current shape.
@@ -27136,6 +30573,51 @@ export namespace Slide {
      * @param fitType - The text autofit type.
      * @returns returns false if the type is invalid or the shape doesn't exist.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set different text fit types to shapes on a slide.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const longText = 'This is a long text to demonstrate how the text fit setting works inside the shape.';
+     *
+     * const shape1 = Api.CreateShape(
+     * 	'rect',
+     * 	Api.MillimetersToEmus(70), Api.MillimetersToEmus(30),
+     * 	Api.CreateSolidFill(Api.RGB(60, 50, 80)), stroke
+     * );
+     * shape1.SetPosition(Api.MillimetersToEmus(5), Api.MillimetersToEmus(30));
+     * const paragraph1 = shape1.GetContent().GetElement(0);
+     * paragraph1.AddText('noAutoFit: ' + longText);
+     * shape1.SetTextFit('noAutoFit');
+     * slide.AddObject(shape1);
+     *
+     * const shape2 = Api.CreateShape(
+     * 	'rect',
+     * 	Api.MillimetersToEmus(70), Api.MillimetersToEmus(30),
+     * 	Api.CreateSolidFill(Api.RGB(50, 75, 65)), stroke
+     * );
+     * shape2.SetPosition(Api.MillimetersToEmus(85), Api.MillimetersToEmus(30));
+     * const paragraph2 = shape2.GetContent().GetElement(0);
+     * paragraph2.AddText('autoFit: ' + longText);
+     * shape2.SetTextFit('autoFit');
+     * slide.AddObject(shape2);
+     *
+     * const shape3 = Api.CreateShape(
+     * 	'rect',
+     * 	Api.MillimetersToEmus(70), Api.MillimetersToEmus(30),
+     * 	Api.CreateSolidFill(Api.RGB(75, 55, 55)), stroke
+     * );
+     * shape3.SetPosition(Api.MillimetersToEmus(165), Api.MillimetersToEmus(30));
+     * const paragraph3 = shape3.GetContent().GetElement(0);
+     * paragraph3.AddText('normAutoFit: ' + longText);
+     * shape3.SetTextFit('normAutoFit');
+     * slide.AddObject(shape3);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShape/Methods/SetTextFit/
      */
@@ -27188,6 +30670,27 @@ export namespace Slide {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Retrieve the class type of a shading object on a slide.
+     *
+     * // Confirm the type name of a shading object before applying it on a slide.
+     *
+     * // Shade a table cell and write the class type of the shading into it.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const table = Api.CreateTable(2, 2);
+     * const cell = table.GetRow(1).GetCell(0);
+     * const shd = Api.CreateShd('clear', Api.Color('#DDEBF7'));
+     * cell.SetShd(shd);
+     * cell.AddText('Class type = ' + shd.GetClassType());
+     *
+     * slide.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShd/Methods/GetClassType/
      */
     GetClassType(): "shd";
@@ -27197,6 +30700,27 @@ export namespace Slide {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Retrieve the color of a shading object on a slide.
+     *
+     * // Read back the color stored in a shading object on a slide.
+     *
+     * // Shade a table cell and write the shading color into it.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const table = Api.CreateTable(2, 2);
+     * const cell = table.GetRow(1).GetCell(0);
+     * const shd = Api.CreateShd('clear', Api.Color('#FCE4D6'));
+     * cell.SetShd(shd);
+     * cell.AddText('Shading color = ' + shd.GetColor().GetHex());
+     *
+     * slide.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShd/Methods/GetColor/
      */
     GetColor(): ApiColor | null;
@@ -27205,6 +30729,27 @@ export namespace Slide {
      * Returns the shading type.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Retrieve the type of a shading object on a slide.
+     *
+     * // Check whether a shading fills the background before applying it on a slide.
+     *
+     * // Shade a table cell and write the shading type into it.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const table = Api.CreateTable(2, 2);
+     * const cell = table.GetRow(1).GetCell(0);
+     * const shd = Api.CreateShd('clear', Api.Color('#E2EFDA'));
+     * cell.SetShd(shd);
+     * cell.AddText('Shading type = ' + shd.GetType());
+     *
+     * slide.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShd/Methods/GetType/
      */
@@ -27824,6 +31369,29 @@ export namespace Slide {
      * @returns returns null if the slide doesn't exist or has no background fill.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Return the background of the current presentation slide.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.HexColor('3D5A6E'));
+     * slide.SetBackground(fill);
+     *
+     * const bgFill = slide.GetBackground();
+     *
+     * const stroke = Api.CreateStroke(Api.MillimetersToEmus(3), Api.CreateSolidFill(Api.HexColor('FFFFFF')));
+     * const shape = Api.CreateShape('rect', Api.MillimetersToEmus(80), Api.MillimetersToEmus(60), bgFill, stroke);
+     * shape.SetPosition(Api.MillimetersToEmus(80), Api.MillimetersToEmus(-20));
+     * slide.AddObject(shape);
+     *
+     * const content = shape.GetContent();
+     * const paragraph = content.GetElement(0);
+     * paragraph.AddText('This shape has the same background fill as the slide and white border.');
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiSlide/Methods/GetBackground/
      */
     GetBackground(): ApiFill | null;
@@ -28192,6 +31760,40 @@ export namespace Slide {
      * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Collect all text of a slide, including its speaker notes, with a slide visitor.
+     *
+     * // How do I read every paragraph of a slide together with its notes in a presentation?
+     *
+     * // Add a shape and notes to the first slide, then gather their paragraphs into one string.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(51, 51, 51));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * shape.GetDocContent().GetElement(0).AddText("Slide body");
+     * slide.AddObject(shape);
+     * slide.AddNotesText("Remember to greet the audience.");
+     *
+     * const collected = [];
+     * const visitor = slide.GetVisitor();
+     * visitor.Paragraph = function (paragraph) {
+     * 	collected.push(paragraph.GetText().trim());
+     * 	return true;
+     * };
+     * visitor.Traverse({notes: true});
+     *
+     * const result = Api.CreateShape("rect", 300 * 36000, 60 * 36000, fill, stroke);
+     * result.SetPosition(608400, 3600000);
+     * result.GetDocContent().GetElement(0).AddText(collected.join(" | "));
+     * slide.AddObject(result);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiSlide/Methods/GetVisitor/
      */
     GetVisitor(): ApiPresentationVisitor;
@@ -28369,6 +31971,27 @@ export namespace Slide {
      * @default isMatchCase = false
      * @default isWholeWords = false
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Find every occurrence of a word on a single slide and make the last match bold.
+     *
+     * // Search is scoped to this slide (including its notes) and returns each match as a text range.
+     *
+     * // Add a shape with repeated text, search the slide for a keyword, and embolden the final result.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const shape = Api.CreateShape("rect", 300 * 36000, 100 * 36000);
+     * shape.SetPosition(608400, 1267200);
+     * slide.AddObject(shape);
+     * shape.GetTextRange().SetText("Sample text with a sample word and one more sample.");
+     *
+     * const results = slide.Search("sample");
+     * results[results.length - 1].SetBold(true);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiSlide/Methods/Search/
      */
@@ -29123,6 +32746,9 @@ export namespace Slide {
 
     /**
      * Returns an internal ID of the current drawing object.
+     * The internal ID is valid only for the current editing session: it stays the same while the
+     * presentation is open,
+     * but it is not saved to the file and can be different after the presentation is reopened.
      *
      * @example
      * ```js
@@ -29572,9 +33198,9 @@ export namespace Slide {
     /**
      * Sets the position of the drawing on the slide.
      *
-     * @param nPosX - The distance from the left side of the slide to the left side of the drawing measured in English
+     * @param posX - The distance from the left side of the slide to the left side of the drawing measured in English
      *   measure units.
-     * @param nPosY - The distance from the top side of the slide to the upper side of the drawing measured in English
+     * @param posY - The distance from the top side of the slide to the upper side of the drawing measured in English
      *   measure units.
      *
      * @example
@@ -29604,7 +33230,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/SetPosition/
      */
-    SetPosition(nPosX: EMU, nPosY: EMU): void;
+    SetPosition(posX: EMU, posY: EMU): void;
   }
 
   /**
@@ -29618,6 +33244,31 @@ export namespace Slide {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the beginning arrow of a line in a presentation.
+     *
+     * // How do I find out which arrow is applied to the start of a line in a presentation?
+     *
+     * // Apply a beginning arrow to a line's stroke, read it back, and label the result in a presentation.
+     *
+     * let presentation = Api.GetPresentation();
+     * let slide = presentation.GetSlideByIndex(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(36000, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let line = Api.CreateShape("line", 100 * 36000, 50 * 36000, fill, stroke);
+     * line.SetPosition(2000000, 1000000);
+     * slide.AddObject(line);
+     * let retrievedStroke = line.GetLine();
+     * retrievedStroke.SetBeginArrow("triangle", "medium", "large");
+     * let arrow = retrievedStroke.GetBeginArrow();
+     *
+     * let label = Api.CreateShape("rect", 120 * 36000, 30 * 36000, fill, Api.CreateStroke(0, Api.CreateNoFill()));
+     * label.SetPosition(2000000, 3000000);
+     * slide.AddObject(label);
+     * label.GetDocContent().GetElement(0).AddText("Begin arrow type: " + (arrow ? arrow.Type : "not set"));
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStroke/Methods/GetBeginArrow/
      */
     GetBeginArrow(): { Type: LineEndType; Width: LineEndSize; Length: LineEndSize } | null;
@@ -29626,6 +33277,31 @@ export namespace Slide {
      * Returns the cap type of the stroke.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the cap type of a shape border in a presentation.
+     *
+     * // Get the cap type to find out how the stroke ends are drawn.
+     *
+     * // Apply a round cap to a line's stroke, then read back its cap type in a presentation.
+     *
+     * let presentation = Api.GetPresentation();
+     * let slide = presentation.GetSlideByIndex(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(8 * 12700, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let line = Api.CreateShape("line", 100 * 36000, 50 * 36000, fill, stroke);
+     * line.SetPosition(2000000, 1000000);
+     * slide.AddObject(line);
+     * let retrievedStroke = line.GetLine();
+     * retrievedStroke.SetCapType("round");
+     * let capType = retrievedStroke.GetCapType();
+     *
+     * let label = Api.CreateShape("rect", 120 * 36000, 30 * 36000, fill, Api.CreateStroke(0, Api.CreateNoFill()));
+     * label.SetPosition(2000000, 3000000);
+     * slide.AddObject(label);
+     * label.GetDocContent().GetElement(0).AddText("Cap type: " + capType);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStroke/Methods/GetCapType/
      */
@@ -29697,6 +33373,31 @@ export namespace Slide {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the ending arrow of a line in a presentation.
+     *
+     * // How do I find out which arrow is applied to the end of a line in a presentation?
+     *
+     * // Apply an ending arrow to a line's stroke, read it back, and label the result in a presentation.
+     *
+     * let presentation = Api.GetPresentation();
+     * let slide = presentation.GetSlideByIndex(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(36000, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let line = Api.CreateShape("line", 100 * 36000, 50 * 36000, fill, stroke);
+     * line.SetPosition(2000000, 1000000);
+     * slide.AddObject(line);
+     * let retrievedStroke = line.GetLine();
+     * retrievedStroke.SetEndArrow("stealth", "medium", "large");
+     * let arrow = retrievedStroke.GetEndArrow();
+     *
+     * let label = Api.CreateShape("rect", 120 * 36000, 30 * 36000, fill, Api.CreateStroke(0, Api.CreateNoFill()));
+     * label.SetPosition(2000000, 3000000);
+     * slide.AddObject(label);
+     * label.GetDocContent().GetElement(0).AddText("End arrow type: " + (arrow ? arrow.Type : "not set"));
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStroke/Methods/GetEndArrow/
      */
     GetEndArrow(): { Type: LineEndType; Width: LineEndSize; Length: LineEndSize } | null;
@@ -29736,6 +33437,31 @@ export namespace Slide {
      * Returns the join type of the stroke.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Read the join type of a shape border in a presentation.
+     *
+     * // Get the join type to find out how the stroke corners are drawn.
+     *
+     * // Apply a miter join to a rectangle's stroke, then read back its join type in a presentation.
+     *
+     * let presentation = Api.GetPresentation();
+     * let slide = presentation.GetSlideByIndex(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(8 * 12700, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let shape = Api.CreateShape("rect", 100 * 36000, 50 * 36000, fill, stroke);
+     * shape.SetPosition(2000000, 1000000);
+     * slide.AddObject(shape);
+     * let retrievedStroke = shape.GetLine();
+     * retrievedStroke.SetJoinType("miter");
+     * let joinType = retrievedStroke.GetJoinType();
+     *
+     * let label = Api.CreateShape("rect", 120 * 36000, 30 * 36000, fill, Api.CreateStroke(0, Api.CreateNoFill()));
+     * label.SetPosition(2000000, 3000000);
+     * slide.AddObject(label);
+     * label.GetDocContent().GetElement(0).AddText("Join type: " + joinType);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStroke/Methods/GetJoinType/
      */
@@ -29799,6 +33525,30 @@ export namespace Slide {
      * @default length = "medium"
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Add an arrowhead to the start of a line in a presentation.
+     *
+     * // How do I set the beginning arrow of a line's stroke in a presentation?
+     *
+     * // Create a line, retrieve its stroke, apply a triangle arrow to the start, and label the result in a presentation.
+     *
+     * let presentation = Api.GetPresentation();
+     * let slide = presentation.GetSlideByIndex(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(36000, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let line = Api.CreateShape("line", 100 * 36000, 50 * 36000, fill, stroke);
+     * line.SetPosition(2000000, 1000000);
+     * slide.AddObject(line);
+     * let retrievedStroke = line.GetLine();
+     * let result = retrievedStroke.SetBeginArrow("triangle", "medium", "large");
+     *
+     * let label = Api.CreateShape("rect", 120 * 36000, 30 * 36000, fill, Api.CreateStroke(0, Api.CreateNoFill()));
+     * label.SetPosition(2000000, 3000000);
+     * slide.AddObject(label);
+     * label.GetDocContent().GetElement(0).AddText("Begin arrow set: " + result);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStroke/Methods/SetBeginArrow/
      */
     SetBeginArrow(type: LineEndType, width?: LineEndSize, length?: LineEndSize): boolean;
@@ -29808,6 +33558,30 @@ export namespace Slide {
      *
      * @param type - The cap type of the stroke.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set a square cap for the ends of a shape border in a presentation.
+     *
+     * // Change the cap type to control how the stroke ends are drawn.
+     *
+     * // Create a line, retrieve its stroke, apply the square cap type, and display the result in a presentation.
+     *
+     * let presentation = Api.GetPresentation();
+     * let slide = presentation.GetSlideByIndex(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(8 * 12700, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let line = Api.CreateShape("line", 100 * 36000, 50 * 36000, fill, stroke);
+     * line.SetPosition(2000000, 1000000);
+     * slide.AddObject(line);
+     * let retrievedStroke = line.GetLine();
+     * let result = retrievedStroke.SetCapType("square");
+     *
+     * let label = Api.CreateShape("rect", 120 * 36000, 30 * 36000, fill, Api.CreateStroke(0, Api.CreateNoFill()));
+     * label.SetPosition(2000000, 3000000);
+     * slide.AddObject(label);
+     * label.GetDocContent().GetElement(0).AddText("Cap type set: " + result);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStroke/Methods/SetCapType/
      */
@@ -29823,6 +33597,30 @@ export namespace Slide {
      * @default length = "medium"
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Add an arrowhead to the end of a line in a presentation.
+     *
+     * // How do I set the ending arrow of a line's stroke in a presentation?
+     *
+     * // Create a line, retrieve its stroke, apply a stealth arrow to the end, and label the result in a presentation.
+     *
+     * let presentation = Api.GetPresentation();
+     * let slide = presentation.GetSlideByIndex(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(36000, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let line = Api.CreateShape("line", 100 * 36000, 50 * 36000, fill, stroke);
+     * line.SetPosition(2000000, 1000000);
+     * slide.AddObject(line);
+     * let retrievedStroke = line.GetLine();
+     * let result = retrievedStroke.SetEndArrow("stealth", "medium", "large");
+     *
+     * let label = Api.CreateShape("rect", 120 * 36000, 30 * 36000, fill, Api.CreateStroke(0, Api.CreateNoFill()));
+     * label.SetPosition(2000000, 3000000);
+     * slide.AddObject(label);
+     * label.GetDocContent().GetElement(0).AddText("End arrow set: " + result);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStroke/Methods/SetEndArrow/
      */
     SetEndArrow(type: LineEndType, width?: LineEndSize, length?: LineEndSize): boolean;
@@ -29832,6 +33630,30 @@ export namespace Slide {
      *
      * @param type - The join type of the stroke.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set a bevel join for the corners of a shape border in a presentation.
+     *
+     * // Change the join type to control how the stroke corners are drawn.
+     *
+     * // Create a rectangle, retrieve its stroke, apply the bevel join type, and display the result in a presentation.
+     *
+     * let presentation = Api.GetPresentation();
+     * let slide = presentation.GetSlideByIndex(0);
+     * let fill = Api.CreateSolidFill(Api.RGB(255, 200, 100));
+     * let stroke = Api.CreateStroke(8 * 12700, Api.CreateSolidFill(Api.RGB(0, 0, 255)));
+     * let shape = Api.CreateShape("rect", 100 * 36000, 50 * 36000, fill, stroke);
+     * shape.SetPosition(2000000, 1000000);
+     * slide.AddObject(shape);
+     * let retrievedStroke = shape.GetLine();
+     * let result = retrievedStroke.SetJoinType("bevel");
+     *
+     * let label = Api.CreateShape("rect", 120 * 36000, 30 * 36000, fill, Api.CreateStroke(0, Api.CreateNoFill()));
+     * label.SetPosition(2000000, 3000000);
+     * slide.AddObject(label);
+     * label.GetDocContent().GetElement(0).AddText("Join type set: " + result);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStroke/Methods/SetJoinType/
      */
@@ -29845,14 +33667,188 @@ export namespace Slide {
    */
   export interface ApiStyle {
     /**
+     * Returns a type of the ApiStyle class.
+     *
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the class type of the ApiStyle object in a presentation.
+     *
+     * // Helps when checking the class type of a table style.
+     *
+     * // Get a table style from the presentation and display its class type.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const style = presentation.GetStyle("Dark Style 1 - Accent 2");
+     * table.SetStyle(style);
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Class type: " + style.GetClassType());
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStyle/Methods/GetClassType/
+     */
+    GetClassType(): "style";
+
+    /**
+     * Returns a set of formatting properties which will be conditionally applied to the parts of a table
+     * that match the
+     * requirement specified in the sType parameter.
+     *
+     * @param sType - The table part which the formatting properties must be applied to.
+     * @default sType = "wholeTable"
+     * @since 10.0.3
+     *
+     * @example
+     * ```js
+     * // Get a conditional formatting part of a presentation table style.
+     *
+     * // The returned part keeps the table properties applied to the matching region of a table.
+     *
+     * // Set orange borders for the wholeTable part and display the part type in the first cell.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const style = presentation.GetStyle("Medium Style 2 - Accent 1");
+     * table.SetStyle(style);
+     * const wholeTable = style.GetConditionalTableStyle("wholeTable");
+     * const tablePr = wholeTable.GetTablePr();
+     * tablePr.SetTableBorderAll("single", 1, Api.CreateSolidFill(Api.RGB(255, 111, 61)));
+     * wholeTable.SetTablePr(tablePr);
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Conditional style part: " + wholeTable.GetType());
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStyle/Methods/GetConditionalTableStyle/
+     */
+    GetConditionalTableStyle(sType?: TableStyleOverrideType): ApiTableStylePr;
+
+    /**
+     * Returns a name of the current style.
+     *
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the name of the current table style in a presentation.
+     *
+     * // Helps when reading the name of a table style.
+     *
+     * // Get a table style and display its name in the first cell.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const style = presentation.GetStyle("Dark Style 1 - Accent 2");
+     * table.SetStyle(style);
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Style name: " + style.GetName());
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStyle/Methods/GetName/
+     */
+    GetName(): string;
+
+    /**
      * Returns the table properties of the current style.
      *
      * @returns returns null if the current style is not a table style.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Read the table properties of a presentation table style.
+     *
+     * // The returned properties keep the whole table borders and the table background.
+     *
+     * // Copy the borders of one table style into another one.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const sourceStyle = presentation.GetStyle("Medium Style 2 - Accent 1");
+     * const targetStyle = presentation.GetStyle("No Style, Table Grid");
+     * table.SetStyle(targetStyle);
+     * targetStyle.SetTablePr(sourceStyle.GetTablePr());
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStyle/Methods/GetTablePr/
      */
     GetTablePr(): ApiTablePr | null;
+
+    /**
+     * Returns a type of the current style.
+     *
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the type of the current table style in a presentation.
+     *
+     * // Helps when reading the type of a table style.
+     *
+     * // Get a table style and display its type in the first cell.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const style = presentation.GetStyle("Dark Style 1 - Accent 2");
+     * table.SetStyle(style);
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Style type: " + style.GetType());
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStyle/Methods/GetType/
+     */
+    GetType(): StyleType;
+
+    /**
+     * Sets a name to the current style.
+     *
+     * @param styleName - The name which will be used for the current style.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set a new name for the table style in a presentation.
+     *
+     * // Helps when renaming a table style.
+     *
+     * // Get a table style, rename it, and display the new name.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const style = presentation.GetStyle("Dark Style 1 - Accent 2");
+     * style.SetName("My Custom Table Style");
+     * table.SetStyle(style);
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("New style name: " + style.GetName());
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStyle/Methods/SetName/
+     */
+    SetName(styleName: string): boolean;
 
     /**
      * Sets the table properties to the current style.
@@ -29860,6 +33856,26 @@ export namespace Slide {
      * @param tablePr - The table properties that will be set.
      * @returns this
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Apply the table properties to a presentation table style.
+     *
+     * // The properties are applied to every table which uses this style.
+     *
+     * // Set a dark gray grid for the table style and use the style in a table.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const style = presentation.GetStyle("No Style, Table Grid");
+     * table.SetStyle(style);
+     * const tablePr = style.GetTablePr();
+     * tablePr.SetTableBorderAll("single", 0.5, Api.CreateSolidFill(Api.RGB(51, 51, 51)));
+     * style.SetTablePr(tablePr);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiStyle/Methods/SetTablePr/
      */
@@ -29871,7 +33887,7 @@ export namespace Slide {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/
    */
-  export interface ApiTable extends Omit<ApiDrawing, "GetClassType" | "ToJSON"> {
+  export interface ApiTable extends Omit<ApiDrawing, "Copy" | "GetClassType" | "ToJSON"> {
     /**
      * Adds a new column to the end of the current table.
      *
@@ -29919,6 +33935,27 @@ export namespace Slide {
      * @default isBefore = false
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Add new columns to the table in a presentation.
+     *
+     * // Useful for adding multiple columns to a table at once.
+     *
+     * // Create a table and add two columns after the first column.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(2, 2);
+     * const cell = table.GetCell(0, 0);
+     * table.AddColumns(cell, 2);
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Two columns added. Total columns: " + table.GetRow(0).GetCellsCount());
+     * cell.GetContent().Push(paragraph);
+     * table.SetSize(200*36000, 100*36000);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/AddColumns/
      */
     AddColumns(nCount: number): ApiTable | null;
@@ -29931,6 +33968,25 @@ export namespace Slide {
      * @param nPos - The position in the cell where the specified element will be added.
      * @param oElement - The document element which will be added at the current position.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Add a paragraph at a specific position inside a table cell on a slide.
+     *
+     * // Insert a document element into the chosen cell by its position.
+     *
+     * // Create a table and add a paragraph as the first element of its first cell.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(2, 2);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * const cell = table.GetCell(0, 0);
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Inserted paragraph");
+     * table.AddElement(cell, 0, paragraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/AddElement/
      */
@@ -29980,10 +34036,94 @@ export namespace Slide {
      * @default isBefore = false
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Add new rows to the table in a presentation.
+     *
+     * // Useful for adding multiple rows to a table at once.
+     *
+     * // Create a table and add two rows after the first row.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(2, 2);
+     * const cell = table.GetCell(0, 0);
+     * table.AddRows(cell, 2);
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Two rows were added. Total rows: " + table.GetRowsCount());
+     * cell.GetContent().Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/AddRows/
      */
     AddRows(nCount: number): ApiTable | null;
     AddRows(oCell: ApiTableCell, nCount: number, isBefore?: boolean): ApiTable | null;
+
+    /**
+     * Clears the content from the table.
+     *
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Clear the content from the table in a presentation.
+     *
+     * // Useful for clearing all content from a table.
+     *
+     * // Create a table with text in a cell, then clear the table content.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("This text will be cleared.");
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     * table.Clear();
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/Clear/
+     */
+    Clear(): boolean;
+
+    /**
+     * Creates a copy of the current table.
+     *
+     * @since 9.4.0
+     *
+     * @example
+     * ```js
+     * // How do I make a copy of a table to reuse in a presentation?
+     *
+     * // Clone a table and add the duplicate to a new slide in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     *
+     * const table = Api.CreateTable(2, 4);
+     * table.AddRow(1, true);
+     * const row = table.GetRow(1);
+     * const cell = row.GetCell(0);
+     * const content = cell.GetContent();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("New row was added here.");
+     * content.Push(paragraph);
+     *
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     *
+     * const copyTable = table.Copy();
+     * const newSlide = Api.CreateSlide();
+     * presentation.AddSlide(newSlide);
+     * newSlide.AddObject(copyTable);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/Copy/
+     */
+    Copy(): ApiTable;
 
     /**
      * Returns a cell by its position.
@@ -29991,6 +34131,25 @@ export namespace Slide {
      * @param rowIndex - The row index in the current table.
      * @param cellIndex - The cell index in the specified row.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get a table cell by its row and column index in a presentation.
+     *
+     * // Useful for accessing a specific cell in a table.
+     *
+     * // Create a table and add text to the cell at row 0, column 1.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const cell = table.GetCell(0, 1);
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Row 0, Col 1");
+     * cell.GetContent().Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/GetCell/
      */
@@ -30064,6 +34223,27 @@ export namespace Slide {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the number of columns in the table in a presentation.
+     *
+     * // Useful for counting the number of columns in a table.
+     *
+     * // Create a table, add a column, and display the column count in the first cell.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(2, 2);
+     * const countBefore = table.GetColumnsCount();
+     * table.AddColumn();
+     * const countAfter = table.GetColumnsCount();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Columns before: " + countBefore + ", after adding: " + countAfter);
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/GetColumnsCount/
      */
     GetColumnsCount(): number;
@@ -30109,6 +34289,9 @@ export namespace Slide {
 
     /**
      * Returns an internal ID of the current table.
+     * The internal ID is valid only for the current editing session: it stays the same while the document
+     * is open,
+     * but it is not saved to the file and can be different after the document is reopened.
      *
      * @since 9.2.0
      *
@@ -30408,14 +34591,148 @@ export namespace Slide {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the number of rows in the table in a presentation.
+     *
+     * // Useful for counting the number of rows in a table.
+     *
+     * // Create a table, add a row, and display the row count in the first cell.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(2, 2);
+     * const countBefore = table.GetRowsCount();
+     * table.AddRow(null, true);
+     * const countAfter = table.GetRowsCount();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Rows before: " + countBefore + ", after adding: " + countAfter);
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/GetRowsCount/
      */
     GetRowsCount(): number;
 
     /**
+     * Returns the selected cells of the current table.
+     *
+     * @returns An array of the currently selected cells (empty if there is no cell selection).
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the selected cells from the table in a presentation.
+     *
+     * // Useful for retrieving currently selected cells in a table.
+     *
+     * // Create a table and get the list of selected cells (returns empty when no selection).
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * table.GetCell(0, 0).Select();
+     * presentation.MoveCursorRight(3, true, false);
+     * const selectedCells = table.GetSelectedCells();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Selected cells count: " + selectedCells.length);
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/GetSelectedCells/
+     */
+    GetSelectedCells(): ApiTableCell[];
+
+    /**
+     * Returns all cells from the columns that contain the currently selected cells.
+     * This method identifies which columns contain selected cells and then returns all cells
+     * in those columns, not just the selected cells themselves.
+     *
+     * @returns An array of all cells from the columns that contain selected cells.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the cells from the selected columns in the table in a presentation.
+     *
+     * // Useful for retrieving cells belonging to the currently selected columns.
+     *
+     * // Create a table and get the selected column cells (returns empty when no selection).
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 4);
+     * table.GetCell(0, 0).Select();
+     * const selectedCells = table.GetSelectedColumnsCells();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Selected column cells count: " + selectedCells.length);
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/GetSelectedColumnsCells/
+     */
+    GetSelectedColumnsCells(): ApiTableCell[];
+
+    /**
+     * Returns the rows that contain the currently selected cells of the current table.
+     *
+     * @returns An array of the rows that contain selected cells (empty if there is no cell selection).
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the selected rows from the table in a presentation.
+     *
+     * // Useful for retrieving currently selected rows in a table.
+     *
+     * // Create a table and get the list of selected rows (returns empty when no selection).
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(4, 3);
+     * table.GetCell(0, 0).Select();
+     * const selectedRows = table.GetSelectedRows();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Selected rows count: " + selectedRows.length);
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/GetSelectedRows/
+     */
+    GetSelectedRows(): ApiTableRow[];
+
+    /**
      * Returns the table description.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the description of the table in a presentation.
+     *
+     * // Needed when retrieving a table description.
+     *
+     * // Create a table, set its description, and display it in the first cell.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * table.SetTableDescription("Sales data for Q1 2025");
+     * const description = table.GetTableDescription();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Table description: " + description);
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/GetTableDescription/
      */
@@ -30423,6 +34740,24 @@ export namespace Slide {
 
     /**
      * Gets table look properties
+     *
+     * @example
+     * ```js
+     * // Read the visual styling options applied to a table.
+     *
+     * // Get the formatting flags that control table appearance and style.
+     *
+     * // Create a table, apply styling flags, and read them back.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(4, 4);
+     * table.SetTableLook(true, false, false, false, false, true);
+     * const tableLook = table.GetTableLook();
+     * table.GetRow(0).GetCell(0).GetContent().GetElement(0).AddText("First column: " + tableLook.firstCol);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/GetTableLook/
      */
@@ -30432,6 +34767,27 @@ export namespace Slide {
      * Returns the table title.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the title of the table in a presentation.
+     *
+     * // Needed when retrieving a table title.
+     *
+     * // Create a table, set its title, and display the title in the first cell.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * table.SetTableTitle("Quarterly Report");
+     * const title = table.GetTableTitle();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Table title: " + title);
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * //TODO
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/GetTableTitle/
      */
@@ -30600,9 +34956,59 @@ export namespace Slide {
      * @param endCellIndex - The end cell index within the end row.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Select a rectangular range of cells in a table on a slide.
+     *
+     * // Highlight a block of cells spanning several rows and columns to apply changes to them.
+     *
+     * // Select the cells from the first cell of the first row to the second cell of the second row.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     * const table = Api.CreateTable(3, 3);
+     * table.SetPosition(0, 0);
+     * slide.AddObject(table);
+     * table.SelectRange(0, 0, 1, 1);
+     * const selectedCells = table.GetSelectedCells();
+     * selectedCells.forEach(function(cell){
+     *     cell.SetBackgroundColor(Api.RGB(150, 0, 0))
+     * })
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/SelectRange/
      */
     SelectRange(startRowIndex: number, startCellIndex: number, endRowIndex: number, endCellIndex: number): boolean;
+
+    /**
+     * Sets the background color for all cells in the current table.
+     *
+     * @param color - If not passed, the background color will be cleared.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the background color for all cells in the table in a presentation.
+     *
+     * // Useful for setting a background color for the entire table.
+     *
+     * // Create a table and apply an orange background color to all cells.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     *
+     * const table = Api.CreateTable(3, 3);
+     * const color = Api.RGB(255, 111, 61);
+     * table.SetBackgroundColor(color);
+     *
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/SetBackgroundColor/
+     */
+    SetBackgroundColor(color?: ApiColor): boolean;
 
     /**
      * Sets the width of the specified column in the current table.
@@ -30654,6 +35060,22 @@ export namespace Slide {
      *
      * @param height - The table height in English measure units.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the total height of a table on a slide.
+     *
+     * // Distribute the requested height proportionally among the table rows.
+     *
+     * // Create a table on a slide and set its overall height to 80 millimeters.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * table.SetHeight(Api.MillimetersToEmus(80));
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/SetHeight/
      */
@@ -30800,9 +35222,9 @@ export namespace Slide {
     /**
      * Sets the position of the drawing on the slide.
      *
-     * @param nPosX - The distance from the left side of the slide to the left side of the drawing measured in English
+     * @param posX - The distance from the left side of the slide to the left side of the drawing measured in English
      *   measure units.
-     * @param nPosY - The distance from the top side of the slide to the upper side of the drawing measured in English
+     * @param posY - The distance from the top side of the slide to the upper side of the drawing measured in English
      *   measure units.
      *
      * @example
@@ -30832,7 +35254,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/SetPosition/
      */
-    SetPosition(nPosX: EMU, nPosY: EMU): void;
+    SetPosition(posX: EMU, posY: EMU): void;
 
     /**
      * Specifies the shading which shall be applied to the extents of the current table.
@@ -30897,6 +35319,24 @@ export namespace Slide {
      * @param oStyle - The table style to apply.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Apply a named table style from the presentation to the current table.
+     *
+     * // SetStyle looks up the style by name from the presentation's available table styles.
+     *
+     * // Create a table, retrieve the first available style by name, and apply it.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     * const table = Api.CreateTable(3, 3);
+     * slide.AddObject(table);
+     * const style = presentation.GetStyle("Medium Style 2 - Accent 2");
+     * table.SetStyle(style);
+     * table.GetCell(0,0).AddText('Set style for table: ' + style.GetName());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/SetStyle/
      */
     SetStyle(oStyle: ApiStyle): boolean;
@@ -30906,6 +35346,25 @@ export namespace Slide {
      *
      * @param descr - The table description.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the description of the table in a presentation.
+     *
+     * // Useful for setting and retrieving a table description.
+     *
+     * // Create a table, set its description, and display it in the first cell.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * table.SetTableDescription("Sales data for Q1 2025");
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Table description: " + table.GetTableDescription());
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/SetTableDescription/
      */
@@ -30954,6 +35413,25 @@ export namespace Slide {
      * @param title - The table title to be set.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the title of the table in a presentation.
+     *
+     * // Useful for setting and retrieving a table title.
+     *
+     * // Create a table, set its title, and display the title in the first cell.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * table.SetTableTitle("Quarterly Report");
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Table title: " + table.GetTableTitle());
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTable/Methods/SetTableTitle/
      */
     SetTableTitle(title: string): boolean;
@@ -31000,6 +35478,74 @@ export namespace Slide {
    */
   export interface ApiTableCell {
     /**
+     * Adds the new columns to the current table.
+     *
+     * @param nCount - Count of columns to be added.
+     * @param isBefore - Specifies if the new columns will be added before or after the current cell.
+     * @default isBefore = false
+     * @returns returns null if parent table doesn't exist.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Add new columns to the table via a cell in a presentation.
+     *
+     * // Useful for inserting columns after a specific cell.
+     *
+     * // Add two columns after the first cell.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(2, 3);
+     * const cell = table.GetRow(0).GetCell(0);
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Two new columns added after this cell.");
+     * cell.GetContent().Push(paragraph);
+     * const paragraph2 = Api.CreateParagraph();
+     * paragraph2.AddText("Second cell.");
+     * const lastCell = table.GetRow(0).GetCell(1);
+     * lastCell.GetContent().Push(paragraph2);
+     * cell.AddColumns(2, false);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/AddColumns/
+     */
+    AddColumns(nCount: number, isBefore?: boolean): ApiTable | null;
+
+    /**
+     * Adds the new rows to the current table.
+     *
+     * @param nCount - Count of rows to be added.
+     * @param isBefore - Specifies if the new rows will be added before or after the current cell.
+     * @default isBefore = false
+     * @returns returns null if parent table doesn't exist.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Add new rows to the table via a cell in a presentation.
+     *
+     * // Useful for inserting rows after a specific cell.
+     *
+     * // Add two rows after the first cell.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(2, 3);
+     * const cell = table.GetRow(0).GetCell(0);
+     * cell.GetContent().Push(Api.CreateParagraph().AddText("Two new rows added after this cell."));
+     * cell.AddRows(2, false);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/AddRows/
+     */
+    AddRows(nCount: number, isBefore?: boolean): ApiTable | null;
+
+    /**
      * Appends text to the end of the cell content.
      *
      * @param text - The text to append.
@@ -31027,9 +35573,63 @@ export namespace Slide {
     AddText(text: string): ApiRun;
 
     /**
+     * Clears the content from the current cell.
+     *
+     * @returns returns false if parent row is invalid.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Clear the content of a table cell in a presentation.
+     *
+     * // Useful for removing all content from a cell.
+     *
+     * // Add text to a cell and then clear it.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(2, 3);
+     * const cell = table.GetRow(0).GetCell(0);
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("This text will be cleared.");
+     * const paragraph2 = Api.CreateParagraph();
+     * paragraph2.AddText("First cell was cleared.")
+     * cell.GetContent().Push(paragraph);
+     * cell.Clear();
+     * table.GetRow(1).GetCell(0).GetContent().Push(paragraph2);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/Clear/
+     */
+    Clear(): boolean;
+
+    /**
      * Returns the background color of the current table cell.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the background color of a table cell in a presentation.
+     *
+     * // Needed when reading the background color of a cell.
+     *
+     * // Set a background color and read it back.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(2, 3);
+     * const cell = table.GetRow(0).GetCell(0);
+     * cell.SetBackgroundColor(Api.RGB(255, 111, 61));
+     * const color = cell.GetBackgroundColor();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Background color: " + (color ? color.GetHex() : "none"));
+     * cell.GetContent().Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/GetBackgroundColor/
      */
@@ -31097,14 +35697,61 @@ export namespace Slide {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the column index of a table cell in a presentation.
+     *
+     * // Useful for getting the position index of the cell.
+     *
+     * // Retrieve the cell index and display it in the cell.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const cell = table.GetRow(0).GetCell(1);
+     * const content = cell.GetContent();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Cell index: " + cell.GetIndex());
+     * content.Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/GetIndex/
      */
     GetIndex(): number;
 
     /**
-     * Returns an internal id of the current table cell.
+     * Returns an internal ID of the current table cell.
+     * The internal ID is valid only for the current editing session: it stays the same while the
+     * presentation is open,
+     * but it is not saved to the file and can be different after the presentation is reopened.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the internal identifier of a table cell in a presentation.
+     *
+     * // Identify a specific table cell by the ID that the editor assigns to it in a presentation.
+     *
+     * // Display the internal ID of the first table cell, which stays valid only while the presentation is open.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     *
+     * const table = Api.CreateTable(2, 4);
+     * const row = table.GetRow(0);
+     * const cell = row.GetCell(0);
+     * const content = cell.GetContent();
+     * const paragraph = Api.CreateParagraph();
+     * const internalId = cell.GetInternalId();
+     * paragraph.AddText("Cell internal ID: " + internalId);
+     * content.Push(paragraph);
+     *
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/GetInternalId/
      */
@@ -31116,6 +35763,31 @@ export namespace Slide {
      * @returns returns null if cell is last.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the next cell in a row in a presentation.
+     *
+     * // Useful for getting the cell following the current one.
+     *
+     * // Add text to the first cell and bold the next one.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const cell = table.GetRow(0).GetCell(0);
+     * const para = Api.CreateParagraph();
+     * para.AddText("Cell 1");
+     * cell.GetContent().Push(para);
+     * const nextCell = cell.GetNext();
+     * const para2 = Api.CreateParagraph();
+     * const run = Api.CreateRun();
+     * run.AddText("Cell 2");
+     * para2.AddElement(run);
+     * nextCell.GetContent().Push(para2);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/GetNext/
      */
     GetNext(): ApiTableCell | null;
@@ -31125,6 +35797,27 @@ export namespace Slide {
      *
      * @returns returns null if parent row doesn't exist.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the parent row of a table cell in a presentation.
+     *
+     * // Useful for getting the row that contains the cell.
+     *
+     * // Get the parent row and set its height.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(2, 3);
+     * const cell = table.GetRow(0).GetCell(0);
+     * const para = Api.CreateParagraph();
+     * para.AddText("Cell 1");
+     * cell.GetContent().Push(para);
+     * const parentRow = cell.GetParentRow();
+     * parentRow.SetHeight(50 * 36000);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/GetParentRow/
      */
@@ -31136,6 +35829,24 @@ export namespace Slide {
      * @returns returns null if parent table doesn't exist.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the parent table of a table cell in a presentation.
+     *
+     * // Useful for getting the table that contains the cell.
+     *
+     * // Get the parent table and set its background color.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(2, 3);
+     * const cell = table.GetRow(0).GetCell(0);
+     * const parentTable = cell.GetParentTable();
+     * parentTable.SetBackgroundColor(Api.RGB(255, 213, 79));
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/GetParentTable/
      */
     GetParentTable(): ApiTable | null;
@@ -31146,6 +35857,31 @@ export namespace Slide {
      * @returns returns null is cell is first.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the previous cell in a row in a presentation.
+     *
+     * // Useful for getting the cell preceding the current one.
+     *
+     * // Add text to the second cell and bold the previous one.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const cell = table.GetRow(0).GetCell(1);
+     * const para = Api.CreateParagraph();
+     * para.AddText("Cell 2");
+     * cell.GetContent().Push(Api.CreateParagraph());
+     * const prevCell = cell.GetPrevious();
+     * const para2 = Api.CreateParagraph();
+     * const run = Api.CreateRun();
+     * run.AddText("Cell 1");
+     * para2.AddElement(run);
+     * prevCell.GetContent().Push(para2);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/GetPrevious/
      */
     GetPrevious(): ApiTableCell | null;
@@ -31154,6 +35890,26 @@ export namespace Slide {
      * Returns an index of the parent row.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the row index of a table cell in a presentation.
+     *
+     * // Useful for getting the row index of the cell.
+     *
+     * // Retrieve the row index and display it in the cell.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(2, 3);
+     * const cell = table.GetRow(1).GetCell(0);
+     * const content = cell.GetContent();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Row index: " + cell.GetRowIndex());
+     * content.Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/GetRowIndex/
      */
@@ -31213,9 +35969,88 @@ export namespace Slide {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the full text range of a table cell to read or modify its content.
+     *
+     * // Returns an ApiTextRange spanning all text in the cell, or null if the cell has no content.
+     *
+     * // Create a table, set text in a cell, then retrieve and bold it via GetTextRange.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     * const table = Api.CreateTable(2, 2);
+     * slide.AddObject(table);
+     * const cell = table.GetCell(0, 0);
+     * cell.SetText("Hello");
+     * const range = cell.GetTextRange();
+     * range.SetBold(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/GetTextRange/
      */
     GetTextRange(): ApiTextRange | null;
+
+    /**
+     * Removes a column containing the current cell.
+     *
+     * @returns returns false if table doesn't exist.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Remove the column containing the cell in a presentation.
+     *
+     * // Useful for deleting a column by its cell.
+     *
+     * // Get the first cell and remove its entire column.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const cell = table.GetRow(0).GetCell(0);
+     * const para = Api.CreateParagraph();
+     * para.AddText("This column will be removed.")
+     * cell.GetContent().Push(para);
+     * cell.RemoveColumn();
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/RemoveColumn/
+     */
+    RemoveColumn(): boolean;
+
+    /**
+     * Removes a row containing the current cell.
+     *
+     * @returns Is the table empty after removing.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Remove the row containing the cell in a presentation.
+     *
+     * // Useful for deleting a row by its cell.
+     *
+     * // Get the first cell and remove its entire row.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const cell = table.GetRow(0).GetCell(0);
+     * const para = Api.CreateParagraph();
+     * para.AddText("This row will be removed.")
+     * cell.GetContent().Push(para);
+     * cell.RemoveRow();
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/RemoveRow/
+     */
+    RemoveRow(): boolean;
 
     /**
      * Selects the current table cell in the presentation.
@@ -31227,11 +36062,38 @@ export namespace Slide {
     Select(): void;
 
     /**
+     * Sets the background color to the current table cell.
+     *
+     * @param color - If not passed, the background color will be cleared.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the background color of a table cell in a presentation.
+     *
+     * // Useful for coloring the background of a cell.
+     *
+     * // Set an orange background for the first cell.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(2, 3);
+     * const cell = table.GetRow(0).GetCell(0);
+     * cell.SetBackgroundColor(Api.RGB(255, 111, 61));
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/SetBackgroundColor/
+     */
+    SetBackgroundColor(color?: ApiColor): boolean;
+
+    /**
      * Sets the border which shall be displayed at the bottom of the current table cell.
      *
-     * @param sType - The cell bottom border style.
-     * @param fSize - The width of the current border.
-     * @param oApiFill - The color or pattern used to fill the current border.
+     * @param type - The cell bottom border style.
+     * @param size - The width of the current border.
+     * @param fill - The color or pattern used to fill the current border.
      * @since 10.0.0
      *
      * @example
@@ -31255,14 +36117,14 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/SetCellBorderBottom/
      */
-    SetCellBorderBottom(sType: BorderType, fSize: mm, oApiFill?: ApiFill): boolean;
+    SetCellBorderBottom(type: BorderType, size: mm, fill?: ApiFill): boolean;
 
     /**
      * Sets the border which shall be displayed at the left of the current table cell.
      *
-     * @param sType - The cell bottom border style.
-     * @param fSize - The width of the current border.
-     * @param oApiFill - The color or pattern used to fill the current border.
+     * @param type - The cell left border style.
+     * @param size - The width of the current border.
+     * @param fill - The color or pattern used to fill the current border.
      * @since 10.0.0
      *
      * @example
@@ -31286,14 +36148,14 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/SetCellBorderLeft/
      */
-    SetCellBorderLeft(sType: BorderType, fSize: mm, oApiFill?: ApiFill): boolean;
+    SetCellBorderLeft(type: BorderType, size: mm, fill?: ApiFill): boolean;
 
     /**
      * Sets the border which shall be displayed at the right of the current table cell.
      *
-     * @param sType - The cell bottom border style.
-     * @param fSize - The width of the current border.
-     * @param oApiFill - The color or pattern used to fill the current border.
+     * @param type - The cell right border style.
+     * @param size - The width of the current border.
+     * @param fill - The color or pattern used to fill the current border.
      * @since 10.0.0
      *
      * @example
@@ -31317,14 +36179,14 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/SetCellBorderRight/
      */
-    SetCellBorderRight(sType: BorderType, fSize: mm, oApiFill?: ApiFill): boolean;
+    SetCellBorderRight(type: BorderType, size: mm, fill?: ApiFill): boolean;
 
     /**
      * Sets the border which shall be displayed at the top of the current table cell.
      *
-     * @param sType - The cell bottom border style.
-     * @param fSize - The width of the current border.
-     * @param oApiFill - The color or pattern used to fill the current border.
+     * @param type - The cell top border style.
+     * @param size - The width of the current border.
+     * @param fill - The color or pattern used to fill the current border.
      * @since 10.0.0
      *
      * @example
@@ -31348,7 +36210,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/SetCellBorderTop/
      */
-    SetCellBorderTop(sType: BorderType, fSize: mm, oApiFill?: ApiFill): boolean;
+    SetCellBorderTop(type: BorderType, size: mm, fill?: ApiFill): boolean;
 
     /**
      * Specifies an amount of space which shall be left between the bottom extent of the cell contents and
@@ -31492,6 +36354,23 @@ export namespace Slide {
      * @param color - If not passed, the background color will be cleared.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the background color for all cells in the column containing the cell in a presentation.
+     *
+     * // Useful for coloring an entire column background.
+     *
+     * // Set an orange background for the entire first column.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 4);
+     * const cell = table.GetRow(0).GetCell(0);
+     * cell.SetColumnBackgroundColor(Api.RGB(255, 111, 61));
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/SetColumnBackgroundColor/
      */
     SetColumnBackgroundColor(color?: ApiColor): boolean;
@@ -31557,7 +36436,7 @@ export namespace Slide {
     /**
      * Specifies the direction of the text flow for the current table cell.
      *
-     * @param sType - The type of the text flow direction.
+     * @param type - The type of the text flow direction.
      *
      * @example
      * ```js
@@ -31584,12 +36463,43 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/SetTextDirection/
      */
-    SetTextDirection(sType: TextFlowDirection): void;
+    SetTextDirection(type: TextFlowDirection): boolean;
+
+    /**
+     * Sets the text properties to the content of the current cell.
+     *
+     * @param oTextPr - The text properties that will be set to the current cell.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Apply the same text formatting to the whole content of a table cell in a presentation.
+     *
+     * // Useful for highlighting a header cell without formatting each text run separately.
+     *
+     * // Make the text of the first cell bold and increase its font size.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(2, 3);
+     * const cell = table.GetRow(0).GetCell(0);
+     * cell.SetText("Quarterly report");
+     * const textPr = Api.CreateTextPr();
+     * textPr.SetBold(true);
+     * textPr.SetFontSize(30);
+     * cell.SetTextPr(textPr);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/SetTextPr/
+     */
+    SetTextPr(oTextPr: ApiTextPr): boolean;
 
     /**
      * Specifies the vertical alignment for text within the current table cell.
      *
-     * @param sType - The type of the vertical alignment.
+     * @param type - The type of the vertical alignment.
      *
      * @example
      * ```js
@@ -31616,11 +36526,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableCell/Methods/SetVerticalAlign/
      */
-    SetVerticalAlign(sType: VerticalTextAlign): void;
-  }
-
-  /** Class representing the table cell properties. */
-  export interface ApiTableCellPr {
+    SetVerticalAlign(type: VerticalTextAlign): boolean;
   }
 
   /**
@@ -31630,10 +36536,61 @@ export namespace Slide {
    */
   export interface ApiTablePr {
     /**
+     * Returns a type of the ApiTablePr class.
+     *
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Check the class type of the table properties object in a presentation.
+     *
+     * // The class type is "tablePr" for any table properties object.
+     *
+     * // Read the class type of the table style properties and write it into the first cell.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const style = presentation.GetStyle("Medium Style 2 - Accent 1");
+     * table.SetStyle(style);
+     * const tablePr = style.GetTablePr();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Class type: " + tablePr.GetClassType());
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTablePr/Methods/GetClassType/
+     */
+    GetClassType(): "tablePr";
+
+    /**
      * Specifies the shading which is applied to the extents of the current table.
      *
      * @param shd - The shading created with the Api.CreateShd method.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Fill the table background through its table properties in a presentation.
+     *
+     * // The table background is drawn under the cells, so it shows through the cells which have no fill.
+     *
+     * // Apply a yellow background to the table style and clear the cell fills to make it visible.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const style = presentation.GetStyle("Medium Style 2 - Accent 1");
+     * table.SetStyle(style);
+     * const tablePr = style.GetTablePr();
+     * tablePr.SetShd(Api.CreateSolidFill(Api.RGB(255, 213, 79)));
+     * style.SetTablePr(tablePr);
+     * table.Cells.forEach(function (row) { row.forEach(function (cell) { cell.SetShd(Api.CreateShd("nil")); }); });
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTablePr/Methods/SetShd/
      */
@@ -31647,6 +36604,26 @@ export namespace Slide {
      * @param fill - The color or pattern used to fill the current border.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set all the table borders at once through the table properties in a presentation.
+     *
+     * // The same border is applied to the outer edges and to the inner separators.
+     *
+     * // Draw a uniform dark gray grid for the whole table.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const style = presentation.GetStyle("No Style, Table Grid");
+     * table.SetStyle(style);
+     * const tablePr = style.GetTablePr();
+     * tablePr.SetTableBorderAll("single", 2, Api.CreateSolidFill(Api.RGB(51, 51, 51)));
+     * style.SetTablePr(tablePr);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTablePr/Methods/SetTableBorderAll/
      */
     SetTableBorderAll(type: BorderType, size: mm, fill: ApiFill): boolean;
@@ -31658,6 +36635,26 @@ export namespace Slide {
      * @param size - The width of the current bottom border.
      * @param fill - The color or pattern used to fill the current border.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the bottom table border through the table properties in a presentation.
+     *
+     * // The border is described by its style, its width in millimeters and its fill.
+     *
+     * // Apply a dark gray border below the table.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const style = presentation.GetStyle("No Style, Table Grid");
+     * table.SetStyle(style);
+     * const tablePr = style.GetTablePr();
+     * tablePr.SetTableBorderBottom("single", 1, Api.CreateSolidFill(Api.RGB(51, 51, 51)));
+     * style.SetTablePr(tablePr);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTablePr/Methods/SetTableBorderBottom/
      */
@@ -31673,6 +36670,26 @@ export namespace Slide {
      * @param fill - The color or pattern used to fill the current border.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the inner horizontal borders through the table properties in a presentation.
+     *
+     * // Inner horizontal borders are all the row separators except the outer edges.
+     *
+     * // Draw thin orange separators between the table rows.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const style = presentation.GetStyle("No Style, Table Grid");
+     * table.SetStyle(style);
+     * const tablePr = style.GetTablePr();
+     * tablePr.SetTableBorderInsideH("single", 0.5, Api.CreateSolidFill(Api.RGB(255, 111, 61)));
+     * style.SetTablePr(tablePr);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTablePr/Methods/SetTableBorderInsideH/
      */
     SetTableBorderInsideH(type: BorderType, size: mm, fill: ApiFill): boolean;
@@ -31687,6 +36704,26 @@ export namespace Slide {
      * @param fill - The color or pattern used to fill the current border.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the inner vertical borders through the table properties in a presentation.
+     *
+     * // Inner vertical borders are all the column separators except the outer edges.
+     *
+     * // Draw thin orange separators between the table columns.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const style = presentation.GetStyle("No Style, Table Grid");
+     * table.SetStyle(style);
+     * const tablePr = style.GetTablePr();
+     * tablePr.SetTableBorderInsideV("single", 0.5, Api.CreateSolidFill(Api.RGB(255, 111, 61)));
+     * style.SetTablePr(tablePr);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTablePr/Methods/SetTableBorderInsideV/
      */
     SetTableBorderInsideV(type: BorderType, size: mm, fill: ApiFill): boolean;
@@ -31698,6 +36735,26 @@ export namespace Slide {
      * @param size - The width of the current left border.
      * @param fill - The color or pattern used to fill the current border.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the left table border through the table properties in a presentation.
+     *
+     * // The border fill accepts any ApiFill object, not only a solid color.
+     *
+     * // Apply a dark gray border to the left of the table.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const style = presentation.GetStyle("No Style, Table Grid");
+     * table.SetStyle(style);
+     * const tablePr = style.GetTablePr();
+     * tablePr.SetTableBorderLeft("single", 1, Api.CreateSolidFill(Api.RGB(51, 51, 51)));
+     * style.SetTablePr(tablePr);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTablePr/Methods/SetTableBorderLeft/
      */
@@ -31711,6 +36768,26 @@ export namespace Slide {
      * @param fill - The color or pattern used to fill the current border.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the right table border through the table properties in a presentation.
+     *
+     * // Passing the "none" border style removes the border and needs no fill.
+     *
+     * // Apply a dark gray border to the right of the table.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const style = presentation.GetStyle("No Style, Table Grid");
+     * table.SetStyle(style);
+     * const tablePr = style.GetTablePr();
+     * tablePr.SetTableBorderRight("single", 1, Api.CreateSolidFill(Api.RGB(51, 51, 51)));
+     * style.SetTablePr(tablePr);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTablePr/Methods/SetTableBorderRight/
      */
     SetTableBorderRight(type: BorderType, size: mm, fill: ApiFill): boolean;
@@ -31723,9 +36800,60 @@ export namespace Slide {
      * @param fill - The color or pattern used to fill the current border.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the top table border through the table properties in a presentation.
+     *
+     * // The border width is measured in millimeters and the color is passed as an ApiFill object.
+     *
+     * // Apply a dark gray border above the table.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const style = presentation.GetStyle("No Style, Table Grid");
+     * table.SetStyle(style);
+     * const tablePr = style.GetTablePr();
+     * tablePr.SetTableBorderTop("single", 1, Api.CreateSolidFill(Api.RGB(51, 51, 51)));
+     * style.SetTablePr(tablePr);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTablePr/Methods/SetTableBorderTop/
      */
     SetTableBorderTop(type: BorderType, size: mm, fill: ApiFill): boolean;
+
+    /**
+     * Converts the ApiTablePr object into the JSON object.
+     *
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Serialize the table properties of a presentation table style into JSON.
+     *
+     * // The resulting string can be converted back with the Api.FromJSON method.
+     *
+     * // Write the JSON representation of the table style properties into the first cell.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const style = presentation.GetStyle("Medium Style 2 - Accent 1");
+     * table.SetStyle(style);
+     * const tablePr = style.GetTablePr();
+     * tablePr.SetTableBorderAll("single", 0.5, Api.CreateSolidFill(Api.RGB(255, 0, 0)));
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText(tablePr.ToJSON());
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTablePr/Methods/ToJSON/
+     */
+    ToJSON(): string;
   }
 
   /**
@@ -31733,7 +36861,73 @@ export namespace Slide {
    *
    * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRow/
    */
-  export interface ApiTableRow extends ApiTableRowPr {
+  export interface ApiTableRow extends Omit<ApiTableRowPr, "GetClassType" | "SetHeight"> {
+    /**
+     * Adds the new rows to the current table.
+     *
+     * @param nCount - Count of rows to be added.
+     * @param isBefore - Specifies if the rows will be added before or after the current row.
+     * @default isBefore = false
+     * @returns returns null if parent table doesn't exist.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Add new rows to the table from a row in a presentation.
+     *
+     * // Useful for adding rows after a specific row.
+     *
+     * // Insert two new rows after the first row.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(2, 3);
+     * const row = table.GetRow(0);
+     * const para = Api.CreateParagraph();
+     * para.AddText("First row")
+     * row.GetCell(0).GetContent().Push(para);
+     * row.AddRows(2, false);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRow/Methods/AddRows/
+     */
+    AddRows(nCount: number, isBefore?: boolean): ApiTable | null;
+
+    /**
+     * Clears the content from the current row.
+     *
+     * @returns returns false if parent table doesn't exist.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Clear the content from a table row in a presentation.
+     *
+     * // Useful for removing all content from a row.
+     *
+     * // Add text to the first row and then clear it.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(2, 3);
+     * const row = table.GetRow(0);
+     * const para = Api.CreateParagraph();
+     * para.AddText("This text will be cleared")
+     * row.GetCell(0).GetContent().Push(para);
+     * row.Clear();
+     * const para2 = Api.CreateParagraph();
+     * para2.AddText("First row was cleared")
+     * table.GetRow(1).GetCell(0).GetContent().Push(para2);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRow/Methods/Clear/
+     */
+    Clear(): boolean;
+
     /**
      * Returns a cell by its position in the current row.
      *
@@ -31856,9 +37050,97 @@ export namespace Slide {
     GetHeight(): EMU | null;
 
     /**
+     * Returns the current row index.
+     *
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the row index in a presentation.
+     *
+     * // Useful for getting the index of a table row.
+     *
+     * // Get the index of the second row and display it in the first cell.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(2, 3);
+     * const row = table.GetRow(1);
+     * const cell = row.GetCell(0);
+     * const content = cell.GetContent();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Row index: " + row.GetIndex());
+     * content.Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRow/Methods/GetIndex/
+     */
+    GetIndex(): number;
+
+    /**
+     * Returns an internal ID of the current table row.
+     * The internal ID is valid only for the current editing session: it stays the same while the
+     * presentation is open,
+     * but it is not saved to the file and can be different after the presentation is reopened.
+     *
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the internal identifier of a table row in a presentation.
+     *
+     * // Identify a specific table row by the ID that the editor assigns to it in a presentation.
+     *
+     * // Display the internal ID of the first table row, which stays valid only while the presentation is open.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     *
+     * const table = Api.CreateTable(2, 4);
+     * const row = table.GetRow(0);
+     * const cell = row.GetCell(0);
+     * const content = cell.GetContent();
+     * const paragraph = Api.CreateParagraph();
+     * const internalId = row.GetInternalId();
+     * paragraph.AddText("Row internal ID: " + internalId);
+     * content.Push(paragraph);
+     *
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRow/Methods/GetInternalId/
+     */
+    GetInternalId(): string;
+
+    /**
      * Returns the next row if exists.
      *
      * @returns returns null if row is last.
+     *
+     * @example
+     * ```js
+     * // Get the next row in a presentation.
+     *
+     * // Useful for getting the next row from a table row.
+     *
+     * // Display text in the first and second rows using GetNext.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(2, 3);
+     * const firstRow = table.GetRow(0);
+     * const para = Api.CreateParagraph();
+     * para.AddText("First row");
+     * const para2 = Api.CreateParagraph();
+     * para2.AddText("Second row");
+     * firstRow.GetCell(0).GetContent().Push(para);
+     * firstRow.GetNext().GetCell(0).GetContent().Push(para2);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRow/Methods/GetNext/
      */
@@ -31869,6 +37151,24 @@ export namespace Slide {
      *
      * @returns returns null if parent table doesn't exist.
      *
+     * @example
+     * ```js
+     * // Get the parent table of a row in a presentation.
+     *
+     * // Useful for getting the table that contains the row.
+     *
+     * // Get the parent table from a row and set the width of its first column.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(2, 3);
+     * const row = table.GetRow(0);
+     * const parentTable = row.GetParentTable();
+     * parentTable.SetColumnWidth(0, 2160000);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRow/Methods/GetParentTable/
      */
     GetParentTable(): ApiTable | null;
@@ -31878,9 +37178,121 @@ export namespace Slide {
      *
      * @returns returns null if row is first.
      *
+     * @example
+     * ```js
+     * // Get the previous row in a presentation.
+     *
+     * // Useful for getting the previous row from a table row.
+     *
+     * // Display text in the second and first rows using GetPrevious.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(2, 3);
+     * const secondRow = table.GetRow(1);
+     * const para = Api.CreateParagraph();
+     * para.AddText("First row");
+     * const para2 = Api.CreateParagraph();
+     * para2.AddText("Second row");
+     * secondRow.GetCell(0).GetContent().Push(para2);
+     * secondRow.GetPrevious().GetCell(0).GetContent().Push(para);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRow/Methods/GetPrevious/
      */
     GetPrevious(): ApiTableRow | null;
+
+    /**
+     * Merges the cells in the current row.
+     *
+     * @returns return null if can't merge.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Merge all cells in a table row in a presentation.
+     *
+     * // Useful for merging cells of a row into one.
+     *
+     * // Merge all cells of the first row.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const row = table.GetRow(0);
+     * const para = Api.CreateParagraph();
+     * para.AddText("Merged row");
+     * row.MergeCells();
+     * row.GetCell(0).GetContent().Push(para);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRow/Methods/MergeCells/
+     */
+    MergeCells(): ApiTableCell | null;
+
+    /**
+     * Removes the current table row.
+     *
+     * @returns return false if parent table doesn't exist.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Remove a table row in a presentation.
+     *
+     * // Useful for deleting a row from the table.
+     *
+     * // Remove the first row from the table.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(2, 3);
+     * const row = table.GetRow(0);
+     * const para = Api.CreateParagraph();
+     * para.AddText("First row");
+     * const para2 = Api.CreateParagraph();
+     * para2.AddText("First row was removed");
+     * row.GetCell(0).GetContent().Push(para);
+     * row.Remove();
+     * table.GetRow(0).GetCell(0).GetContent().Push(para2);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRow/Methods/Remove/
+     */
+    Remove(): boolean;
+
+    /**
+     * Sets the background color to all cells in the current table row.
+     *
+     * @param color - If not passed, the background color will be cleared.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the background color for all cells in a table row in a presentation.
+     *
+     * // Useful for coloring the background of a row.
+     *
+     * // Set an orange background for the second row.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(2, 3);
+     * const row = table.GetRow(1);
+     * row.SetBackgroundColor(Api.RGB(255, 111, 61));
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRow/Methods/SetBackgroundColor/
+     */
+    SetBackgroundColor(color?: ApiColor): boolean;
 
     /**
      * Sets the height to the current table row.
@@ -31908,10 +37320,170 @@ export namespace Slide {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRow/Methods/SetHeight/
      */
     SetHeight(nValue?: EMU): EMU | null;
+
+    /**
+     * Sets the properties to the current table row.
+     *
+     * @param oApiTableRowPr - The table row properties.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the properties for a table row in a presentation.
+     *
+     * // Useful for applying row properties to a table row.
+     *
+     * // Set the height of the first row using row properties.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(2, 3);
+     * const row = table.GetRow(0);
+     * const rowPr = Api.CreateTableRowPr();
+     * rowPr.SetHeight("atLeast", 720*3);
+     * row.SetRowPr(rowPr);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRow/Methods/SetRowPr/
+     */
+    SetRowPr(oApiTableRowPr: ApiTableRowPr): boolean;
+
+    /**
+     * Sets the text properties to the current row.
+     *
+     * @param oTextPr - The text properties that will be set to the current row.
+     * @returns returns false if parent table doesn't exist or param is invalid.
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Apply text formatting to every cell of a table row in a presentation.
+     *
+     * // The given ApiTextPr is pushed to all cells of the row at once, so a header row can be styled in one call.
+     *
+     * // Fill the first row with captions and make its text bold in a single call.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(2, 3);
+     * const row = table.GetRow(0);
+     * for (let i = 0; i < row.GetCellsCount(); i++) {
+     * 	row.GetCell(i).SetText("Header " + (i + 1));
+     * }
+     * const textPr = Api.CreateTextPr();
+     * textPr.SetBold(true);
+     * row.SetTextPr(textPr);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRow/Methods/SetTextPr/
+     */
+    SetTextPr(oTextPr: ApiTextPr): boolean;
   }
 
-  /** Class representing the table row properties. */
+  /**
+   * Class representing the table row properties.
+   *
+   * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRowPr/
+   */
   export interface ApiTableRowPr {
+    /**
+     * Returns a type of the ApiTableRowPr class.
+     *
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the class type of the table row properties object in a presentation.
+     *
+     * // Helps when checking the class type of ApiTableRowPr.
+     *
+     * // Apply the row properties to the first row and display their class type in the first cell.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(2, 3);
+     * const row = table.GetRow(0);
+     * const rowPr = Api.CreateTableRowPr();
+     * rowPr.SetHeight("atLeast", 1500);
+     * row.SetRowPr(rowPr);
+     * const classType = rowPr.GetClassType();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Class type: " + classType);
+     * row.GetCell(0).GetContent().Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRowPr/Methods/GetClassType/
+     */
+    GetClassType(): "tableRowPr";
+
+    /**
+     * Sets the height to the current table row within the current table.
+     *
+     * @param sHRule - The rule to apply the height value to the current table row or ignore it.
+     * @param nValue - The height for the current table row measured in twentieths of a point (1/1440 of an inch).
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set a minimum row height in a presentation table using row properties.
+     *
+     * // SetHeight applies a height rule and value to the row properties object.
+     *
+     * // Create a table, build row properties with a fixed minimum height, and apply them to each row.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * for (let i = 0; i < 3; i++) {
+     * 	const rowPr = Api.CreateTableRowPr();
+     * 	rowPr.SetHeight("atLeast", 1500);
+     * 	table.GetRow(i).SetRowPr(rowPr);
+     * }
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRowPr/Methods/SetHeight/
+     */
+    SetHeight(sHRule: "auto" | "atLeast", nValue?: twips): boolean;
+
+    /**
+     * Converts the ApiTableRowPr object into the JSON object.
+     *
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Convert the table row properties into their JSON representation in a presentation.
+     *
+     * // The row properties are serialized into a string so their settings can be stored or transferred.
+     *
+     * // Build row properties with a minimum height, apply them to the first row, and write their JSON string into the first cell.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(2, 3);
+     * const row = table.GetRow(0);
+     * const rowPr = Api.CreateTableRowPr();
+     * rowPr.SetHeight("atLeast", 720);
+     * row.SetRowPr(rowPr);
+     * const json = rowPr.ToJSON();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Row properties JSON: " + json);
+     * row.GetCell(0).GetContent().Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableRowPr/Methods/ToJSON/
+     */
+    ToJSON(): string;
   }
 
   /**
@@ -31923,20 +37495,120 @@ export namespace Slide {
    */
   export interface ApiTableStylePr {
     /**
+     * Returns a type of the ApiTableStylePr class.
+     *
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the class type of the ApiTableStylePr object in a presentation.
+     *
+     * // Helps when checking the class type of a table style part.
+     *
+     * // Get the table style part from the presentation and display its class type.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const style = presentation.GetStyle("Medium Style 2 - Accent 1");
+     * const stylepr = style.GetConditionalTableStyle("wholeTable");
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Class type: " + stylepr.GetClassType());
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableStylePr/Methods/GetClassType/
+     */
+    GetClassType(): "tableStylePr";
+
+    /**
      * Returns a set of the table properties which will be applied to all the regions within a table which
      * match the conditional formatting type.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the table properties from the table style part in a presentation.
+     *
+     * // Useful for getting table properties from a conditional table style.
+     *
+     * // Get the wholeTable style part and set a border using its table properties.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const style = presentation.GetStyle("Medium Style 2 - Accent 1");
+     * const stylepr = style.GetConditionalTableStyle("wholeTable");
+     * const tablePr = stylepr.GetTablePr();
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("GetTablePr class type: " + tablePr.GetClassType());
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableStylePr/Methods/GetTablePr/
      */
     GetTablePr(): ApiTablePr;
 
     /**
+     * Returns a type of the current table conditional style.
+     *
+     * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the type of the conditional formatting region in a presentation.
+     *
+     * // Useful for getting the type of a table style part.
+     *
+     * // Get the table style part and display its type.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const style = presentation.GetStyle("Medium Style 2 - Accent 1");
+     * const stylepr = style.GetConditionalTableStyle("wholeTable");
+     * const paragraph = Api.CreateParagraph();
+     * paragraph.AddText("Type: " + stylepr.GetType());
+     * table.GetCell(0, 0).GetContent().Push(paragraph);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableStylePr/Methods/GetType/
+     */
+    GetType(): TableStyleOverrideType;
+
+    /**
      * Sets the table properties to the current table style properties.
      *
      * @param oTablePr - The table properties to apply.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Modify the wholeTable conditional style of a named table style and apply it to a table.
+     *
+     * // The table properties stored in a conditional style part are updated.
+     *
+     * // Get the wholeTable part of a presentation style, set its borders, and apply the style to a table.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * const table = Api.CreateTable(3, 3);
+     * const style = presentation.GetStyle("Medium Style 2 - Accent 2");
+     * table.SetStyle(style);
+     * const stylepr = style.GetConditionalTableStyle("wholeTable");
+     * const tablePr = stylepr.GetTablePr();
+     * tablePr.SetTableBorderAll("single", 0.5, Api.CreateSolidFill(Api.RGB(255, 0, 0)));
+     * stylepr.SetTablePr(tablePr);
+     * slide.RemoveAllObjects();
+     * slide.AddObject(table);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTableStylePr/Methods/SetTablePr/
      */
@@ -32163,6 +37835,8 @@ export namespace Slide {
      *
      * The method automatically calculates the font from the theme if the font was set via the theme.
      *
+     * @param fontSlot - The font slot. If this parameter is not specified, the "ascii" value is used.
+     * @default fontSlot = "ascii"
      * @since 8.1.0
      *
      * @example
@@ -32200,7 +37874,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetFontFamily/
      */
-    GetFontFamily(): string | null;
+    GetFontFamily(fontSlot?: "ascii" | "eastAsia" | "hAnsi" | "cs"): string | null;
 
     /**
      * Gets the font size from the current text properties.
@@ -32324,6 +37998,15 @@ export namespace Slide {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetItalic/
      */
     GetItalic(): boolean | null;
+
+    /**
+     * Gets the language from the current text properties.
+     *
+     * @since 8.1.0
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/GetLanguage/
+     */
+    GetLanguage(): string | null;
 
     /**
      * Gets the text outline from the current text properties.
@@ -32494,6 +38177,7 @@ export namespace Slide {
 
     /**
      * Gets the text fill from the current text properties.
+     * This method is the same as {@link ApiTextPr#GetFill}.
      *
      * @since 8.1.0
      *
@@ -32650,6 +38334,46 @@ export namespace Slide {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetCaps/
      */
     SetCaps(isCaps: boolean): ApiTextPr;
+
+    /**
+     * Sets the text color to the current text run.
+     *
+     * @param color - The text color. Pass _null_ to remove the text color.
+     * @returns this text properties.
+     * @since 9.1.0
+     *
+     * @example
+     * ```js
+     * // Set the font color through the text properties of a run in a presentation.
+     *
+     * // How do I change the text color with text properties in a presentation?
+     *
+     * // Get the text properties of a run and apply a dark blue color to its characters in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("flowChartMagneticTape", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * const run = Api.CreateRun();
+     * const textPr = run.GetTextPr();
+     * textPr.SetFontSize(50);
+     * textPr.SetColor(Api.RGB(31, 56, 100));
+     * paragraph.SetJc("left");
+     * run.AddText("This is a sample text inside the shape with the font color set to dark blue using the text properties.");
+     * paragraph.AddElement(run);
+     * slide.AddObject(shape);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetColor/
+     */
+    SetColor(color: ApiColor | null): ApiTextPr;
 
     /**
      * Specifies that the contents of the run are displayed with two horizontal lines through each
@@ -32877,6 +38601,48 @@ export namespace Slide {
     SetItalic(isItalic: boolean): ApiTextPr;
 
     /**
+     * Specifies the languages which will be used to check spelling and grammar (if requested) when
+     * processing
+     * the contents of the text run.
+     *
+     * @param langId - The possible value for this parameter is a language identifier as defined by RFC 4646/BCP 47.
+     *   Example: "en-CA". Pass _null_ to remove the language.
+     * @returns this text properties.
+     *
+     * @example
+     * ```js
+     * // Set the spell-check language through the text properties of a run in a presentation.
+     *
+     * // How do I choose the proofing language with text properties in a presentation?
+     *
+     * // Get the text properties of a run and assign a language code so the text is checked against the matching dictionary in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("flowChartMagneticTape", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * const run = Api.CreateRun();
+     * const textPr = run.GetTextPr();
+     * textPr.SetFontSize(50);
+     * textPr.SetLanguage("en-CA");
+     * paragraph.SetJc("left");
+     * run.AddText("This is a sample text.");
+     * paragraph.AddElement(run);
+     * slide.AddObject(shape);
+     * ```
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetLanguage/
+     */
+    SetLanguage(langId: string | null): ApiTextPr;
+
+    /**
      * Sets the text outline to the current text run.
      *
      * @param oStroke - The stroke used to create the text outline.
@@ -33033,8 +38799,9 @@ export namespace Slide {
 
     /**
      * Sets the text fill to the current text run.
+     * This method is the same as {@link ApiTextPr#SetFill}.
      *
-     * @param oApiFill - The color or pattern used to fill the text color.
+     * @param fill - The color or pattern used to fill the text color.
      * @returns this text properties.
      *
      * @example
@@ -33067,7 +38834,7 @@ export namespace Slide {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextPr/Methods/SetTextFill/
      */
-    SetTextFill(oApiFill: ApiFill): ApiTextPr;
+    SetTextFill(fill: ApiFill): ApiTextPr;
 
     /**
      * Specifies that the contents of the run are displayed along with a line appearing directly below the
@@ -33176,6 +38943,32 @@ export namespace Slide {
      * @returns returns null if the range spans more than one paragraph or the link is invalid.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Attach a hyperlink to part of a shape's text in a presentation.
+     *
+     * // The range must stay within a single paragraph, and besides a web address the link can be a slide action, for example, "ppaction://hlinksldjumpslide1" for the second slide.
+     *
+     * // Turn the word "here" into a link to the ONLYOFFICE website.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * docContent.GetElement(0).AddText("Click here to learn more");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * const link = range.GetRange(6, 10);
+     * link.AddHyperlink("https://www.onlyoffice.com", "ONLYOFFICE");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/AddHyperlink/
      */
     AddHyperlink(link: string, screenTipText: string): ApiHyperlink | null;
@@ -33189,6 +38982,31 @@ export namespace Slide {
      * @returns returns true if the text was successfully added.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Insert text at the end of a text range in a presentation shape.
+     *
+     * // Useful for appending text to a shape without replacing the existing content.
+     *
+     * // Append " World" after the existing text in the shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * docContent.GetElement(0).AddText("Hello");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * range.AddText(" World");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/AddText/
      */
     AddText(text: string, position?: "after" | "before"): boolean;
@@ -33199,6 +39017,32 @@ export namespace Slide {
      * @returns returns false if the range is empty.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Delete the characters covered by a text range in a presentation shape.
+     *
+     * // Useful for removing a portion of a shape's text without recreating the whole run.
+     *
+     * // Select the first five characters of the text and delete them.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * docContent.GetElement(0).AddText("Hello World");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * const sub = range.GetRange(0, 5);
+     * const deleted = sub.Delete();
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/Delete/
      */
     Delete(): boolean;
@@ -33208,6 +39052,35 @@ export namespace Slide {
      * changed.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Expand two overlapping or adjacent text ranges into a single union range.
+     *
+     * // Useful for merging adjacent or overlapping selections into one range.
+     *
+     * // Create two sub-ranges and expand them into one union range.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * docContent.GetElement(0).AddText("Hello World");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * const range1 = range.GetRange(0, 5);
+     * const range2 = range.GetRange(6, 11);
+     *
+     * const union = range1.ExpandTo(range2);
+     * union.Select()
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/ExpandTo/
      */
@@ -33226,6 +39099,38 @@ export namespace Slide {
      * @default wholeWords = false
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Search for a word within a text range and return its sub-range.
+     *
+     * // Useful for locating a substring and acting on its exact position.
+     *
+     * // Find the word "World" in the shape text and display its start position.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * docContent.GetElement(0).AddText("Hello World");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * const found = range.Find("World");
+     *
+     * const fill2 = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const shape2 = Api.CreateShape("rect", 300 * 36000, 80 * 36000, fill2, stroke);
+     * shape2.SetPosition(608400, 6000000);
+     * const msg = "Found at pos " + found.GetStartPos() + ": " + found.GetText();
+     * shape2.GetDocContent().GetElement(0).AddText(msg);
+     * slide.AddObject(shape2);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/Find/
      */
     Find(findWhat: string, after?: number, matchCase?: boolean, wholeWords?: boolean): ApiTextRange | null;
@@ -33234,6 +39139,43 @@ export namespace Slide {
      * Returns all Paragraph objects within this range.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get all paragraphs covered by a text range in a presentation shape.
+     *
+     * // Useful for iterating over every paragraph within a selection.
+     *
+     * // Retrieve all paragraphs and display their count.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 75 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * docContent.GetElement(0).AddText("First paragraph");
+     * const para2 = Api.CreateParagraph();
+     * para2.AddText("Second paragraph");
+     * docContent.Push(para2);
+     * const para3 = Api.CreateParagraph();
+     * para3.AddText("Third paragraph");
+     * docContent.Push(para3);
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * const paragraphs = range.GetAllParagraphs();
+     *
+     * const fill2 = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const shape2 = Api.CreateShape("rect", 300 * 36000, 80 * 36000, fill2, stroke);
+     * shape2.SetPosition(608400, 4000000);
+     * shape2.GetDocContent().GetElement(0).AddText("Total paragraphs: " + paragraphs.length);
+     * slide.AddObject(shape2);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/GetAllParagraphs/
      */
@@ -33244,6 +39186,33 @@ export namespace Slide {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the class type of an ApiTextRange object and display it in a presentation shape.
+     *
+     * // Useful for confirming the object type before calling range-specific methods.
+     *
+     * // Retrieve the class type and insert it into the paragraph.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     *
+     * const range = shape.GetTextRange();
+     * const classType = range.GetClassType();
+     * paragraph.AddText(" Class type: " + classType);
+     * slide.AddObject(shape);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/GetClassType/
      */
     GetClassType(): "textRange";
@@ -33252,6 +39221,38 @@ export namespace Slide {
      * Returns the end position of the current range.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the end position of a text range in a presentation shape.
+     *
+     * // Useful for knowing exactly where a range stops within the text.
+     *
+     * // Retrieve the end position and display it on the slide.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * const endPos = range.GetEndPos();
+     *
+     * const fill2 = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const shape2 = Api.CreateShape("rect", 300 * 36000, 80 * 36000, fill2, stroke);
+     * shape2.SetPosition(608400, 6000000);
+     * shape2.GetDocContent().GetElement(0).AddText("GetEndPos: " + endPos);
+     * slide.AddObject(shape2);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/GetEndPos/
      */
@@ -33263,6 +39264,40 @@ export namespace Slide {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get a paragraph by index from a text range and display its text.
+     *
+     * // Useful for accessing a specific paragraph inside a multi-paragraph range.
+     *
+     * // Retrieve the second paragraph of a multi-paragraph shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * docContent.GetElement(0).AddText("First paragraph");
+     * const para2 = Api.CreateParagraph();
+     * para2.AddText("Second paragraph");
+     * docContent.Push(para2);
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * const paragraph = range.GetParagraph(1);
+     *
+     * const fill2 = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const shape2 = Api.CreateShape("rect", 300 * 36000, 80 * 36000, fill2, stroke);
+     * shape2.SetPosition(608400, 6000000);
+     * shape2.GetDocContent().GetElement(0).AddText("Paragraph(1): " + JSON.stringify(paragraph.GetText()));
+     * slide.AddObject(shape2);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/GetParagraph/
      */
     GetParagraph(index: number): ApiParagraph | null;
@@ -33271,19 +39306,77 @@ export namespace Slide {
      * Returns a new ApiTextRange that represents a sub-range of the current range.
      *
      * @param start - Start offset (0-based) relative to the beginning of this range.
-     * @param rangeEnd - End offset relative to the beginning of this range. -1 means the end of this range.
+     * @param end - End offset relative to the beginning of this range. -1 means the end of this range.
      * @default start = 0
-     * @default rangeEnd = -1
+     * @default end = -1
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Create a sub-range from an existing text range using relative offsets.
+     *
+     * // Useful for narrowing a range down to a smaller portion of text.
+     *
+     * // Get the sub-range "World" from "Hello World" and select it.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * docContent.GetElement(0).AddText("Hello World");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * const sub = range.GetRange(6, 11);
+     * sub.SetBold(true);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/GetRange/
      */
-    GetRange(start?: number, rangeEnd?: number): ApiTextRange | null;
+    GetRange(start?: number, end?: number): ApiTextRange | null;
 
     /**
      * Returns the start position of the current range.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the 0-based start position of a text range in a presentation shape.
+     *
+     * // Useful for knowing exactly where a range begins within the text.
+     *
+     * // Retrieve the 0-based start position and display it on the slide.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * const startPos = range.GetStartPos();
+     *
+     * const fill2 = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const shape2 = Api.CreateShape("rect", 300 * 36000, 80 * 36000, fill2, stroke);
+     * shape2.SetPosition(608400, 6000000);
+     * shape2.GetDocContent().GetElement(0).AddText("GetStartPos: " + startPos);
+     * slide.AddObject(shape2);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/GetStartPos/
      */
@@ -33312,6 +39405,39 @@ export namespace Slide {
      * @default options.TabSymbol = '\t'
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Get the text content of a range and display it in a second shape.
+     *
+     * // Useful for reading the text covered by a range without modifying it.
+     *
+     * // Retrieve the text content of the range and show it on the slide.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * const text = range.GetText();
+     *
+     * const fill2 = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const shape2 = Api.CreateShape("rect", 300 * 36000, 80 * 36000, fill2, stroke);
+     * shape2.SetPosition(608400, 6000000);
+     * const content2 = shape2.GetDocContent();
+     * content2.GetElement(0).AddText("GetText result: " + JSON.stringify(text));
+     * slide.AddObject(shape2);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/GetText/
      */
     GetText(options?: { Math?: boolean; NewLineSeparator?: string; TableCellSeparator?: string; TableRowSeparator?: string; ParaSeparator?: string; TabSymbol?: string }): string;
@@ -33320,6 +39446,42 @@ export namespace Slide {
      * Returns the merged text properties of the entire range.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Get the text properties object from a text range in a presentation shape.
+     *
+     * // Useful for inspecting the current formatting before changing it.
+     *
+     * // Get the ApiTextPr object from the range and use it to read formatting.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * const run = Api.CreateRun();
+     * const textPr = run.GetTextPr();
+     * textPr.SetBold(true);
+     * textPr.SetFontSize(28);
+     * run.AddText("Formatted text in a shape.");
+     * docContent.GetElement(0).AddElement(run);
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * const rangePr = range.GetTextPr();
+     *
+     * const fill2 = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const shape2 = Api.CreateShape("rect", 300 * 36000, 80 * 36000, fill2, stroke);
+     * shape2.SetPosition(608400, 6000000);
+     * shape2.GetDocContent().GetElement(0).AddText("GetTextPr class: " + rangePr.GetClassType());
+     * slide.AddObject(shape2);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/GetTextPr/
      */
@@ -33331,6 +39493,40 @@ export namespace Slide {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Intersect two overlapping text ranges and return their common part.
+     *
+     * // Useful for finding the shared portion between two selections.
+     *
+     * // Create two partially overlapping ranges and get their intersection.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * docContent.GetElement(0).AddText("Hello World");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * const range1 = range.GetRange(0, 7);
+     * const range2 = range.GetRange(5, 11);
+     *
+     * const intersection = range1.IntersectWith(range2);
+     *
+     * const fill2 = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const shape2 = Api.CreateShape("rect", 300 * 36000, 80 * 36000, fill2, stroke);
+     * shape2.SetPosition(608400, 6000000);
+     * shape2.GetDocContent().GetElement(0).AddText("Intersection: " + JSON.stringify(intersection.GetText()));
+     * slide.AddObject(shape2);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/IntersectWith/
      */
     IntersectWith(range: ApiTextRange): ApiTextRange | null;
@@ -33341,6 +39537,32 @@ export namespace Slide {
      * @param pos - The desired cursor position.
      * @default pos = 0
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Move the editor cursor to a specific position within a text range.
+     *
+     * // Useful for placing the cursor precisely before further editing.
+     *
+     * // Move the cursor to position 6 inside the shape text.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * range.MoveCursorToPos(6);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/MoveCursorToPos/
      */
@@ -33358,6 +39580,31 @@ export namespace Slide {
      * @returns this
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Replace all occurrences of a word within a text range.
+     *
+     * // Useful for bulk text substitution inside a shape.
+     *
+     * // Replace every occurrence of "foo" with "bar".
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * docContent.GetElement(0).AddText("foo bar foo");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * range.Replace("foo", "bar");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/Replace/
      */
     Replace(findWhat: string, replaceWith: string, matchCase?: boolean, wholeWords?: boolean): ApiTextRange;
@@ -33366,6 +39613,32 @@ export namespace Slide {
      * Selects the text range in the editor.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Select the text covered by a range in the presentation editor.
+     *
+     * // Useful for highlighting a range for the user to see in the editor view.
+     *
+     * // Select the text range in the presentation editor view.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("This text will be selected programmatically.");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * range.Select();
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/Select/
      */
@@ -33376,6 +39649,32 @@ export namespace Slide {
      *
      * @param isBold - Pass _null_ to remove the bold formatting.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the bold property on all runs within a text range.
+     *
+     * // Useful for emphasizing a portion of text without affecting the rest.
+     *
+     * // Apply bold formatting to the entire text range.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("This text will be made bold using the text range API.");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * range.SetBold(true);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetBold/
      */
@@ -33389,6 +39688,32 @@ export namespace Slide {
      *   capitalization.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Apply all-caps formatting to all runs within a text range.
+     *
+     * // Useful for changing letter case display without altering the underlying text.
+     *
+     * // Apply all caps formatting to the entire text range.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("This text will be displayed in all caps using the text range API.");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * range.SetCaps(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetCaps/
      */
     SetCaps(isCaps: boolean | null): ApiTextRange;
@@ -33398,6 +39723,32 @@ export namespace Slide {
      *
      * @param color - Pass _null_ to remove the text color.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the text color for all runs within a text range.
+     *
+     * // Useful for highlighting a selection with a specific color.
+     *
+     * // Apply a red color to the entire text range.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("This text will be displayed in red using the text range API.");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * range.SetColor(Api.RGB(255, 0, 0));
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetColor/
      */
@@ -33410,6 +39761,32 @@ export namespace Slide {
      * @param isDoubleStrikeout - Pass _null_ to remove the double strikeout.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Apply double strikeout formatting to all runs within a text range.
+     *
+     * // Useful for marking text as removed with a double-line strikethrough.
+     *
+     * // Apply double strikeout to the entire text range.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("This text will have double strikeout applied using the text range API.");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * range.SetDoubleStrikeout(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetDoubleStrikeout/
      */
     SetDoubleStrikeout(isDoubleStrikeout: boolean | null): ApiTextRange;
@@ -33419,6 +39796,38 @@ export namespace Slide {
      *
      * @param pos - End position.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the end position of a text range to select only part of the text.
+     *
+     * // Useful for narrowing a range from its tail end.
+     *
+     * // Set a new end position and display the resulting sub-range text.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * range.SetEndPos(5);
+     *
+     * const fill2 = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const shape2 = Api.CreateShape("rect", 300 * 36000, 80 * 36000, fill2, stroke);
+     * shape2.SetPosition(608400, 6000000);
+     * shape2.GetDocContent().GetElement(0).AddText("Sub-range text: " + JSON.stringify(range.GetText()));
+     * slide.AddObject(shape2);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetEndPos/
      */
@@ -33431,6 +39840,32 @@ export namespace Slide {
      *   the font family.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the font family for all runs within a text range.
+     *
+     * // Useful for applying a custom typeface to a specific selection.
+     *
+     * // Apply the "Comic Sans MS" font to the entire text range.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("This text will be displayed in Comic Sans MS using the text range API.");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * range.SetFontFamily("Comic Sans MS");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetFontFamily/
      */
     SetFontFamily(fontFamily?: string | null): ApiTextRange | null;
@@ -33442,6 +39877,32 @@ export namespace Slide {
      *   size.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the font size for all runs within a text range.
+     *
+     * // Useful for resizing text within a selection independently of the rest.
+     *
+     * // Apply a 36 pt font size to the entire text range.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("This text will be displayed at 36 pt using the text range API.");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * range.SetFontSize(36);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetFontSize/
      */
     SetFontSize(fontSize: hps | null): ApiTextRange | null;
@@ -33452,6 +39913,32 @@ export namespace Slide {
      *
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Highlight the text within a range using a named color.
+     *
+     * // Useful for drawing attention to a specific portion of text.
+     *
+     * // Apply a red highlight to the entire text range.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("This text will be highlighted in yellow using the text range API.");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * range.SetHighlight("red");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetHighlight/
      */
     SetHighlight(colorName: highlightColor): ApiTextRange | null;
@@ -33461,6 +39948,32 @@ export namespace Slide {
      *
      * @param isItalic - Pass _null_ to remove the italic formatting.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Apply italic formatting to all runs within a text range.
+     *
+     * // Useful for emphasizing a selection with slanted text.
+     *
+     * // Apply italic formatting to the entire text range.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("This text will be displayed in italic using the text range API.");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * range.SetItalic(true);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetItalic/
      */
@@ -33476,6 +39989,32 @@ export namespace Slide {
      * @returns returns null if the language identifier is not supported.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the spell-check language for a text range in a presentation.
+     *
+     * // The language applies to the covered fragment only.
+     *
+     * // Set the language of the first word and print it.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * slide.AddObject(shape);
+     *
+     * const paragraph = shape.GetContent().GetElement(0);
+     * paragraph.AddText("This is a sample text.");
+     *
+     * const firstWord = shape.GetTextRange().GetRange(0, 4);
+     * firstWord.SetLanguage("en-CA");
+     * paragraph.AddText(" Language of the first word: " + firstWord.GetTextPr().GetLanguage());
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetLanguage/
      */
     SetLanguage(langId: string | null): ApiTextRange | null;
@@ -33490,6 +40029,32 @@ export namespace Slide {
      *   not. Pass _null_ to remove the small capitals.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Apply small caps formatting to all runs within a text range.
+     *
+     * // Useful for a stylistic case change without retyping the text.
+     *
+     * // Apply small caps formatting to the entire text range.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("This text will be displayed in small caps using the text range API.");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * range.SetSmallCaps(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetSmallCaps/
      */
     SetSmallCaps(isSmallCaps: boolean | null): ApiTextRange;
@@ -33501,6 +40066,32 @@ export namespace Slide {
      *   to remove the text spacing.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the character spacing for all runs within a text range.
+     *
+     * // Useful for tightening or loosening letter spacing in a selection.
+     *
+     * // Apply 80 twentieths-of-a-point spacing to the entire text range.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("This text has increased character spacing.");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * range.SetSpacing(80);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetSpacing/
      */
     SetSpacing(spacing: twips | null): ApiTextRange | null;
@@ -33510,6 +40101,38 @@ export namespace Slide {
      *
      * @param pos - Start position.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Set the start position of a text range and retrieve the sub-range text.
+     *
+     * // Useful for narrowing a range from its head end.
+     *
+     * // Set a new start position to select only part of the text.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Hello World");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * range.SetStartPos(6);
+     *
+     * const fill2 = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const shape2 = Api.CreateShape("rect", 300 * 36000, 80 * 36000, fill2, stroke);
+     * shape2.SetPosition(608400, 6000000);
+     * shape2.GetDocContent().GetElement(0).AddText("Sub-range text: " + JSON.stringify(range.GetText()));
+     * slide.AddObject(shape2);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetStartPos/
      */
@@ -33522,6 +40145,32 @@ export namespace Slide {
      * @param isStrikeout - Pass _null_ to remove the strikeout.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Apply single strikeout formatting to all runs within a text range.
+     *
+     * // Useful for visually marking text as deleted while keeping it in place.
+     *
+     * // Apply single strikeout to the entire text range.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("This text will be struck out using the text range API.");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * range.SetStrikeout(true);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetStrikeout/
      */
     SetStrikeout(isStrikeout: boolean | null): ApiTextRange;
@@ -33533,6 +40182,37 @@ export namespace Slide {
      * @returns this
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set new text content to a range, replacing the existing text.
+     *
+     * // Useful for swapping out a shape's text without recreating the range.
+     *
+     * // Replace the shape text with new content and verify the result.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * docContent.GetElement(0).AddText("Old text");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * range.SetText("New text");
+     *
+     * const fill2 = Api.CreateSolidFill(Api.RGB(200, 230, 255));
+     * const shape2 = Api.CreateShape("rect", 300 * 36000, 80 * 36000, fill2, stroke);
+     * shape2.SetPosition(608400, 6000000);
+     * shape2.GetDocContent().GetElement(0).AddText("After SetText: " + JSON.stringify(range.GetText()));
+     * slide.AddObject(shape2);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetText/
      */
     SetText(text: string): ApiTextRange;
@@ -33542,6 +40222,37 @@ export namespace Slide {
      *
      * @param textPr - The text properties that will be applied to the current range.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Apply an ApiTextPr object to all runs within a text range.
+     *
+     * // Useful for applying a reusable formatting profile to a selection.
+     *
+     * // Build an ApiTextPr with bold and large font, then apply it to the range.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("This text will receive custom formatting via SetTextPr.");
+     * slide.AddObject(shape);
+     *
+     * const helperRun = Api.CreateRun();
+     * const textPr = helperRun.GetTextPr();
+     * textPr.SetBold(true);
+     * textPr.SetFontSize(32);
+     *
+     * const range = shape.GetTextRange();
+     * range.SetTextPr(textPr);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetTextPr/
      */
@@ -33555,6 +40266,32 @@ export namespace Slide {
      * @param isUnderline - Specifies if the contents of the current Range are displayed underlined or not. Pass _null_ to
      *   remove the underline.
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Apply underline formatting to all runs within a text range.
+     *
+     * // Useful for emphasizing a selection with an underline.
+     *
+     * // Apply underline formatting to the entire text range.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("This text will be underlined using the text range API.");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * range.SetUnderline(true);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetUnderline/
      */
@@ -33574,6 +40311,34 @@ export namespace Slide {
      *   alignment.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Set the vertical alignment of runs within a text range to superscript.
+     *
+     * // Useful for creating superscript or subscript effects on part of text.
+     *
+     * // Apply superscript vertical alignment to the entire text range.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     *
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("E=mc");
+     * slide.AddObject(shape);
+     *
+     * const range = shape.GetTextRange();
+     * range.AddText("2", "after");
+     *
+     * shape.GetTextRange().GetRange(4, 5).SetVertAlign("superscript");
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/SetVertAlign/
      */
     SetVertAlign(type: "baseline" | "subscript" | "superscript" | null): ApiTextRange | null;
@@ -33584,6 +40349,38 @@ export namespace Slide {
      * @param options - The HTML conversion options.
      * @default options = {}
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Export a part of a paragraph as an HTML string in a presentation.
+     *
+     * // How do I get the HTML markup of only a fragment of the text in a presentation?
+     *
+     * // Convert the end of a sentence with its bold words to HTML and show the markup in a second paragraph of the shape in a presentation.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const gs1 = Api.CreateGradientStop(Api.RGB(255, 213, 191), 0);
+     * const gs2 = Api.CreateGradientStop(Api.RGB(255, 111, 61), 100000);
+     * const fill = Api.CreateRadialGradientFill([gs1, gs2]);
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 130 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * const docContent = shape.GetDocContent();
+     * const paragraph = docContent.GetElement(0);
+     * paragraph.AddText("Convert only ");
+     * const boldRun = paragraph.AddText("this part");
+     * boldRun.SetBold(true);
+     * slide.AddObject(shape);
+     *
+     * const range = paragraph.GetTextRange(8, 22);
+     * const html = range.ToHtml({"RenderHTMLTags": true});
+     * const htmlParagraph = Api.CreateParagraph();
+     * htmlParagraph.AddText("HTML output: " + html.trim());
+     * docContent.Push(htmlParagraph);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiTextRange/Methods/ToHtml/
      */
@@ -34069,6 +40866,28 @@ export namespace Slide {
      *   position.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Fill shapes with the accent colors of a presentation theme.
+     *
+     * // Read the colors of a theme color scheme to reuse them on a slide.
+     *
+     * // Get each accent color of the color scheme, fill a shape with it and write its HEX value inside.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const colorScheme = presentation.GetMaster(0).GetTheme().GetColorScheme();
+     * for (let position = 0; position < 6; position++) {
+     * 	const color = colorScheme.GetColor(position);
+     * 	const shape = Api.CreateShape("rect", 45 * 36000, 30 * 36000, Api.CreateSolidFill(color), Api.CreateStroke(0, Api.CreateNoFill()));
+     * 	shape.SetPosition((10 + position * 50) * 36000, 60 * 36000);
+     * 	shape.GetContent().GetElement(0).AddText(color.GetHex());
+     * 	slide.AddObject(shape);
+     * }
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeColorScheme/Methods/GetColor/
      */
     GetColor(position: number): ApiColor | null;
@@ -34077,6 +40896,27 @@ export namespace Slide {
      * Returns the name of the current theme color scheme.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Show the name of a theme color scheme in a presentation.
+     *
+     * // Identify the color scheme that the presentation theme uses.
+     *
+     * // Get the name of the color scheme and write it into a shape on the slide.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const colorScheme = presentation.GetMaster(0).GetTheme().GetColorScheme();
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 50 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * shape.GetContent().GetElement(0).AddText("Color scheme: " + colorScheme.GetSchemeName());
+     * slide.AddObject(shape);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeColorScheme/Methods/GetSchemeName/
      */
@@ -34293,6 +41133,31 @@ export namespace Slide {
      *   is not supported.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Write a heading in the major font of a presentation theme.
+     *
+     * // Read the heading font of a theme font scheme to use it for new text.
+     *
+     * // Get the major latin font of the font scheme and apply it to the text of a shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fontScheme = presentation.GetMaster(0).GetTheme().GetFontScheme();
+     * const majorFont = fontScheme.GetMajorFont("latin");
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 50 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * const run = shape.GetContent().GetElement(0).AddText("Heading font: " + majorFont);
+     * run.SetFontFamily(majorFont);
+     * run.SetFontSize(48);
+     * slide.AddObject(shape);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFontScheme/Methods/GetMajorFont/
      */
     GetMajorFont(script?: ThemeFontScript): string | null;
@@ -34306,6 +41171,30 @@ export namespace Slide {
      *   is not supported.
      * @since 10.0.0
      *
+     * @example
+     * ```js
+     * // Write body text in the minor font of a presentation theme.
+     *
+     * // Read the body font of a theme font scheme to use it for new text.
+     *
+     * // Get the minor latin font of the font scheme and apply it to the text of a shape.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fontScheme = presentation.GetMaster(0).GetTheme().GetFontScheme();
+     * const minorFont = fontScheme.GetMinorFont();
+     *
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 50 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * const run = shape.GetContent().GetElement(0).AddText("Body font: " + minorFont);
+     * run.SetFontFamily(minorFont);
+     * slide.AddObject(shape);
+     * ```
+     *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFontScheme/Methods/GetMinorFont/
      */
     GetMinorFont(script?: ThemeFontScript): string | null;
@@ -34314,6 +41203,27 @@ export namespace Slide {
      * Returns the name of the current theme font scheme.
      *
      * @since 10.0.0
+     *
+     * @example
+     * ```js
+     * // Show the name of a theme font scheme in a presentation.
+     *
+     * // Identify the font scheme that the presentation theme uses.
+     *
+     * // Get the name of the font scheme and write it into a shape on the slide.
+     *
+     * const presentation = Api.GetPresentation();
+     * const slide = presentation.GetSlideByIndex(0);
+     * slide.RemoveAllObjects();
+     *
+     * const fontScheme = presentation.GetMaster(0).GetTheme().GetFontScheme();
+     * const fill = Api.CreateSolidFill(Api.RGB(255, 111, 61));
+     * const stroke = Api.CreateStroke(0, Api.CreateNoFill());
+     * const shape = Api.CreateShape("rect", 300 * 36000, 50 * 36000, fill, stroke);
+     * shape.SetPosition(608400, 1267200);
+     * shape.GetContent().GetElement(0).AddText("Font scheme: " + fontScheme.GetSchemeName());
+     * slide.AddObject(shape);
+     * ```
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiThemeFontScheme/Methods/GetSchemeName/
      */
@@ -35123,14 +42033,6 @@ export namespace Slide {
     GetClassType(): "unsupported";
   }
 
-  /** Class representing the settings which are used to create a watermark. */
-  export interface ApiWatermarkSettings {
-  }
-
-  /** Class representing an animation effect. */
-  export interface g_nApiEffectIdCounter {
-  }
-
   /**
    * Maps every `GetClassType()` return value to the class that returns it.
    *
@@ -35193,9 +42095,13 @@ export namespace Slide {
     "slideShowTransition": ApiSlideShowTransition;
     "smartArt": ApiSmartArt;
     "stroke": ApiStroke;
+    "style": ApiStyle;
     "table": ApiTable;
     "tableCell": ApiTableCell;
+    "tablePr": ApiTablePr;
     "tableRow": ApiTableRow;
+    "tableRowPr": ApiTableRowPr;
+    "tableStylePr": ApiTableStylePr;
     "textPr": ApiRangeTextPr | ApiTextPr;
     "textRange": ApiTextRange;
     "theme": ApiTheme;

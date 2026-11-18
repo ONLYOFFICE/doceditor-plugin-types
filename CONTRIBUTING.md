@@ -56,6 +56,16 @@ pointing at either an `api.onlyoffice.com` clone or an unpacked archive of it:
 SDKJS_PATH=/path/to/sdkjs DOCS_PATH=/path/to/api.onlyoffice.com npm run generate
 ```
 
+A second, optional source fills what that one has not caught up with: `OFFICE_JS_API_PATH` (or
+`--office-js-api`), a checkout of office-js-api, which is branched per editor release and is where
+sdkjs's `@see office-js-api/Examples/{Editor}/<Class>/Methods/<Name>.js` tags actually point. Its
+files are plain runnable JS, so there is nothing to parse.
+
+It fills gaps only, never overrides. Preferring it wholesale looked tempting - of the 324 members
+10.0.3 added, the site had an example for 22 and office-js-api for 225 - but its Forms tree holds
+three classes against the site's 363 documented Forms members, so a straight swap would have deleted
+most of Forms' examples. Gap-filling also keeps the change additive for output that already shipped.
+
 The page for a member is addressed by exactly the segments its `docsUrl` already carries -
 `site/docs/office-api/usage-api/<section>/<Class>/Methods/<Method>.md` - so the lookup is derived,
 not guessed (99.9% of existing `docsUrl`s resolve to a file). The generator takes the `## Example`
@@ -371,13 +381,13 @@ directly linkable/reviewable, but excluded from the npm package (`package.json`'
 consumers get the modular package instead:
 
 ```text
-artifacts/ambient/onlyoffice-doceditor-plugin-types.word.ambient.d.ts   # 2.52 MB - Asc/AscPlugin/events/buttons/
+artifacts/ambient/onlyoffice-doceditor-plugin-types.word.ambient.d.ts   # 2.75 MB - Asc/AscPlugin/events/buttons/
                                                           # config/theme/services + namespace Word
                                                           # + a global `Api: Word.Api`
-artifacts/ambient/onlyoffice-doceditor-plugin-types.cell.ambient.d.ts   # 2.49 MB - ...same, for Cell
-artifacts/ambient/onlyoffice-doceditor-plugin-types.slide.ambient.d.ts  # 1.47 MB - ...same, for Slide
-artifacts/ambient/onlyoffice-doceditor-plugin-types.pdf.ambient.d.ts    # 1.43 MB - ...same, for Pdf
-artifacts/ambient/onlyoffice-doceditor-plugin-types.forms.ambient.d.ts  # 0.56 MB - ...same, for Forms, minus the
+artifacts/ambient/onlyoffice-doceditor-plugin-types.cell.ambient.d.ts   # 2.67 MB - ...same, for Cell
+artifacts/ambient/onlyoffice-doceditor-plugin-types.slide.ambient.d.ts  # 1.74 MB - ...same, for Slide
+artifacts/ambient/onlyoffice-doceditor-plugin-types.pdf.ambient.d.ts    # 1.71 MB - ...same, for Pdf
+artifacts/ambient/onlyoffice-doceditor-plugin-types.forms.ambient.d.ts  # 0.57 MB - ...same, for Forms, minus the
                                                           # global `Api` (Forms has none: its
                                                           # methods go through executeMethod)
 ```
@@ -480,7 +490,7 @@ few - `ApiWorksheetFunction` is the Excel formula library with 416 members - wou
 single 100k-token read and reintroduce exactly the problem the split exists to solve.
 
 Two ways to get it: fetch the git-tracked files from raw.githubusercontent.com, or regenerate
-locally with `npm run generate`. It is deliberately not in the npm package - at 4.88 MB it was 37%
+locally with `npm run generate`. It is deliberately not in the npm package - at 5.11 MB it was 37%
 of the install for something only an agent reads, and an agent reaching for it can fetch it over
 HTTP, while everyone installing the package for editor completion carried it for nothing.
 Written by `generate-types.js` (object model + events), `generate-plugin-methods.js` (executeMethod
@@ -519,7 +529,6 @@ onlyoffice-types/
 │   ├── overrides/          # Hand-maintained declarations for the handful of classes/typedefs
 │   │   │                   # generate-types.js can't resolve from a plain sdkjs checkout
 │   │   ├── cell.ts
-│   │   ├── pdf.ts
 │   │   ├── slide.ts
 │   │   └── word.ts
 │   ├── editors/            # /word, /cell, /slide, /pdf entry points (declare each editor's global Api)
@@ -560,6 +569,7 @@ onlyoffice-types/
 │   ├── provenance.js              # git metadata, file hashes, the release-tag gate
 │   ├── ext-provenance.js          # what counts as commercial, and the @requires wording
 │   ├── overrides-tables.js        # PARAM_OPTIONAL_FROM, RETURN_TYPE_OVERRIDE - corrections to sdkjs's JSDoc
+│   ├── paid-events.js             # which events only sdkjs-ext dispatches - shared by the generator and the checker
 │   ├── check-runtime-contract.js
 │   ├── check-plugin-events.js
 │   ├── check-arity.js

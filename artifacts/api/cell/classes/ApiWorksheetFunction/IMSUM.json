@@ -5,11 +5,11 @@
     {
       "description": "Up to 255 complex numbers expressed in the *x + yi* or *x + yj* form.",
       "name": "args",
-      "type": "ApiRange | ApiName | string"
+      "type": "ApiRange | ApiName | number | string"
     }
   ],
   "returns": {
-    "type": "number"
+    "type": "string"
   },
-  "signature": "IMSUM(args: ApiRange | ApiName | string): number"
+  "signature": "IMSUM(args: ApiRange | ApiName | number | string): string"
 }

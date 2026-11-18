@@ -19,27 +19,27 @@
     },
     {
       "description": "The interest rate of the security.",
-      "name": "arg5",
+      "name": "arg4",
       "type": "ApiRange | ApiName | number"
     },
     {
       "description": "The purchase price of the security, per $100 par value.",
-      "name": "arg6",
+      "name": "arg5",
       "type": "ApiRange | ApiName | number"
     },
     {
       "description": "The redemption value of the security, per $100 par value.",
-      "name": "arg6_2",
+      "name": "arg6",
       "type": "ApiRange | ApiName | number"
     },
     {
       "description": "The number of interest payments per year. The possible values are: 1 for annual payments, 2 for semiannual payments, 4 for quarterly payments.",
-      "name": "arg8",
+      "name": "arg7",
       "type": "ApiRange | ApiName | number"
     },
     {
       "description": "The day count basis to use: **0** or omitted - US (NASD) 30/360; **1** - Actual/actual; **2** - Actual/360; **3** - Actual/365; **4** - European 30/360.",
-      "name": "arg9",
+      "name": "arg8",
       "optional": true,
       "type": "ApiRange | ApiName | number"
     }
@@ -47,5 +47,5 @@
   "returns": {
     "type": "number"
   },
-  "signature": "ODDLYIELD(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number, arg3: ApiRange | ApiName | number, arg5: ApiRange | ApiName | number, arg6: ApiRange | ApiName | number, arg6_2: ApiRange | ApiName | number, arg8: ApiRange | ApiName | number, arg9?: ApiRange | ApiName | number): number"
+  "signature": "ODDLYIELD(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number, arg3: ApiRange | ApiName | number, arg4: ApiRange | ApiName | number, arg5: ApiRange | ApiName | number, arg6: ApiRange | ApiName | number, arg7: ApiRange | ApiName | number, arg8?: ApiRange | ApiName | number): number"
 }

@@ -265,17 +265,17 @@
       "signature": "GetElementsCount(): number"
     },
     "GetId": {
-      "description": "Returns a unique ID for the current content control.",
+      "description": "Returns a unique ID for the current content control.\nThis ID is saved to the file, unlike the internal ID returned by the {@link ApiInlineLvlSdt#GetInternalId} method.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/GetId/",
       "params": [],
       "returns": {
-        "type": "string"
+        "type": "number"
       },
-      "signature": "GetId(): string",
+      "signature": "GetId(): number",
       "since": "8.3.2"
     },
     "GetInternalId": {
-      "description": "Returns an internal ID of the current content control.",
+      "description": "Returns an internal ID of the current content control.\nThe internal ID is valid only for the current editing session: it stays the same while the document is open,\nbut it is not saved to the file and can be different after the document is reopened.\nTo get the ID which is saved to the file, use the {@link ApiInlineLvlSdt#GetId} method.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/GetInternalId/",
       "params": [],
       "returns": {
@@ -492,6 +492,26 @@
       },
       "signature": "MoveCursorOutside(isAfter?: boolean | null): boolean",
       "since": "8.1.0"
+    },
+    "MoveCursorToEnd": {
+      "description": "Moves the cursor to the end of the current content control.\nThe cursor is placed inside the content control. To place it before or after the content control, use the MoveCursorOutside method.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/MoveCursorToEnd/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "MoveCursorToEnd(): boolean",
+      "since": "10.0.3"
+    },
+    "MoveCursorToStart": {
+      "description": "Moves the cursor to the start of the current content control.\nThe cursor is placed inside the content control. To place it before or after the content control, use the MoveCursorOutside method.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/MoveCursorToStart/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "MoveCursorToStart(): boolean",
+      "since": "10.0.3"
     },
     "Push": {
       "description": "Adds an element to the end of inline text content control.",
@@ -727,7 +747,7 @@
       "since": "9.0.0"
     },
     "SetId": {
-      "description": "Specifies a unique ID for the current content control.",
+      "description": "Specifies a unique ID for the current content control.\nThis ID is saved to the file, unlike the internal ID returned by the {@link ApiInlineLvlSdt#GetInternalId} method.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiInlineLvlSdt/Methods/SetId/",
       "params": [
         {

@@ -5,13 +5,13 @@
     {
       "description": "The set of y-values from the *y = b*m^x* equation.",
       "name": "arg1",
-      "type": "ApiRange | ApiName | ApiRange"
+      "type": "ApiRange | ApiName | number[]"
     },
     {
       "description": "An optional set of x-values from the *y = b*m^x* equation.",
       "name": "arg2",
       "optional": true,
-      "type": "ApiRange | ApiName | ApiRange"
+      "type": "ApiRange | ApiName | number[]"
     },
     {
       "description": "A logical value: the constant *b* is calculated normally if this parameter is set to **true** or omitted,\rand *b* is set equal to 1 if the parameter is **false**.",
@@ -27,7 +27,7 @@
     }
   ],
   "returns": {
-    "type": "number"
+    "type": "number[][]"
   },
-  "signature": "LOGEST(arg1: ApiRange | ApiName | ApiRange, arg2?: ApiRange | ApiName | ApiRange, arg3?: ApiRange | ApiName | boolean, arg4?: ApiRange | ApiName | boolean): number"
+  "signature": "LOGEST(arg1: ApiRange | ApiName | number[], arg2?: ApiRange | ApiName | number[], arg3?: ApiRange | ApiName | boolean, arg4?: ApiRange | ApiName | boolean): number[][]"
 }

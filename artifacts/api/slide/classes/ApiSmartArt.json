@@ -25,7 +25,7 @@
       "signature": "GetHyperlink(): ApiHyperlink | null"
     },
     "GetInternalId": {
-      "description": "Returns an internal ID of the current drawing object.",
+      "description": "Returns an internal ID of the current drawing object.\nThe internal ID is valid only for the current editing session: it stays the same while the presentation is open,\nbut it is not saved to the file and can be different after the presentation is reopened.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiDrawing/Methods/GetInternalId/",
       "params": [],
       "returns": {
@@ -194,19 +194,19 @@
       "params": [
         {
           "description": "The distance from the left side of the slide to the left side of the drawing measured in English measure units.",
-          "name": "nPosX",
+          "name": "posX",
           "type": "EMU"
         },
         {
           "description": "The distance from the top side of the slide to the upper side of the drawing measured in English measure units.",
-          "name": "nPosY",
+          "name": "posY",
           "type": "EMU"
         }
       ],
       "returns": {
         "type": "void"
       },
-      "signature": "SetPosition(nPosX: EMU, nPosY: EMU): void"
+      "signature": "SetPosition(posX: EMU, posY: EMU): void"
     }
   }
 }

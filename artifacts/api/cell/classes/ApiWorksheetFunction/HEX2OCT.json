@@ -5,7 +5,7 @@
     {
       "description": "The hexadecimal number to convert.",
       "name": "arg1",
-      "type": "ApiRange | ApiName | number"
+      "type": "ApiRange | ApiName | number | string"
     },
     {
       "description": "The number of characters to use.",
@@ -15,7 +15,7 @@
     }
   ],
   "returns": {
-    "type": "number"
+    "type": "string"
   },
-  "signature": "HEX2OCT(arg1: ApiRange | ApiName | number, arg2?: ApiRange | ApiName | number): number"
+  "signature": "HEX2OCT(arg1: ApiRange | ApiName | number | string, arg2?: ApiRange | ApiName | number): string"
 }

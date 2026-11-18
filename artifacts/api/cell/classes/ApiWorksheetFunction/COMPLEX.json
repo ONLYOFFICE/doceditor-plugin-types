@@ -20,7 +20,7 @@
     }
   ],
   "returns": {
-    "type": "number"
+    "type": "string"
   },
-  "signature": "COMPLEX(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number, arg3?: ApiRange | ApiName | string): number"
+  "signature": "COMPLEX(arg1: ApiRange | ApiName | number, arg2: ApiRange | ApiName | number, arg3?: ApiRange | ApiName | string): string"
 }
