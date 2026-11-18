@@ -223,13 +223,11 @@ interface AscPlugin {
     event_onWindowResize?: PluginEventHandler<"onWindowResize">;
     event_onInputHelperInput?: PluginEventHandler<"onInputHelperInput">;
     event_onInputHelperClear?: PluginEventHandler<"onInputHelperClear">;
-    event_onExternalMouseUp?: PluginEventHandler<"onExternalMouseUp">;
     event_onClickBack?: PluginEventHandler<"onClickBack">;
     event_onDocumentContentReady?: PluginEventHandler<"onDocumentContentReady">;
     event_onTargetPositionChanged?: PluginEventHandler<"onTargetPositionChanged">;
     event_onClick?: PluginEventHandler<"onClick">;
     event_onKeyDown?: PluginEventHandler<"onKeyDown">;
-    event_onEnableMouseEvent?: PluginEventHandler<"onEnableMouseEvent">;
     event_onChangeRestrictions?: PluginEventHandler<"onChangeRestrictions">;
     onDestroy?: () => void;
     onEvent: (eventName: string, payload?: unknown) => void;
@@ -260,7 +258,25 @@ interface AscPlugin {
      * An implementation that ignores it may take no parameters at all.
      */
     init: (data: string) => void;
-    onExternalMouseUp: () => void;
+    /**
+     * Called when the mouse button is released anywhere in the editor outside the plugin iframe -
+     * including the plugin window's own header and border, which belong to the editor page. It
+     * carries no position or target.
+     *
+     * Assign it directly: the host sends it as a message of its own, not through `onEvent`, so
+     * `attachEvent("onExternalMouseUp", ...)` and an `event_onExternalMouseUp` slot never run.
+     */
+    onExternalMouseUp?: () => void;
+    /**
+     * Called with `true` when the editor starts forwarding mouse events to the plugin and with
+     * `false` when it stops. The editor does this while the user drags or resizes the plugin
+     * window or resizes the plugin panel, so the `true`/`false` pair brackets that gesture - the
+     * `onExternalMouseUp` that ends it arrives in between or right after.
+     *
+     * Assign it directly: the host sends it as a message of its own, not through `onEvent`, so
+     * `attachEvent("onEnableMouseEvent", ...)` and an `event_onEnableMouseEvent` slot never run.
+     */
+    onEnableMouseEvent?: (isEnabled: boolean) => void;
     onThemeChanged: (theme: AscTheme) => void;
     onThemeChangedBase: (theme: AscTheme) => void;
     onTranslate(): void;

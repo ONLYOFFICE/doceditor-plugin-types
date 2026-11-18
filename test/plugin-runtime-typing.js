@@ -118,4 +118,22 @@ window.Asc.plugin.inputHelper_onSelectItem = function (item) {
     console.log(item.text);
 };
 
+// ============================================================================
+// Events the host delivers to one handler property, not through onEvent/attachEvent
+// ============================================================================
+
+window.Asc.plugin.onEnableMouseEvent = function (isEnabled) {
+    /** @type {boolean} */
+    const enabled = isEnabled;
+    void enabled;
+};
+
+window.Asc.plugin.onExternalMouseUp = function () {};
+
+// @ts-expect-error the runtime never calls an event_ slot for this event - assign onEnableMouseEvent
+window.Asc.plugin.event_onEnableMouseEvent = function () {};
+
+// @ts-expect-error the runtime never calls an event_ slot for this event - assign onExternalMouseUp
+window.Asc.plugin.event_onExternalMouseUp = function () {};
+
 void asyncUsage;

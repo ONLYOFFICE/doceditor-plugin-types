@@ -64,6 +64,14 @@ function extractDocumentedEvents(filePath, editorCode) {
   return names;
 }
 
+// Documented in base-plugin-events.js like the rest, but not delivered through `onEvent`: the host
+// sends each as a message type of its own, and sdkjs/common/plugins/plugin_base.js answers it by
+// calling one property on `Asc.plugin` - `case "enableMouseEvent"` calls `onEnableMouseEvent`,
+// `case "onExternalMouseUp"` calls `onExternalMouseUp`. `attachEvent` and the `event_on*` slots are
+// never consulted, so these must be declared as handler properties of `AscPlugin` and must stay out
+// of `PluginEventMap`, where they would type a subscription that never fires.
+const DIRECT_HANDLER_EVENTS = ['onEnableMouseEvent', 'onExternalMouseUp'];
+
 function checkEvents(paths) {
   const documented = new Set();
   for (const editor of Object.keys(EDITOR_CODES)) {
@@ -74,11 +82,23 @@ function checkEvents(paths) {
 
   const eventsPath = path.join(PACKAGE_ROOT, 'src', 'plugin', 'events.d.ts');
   const ours = fs.readFileSync(eventsPath, 'utf8');
-  const missing = [...documented].filter((name) => !new RegExp(`\\b${name}\\b`).test(ours));
+  const pluginPath = path.join(PACKAGE_ROOT, 'src', 'plugin', 'plugin.d.ts');
+  const plugin = fs.readFileSync(pluginPath, 'utf8');
 
-  if (missing.length > 0) {
-    console.error(`events: missing documented plugin event(s): ${missing.join(', ')}`);
-    return missing.length;
+  const problems = [];
+  for (const name of documented) {
+    if (DIRECT_HANDLER_EVENTS.includes(name)) {
+      if (!new RegExp(`\\n    ${name}\\??: `).test(plugin)) problems.push(`${name}: not declared as an AscPlugin handler property`);
+      if (ours.includes(`\n    ${name}: [`)) problems.push(`${name}: listed in PluginEventMap, but attachEvent never receives it`);
+      if (new RegExp(`\\n    event_${name}\\??: `).test(plugin)) problems.push(`${name}: has an event_${name} slot the runtime never calls`);
+    } else if (!new RegExp(`\\b${name}\\b`).test(ours)) {
+      problems.push(`${name}: missing from PluginEventMap`);
+    }
+  }
+
+  if (problems.length > 0) {
+    console.error(`events: documented plugin event(s) out of date -\n  ${problems.join('\n  ')}`);
+    return problems.length;
   }
   console.log(`events: ${documented.size} documented plugin events (common + per-editor) all present`);
   return 0;

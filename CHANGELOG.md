@@ -29,6 +29,13 @@ Also new in this release:
   `ToolbarDisableReason` type) - plugin button state while the editor toolbar is disabled.
 - `attachEditorEvent` types the events shared by all editors, as `attachEvent` does.
 
+Fixed:
+
+- `onExternalMouseUp` and `onEnableMouseEvent` are no longer typed as `attachEvent` events or
+  `event_on*` slots. The editor delivers them only to `Asc.plugin.onExternalMouseUp` and
+  `Asc.plugin.onEnableMouseEvent`, so a handler attached the other way compiled and never ran.
+  `onEnableMouseEvent` is now declared as a handler property, and both handlers are optional.
+
 ## 10.0.0
 
 First published release. Generated from sdkjs `v10.0.0.159`.

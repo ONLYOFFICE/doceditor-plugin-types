@@ -384,7 +384,7 @@ consumers get the modular package instead:
 artifacts/ambient/onlyoffice-doceditor-plugin-types.word.ambient.d.ts   # 2.75 MB - Asc/AscPlugin/events/buttons/
                                                           # config/theme/services + namespace Word
                                                           # + a global `Api: Word.Api`
-artifacts/ambient/onlyoffice-doceditor-plugin-types.cell.ambient.d.ts   # 2.67 MB - ...same, for Cell
+artifacts/ambient/onlyoffice-doceditor-plugin-types.cell.ambient.d.ts   # 2.68 MB - ...same, for Cell
 artifacts/ambient/onlyoffice-doceditor-plugin-types.slide.ambient.d.ts  # 1.74 MB - ...same, for Slide
 artifacts/ambient/onlyoffice-doceditor-plugin-types.pdf.ambient.d.ts    # 1.71 MB - ...same, for Pdf
 artifacts/ambient/onlyoffice-doceditor-plugin-types.forms.ambient.d.ts  # 0.57 MB - ...same, for Forms, minus the

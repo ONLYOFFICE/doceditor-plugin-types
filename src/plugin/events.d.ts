@@ -21,7 +21,6 @@ type PluginEventMap = {
     /** Payload is not documented consistently across editor versions. */
     onInputHelperInput: [event: unknown];
     onInputHelperClear: [];
-    onExternalMouseUp: [];
     onClickBack: [];
     onDocumentContentReady: [];
     onTargetPositionChanged: [];
@@ -29,8 +28,6 @@ type PluginEventMap = {
     onClick: [isSelectionUse: boolean];
     /** Payload shape is not documented consistently across editor versions. */
     onKeyDown: [event: unknown];
-    /** `isEnabled` - whether the mouse or touchpad is enabled (true) or not (false). */
-    onEnableMouseEvent: [isEnabled: boolean];
     /** `value` - the restrictions value. */
     onChangeRestrictions: [value: number];
     /** `id` - the ID of the floating action button that was clicked. Since editor 10.0.0. */

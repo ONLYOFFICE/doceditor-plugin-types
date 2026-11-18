@@ -70690,7 +70690,16 @@ interface ContextMenuShowEvent {
     type: string;
 }
 
-/** Event arguments are tuples so events with no payload can be represented as `[]`. */
+/**
+ * Event arguments are tuples so events with no payload can be represented as `[]`.
+ *
+ * Only events the host delivers as an `onEvent` message belong here - that is the one message
+ * `attachEvent`, `attachEditorEvent` and the `event_on*` slots are dispatched from. sdkjs documents
+ * two more events alongside these, but sends each as a message type of its own that calls a single
+ * handler property on `Asc.plugin` and nothing else, so they are declared there instead
+ * (`AscPlugin.onExternalMouseUp`, `AscPlugin.onEnableMouseEvent`). `npm run check-plugin-events`
+ * keeps them out of this map.
+ */
 type PluginEventMap = {
     onContextMenuShow: [event: ContextMenuShowEvent];
     /** Payload is not documented consistently across editor versions. */
@@ -70698,7 +70707,6 @@ type PluginEventMap = {
     /** Payload is not documented consistently across editor versions. */
     onInputHelperInput: [event: unknown];
     onInputHelperClear: [];
-    onExternalMouseUp: [];
     onClickBack: [];
     onDocumentContentReady: [];
     onTargetPositionChanged: [];
@@ -70706,8 +70714,6 @@ type PluginEventMap = {
     onClick: [isSelectionUse: boolean];
     /** Payload shape is not documented consistently across editor versions. */
     onKeyDown: [event: unknown];
-    /** `isEnabled` - whether the mouse or touchpad is enabled (true) or not (false). */
-    onEnableMouseEvent: [isEnabled: boolean];
     /** `value` - the restrictions value. */
     onChangeRestrictions: [value: number];
     /** `id` - the ID of the floating action button that was clicked. Since editor 10.0.0. */
@@ -71286,13 +71292,11 @@ interface AscPlugin {
     event_onWindowResize?: PluginEventHandler<"onWindowResize">;
     event_onInputHelperInput?: PluginEventHandler<"onInputHelperInput">;
     event_onInputHelperClear?: PluginEventHandler<"onInputHelperClear">;
-    event_onExternalMouseUp?: PluginEventHandler<"onExternalMouseUp">;
     event_onClickBack?: PluginEventHandler<"onClickBack">;
     event_onDocumentContentReady?: PluginEventHandler<"onDocumentContentReady">;
     event_onTargetPositionChanged?: PluginEventHandler<"onTargetPositionChanged">;
     event_onClick?: PluginEventHandler<"onClick">;
     event_onKeyDown?: PluginEventHandler<"onKeyDown">;
-    event_onEnableMouseEvent?: PluginEventHandler<"onEnableMouseEvent">;
     event_onChangeRestrictions?: PluginEventHandler<"onChangeRestrictions">;
     onDestroy?: () => void;
     onEvent: (eventName: string, payload?: unknown) => void;
@@ -71319,7 +71323,25 @@ interface AscPlugin {
      * An implementation that ignores it may take no parameters at all.
      */
     init: (data: string) => void;
-    onExternalMouseUp: () => void;
+    /**
+     * Called when the mouse button is released anywhere in the editor outside the plugin iframe -
+     * including the plugin window's own header and border, which belong to the editor page. It
+     * carries no position or target.
+     *
+     * Assign it directly: the host sends it as a message of its own, not through `onEvent`, so
+     * `attachEvent("onExternalMouseUp", ...)` and an `event_onExternalMouseUp` slot never run.
+     */
+    onExternalMouseUp?: () => void;
+    /**
+     * Called with `true` when the editor starts forwarding mouse events to the plugin and with
+     * `false` when it stops. The editor does this while the user drags or resizes the plugin
+     * window or resizes the plugin panel, so the `true`/`false` pair brackets that gesture - the
+     * `onExternalMouseUp` that ends it arrives in between or right after.
+     *
+     * Assign it directly: the host sends it as a message of its own, not through `onEvent`, so
+     * `attachEvent("onEnableMouseEvent", ...)` and an `event_onEnableMouseEvent` slot never run.
+     */
+    onEnableMouseEvent?: (isEnabled: boolean) => void;
     onThemeChanged: (theme: AscTheme) => void;
     onThemeChangedBase: (theme: AscTheme) => void;
     onTranslate(): void;
