@@ -1,0 +1,49 @@
+{
+  "name": "Modal Window Sample",
+  "guid": "asc.{72B17CC4-23F6-49DC-B235-A0D99D274CC6}",
+  "version": "1.0.0",
+  "minVersion": "7.0.0",
+  "offered": "Your name or company",
+  "variations": [
+    {
+      "description": "Asks for a line of text and adds it to the current paragraph.",
+      "url": "index.html",
+      "icons": ["resources/light/icon.png", "resources/light/icon@2x.png"],
+      "icons2": [
+        {
+          "style": "light",
+          "100%": { "normal": "resources/light/icon.png" },
+          "125%": { "normal": "resources/light/icon@1.25x.png" },
+          "150%": { "normal": "resources/light/icon@1.5x.png" },
+          "175%": { "normal": "resources/light/icon@1.75x.png" },
+          "200%": { "normal": "resources/light/icon@2x.png" }
+        },
+        {
+          "style": "dark",
+          "100%": { "normal": "resources/dark/icon.png" },
+          "125%": { "normal": "resources/dark/icon@1.25x.png" },
+          "150%": { "normal": "resources/dark/icon@1.5x.png" },
+          "175%": { "normal": "resources/dark/icon@1.75x.png" },
+          "200%": { "normal": "resources/dark/icon@2x.png" }
+        }
+      ],
+      "isViewer": false,
+      "EditorsSupport": ["word"],
+      "isVisual": true,
+      "isModal": true,
+      "isInsideMode": false,
+      "initDataType": "none",
+      "initData": "",
+      "buttons": [
+        { "text": "OK", "primary": true },
+        { "text": "Cancel", "primary": false }
+      ],
+      "size": [400, 140],
+      "store": {
+        "background": { "light": "#F5F5F5", "dark": "#444444" },
+        "icons": { "light": "resources/store/icons", "dark": "resources/store/icons" },
+        "screenshots": []
+      }
+    }
+  ]
+}

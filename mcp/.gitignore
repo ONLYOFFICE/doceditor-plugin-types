@@ -1,0 +1,6 @@
+node_modules/
+*.tgz
+
+# Copied from the repository root by scripts/copy-data.js before packing; the root is the only source.
+data/
+LICENSE

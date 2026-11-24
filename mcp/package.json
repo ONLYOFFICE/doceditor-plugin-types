@@ -1,0 +1,57 @@
+{
+  "name": "@onlyoffice/doceditor-plugin-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for writing ONLYOFFICE Docs editor plugins: API lookup, samples and config.json checks",
+  "mcpName": "io.github.ONLYOFFICE/doceditor-plugin-mcp",
+  "license": "Apache-2.0",
+  "homepage": "https://api.onlyoffice.com/docs/plugins/get-started/overview/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ONLYOFFICE/doceditor-plugin-types.git",
+    "directory": "mcp"
+  },
+  "bugs": {
+    "url": "https://github.com/ONLYOFFICE/doceditor-plugin-types/issues"
+  },
+  "author": {
+    "name": "Ascensio System SIA",
+    "email": "integration@onlyoffice.com",
+    "url": "https://www.onlyoffice.com"
+  },
+  "keywords": [
+    "onlyoffice",
+    "onlyoffice-docs",
+    "plugin",
+    "mcp",
+    "model-context-protocol"
+  ],
+  "type": "module",
+  "bin": {
+    "doceditor-plugin-mcp": "src/index.js"
+  },
+  "files": [
+    "src",
+    "data",
+    "samples",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "copy-data": "node scripts/copy-data.js",
+    "prepack": "npm run copy-data",
+    "start": "node src/index.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "ajv": "^8.20.0",
+    "typescript": "^5.9.3",
+    "zod": "^4.0.0"
+  }
+}

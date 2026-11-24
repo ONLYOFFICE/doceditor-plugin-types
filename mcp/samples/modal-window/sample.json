@@ -1,0 +1,12 @@
+{
+  "title": "Modal window with OK and Cancel",
+  "description": "A modal dialog whose OK button types the entered text into the document and closes the window.",
+  "editors": ["word"],
+  "kind": "window",
+  "shows": [
+    "buttons in config.json: their position is the id that Asc.plugin.button receives",
+    "size: the window's initial size",
+    "closing the window yourself with executeCommand('close') after the work is done",
+    "callCommand with isClose = false and a callback, so the window closes only after the edit"
+  ]
+}

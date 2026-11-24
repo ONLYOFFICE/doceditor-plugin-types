@@ -1,0 +1,12 @@
+{
+  "title": "Insert text through the object model",
+  "description": "A panel that inserts a paragraph at the cursor with callCommand, passing the text in through Asc.scope.",
+  "editors": ["word"],
+  "kind": "panel",
+  "shows": [
+    "callCommand: the function runs inside the editor and is not a closure",
+    "Asc.scope: the only way to hand data to that function",
+    "Api.CreateParagraph / ApiParagraph.AddText / ApiDocument.InsertContent",
+    "one callCommand at a time: the button is disabled until the callback arrives"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "title": "Context menu item",
+  "description": "A background plugin that adds \"Make uppercase\" to the context menu over selected text and replaces the selection when it is clicked.",
+  "editors": ["word"],
+  "kind": "background",
+  "shows": [
+    "onContextMenuShow: answer every time with AddContextMenuItem, an empty list included, or the menu waits for the plugin",
+    "options.type tells what the menu was opened on (Selection, Target, Image, Shape, OleObject)",
+    "events in config.json: onContextMenuClick must be declared there, attachContextMenuClickEvent alone does not subscribe",
+    "attachContextMenuClickEvent: one handler per item id",
+    "type \"background\": no window, starts with the editor once enabled (8.1+)"
+  ]
+}

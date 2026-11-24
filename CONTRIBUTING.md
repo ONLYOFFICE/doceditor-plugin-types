@@ -558,6 +558,8 @@ onlyoffice-types/
 ├── artifacts/             # generated, tracked in git, NOT published to npm - fetched over raw.githubusercontent
 │   ├── api/                # machine-readable API tree (compact indexes + per-class detail) for agents/RAG
 │   └── ambient/            # five self-contained no-import .d.ts bundles, one per editor (Monaco etc.)
+├── mcp/                   # separate npm package @onlyoffice/doceditor-plugin-mcp - an MCP server over
+│                          # artifacts/api and the config schema; its own README covers it
 ├── scripts/                   # generators, the modules they share, and the drift checkers
 │   ├── generate-types.js          # Api object model generator (src/generated/{word,cell,slide,pdf,forms}.ts)
 │   ├── generate-plugin-methods.js # executeMethod surface generator (src/generated/*-methods.ts)

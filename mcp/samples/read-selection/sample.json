@@ -1,0 +1,12 @@
+{
+  "title": "Follow the selection",
+  "description": "A panel that shows the selected text and its word count, updated each time a selection is made, in any editor.",
+  "editors": ["word", "cell", "slide", "pdf"],
+  "kind": "panel",
+  "shows": [
+    "initDataType \"text\": the editor hands the selected text to init",
+    "initOnSelectionChanged: init runs again when a selection is made (not when it is cleared)",
+    "isViewer: the panel is offered in read-only documents too",
+    "executeMethod GetSelectedText with options, for a fresh read on demand"
+  ]
+}

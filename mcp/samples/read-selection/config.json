@@ -1,0 +1,46 @@
+{
+  "name": "Selection Sample",
+  "guid": "asc.{FE9F6255-A048-49E3-A265-8477C5BE7F2C}",
+  "version": "1.0.0",
+  "minVersion": "7.1.0",
+  "offered": "Your name or company",
+  "variations": [
+    {
+      "description": "Shows the selected text and counts its words.",
+      "url": "index.html",
+      "icons": ["resources/light/icon.png", "resources/light/icon@2x.png"],
+      "icons2": [
+        {
+          "style": "light",
+          "100%": { "normal": "resources/light/icon.png" },
+          "125%": { "normal": "resources/light/icon@1.25x.png" },
+          "150%": { "normal": "resources/light/icon@1.5x.png" },
+          "175%": { "normal": "resources/light/icon@1.75x.png" },
+          "200%": { "normal": "resources/light/icon@2x.png" }
+        },
+        {
+          "style": "dark",
+          "100%": { "normal": "resources/dark/icon.png" },
+          "125%": { "normal": "resources/dark/icon@1.25x.png" },
+          "150%": { "normal": "resources/dark/icon@1.5x.png" },
+          "175%": { "normal": "resources/dark/icon@1.75x.png" },
+          "200%": { "normal": "resources/dark/icon@2x.png" }
+        }
+      ],
+      "isViewer": true,
+      "EditorsSupport": ["word", "cell", "slide", "pdf"],
+      "isVisual": true,
+      "isModal": false,
+      "isInsideMode": true,
+      "initDataType": "text",
+      "initData": "",
+      "initOnSelectionChanged": true,
+      "buttons": [],
+      "store": {
+        "background": { "light": "#F5F5F5", "dark": "#444444" },
+        "icons": { "light": "resources/store/icons", "dark": "resources/store/icons" },
+        "screenshots": []
+      }
+    }
+  ]
+}
