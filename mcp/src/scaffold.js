@@ -1,9 +1,14 @@
 // The files of a new, minimal, working plugin: config.json that passes schemas/config.schema.json,
-// index.html, scripts/code.js and placeholder icons. Only builds them - writing is the caller's.
+// index.html, scripts/code.js, placeholder icons, and the setup that type-checks the scripts against
+// @onlyoffice/doceditor-plugin-types in the author's own editor. Only builds them - writing is the
+// caller's.
 
 import { randomUUID } from 'node:crypto';
 import { ICON_SCALES, placeholderIcons } from './icons.js';
 import { compareVersions } from './catalog.js';
+import { readApi } from './data.js';
+
+const TYPES_PACKAGE = '@onlyoffice/doceditor-plugin-types';
 
 export const PLUGIN_KINDS = Object.freeze(['panel', 'panelRight', 'window', 'background']);
 
@@ -46,8 +51,82 @@ export function buildPlugin(options) {
   files.set('config.json', `${JSON.stringify(config(options, kind.flags, minVersion), null, 2)}\n`);
   files.set('index.html', html(options));
   files.set('scripts/code.js', code(options));
+  for (const [path, data] of typeSetup(options)) files.set(path, data);
   for (const [path, data] of placeholderIcons()) files.set(path, data);
   return { files, minVersion, notes };
+}
+
+/**
+ * Autocompletion and checking for the plugin's scripts in VS Code, Cursor and any editor that reads
+ * jsconfig.json, after one `npm install`. The editor never sees these files: package.json and
+ * node_modules are the author's tooling, not part of the plugin.
+ *
+ * The globals are declared over the editors in EditorsSupport, as the types package's README
+ * recommends for a plugin serving several of them: `Api` inside callCommand is then the union of
+ * those editors' entry points, and a method only one editor has needs a cast there.
+ * @param {PluginOptions} options
+ * @returns {Map<string, string>}
+ */
+function typeSetup({ name, editors }) {
+  // The release line this server's data was built from. Types follow the editor's version, so the
+  // same major is the one that matches the API this plugin was scaffolded against.
+  const { version = '10.0.0' } = readApi('index.json');
+  const range = `^${version.split('.')[0]}.0.0`;
+  const editorList = editors.map((editor) => `"${editor}"`).join(' | ');
+
+  const files = new Map();
+  files.set(
+    'package.json',
+    `${JSON.stringify(
+      {
+        name: name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'onlyoffice-plugin',
+        private: true,
+        description: 'Development setup only: the plugin itself needs none of this.',
+        scripts: { typecheck: 'tsc -p jsconfig.json' },
+        devDependencies: { [TYPES_PACKAGE]: range, typescript: '^5.9.3' },
+      },
+      null,
+      2,
+    )}\n`,
+  );
+  files.set(
+    'jsconfig.json',
+    `${JSON.stringify(
+      {
+        // module/moduleResolution are not optional: a jsconfig.json defaults to "classic"
+        // resolution, which cannot find a scoped npm package, and with skipLibCheck (also a
+        // jsconfig default) the failed import in types/globals.d.ts is silent - Api becomes `any`
+        // and nothing is checked.
+        compilerOptions: {
+          checkJs: true,
+          noEmit: true,
+          target: 'ES2020',
+          module: 'ESNext',
+          moduleResolution: 'bundler',
+          lib: ['ES2020', 'DOM'],
+          types: [TYPES_PACKAGE],
+        },
+        include: ['scripts/**/*.js', 'types/**/*.d.ts'],
+      },
+      null,
+      2,
+    )}\n`,
+  );
+  files.set(
+    'types/globals.d.ts',
+    `// The editor globals for the editors in config.json's EditorsSupport. Keep the list in step with it.
+import type { Api as ApiOf, Editor as EditorOf } from "${TYPES_PACKAGE}";
+
+declare global {
+    var Api: ApiOf<${editorList}>;
+    var Editor: EditorOf<${editorList}>;
+}
+
+export {};
+`,
+  );
+  files.set('.gitignore', 'node_modules/\n');
+  return files;
 }
 
 function config({ name, description, editors, kind, offered }, flags, minVersion) {

@@ -12,7 +12,9 @@ export function registerCreatePlugin(server) {
       description:
         'Creates a minimal working ONLYOFFICE plugin: config.json that passes the official schema ' +
         '(new guid, icons, store block), index.html loading plugins.js from its absolute URL, ' +
-        'scripts/code.js, and placeholder icons. With `directory` the files are written there (it must ' +
+        'scripts/code.js, placeholder icons, and a type-checking setup (package.json, jsconfig.json, ' +
+        'types/globals.d.ts) over @onlyoffice/doceditor-plugin-types, so after `npm install` the editor ' +
+        'autocompletes and checks the API. With `directory` the files are written there (it must ' +
         'not exist or be empty); without it the text files are returned and the icons are left out.',
       inputSchema: {
         name: z.string().min(1).max(100).describe('Plugin name shown in the editor'),
@@ -63,7 +65,9 @@ export function registerCreatePlugin(server) {
         `Wrote ${files.size} files to ${directory}:`,
         ...[...files.keys()].map((file) => `  ${file}`),
         '',
-        'Next: replace the placeholder icons and add screenshots to store.screenshots before publishing.',
+        'Next: run `npm install` in the plugin directory to turn on autocompletion and type checking ' +
+          '(`npm run typecheck` checks from the command line); replace the placeholder icons and add ' +
+          'screenshots to store.screenshots before publishing.',
       );
       return { content: [{ type: 'text', text: summary.join('\n') }] };
     },

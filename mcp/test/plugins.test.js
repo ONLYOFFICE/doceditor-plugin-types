@@ -69,6 +69,18 @@ test('scaffold raises minVersion for kinds older editors do not know', () => {
   assert.match(notes[0], /raised from 7\.0\.0 to 8\.1\.0/);
 });
 
+test('scaffold type setup resolves the types package and declares the globals over EditorsSupport', () => {
+  const { files } = buildPlugin({ name: 'My Plugin!', description: 'x', editors: ['word', 'cell'], kind: 'panel' });
+  const jsconfig = JSON.parse(String(files.get('jsconfig.json')));
+  // Without these, jsconfig's "classic" default cannot resolve the package and checking silently stops.
+  assert.equal(jsconfig.compilerOptions.moduleResolution, 'bundler');
+  assert.equal(jsconfig.compilerOptions.checkJs, true);
+  assert.match(String(files.get('types/globals.d.ts')), /var Api: ApiOf<"word" \| "cell">;/);
+  const pkg = JSON.parse(String(files.get('package.json')));
+  assert.equal(pkg.name, 'my-plugin');
+  assert.match(pkg.devDependencies['@onlyoffice/doceditor-plugin-types'], /^\^\d+\.0\.0$/);
+});
+
 test('placeholder icons are valid PNGs of the right size', () => {
   const { files } = buildPlugin({ name: 'x', description: 'x', editors: ['word'], kind: 'panel' });
   const icon = /** @type {Buffer} */ (files.get('resources/light/icon@2x.png'));

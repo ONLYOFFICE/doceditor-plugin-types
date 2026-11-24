@@ -58,7 +58,8 @@ test('create_plugin writes into an empty directory and refuses a non-empty one',
   try {
     const target = path.join(dir, 'demo');
     const args = { name: 'Demo', description: 'Demo', editors: ['word'], kind: 'window', directory: target };
-    assert.match(await call('create_plugin', args), /Wrote 18 files/);
+    assert.match(await call('create_plugin', args), /Wrote 22 files/);
+    assert.ok(fs.existsSync(path.join(target, 'jsconfig.json')));
     assert.ok(fs.existsSync(path.join(target, 'resources', 'dark', 'icon@1.5x.png')));
     const again = await client.callTool({ name: 'create_plugin', arguments: args });
     assert.equal(again.isError, true);
