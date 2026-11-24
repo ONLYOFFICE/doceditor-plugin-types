@@ -24,6 +24,33 @@
       "signature": "Add(name: string, value: string | number | boolean | Date): boolean",
       "since": "9.0.0"
     },
+    "Delete": {
+      "description": "Deletes a custom property by its name.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiCustomProperties/Methods/Delete/",
+      "params": [
+        {
+          "description": "The custom property name.",
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returns": {
+        "description": "Returns false if the custom property does not exist.",
+        "type": "boolean"
+      },
+      "signature": "Delete(name: string): boolean",
+      "since": "10.0.3"
+    },
+    "DeleteAll": {
+      "description": "Deletes all custom properties from the document.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiCustomProperties/Methods/DeleteAll/",
+      "params": [],
+      "returns": {
+        "type": "boolean"
+      },
+      "signature": "DeleteAll(): boolean",
+      "since": "10.0.3"
+    },
     "Get": {
       "description": "Returns the value of a custom property by its name.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiCustomProperties/Methods/Get/",

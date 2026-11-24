@@ -1489,7 +1489,7 @@ function getDocsMetadata(docsRoot) {
   return { ...git, ...(version ? { version } : {}) };
 }
 
-function buildGenerationManifest(paths, docsRoot) {
+function buildGenerationManifest(paths, docsRoot, officeJsApiRoot) {
   const repositories = {
     sdkjs: getGitMetadata(paths.sdkjs),
     sdkjsForms: getGitMetadata(paths.sdkjsForms),
@@ -1497,6 +1497,11 @@ function buildGenerationManifest(paths, docsRoot) {
     // includes its version - and its lag behind sdkjs is what explains both the members without
     // examples and the ~10% of @see links that 404 today.
     docs: getDocsMetadata(docsRoot),
+    // office-js-api fills the examples the docs site lacks (see applyExamples), so it shapes the
+    // output as much as the docs do - without its commit here, two runs from identical sdkjs tags
+    // could differ and nothing would say why. It carries no tags at all, so `describe` is a bare
+    // commit and the release-tag gate has nothing to demand of it; the commit is the record.
+    ...(officeJsApiRoot ? { officeJsApi: getGitMetadata(officeJsApiRoot) } : {}),
   };
   assertSourcesReleasable(repositories);
 
@@ -1640,7 +1645,7 @@ async function main() {
   reportReturnTypeOverrides();
 
   fs.writeFileSync(path.join(OUTPUT_DIR, 'api-report.json'), `${JSON.stringify(report, null, 2)}\n`);
-  fs.writeFileSync(path.join(OUTPUT_DIR, 'generation-manifest.json'), `${JSON.stringify(buildGenerationManifest(paths, docsRoot), null, 2)}\n`);
+  fs.writeFileSync(path.join(OUTPUT_DIR, 'generation-manifest.json'), `${JSON.stringify(buildGenerationManifest(paths, docsRoot, officeJsApiRoot), null, 2)}\n`);
   console.log(`Wrote ${path.join(OUTPUT_DIR, 'api-report.json')}`);
   console.log(`Wrote ${path.join(OUTPUT_DIR, 'generation-manifest.json')}`);
   console.log('Done!');

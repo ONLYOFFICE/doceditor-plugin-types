@@ -208,7 +208,7 @@
       "GetText": "GetText(): string",
       "GetTime": "GetTime(): number",
       "GetTimeUTC": "GetTimeUTC(): number",
-      "GetUserId": "GetUserId(): string",
+      "GetUserId": "GetUserId(): string | null",
       "IsSolved": "IsSolved(): boolean",
       "RemoveReplies": "RemoveReplies(nPos?: number, nCount?: number, bRemoveAll?: boolean): ApiComment | null",
       "SetAuthorName": "SetAuthorName(authorName: string): ApiComment",
@@ -223,7 +223,7 @@
       "GetAuthorName": "GetAuthorName(): string",
       "GetClassType": "GetClassType(): \"commentReply\"",
       "GetText": "GetText(): string",
-      "GetUserId": "GetUserId(): string",
+      "GetUserId": "GetUserId(): string | null",
       "SetAuthorName": "SetAuthorName(authorName: string): ApiCommentReply",
       "SetText": "SetText(sText: string): ApiCommentReply | null",
       "SetUserId": "SetUserId(userId: string): ApiCommentReply"
@@ -264,6 +264,8 @@
     },
     "ApiCustomProperties": {
       "Add": "Add(name: string, value: string | number | boolean | Date): boolean",
+      "Delete": "Delete(name: string): boolean",
+      "DeleteAll": "DeleteAll(): boolean",
       "Get": "Get(name: string): string | number | Date | boolean | null",
       "GetClassType": "GetClassType(): \"customProperties\""
     },
@@ -887,6 +889,7 @@
     },
     "ApiShape": {
       "Copy": "Copy(): ApiShape",
+      "FitText": "FitText(canEnlarge?: boolean): boolean",
       "GetClassType": "GetClassType(): \"shape\"",
       "GetContent": "GetContent(): ApiDocumentContent | null",
       "GetDocContent": "GetDocContent(): ApiDocumentContent | null",
@@ -1332,7 +1335,7 @@
     "RemoveAnnotationRange": "executeMethod(\"RemoveAnnotationRange\", [annotation: { all?: boolean }], callback?): unknown",
     "RemoveComments": "executeMethod(\"RemoveComments\", [arrIds: string[]], callback?): unknown",
     "RemoveOleObject": "executeMethod(\"RemoveOleObject\", [internalId: string], callback?): unknown",
-    "RemovePlugin": "executeMethod(\"RemovePlugin\", [guid: string, backup: string], callback?): object",
+    "RemovePlugin": "executeMethod(\"RemovePlugin\", [guid: string, backup?: boolean], callback?): object",
     "ReplaceTextSmart": "executeMethod(\"ReplaceTextSmart\", [arrString: string[], sParaTab?: string, sParaNewLine?: string], callback?): boolean",
     "ResumeSlideShow": "executeMethod(\"ResumeSlideShow\", [], callback?): unknown",
     "SelectAnnotationRange": "executeMethod(\"SelectAnnotationRange\", [annotation: object], callback?): unknown",
@@ -1402,6 +1405,7 @@
     "ApiPresentationVisitor.TableRowEnd",
     "ApiPresentationVisitor.Text",
     "ApiPresentationVisitor.Traverse",
+    "ApiShape.FitText",
     "ApiShape.GetVisitor",
     "ApiShape.RecalculateAutoFit",
     "ApiSlide.GetVisitor",

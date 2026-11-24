@@ -492,7 +492,7 @@
     "PasteHtml": "executeMethod(\"PasteHtml\", [htmlText: string, options?: { MergeLast?: boolean }], callback?): unknown",
     "PasteText": "executeMethod(\"PasteText\", [text: string], callback?): unknown",
     "PutImageDataToSelection": "executeMethod(\"PutImageDataToSelection\", [oImageData: ImageData], callback?): unknown",
-    "RemovePlugin": "executeMethod(\"RemovePlugin\", [guid: string, backup: string], callback?): object",
+    "RemovePlugin": "executeMethod(\"RemovePlugin\", [guid: string, backup?: boolean], callback?): object",
     "ReplaceTextSmart": "executeMethod(\"ReplaceTextSmart\", [arrString: string[], sParaTab?: string, sParaNewLine?: string], callback?): boolean",
     "SetFormValue": "executeMethod(\"SetFormValue\", [internalId: string, value: string | boolean], callback?): unknown",
     "SetMacros": "executeMethod(\"SetMacros\", [data: string], callback?): unknown",

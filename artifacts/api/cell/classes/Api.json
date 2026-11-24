@@ -927,21 +927,15 @@
           "type": "ApiRange"
         },
         {
-          "description": "A range in which the pivot table will be located.",
+          "description": "A range in which the pivot table will be located. Existing data in the cells the pivot table needs is replaced.",
           "name": "pivotRef",
           "type": "ApiRange"
-        },
-        {
-          "description": "Specifies whether to replace the data in the specified pivot table range (if it exists) or create a dialog box for this (if it exists).",
-          "name": "confirmation",
-          "optional": true,
-          "type": "boolean"
         }
       ],
       "returns": {
         "type": "ApiPivotTable"
       },
-      "signature": "InsertPivotExistingWorksheet(dataRef: ApiRange, pivotRef: ApiRange, confirmation?: boolean): ApiPivotTable",
+      "signature": "InsertPivotExistingWorksheet(dataRef: ApiRange, pivotRef: ApiRange): ApiPivotTable",
       "since": "8.2.0"
     },
     "InsertPivotNewWorksheet": {

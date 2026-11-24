@@ -1358,7 +1358,7 @@ type SlideMethodArgs = {
    * };
    * ```
    */
-  RemovePlugin: [guid: string, backup: string];
+  RemovePlugin: [guid: string, backup?: boolean];
   /**
    * Replaces each paragraph (or text in cell) in the select with the corresponding text from an array of
    * strings.

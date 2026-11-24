@@ -190,14 +190,14 @@
         "type": "boolean"
       },
       "checkedSymbol": {
-        "description": "A custom symbol to display when the checkbox is checked (e.g., \"☒\").",
+        "description": "A custom symbol to display when the checkbox is checked. It can be specified as a character code (e.g., 9746) or as a string (e.g., \"☒\"). If a string is specified, only its first character is used.",
         "optional": true,
-        "type": "string"
+        "type": "number | string"
       },
       "uncheckedSymbol": {
-        "description": "A custom symbol to display when the checkbox is unchecked (e.g., \"☐\").",
+        "description": "A custom symbol to display when the checkbox is unchecked. It can be specified as a character code (e.g., 9744) or as a string (e.g., \"☐\"). If a string is specified, only its first character is used.",
         "optional": true,
-        "type": "string"
+        "type": "number | string"
       }
     }
   },

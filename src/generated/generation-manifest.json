@@ -11,19 +11,24 @@
       "dirty": false,
       "version": "9.2.0"
     },
+    "officeJsApi": {
+      "commit": "dc4a41864db7ddf555a4aac16b43a784409e145f",
+      "describe": "dc4a41864",
+      "dirty": false
+    },
     "sdkjs": {
-      "commit": "1bb8821e82c920d90d9d684dcac968d8fe373297",
-      "describe": "v10.0.3.58",
+      "commit": "486df23f1ee5ef61fc4082ab158402ec4b07d116",
+      "describe": "v10.0.3.66",
       "dirty": false
     },
     "sdkjsExt": {
-      "commit": "5d432f50f8a29d43963d13b74f743f67e9a14abf",
-      "describe": "v10.0.3.44",
+      "commit": "4e951a98a8a43d86a93a7a4ede9c69356f098a80",
+      "describe": "v10.0.3.66",
       "dirty": false
     },
     "sdkjsForms": {
-      "commit": "eb51d98b18e95382ba4a38c846f9d576c3b24ac9",
-      "describe": "v10.0.3.30",
+      "commit": "e4642793e9d1050899cfc54087eb26e9fee6e36c",
+      "describe": "v10.0.3.61",
       "dirty": false
     }
   },
@@ -31,7 +36,7 @@
     {
       "repository": "sdkjs",
       "path": "word/apiBuilder.js",
-      "sha256": "b000ec1348c0eca93488b60452fc641893c990be333e78fc81dcb9089de985e3"
+      "sha256": "ac3d08b7ddb34b435a6a65a7cb41076a31b390066228c052b66596d66849bad0"
     },
     {
       "repository": "sdkjs",
@@ -70,6 +75,11 @@
     },
     {
       "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/word/api-shape.js",
+      "sha256": "9a601af8333412eadc8bd70830c928d8f66452fb8a0ae284d6a4e32582767a9a"
+    },
+    {
+      "repository": "sdkjs",
       "path": "../sdkjs-ext/js-api/word/api-table-of-contents.js",
       "sha256": "3b94563cbb802cae743bf32ef571b565474df9ebc61b234cfc63d8bc0ad9ec22"
     },
@@ -96,12 +106,12 @@
     {
       "repository": "sdkjs",
       "path": "slide/apiBuilder.js",
-      "sha256": "b3fc22ba98290502b25e08f8771add4902bf5d180a0cceebd40e190fdbb35d0d"
+      "sha256": "2e2255df036b438bedf85c9a6a3e7d95eb8557fb3eefe3b9dc9b2fe9e5ea1ddd"
     },
     {
       "repository": "sdkjs",
       "path": "cell/apiBuilder.js",
-      "sha256": "935966e986883194389e349cb9614a3f36cf0a9a6e389e1bb9dab92af5c8c568"
+      "sha256": "e134a4da8d762e779741b6dd5491d612d90d8002661b7dd8bdf6fac418d5e9b5"
     },
     {
       "repository": "sdkjs",
@@ -161,7 +171,7 @@
     {
       "repository": "sdkjs",
       "path": "../sdkjs-ext/js-api/cell/api-shape.js",
-      "sha256": "2bc6c556c30296ca3513bf873beb4a00ec52e17162ae23616216e29828d83045"
+      "sha256": "2a0ab196ab63c94c224fa84faf807784eb971d18bb4d033dc130dccc88853888"
     },
     {
       "repository": "sdkjs",
@@ -216,7 +226,7 @@
     {
       "repository": "sdkjs",
       "path": "../sdkjs-ext/js-api/slide/api-shape.js",
-      "sha256": "4918436e842a79c924bb37113a58c9d9868a2a5811219fde05344d63ce7ee927"
+      "sha256": "1502de4c53e07b3b39542adbf16694343b50e5815fafa68bce2dcebcb5f376d9"
     },
     {
       "repository": "sdkjs",
@@ -236,7 +246,7 @@
     {
       "repository": "sdkjs-forms",
       "path": "apiBuilder.js",
-      "sha256": "2d468993c970bb4717e56ac6d6fbc7d7243e5b7608f693393d9f9aa828792cfe"
+      "sha256": "eab80d1f39faa38a29fc5a4e6d65016b1b5385d22d8e8fe29e4ac7271b135af8"
     },
     {
       "repository": "sdkjs-forms",
@@ -246,7 +256,7 @@
     {
       "repository": "sdkjs",
       "path": "pdf/apiBuilder.js",
-      "sha256": "57f3f8c198c54a194a49e0eb5fc3ced138586ce0c1cd871260edc7572961f0a1"
+      "sha256": "7db7e2cfac82530d3f351333d21b06cdc1f747c6252270a4a79e961b1b3f4d03"
     },
     {
       "repository": "sdkjs",
@@ -282,6 +292,11 @@
       "repository": "sdkjs",
       "path": "../sdkjs-ext/js-api/pdf/api-page.js",
       "sha256": "c75900d958efea59ccdb47c06b755fb683a43c3df8ee6d24973ad102d53e9613"
+    },
+    {
+      "repository": "sdkjs",
+      "path": "../sdkjs-ext/js-api/pdf/api-shape.js",
+      "sha256": "91e16313383486a20203b620cb97b0d28149ec9336643c1dc9f91cbbc21d3893"
     },
     {
       "repository": "sdkjs",

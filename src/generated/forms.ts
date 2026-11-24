@@ -192,11 +192,17 @@ export namespace Forms {
     /** Indicates whether the checkbox is checked by default. */
     checked?: boolean;
 
-    /** A custom symbol to display when the checkbox is checked (e.g., "☒"). */
-    checkedSymbol?: string;
+    /**
+     * A custom symbol to display when the checkbox is checked. It can be specified as a character code
+     * (e.g., 9746) or as a string (e.g., "☒"). If a string is specified, only its first character is used.
+     */
+    checkedSymbol?: number | string;
 
-    /** A custom symbol to display when the checkbox is unchecked (e.g., "☐"). */
-    uncheckedSymbol?: string;
+    /**
+     * A custom symbol to display when the checkbox is unchecked. It can be specified as a character code
+     * (e.g., 9744) or as a string (e.g., "☐"). If a string is specified, only its first character is used.
+     */
+    uncheckedSymbol?: number | string;
   }
 
   /** The date picker content control properties. */

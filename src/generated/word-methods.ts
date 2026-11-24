@@ -117,11 +117,17 @@ interface ContentControlCheckBoxProperties {
   /** Defines if the content control checkbox is checked or not. */
   Checked: boolean;
 
-  /** A symbol in the HTML code format that is used when the checkbox is checked. */
-  CheckedSymbol: number;
+  /**
+   * A symbol that is used when the checkbox is checked. It can be specified as a character code (e.g.,
+   * 9746) or as a string (e.g., "☒"). If a string is specified, only its first character is used.
+   */
+  CheckedSymbol: number | string;
 
-  /** A symbol in the HTML code format that is used when the checkbox is not checked. */
-  UncheckedSymbol: number;
+  /**
+   * A symbol that is used when the checkbox is not checked. It can be specified as a character code
+   * (e.g., 9744) or as a string (e.g., "☐"). If a string is specified, only its first character is used.
+   */
+  UncheckedSymbol: number | string;
 }
 
 /** The content control datepicker properties. */
@@ -2325,7 +2331,7 @@ type WordMethodArgs = {
    * };
    * ```
    */
-  RemovePlugin: [guid: string, backup: string];
+  RemovePlugin: [guid: string, backup?: boolean];
   /**
    * Removes the selected content from the document.
    *

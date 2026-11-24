@@ -165,6 +165,12 @@ const METHOD_OVERRIDES = {
   // added" and the implementation agrees: `return null` when there is no logic document, and
   // `return field ? AscWord.CAddinFieldData.FromField(field).ToJson() : null`.
   AddAddinField: { returnType: 'AddinFieldData | null' },
+  // `@param {string} backup`, but the value only matters to the desktop editors, whose native
+  // `PluginUninstall` reads it as a boolean and nothing else: `arguments[1]->IsBool() ?
+  // arguments[1]->GetBoolValue() : false` (desktop-sdk client_renderer_wrapper.cpp), so a string
+  // silently means "no backup". The web editors ignore it, and the Plugin Manager passes
+  // `[guid, true/false]`.
+  RemovePlugin: { paramTypes: { 1: 'boolean' }, paramOptional: [1] },
 };
 
 function applyMethodOverrides(name, method) {

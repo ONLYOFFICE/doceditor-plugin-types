@@ -138,9 +138,10 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/GetUserId/",
       "params": [],
       "returns": {
-        "type": "string"
+        "description": "The user ID of the comment author, or null if not set.",
+        "type": "string | null"
       },
-      "signature": "GetUserId(): string"
+      "signature": "GetUserId(): string | null"
     },
     "IsSolved": {
       "description": "Checks if a comment is solved or not.",

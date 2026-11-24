@@ -275,6 +275,21 @@ interface AscPlugin {
      *
      * Assign it directly: the host sends it as a message of its own, not through `onEvent`, so
      * `attachEvent("onEnableMouseEvent", ...)` and an `event_onEnableMouseEvent` slot never run.
+     *
+     * The runtime installs a handler of its own right before calling {@link AscPlugin.init} - it
+     * turns pointer events off on the plugin page's first `<iframe>` for the duration of the
+     * gesture - and that replaces any handler assigned earlier. Assign yours inside `init` and
+     * call the one you replace:
+     *
+     * ```js
+     * window.Asc.plugin.init = function () {
+     *     const base = window.Asc.plugin.onEnableMouseEvent;
+     *     window.Asc.plugin.onEnableMouseEvent = function (isEnabled) {
+     *         if (base) base.call(this, isEnabled);
+     *         // ...
+     *     };
+     * };
+     * ```
      */
     onEnableMouseEvent?: (isEnabled: boolean) => void;
     onThemeChanged: (theme: AscTheme) => void;
@@ -301,7 +316,12 @@ interface PluginWindow {
      * Brings the window forward, and focuses it when `isFocus` is set.
      */
     activate: (isFocus?: boolean) => void;
-    attachEvent: (eventName: string, callback: PluginEventCallback) => void;
+    /**
+     * Subscribes to what the window's own page sends with `Asc.plugin.sendToPlugin(eventName,
+     * data)`. The payload is whatever that page sent, so the plugin names its type: `T` is the
+     * caller's statement of the protocol between its two pages, not something the runtime checks.
+     */
+    attachEvent: <T = unknown>(eventName: string, callback: (data: T) => void) => void;
     detachEvent: (eventName: string) => void;
     command: (methodName: string, payload?: unknown) => void;
 }

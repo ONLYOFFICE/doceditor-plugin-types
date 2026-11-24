@@ -63,7 +63,7 @@
       "GetWorksheetFunction": "GetWorksheetFunction(): ApiWorksheetFunction",
       "HexColor": "HexColor(hexString: string): ApiColor",
       "InchesToPoints": "InchesToPoints(inches: number): number",
-      "InsertPivotExistingWorksheet": "InsertPivotExistingWorksheet(dataRef: ApiRange, pivotRef: ApiRange, confirmation?: boolean): ApiPivotTable",
+      "InsertPivotExistingWorksheet": "InsertPivotExistingWorksheet(dataRef: ApiRange, pivotRef: ApiRange): ApiPivotTable",
       "InsertPivotNewWorksheet": "InsertPivotNewWorksheet(dataRef: ApiRange, newSheetName?: string): ApiPivotTable",
       "Intersect": "Intersect(Range1: ApiRange, Range2: ApiRange, Range3_Range30?: ApiRange): ApiRange | null",
       "LinesToPoints": "LinesToPoints(lines: number): number",
@@ -350,6 +350,8 @@
     },
     "ApiCustomProperties": {
       "Add": "Add(name: string, value: string | number | boolean | Date): boolean",
+      "Delete": "Delete(name: string): boolean",
+      "DeleteAll": "DeleteAll(): boolean",
       "Get": "Get(name: string): string | number | Date | boolean | null",
       "GetClassType": "GetClassType(): \"customProperties\""
     },
@@ -1402,6 +1404,7 @@
     },
     "ApiShape": {
       "Copy": "Copy(): ApiShape",
+      "FitText": "FitText(canEnlarge?: boolean): boolean",
       "GetClassType": "GetClassType(): \"shape\"",
       "GetContent": "GetContent(): ApiDocumentContent | null",
       "GetDocContent": "GetDocContent(): ApiDocumentContent | null",
@@ -2229,7 +2232,7 @@
     "PutImageDataToSelection": "executeMethod(\"PutImageDataToSelection\", [oImageData: ImageData], callback?): unknown",
     "RemoveComments": "executeMethod(\"RemoveComments\", [arrIds: string[]], callback?): unknown",
     "RemoveOleObject": "executeMethod(\"RemoveOleObject\", [internalId: string], callback?): unknown",
-    "RemovePlugin": "executeMethod(\"RemovePlugin\", [guid: string, backup: string], callback?): object",
+    "RemovePlugin": "executeMethod(\"RemovePlugin\", [guid: string, backup?: boolean], callback?): object",
     "ReplaceTextSmart": "executeMethod(\"ReplaceTextSmart\", [arrString: string[], sParaTab?: string, sParaNewLine?: string], callback?): boolean",
     "SetButtonDisabled": "executeMethod(\"SetButtonDisabled\", [index: number, isDisabled: boolean], callback?): unknown",
     "SetCustomFunctions": "executeMethod(\"SetCustomFunctions\", [jsonString: string], callback?): unknown",
@@ -2324,6 +2327,7 @@
     "ApiRange.InsertRows",
     "ApiRange.SetFormula",
     "ApiShape.Copy",
+    "ApiShape.FitText",
     "ApiSort.Apply",
     "ApiSort.GetHeader",
     "ApiSort.GetMatchCase",

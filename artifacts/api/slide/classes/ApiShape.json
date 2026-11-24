@@ -15,6 +15,25 @@
       "signature": "Copy(): ApiShape",
       "since": "9.4.0"
     },
+    "FitText": {
+      "description": "Changes the font size of the shape text so that the text fits the shape height.\nThe text is reduced if it does not fit the shape. If canEnlarge is true, the text is also enlarged to fill the free space of the shape.\nAll the text sizes are changed in the same proportion, the line spacing is not changed.\nThe text is never enlarged if it is not wrapped or the shape is resized to fit the text.",
+      "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShape/Methods/FitText/",
+      "params": [
+        {
+          "description": "Specifies whether the text can be enlarged to fill the shape height.",
+          "name": "canEnlarge",
+          "optional": true,
+          "type": "boolean"
+        }
+      ],
+      "requires": "ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.",
+      "returns": {
+        "description": "Returns true if the text fits the shape.",
+        "type": "boolean"
+      },
+      "signature": "FitText(canEnlarge?: boolean): boolean",
+      "since": "10.0.3"
+    },
     "GetClassType": {
       "description": "Returns the type of the ApiShape class.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiShape/Methods/GetClassType/",

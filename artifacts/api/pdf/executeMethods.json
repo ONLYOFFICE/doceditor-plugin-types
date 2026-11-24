@@ -328,14 +328,15 @@
       {
         "description": "The plugin backup. This parameter is used when working with the desktop editors.",
         "name": "backup",
-        "type": "string"
+        "optional": true,
+        "type": "boolean"
       }
     ],
     "returns": {
       "description": "An object with the result information.",
       "type": "object"
     },
-    "signature": "executeMethod(\"RemovePlugin\", [guid: string, backup: string], callback?): object",
+    "signature": "executeMethod(\"RemovePlugin\", [guid: string, backup?: boolean], callback?): object",
     "since": "7.2.0"
   },
   "ReplacePageContent": {

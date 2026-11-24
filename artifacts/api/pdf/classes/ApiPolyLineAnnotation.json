@@ -75,13 +75,13 @@
       "signature": "GetBorderStyle(): AnnotBorderStyle"
     },
     "GetBorderWidth": {
-      "description": "Gets annotation border width.",
+      "description": "Gets annotation border width.\n\n**Note:**\nReturns null for stamps, they have no border width.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetBorderWidth/",
       "params": [],
       "returns": {
-        "type": "pt"
+        "type": "pt | null"
       },
-      "signature": "GetBorderWidth(): pt"
+      "signature": "GetBorderWidth(): pt | null"
     },
     "GetClassType": {
       "description": "Returns a type of the ApiPolyLineAnnotation class.",
@@ -274,7 +274,7 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetBorderEffectIntensity/",
       "params": [
         {
-          "description": "The border effect intensity. Must be greater than or equal to 0.",
+          "description": "The border effect intensity from 0 to 2.",
           "name": "value",
           "type": "number"
         }
@@ -315,11 +315,11 @@
       "signature": "SetBorderStyle(borderStyle: AnnotBorderStyle): boolean"
     },
     "SetBorderWidth": {
-      "description": "Sets annotation border width.",
+      "description": "Sets annotation border width.\n\n**Note:**\nNot for stamps, they have no border width.\n",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetBorderWidth/",
       "params": [
         {
-          "description": "The border width in points.",
+          "description": "The border width in points. Must be greater than or equal to 0.",
           "name": "width",
           "type": "pt"
         }
@@ -364,7 +364,7 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/SetDashPattern/",
       "params": [
         {
-          "description": "A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point gaps.",
+          "description": "A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point gaps. The values must be non-negative and not all zero.",
           "name": "pattern",
           "type": "number[]"
         }

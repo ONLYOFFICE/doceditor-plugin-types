@@ -136,4 +136,30 @@ window.Asc.plugin.event_onEnableMouseEvent = function () {};
 // @ts-expect-error the runtime never calls an event_ slot for this event - assign onExternalMouseUp
 window.Asc.plugin.event_onExternalMouseUp = function () {};
 
+// ============================================================================
+// Child windows and the plugin-manager methods, as the Plugin Manager calls them
+// ============================================================================
+
+const childWindow = new window.Asc.PluginWindow();
+
+// The payload is whatever the window's page sent with sendToPlugin - the caller names its type.
+childWindow.attachEvent("onWindowMessage", /** @param {{ type: string; url: string }} message */ function (message) {
+    console.log(message.url.length);
+});
+childWindow.attachEvent("onWindowReady", function (data) {
+    // @ts-expect-error unnamed, the payload stays `unknown`
+    console.log(data.type);
+});
+
+// A window id is the PluginWindow's GUID string, as sdkjs's own PluginWindow.close sends it.
+window.Asc.plugin.executeMethod("CloseWindow", [childWindow.id]);
+// @ts-expect-error not a number
+window.Asc.plugin.executeMethod("CloseWindow", [1]);
+
+// The desktop editors read `backup` as a boolean only; a string would silently mean "no backup".
+window.Asc.plugin.executeMethod("RemovePlugin", ["asc.{00000000-0000-0000-0000-000000000000}", true]);
+window.Asc.plugin.executeMethod("RemovePlugin", ["asc.{00000000-0000-0000-0000-000000000000}"]);
+// @ts-expect-error backup is a boolean
+window.Asc.plugin.executeMethod("RemovePlugin", ["asc.{00000000-0000-0000-0000-000000000000}", "true"]);
+
 void asyncUsage;

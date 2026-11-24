@@ -273,11 +273,17 @@ declare namespace Cell {
     /** Indicates whether the checkbox is checked by default. */
     checked?: boolean;
 
-    /** A custom symbol to display when the checkbox is checked (e.g., "☒"). */
-    checkedSymbol?: string;
+    /**
+     * A custom symbol to display when the checkbox is checked. It can be specified as a character code
+     * (e.g., 9746) or as a string (e.g., "☒"). If a string is specified, only its first character is used.
+     */
+    checkedSymbol?: number | string;
 
-    /** A custom symbol to display when the checkbox is unchecked (e.g., "☐"). */
-    uncheckedSymbol?: string;
+    /**
+     * A custom symbol to display when the checkbox is unchecked. It can be specified as a character code
+     * (e.g., 9744) or as a string (e.g., "☐"). If a string is specified, only its first character is used.
+     */
+    uncheckedSymbol?: number | string;
   }
 
   /** The date picker content control properties. */
@@ -3141,9 +3147,8 @@ declare namespace Cell {
      * Inserts the specified pivot table into an existing worksheet.
      *
      * @param dataRef - The source data range.
-     * @param pivotRef - A range in which the pivot table will be located.
-     * @param confirmation - Specifies whether to replace the data in the specified pivot table range (if it exists) or
-     *   create a dialog box for this (if it exists).
+     * @param pivotRef - A range in which the pivot table will be located. Existing data in the cells the pivot table
+     *   needs is replaced.
      * @since 8.2.0
      *
      * @example
@@ -3168,7 +3173,7 @@ declare namespace Cell {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/Api/Methods/InsertPivotExistingWorksheet/
      */
-    InsertPivotExistingWorksheet(dataRef: ApiRange, pivotRef: ApiRange, confirmation?: boolean): ApiPivotTable;
+    InsertPivotExistingWorksheet(dataRef: ApiRange, pivotRef: ApiRange): ApiPivotTable;
 
     /**
      * Inserts the specified pivot table into a new worksheet.
@@ -11947,6 +11952,26 @@ declare namespace Cell {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiCustomProperties/Methods/Add/
      */
     Add(name: string, value: string | number | boolean | Date): boolean;
+
+    /**
+     * Deletes a custom property by its name.
+     *
+     * @param name - The custom property name.
+     * @returns Returns false if the custom property does not exist.
+     * @since 10.0.3
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiCustomProperties/Methods/Delete/
+     */
+    Delete(name: string): boolean;
+
+    /**
+     * Deletes all custom properties from the document.
+     *
+     * @since 10.0.3
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiCustomProperties/Methods/DeleteAll/
+     */
+    DeleteAll(): boolean;
 
     /**
      * Returns the value of a custom property by its name.
@@ -44839,6 +44864,23 @@ declare namespace Cell {
     Copy(): ApiShape;
 
     /**
+     * Changes the font size of the shape text so that the text fits the shape height.
+     * The text is reduced if it does not fit the shape. If canEnlarge is true, the text is also enlarged
+     * to fill the free space of the shape.
+     * All the text sizes are changed in the same proportion, the line spacing is not changed.
+     * The text is never enlarged if it is not wrapped or the shape is resized to fit the text.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param canEnlarge - Specifies whether the text can be enlarged to fill the shape height.
+     * @default canEnlarge = false
+     * @returns Returns true if the text fits the shape.
+     * @since 10.0.3
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/spreadsheet-api/ApiShape/Methods/FitText/
+     */
+    FitText(canEnlarge?: boolean): boolean;
+
+    /**
      * Returns a type of the ApiShape class.
      *
      * @example
@@ -67339,7 +67381,7 @@ type CellMethodArgs = {
    * };
    * ```
    */
-  RemovePlugin: [guid: string, backup: string];
+  RemovePlugin: [guid: string, backup?: boolean];
   /**
    * Replaces each paragraph (or text in cell) in the select with the corresponding text from an array of
    * strings.
@@ -68423,16 +68465,7 @@ interface ContextMenuShowEvent {
     type: string;
 }
 
-/**
- * Event arguments are tuples so events with no payload can be represented as `[]`.
- *
- * Only events the host delivers as an `onEvent` message belong here - that is the one message
- * `attachEvent`, `attachEditorEvent` and the `event_on*` slots are dispatched from. sdkjs documents
- * two more events alongside these, but sends each as a message type of its own that calls a single
- * handler property on `Asc.plugin` and nothing else, so they are declared there instead
- * (`AscPlugin.onExternalMouseUp`, `AscPlugin.onEnableMouseEvent`). `npm run check-plugin-events`
- * keeps them out of this map.
- */
+/** Event arguments are tuples so events with no payload can be represented as `[]`. */
 type PluginEventMap = {
     onContextMenuShow: [event: ContextMenuShowEvent];
     /** Payload is not documented consistently across editor versions. */
@@ -68705,8 +68738,12 @@ interface WindowHeaderFrameOptions {
 
 /** Argument tuples, by method name. */
 interface UndocumentedMethodArgs {
-    /** Closes a plugin modal window. */
-    CloseWindow: [windowId: number];
+    /**
+     * Closes a plugin modal window. `windowId` is the window's `PluginWindow.id` (a GUID string)
+     * or the `windowID` the window's `button` call reports - sdkjs's own `PluginWindow.close` sends
+     * `executeMethod("CloseWindow", [this.id])`.
+     */
+    CloseWindow: [windowId: string];
 
     /** Shows or hides one of the plugin's own buttons. */
     ShowButton: [buttonId: string, visible: boolean, align?: string];
@@ -68751,7 +68788,7 @@ interface UndocumentedMethodArgs {
  * Only `ResizeWindow` carries a value: it is the one of the five that calls
  * `setPluginMethodReturnAsync()` and later answers `onPluginMethodReturn("resize_result")`. The
  * others return synchronously, so their callback fires with nothing - which is still worth
- * declaring, because the Promise form (`await Editor.CloseWindow(1)`) resolves at that moment.
+ * declaring, because the Promise form (`await Editor.CloseWindow(win.id)`) resolves at that moment.
  */
 interface UndocumentedMethodReturnMap {
     ActivateWindow: void;
@@ -69073,6 +69110,21 @@ interface AscPlugin {
      *
      * Assign it directly: the host sends it as a message of its own, not through `onEvent`, so
      * `attachEvent("onEnableMouseEvent", ...)` and an `event_onEnableMouseEvent` slot never run.
+     *
+     * The runtime installs a handler of its own right before calling {@link AscPlugin.init} - it
+     * turns pointer events off on the plugin page's first `<iframe>` for the duration of the
+     * gesture - and that replaces any handler assigned earlier. Assign yours inside `init` and
+     * call the one you replace:
+     *
+     * ```js
+     * window.Asc.plugin.init = function () {
+     *     const base = window.Asc.plugin.onEnableMouseEvent;
+     *     window.Asc.plugin.onEnableMouseEvent = function (isEnabled) {
+     *         if (base) base.call(this, isEnabled);
+     *         // ...
+     *     };
+     * };
+     * ```
      */
     onEnableMouseEvent?: (isEnabled: boolean) => void;
     onThemeChanged: (theme: AscTheme) => void;
@@ -69099,7 +69151,12 @@ interface PluginWindow {
      * Brings the window forward, and focuses it when `isFocus` is set.
      */
     activate: (isFocus?: boolean) => void;
-    attachEvent: (eventName: string, callback: PluginEventCallback) => void;
+    /**
+     * Subscribes to what the window's own page sends with `Asc.plugin.sendToPlugin(eventName,
+     * data)`. The payload is whatever that page sent, so the plugin names its type: `T` is the
+     * caller's statement of the protocol between its two pages, not something the runtime checks.
+     */
+    attachEvent: <T = unknown>(eventName: string, callback: (data: T) => void) => void;
     detachEvent: (eventName: string) => void;
     command: (methodName: string, payload?: unknown) => void;
 }

@@ -285,11 +285,17 @@ declare namespace Pdf {
     /** Indicates whether the checkbox is checked by default. */
     checked?: boolean;
 
-    /** A custom symbol to display when the checkbox is checked (e.g., "☒"). */
-    checkedSymbol?: string;
+    /**
+     * A custom symbol to display when the checkbox is checked. It can be specified as a character code
+     * (e.g., 9746) or as a string (e.g., "☒"). If a string is specified, only its first character is used.
+     */
+    checkedSymbol?: number | string;
 
-    /** A custom symbol to display when the checkbox is unchecked (e.g., "☐"). */
-    uncheckedSymbol?: string;
+    /**
+     * A custom symbol to display when the checkbox is unchecked. It can be specified as a character code
+     * (e.g., 9744) or as a string (e.g., "☐"). If a string is specified, only its first character is used.
+     */
+    uncheckedSymbol?: number | string;
   }
 
   /** The date picker content control properties. */
@@ -4729,6 +4735,9 @@ declare namespace Pdf {
     /**
      * Gets annotation border width.
      *
+     * **Note:**
+     * Returns null for stamps, they have no border width.
+     *
      * @example
      * ```js
      * // How thick is the border around an annotation in a PDF?
@@ -4744,7 +4753,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetBorderWidth/
      */
-    GetBorderWidth(): pt;
+    GetBorderWidth(): pt | null;
 
     /**
      * Gets annotation contents.
@@ -5079,7 +5088,7 @@ declare namespace Pdf {
      * **Note:**
      * Can be applied to circle, square, freeText and polygon annotations.
      *
-     * @param value - The border effect intensity. Must be greater than or equal to 0.
+     * @param value - The border effect intensity from 0 to 2.
      *
      * @example
      * ```js
@@ -5155,7 +5164,10 @@ declare namespace Pdf {
     /**
      * Sets annotation border width.
      *
-     * @param width - The border width in points.
+     * **Note:**
+     * Not for stamps, they have no border width.
+     *
+     * @param width - The border width in points. Must be greater than or equal to 0.
      *
      * @example
      * ```js
@@ -5227,7 +5239,7 @@ declare namespace Pdf {
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
-     *   gaps.
+     *   gaps. The values must be non-negative and not all zero.
      *
      * @example
      * ```js
@@ -6580,6 +6592,9 @@ declare namespace Pdf {
     /**
      * Gets annotation border width.
      *
+     * **Note:**
+     * Returns null for stamps, they have no border width.
+     *
      * @example
      * ```js
      * // How thick is the border around an annotation in a PDF?
@@ -6595,7 +6610,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetBorderWidth/
      */
-    GetBorderWidth(): pt;
+    GetBorderWidth(): pt | null;
 
     /**
      * Gets annotation contents.
@@ -6934,7 +6949,7 @@ declare namespace Pdf {
      * **Note:**
      * Can be applied to circle, square, freeText and polygon annotations.
      *
-     * @param value - The border effect intensity. Must be greater than or equal to 0.
+     * @param value - The border effect intensity from 0 to 2.
      *
      * @example
      * ```js
@@ -7010,7 +7025,10 @@ declare namespace Pdf {
     /**
      * Sets annotation border width.
      *
-     * @param width - The border width in points.
+     * **Note:**
+     * Not for stamps, they have no border width.
+     *
+     * @param width - The border width in points. Must be greater than or equal to 0.
      *
      * @example
      * ```js
@@ -7082,7 +7100,7 @@ declare namespace Pdf {
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
-     *   gaps.
+     *   gaps. The values must be non-negative and not all zero.
      *
      * @example
      * ```js
@@ -13291,6 +13309,9 @@ declare namespace Pdf {
     /**
      * Gets annotation border width.
      *
+     * **Note:**
+     * Returns null for stamps, they have no border width.
+     *
      * @example
      * ```js
      * // How thick is the border around an annotation in a PDF?
@@ -13306,7 +13327,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetBorderWidth/
      */
-    GetBorderWidth(): pt;
+    GetBorderWidth(): pt | null;
 
     /**
      * Returns a type of the ApiCircleAnnotation class.
@@ -13669,7 +13690,7 @@ declare namespace Pdf {
      * **Note:**
      * Can be applied to circle, square, freeText and polygon annotations.
      *
-     * @param value - The border effect intensity. Must be greater than or equal to 0.
+     * @param value - The border effect intensity from 0 to 2.
      *
      * @example
      * ```js
@@ -13745,7 +13766,10 @@ declare namespace Pdf {
     /**
      * Sets annotation border width.
      *
-     * @param width - The border width in points.
+     * **Note:**
+     * Not for stamps, they have no border width.
+     *
+     * @param width - The border width in points. Must be greater than or equal to 0.
      *
      * @example
      * ```js
@@ -13817,7 +13841,7 @@ declare namespace Pdf {
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
-     *   gaps.
+     *   gaps. The values must be non-negative and not all zero.
      *
      * @example
      * ```js
@@ -14807,12 +14831,14 @@ declare namespace Pdf {
     /**
      * Sets number format for field.
      *
-     * @param decimalPlaces - The number of digits after the decimal point.
+     * @param decimalPlaces - The number of digits after the decimal point (a non-negative integer).
      * @param separatorStyle - The number separator style.
      * @param negativeStyle - The negative number display style.
      * @param currency - The currency symbol.
      * @param currencyPrepend - If true, places the currency symbol before the number (e.g., $1,234.56); if false, places it
      *   after (e.g., 1,234.56$).
+     * @default currency = ""
+     * @default currencyPrepend = false
      *
      * @example
      * ```js
@@ -14831,12 +14857,12 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiComboboxField/Methods/SetNumberFormat/
      */
-    SetNumberFormat(decimalPlaces: number, separatorStyle: NumberSepStyle, negativeStyle: NumberNegStyle, currency: string, currencyPrepend: boolean): boolean;
+    SetNumberFormat(decimalPlaces: number, separatorStyle: NumberSepStyle, negativeStyle: NumberNegStyle, currency?: string, currencyPrepend?: boolean): boolean;
 
     /**
      * Sets percentage format for field.
      *
-     * @param decimalPlaces - The number of digits after the decimal point.
+     * @param decimalPlaces - The number of digits after the decimal point (a non-negative integer).
      * @param separatorStyle - The number separator style.
      *
      * @example
@@ -14966,9 +14992,9 @@ declare namespace Pdf {
      * Can only be applied to fields with a percentage or number format.
      *
      * @param greaterThan - If true, enables minimum value validation using `greaterThanValue`.
-     * @param greaterThanValue - The minimum allowed value.
+     * @param greaterThanValue - The minimum allowed value. Required if `greaterThan` is true.
      * @param lessThan - If true, enables maximum value validation using `lessThanValue`.
-     * @param lessThanValue - The maximum allowed value.
+     * @param lessThanValue - The maximum allowed value. Required if `lessThan` is true.
      * @default greaterThan = false
      * @default lessThan = false
      *
@@ -17934,6 +17960,9 @@ declare namespace Pdf {
     /**
      * Gets annotation border width.
      *
+     * **Note:**
+     * Returns null for stamps, they have no border width.
+     *
      * @example
      * ```js
      * // How thick is the border around an annotation in a PDF?
@@ -17949,7 +17978,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetBorderWidth/
      */
-    GetBorderWidth(): pt;
+    GetBorderWidth(): pt | null;
 
     /**
      * Gets annot callout.
@@ -18410,7 +18439,7 @@ declare namespace Pdf {
      * **Note:**
      * Can be applied to circle, square, freeText and polygon annotations.
      *
-     * @param value - The border effect intensity. Must be greater than or equal to 0.
+     * @param value - The border effect intensity from 0 to 2.
      *
      * @example
      * ```js
@@ -18486,7 +18515,10 @@ declare namespace Pdf {
     /**
      * Sets annotation border width.
      *
-     * @param width - The border width in points.
+     * **Note:**
+     * Not for stamps, they have no border width.
+     *
+     * @param width - The border width in points. Must be greater than or equal to 0.
      *
      * @example
      * ```js
@@ -18584,7 +18616,7 @@ declare namespace Pdf {
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
-     *   gaps.
+     *   gaps. The values must be non-negative and not all zero.
      *
      * @example
      * ```js
@@ -20839,6 +20871,9 @@ declare namespace Pdf {
     /**
      * Gets annotation border width.
      *
+     * **Note:**
+     * Returns null for stamps, they have no border width.
+     *
      * @example
      * ```js
      * // How thick is the border around an annotation in a PDF?
@@ -20854,7 +20889,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetBorderWidth/
      */
-    GetBorderWidth(): pt;
+    GetBorderWidth(): pt | null;
 
     /**
      * Returns a type of the ApiInkAnnotation class.
@@ -21217,7 +21252,7 @@ declare namespace Pdf {
      * **Note:**
      * Can be applied to circle, square, freeText and polygon annotations.
      *
-     * @param value - The border effect intensity. Must be greater than or equal to 0.
+     * @param value - The border effect intensity from 0 to 2.
      *
      * @example
      * ```js
@@ -21293,7 +21328,10 @@ declare namespace Pdf {
     /**
      * Sets annotation border width.
      *
-     * @param width - The border width in points.
+     * **Note:**
+     * Not for stamps, they have no border width.
+     *
+     * @param width - The border width in points. Must be greater than or equal to 0.
      *
      * @example
      * ```js
@@ -21365,7 +21403,7 @@ declare namespace Pdf {
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
-     *   gaps.
+     *   gaps. The values must be non-negative and not all zero.
      *
      * @example
      * ```js
@@ -21862,6 +21900,9 @@ declare namespace Pdf {
     /**
      * Gets annotation border width.
      *
+     * **Note:**
+     * Returns null for stamps, they have no border width.
+     *
      * @example
      * ```js
      * // How thick is the border around an annotation in a PDF?
@@ -21877,7 +21918,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetBorderWidth/
      */
-    GetBorderWidth(): pt;
+    GetBorderWidth(): pt | null;
 
     /**
      * Returns a type of the ApiLineAnnotation class.
@@ -22301,7 +22342,7 @@ declare namespace Pdf {
      * **Note:**
      * Can be applied to circle, square, freeText and polygon annotations.
      *
-     * @param value - The border effect intensity. Must be greater than or equal to 0.
+     * @param value - The border effect intensity from 0 to 2.
      *
      * @example
      * ```js
@@ -22377,7 +22418,10 @@ declare namespace Pdf {
     /**
      * Sets annotation border width.
      *
-     * @param width - The border width in points.
+     * **Note:**
+     * Not for stamps, they have no border width.
+     *
+     * @param width - The border width in points. Must be greater than or equal to 0.
      *
      * @example
      * ```js
@@ -22449,7 +22493,7 @@ declare namespace Pdf {
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
-     *   gaps.
+     *   gaps. The values must be non-negative and not all zero.
      *
      * @example
      * ```js
@@ -28178,6 +28222,9 @@ declare namespace Pdf {
     /**
      * Gets annotation border width.
      *
+     * **Note:**
+     * Returns null for stamps, they have no border width.
+     *
      * @example
      * ```js
      * // How thick is the border around an annotation in a PDF?
@@ -28193,7 +28240,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetBorderWidth/
      */
-    GetBorderWidth(): pt;
+    GetBorderWidth(): pt | null;
 
     /**
      * Returns a type of the ApiPolyLineAnnotation class.
@@ -28600,7 +28647,7 @@ declare namespace Pdf {
      * **Note:**
      * Can be applied to circle, square, freeText and polygon annotations.
      *
-     * @param value - The border effect intensity. Must be greater than or equal to 0.
+     * @param value - The border effect intensity from 0 to 2.
      *
      * @example
      * ```js
@@ -28676,7 +28723,10 @@ declare namespace Pdf {
     /**
      * Sets annotation border width.
      *
-     * @param width - The border width in points.
+     * **Note:**
+     * Not for stamps, they have no border width.
+     *
+     * @param width - The border width in points. Must be greater than or equal to 0.
      *
      * @example
      * ```js
@@ -28748,7 +28798,7 @@ declare namespace Pdf {
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
-     *   gaps.
+     *   gaps. The values must be non-negative and not all zero.
      *
      * @example
      * ```js
@@ -29193,6 +29243,9 @@ declare namespace Pdf {
     /**
      * Gets annotation border width.
      *
+     * **Note:**
+     * Returns null for stamps, they have no border width.
+     *
      * @example
      * ```js
      * // How thick is the border around an annotation in a PDF?
@@ -29208,7 +29261,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetBorderWidth/
      */
-    GetBorderWidth(): pt;
+    GetBorderWidth(): pt | null;
 
     /**
      * Returns a type of the ApiPolygonAnnotation class.
@@ -29571,7 +29624,7 @@ declare namespace Pdf {
      * **Note:**
      * Can be applied to circle, square, freeText and polygon annotations.
      *
-     * @param value - The border effect intensity. Must be greater than or equal to 0.
+     * @param value - The border effect intensity from 0 to 2.
      *
      * @example
      * ```js
@@ -29647,7 +29700,10 @@ declare namespace Pdf {
     /**
      * Sets annotation border width.
      *
-     * @param width - The border width in points.
+     * **Note:**
+     * Not for stamps, they have no border width.
+     *
+     * @param width - The border width in points. Must be greater than or equal to 0.
      *
      * @example
      * ```js
@@ -29719,7 +29775,7 @@ declare namespace Pdf {
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
-     *   gaps.
+     *   gaps. The values must be non-negative and not all zero.
      *
      * @example
      * ```js
@@ -34808,6 +34864,23 @@ declare namespace Pdf {
     Copy(): ApiShape;
 
     /**
+     * Changes the font size of the shape text so that the text fits the shape height.
+     * The text is reduced if it does not fit the shape. If canEnlarge is true, the text is also enlarged
+     * to fill the free space of the shape.
+     * All the text sizes are changed in the same proportion, the line spacing is not changed.
+     * The text is never enlarged if it is not wrapped or the shape is resized to fit the text.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param canEnlarge - Specifies whether the text can be enlarged to fill the shape height.
+     * @default canEnlarge = false
+     * @returns Returns true if the text fits the shape.
+     * @since 10.0.3
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiShape/Methods/FitText/
+     */
+    FitText(canEnlarge?: boolean): boolean;
+
+    /**
      * Returns the type of the ApiShape class.
      *
      * @example
@@ -36061,6 +36134,9 @@ declare namespace Pdf {
     /**
      * Gets annotation border width.
      *
+     * **Note:**
+     * Returns null for stamps, they have no border width.
+     *
      * @example
      * ```js
      * // How thick is the border around an annotation in a PDF?
@@ -36076,7 +36152,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetBorderWidth/
      */
-    GetBorderWidth(): pt;
+    GetBorderWidth(): pt | null;
 
     /**
      * Returns a type of the ApiSquareAnnotation class.
@@ -36439,7 +36515,7 @@ declare namespace Pdf {
      * **Note:**
      * Can be applied to circle, square, freeText and polygon annotations.
      *
-     * @param value - The border effect intensity. Must be greater than or equal to 0.
+     * @param value - The border effect intensity from 0 to 2.
      *
      * @example
      * ```js
@@ -36515,7 +36591,10 @@ declare namespace Pdf {
     /**
      * Sets annotation border width.
      *
-     * @param width - The border width in points.
+     * **Note:**
+     * Not for stamps, they have no border width.
+     *
+     * @param width - The border width in points. Must be greater than or equal to 0.
      *
      * @example
      * ```js
@@ -36587,7 +36666,7 @@ declare namespace Pdf {
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
-     *   gaps.
+     *   gaps. The values must be non-negative and not all zero.
      *
      * @example
      * ```js
@@ -36981,6 +37060,9 @@ declare namespace Pdf {
     /**
      * Gets annotation border width.
      *
+     * **Note:**
+     * Returns null for stamps, they have no border width.
+     *
      * @example
      * ```js
      * // How thick is the border around an annotation in a PDF?
@@ -36996,7 +37078,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetBorderWidth/
      */
-    GetBorderWidth(): pt;
+    GetBorderWidth(): pt | null;
 
     /**
      * Returns a type of the ApiStampAnnotation class.
@@ -37399,7 +37481,7 @@ declare namespace Pdf {
      * **Note:**
      * Can be applied to circle, square, freeText and polygon annotations.
      *
-     * @param value - The border effect intensity. Must be greater than or equal to 0.
+     * @param value - The border effect intensity from 0 to 2.
      *
      * @example
      * ```js
@@ -37475,7 +37557,10 @@ declare namespace Pdf {
     /**
      * Sets annotation border width.
      *
-     * @param width - The border width in points.
+     * **Note:**
+     * Not for stamps, they have no border width.
+     *
+     * @param width - The border width in points. Must be greater than or equal to 0.
      *
      * @example
      * ```js
@@ -37547,7 +37632,7 @@ declare namespace Pdf {
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
-     *   gaps.
+     *   gaps. The values must be non-negative and not all zero.
      *
      * @example
      * ```js
@@ -41370,6 +41455,9 @@ declare namespace Pdf {
     /**
      * Gets annotation border width.
      *
+     * **Note:**
+     * Returns null for stamps, they have no border width.
+     *
      * @example
      * ```js
      * // How thick is the border around an annotation in a PDF?
@@ -41385,7 +41473,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiBaseAnnotation/Methods/GetBorderWidth/
      */
-    GetBorderWidth(): pt;
+    GetBorderWidth(): pt | null;
 
     /**
      * Returns a type of the ApiTextAnnotation class.
@@ -41748,7 +41836,7 @@ declare namespace Pdf {
      * **Note:**
      * Can be applied to circle, square, freeText and polygon annotations.
      *
-     * @param value - The border effect intensity. Must be greater than or equal to 0.
+     * @param value - The border effect intensity from 0 to 2.
      *
      * @example
      * ```js
@@ -41824,7 +41912,10 @@ declare namespace Pdf {
     /**
      * Sets annotation border width.
      *
-     * @param width - The border width in points.
+     * **Note:**
+     * Not for stamps, they have no border width.
+     *
+     * @param width - The border width in points. Must be greater than or equal to 0.
      *
      * @example
      * ```js
@@ -41896,7 +41987,7 @@ declare namespace Pdf {
      *
      * @param pattern - A dash array defining a pattern of dashes and gaps to be used in drawing a dashed border. For
      *   example, a value of [3, 2] specifies a border drawn with 3-point dashes alternating with 2-point
-     *   gaps.
+     *   gaps. The values must be non-negative and not all zero.
      *
      * @example
      * ```js
@@ -42711,12 +42802,14 @@ declare namespace Pdf {
     /**
      * Sets number format for field.
      *
-     * @param decimalPlaces - The number of digits after the decimal point.
+     * @param decimalPlaces - The number of digits after the decimal point (a non-negative integer).
      * @param separatorStyle - The number separator style.
      * @param negativeStyle - The negative number display style.
      * @param currency - The currency symbol.
      * @param currencyPrepend - If true, places the currency symbol before the number (e.g., $1,234.56); if false, places it
      *   after (e.g., 1,234.56$).
+     * @default currency = ""
+     * @default currencyPrepend = false
      *
      * @example
      * ```js
@@ -42735,7 +42828,7 @@ declare namespace Pdf {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiTextField/Methods/SetNumberFormat/
      */
-    SetNumberFormat(decimalPlaces: number, separatorStyle: NumberSepStyle, negativeStyle: NumberNegStyle, currency: string, currencyPrepend: boolean): boolean;
+    SetNumberFormat(decimalPlaces: number, separatorStyle: NumberSepStyle, negativeStyle: NumberNegStyle, currency?: string, currencyPrepend?: boolean): boolean;
 
     /**
      * Sets new field partial name.
@@ -42767,7 +42860,7 @@ declare namespace Pdf {
     /**
      * Sets percentage format for field.
      *
-     * @param decimalPlaces - The number of digits after the decimal point.
+     * @param decimalPlaces - The number of digits after the decimal point (a non-negative integer).
      * @param separatorStyle - The number separator style.
      *
      * @example
@@ -42977,9 +43070,9 @@ declare namespace Pdf {
      * Can only be applied to fields with a percentage or number format.
      *
      * @param greaterThan - If true, enables minimum value validation using `greaterThanValue`.
-     * @param greaterThanValue - The minimum allowed value.
+     * @param greaterThanValue - The minimum allowed value. Required if `greaterThan` is true.
      * @param lessThan - If true, enables maximum value validation using `lessThanValue`.
-     * @param lessThanValue - The maximum allowed value.
+     * @param lessThanValue - The maximum allowed value. Required if `lessThan` is true.
      * @default greaterThan = false
      * @default lessThan = false
      *
@@ -47050,7 +47143,7 @@ type PdfMethodArgs = {
    * };
    * ```
    */
-  RemovePlugin: [guid: string, backup: string];
+  RemovePlugin: [guid: string, backup?: boolean];
   /**
    * Replaces the page content with the specified parameters.
    *
@@ -48065,16 +48158,7 @@ interface ContextMenuShowEvent {
     type: string;
 }
 
-/**
- * Event arguments are tuples so events with no payload can be represented as `[]`.
- *
- * Only events the host delivers as an `onEvent` message belong here - that is the one message
- * `attachEvent`, `attachEditorEvent` and the `event_on*` slots are dispatched from. sdkjs documents
- * two more events alongside these, but sends each as a message type of its own that calls a single
- * handler property on `Asc.plugin` and nothing else, so they are declared there instead
- * (`AscPlugin.onExternalMouseUp`, `AscPlugin.onEnableMouseEvent`). `npm run check-plugin-events`
- * keeps them out of this map.
- */
+/** Event arguments are tuples so events with no payload can be represented as `[]`. */
 type PluginEventMap = {
     onContextMenuShow: [event: ContextMenuShowEvent];
     /** Payload is not documented consistently across editor versions. */
@@ -48347,8 +48431,12 @@ interface WindowHeaderFrameOptions {
 
 /** Argument tuples, by method name. */
 interface UndocumentedMethodArgs {
-    /** Closes a plugin modal window. */
-    CloseWindow: [windowId: number];
+    /**
+     * Closes a plugin modal window. `windowId` is the window's `PluginWindow.id` (a GUID string)
+     * or the `windowID` the window's `button` call reports - sdkjs's own `PluginWindow.close` sends
+     * `executeMethod("CloseWindow", [this.id])`.
+     */
+    CloseWindow: [windowId: string];
 
     /** Shows or hides one of the plugin's own buttons. */
     ShowButton: [buttonId: string, visible: boolean, align?: string];
@@ -48393,7 +48481,7 @@ interface UndocumentedMethodArgs {
  * Only `ResizeWindow` carries a value: it is the one of the five that calls
  * `setPluginMethodReturnAsync()` and later answers `onPluginMethodReturn("resize_result")`. The
  * others return synchronously, so their callback fires with nothing - which is still worth
- * declaring, because the Promise form (`await Editor.CloseWindow(1)`) resolves at that moment.
+ * declaring, because the Promise form (`await Editor.CloseWindow(win.id)`) resolves at that moment.
  */
 interface UndocumentedMethodReturnMap {
     ActivateWindow: void;
@@ -48715,6 +48803,21 @@ interface AscPlugin {
      *
      * Assign it directly: the host sends it as a message of its own, not through `onEvent`, so
      * `attachEvent("onEnableMouseEvent", ...)` and an `event_onEnableMouseEvent` slot never run.
+     *
+     * The runtime installs a handler of its own right before calling {@link AscPlugin.init} - it
+     * turns pointer events off on the plugin page's first `<iframe>` for the duration of the
+     * gesture - and that replaces any handler assigned earlier. Assign yours inside `init` and
+     * call the one you replace:
+     *
+     * ```js
+     * window.Asc.plugin.init = function () {
+     *     const base = window.Asc.plugin.onEnableMouseEvent;
+     *     window.Asc.plugin.onEnableMouseEvent = function (isEnabled) {
+     *         if (base) base.call(this, isEnabled);
+     *         // ...
+     *     };
+     * };
+     * ```
      */
     onEnableMouseEvent?: (isEnabled: boolean) => void;
     onThemeChanged: (theme: AscTheme) => void;
@@ -48741,7 +48844,12 @@ interface PluginWindow {
      * Brings the window forward, and focuses it when `isFocus` is set.
      */
     activate: (isFocus?: boolean) => void;
-    attachEvent: (eventName: string, callback: PluginEventCallback) => void;
+    /**
+     * Subscribes to what the window's own page sends with `Asc.plugin.sendToPlugin(eventName,
+     * data)`. The payload is whatever that page sent, so the plugin names its type: `T` is the
+     * caller's statement of the protocol between its two pages, not something the runtime checks.
+     */
+    attachEvent: <T = unknown>(eventName: string, callback: (data: T) => void) => void;
     detachEvent: (eventName: string) => void;
     command: (methodName: string, payload?: unknown) => void;
 }

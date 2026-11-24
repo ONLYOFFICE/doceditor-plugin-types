@@ -20,8 +20,12 @@
 
 /** Argument tuples, by method name. */
 interface UndocumentedMethodArgs {
-    /** Closes a plugin modal window. */
-    CloseWindow: [windowId: number];
+    /**
+     * Closes a plugin modal window. `windowId` is the window's `PluginWindow.id` (a GUID string)
+     * or the `windowID` the window's `button` call reports - sdkjs's own `PluginWindow.close` sends
+     * `executeMethod("CloseWindow", [this.id])`.
+     */
+    CloseWindow: [windowId: string];
 
     /** Shows or hides one of the plugin's own buttons. */
     ShowButton: [buttonId: string, visible: boolean, align?: string];
@@ -66,7 +70,7 @@ interface UndocumentedMethodArgs {
  * Only `ResizeWindow` carries a value: it is the one of the five that calls
  * `setPluginMethodReturnAsync()` and later answers `onPluginMethodReturn("resize_result")`. The
  * others return synchronously, so their callback fires with nothing - which is still worth
- * declaring, because the Promise form (`await Editor.CloseWindow(1)`) resolves at that moment.
+ * declaring, because the Promise form (`await Editor.CloseWindow(win.id)`) resolves at that moment.
  */
 interface UndocumentedMethodReturnMap {
     ActivateWindow: void;

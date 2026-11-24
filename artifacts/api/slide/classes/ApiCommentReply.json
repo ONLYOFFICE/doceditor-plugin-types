@@ -34,9 +34,10 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/presentation-api/ApiCommentReply/Methods/GetUserId/",
       "params": [],
       "returns": {
-        "type": "string"
+        "description": "The user ID of the comment reply author, or null if not set.",
+        "type": "string | null"
       },
-      "signature": "GetUserId(): string"
+      "signature": "GetUserId(): string | null"
     },
     "SetAuthorName": {
       "description": "Sets the comment reply author's name.",

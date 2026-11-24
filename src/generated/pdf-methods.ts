@@ -895,7 +895,7 @@ type PdfMethodArgs = {
    * };
    * ```
    */
-  RemovePlugin: [guid: string, backup: string];
+  RemovePlugin: [guid: string, backup?: boolean];
   /**
    * Replaces the page content with the specified parameters.
    *

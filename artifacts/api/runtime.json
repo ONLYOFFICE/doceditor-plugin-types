@@ -523,7 +523,7 @@
           "signature": "onDestroy?: () => void;"
         },
         "onEnableMouseEvent": {
-          "description": "Called with `true` when the editor starts forwarding mouse events to the plugin and with\n`false` when it stops. The editor does this while the user drags or resizes the plugin\nwindow or resizes the plugin panel, so the `true`/`false` pair brackets that gesture - the\n`onExternalMouseUp` that ends it arrives in between or right after.\n\nAssign it directly: the host sends it as a message of its own, not through `onEvent`, so\n`attachEvent(\"onEnableMouseEvent\", ...)` and an `event_onEnableMouseEvent` slot never run.",
+          "description": "Called with `true` when the editor starts forwarding mouse events to the plugin and with\n`false` when it stops. The editor does this while the user drags or resizes the plugin\nwindow or resizes the plugin panel, so the `true`/`false` pair brackets that gesture - the\n`onExternalMouseUp` that ends it arrives in between or right after.\n\nAssign it directly: the host sends it as a message of its own, not through `onEvent`, so\n`attachEvent(\"onEnableMouseEvent\", ...)` and an `event_onEnableMouseEvent` slot never run.\n\nThe runtime installs a handler of its own right before calling {@link AscPlugin.init} - it\nturns pointer events off on the plugin page's first `<iframe>` for the duration of the\ngesture - and that replaces any handler assigned earlier. Assign yours inside `init` and\ncall the one you replace:\n\n```js\nwindow.Asc.plugin.init = function () {\n    const base = window.Asc.plugin.onEnableMouseEvent;\n    window.Asc.plugin.onEnableMouseEvent = function (isEnabled) {\n        if (base) base.call(this, isEnabled);\n        // ...\n    };\n};\n```",
           "optional": true,
           "signature": "onEnableMouseEvent?: (isEnabled: boolean) => void;"
         },
@@ -901,7 +901,7 @@
       "type": "(...args: PluginEventMap[K]) => void"
     },
     "PluginEventMap": {
-      "description": "Event arguments are tuples so events with no payload can be represented as `[]`.\n\nOnly events the host delivers as an `onEvent` message belong here - that is the one message\n`attachEvent`, `attachEditorEvent` and the `event_on*` slots are dispatched from. sdkjs documents\ntwo more events alongside these, but sends each as a message type of its own that calls a single\nhandler property on `Asc.plugin` and nothing else, so they are declared there instead\n(`AscPlugin.onExternalMouseUp`, `AscPlugin.onEnableMouseEvent`). `npm run check-plugin-events`\nkeeps them out of this map.",
+      "description": "Event arguments are tuples so events with no payload can be represented as `[]`.",
       "kind": "type",
       "members": {
         "onAddComment": {
@@ -1143,7 +1143,8 @@
           "signature": "activate: (isFocus?: boolean) => void;"
         },
         "attachEvent": {
-          "signature": "attachEvent: (eventName: string, callback: PluginEventCallback) => void;"
+          "description": "Subscribes to what the window's own page sends with `Asc.plugin.sendToPlugin(eventName,\ndata)`. The payload is whatever that page sent, so the plugin names its type: `T` is the\ncaller's statement of the protocol between its two pages, not something the runtime checks.",
+          "signature": "attachEvent: <T = unknown>(eventName: string, callback: (data: T) => void) => void;"
         },
         "close": {
           "signature": "close: () => void;"

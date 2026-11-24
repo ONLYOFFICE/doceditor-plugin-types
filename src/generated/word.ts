@@ -222,11 +222,17 @@ export namespace Word {
     /** Indicates whether the checkbox is checked by default. */
     checked?: boolean;
 
-    /** A custom symbol to display when the checkbox is checked (e.g., "☒"). */
-    checkedSymbol?: string;
+    /**
+     * A custom symbol to display when the checkbox is checked. It can be specified as a character code
+     * (e.g., 9746) or as a string (e.g., "☒"). If a string is specified, only its first character is used.
+     */
+    checkedSymbol?: number | string;
 
-    /** A custom symbol to display when the checkbox is unchecked (e.g., "☐"). */
-    uncheckedSymbol?: string;
+    /**
+     * A custom symbol to display when the checkbox is unchecked. It can be specified as a character code
+     * (e.g., 9744) or as a string (e.g., "☐"). If a string is specified, only its first character is used.
+     */
+    uncheckedSymbol?: number | string;
   }
 
   /** The date picker content control properties. */
@@ -12244,6 +12250,8 @@ export namespace Word {
     /**
      * Returns the user ID of the comment author.
      *
+     * @returns The user ID of the comment author, or null if not set.
+     *
      * @example
      * ```js
      * // How do I get the identifier of the user who posted a comment in a document?
@@ -12264,7 +12272,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiComment/Methods/GetUserId/
      */
-    GetUserId(): string;
+    GetUserId(): string | null;
 
     /**
      * Checks if a comment is solved or not.
@@ -12626,6 +12634,8 @@ export namespace Word {
     /**
      * Returns the user ID of the comment reply author.
      *
+     * @returns The user ID of the comment reply author, or null if not set.
+     *
      * @example
      * ```js
      * // How do I get the user ID linked to the author of a comment reply in a document?
@@ -12648,7 +12658,7 @@ export namespace Word {
      *
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCommentReply/Methods/GetUserId/
      */
-    GetUserId(): string;
+    GetUserId(): string | null;
 
     /**
      * Sets the comment reply author's name.
@@ -15233,6 +15243,26 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCustomProperties/Methods/Add/
      */
     Add(name: string, value: string | number | boolean | Date): boolean;
+
+    /**
+     * Deletes a custom property by its name.
+     *
+     * @param name - The custom property name.
+     * @returns Returns false if the custom property does not exist.
+     * @since 10.0.3
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCustomProperties/Methods/Delete/
+     */
+    Delete(name: string): boolean;
+
+    /**
+     * Deletes all custom properties from the document.
+     *
+     * @since 10.0.3
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiCustomProperties/Methods/DeleteAll/
+     */
+    DeleteAll(): boolean;
 
     /**
      * Returns the value of a custom property by its name.
@@ -50559,6 +50589,23 @@ export namespace Word {
      * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiDrawing/Methods/Fill/
      */
     Fill(oFill: ApiFill): boolean;
+
+    /**
+     * Changes the font size of the shape text so that the text fits the shape height.
+     * The text is reduced if it does not fit the shape. If canEnlarge is true, the text is also enlarged
+     * to fill the free space of the shape.
+     * All the text sizes are changed in the same proportion, the line spacing is not changed.
+     * The text is never enlarged if it is not wrapped or the shape is resized to fit the text.
+     *
+     * @requires ONLYOFFICE Docs Developer Edition. This member is not present in Community Edition builds.
+     * @param canEnlarge - Specifies whether the text can be enlarged to fill the shape height.
+     * @default canEnlarge = false
+     * @returns Returns true if the text fits the shape.
+     * @since 10.0.3
+     *
+     * @see https://api.onlyoffice.com/docs/office-api/usage-api/document-api/ApiShape/Methods/FitText/
+     */
+    FitText(canEnlarge?: boolean): boolean;
 
     /**
      * Returns whether the drawing object is allowed to overlap other drawing objects.

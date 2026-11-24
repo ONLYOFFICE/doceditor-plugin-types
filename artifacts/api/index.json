@@ -5,7 +5,7 @@
       "classes": 95,
       "events": 1,
       "executeMethods": 48,
-      "methods": 2010,
+      "methods": 2013,
       "typedefs": 177
     },
     "forms": {
@@ -19,21 +19,21 @@
       "classes": 93,
       "events": 2,
       "executeMethods": 32,
-      "methods": 1622,
+      "methods": 1623,
       "typedefs": 150
     },
     "slide": {
       "classes": 73,
       "events": 5,
       "executeMethods": 63,
-      "methods": 1140,
+      "methods": 1143,
       "typedefs": 112
     },
     "word": {
       "classes": 71,
       "events": 19,
       "executeMethods": 114,
-      "methods": 2233,
+      "methods": 2236,
       "typedefs": 108
     }
   },

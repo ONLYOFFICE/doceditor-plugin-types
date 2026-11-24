@@ -225,7 +225,7 @@
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiComboboxField/Methods/SetNumberFormat/",
       "params": [
         {
-          "description": "The number of digits after the decimal point.",
+          "description": "The number of digits after the decimal point (a non-negative integer).",
           "name": "decimalPlaces",
           "type": "number"
         },
@@ -242,25 +242,27 @@
         {
           "description": "The currency symbol.",
           "name": "currency",
+          "optional": true,
           "type": "string"
         },
         {
           "description": "If true, places the currency symbol before the number (e.g., $1,234.56);\rif false, places it after (e.g., 1,234.56$).",
           "name": "currencyPrepend",
+          "optional": true,
           "type": "boolean"
         }
       ],
       "returns": {
         "type": "boolean"
       },
-      "signature": "SetNumberFormat(decimalPlaces: number, separatorStyle: NumberSepStyle, negativeStyle: NumberNegStyle, currency: string, currencyPrepend: boolean): boolean"
+      "signature": "SetNumberFormat(decimalPlaces: number, separatorStyle: NumberSepStyle, negativeStyle: NumberNegStyle, currency?: string, currencyPrepend?: boolean): boolean"
     },
     "SetPercentageFormat": {
       "description": "Sets percentage format for field.",
       "docsUrl": "https://api.onlyoffice.com/docs/office-api/usage-api/pdf-api/ApiComboboxField/Methods/SetPercentageFormat/",
       "params": [
         {
-          "description": "The number of digits after the decimal point.",
+          "description": "The number of digits after the decimal point (a non-negative integer).",
           "name": "decimalPlaces",
           "type": "number"
         },
@@ -347,7 +349,7 @@
           "type": "boolean"
         },
         {
-          "description": "The minimum allowed value.",
+          "description": "The minimum allowed value. Required if `greaterThan` is true.",
           "name": "greaterThanValue",
           "optional": true,
           "type": "number"
@@ -359,7 +361,7 @@
           "type": "boolean"
         },
         {
-          "description": "The maximum allowed value.",
+          "description": "The maximum allowed value. Required if `lessThan` is true.",
           "name": "lessThanValue",
           "optional": true,
           "type": "number"

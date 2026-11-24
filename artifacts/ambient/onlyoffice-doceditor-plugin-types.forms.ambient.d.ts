@@ -230,11 +230,17 @@ declare namespace Forms {
     /** Indicates whether the checkbox is checked by default. */
     checked?: boolean;
 
-    /** A custom symbol to display when the checkbox is checked (e.g., "☒"). */
-    checkedSymbol?: string;
+    /**
+     * A custom symbol to display when the checkbox is checked. It can be specified as a character code
+     * (e.g., 9746) or as a string (e.g., "☒"). If a string is specified, only its first character is used.
+     */
+    checkedSymbol?: number | string;
 
-    /** A custom symbol to display when the checkbox is unchecked (e.g., "☐"). */
-    uncheckedSymbol?: string;
+    /**
+     * A custom symbol to display when the checkbox is unchecked. It can be specified as a character code
+     * (e.g., 9744) or as a string (e.g., "☐"). If a string is specified, only its first character is used.
+     */
+    uncheckedSymbol?: number | string;
   }
 
   /** The date picker content control properties. */
@@ -11850,11 +11856,17 @@ interface ContentControlCheckBoxProperties {
   /** Defines if the content control checkbox is checked or not. */
   Checked: boolean;
 
-  /** A symbol in the HTML code format that is used when the checkbox is checked. */
-  CheckedSymbol: number;
+  /**
+   * A symbol that is used when the checkbox is checked. It can be specified as a character code (e.g.,
+   * 9746) or as a string (e.g., "☒"). If a string is specified, only its first character is used.
+   */
+  CheckedSymbol: number | string;
 
-  /** A symbol in the HTML code format that is used when the checkbox is not checked. */
-  UncheckedSymbol: number;
+  /**
+   * A symbol that is used when the checkbox is not checked. It can be specified as a character code
+   * (e.g., 9744) or as a string (e.g., "☐"). If a string is specified, only its first character is used.
+   */
+  UncheckedSymbol: number | string;
 }
 
 /** The content control datepicker properties. */
@@ -13207,7 +13219,7 @@ type FormsMethodArgs = {
    * };
    * ```
    */
-  RemovePlugin: [guid: string, backup: string];
+  RemovePlugin: [guid: string, backup?: boolean];
   /**
    * Replaces each paragraph (or text in cell) in the select with the corresponding text from an array of
    * strings.
@@ -14284,16 +14296,7 @@ interface ContextMenuShowEvent {
     type: string;
 }
 
-/**
- * Event arguments are tuples so events with no payload can be represented as `[]`.
- *
- * Only events the host delivers as an `onEvent` message belong here - that is the one message
- * `attachEvent`, `attachEditorEvent` and the `event_on*` slots are dispatched from. sdkjs documents
- * two more events alongside these, but sends each as a message type of its own that calls a single
- * handler property on `Asc.plugin` and nothing else, so they are declared there instead
- * (`AscPlugin.onExternalMouseUp`, `AscPlugin.onEnableMouseEvent`). `npm run check-plugin-events`
- * keeps them out of this map.
- */
+/** Event arguments are tuples so events with no payload can be represented as `[]`. */
 type PluginEventMap = {
     onContextMenuShow: [event: ContextMenuShowEvent];
     /** Payload is not documented consistently across editor versions. */
@@ -14566,8 +14569,12 @@ interface WindowHeaderFrameOptions {
 
 /** Argument tuples, by method name. */
 interface UndocumentedMethodArgs {
-    /** Closes a plugin modal window. */
-    CloseWindow: [windowId: number];
+    /**
+     * Closes a plugin modal window. `windowId` is the window's `PluginWindow.id` (a GUID string)
+     * or the `windowID` the window's `button` call reports - sdkjs's own `PluginWindow.close` sends
+     * `executeMethod("CloseWindow", [this.id])`.
+     */
+    CloseWindow: [windowId: string];
 
     /** Shows or hides one of the plugin's own buttons. */
     ShowButton: [buttonId: string, visible: boolean, align?: string];
@@ -14612,7 +14619,7 @@ interface UndocumentedMethodArgs {
  * Only `ResizeWindow` carries a value: it is the one of the five that calls
  * `setPluginMethodReturnAsync()` and later answers `onPluginMethodReturn("resize_result")`. The
  * others return synchronously, so their callback fires with nothing - which is still worth
- * declaring, because the Promise form (`await Editor.CloseWindow(1)`) resolves at that moment.
+ * declaring, because the Promise form (`await Editor.CloseWindow(win.id)`) resolves at that moment.
  */
 interface UndocumentedMethodReturnMap {
     ActivateWindow: void;
@@ -14934,6 +14941,21 @@ interface AscPlugin {
      *
      * Assign it directly: the host sends it as a message of its own, not through `onEvent`, so
      * `attachEvent("onEnableMouseEvent", ...)` and an `event_onEnableMouseEvent` slot never run.
+     *
+     * The runtime installs a handler of its own right before calling {@link AscPlugin.init} - it
+     * turns pointer events off on the plugin page's first `<iframe>` for the duration of the
+     * gesture - and that replaces any handler assigned earlier. Assign yours inside `init` and
+     * call the one you replace:
+     *
+     * ```js
+     * window.Asc.plugin.init = function () {
+     *     const base = window.Asc.plugin.onEnableMouseEvent;
+     *     window.Asc.plugin.onEnableMouseEvent = function (isEnabled) {
+     *         if (base) base.call(this, isEnabled);
+     *         // ...
+     *     };
+     * };
+     * ```
      */
     onEnableMouseEvent?: (isEnabled: boolean) => void;
     onThemeChanged: (theme: AscTheme) => void;
@@ -14960,7 +14982,12 @@ interface PluginWindow {
      * Brings the window forward, and focuses it when `isFocus` is set.
      */
     activate: (isFocus?: boolean) => void;
-    attachEvent: (eventName: string, callback: PluginEventCallback) => void;
+    /**
+     * Subscribes to what the window's own page sends with `Asc.plugin.sendToPlugin(eventName,
+     * data)`. The payload is whatever that page sent, so the plugin names its type: `T` is the
+     * caller's statement of the protocol between its two pages, not something the runtime checks.
+     */
+    attachEvent: <T = unknown>(eventName: string, callback: (data: T) => void) => void;
     detachEvent: (eventName: string) => void;
     command: (methodName: string, payload?: unknown) => void;
 }
