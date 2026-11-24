@@ -66244,7 +66244,7 @@ interface ContextMenuItem {
   id: string;
 
   /** The item text. */
-  text: string;
+  text: string | Record<string, string>;
 
   /** The item data (this data will be sent to the click event callback). */
   data?: string;
@@ -66259,7 +66259,10 @@ interface ContextMenuItem {
   icons?: string;
 
   /** An array containing the context menu items for the current item. */
-  items: ContextMenuItem[];
+  items?: ContextMenuItem[];
+
+  /** Specifies if a separator is drawn above the current item. */
+  separator?: boolean;
 }
 
 /**
@@ -66454,6 +66457,12 @@ interface OLEProperties {
 
   /** The OLE object image height in pixels. */
   heightPix?: number;
+
+  /**
+   * The internal ID of the OLE object to change. Required by EditOleObject, which does nothing without
+   * it; when the plugin was opened on the object, it is `Asc.plugin.info.objectId`.
+   */
+  objectId?: string;
 }
 
 /** The plugin object. */
@@ -68460,9 +68469,27 @@ type VariationType = 'window' | 'panel' | 'panelRight' | 'background' | 'system'
 // the same shapes `executeMethod`'s Word surface already models (with real-example-verified
 // optionality) - rather than duplicating them by hand and letting the copies drift.
 
+/** What `onContextMenuShow` reports - sdkjs's `CPluginCtxMenuInfo`. */
 interface ContextMenuShowEvent {
-    /** The context type used by the editor, for example `All`. */
-    type: string;
+    /**
+     * What the menu was opened on (sdkjs `Asc.c_oPluginContextMenuTypes`): `"Target"` - the cursor
+     * with nothing selected, `"Selection"` - selected text, `"Image"`, `"Shape"`, `"OleObject"`, or
+     * `"None"`.
+     */
+    type: 'None' | 'Target' | 'Selection' | 'Image' | 'Shape' | 'OleObject' | (string & {});
+    /**
+     * With `type: "OleObject"`: the guid of the plugin the OLE object belongs to, so a plugin can
+     * offer its own entries only on its own objects (`options.guid === Asc.plugin.info.guid`).
+     */
+    guid?: string;
+    /** Word only. Set when the cursor is in a header that is being edited. */
+    header?: true;
+    /** Word only. Set when the cursor is in a footer that is being edited. */
+    footer?: true;
+    /** Word only. Set when the menu was opened over the header area of the page. */
+    headerArea?: true;
+    /** Word only. Set when the menu was opened over the footer area of the page. */
+    footerArea?: true;
 }
 
 /** Event arguments are tuples so events with no payload can be represented as `[]`. */
@@ -68722,8 +68749,8 @@ interface WindowHeaderFrameOptions {
 // both channels, and plugins in this repository's own ecosystem call them - but they carry
 // `@undocumented`, so ONLYOFFICE excludes them from api.onlyoffice.com and the generator excludes
 // them too (`generate-plugin-methods.js`: `if (item.undocumented) continue;`). That exclusion is
-// the right default - the published surface is what the package mirrors - and these five are the
-// deliberate exceptions, declared by hand because real plugins depend on them.
+// the right default - the published surface is what the package mirrors - and the methods below
+// are the deliberate exceptions, declared by hand because real plugins depend on them.
 //
 // Nothing here is covered by ONLYOFFICE's compatibility promise. A method can change shape or
 // disappear in any release without that counting as a breaking change, and there is no
@@ -68736,8 +68763,55 @@ interface WindowHeaderFrameOptions {
 // the two could drift, and they had: all three of the methods that existed here before were typed
 // on `executeMethod` and missing from `Editor`, which is the form the docs tell new code to prefer.
 
+/**
+ * What `AddContextMenuItem`/`UpdateContextMenuItem` take: the plugin's own guid and its entries.
+ *
+ * sdkjs's JSDoc says `@param {ContextMenuItem[]} items`, but the implementation reads
+ * `items["guid"]` and `items["items"]` off the one argument, and the plugins.js button helper sends
+ * exactly this object - `executeMethod("AddContextMenuItem", [{ guid, items }])`.
+ */
+interface ContextMenuItems {
+    /** The calling plugin's guid - `window.Asc.plugin.guid`. */
+    guid: string;
+    /** The entries to show; an empty array shows none, which still answers the request. */
+    items: ContextMenuItem[];
+}
+
 /** Argument tuples, by method name. */
 interface UndocumentedMethodArgs {
+    /**
+     * Adds the plugin's entries to the context menu that is opening. The answer to
+     * `onContextMenuShow`: a plugin that listens for that event must call this every time, with an
+     * empty `items` array when it has nothing to add, or the editor keeps waiting for it before it
+     * shows the menu. Clicks arrive through `attachContextMenuClickEvent(id, ...)`.
+     * @since 7.4.0
+     */
+    AddContextMenuItem: [items: ContextMenuItems];
+
+    /**
+     * Replaces the plugin's entries in a context menu that is already open, e.g. once an
+     * asynchronous check decides what to offer.
+     * @since 7.4.0
+     */
+    UpdateContextMenuItem: [items: ContextMenuItems];
+
+    /**
+     * Adds toolbar tabs and buttons for the plugin. Clicks arrive through
+     * `attachToolbarMenuClickEvent(id, ...)`.
+     *
+     * One object, not an array: sdkjs's JSDoc says `ToolbarMenuMainItem[]` and the office-js-api
+     * example passes `[[item]]`, but the implementation reads `items["guid"]` and `items["tabs"]`
+     * directly, and the plugins.js button helper sends `[{ guid, tabs }]`.
+     * @since 8.1.0
+     */
+    AddToolbarMenuItem: [items: ToolbarMenuMainItem];
+
+    /**
+     * Replaces the plugin's toolbar items added by `AddToolbarMenuItem`, matched by id.
+     * @since 8.1.0
+     */
+    UpdateToolbarMenuItem: [items: ToolbarMenuMainItem];
+
     /**
      * Closes a plugin modal window. `windowId` is the window's `PluginWindow.id` (a GUID string)
      * or the `windowID` the window's `button` call reports - sdkjs's own `PluginWindow.close` sends
@@ -68785,12 +68859,16 @@ interface UndocumentedMethodArgs {
 /**
  * What the callback receives, by method name.
  *
- * Only `ResizeWindow` carries a value: it is the one of the five that calls
+ * Only `ResizeWindow` carries a value: it is the one of these that calls
  * `setPluginMethodReturnAsync()` and later answers `onPluginMethodReturn("resize_result")`. The
  * others return synchronously, so their callback fires with nothing - which is still worth
  * declaring, because the Promise form (`await Editor.CloseWindow(win.id)`) resolves at that moment.
  */
 interface UndocumentedMethodReturnMap {
+    AddContextMenuItem: void;
+    UpdateContextMenuItem: void;
+    AddToolbarMenuItem: void;
+    UpdateToolbarMenuItem: void;
     ActivateWindow: void;
     CloseWindow: void;
     ShowButton: void;
@@ -69185,6 +69263,21 @@ interface PluginInfo {
      * decide whether to recalculate after it. Not something a plugin assigns.
      */
     recalculate?: boolean;
+    /**
+     * Set when the plugin is opened on an OLE object it owns (`initDataType: "ole"`), e.g. by a
+     * double click: the object's internal id, to pass back when editing that object
+     * (`EditOleObject`). `data` then holds the object's own data string. Written by sdkjs's
+     * `COleObject.convertDataObjectToPluginData`, as are the four sizes below.
+     */
+    objectId?: string;
+    /** With `objectId`: the object's width in millimetres. */
+    width?: number;
+    /** With `objectId`: the object's height in millimetres. */
+    height?: number;
+    /** With `objectId`: the object's width in pixels, as last drawn by the plugin. */
+    widthPix?: number;
+    /** With `objectId`: the object's height in pixels, as last drawn by the plugin. */
+    heightPix?: number;
     documentCallbackUrl: string;
     documentId: string;
     documentTitle: string;

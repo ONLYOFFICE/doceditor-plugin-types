@@ -350,6 +350,21 @@ interface PluginInfo {
      * decide whether to recalculate after it. Not something a plugin assigns.
      */
     recalculate?: boolean;
+    /**
+     * Set when the plugin is opened on an OLE object it owns (`initDataType: "ole"`), e.g. by a
+     * double click: the object's internal id, to pass back when editing that object
+     * (`EditOleObject`). `data` then holds the object's own data string. Written by sdkjs's
+     * `COleObject.convertDataObjectToPluginData`, as are the four sizes below.
+     */
+    objectId?: string;
+    /** With `objectId`: the object's width in millimetres. */
+    width?: number;
+    /** With `objectId`: the object's height in millimetres. */
+    height?: number;
+    /** With `objectId`: the object's width in pixels, as last drawn by the plugin. */
+    widthPix?: number;
+    /** With `objectId`: the object's height in pixels, as last drawn by the plugin. */
+    heightPix?: number;
     documentCallbackUrl: string;
     documentId: string;
     documentTitle: string;

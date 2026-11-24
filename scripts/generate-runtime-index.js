@@ -20,9 +20,19 @@ const { mergeRuntimeIndex } = require('./api-index.js');
 const PACKAGE_ROOT = path.join(__dirname, '..');
 
 // Grouped the way a plugin author encounters them, not by file: `plugin` is the runtime object,
-// `config` is config.json, `services` is the desktop/request bridge.
+// `config` is config.json, `services` is the desktop/request bridge. undocumented.d.ts belongs to
+// `plugin` too: its methods (AddContextMenuItem, ResizeWindow, ...) are not in any editor's
+// executeMethods.json, since the generator skips `@undocumented`, so this is the only place an agent
+// reading the tree can find them. So does the theme: AscTheme is what `Asc.plugin.theme`,
+// `PluginInfo.theme` and `onThemeChanged` hand the plugin.
 const GROUPS = {
-  plugin: ['src/plugin/plugin.d.ts', 'src/plugin/events.d.ts', 'src/plugin/buttons.d.ts'],
+  plugin: [
+    'src/plugin/plugin.d.ts',
+    'src/plugin/events.d.ts',
+    'src/plugin/buttons.d.ts',
+    'src/plugin/undocumented.d.ts',
+    'src/theme/index.d.ts',
+  ],
   config: ['src/config/plugin-config.d.ts'],
   services: ['src/services/desktop-editor.d.ts', 'src/services/simple-request.d.ts'],
 };

@@ -385,9 +385,9 @@ artifacts/ambient/onlyoffice-doceditor-plugin-types.word.ambient.d.ts   # 2.76 M
                                                           # config/theme/services + namespace Word
                                                           # + a global `Api: Word.Api`
 artifacts/ambient/onlyoffice-doceditor-plugin-types.cell.ambient.d.ts   # 2.68 MB - ...same, for Cell
-artifacts/ambient/onlyoffice-doceditor-plugin-types.slide.ambient.d.ts  # 1.74 MB - ...same, for Slide
+artifacts/ambient/onlyoffice-doceditor-plugin-types.slide.ambient.d.ts  # 1.75 MB - ...same, for Slide
 artifacts/ambient/onlyoffice-doceditor-plugin-types.pdf.ambient.d.ts    # 1.72 MB - ...same, for Pdf
-artifacts/ambient/onlyoffice-doceditor-plugin-types.forms.ambient.d.ts  # 0.57 MB - ...same, for Forms, minus the
+artifacts/ambient/onlyoffice-doceditor-plugin-types.forms.ambient.d.ts  # 0.58 MB - ...same, for Forms, minus the
                                                           # global `Api` (Forms has none: its
                                                           # methods go through executeMethod)
 ```
@@ -482,7 +482,8 @@ artifacts/api/<editor>/classes/<Class>.json  full detail for one class
 artifacts/api/<editor>/classes/<Class>/      ...sharded per method when a class exceeds 80 KB,
                                         with the class's own prose in _class.json
 artifacts/api/<editor>/{typedefs,events,executeMethods}.json
-artifacts/api/runtime.json                   AscPlugin/config/services
+artifacts/api/<editor>/executeMethodTypedefs.json  the objects executeMethods take and return
+artifacts/api/runtime.json                   AscPlugin/config/services/undocumented executeMethods
 ```
 
 Sharding is a threshold rule rather than a special case: most classes are tiny (median 1.6 KB), but a
@@ -490,7 +491,7 @@ few - `ApiWorksheetFunction` is the Excel formula library with 416 members - wou
 single 100k-token read and reintroduce exactly the problem the split exists to solve.
 
 Two ways to get it: fetch the git-tracked files from raw.githubusercontent.com, or regenerate
-locally with `npm run generate`. It is deliberately not in the npm package - at 5.12 MB it was 37%
+locally with `npm run generate`. It is deliberately not in the npm package - at 5.33 MB it was 37%
 of the install for something only an agent reads, and an agent reaching for it can fetch it over
 HTTP, while everyone installing the package for editor completion carried it for nothing.
 Written by `generate-types.js` (object model + events), `generate-plugin-methods.js` (executeMethod

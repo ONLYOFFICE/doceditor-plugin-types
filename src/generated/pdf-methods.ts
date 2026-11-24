@@ -49,7 +49,7 @@ interface ContextMenuItem {
   id: string;
 
   /** The item text. */
-  text: string;
+  text: string | Record<string, string>;
 
   /** The item data (this data will be sent to the click event callback). */
   data?: string;
@@ -64,7 +64,10 @@ interface ContextMenuItem {
   icons?: string;
 
   /** An array containing the context menu items for the current item. */
-  items: ContextMenuItem[];
+  items?: ContextMenuItem[];
+
+  /** Specifies if a separator is drawn above the current item. */
+  separator?: boolean;
 }
 
 /**
@@ -259,6 +262,12 @@ interface OLEProperties {
 
   /** The OLE object image height in pixels. */
   heightPix?: number;
+
+  /**
+   * The internal ID of the OLE object to change. Required by EditOleObject, which does nothing without
+   * it; when the plugin was opened on the object, it is `Asc.plugin.info.objectId`.
+   */
+  objectId?: string;
 }
 
 /** The plugin object. */

@@ -77,6 +77,10 @@ const OPTIONAL_PROPERTY_OVERRIDES = {
   OLEProperties: '*',
   OLEObjectData: '*',
   ContentControlProperties: ['Id', 'Alias', 'Appearance', 'Border', 'Color', 'InternalId', 'Lock', 'PlaceHolderText', 'Shd', 'FormKey', 'RadioGroup', 'FormValue'],
+  // `items` is the submenu, and most entries have none: web-apps builds one only when it is there
+  // (DocumentHolderExt.js: `menu: item.items ? getMenu(item.items, guid) : false`), and both the
+  // plugins.js button helper and real plugins (insertQR) send leaf items as just `{ id, text }`.
+  ContextMenuItem: ['items'],
 };
 
 // A handful of typedef properties need their *type* corrected too, not just optionality - sdkjs's
@@ -91,6 +95,32 @@ const TYPE_OVERRIDES = {
   // loose-equality artifact in the example itself, not a real alternate wire type. Widened just
   // enough for that comparison to type-check without losing the rest of ContentControl's shape.
   ContentControl: { Tag: 'string | number' },
+  // A caption can also be a map of translations: web-apps reads
+  // `typeof item.text == 'object' ? item.text[lang] || item.text['en'] : item.text`.
+  ContextMenuItem: { text: 'string | Record<string, string>' },
+};
+
+// Typedef properties sdkjs's JSDoc leaves out entirely, though the code that consumes the object
+// reads them. Appended after the documented ones, in the same shape mergeNestedProperties produces.
+const ADDED_PROPERTIES = {
+  // web-apps draws a divider above an entry that sets it (DocumentHolderExt.js:
+  // `item.separator && toMenu.addItem(new Common.UI.MenuItemCustom({ caption: '--' }))`), and
+  // the ToolbarMenuItem typedef next to it already documents the same flag.
+  ContextMenuItem: [
+    { name: 'separator', type: 'boolean', optional: true, description: 'Specifies if a separator is drawn above the current item.' },
+  ],
+  // EditOleObject finds the object to change by it - `asc_editOleObject` does
+  // `g_oTableId.Get_ById(oPluginData["objectId"])` and does nothing when that finds no object - so
+  // an edit without it silently fails. A plugin opened on its object reads the id from
+  // `Asc.plugin.info.objectId` (insertQR does exactly that).
+  OLEProperties: [
+    {
+      name: 'objectId',
+      type: 'string',
+      optional: true,
+      description: 'The internal ID of the OLE object to change. Required by EditOleObject, which does nothing without it; when the plugin was opened on the object, it is `Asc.plugin.info.objectId`.',
+    },
+  ],
 };
 
 // A plain (non-object) typedef whose own union is missing a value real code checks for -
@@ -389,6 +419,12 @@ function extractTypedefs(doclets) {
     else if (override) merged.forEach((p) => { if (override.includes(p.name)) p.optional = true; });
     const typeOverride = TYPE_OVERRIDES[item.name];
     if (typeOverride) merged.forEach((p) => { if (typeOverride[p.name]) p.type = typeOverride[p.name]; });
+    for (const added of ADDED_PROPERTIES[item.name] || []) {
+      if (merged.some((p) => p.name === added.name)) {
+        throw new Error(`${item.name}.${added.name} is documented by sdkjs now - remove it from ADDED_PROPERTIES.`);
+      }
+      merged.push({ ...added });
+    }
 
     typedefs[item.name] = {
       description: item.description || '',
@@ -565,6 +601,30 @@ function generateMethodFile(editor, methods, typedefs) {
 // Same shape of prose the object-model index carries (description vs examples kept apart), keyed by
 // the executeMethod name a caller passes as a string - that string is what an agent or a search tool
 // actually looks up, so it leads the entry rather than being buried in a signature.
+// The typedefs the executeMethod signatures name, in the shape generate-types.js gives the object
+// model's typedefs.json: `type` for an alias, `properties` keyed by name for an object. Without this
+// file a signature such as `[oCommentData: CommentData]` pointed at a name the tree never defined.
+function buildTypedefIndex(typedefs) {
+  const index = {};
+  for (const [name, data] of Object.entries(typedefs)) {
+    const properties = {};
+    for (const prop of data.properties) {
+      properties[prop.name] = {
+        type: prop.type,
+        ...(prop.optional ? { optional: true } : {}),
+        ...(prop.description ? { description: htmlToMarkdown(cleanProse(prop.description)) } : {}),
+      };
+    }
+    const { summary } = splitDescription(data.description);
+    index[name] = {
+      ...(summary ? { description: htmlToMarkdown(cleanProse(summary)) } : {}),
+      ...(data.type ? { type: data.type } : {}),
+      ...(Object.keys(properties).length > 0 ? { properties } : {}),
+    };
+  }
+  return index;
+}
+
 function buildExecuteMethodIndex(methods) {
   const index = {};
   for (const [name, method] of Object.entries(methods)) {
@@ -660,7 +720,10 @@ function main() {
     const content = generateMethodFile(editor, methods, typedefs);
     const outPath = path.join(OUTPUT_DIR, `${editor}-methods.ts`);
     fs.writeFileSync(outPath, content);
-    mergeApiIndex(editor, { executeMethods: buildExecuteMethodIndex(methods) });
+    mergeApiIndex(editor, {
+      executeMethods: buildExecuteMethodIndex(methods),
+      executeMethodTypedefs: buildTypedefIndex(typedefs),
+    });
     console.log(`Generated ${path.relative(PACKAGE_ROOT, outPath)} with ${Object.keys(methods).length} methods, ${Object.keys(typedefs).length} typedefs, ${docsApplied.examples} examples, ${docsApplied.licensed} licence-gated`);
   }
 

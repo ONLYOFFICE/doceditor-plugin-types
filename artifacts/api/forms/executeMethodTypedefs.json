@@ -1,0 +1,923 @@
+{
+  "AddinFieldData": {
+    "description": "The addin field data.",
+    "properties": {
+      "Content": {
+        "description": "Field text content.",
+        "type": "string"
+      },
+      "FieldId": {
+        "description": "Field identifier.",
+        "type": "string"
+      },
+      "Value": {
+        "description": "Field value.",
+        "type": "string"
+      }
+    }
+  },
+  "Button": {
+    "description": "The skinnable plugin button used in the plugin interface (used for visual plugins with their own window only, i.e. isVisual == true and isInsideMode == false).",
+    "properties": {
+      "isViewer": {
+        "description": "Defines if the button is shown in the viewer mode only or not.",
+        "optional": true,
+        "type": "boolean"
+      },
+      "primary": {
+        "description": "Defines if the button is primary or not. The primary flag affects the button skin only.",
+        "optional": true,
+        "type": "boolean"
+      },
+      "text": {
+        "description": "The label which is displayed on the button.",
+        "type": "string"
+      },
+      "textLocale": {
+        "description": "Translations for the text field. The object keys are the two letter language codes (ru, de, it, etc.) and the values are the button label translation for each language.",
+        "optional": true,
+        "type": "localeTranslate"
+      }
+    }
+  },
+  "Color": {
+    "description": "Represents an RGBA color with components in the range [0, 255]."
+  },
+  "CommentData": {
+    "description": "The comment data.",
+    "properties": {
+      "QuoteText": {
+        "description": "The quote comment text.",
+        "optional": true,
+        "type": "string"
+      },
+      "Replies": {
+        "description": "An array containing the comment replies represented as the *CommentData* object.",
+        "optional": true,
+        "type": "CommentData[]"
+      },
+      "Solved": {
+        "description": "Specifies if the comment is resolved (**true**) or not (**false**).",
+        "optional": true,
+        "type": "boolean"
+      },
+      "Text": {
+        "description": "The comment text.",
+        "type": "string"
+      },
+      "Time": {
+        "description": "The time when the comment was posted (in milliseconds).",
+        "optional": true,
+        "type": "string"
+      },
+      "UserId": {
+        "description": "The user ID of the comment author.",
+        "optional": true,
+        "type": "string"
+      },
+      "UserName": {
+        "description": "The comment author.",
+        "type": "string"
+      }
+    }
+  },
+  "ContentControl": {
+    "description": "The content control object.",
+    "properties": {
+      "Alias": {
+        "description": "An alias of the content control.",
+        "type": "string"
+      },
+      "Appearance": {
+        "description": "The visualization type of the content control: **1** - frame (bounding box), **2** - hidden.",
+        "type": "1 | 2"
+      },
+      "Border": {
+        "description": "The border color of the content control. Present only if the border color is set.",
+        "optional": true,
+        "type": "object"
+      },
+      "Color": {
+        "description": "The tag color of the content control. Present only if the tag color is set.",
+        "optional": true,
+        "type": "object"
+      },
+      "FormKey": {
+        "description": "A unique form key. Present only if the content control is a form field.",
+        "optional": true,
+        "type": "string"
+      },
+      "FormValue": {
+        "description": "The current value of the form field. Present only if the content control is a form field.",
+        "optional": true,
+        "type": "string | boolean | Date"
+      },
+      "Id": {
+        "description": "A unique content control identifier. It can be used to search for a certain content control and make reference to it in your code.",
+        "type": "string"
+      },
+      "InternalId": {
+        "description": "A unique internal identifier of the content control. It is used for all operations with content controls.",
+        "type": "string"
+      },
+      "Lock": {
+        "description": "A value that defines if it is possible to delete and/or edit the content control or not.",
+        "type": "ContentControlLock"
+      },
+      "RadioGroup": {
+        "description": "A group key of the radio button. Present only if the content control is a radio button form field.",
+        "optional": true,
+        "type": "string"
+      },
+      "Shd": {
+        "description": "The shading color of the content control. Present only if the shading color is set.",
+        "optional": true,
+        "type": "object"
+      },
+      "Tag": {
+        "description": "A tag assigned to the content control. The same tag can be assigned to several content controls so that you can make reference to them in your code.",
+        "type": "string | number"
+      }
+    }
+  },
+  "ContentControlCheckBoxProperties": {
+    "description": "The content control checkbox properties.",
+    "properties": {
+      "Checked": {
+        "description": "Defines if the content control checkbox is checked or not.",
+        "type": "boolean"
+      },
+      "CheckedSymbol": {
+        "description": "A symbol that is used when the checkbox is checked. It can be specified as a character code (e.g., 9746) or as a string (e.g., \"☒\"). If a string is specified, only its first character is used.",
+        "type": "number | string"
+      },
+      "UncheckedSymbol": {
+        "description": "A symbol that is used when the checkbox is not checked. It can be specified as a character code (e.g., 9744) or as a string (e.g., \"☐\"). If a string is specified, only its first character is used.",
+        "type": "number | string"
+      }
+    }
+  },
+  "ContentControlDatePickerProperties": {
+    "description": "The content control datepicker properties.",
+    "properties": {
+      "Date": {
+        "description": "The current date and time.",
+        "type": "object"
+      },
+      "DateFormat": {
+        "description": "A format in which the date will be displayed.\rFor example: *\"MM/DD/YYYY\", \"dddd\\,\\ mmmm\\ dd\\,\\ yyyy\", \"DD\\ MMMM\\ YYYY\", \"MMMM\\ DD\\,\\ YYYY\", \"DD-MMM-YY\", \"MMMM\\ YY\", \"MMM-YY\", \"MM/DD/YYYY\\ hh:mm\\ AM/PM\", \"MM/DD/YYYY\\ hh:mm:ss\\ AM/PM\", \"hh:mm\", \"hh:mm:ss\", \"hh:mm\\ AM/PM\", \"hh:mm:ss:\\ AM/PM\"*.",
+        "type": "string"
+      }
+    }
+  },
+  "ContentControlListElement": {
+    "description": "The content control list element.",
+    "properties": {
+      "Display": {
+        "description": "The element display text.",
+        "type": "string"
+      },
+      "Value": {
+        "description": "The element value.",
+        "type": "string"
+      }
+    }
+  },
+  "ContentControlLock": {
+    "description": "A value that defines if it is possible to delete and/or edit the content control or not:\n\n- **0** - only deleting\n- **1** - disable deleting or editing\n- **2** - only editing\n- **3** - full access",
+    "type": "0 | 1 | 2 | 3"
+  },
+  "ContentControlParentPr": {
+    "description": "The content control parent properties.",
+    "properties": {
+      "Count": {
+        "description": "A number of elements in the parent object.",
+        "type": "number"
+      },
+      "Parent": {
+        "description": "The content control parent. For example, oParagraph.",
+        "type": "object"
+      },
+      "Pos": {
+        "description": "The content control position within the parent object.",
+        "type": "number"
+      }
+    }
+  },
+  "ContentControlProperties": {
+    "description": "The content control properties.",
+    "properties": {
+      "Alias": {
+        "description": "The alias attribute.",
+        "optional": true,
+        "type": "string"
+      },
+      "Appearance": {
+        "description": "Defines if the content control is shown as the bounding box (**1**) or not (**2**).",
+        "optional": true,
+        "type": "number"
+      },
+      "Border": {
+        "description": "The border properties.",
+        "optional": true,
+        "type": "{ Color: Color }"
+      },
+      "Color": {
+        "description": "The color for the current content control in RGBA format.",
+        "optional": true,
+        "type": "Color"
+      },
+      "Id": {
+        "description": "A unique identifier of the content control. It can be used to search for a certain content control and make reference to it in the code.",
+        "optional": true,
+        "type": "number"
+      },
+      "InternalId": {
+        "description": "A unique internal identifier of the content control.",
+        "optional": true,
+        "type": "string"
+      },
+      "Lock": {
+        "description": "A value that defines if it is possible to delete and/or edit the content control or not.",
+        "optional": true,
+        "type": "ContentControlLock"
+      },
+      "PlaceHolderText": {
+        "description": "The content control placeholder text.",
+        "optional": true,
+        "type": "string"
+      },
+      "Shd": {
+        "description": "The background shading properties.",
+        "optional": true,
+        "type": "{ Color: Color }"
+      },
+      "Tag": {
+        "description": "A tag assigned to the content control. The same tag can be assigned to several content controls so that it is possible to make reference to them in the code.",
+        "type": "string"
+      }
+    }
+  },
+  "ContentControlPropertiesAndContent": {
+    "description": "The content control properties and contents.",
+    "properties": {
+      "ContentControlProperties": {
+        "description": "The content control properties.",
+        "optional": true,
+        "type": "ContentControlProperties"
+      },
+      "Script": {
+        "description": "A script that will be executed to generate the data within the content control (can be replaced with the *Url* parameter).",
+        "type": "string"
+      },
+      "Url": {
+        "description": "A link to the shared file (can be replaced with the *Script* parameter).",
+        "type": "string"
+      }
+    }
+  },
+  "ContentControlType": {
+    "description": "A numeric value that specifies the content control type:\n\n- **1** - block content control\n- **2** - inline content control\n- **3** - row content control\n- **4** - cell content control",
+    "type": "1 | 2 | 3 | 4"
+  },
+  "ContextMenuItem": {
+    "description": "The context menu item.",
+    "properties": {
+      "data": {
+        "description": "The item data (this data will be sent to the click event callback).",
+        "optional": true,
+        "type": "string"
+      },
+      "disabled": {
+        "description": "Specifies if the current item is disabled or not.",
+        "optional": true,
+        "type": "boolean"
+      },
+      "icons": {
+        "description": "The item icons (see the plugins {@link https://api.onlyoffice.com/docs/plugins/configuration/configuration config} documentation).",
+        "optional": true,
+        "type": "string"
+      },
+      "id": {
+        "description": "The item ID.",
+        "type": "string"
+      },
+      "items": {
+        "description": "An array containing the context menu items for the current item.",
+        "optional": true,
+        "type": "ContextMenuItem[]"
+      },
+      "separator": {
+        "description": "Specifies if a separator is drawn above the current item.",
+        "optional": true,
+        "type": "boolean"
+      },
+      "text": {
+        "description": "The item text.",
+        "type": "string | Record<string, string>"
+      }
+    }
+  },
+  "DocumentEditingRestrictions": {
+    "description": "The document editing restrictions:\n\n- **none** - no editing restrictions,\n- **comments** - allows editing comments,\n- **forms** - allows editing form fields,\n- **readOnly** - does not allow editing.",
+    "type": "'none' | 'comments' | 'forms' | 'readOnly'"
+  },
+  "EditorRestrictions": {
+    "description": "The current editing restrictions, a combination of the flags:\n**0x00** - no editing restrictions,\n**0x01** - allows editing form fields,\n**0x02** - allows editing comments and regions delimited by range permissions,\n**0x04** - the document is signed and cannot be changed,\n**0x80** - does not allow editing.",
+    "type": "number"
+  },
+  "EventType": {
+    "description": "Plugin event (\"onDocumentContentReady\", \"onTargetPositionChanged\", onClick\", \"onInputHelperClear\", \"onInputHelperInput\", etc.).",
+    "type": "string"
+  },
+  "FloatActionButton": {
+    "description": "The floating action button displayed over the editor area.",
+    "properties": {
+      "data": {
+        "description": "The button data (this data will be sent to the click event callback).",
+        "optional": true,
+        "type": "string"
+      },
+      "disabled": {
+        "description": "Specifies if the current button is disabled or not.",
+        "optional": true,
+        "type": "boolean"
+      },
+      "enableToggle": {
+        "description": "Specifies if a button toggle is enabled or not.",
+        "optional": true,
+        "type": "boolean"
+      },
+      "hint": {
+        "description": "The button hint.",
+        "optional": true,
+        "type": "string"
+      },
+      "icons": {
+        "description": "The button icons, 28x28 px (see the plugins {@link https://api.onlyoffice.com/docs/plugin-and-macros/structure/configuration/ config} documentation).",
+        "optional": true,
+        "type": "string"
+      },
+      "id": {
+        "description": "The button ID.",
+        "type": "string"
+      },
+      "removed": {
+        "description": "Specifies if the button must be removed from the editor area.",
+        "optional": true,
+        "type": "boolean"
+      },
+      "text": {
+        "description": "The button text.",
+        "optional": true,
+        "type": "string"
+      },
+      "visible": {
+        "description": "Specifies if the current button is visible or not.",
+        "optional": true,
+        "type": "boolean"
+      }
+    }
+  },
+  "FloatActionButtonsMainItem": {
+    "description": "The main floating action button item.",
+    "properties": {
+      "guid": {
+        "description": "The plugin guid.",
+        "type": "string"
+      },
+      "items": {
+        "description": "An array containing the floating action buttons for the plugin.",
+        "type": "FloatActionButton[]"
+      }
+    }
+  },
+  "FontInfo": {
+    "description": "An object containing the font information.",
+    "properties": {
+      "m_aPanose": {
+        "description": "The PANOSE Typeface Classification Number, a compact 10-byte description of the font critical visual characteristics, such as contrast, weight, and serif style.",
+        "type": "number[]"
+      },
+      "m_bBold": {
+        "description": "Specifies if the font characters are bold or not.",
+        "type": "boolean"
+      },
+      "m_bIsFixed": {
+        "description": "Specifies if the current font is monospaced or not.",
+        "type": "boolean"
+      },
+      "m_bItalic": {
+        "description": "Specifies if the font characters are italic or not.",
+        "type": "boolean"
+      },
+      "m_eFontFormat": {
+        "description": "The specific file type(s) used to store font data: **0** - *.fon, **1** - *.ttf, **2** - *.ttf, *.otf (CFF), **3** - unknown font format.",
+        "type": "number"
+      },
+      "m_lIndex": {
+        "description": "The font number in the file if there is more than one font in the file.",
+        "type": "number"
+      },
+      "m_sFamilyClass": {
+        "description": "The font family class which values are assigned by IBM to each font family.",
+        "type": "number"
+      },
+      "m_shAscent": {
+        "description": "The height above the baseline for a clipping region.",
+        "type": "number"
+      },
+      "m_shAvgCharWidth": {
+        "description": "The arithmetic average of the escapement (width) of all non-zero width glyphs in the font.",
+        "type": "number"
+      },
+      "m_shCapHeight": {
+        "description": "The distance between the baseline and the approximate height of uppercase letters measured in FUnits.",
+        "type": "number"
+      },
+      "m_shDescent": {
+        "description": "The vertical extent below the baseline for a clipping region.",
+        "type": "number"
+      },
+      "m_shLineGap": {
+        "description": "The typographic line gap for the current font.",
+        "type": "number"
+      },
+      "m_shXHeight": {
+        "description": "The distance between the baseline and the approximate height of non-ascending lowercase letters measured in FUnits.",
+        "type": "number"
+      },
+      "m_ulCodePageRange1": {
+        "description": "The code pages encompassed by the font file (Bits 0-31).",
+        "type": "number"
+      },
+      "m_ulCodePageRange2": {
+        "description": "The code pages encompassed by the font file (Bits 32-63).",
+        "type": "number"
+      },
+      "m_ulUnicodeRange1": {
+        "description": "The Unicode range encompassed by the font file (Bits 0-31).",
+        "type": "number"
+      },
+      "m_ulUnicodeRange2": {
+        "description": "The Unicode range encompassed by the font file (Bits 32-63).",
+        "type": "number"
+      },
+      "m_ulUnicodeRange3": {
+        "description": "The Unicode range encompassed by the font file (Bits 64-95).",
+        "type": "number"
+      },
+      "m_ulUnicodeRange4": {
+        "description": "The Unicode range encompassed by the font file (Bits 96-127).",
+        "type": "number"
+      },
+      "m_usWeigth": {
+        "description": "The visual weight (stroke blackness or thickness) of the font characters (1-1000).",
+        "type": "number"
+      },
+      "m_usWidth": {
+        "description": "The relative change from the normal aspect ratio (width to height ratio).",
+        "type": "number"
+      },
+      "m_wsFontName": {
+        "description": "The font name.",
+        "type": "string"
+      },
+      "m_wsFontPath": {
+        "description": "The path to the file with the current font.",
+        "type": "string"
+      }
+    }
+  },
+  "ImageData": {
+    "description": "An object containing the information about the base64 encoded *png* image.",
+    "properties": {
+      "height": {
+        "description": "The image height in pixels.",
+        "type": "number"
+      },
+      "replaceMode": {
+        "description": "Specifies how to adjust the image object in case of replacing the selected image.",
+        "optional": true,
+        "type": "ReplaceImageMode"
+      },
+      "src": {
+        "description": "The image source in the base64 format.",
+        "type": "string"
+      },
+      "width": {
+        "description": "The image width in pixels.",
+        "type": "number"
+      }
+    }
+  },
+  "Macros": {
+    "description": "An object containing the data about all the macros from the document.",
+    "properties": {
+      "current": {
+        "description": "A current macro index.",
+        "type": "number"
+      },
+      "macrosArray": {
+        "description": "An array of macros codes (*[{\"name\": \"Macros1\", \"value\": \"{macrosCode}\"}]*).",
+        "type": "string[]"
+      }
+    }
+  },
+  "OLEObjectData": {
+    "description": "The OLE object data.",
+    "properties": {
+      "ApplicationId": {
+        "description": "An identifier of the plugin which can edit the current OLE object and must be of the *asc.{UUID}* type.",
+        "optional": true,
+        "type": "string"
+      },
+      "Data": {
+        "description": "OLE object data (internal format).",
+        "optional": true,
+        "type": "string"
+      },
+      "Height": {
+        "description": "The OLE object height measured in millimeters.",
+        "optional": true,
+        "type": "number"
+      },
+      "HeightPix": {
+        "description": "The OLE object image height in pixels.",
+        "optional": true,
+        "type": "number"
+      },
+      "ImageData": {
+        "description": "An image in the base64 format stored in the OLE object and used by the plugin.",
+        "optional": true,
+        "type": "string"
+      },
+      "InternalId": {
+        "description": "The OLE object identifier which is used to work with OLE object added to the document.",
+        "optional": true,
+        "type": "string"
+      },
+      "ParaDrawingId": {
+        "description": "An identifier of the drawing object containing the current OLE object.",
+        "optional": true,
+        "type": "string"
+      },
+      "Width": {
+        "description": "The OLE object width measured in millimeters.",
+        "optional": true,
+        "type": "number"
+      },
+      "WidthPix": {
+        "description": "The OLE object image width in pixels.",
+        "optional": true,
+        "type": "number"
+      }
+    }
+  },
+  "OLEProperties": {
+    "description": "The OLE object properties",
+    "properties": {
+      "data": {
+        "description": "OLE object data (internal format).",
+        "optional": true,
+        "type": "string"
+      },
+      "guid": {
+        "description": "An identifier of the plugin which can edit the current OLE object and must be of the *asc.{UUID}* type.",
+        "optional": true,
+        "type": "string"
+      },
+      "height": {
+        "description": "The OLE object height measured in millimeters.",
+        "optional": true,
+        "type": "number"
+      },
+      "heightPix": {
+        "description": "The OLE object image height in pixels.",
+        "optional": true,
+        "type": "number"
+      },
+      "imgSrc": {
+        "description": "A link to the image (its visual representation) stored in the OLE object and used by the plugin.",
+        "optional": true,
+        "type": "string"
+      },
+      "objectId": {
+        "description": "The internal ID of the OLE object to change. Required by EditOleObject, which does nothing without it; when the plugin was opened on the object, it is `Asc.plugin.info.objectId`.",
+        "optional": true,
+        "type": "string"
+      },
+      "width": {
+        "description": "The OLE object width measured in millimeters.",
+        "optional": true,
+        "type": "number"
+      },
+      "widthPix": {
+        "description": "The OLE object image width in pixels.",
+        "optional": true,
+        "type": "number"
+      }
+    }
+  },
+  "PluginData": {
+    "description": "The plugin object.",
+    "properties": {
+      "canRemoved": {
+        "description": "Specifies if the plugin can be removed (**true**) or not (**false**).",
+        "type": "boolean"
+      },
+      "guid": {
+        "description": "The plugin identifier. It must be of the *asc.{UUID}* type.",
+        "type": "string"
+      },
+      "obj": {
+        "description": "The {@link https://api.onlyoffice.com/docs/plugins/configuration/configuration config} of the installed plugin. The version is taken from the config and compared with the current one to check for updates.",
+        "type": "object"
+      },
+      "url": {
+        "description": "The URL to plugin config.",
+        "type": "string"
+      }
+    }
+  },
+  "PluginOptions": {
+    "description": "The plugin options.",
+    "properties": {
+      "all": {
+        "description": "The parameters which will be set for all plugins ({ \"all\" : { key, value } }).",
+        "type": "object"
+      },
+      "plugin_guid": {
+        "description": "The parameters which will be set for a specific plugin. The plugin must be specified with the plugin GUID of the asc.{UUID} type ({ \"plugin_guid\" : { keyForSpecificPlugin : valueForSpecificPlugin } }).",
+        "type": "object"
+      }
+    }
+  },
+  "ReplaceImageMode": {
+    "description": "Specifies how to adjust the image object in case of replacing the selected image.",
+    "type": "\"fill\" | \"fit\" | \"original\" | \"stretch\""
+  },
+  "SelectionType": {
+    "description": "The current selection type (\"none\", \"text\", \"drawing\", or \"slide\").",
+    "type": "\"none\" | \"text\" | \"drawing\" | \"slide\" | \"image\""
+  },
+  "ShapeType": {
+    "description": "This type specifies the preset shape geometry that will be used for a shape.",
+    "type": "\"accentBorderCallout1\" | \"accentBorderCallout2\" | \"accentBorderCallout3\" | \"accentCallout1\" | \"accentCallout2\" | \"accentCallout3\" | \"actionButtonBackPrevious\" | \"actionButtonBeginning\" | \"actionButtonBlank\" | \"actionButtonDocument\" | \"actionButtonEnd\" | \"actionButtonForwardNext\" | \"actionButtonHelp\" | \"actionButtonHome\" | \"actionButtonInformation\" | \"actionButtonMovie\" | \"actionButtonReturn\" | \"actionButtonSound\" | \"arc\" | \"bentArrow\" | \"bentConnector2\" | \"bentConnector3\" | \"bentConnector4\" | \"bentConnector5\" | \"bentUpArrow\" | \"bevel\" | \"blockArc\" | \"borderCallout1\" | \"borderCallout2\" | \"borderCallout3\" | \"bracePair\" | \"bracketPair\" | \"callout1\" | \"callout2\" | \"callout3\" | \"can\" | \"chartPlus\" | \"chartStar\" | \"chartX\" | \"chevron\" | \"chord\" | \"circularArrow\" | \"cloud\" | \"cloudCallout\" | \"corner\" | \"cornerTabs\" | \"cube\" | \"curvedConnector2\" | \"curvedConnector3\" | \"curvedConnector4\" | \"curvedConnector5\" | \"curvedDownArrow\" | \"curvedLeftArrow\" | \"curvedRightArrow\" | \"curvedUpArrow\" | \"decagon\" | \"diagStripe\" | \"diamond\" | \"dodecagon\" | \"donut\" | \"doubleWave\" | \"downArrow\" | \"downArrowCallout\" | \"ellipse\" | \"ellipseRibbon\" | \"ellipseRibbon2\" | \"flowChartAlternateProcess\" | \"flowChartCollate\" | \"flowChartConnector\" | \"flowChartDecision\" | \"flowChartDelay\" | \"flowChartDisplay\" | \"flowChartDocument\" | \"flowChartExtract\" | \"flowChartInputOutput\" | \"flowChartInternalStorage\" | \"flowChartMagneticDisk\" | \"flowChartMagneticDrum\" | \"flowChartMagneticTape\" | \"flowChartManualInput\" | \"flowChartManualOperation\" | \"flowChartMerge\" | \"flowChartMultidocument\" | \"flowChartOfflineStorage\" | \"flowChartOffpageConnector\" | \"flowChartOnlineStorage\" | \"flowChartOr\" | \"flowChartPredefinedProcess\" | \"flowChartPreparation\" | \"flowChartProcess\" | \"flowChartPunchedCard\" | \"flowChartPunchedTape\" | \"flowChartSort\" | \"flowChartSummingJunction\" | \"flowChartTerminator\" | \"foldedCorner\" | \"frame\" | \"funnel\" | \"gear6\" | \"gear9\" | \"halfFrame\" | \"heart\" | \"heptagon\" | \"hexagon\" | \"homePlate\" | \"horizontalScroll\" | \"irregularSeal1\" | \"irregularSeal2\" | \"leftArrow\" | \"leftArrowCallout\" | \"leftBrace\" | \"leftBracket\" | \"leftCircularArrow\" | \"leftRightArrow\" | \"leftRightArrowCallout\" | \"leftRightCircularArrow\" | \"leftRightRibbon\" | \"leftRightUpArrow\" | \"leftUpArrow\" | \"lightningBolt\" | \"line\" | \"lineInv\" | \"mathDivide\" | \"mathEqual\" | \"mathMinus\" | \"mathMultiply\" | \"mathNotEqual\" | \"mathPlus\" | \"moon\" | \"nonIsoscelesTrapezoid\" | \"noSmoking\" | \"notchedRightArrow\" | \"octagon\" | \"parallelogram\" | \"pentagon\" | \"pie\" | \"pieWedge\" | \"plaque\" | \"plaqueTabs\" | \"plus\" | \"quadArrow\" | \"quadArrowCallout\" | \"rect\" | \"ribbon\" | \"ribbon2\" | \"rightArrow\" | \"rightArrowCallout\" | \"rightBrace\" | \"rightBracket\" | \"round1Rect\" | \"round2DiagRect\" | \"round2SameRect\" | \"roundRect\" | \"rtTriangle\" | \"smileyFace\" | \"snip1Rect\" | \"snip2DiagRect\" | \"snip2SameRect\" | \"snipRoundRect\" | \"squareTabs\" | \"star10\" | \"star12\" | \"star16\" | \"star24\" | \"star32\" | \"star4\" | \"star5\" | \"star6\" | \"star7\" | \"star8\" | \"straightConnector1\" | \"stripedRightArrow\" | \"sun\" | \"swooshArrow\" | \"teardrop\" | \"trapezoid\" | \"triangle\" | \"upArrowCallout\" | \"upDownArrow\" | \"upDownArrow\" | \"upDownArrowCallout\" | \"uturnArrow\" | \"verticalScroll\" | \"wave\" | \"wedgeEllipseCallout\" | \"wedgeRectCallout\" | \"wedgeRoundRectCallout\""
+  },
+  "TextPartType": {
+    "description": "Specifies if the whole text or only its part will be returned or replaced:\n\n- **entirely** - replaces/returns the whole text,\n- **beforeCursor** - replaces/returns only the part of the text before the cursor,\n- **afterCursor** - replaces/returns only the part of the text after the cursor.",
+    "type": "\"entirely\" | \"beforeCursor\" | \"afterCursor\""
+  },
+  "ToolbarMenuItem": {
+    "description": "The toolbar menu item.",
+    "properties": {
+      "disabled": {
+        "description": "Specifies if the current item is disabled or not.",
+        "optional": true,
+        "type": "boolean"
+      },
+      "enableToggle": {
+        "description": "Specifies if an item toggle is enabled or not.",
+        "optional": true,
+        "type": "boolean"
+      },
+      "hint": {
+        "description": "The item hint.",
+        "type": "string"
+      },
+      "icons": {
+        "description": "The item icons (see the plugins {@link https://api.onlyoffice.com/docs/plugins/configuration/configuration config} documentation).",
+        "optional": true,
+        "type": "string"
+      },
+      "id": {
+        "description": "The item ID.",
+        "type": "string"
+      },
+      "items": {
+        "description": "An array containing the context menu items for the current item.",
+        "optional": true,
+        "type": "ContextMenuItem[]"
+      },
+      "lockInViewMode": {
+        "description": "Specifies if the current item is locked in the view mode or not.",
+        "optional": true,
+        "type": "boolean"
+      },
+      "separator": {
+        "description": "Specifies if a separator is used between the toolbar menu items or not.",
+        "optional": true,
+        "type": "boolean"
+      },
+      "split": {
+        "description": "Specifies if the toolbar menu items are split or not.",
+        "optional": true,
+        "type": "boolean"
+      },
+      "text": {
+        "description": "The item text.",
+        "type": "string"
+      },
+      "type": {
+        "description": "The item type.",
+        "type": "ToolbarMenuItemType"
+      }
+    }
+  },
+  "ToolbarMenuItemType": {
+    "description": "The possible values of the base which the relative vertical position of the toolbar menu item will be calculated from.",
+    "type": "\"button\" | \"...\""
+  },
+  "ToolbarMenuMainItem": {
+    "description": "The main toolbar menu item.",
+    "properties": {
+      "guid": {
+        "description": "The plugin guid.",
+        "type": "string"
+      },
+      "tabs": {
+        "description": "An array containing the toolbar menu tabs for the current item.",
+        "type": "ToolbarMenuTab[]"
+      }
+    }
+  },
+  "ToolbarMenuTab": {
+    "description": "The toolbar menu tab.",
+    "properties": {
+      "id": {
+        "description": "The tab ID.",
+        "type": "string"
+      },
+      "items": {
+        "description": "An array containing the toolbar menu items for the current tab.",
+        "optional": true,
+        "type": "ToolbarMenuItem[]"
+      },
+      "text": {
+        "description": "The tab text.",
+        "type": "string"
+      }
+    }
+  },
+  "WindowHeaderMainItem": {
+    "description": "The main window header item.",
+    "properties": {
+      "guid": {
+        "description": "The plugin guid.",
+        "type": "string"
+      },
+      "items": {
+        "description": "An array containing the window header items.",
+        "type": "WindowHeaderMenuItem[]"
+      },
+      "windowID": {
+        "description": "The plugin child window ID. When omitted, the items are placed on the plugin's main frame header.",
+        "optional": true,
+        "type": "string"
+      }
+    }
+  },
+  "WindowHeaderMenuItem": {
+    "description": "The window header menu item.",
+    "properties": {
+      "align": {
+        "description": "The item alignment in the window header.",
+        "optional": true,
+        "type": "\"left\" | \"right\""
+      },
+      "disabled": {
+        "description": "Specifies if the current item is disabled or not.",
+        "optional": true,
+        "type": "boolean"
+      },
+      "enableToggle": {
+        "description": "Specifies if an item toggle is enabled or not.",
+        "optional": true,
+        "type": "boolean"
+      },
+      "hint": {
+        "description": "The item hint.",
+        "optional": true,
+        "type": "string"
+      },
+      "icons": {
+        "description": "The item icons (see the plugins {@link https://api.onlyoffice.com/docs/plugin-and-macros/structure/configuration/ config} documentation).",
+        "optional": true,
+        "type": "string"
+      },
+      "id": {
+        "description": "The item ID.",
+        "type": "string"
+      },
+      "isTitle": {
+        "description": "Specifies if the item replaces the window title or not.",
+        "optional": true,
+        "type": "boolean"
+      },
+      "items": {
+        "description": "An array containing the dropdown menu items for the current header item.",
+        "optional": true,
+        "type": "ContextMenuItem[]"
+      },
+      "removed": {
+        "description": "Specifies if the item must be removed from the header.",
+        "optional": true,
+        "type": "boolean"
+      },
+      "split": {
+        "description": "Specifies if the button is split (button + dropdown arrow) or not.",
+        "optional": true,
+        "type": "boolean"
+      },
+      "text": {
+        "description": "The item text.",
+        "optional": true,
+        "type": "string"
+      },
+      "type": {
+        "description": "The item type.",
+        "type": "\"button\""
+      }
+    }
+  },
+  "comment": {
+    "description": "Comment object.",
+    "properties": {
+      "Data": {
+        "description": "An object which contains the comment data.",
+        "type": "CommentData"
+      },
+      "Id": {
+        "description": "The comment ID.",
+        "type": "string"
+      }
+    }
+  },
+  "editorType": {
+    "description": "The editors which the plugin is available for:\n\n- **word** - text document editor,\n- **cell** - spreadsheet editor,\n- **slide** - presentation editor,\n- **pdf** - pdf editor.",
+    "type": "\"word\" | \"cell\" | \"slide\" | \"pdf\""
+  },
+  "fillForms": {
+    "description": "An object containing the form properties.",
+    "properties": {
+      "tags": {
+        "description": "The form tags which specify the content for each form type with such a tag.",
+        "type": "{ text: string; checkBox: string; picture: string; comboBox: string }"
+      }
+    }
+  },
+  "initDataType": {
+    "description": "The data type selected in the editor and sent to the plugin:\n\n- **text** - the text data,\n- **html** - HTML formatted code,\n- **ole** - OLE object data,\n- **desktop** - the desktop editor data,\n- **desktop-external** - the main page data of the desktop app (system messages),\n- **none** - no data will be send to the plugin from the editor,\n- **sign** - the sign for the keychain plugin.",
+    "type": "\"text\" | \"html\" | \"ole\" | \"desktop\" | \"desktop-external\" | \"none\" | \"sign\""
+  },
+  "watermark_on_draw": {
+    "description": "An object containing the watermark properties.",
+    "properties": {
+      "align": {
+        "description": "The vertical text align in the watermark shape: **0** - bottom, **1** - center, **4** - top. The default value is **1**.",
+        "type": "number"
+      },
+      "fill": {
+        "description": "The watermark fill color in the RGB format, or the URL to image (base64 support: data:image/png;...). The empty array [] means that the watermark has no fill.",
+        "type": "number[] | string"
+      },
+      "height": {
+        "description": "The watermark height measured in millimeters.",
+        "type": "number"
+      },
+      "margins": {
+        "description": "The text margins measured in millimeters in the watermark shape, in the order: left, top, right, bottom. Applies only when all four values are specified.",
+        "type": "number[]"
+      },
+      "paragraphs": {
+        "description": "The array with paragraphs from the current watermark with their properties.",
+        "type": "{ align: number; fill: number[]; linespacing: number; runs: object[] }"
+      },
+      "rotate": {
+        "description": "The watermark rotation angle measured in degrees.",
+        "type": "number"
+      },
+      "stroke": {
+        "description": "The watermark stroke color in the RGB format. The empty array [] means that the watermark has no stroke. If only **stroke-width** is specified, the stroke is black.",
+        "type": "number[]"
+      },
+      "stroke-width": {
+        "description": "The watermark stroke width measured in millimeters. If only **stroke** is specified, the width is **0.35** mm (1 pt).",
+        "type": "number"
+      },
+      "transparent": {
+        "description": "The watermark opacity, from **0** (invisible) to **1** (opaque). The default value is **0.3**.",
+        "type": "number"
+      },
+      "type": {
+        "description": "The type which specifies the preset shape geometry for the current watermark. The default value is **rect**.",
+        "type": "ShapeType"
+      },
+      "width": {
+        "description": "The watermark width measured in millimeters.",
+        "type": "number"
+      }
+    }
+  }
+}

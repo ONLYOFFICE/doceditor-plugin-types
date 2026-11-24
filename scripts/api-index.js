@@ -14,6 +14,7 @@
 //   artifacts/api/<editor>/typedefs.json
 //   artifacts/api/<editor>/events.json
 //   artifacts/api/<editor>/executeMethods.json
+//   artifacts/api/<editor>/executeMethodTypedefs.json  the shapes executeMethods take and return
 //   artifacts/api/runtime.json                   AscPlugin/config/services (not per-editor)
 //
 // Each generator replaces its own section wholesale, so a renamed or removed member disappears on
@@ -48,8 +49,9 @@ function sortKeysDeep(value) {
 // index that already carries the pointer; and repeating one identical line across 448 class files
 // makes each of them open with something that is not about the class.
 //
-// Three of those shapes could not take it anyway: `typedefs.json`, `events.json` and
-// `executeMethods.json` are keyed by member name, so an extra key reads as another member. Adding
+// Four of those shapes could not take it anyway: `typedefs.json`, `events.json`,
+// `executeMethods.json` and `executeMethodTypedefs.json` are keyed by member name, so an extra key
+// reads as another member. Adding
 // one there put a method called `agents` in word/executeMethods.json and shifted every count in the
 // compact index by one, because buildEditorIndex counts what was written.
 const AGENTS_GUIDE = 'https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/master/AGENTS.md';
@@ -136,6 +138,10 @@ function buildEditorIndex(editorDir) {
     typedefs: readNames(path.join(editorDir, 'typedefs.json')),
     events: readNames(path.join(editorDir, 'events.json')),
     executeMethods,
+    // The object shapes those signatures name (CommentData, OLEProperties, ContextMenuItem, ...).
+    // Kept apart from `typedefs`, which is the object model's: the two come from different
+    // generators, and a name can mean a different shape in each.
+    executeMethodTypedefs: readNames(path.join(editorDir, 'executeMethodTypedefs.json')),
     ...(paidExecuteMethods.length > 0 ? { paidExecuteMethods } : {}),
     // The object-model half of the same answer. It is the larger one by far - Cell's table and sort
     // classes alone are ~100 members - so leaving it out meant an agent reading this file could see
@@ -160,6 +166,7 @@ function rebuildRootIndex() {
         typedefs: (index.typedefs || []).length,
         events: (index.events || []).length,
         executeMethods: Object.keys(index.executeMethods || {}).length,
+        executeMethodTypedefs: (index.executeMethodTypedefs || []).length,
       };
     }
   }
@@ -169,7 +176,7 @@ function rebuildRootIndex() {
     howToUse: [
       'Load <editor>/index.json for every member name and signature in that editor.',
       'Then read one detail file: <editor>/classes/<Class>.json, or <editor>/classes/<Class>/<Method>.json when the class was sharded.',
-      'executeMethod names live in <editor>/executeMethods.json; the plugin runtime (Asc.plugin, config.json) in runtime.json.',
+      'executeMethod names live in <editor>/executeMethods.json, the objects they take and return (CommentData, OLEProperties, ...) in <editor>/executeMethodTypedefs.json; the plugin runtime (Asc.plugin, config.json, the undocumented executeMethods) in runtime.json.',
       'Do not concatenate the tree - it is deliberately split so no single read is large.',
       'Runnable examples are not here - they are in each member\'s JSDoc in the .d.ts. `requires` marks a member absent from Community Edition builds.',
       `Read ${AGENTS_GUIDE} before working from this tree: it is what the "agents" field on this file, each editor index and runtime.json points at.`,
@@ -205,7 +212,7 @@ function mergeApiIndex(editor, sections) {
   const editorDir = path.join(API_DIR, editor);
 
   if (sections.classes) writeClasses(editorDir, sections.classes);
-  for (const key of ['typedefs', 'events', 'executeMethods']) {
+  for (const key of ['typedefs', 'events', 'executeMethods', 'executeMethodTypedefs']) {
     if (!sections[key]) continue;
     writeJson(path.join(editorDir, `${key}.json`), sections[key]);
   }

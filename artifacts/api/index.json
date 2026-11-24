@@ -4,6 +4,7 @@
     "cell": {
       "classes": 95,
       "events": 1,
+      "executeMethodTypedefs": 27,
       "executeMethods": 48,
       "methods": 2013,
       "typedefs": 177
@@ -11,6 +12,7 @@
     "forms": {
       "classes": 40,
       "events": 1,
+      "executeMethodTypedefs": 41,
       "executeMethods": 51,
       "methods": 397,
       "typedefs": 116
@@ -18,6 +20,7 @@
     "pdf": {
       "classes": 93,
       "events": 2,
+      "executeMethodTypedefs": 31,
       "executeMethods": 32,
       "methods": 1623,
       "typedefs": 150
@@ -25,6 +28,7 @@
     "slide": {
       "classes": 73,
       "events": 5,
+      "executeMethodTypedefs": 27,
       "executeMethods": 63,
       "methods": 1143,
       "typedefs": 112
@@ -32,6 +36,7 @@
     "word": {
       "classes": 71,
       "events": 19,
+      "executeMethodTypedefs": 43,
       "executeMethods": 114,
       "methods": 2236,
       "typedefs": 108
@@ -40,7 +45,7 @@
   "howToUse": [
     "Load <editor>/index.json for every member name and signature in that editor.",
     "Then read one detail file: <editor>/classes/<Class>.json, or <editor>/classes/<Class>/<Method>.json when the class was sharded.",
-    "executeMethod names live in <editor>/executeMethods.json; the plugin runtime (Asc.plugin, config.json) in runtime.json.",
+    "executeMethod names live in <editor>/executeMethods.json, the objects they take and return (CommentData, OLEProperties, ...) in <editor>/executeMethodTypedefs.json; the plugin runtime (Asc.plugin, config.json, the undocumented executeMethods) in runtime.json.",
     "Do not concatenate the tree - it is deliberately split so no single read is large.",
     "Runnable examples are not here - they are in each member's JSDoc in the .d.ts. `requires` marks a member absent from Community Edition builds.",
     "Read https://raw.githubusercontent.com/ONLYOFFICE/doceditor-plugin-types/master/AGENTS.md before working from this tree: it is what the \"agents\" field on this file, each editor index and runtime.json points at."

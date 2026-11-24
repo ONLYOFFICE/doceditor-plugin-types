@@ -8,9 +8,27 @@
 import type { ContentControl, comment, TextAnnotation, TextAnnotationRange } from "../generated/word-methods";
 import type { ToolbarDisableReason } from "../config/plugin-config";
 
+/** What `onContextMenuShow` reports - sdkjs's `CPluginCtxMenuInfo`. */
 interface ContextMenuShowEvent {
-    /** The context type used by the editor, for example `All`. */
-    type: string;
+    /**
+     * What the menu was opened on (sdkjs `Asc.c_oPluginContextMenuTypes`): `"Target"` - the cursor
+     * with nothing selected, `"Selection"` - selected text, `"Image"`, `"Shape"`, `"OleObject"`, or
+     * `"None"`.
+     */
+    type: 'None' | 'Target' | 'Selection' | 'Image' | 'Shape' | 'OleObject' | (string & {});
+    /**
+     * With `type: "OleObject"`: the guid of the plugin the OLE object belongs to, so a plugin can
+     * offer its own entries only on its own objects (`options.guid === Asc.plugin.info.guid`).
+     */
+    guid?: string;
+    /** Word only. Set when the cursor is in a header that is being edited. */
+    header?: true;
+    /** Word only. Set when the cursor is in a footer that is being edited. */
+    footer?: true;
+    /** Word only. Set when the menu was opened over the header area of the page. */
+    headerArea?: true;
+    /** Word only. Set when the menu was opened over the footer area of the page. */
+    footerArea?: true;
 }
 
 /** Event arguments are tuples so events with no payload can be represented as `[]`. */

@@ -597,6 +597,1071 @@
         }
       }
     },
+    "AscTheme": {
+      "kind": "interface",
+      "members": {
+        "AnimPaneBackground": {
+          "description": "Animation pane background",
+          "signature": "AnimPaneBackground: string;"
+        },
+        "AnimPaneButtonFill": {
+          "description": "Animation pane button fill",
+          "signature": "AnimPaneButtonFill: string;"
+        },
+        "AnimPaneButtonFillDisabled": {
+          "description": "Animation pane button disabled fill",
+          "signature": "AnimPaneButtonFillDisabled: string;"
+        },
+        "AnimPaneButtonFillHovered": {
+          "description": "Animation pane button hover fill",
+          "signature": "AnimPaneButtonFillHovered: string;"
+        },
+        "AnimPaneEffectBarFillEmphasis": {
+          "description": "Animation pane emphasis effect bar fill",
+          "signature": "AnimPaneEffectBarFillEmphasis: string;"
+        },
+        "AnimPaneEffectBarFillEntrance": {
+          "description": "Animation pane entrance effect bar fill",
+          "signature": "AnimPaneEffectBarFillEntrance: string;"
+        },
+        "AnimPaneEffectBarFillExit": {
+          "description": "Animation pane exit effect bar fill",
+          "signature": "AnimPaneEffectBarFillExit: string;"
+        },
+        "AnimPaneEffectBarFillPath": {
+          "description": "Animation pane path effect bar fill",
+          "signature": "AnimPaneEffectBarFillPath: string;"
+        },
+        "AnimPaneEffectBarOutlineEmphasis": {
+          "description": "Animation pane emphasis effect bar outline",
+          "signature": "AnimPaneEffectBarOutlineEmphasis: string;"
+        },
+        "AnimPaneEffectBarOutlineEntrance": {
+          "description": "Animation pane entrance effect bar outline",
+          "signature": "AnimPaneEffectBarOutlineEntrance: string;"
+        },
+        "AnimPaneEffectBarOutlineExit": {
+          "description": "Animation pane exit effect bar outline",
+          "signature": "AnimPaneEffectBarOutlineExit: string;"
+        },
+        "AnimPaneEffectBarOutlinePath": {
+          "description": "Animation pane path effect bar outline",
+          "signature": "AnimPaneEffectBarOutlinePath: string;"
+        },
+        "AnimPaneItemFillHovered": {
+          "description": "Animation pane hovered item fill",
+          "signature": "AnimPaneItemFillHovered: string;"
+        },
+        "AnimPaneItemFillSelected": {
+          "description": "Animation pane selected item fill",
+          "signature": "AnimPaneItemFillSelected: string;"
+        },
+        "AnimPanePlayButtonFill": {
+          "description": "Animation pane play button fill",
+          "signature": "AnimPanePlayButtonFill: string;"
+        },
+        "AnimPanePlayButtonOutline": {
+          "description": "Animation pane play button outline",
+          "signature": "AnimPanePlayButtonOutline: string;"
+        },
+        "AnimPaneText": {
+          "description": "Animation pane text color",
+          "signature": "AnimPaneText: string;"
+        },
+        "AnimPaneTextActive": {
+          "description": "Animation pane active text color",
+          "signature": "AnimPaneTextActive: string;"
+        },
+        "AnimPaneTextHover": {
+          "description": "Animation pane hover text color",
+          "signature": "AnimPaneTextHover: string;"
+        },
+        "AnimPaneTimelineRulerOutline": {
+          "description": "Animation pane timeline ruler outline",
+          "signature": "AnimPaneTimelineRulerOutline: string;"
+        },
+        "AnimPaneTimelineRulerTick": {
+          "description": "Animation pane timeline ruler tick",
+          "signature": "AnimPaneTimelineRulerTick: string;"
+        },
+        "AnimPaneTimelineScrollerFill": {
+          "description": "Animation pane timeline scroller fill",
+          "signature": "AnimPaneTimelineScrollerFill: string;"
+        },
+        "AnimPaneTimelineScrollerOpacity": {
+          "description": "Animation pane timeline scroller opacity",
+          "signature": "AnimPaneTimelineScrollerOpacity: number;"
+        },
+        "AnimPaneTimelineScrollerOpacityActive": {
+          "description": "Animation pane timeline scroller active opacity",
+          "signature": "AnimPaneTimelineScrollerOpacityActive: number;"
+        },
+        "AnimPaneTimelineScrollerOpacityHovered": {
+          "description": "Animation pane timeline scroller hover opacity",
+          "signature": "AnimPaneTimelineScrollerOpacityHovered: number;"
+        },
+        "AnimPaneTimelineScrollerOutline": {
+          "description": "Animation pane timeline scroller outline",
+          "signature": "AnimPaneTimelineScrollerOutline: string;"
+        },
+        "Background": {
+          "description": "General background color",
+          "signature": "Background: string;"
+        },
+        "BackgroundActive": {
+          "description": "Active background color",
+          "signature": "BackgroundActive: string;"
+        },
+        "BackgroundColor": {
+          "description": "Background color",
+          "signature": "BackgroundColor: string;"
+        },
+        "BackgroundColorNotes": {
+          "description": "Notes background color",
+          "signature": "BackgroundColorNotes: string;"
+        },
+        "BackgroundColorThumbnails": {
+          "description": "Thumbnails background color",
+          "signature": "BackgroundColorThumbnails: string;"
+        },
+        "BackgroundColorThumbnailsActive": {
+          "description": "Thumbnails active background color",
+          "signature": "BackgroundColorThumbnailsActive: string;"
+        },
+        "BackgroundColorThumbnailsHover": {
+          "description": "Thumbnails hover background color",
+          "signature": "BackgroundColorThumbnailsHover: string;"
+        },
+        "BackgroundHighlighted": {
+          "description": "Highlighted background color",
+          "signature": "BackgroundHighlighted: string;"
+        },
+        "Border": {
+          "description": "General border color",
+          "signature": "Border: string;"
+        },
+        "BorderActive": {
+          "description": "Active border color",
+          "signature": "BorderActive: string;"
+        },
+        "BorderHighlighted": {
+          "description": "Highlighted border color",
+          "signature": "BorderHighlighted: string;"
+        },
+        "BorderSplitterColor": {
+          "description": "Border splitter color",
+          "signature": "BorderSplitterColor: string;"
+        },
+        "Color": {
+          "description": "General text color",
+          "signature": "Color: string;"
+        },
+        "ColorActive": {
+          "description": "Active text color",
+          "signature": "ColorActive: string;"
+        },
+        "ColorDark": {
+          "description": "Dark text color",
+          "signature": "ColorDark: string;"
+        },
+        "ColorDarkActive": {
+          "description": "Dark active text color",
+          "signature": "ColorDarkActive: string;"
+        },
+        "ColorDarkFiltering": {
+          "description": "Dark filtering text color",
+          "signature": "ColorDarkFiltering: string;"
+        },
+        "ColorDarkHighlighted": {
+          "description": "Dark highlighted text color",
+          "signature": "ColorDarkHighlighted: string;"
+        },
+        "ColorFiltering": {
+          "description": "Filtering text color",
+          "signature": "ColorFiltering: string;"
+        },
+        "ColorHighlighted": {
+          "description": "Highlighted text color",
+          "signature": "ColorHighlighted: string;"
+        },
+        "ContentControlsActive": {
+          "description": "Content controls active background",
+          "signature": "ContentControlsActive: string;"
+        },
+        "ContentControlsAnchorActive": {
+          "description": "Content controls anchor active color",
+          "signature": "ContentControlsAnchorActive: string;"
+        },
+        "ContentControlsBack": {
+          "description": "Content controls background",
+          "signature": "ContentControlsBack: string;"
+        },
+        "ContentControlsHover": {
+          "description": "Content controls hover background",
+          "signature": "ContentControlsHover: string;"
+        },
+        "ContentControlsText": {
+          "description": "Content controls text color",
+          "signature": "ContentControlsText: string;"
+        },
+        "ContentControlsTextActive": {
+          "description": "Content controls active text color",
+          "signature": "ContentControlsTextActive: string;"
+        },
+        "DemBackgroundColor": {
+          "description": "DEM background color",
+          "signature": "DemBackgroundColor: string;"
+        },
+        "DemButtonBackgroundColor": {
+          "description": "DEM button background color",
+          "signature": "DemButtonBackgroundColor: string;"
+        },
+        "DemButtonBackgroundColorActive": {
+          "description": "DEM button active background color",
+          "signature": "DemButtonBackgroundColorActive: string;"
+        },
+        "DemButtonBackgroundColorHover": {
+          "description": "DEM button hover background color",
+          "signature": "DemButtonBackgroundColorHover: string;"
+        },
+        "DemButtonBorderColor": {
+          "description": "DEM button border color",
+          "signature": "DemButtonBorderColor: string;"
+        },
+        "DemButtonTextColor": {
+          "description": "DEM button text color",
+          "signature": "DemButtonTextColor: string;"
+        },
+        "DemButtonTextColorActive": {
+          "description": "DEM button active text color",
+          "signature": "DemButtonTextColorActive: string;"
+        },
+        "DemSplitterColor": {
+          "description": "DEM splitter color",
+          "signature": "DemSplitterColor: string;"
+        },
+        "DemTextColor": {
+          "description": "DEM text color",
+          "signature": "DemTextColor: string;"
+        },
+        "EditorBorder": {
+          "description": "Editor border color",
+          "signature": "EditorBorder: string;"
+        },
+        "FormsContentControlsMarkersBackground": {
+          "description": "Forms content controls markers background",
+          "signature": "FormsContentControlsMarkersBackground: string;"
+        },
+        "FormsContentControlsMarkersBackgroundActive": {
+          "description": "Forms content controls markers background active",
+          "signature": "FormsContentControlsMarkersBackgroundActive: string;"
+        },
+        "FormsContentControlsMarkersBackgroundHover": {
+          "description": "Forms content controls markers background hover",
+          "signature": "FormsContentControlsMarkersBackgroundHover: string;"
+        },
+        "FormsContentControlsOutlineActive": {
+          "description": "Forms content controls outline active",
+          "signature": "FormsContentControlsOutlineActive: string;"
+        },
+        "FormsContentControlsOutlineBorderRadiusActive": {
+          "description": "Forms content controls outline border radius active",
+          "signature": "FormsContentControlsOutlineBorderRadiusActive: number;"
+        },
+        "FormsContentControlsOutlineBorderRadiusHover": {
+          "description": "Forms content controls outline border radius hover",
+          "signature": "FormsContentControlsOutlineBorderRadiusHover: number;"
+        },
+        "FormsContentControlsOutlineHover": {
+          "description": "Forms content controls outline hover",
+          "signature": "FormsContentControlsOutlineHover: string;"
+        },
+        "FormsContentControlsOutlineMoverActive": {
+          "description": "Forms content controls outline mover active",
+          "signature": "FormsContentControlsOutlineMoverActive: string;"
+        },
+        "FormsContentControlsOutlineMoverHover": {
+          "description": "Forms content controls outline mover hover",
+          "signature": "FormsContentControlsOutlineMoverHover: string;"
+        },
+        "GroupDataBorder": {
+          "description": "Group data border color",
+          "signature": "GroupDataBorder: string;"
+        },
+        "Name": {
+          "description": "Theme name",
+          "signature": "Name: KnownThemeName | string;"
+        },
+        "NavigationButtons": {
+          "description": "Show navigation buttons",
+          "signature": "NavigationButtons: boolean;"
+        },
+        "PageOutline": {
+          "description": "Page outline color",
+          "signature": "PageOutline: string;"
+        },
+        "RulerDark": {
+          "description": "Dark ruler color",
+          "signature": "RulerDark: string;"
+        },
+        "RulerLight": {
+          "description": "Light ruler color",
+          "signature": "RulerLight: string;"
+        },
+        "RulerMarkersFillColor": {
+          "description": "Ruler markers fill color",
+          "signature": "RulerMarkersFillColor: string;"
+        },
+        "RulerMarkersFillColorOld": {
+          "description": "Old ruler markers fill color",
+          "signature": "RulerMarkersFillColorOld: string;"
+        },
+        "RulerMarkersOutlineColor": {
+          "description": "Ruler markers outline color",
+          "signature": "RulerMarkersOutlineColor: string;"
+        },
+        "RulerMarkersOutlineColorOld": {
+          "description": "Old ruler markers outline color",
+          "signature": "RulerMarkersOutlineColorOld: string;"
+        },
+        "RulerOutline": {
+          "description": "Ruler outline color",
+          "signature": "RulerOutline: string;"
+        },
+        "RulerTableColor1": {
+          "description": "Ruler table color 1",
+          "signature": "RulerTableColor1: string;"
+        },
+        "RulerTableColor2": {
+          "description": "Ruler table color 2",
+          "signature": "RulerTableColor2: string;"
+        },
+        "RulerTabsColor": {
+          "description": "Ruler tabs color",
+          "signature": "RulerTabsColor: string;"
+        },
+        "RulerTabsColorOld": {
+          "description": "Old ruler tabs color",
+          "signature": "RulerTabsColorOld: string;"
+        },
+        "RulerTextColor": {
+          "description": "Ruler text color",
+          "signature": "RulerTextColor: string;"
+        },
+        "RulersButton": {
+          "description": "Show rulers button",
+          "signature": "RulersButton: boolean;"
+        },
+        "STYLE_THUMBNAIL_HEIGHT": {
+          "description": "Style thumbnail height",
+          "signature": "STYLE_THUMBNAIL_HEIGHT: number;"
+        },
+        "STYLE_THUMBNAIL_WIDTH": {
+          "description": "Style thumbnail width",
+          "signature": "STYLE_THUMBNAIL_WIDTH: number;"
+        },
+        "ScrollArrowActiveColor": {
+          "description": "Scroll arrow active color",
+          "signature": "ScrollArrowActiveColor: string;"
+        },
+        "ScrollArrowColor": {
+          "description": "Scroll arrow color",
+          "signature": "ScrollArrowColor: string;"
+        },
+        "ScrollArrowHoverColor": {
+          "description": "Scroll arrow hover color",
+          "signature": "ScrollArrowHoverColor: string;"
+        },
+        "ScrollBackgroundColor": {
+          "description": "Scroll background color",
+          "signature": "ScrollBackgroundColor: string;"
+        },
+        "ScrollOutlineActiveColor": {
+          "description": "Scroll outline active color",
+          "signature": "ScrollOutlineActiveColor: string;"
+        },
+        "ScrollOutlineColor": {
+          "description": "Scroll outline color",
+          "signature": "ScrollOutlineColor: string;"
+        },
+        "ScrollOutlineHoverColor": {
+          "description": "Scroll outline hover color",
+          "signature": "ScrollOutlineHoverColor: string;"
+        },
+        "ScrollerActiveColor": {
+          "description": "Scroller active color",
+          "signature": "ScrollerActiveColor: string;"
+        },
+        "ScrollerColor": {
+          "description": "Scroller color",
+          "signature": "ScrollerColor: string;"
+        },
+        "ScrollerHoverColor": {
+          "description": "Scroller hover color",
+          "signature": "ScrollerHoverColor: string;"
+        },
+        "ScrollerTargetActiveColor": {
+          "description": "Scroller target active color",
+          "signature": "ScrollerTargetActiveColor: string;"
+        },
+        "ScrollerTargetColor": {
+          "description": "Scroller target color",
+          "signature": "ScrollerTargetColor: string;"
+        },
+        "ScrollerTargetHoverColor": {
+          "description": "Scroller target hover color",
+          "signature": "ScrollerTargetHoverColor: string;"
+        },
+        "SelectAllIcon": {
+          "description": "Select all icon color",
+          "signature": "SelectAllIcon: string;"
+        },
+        "SheetViewCellBackground": {
+          "description": "Sheet view cell background",
+          "signature": "SheetViewCellBackground: string;"
+        },
+        "SheetViewCellBackgroundHover": {
+          "description": "Sheet view cell hover background",
+          "signature": "SheetViewCellBackgroundHover: string;"
+        },
+        "SheetViewCellBackgroundPressed": {
+          "description": "Sheet view cell pressed background",
+          "signature": "SheetViewCellBackgroundPressed: string;"
+        },
+        "SheetViewCellTitleLabel": {
+          "description": "Sheet view cell title label color",
+          "signature": "SheetViewCellTitleLabel: string;"
+        },
+        "SheetViewSelectAllIcon": {
+          "description": "Sheet view select all icon color",
+          "signature": "SheetViewSelectAllIcon: string;"
+        },
+        "SplitterWidthMM": {
+          "description": "Splitter width in mm",
+          "signature": "SplitterWidthMM: number;"
+        },
+        "SupportNotes": {
+          "description": "Support notes",
+          "signature": "SupportNotes: boolean;"
+        },
+        "THEMES_LAYOUT_THUMBNAIL_HEIGHT": {
+          "description": "Themes layout thumbnail height",
+          "signature": "THEMES_LAYOUT_THUMBNAIL_HEIGHT: number;"
+        },
+        "THEMES_THUMBNAIL_HEIGHT": {
+          "description": "Themes thumbnail height",
+          "signature": "THEMES_THUMBNAIL_HEIGHT: number;"
+        },
+        "THEMES_THUMBNAIL_WIDTH": {
+          "description": "Themes thumbnail width",
+          "signature": "THEMES_THUMBNAIL_WIDTH: number;"
+        },
+        "ThumbnailScrollWidthNullIfNoScrolling": {
+          "description": "Set thumbnail scroll width to null if no scrolling",
+          "signature": "ThumbnailScrollWidthNullIfNoScrolling: boolean;"
+        },
+        "ThumbnailsLockColor": {
+          "description": "Thumbnails lock color",
+          "signature": "ThumbnailsLockColor: string;"
+        },
+        "ThumbnailsPageNumberText": {
+          "description": "Thumbnails page number text color",
+          "signature": "ThumbnailsPageNumberText: string;"
+        },
+        "ThumbnailsPageNumberTextActive": {
+          "description": "Thumbnails page number active text color",
+          "signature": "ThumbnailsPageNumberTextActive: string;"
+        },
+        "ThumbnailsPageNumberTextHover": {
+          "description": "Thumbnails page number hover text color",
+          "signature": "ThumbnailsPageNumberTextHover: string;"
+        },
+        "ThumbnailsPageOutlineActive": {
+          "description": "Thumbnails page active outline color",
+          "signature": "ThumbnailsPageOutlineActive: string;"
+        },
+        "ThumbnailsPageOutlineHover": {
+          "description": "Thumbnails page hover outline color",
+          "signature": "ThumbnailsPageOutlineHover: string;"
+        },
+        "Type": {
+          "description": "Theme type (light/dark)",
+          "signature": "Type: \"light\" | \"dark\";"
+        },
+        "background-accent-button": {
+          "description": "Accent button background color",
+          "signature": "\"background-accent-button\": string;"
+        },
+        "background-contrast-popover": {
+          "description": "Contrast popover background color",
+          "signature": "\"background-contrast-popover\": string;"
+        },
+        "background-loader": {
+          "description": "Loader background color",
+          "signature": "\"background-loader\": string;"
+        },
+        "background-normal": {
+          "description": "Normal background color",
+          "signature": "\"background-normal\": string;"
+        },
+        "background-notification-badge": {
+          "description": "Notification badge background color",
+          "signature": "\"background-notification-badge\": string;"
+        },
+        "background-notification-popover": {
+          "description": "Notification popover background color",
+          "signature": "\"background-notification-popover\": string;"
+        },
+        "background-primary-dialog-button": {
+          "description": "Primary dialog button background color",
+          "signature": "\"background-primary-dialog-button\": string;"
+        },
+        "background-scrim": {
+          "description": "Scrim background color",
+          "signature": "\"background-scrim\": string;"
+        },
+        "background-toolbar": {
+          "description": "Toolbar background color",
+          "signature": "\"background-toolbar\": string;"
+        },
+        "background-toolbar-additional": {
+          "description": "Additional toolbar background color",
+          "signature": "\"background-toolbar-additional\": string;"
+        },
+        "border-color-shading": {
+          "description": "Color shading border",
+          "signature": "\"border-color-shading\": string;"
+        },
+        "border-contrast-popover": {
+          "description": "Contrast popover border",
+          "signature": "\"border-contrast-popover\": string;"
+        },
+        "border-control-focus": {
+          "description": "Control focus border",
+          "signature": "\"border-control-focus\": string;"
+        },
+        "border-divider": {
+          "description": "Divider border color",
+          "signature": "\"border-divider\": string;"
+        },
+        "border-error": {
+          "description": "Error border color",
+          "signature": "\"border-error\": string;"
+        },
+        "border-preview-hover": {
+          "description": "Preview hover border",
+          "signature": "\"border-preview-hover\": string;"
+        },
+        "border-preview-select": {
+          "description": "Preview select border",
+          "signature": "\"border-preview-select\": string;"
+        },
+        "border-regular-control": {
+          "description": "Regular control border color",
+          "signature": "\"border-regular-control\": string;"
+        },
+        "border-toolbar": {
+          "description": "Toolbar border color",
+          "signature": "\"border-toolbar\": string;"
+        },
+        "border-toolbar-button-hover": {
+          "description": "Toolbar button hover border",
+          "signature": "\"border-toolbar-button-hover\": string;"
+        },
+        "canvas-anim-pane-background": {
+          "description": "Canvas animation pane background color",
+          "signature": "\"canvas-anim-pane-background\": string;"
+        },
+        "canvas-anim-pane-button-fill": {
+          "description": "Canvas animation pane button fill color",
+          "signature": "\"canvas-anim-pane-button-fill\": string;"
+        },
+        "canvas-anim-pane-button-fill-disabled": {
+          "description": "Canvas animation pane button disabled fill color",
+          "signature": "\"canvas-anim-pane-button-fill-disabled\": string;"
+        },
+        "canvas-anim-pane-button-fill-hovered": {
+          "description": "Canvas animation pane button hover fill color",
+          "signature": "\"canvas-anim-pane-button-fill-hovered\": string;"
+        },
+        "canvas-anim-pane-effect-bar-emphasis-fill": {
+          "description": "Canvas animation pane emphasis effect bar fill color",
+          "signature": "\"canvas-anim-pane-effect-bar-emphasis-fill\": string;"
+        },
+        "canvas-anim-pane-effect-bar-emphasis-outline": {
+          "description": "Canvas animation pane emphasis effect bar outline color",
+          "signature": "\"canvas-anim-pane-effect-bar-emphasis-outline\": string;"
+        },
+        "canvas-anim-pane-effect-bar-entrance-fill": {
+          "description": "Canvas animation pane entrance effect bar fill color",
+          "signature": "\"canvas-anim-pane-effect-bar-entrance-fill\": string;"
+        },
+        "canvas-anim-pane-effect-bar-entrance-outline": {
+          "description": "Canvas animation pane entrance effect bar outline color",
+          "signature": "\"canvas-anim-pane-effect-bar-entrance-outline\": string;"
+        },
+        "canvas-anim-pane-effect-bar-exit-fill": {
+          "description": "Canvas animation pane exit effect bar fill color",
+          "signature": "\"canvas-anim-pane-effect-bar-exit-fill\": string;"
+        },
+        "canvas-anim-pane-effect-bar-exit-outline": {
+          "description": "Canvas animation pane exit effect bar outline color",
+          "signature": "\"canvas-anim-pane-effect-bar-exit-outline\": string;"
+        },
+        "canvas-anim-pane-effect-bar-path-fill": {
+          "description": "Canvas animation pane path effect bar fill color",
+          "signature": "\"canvas-anim-pane-effect-bar-path-fill\": string;"
+        },
+        "canvas-anim-pane-effect-bar-path-outline": {
+          "description": "Canvas animation pane path effect bar outline color",
+          "signature": "\"canvas-anim-pane-effect-bar-path-outline\": string;"
+        },
+        "canvas-anim-pane-item-fill-hovered": {
+          "description": "Canvas animation pane hovered item fill color",
+          "signature": "\"canvas-anim-pane-item-fill-hovered\": string;"
+        },
+        "canvas-anim-pane-item-fill-selected": {
+          "description": "Canvas animation pane selected item fill color",
+          "signature": "\"canvas-anim-pane-item-fill-selected\": string;"
+        },
+        "canvas-anim-pane-play-button-fill": {
+          "description": "Canvas animation pane play button fill color",
+          "signature": "\"canvas-anim-pane-play-button-fill\": string;"
+        },
+        "canvas-anim-pane-play-button-outline": {
+          "description": "Canvas animation pane play button outline color",
+          "signature": "\"canvas-anim-pane-play-button-outline\": string;"
+        },
+        "canvas-anim-pane-timeline-ruler-outline": {
+          "description": "Canvas animation pane timeline ruler outline color",
+          "signature": "\"canvas-anim-pane-timeline-ruler-outline\": string;"
+        },
+        "canvas-anim-pane-timeline-ruler-tick": {
+          "description": "Canvas animation pane timeline ruler tick color",
+          "signature": "\"canvas-anim-pane-timeline-ruler-tick\": string;"
+        },
+        "canvas-anim-pane-timeline-scroller-fill": {
+          "description": "Canvas animation pane timeline scroller fill color",
+          "signature": "\"canvas-anim-pane-timeline-scroller-fill\": string;"
+        },
+        "canvas-anim-pane-timeline-scroller-opacity": {
+          "description": "Canvas animation pane timeline scroller opacity",
+          "signature": "\"canvas-anim-pane-timeline-scroller-opacity\": string;"
+        },
+        "canvas-anim-pane-timeline-scroller-opacity-active": {
+          "description": "Canvas animation pane timeline scroller active opacity",
+          "signature": "\"canvas-anim-pane-timeline-scroller-opacity-active\": string;"
+        },
+        "canvas-anim-pane-timeline-scroller-opacity-hovered": {
+          "description": "Canvas animation pane timeline scroller hover opacity",
+          "signature": "\"canvas-anim-pane-timeline-scroller-opacity-hovered\": string;"
+        },
+        "canvas-anim-pane-timeline-scroller-outline": {
+          "description": "Canvas animation pane timeline scroller outline color",
+          "signature": "\"canvas-anim-pane-timeline-scroller-outline\": string;"
+        },
+        "canvas-background": {
+          "description": "Canvas background color",
+          "signature": "\"canvas-background\": string;"
+        },
+        "canvas-cell-border": {
+          "description": "Canvas cell border color",
+          "signature": "\"canvas-cell-border\": string;"
+        },
+        "canvas-cell-title-background": {
+          "description": "Canvas cell title background color",
+          "signature": "\"canvas-cell-title-background\": string;"
+        },
+        "canvas-cell-title-background-hover": {
+          "description": "Canvas cell title hover background color",
+          "signature": "\"canvas-cell-title-background-hover\": string;"
+        },
+        "canvas-cell-title-background-selected": {
+          "description": "Canvas cell title selected background color",
+          "signature": "\"canvas-cell-title-background-selected\": string;"
+        },
+        "canvas-cell-title-border": {
+          "description": "Canvas cell title border color",
+          "signature": "\"canvas-cell-title-border\": string;"
+        },
+        "canvas-cell-title-border-hover": {
+          "description": "Canvas cell title hover border color",
+          "signature": "\"canvas-cell-title-border-hover\": string;"
+        },
+        "canvas-cell-title-border-selected": {
+          "description": "Canvas cell title selected border color",
+          "signature": "\"canvas-cell-title-border-selected\": string;"
+        },
+        "canvas-cell-title-text": {
+          "description": "Canvas cell title text color",
+          "signature": "\"canvas-cell-title-text\": string;"
+        },
+        "canvas-content-background": {
+          "description": "Canvas content background color",
+          "signature": "\"canvas-content-background\": string;"
+        },
+        "canvas-dark-cell-title": {
+          "description": "Canvas dark cell title color",
+          "signature": "\"canvas-dark-cell-title\": string;"
+        },
+        "canvas-dark-cell-title-border": {
+          "description": "Canvas dark cell title border color",
+          "signature": "\"canvas-dark-cell-title-border\": string;"
+        },
+        "canvas-dark-cell-title-border-hover": {
+          "description": "Canvas dark cell title hover border color",
+          "signature": "\"canvas-dark-cell-title-border-hover\": string;"
+        },
+        "canvas-dark-cell-title-border-selected": {
+          "description": "Canvas dark cell title selected border color",
+          "signature": "\"canvas-dark-cell-title-border-selected\": string;"
+        },
+        "canvas-dark-cell-title-hover": {
+          "description": "Canvas dark cell title hover color",
+          "signature": "\"canvas-dark-cell-title-hover\": string;"
+        },
+        "canvas-dark-cell-title-selected": {
+          "description": "Canvas dark cell title selected color",
+          "signature": "\"canvas-dark-cell-title-selected\": string;"
+        },
+        "canvas-dark-content-background": {
+          "description": "Canvas dark content background color",
+          "signature": "\"canvas-dark-content-background\": string;"
+        },
+        "canvas-dark-page-border": {
+          "description": "Canvas dark page border color",
+          "signature": "\"canvas-dark-page-border\": string;"
+        },
+        "canvas-freeze-line-1px": {
+          "description": "Canvas 1px freeze line color",
+          "signature": "\"canvas-freeze-line-1px\": string;"
+        },
+        "canvas-freeze-line-2px": {
+          "description": "Canvas 2px freeze line color",
+          "signature": "\"canvas-freeze-line-2px\": string;"
+        },
+        "canvas-high-contrast": {
+          "description": "Canvas high contrast color",
+          "signature": "\"canvas-high-contrast\": string;"
+        },
+        "canvas-high-contrast-disabled": {
+          "description": "Canvas disabled high contrast color",
+          "signature": "\"canvas-high-contrast-disabled\": string;"
+        },
+        "canvas-page-border": {
+          "description": "Canvas page border color",
+          "signature": "\"canvas-page-border\": string;"
+        },
+        "canvas-ruler-background": {
+          "description": "Canvas ruler background color",
+          "signature": "\"canvas-ruler-background\": string;"
+        },
+        "canvas-ruler-border": {
+          "description": "Canvas ruler border color",
+          "signature": "\"canvas-ruler-border\": string;"
+        },
+        "canvas-ruler-handle-border": {
+          "description": "Canvas ruler handle border color",
+          "signature": "\"canvas-ruler-handle-border\": string;"
+        },
+        "canvas-ruler-handle-border-disabled": {
+          "description": "Canvas ruler disabled handle border color",
+          "signature": "\"canvas-ruler-handle-border-disabled\": string;"
+        },
+        "canvas-ruler-margins-background": {
+          "description": "Canvas ruler margins background color",
+          "signature": "\"canvas-ruler-margins-background\": string;"
+        },
+        "canvas-ruler-mark": {
+          "description": "Canvas ruler mark color",
+          "signature": "\"canvas-ruler-mark\": string;"
+        },
+        "canvas-scroll-arrow": {
+          "description": "Canvas scroll arrow color",
+          "signature": "\"canvas-scroll-arrow\": string;"
+        },
+        "canvas-scroll-arrow-hover": {
+          "description": "Canvas scroll arrow hover color",
+          "signature": "\"canvas-scroll-arrow-hover\": string;"
+        },
+        "canvas-scroll-arrow-pressed": {
+          "description": "Canvas scroll arrow pressed color",
+          "signature": "\"canvas-scroll-arrow-pressed\": string;"
+        },
+        "canvas-scroll-thumb": {
+          "description": "Canvas scroll thumb color",
+          "signature": "\"canvas-scroll-thumb\": string;"
+        },
+        "canvas-scroll-thumb-border": {
+          "description": "Canvas scroll thumb border color",
+          "signature": "\"canvas-scroll-thumb-border\": string;"
+        },
+        "canvas-scroll-thumb-border-hover": {
+          "description": "Canvas scroll thumb hover border color",
+          "signature": "\"canvas-scroll-thumb-border-hover\": string;"
+        },
+        "canvas-scroll-thumb-border-pressed": {
+          "description": "Canvas scroll thumb pressed border color",
+          "signature": "\"canvas-scroll-thumb-border-pressed\": string;"
+        },
+        "canvas-scroll-thumb-hover": {
+          "description": "Canvas scroll thumb hover color",
+          "signature": "\"canvas-scroll-thumb-hover\": string;"
+        },
+        "canvas-scroll-thumb-pressed": {
+          "description": "Canvas scroll thumb pressed color",
+          "signature": "\"canvas-scroll-thumb-pressed\": string;"
+        },
+        "canvas-scroll-thumb-target": {
+          "description": "Canvas scroll thumb target color",
+          "signature": "\"canvas-scroll-thumb-target\": string;"
+        },
+        "canvas-scroll-thumb-target-hover": {
+          "description": "Canvas scroll thumb target hover color",
+          "signature": "\"canvas-scroll-thumb-target-hover\": string;"
+        },
+        "canvas-scroll-thumb-target-pressed": {
+          "description": "Canvas scroll thumb target pressed color",
+          "signature": "\"canvas-scroll-thumb-target-pressed\": string;"
+        },
+        "canvas-select-all-icon": {
+          "description": "Canvas select all icon color",
+          "signature": "\"canvas-select-all-icon\": string;"
+        },
+        "canvas-sheet-view-cell-background": {
+          "description": "Canvas sheet view cell background color",
+          "signature": "\"canvas-sheet-view-cell-background\": string;"
+        },
+        "canvas-sheet-view-cell-background-hover": {
+          "description": "Canvas sheet view cell hover background color",
+          "signature": "\"canvas-sheet-view-cell-background-hover\": string;"
+        },
+        "canvas-sheet-view-cell-background-pressed": {
+          "description": "Canvas sheet view cell pressed background color",
+          "signature": "\"canvas-sheet-view-cell-background-pressed\": string;"
+        },
+        "canvas-sheet-view-cell-title-label": {
+          "description": "Canvas sheet view cell title label color",
+          "signature": "\"canvas-sheet-view-cell-title-label\": string;"
+        },
+        "highlight-accent-button-hover": {
+          "description": "Accent button hover highlight",
+          "signature": "\"highlight-accent-button-hover\": string;"
+        },
+        "highlight-accent-button-pressed": {
+          "description": "Accent button pressed highlight",
+          "signature": "\"highlight-accent-button-pressed\": string;"
+        },
+        "highlight-button-hover": {
+          "description": "Button hover highlight",
+          "signature": "\"highlight-button-hover\": string;"
+        },
+        "highlight-button-pressed": {
+          "description": "Button pressed highlight",
+          "signature": "\"highlight-button-pressed\": string;"
+        },
+        "highlight-button-pressed-hover": {
+          "description": "Button pressed hover highlight",
+          "signature": "\"highlight-button-pressed-hover\": string;"
+        },
+        "highlight-header-button-hover": {
+          "description": "Header button hover highlight",
+          "signature": "\"highlight-header-button-hover\": string;"
+        },
+        "highlight-header-button-pressed": {
+          "description": "Header button pressed highlight",
+          "signature": "\"highlight-header-button-pressed\": string;"
+        },
+        "highlight-header-tab-underline-document": {
+          "description": "Document header tab underline",
+          "signature": "\"highlight-header-tab-underline-document\": string;"
+        },
+        "highlight-header-tab-underline-pdf": {
+          "description": "PDF header tab underline",
+          "signature": "\"highlight-header-tab-underline-pdf\": string;"
+        },
+        "highlight-header-tab-underline-presentation": {
+          "description": "Presentation header tab underline",
+          "signature": "\"highlight-header-tab-underline-presentation\": string;"
+        },
+        "highlight-header-tab-underline-spreadsheet": {
+          "description": "Spreadsheet header tab underline",
+          "signature": "\"highlight-header-tab-underline-spreadsheet\": string;"
+        },
+        "highlight-header-tab-underline-visio": {
+          "description": "Visio header tab underline",
+          "signature": "\"highlight-header-tab-underline-visio\": string;"
+        },
+        "highlight-primary-dialog-button-hover": {
+          "description": "Primary dialog button hover highlight",
+          "signature": "\"highlight-primary-dialog-button-hover\": string;"
+        },
+        "highlight-text-select": {
+          "description": "Text select highlight",
+          "signature": "\"highlight-text-select\": string;"
+        },
+        "highlight-toolbar-tab-underline-document": {
+          "description": "Document toolbar tab underline",
+          "signature": "\"highlight-toolbar-tab-underline-document\": string;"
+        },
+        "highlight-toolbar-tab-underline-pdf": {
+          "description": "PDF toolbar tab underline",
+          "signature": "\"highlight-toolbar-tab-underline-pdf\": string;"
+        },
+        "highlight-toolbar-tab-underline-presentation": {
+          "description": "Presentation toolbar tab underline",
+          "signature": "\"highlight-toolbar-tab-underline-presentation\": string;"
+        },
+        "highlight-toolbar-tab-underline-spreadsheet": {
+          "description": "Spreadsheet toolbar tab underline",
+          "signature": "\"highlight-toolbar-tab-underline-spreadsheet\": string;"
+        },
+        "highlight-toolbar-tab-underline-visio": {
+          "description": "Visio toolbar tab underline",
+          "signature": "\"highlight-toolbar-tab-underline-visio\": string;"
+        },
+        "icon-contrast-popover": {
+          "description": "Contrast popover icon color",
+          "signature": "\"icon-contrast-popover\": string;"
+        },
+        "icon-inverse": {
+          "description": "Inverse icon color",
+          "signature": "\"icon-inverse\": string;"
+        },
+        "icon-normal": {
+          "description": "Normal icon color",
+          "signature": "\"icon-normal\": string;"
+        },
+        "icon-normal-pressed": {
+          "description": "Normal pressed icon color",
+          "signature": "\"icon-normal-pressed\": string;"
+        },
+        "icon-notification-badge": {
+          "description": "Notification badge icon color",
+          "signature": "\"icon-notification-badge\": string;"
+        },
+        "icon-success": {
+          "description": "Success icon color",
+          "signature": "\"icon-success\": string;"
+        },
+        "icon-toolbar-header": {
+          "description": "Toolbar header icon color",
+          "signature": "\"icon-toolbar-header\": string;"
+        },
+        "isNeedInvertOnActive": {
+          "description": "Need to invert on active",
+          "signature": "isNeedInvertOnActive: boolean;"
+        },
+        "name": {
+          "deprecated": "Theme name (duplicate for compatibility)",
+          "signature": "name: KnownThemeName | string;"
+        },
+        "shadow-contrast-popover": {
+          "description": "Contrast popover shadow",
+          "signature": "\"shadow-contrast-popover\": string;"
+        },
+        "sprite-button-icons-uid": {
+          "description": "Sprite button icons UID",
+          "signature": "\"sprite-button-icons-uid\": string;"
+        },
+        "text-alt-key-hint": {
+          "description": "Alt key hint text color",
+          "signature": "\"text-alt-key-hint\": string;"
+        },
+        "text-contrast-background": {
+          "description": "Contrast background text color",
+          "signature": "\"text-contrast-background\": string;"
+        },
+        "text-inverse": {
+          "description": "Inverse text color",
+          "signature": "\"text-inverse\": string;"
+        },
+        "text-link": {
+          "description": "Link text color",
+          "signature": "\"text-link\": string;"
+        },
+        "text-link-active": {
+          "description": "Link active text color",
+          "signature": "\"text-link-active\": string;"
+        },
+        "text-link-hover": {
+          "description": "Link hover text color",
+          "signature": "\"text-link-hover\": string;"
+        },
+        "text-link-visited": {
+          "description": "Link visited text color",
+          "signature": "\"text-link-visited\": string;"
+        },
+        "text-normal": {
+          "description": "Normal text color",
+          "signature": "\"text-normal\": string;"
+        },
+        "text-normal-pressed": {
+          "description": "Normal pressed text color",
+          "signature": "\"text-normal-pressed\": string;"
+        },
+        "text-secondary": {
+          "description": "Secondary text color",
+          "signature": "\"text-secondary\": string;"
+        },
+        "text-tertiary": {
+          "description": "Tertiary text color",
+          "signature": "\"text-tertiary\": string;"
+        },
+        "text-toolbar-header": {
+          "description": "Toolbar header text color",
+          "signature": "\"text-toolbar-header\": string;"
+        },
+        "text-toolbar-header-on-background-document": {
+          "description": "Document toolbar header text on background",
+          "signature": "\"text-toolbar-header-on-background-document\": string;"
+        },
+        "text-toolbar-header-on-background-pdf": {
+          "description": "PDF toolbar header text on background",
+          "signature": "\"text-toolbar-header-on-background-pdf\": string;"
+        },
+        "text-toolbar-header-on-background-presentation": {
+          "description": "Presentation toolbar header text on background",
+          "signature": "\"text-toolbar-header-on-background-presentation\": string;"
+        },
+        "text-toolbar-header-on-background-spreadsheet": {
+          "description": "Spreadsheet toolbar header text on background",
+          "signature": "\"text-toolbar-header-on-background-spreadsheet\": string;"
+        },
+        "text-toolbar-header-on-background-visio": {
+          "description": "Visio toolbar header text on background",
+          "signature": "\"text-toolbar-header-on-background-visio\": string;"
+        },
+        "toolbar-header-document": {
+          "description": "Document toolbar header background",
+          "signature": "\"toolbar-header-document\": string;"
+        },
+        "toolbar-header-pdf": {
+          "description": "PDF toolbar header background",
+          "signature": "\"toolbar-header-pdf\": string;"
+        },
+        "toolbar-header-presentation": {
+          "description": "Presentation toolbar header background",
+          "signature": "\"toolbar-header-presentation\": string;"
+        },
+        "toolbar-header-spreadsheet": {
+          "description": "Spreadsheet toolbar header background",
+          "signature": "\"toolbar-header-spreadsheet\": string;"
+        },
+        "toolbar-header-visio": {
+          "description": "Visio toolbar header background",
+          "signature": "\"toolbar-header-visio\": string;"
+        },
+        "toolbar-height-controls": {
+          "description": "Toolbar height controls value",
+          "signature": "\"toolbar-height-controls\": string;"
+        },
+        "type": {
+          "deprecated": "Theme type (light/dark)",
+          "signature": "type: \"light\" | \"dark\";"
+        }
+      }
+    },
     "ButtonBase": {
       "kind": "interface",
       "members": {
@@ -774,12 +1839,52 @@
       "kind": "type",
       "type": "T extends Function ? never : T extends object ? { [K in keyof T]: CommandSerializable<T[K]> } : T"
     },
-    "ContextMenuShowEvent": {
+    "ContextMenuItems": {
+      "description": "What `AddContextMenuItem`/`UpdateContextMenuItem` take: the plugin's own guid and its entries.\n\nsdkjs's JSDoc says `@param {ContextMenuItem[]} items`, but the implementation reads\n`items[\"guid\"]` and `items[\"items\"]` off the one argument, and the plugins.js button helper sends\nexactly this object - `executeMethod(\"AddContextMenuItem\", [{ guid, items }])`.",
       "kind": "interface",
       "members": {
+        "guid": {
+          "description": "The calling plugin's guid - `window.Asc.plugin.guid`.",
+          "signature": "guid: string;"
+        },
+        "items": {
+          "description": "The entries to show; an empty array shows none, which still answers the request.",
+          "signature": "items: ContextMenuItem[];"
+        }
+      }
+    },
+    "ContextMenuShowEvent": {
+      "description": "What `onContextMenuShow` reports - sdkjs's `CPluginCtxMenuInfo`.",
+      "kind": "interface",
+      "members": {
+        "footer": {
+          "description": "Word only. Set when the cursor is in a footer that is being edited.",
+          "optional": true,
+          "signature": "footer?: true;"
+        },
+        "footerArea": {
+          "description": "Word only. Set when the menu was opened over the footer area of the page.",
+          "optional": true,
+          "signature": "footerArea?: true;"
+        },
+        "guid": {
+          "description": "With `type: \"OleObject\"`: the guid of the plugin the OLE object belongs to, so a plugin can\noffer its own entries only on its own objects (`options.guid === Asc.plugin.info.guid`).",
+          "optional": true,
+          "signature": "guid?: string;"
+        },
+        "header": {
+          "description": "Word only. Set when the cursor is in a header that is being edited.",
+          "optional": true,
+          "signature": "header?: true;"
+        },
+        "headerArea": {
+          "description": "Word only. Set when the menu was opened over the header area of the page.",
+          "optional": true,
+          "signature": "headerArea?: true;"
+        },
         "type": {
-          "description": "The context type used by the editor, for example `All`.",
-          "signature": "type: string;"
+          "description": "What the menu was opened on (sdkjs `Asc.c_oPluginContextMenuTypes`): `\"Target\"` - the cursor\nwith nothing selected, `\"Selection\"` - selected text, `\"Image\"`, `\"Shape\"`, `\"OleObject\"`, or\n`\"None\"`.",
+          "signature": "type: 'None' | 'Target' | 'Selection' | 'Image' | 'Shape' | 'OleObject' | (string & {});"
         }
       }
     },
@@ -882,6 +1987,10 @@
           "signature": "text: string;"
         }
       }
+    },
+    "KnownThemeName": {
+      "kind": "type",
+      "type": "\"theme-night\" | \"theme-light\" | \"theme-dark\" | \"theme-gray\" | \"theme-white\" | \"theme-classic-light\" | \"theme-contrast-dark\""
     },
     "PluginEditorEventCallback": {
       "kind": "type",
@@ -1082,6 +2191,16 @@
         "guid": {
           "signature": "guid: string;"
         },
+        "height": {
+          "description": "With `objectId`: the object's height in millimetres.",
+          "optional": true,
+          "signature": "height?: number;"
+        },
+        "heightPix": {
+          "description": "With `objectId`: the object's height in pixels, as last drawn by the plugin.",
+          "optional": true,
+          "signature": "heightPix?: number;"
+        },
         "isEmbedMode": {
           "signature": "isEmbedMode: boolean;"
         },
@@ -1099,6 +2218,11 @@
         },
         "mmToPx": {
           "signature": "mmToPx: number;"
+        },
+        "objectId": {
+          "description": "Set when the plugin is opened on an OLE object it owns (`initDataType: \"ole\"`), e.g. by a\ndouble click: the object's internal id, to pass back when editing that object\n(`EditOleObject`). `data` then holds the object's own data string. Written by sdkjs's\n`COleObject.convertDataObjectToPluginData`, as are the four sizes below.",
+          "optional": true,
+          "signature": "objectId?: string;"
         },
         "options": {
           "description": "Replaced wholesale whenever the host sends `updateOptions`, just before\n{@link AscPlugin.onUpdateOptions} fires. The payload is whatever that host chose to send, so\nit carries no shape the editor guarantees.",
@@ -1122,6 +2246,16 @@
         },
         "userName": {
           "signature": "userName: string;"
+        },
+        "width": {
+          "description": "With `objectId`: the object's width in millimetres.",
+          "optional": true,
+          "signature": "width?: number;"
+        },
+        "widthPix": {
+          "description": "With `objectId`: the object's width in pixels, as last drawn by the plugin.",
+          "optional": true,
+          "signature": "widthPix?: number;"
         }
       }
     },
@@ -1166,6 +2300,93 @@
     "ToolbarButtonType": {
       "kind": "type",
       "type": "\"button\" | \"big-button\""
+    },
+    "UndocumentedMethodArgs": {
+      "description": "Argument tuples, by method name.",
+      "kind": "interface",
+      "members": {
+        "ActivateWindow": {
+          "description": "Brings a plugin window or panel forward - what `PluginWindow.activate` sends.",
+          "signature": "ActivateWindow: [frameId: string, isFocus?: boolean];"
+        },
+        "AddContextMenuItem": {
+          "description": "Adds the plugin's entries to the context menu that is opening. The answer to\n`onContextMenuShow`: a plugin that listens for that event must call this every time, with an\nempty `items` array when it has nothing to add, or the editor keeps waiting for it before it\nshows the menu. Clicks arrive through `attachContextMenuClickEvent(id, ...)`.",
+          "signature": "AddContextMenuItem: [items: ContextMenuItems];",
+          "since": "7.4.0"
+        },
+        "AddToolbarMenuItem": {
+          "description": "Adds toolbar tabs and buttons for the plugin. Clicks arrive through\n`attachToolbarMenuClickEvent(id, ...)`.\n\nOne object, not an array: sdkjs's JSDoc says `ToolbarMenuMainItem[]` and the office-js-api\nexample passes `[[item]]`, but the implementation reads `items[\"guid\"]` and `items[\"tabs\"]`\ndirectly, and the plugins.js button helper sends `[{ guid, tabs }]`.",
+          "signature": "AddToolbarMenuItem: [items: ToolbarMenuMainItem];",
+          "since": "8.1.0"
+        },
+        "CloseWindow": {
+          "description": "Closes a plugin modal window. `windowId` is the window's `PluginWindow.id` (a GUID string)\nor the `windowID` the window's `button` call reports - sdkjs's own `PluginWindow.close` sends\n`executeMethod(\"CloseWindow\", [this.id])`.",
+          "signature": "CloseWindow: [windowId: string];"
+        },
+        "OnWindowDockChangedCallback": {
+          "description": "Acknowledges an `onDockedChanged` window event.\n\nNot a utility to call on its own - it is the second half of a handshake. When the window's\ndocked state changes, the editor parks a callback under\n`dockCallbacks[pluginGuid + \"_\" + windowId]` and sends the plugin an `onWindowEvent` with\n`eventName: \"onDockedChanged\"`. Calling this runs that callback and deletes it, so the\neditor can finish what it was waiting on. Calling it with no pending callback does nothing.",
+          "signature": "OnWindowDockChangedCallback: [windowID: string];"
+        },
+        "ResizeWindow": {
+          "description": "Resizes the plugin modal window.\n\nsdkjs's own JSDoc for `pluginMethod_ResizeWindow` types size/minSize/maxSize as plain\n`number`, but the web runtime (`onPluginWindowResize` in web-apps' Plugins.js) reads\n`size[0]`/`size[1]` and `minSize.length`/`maxSize[0]` - all three are `[width, height]`\npairs on the wire, which is also how every real caller (e.g. the antidote and mendeley\nplugins) passes them. minSize/maxSize are omitted when only resizing, and the callback\nfires with `\"resize_result\"` once the window has been resized.",
+          "signature": "ResizeWindow: [ frameId: string, size: [width: number, height: number], minSize?: [width: number, height: number], maxSize?: [width: number, height: number], ];"
+        },
+        "ShowButton": {
+          "description": "Shows or hides one of the plugin's own buttons.",
+          "signature": "ShowButton: [buttonId: string, visible: boolean, align?: string];"
+        },
+        "UpdateContextMenuItem": {
+          "description": "Replaces the plugin's entries in a context menu that is already open, e.g. once an\nasynchronous check decides what to offer.",
+          "signature": "UpdateContextMenuItem: [items: ContextMenuItems];",
+          "since": "7.4.0"
+        },
+        "UpdateToolbarMenuItem": {
+          "description": "Replaces the plugin's toolbar items added by `AddToolbarMenuItem`, matched by id.",
+          "signature": "UpdateToolbarMenuItem: [items: ToolbarMenuMainItem];",
+          "since": "8.1.0"
+        }
+      }
+    },
+    "UndocumentedMethodName": {
+      "kind": "type",
+      "type": "keyof UndocumentedMethodArgs"
+    },
+    "UndocumentedMethodReturn": {
+      "kind": "type",
+      "type": "UndocumentedMethodReturnMap[T]"
+    },
+    "UndocumentedMethodReturnMap": {
+      "description": "What the callback receives, by method name.\n\nOnly `ResizeWindow` carries a value: it is the one of these that calls\n`setPluginMethodReturnAsync()` and later answers `onPluginMethodReturn(\"resize_result\")`. The\nothers return synchronously, so their callback fires with nothing - which is still worth\ndeclaring, because the Promise form (`await Editor.CloseWindow(win.id)`) resolves at that moment.",
+      "kind": "interface",
+      "members": {
+        "ActivateWindow": {
+          "signature": "ActivateWindow: void;"
+        },
+        "AddContextMenuItem": {
+          "signature": "AddContextMenuItem: void;"
+        },
+        "AddToolbarMenuItem": {
+          "signature": "AddToolbarMenuItem: void;"
+        },
+        "CloseWindow": {
+          "signature": "CloseWindow: void;"
+        },
+        "OnWindowDockChangedCallback": {
+          "signature": "OnWindowDockChangedCallback: void;"
+        },
+        "ResizeWindow": {
+          "signature": "ResizeWindow: \"resize_result\";"
+        },
+        "ShowButton": {
+          "signature": "ShowButton: void;"
+        },
+        "UpdateContextMenuItem": {
+          "signature": "UpdateContextMenuItem: void;"
+        },
+        "UpdateToolbarMenuItem": {
+          "signature": "UpdateToolbarMenuItem: void;"
+        }
+      }
     },
     "WindowHeaderFrameOptions": {
       "kind": "interface",
